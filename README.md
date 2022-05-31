@@ -22,7 +22,7 @@ Realtime Chat applicatie waarbij gebruikers kunnen praten over ervaringen bij he
 - [🚄 Express](https://www.npmjs.com/package/express)
 - [🧦 Socket.io](https://www.npmjs.com/package/socket.io)
 
-### Deploy
+### 🪂 Deploy
 - [🈳 Heroku](https://dashboard.heroku.com/)
 
 ## 📓 Installatie & Gebruik
