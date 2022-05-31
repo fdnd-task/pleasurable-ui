@@ -13,7 +13,7 @@ Realtime Chat applicatie waarbij gebruikers kunnen praten over ervaringen bij he
 
 ## 📱 Kenmerken
 
-## 🛒 Client
+### 🛒 Client
 - 🍔 HTML
 - 👋 CSS
 - 📚 Javascript
