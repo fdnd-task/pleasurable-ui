@@ -20,3 +20,29 @@ body {
   background-color: var(--color-black);
   color: var(--color-white);
 }
+
+main {
+  height: 35em;
+}
+
+h1 {
+  margin-left: 1em;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  height: 100%;
+  overflow-y: auto;
+}
+
+form {
+  margin-left: 1em;
+  display: flex;
+  gap: 0.5em;
+}
+
+#message-input {
+  width: 57.8125em;
+}
