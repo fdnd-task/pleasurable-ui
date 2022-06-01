@@ -17,10 +17,16 @@ Realtime Chat applicatie waarbij gebruikers kunnen praten over ervaringen bij he
 - 🍔 HTML
 - 👋 CSS
 - 📚 Javascript
+
 ### 🔨 Server
 - [☀️ NodeJS](https://nodejs.dev/)
 - [🚄 Express](https://www.npmjs.com/package/express)
+
+### 📦 Dependencies
 - [🧦 Socket.io](https://www.npmjs.com/package/socket.io)
+- [👹 Nodemon](https://www.npmjs.com/package/nodemon)
+- [📒 EJS](https://www.npmjs.com/package/ejs)
+- [📸 Compression](https://www.npmjs.com/package/compression)
 
 ### 🪂 Deploy
 - [🈳 Heroku](https://dashboard.heroku.com/)
