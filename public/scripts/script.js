@@ -11,12 +11,12 @@ let time = new Date().toLocaleDateString([], {year: 'numeric', month: 'numeric',
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
   let message = messageInput.value
-  appendMessage(`You ${time}: ${message}`)
+  appendMessage(`${name} ${time}: ${message}`)
   socket.emit('send-chat-message', message)
   messageInput.value = ''
 })
 
-appendMessage('You Joined')
+appendMessage(`${name} joined`)
 
 // SOCKET.IO Functions
 

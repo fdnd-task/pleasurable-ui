@@ -26,9 +26,10 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('chat-message', {
       message: message,
       name: users[socket.id],
+      time: new Date().toLocaleDateString([], {year: 'numeric', month: 'numeric', day: 'numeric'})
     })
   })
-  
+
   socket.on('disconnect', () => {
     socket.broadcast.emit('user-disconnected', users[socket.id])
     delete users[socket.id]
