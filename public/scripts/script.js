@@ -16,7 +16,7 @@ messageForm.addEventListener('submit', (e) => {
   messageInput.value = ''
 })
 
-appendMessage(`${name} joined`)
+appendMessage(`${name} has connected`)
 
 // SOCKET.IO Functions
 
@@ -44,7 +44,6 @@ function appendMessage(message) {
 
 function receivedMessage(message) {
   let receivedMessageEl = document.createElement('li')
-  receivedMessageEl.classList.add('received')
   receivedMessageEl.innerText = message
   messages.append(receivedMessageEl)
 }
