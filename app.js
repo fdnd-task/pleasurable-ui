@@ -5,6 +5,7 @@ const path = require('path')
 const io = require('socket.io')(http)
 const compression = require('compression')
 const PORT = process.env.PORT || 3000
+const users = {}
 
 // Routes
 app.get('/', (req, res) => {
@@ -16,14 +17,21 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname + '/public')))
 
 io.on('connection', (socket) => {
-  console.log('a user connected')
-
-  socket.on('chat', (data) => {
-    io.emit('chat', data)
+  socket.on('new-user', (name) => {
+    users[socket.id] = name
+    socket.broadcast.emit('user-connected', name)
   })
 
+  socket.on('send-chat-message', (message) => {
+    socket.broadcast.emit('chat-message', {
+      message: message,
+      name: users[socket.id],
+    })
+  })
+  
   socket.on('disconnect', () => {
-    console.log('user disconnected')
+    socket.broadcast.emit('user-disconnected', users[socket.id])
+    delete users[socket.id]
   })
 })
 
