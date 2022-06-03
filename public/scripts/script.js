@@ -1,18 +1,26 @@
 // Variables
 
 let socket = io()
-let userButton = document.querySelector('.user-button')
+let userButton = document.getElementById('user-button')
+let overlay = document.querySelector('.overlay')
 let messages = document.querySelector('#message-container')
 let messageInput = document.querySelector('#message-input')
 let messageForm = document.querySelector('form')
+let submitButton = document.querySelector('.submit-button')
 let name = localStorage.getItem('name') || prompt('What is your name?')
 let date = new Date().toLocaleDateString([], { year: 'numeric', month: 'numeric', day: 'numeric' })
 
 // Eventlisteners and Function Decleration
 
+userButton.addEventListener('click', () => {
+  overlay.classList.add('open-menu')
+  userButton.classList.add('change-color')
+})
+
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
   let message = messageInput.value
+  if (messageInput.value === '') return
   messages.insertAdjacentHTML(
     'beforeend',
     `
@@ -43,6 +51,7 @@ socket.on('user-connected', (name) => {
     `beforeend`,
     `<li>${name} has joined the chat!</li>`
   )
+  messages.scrollTo(0, messages.scrollHeight)
 })
 
 socket.on('chat-message', (data) => {
@@ -66,6 +75,7 @@ socket.on('user-disconnected', (data) => {
     `beforeend`,
     `<li>${name} has left the chat!</li>`
   )
+  messages.scrollTo(0, messages.scrollHeight)
 })
 
 // Functions
