@@ -1,6 +1,7 @@
 // Variables
 
 let socket = io()
+let userButton = document.querySelector('.user-button')
 let messages = document.querySelector('#message-container')
 let messageInput = document.querySelector('#message-input')
 let messageForm = document.querySelector('form')

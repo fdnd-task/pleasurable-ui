@@ -59,12 +59,19 @@ p {
 }
 
 header {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  padding-left: 17em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   color: var(--color-black);
   background-color: var(--color-white);
   grid-area: header;
+
+  padding-left: 15em;
+  padding-right: 2em;
+}
+
+header > button {
+  margin-left: auto;
 }
 
 aside {
@@ -151,7 +158,7 @@ button {
   padding-left: 2.5em;
   border: none;
   border-radius: 0.5em;
-  width: 70%;
+  width: 100%;
 }
 
 .welcome-message {
