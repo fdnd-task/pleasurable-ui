@@ -76,9 +76,9 @@ socket.on('user-disconnected', (data) => {
 
 socket.on('typing', data => {
   feedback.innerHTML = `<p><em> ${data} is typing...</em></p>`
-  if (seconds == 5) { 
+  setTimeout(() => {
     feedback.innerHTML = ''
-  }
+  }, 5000)
 })
 
 // Functions
