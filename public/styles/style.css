@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Modern Era Medium';
-  src: url('../assets/fonts/Modern-Era-Medium.ttf');
+  font-family: "Modern Era Medium";
+  src: url("../assets/fonts/Modern-Era-Medium.ttf");
 }
 
 :root {
@@ -19,30 +19,62 @@
 }
 
 body {
-  font-family: 'Modern Era Medium', sans-serif;
+  font-family: "Modern Era Medium", sans-serif;
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 
   background-color: var(--color-black);
   color: var(--color-white);
-}
+  position: relative;
 
-main {
-  margin-left: 8.0625em;
-  height: 30.9em;
+  display: grid;
+  min-height: 100vh;
+  width: 100%;
+  grid-template-areas:
+    "header header header"
+    "aside main main";
+  grid-template-rows: 4.5em auto;
+  grid-template-columns: 15em auto;
 }
 
 h1 {
-  font-size: 1.875em;
+  font-size: 1.875rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1rem;
 }
 
 header {
   padding-top: 1em;
   padding-bottom: 1em;
-  padding-left: 8.0625em;
+  padding-left: 17em;
   color: var(--color-black);
   background-color: var(--color-white);
+  grid-area: header;
+}
+
+aside {
+  background: var(--color-blue);
+  grid-area: aside;
+  padding: 2.5em;
+}
+
+aside > div {
+  top: 1.5rem;
+  position: sticky;
+}
+
+main {
+  grid-area: main;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2em;
 }
 
 #message-container {
@@ -51,8 +83,16 @@ header {
   display: flex;
   flex-direction: column;
   gap: 2.5em;
-  height: 100%;
   overflow-y: auto;
+}
+
+li {
+  display: flex;
+  line-height: 1.5;
+}
+
+.message {
+  margin-left: 0.75em;
 }
 
 form {
@@ -66,7 +106,7 @@ button {
   align-items: center;
   background-color: var(--color-blue);
   height: 3.5625em;
-  width: 3.5625em;
+  min-width: 3.5625em;
   border: none;
   border-radius: 0.5em;
   cursor: pointer;
@@ -76,6 +116,6 @@ button {
   padding-left: 2.5em;
   border: none;
   border-radius: 0.5em;
-  width: 57.8125em;
+  width: 100%;
   height: 3.5625em;
 }

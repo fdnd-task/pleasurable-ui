@@ -4,14 +4,25 @@ let messages = document.querySelector('#message-container')
 let messageInput = document.querySelector('#message-input')
 let messageForm = document.querySelector('form')
 let name = prompt('What is your name?')
-let time = new Date().toLocaleDateString([], {year: 'numeric', month: 'numeric', day: 'numeric'})
+let date = new Date().toLocaleDateString([], {year: 'numeric', month: 'numeric', day: 'numeric'})
 
 // Eventlisteners and Function Decleration
 
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
   let message = messageInput.value
-  appendMessage(`${name} ${time}: ${message}`)
+  messages.insertAdjacentHTML(
+		'beforeend',
+		`
+		<li>
+      <img src="/assets/images/avatar2.svg" alt="Avatar">
+      <div class="message">
+        <h2>${name} ${date}</h2>
+        <p>${message}</p>
+      </div>
+		</li>
+	`
+	)
   socket.emit('send-chat-message', message)
   messageInput.value = ''
 })
@@ -23,7 +34,7 @@ appendMessage(`${name} has connected`)
 socket.emit('new-user', name)
 
 socket.on('chat-message', (data) => {
-  receivedMessage(`${data.name} ${data.time} : ${data.message}`)
+  appendMessage(`${data.name} ${data.date} : ${data.message}`)
 })
 
 socket.on('user-connected', (name) => {
