@@ -34,6 +34,11 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('user-disconnected', users[socket.id])
     delete users[socket.id]
   })
+
+  // UI Stack
+  socket.on('typing', function(data) {
+    socket.broadcast.emit('typing', data);
+})
 })
 
 // Cache Headers

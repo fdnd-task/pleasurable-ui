@@ -6,11 +6,13 @@ let messageInput = document.querySelector('#message-input')
 let messageForm = document.querySelector('form')
 let name = localStorage.getItem('name') || prompt('What is your name?')
 let date = new Date().toLocaleDateString([], { year: 'numeric', month: 'numeric', day: 'numeric' })
+let feedback =  document.querySelector('#feedback');
 
 // Eventlisteners and Function Decleration
 
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
+  feedback.innerHTML = ''
   let message = messageInput.value
   messages.insertAdjacentHTML(
     'beforeend',
@@ -33,6 +35,10 @@ localStorage.setItem('name', name)
 
 renderWelcomeMessage()
 
+messageInput.addEventListener('keypress', function(){
+  socket.emit('typing', name)
+})
+
 // Socket.io Functions
 
 socket.emit('new-user', name)
@@ -45,6 +51,7 @@ socket.on('user-connected', (name) => {
 })
 
 socket.on('chat-message', (data) => {
+  feedback.innerHTML = ''
   messages.insertAdjacentHTML(
     'beforeend',
     `
@@ -65,6 +72,10 @@ socket.on('user-disconnected', (data) => {
     `beforeend`,
     `<li>${name} has left the chat!</li>`
   )
+})
+
+socket.on('typing', data => {
+  feedback.innerHTML = `<p><em> ${data} is typing...</em></p>`
 })
 
 // Functions

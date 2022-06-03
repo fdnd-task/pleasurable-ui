@@ -151,10 +151,14 @@ button {
   padding-left: 2.5em;
   border: none;
   border-radius: 0.5em;
-  width: 70%;
+  width: 100%;
 }
 
 .welcome-message {
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+#feedback {
+  margin-bottom: 1em;
 }
