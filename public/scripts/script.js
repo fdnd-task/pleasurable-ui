@@ -44,6 +44,22 @@ socket.on('user-connected', (name) => {
   )
 })
 
+socket.on('chat-message', (data) => {
+  messages.insertAdjacentHTML(
+    'beforeend',
+    `
+		<li>
+      <span class="circle circle-received">${data.name.charAt(0)}</span>
+      <div class="message">
+        <h2>${data.name} ${date}</h2>
+        <p>${data.message}</p>
+      </div>
+		</li>
+	`
+  )
+  messages.scrollTo(0, messages.scrollHeight)
+})
+
 socket.on('user-disconnected', (data) => {
   messages.insertAdjacentHTML(
     `beforeend`,

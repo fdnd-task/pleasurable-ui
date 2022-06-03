@@ -105,6 +105,11 @@ main {
   align-items: center;
 }
 
+.circle-received {
+  background-color: var(--color-blue);
+  color: var(--color-white);
+}
+
 #message-container {
   margin-top: 2.75em;
   margin-bottom: 2.75em;
