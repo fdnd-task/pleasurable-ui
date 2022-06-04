@@ -2,6 +2,7 @@
 
 let socket = io()
 let messages = document.querySelector('#message-container')
+let loadingMessages = document.querySelector('#loading-messages')
 let messageInput = document.querySelector('#message-input')
 let messageForm = document.querySelector('form')
 let name = localStorage.getItem('name') || prompt('What is your name?')
@@ -14,18 +15,34 @@ messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
   feedback.innerHTML = ''
   let message = messageInput.value
-  messages.insertAdjacentHTML(
+  loadingMessages.insertAdjacentHTML(
     'beforeend',
     `
-		<li>
-      <span class="circle">${name.charAt(0)}</span>
+    <li class="loading-message">
+      <span class="circle-loading">${name.charAt(0)}</span>
       <div class="message">
         <h2>${name} ${date}</h2>
         <p>${message}</p>
+        <p class="loading-margin"><img class="loading-image" src="assets/icons/clock.svg" /> Sending...</p>
       </div>
-		</li>
-	`
+    </li>
+  `
   )
+  setTimeout(() => {
+    loadingMessages.innerHTML = ''
+    messages.insertAdjacentHTML(
+      'beforeend',
+      `
+      <li>
+        <span class="circle">${name.charAt(0)}</span>
+        <div class="message">
+          <h2>${name} ${date}</h2>
+          <p>${message}</p>
+        </div>
+      </li>
+    `
+    )
+  }, 2000)
   socket.emit('send-chat-message', message)
   messageInput.value = ''
   messages.scrollTo(0, messages.scrollHeight)
@@ -52,18 +69,34 @@ socket.on('user-connected', (name) => {
 
 socket.on('chat-message', (data) => {
   feedback.innerHTML = ''
-  messages.insertAdjacentHTML(
+  loadingMessages.insertAdjacentHTML(
     'beforeend',
     `
-		<li>
-      <span class="circle circle-received">${data.name.charAt(0)}</span>
+    <li class="loading-message">
+      <span class="circle-loading">${name.charAt(0)}</span>
       <div class="message">
-        <h2>${data.name} ${date}</h2>
-        <p>${data.message}</p>
+        <h2>${name} ${date}</h2>
+        <p>${message}</p>
+        <p class="loading-margin"><img src="assets/icons/clock.svg" /> Sending...</p>
       </div>
-		</li>
-	`
+    </li>
+  `
   )
+  setTimeout(() => {
+    loadingMessages.innerHTML = ''
+    messages.insertAdjacentHTML(
+      'beforeend',
+      `
+      <li>
+        <span class="circle">${name.charAt(0)}</span>
+        <div class="message">
+          <h2>${name} ${date}</h2>
+          <p>${message}</p>
+        </div>
+      </li>
+    `
+    )
+  }, 2000)
   messages.scrollTo(0, messages.scrollHeight)
 })
 
