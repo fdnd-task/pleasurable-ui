@@ -1,7 +1,8 @@
 // Variables
 
 let socket = io()
-let userButton = document.getElementById('user-button')
+let userButton = document.querySelector('#user-button')
+let closeButton = document.querySelector('.close-button')
 let overlay = document.querySelector('.overlay')
 let messages = document.querySelector('#message-container')
 let messageInput = document.querySelector('#message-input')
@@ -14,7 +15,10 @@ let date = new Date().toLocaleDateString([], { year: 'numeric', month: 'numeric'
 
 userButton.addEventListener('click', () => {
   overlay.classList.add('open-menu')
-  userButton.classList.add('change-color')
+})
+
+closeButton.addEventListener('click', () => {
+  overlay.classList.remove('open-menu')
 })
 
 messageForm.addEventListener('submit', (e) => {
