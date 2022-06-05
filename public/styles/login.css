@@ -11,10 +11,6 @@
     --selection: #84389e;
   }
 .Login-Container{
-    /* display: flex;
-    flex-direction: column;
-    justify-content:center; */
-    /* align-items:center; */
     width:50% ;
     height: 25vh;
     margin: 0 auto;
@@ -34,16 +30,15 @@
     height:fit-content;
 }
 /* Login form */
+#loginForm{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
 .input-group{
-    /* display: flex;
-    flex-direction: column;
-    justify-content:start; */
-    margin: 0 auto;
     margin-top: 1em;
 }
-article{
-    margin: .5em;
-}
+
 label{
     color: #fff;
     font-family: sans-serif;
@@ -52,6 +47,7 @@ label{
 .input-login{
     width: 80%;
     height: 2em;
+    margin-left: 0;
     border-radius:0;  
 }
 #btn-success{
@@ -60,6 +56,7 @@ label{
     font-size:medium ;
     width: 80%;
     height: 2em;
+    /* margin-top: 1em; */
     background-color: #fff;
     color: var(--text-color);
 }
