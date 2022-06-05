@@ -119,3 +119,6 @@ button:hover{
     height: 1em;
     color: rgb(227, 14, 14);
   }
+  .time{
+      color:blue;
+  }

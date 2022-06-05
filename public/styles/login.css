@@ -31,12 +31,13 @@
 }
 /* Login form */
 #loginForm{
+    /* margin-left: 2em; */
     display: flex;
     justify-content: space-around;
     align-content: center;
 }
 .input-group{
-    margin-top: 1em;
+   margin-left: 2.9em;
 }
 
 label{
@@ -50,13 +51,15 @@ label{
     margin-left: 0;
     border-radius:0;  
 }
+article{
+    margin-top: 1em;
+}
 #btn-success{
     font-family: sans-serif;
     letter-spacing: 0;
     font-size:medium ;
     width: 80%;
     height: 2em;
-    /* margin-top: 1em; */
     background-color: #fff;
     color: var(--text-color);
 }

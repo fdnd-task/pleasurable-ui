@@ -55,7 +55,7 @@ function say(name, message) {
             `<li class="message">
                 <p class="meta"><span>${name}</span></p>
                 <p class="message-span"><span>${message}</span></p>
-                <p class="text"><span>${time}</span></p>
+                <p class="time"><span>${time}</span></p>
             </li>`
         
     messagesContainer.appendChild(li)
