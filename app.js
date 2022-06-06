@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
   // UI Stack
   socket.on('typing', function(data) {
     socket.broadcast.emit('typing', data);
-})
+  })
 })
 
 // Cache Headers

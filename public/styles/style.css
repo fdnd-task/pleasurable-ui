@@ -196,3 +196,15 @@ button {
   display: inline-flex;
   vertical-align: top;
 }
+
+#chooseImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-blue);
+  max-height: 3.5625em;
+  width: 3.5625em;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
