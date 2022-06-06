@@ -1,7 +1,7 @@
-# Coding the Curbs - Reatime Chat Application
+# 💬 Coding the Curbs - Reatime Chat Application
 Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codign the Curbs
 
-## Inhoudsopgave
+## 🚀 Inhoudsopgave
 
   * [Beschrijving](#beschrijving)
   * [Kenmerken](#kenmerken)
@@ -18,9 +18,25 @@ Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codig
 
 ## Kenmerken
 
+### Client-Side
+  * HTML
+  * [Kenmerken](#kenmerken)
+  * [Installatie](#installatie)
+  * [Gebruik](#gebruik)
+  * [Bronnen](#bronnen)
+  * [Licentie](#licentie)
+
+### Server-Side
 
 
 ## Installatie & Gebruik
+
+## Dependencies
+  * [Kenmerken](#kenmerken)
+  * [Installatie](#installatie)
+  * [Gebruik](#gebruik)
+
+
 ```
 # Cloning the repository
 git clone https://github.com/M4TThys123/SPRINT-11-Realtime-Web-App.git
