@@ -35,7 +35,7 @@ Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codig
  * [🛏️ Path](https://www.npmjs.com/package/path)
  * [📹 Compression](https://www.npmjs.com/package/compression)
  * [🖥️ Cssnano](https://www.npmjs.com/package/cssnano)
- * [Postcss](https://www.npmjs.com/package/postcss)
+ * [💤 Postcss](https://www.npmjs.com/package/postcss)
 
 
 ## 🪢 Installatie & Gebruik
