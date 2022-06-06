@@ -38,7 +38,7 @@ Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codig
  * [Postcss](https://www.npmjs.com/package/postcss)
 
 
-## 🪢Installatie & Gebruik
+## 🪢 Installatie & Gebruik
 ```
 # Cloning the repository
 git clone https://github.com/M4TThys123/SPRINT-11-Realtime-Web-App.git
