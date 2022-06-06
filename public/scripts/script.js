@@ -3,13 +3,19 @@
 let socket = io()
 let userButton = document.querySelector('#user-button')
 let closeButton = document.querySelector('.close-button')
+let usersList = document.querySelector('.users-list')
+let userCountEl = document.querySelector('.user-count')
 let overlay = document.querySelector('.overlay')
 let messages = document.querySelector('#message-container')
 let messageInput = document.querySelector('#message-input')
 let messageForm = document.querySelector('form')
 let submitButton = document.querySelector('.submit-button')
 let name = localStorage.getItem('name') || prompt('What is your name?')
-let date = new Date().toLocaleDateString([], { year: 'numeric', month: 'numeric', day: 'numeric' })
+let date = new Date().toLocaleDateString([], {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+})
 
 // Eventlisteners and Function Decleration
 
@@ -80,6 +86,21 @@ socket.on('user-disconnected', (data) => {
     `<li>${name} has left the chat!</li>`
   )
   messages.scrollTo(0, messages.scrollHeight)
+})
+
+socket.on('update-list', (users) => {
+  usersList.innerHTML = ''
+  const userList = Object.values(users)
+  if (userList.length === 1 && userList[0] === name) {
+    usersList.insertAdjacentHTML(
+      'beforeend',
+      `<p class="no-users-text">There is no one in this chatroom.</p>`
+    )
+  } else {
+    userList.forEach((user) => {
+      usersList.insertAdjacentHTML('beforeend', `<li>${user}</li>`)
+    })
+  }
 })
 
 // Functions

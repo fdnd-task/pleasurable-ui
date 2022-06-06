@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Modern Era Medium";
-  src: url("../assets/fonts/Modern-Era-Medium.ttf");
+  font-family: 'Modern Era Medium';
+  src: url('../assets/fonts/Modern-Era-Medium.ttf');
 }
 
 :root {
@@ -30,7 +30,7 @@
 }
 
 body {
-  font-family: "Modern Era Medium", sans-serif;
+  font-family: 'Modern Era Medium', sans-serif;
   box-sizing: border-box;
 
   background-color: var(--color-black);
@@ -41,8 +41,8 @@ body {
   min-height: 100vh;
   width: 100%;
   grid-template-areas:
-    "header header header"
-    "aside main main";
+    'header header header'
+    'aside main main';
   grid-template-rows: 4.5em auto;
   grid-template-columns: 15em auto;
 }
@@ -92,10 +92,17 @@ header > button {
   padding: 0 2em;
 }
 
-.overlay p {
+.overlay .close-button {
   pointer-events: all;
   font-size: 3rem;
   cursor: pointer;
+}
+
+.overlay .no-users-text,
+.overlay .users-list {
+  font-size: 1.3rem;
+  padding-top: 1em;
+  text-decoration: underline;
 }
 
 .overlay-header {
@@ -194,7 +201,7 @@ button {
 }
 
 #message-input {
-  font-family: "Modern Era Medium";
+  font-family: 'Modern Era Medium';
   font-size: 1rem;
   padding-left: 2.5em;
   border: none;
