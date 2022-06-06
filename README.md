@@ -44,7 +44,7 @@ Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codig
 git clone https://github.com/M4TThys123/SPRINT-11-Realtime-Web-App.git
 
 # Moving to the folder
-cd connecting-people-realtime-web-app
+cd SPRINT-11-Realtime-Web-App
 
 # Install NPM Dependencies
 npm install
