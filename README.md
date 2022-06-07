@@ -2,8 +2,10 @@
 Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codign the Curbs
 
 ## 🚀 Inhoudsopgave
+![Screenshot (37)](https://user-images.githubusercontent.com/90189815/172493662-cb425219-d4af-4426-8dbf-3eb3f0dd49b4.png)
 
-  * [Beschrijving](#beschrijving)
+ ![Screenshot (36)](https://user-images.githubusercontent.com/90189815/172493671-efee1f21-edf0-401c-9233-b788891c70d3.png)
+
   * [Kenmerken](#kenmerken)
   * [Installatie](#installatie)
   * [Gebruik](#gebruik)
@@ -26,6 +28,7 @@ Socket.io realtime chat applicatie waarmee klanten live kunnen chattem met Codig
 ### 💾 Server-Side
  * [🏛️ Node.js](https://nodejs.dev/)
  * [🚣 Express](https://www.npmjs.com/package/express)
+ 
 
 ### ‼️ Dependencies
  * [🧦 Socket.io](https://www.npmjs.com/package/socket.io)
