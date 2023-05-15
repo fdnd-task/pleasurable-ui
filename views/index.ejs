@@ -1,0 +1,16 @@
+<%- include('./partials/head') %> 
+
+  <div class="layout">
+
+      <% methods.forEach(method => { %>
+      <section id="section-main">
+       <a href="/method/<%= method.slug %>?id=<%= method.id %>" class="link-detail-page">
+       <p class="method-title"><%= method.title %></p>
+       <img src="<%= method.template?.url %>" loading="lazy" onerror="this.src='assets/logo.svg';" class="image-template" alt="foto van <%= method.title %>" />
+      </a>
+      </section>
+      <% }) %> 
+
+  </div>
+
+<%- include('./partials/foot') %>

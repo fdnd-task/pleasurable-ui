@@ -1,0 +1,50 @@
+<%- include('./partials/form-head') %> 
+
+<main class="main-method-content">
+
+    <div class="form">
+        <article class="article-feedback">
+            <h2>Comment section</h2>
+            <h3>Het kan even duren voordat uw feedback hier staat. </h3>
+            <% form.comments.forEach(comment=> { %>
+                <ul>
+                    <li>
+                        <div class="message">
+                            <h4 class="message-author">
+                            <%= comment.author %>:
+                            </h4>
+                            <p class="message-text">
+                            <%= comment.text %>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <% }) %>
+            </article>
+
+        <form action="/method/<%= detail.method.slug %>/form" method="post">
+            <% if(locals.error !==undefined){ %>
+                <p class="message">
+                    <%= error %>
+                </p>
+                <% } %>
+
+                    <fieldset>
+                       
+
+                        <label for="author">Naam</label>
+                        <textarea required type="text" name="author" id="author" placeholder="..." ></textarea>
+
+                        <label for="text">Uw feedback</label>
+                        <textarea class="feedback" required type="text" name="text" id="text" placeholder="..." ></textarea>
+
+                        <label for="methodId"></label>
+                        <input type="hidden" name="methodId" id="methodId" value="<%= detail.method.id %>" />
+
+                        <input class="submit-button" type="submit" value="Verzend" />
+                    </fieldset>
+        </form>
+    </div>
+</main>
+
+    <%- include('./partials/foot') %>

@@ -1,0 +1,17 @@
+<%- include('./partials/method-head') %> 
+
+<main class="main-method-content">
+
+<div class="div-method-steps">
+
+<article class="article-details article-steps">
+    <% method.steps.forEach(step => { %>
+        <%= step.title %>
+        <%- step.description.html %>
+    <% }) %>  
+</article>
+</div>
+
+</main>
+    
+<%- include('./partials/foot') %>

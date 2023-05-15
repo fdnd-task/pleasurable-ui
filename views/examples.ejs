@@ -1,0 +1,20 @@
+<%- include('./partials/method-head') %> 
+<main class="main-method-content">
+
+<article class="article-details article-examples">
+
+    <% if (method.examples.length) { %>   
+    <% method.examples.forEach(example => { %>   
+    <img src="<%= example.originalAsWebP %>" onerror="this.src='assets/logo.svg';" class="image-example" alt="foto van <%= method.title %>" />
+     <% }) %>  
+     <% } else { %>
+        <h4>
+            Helaas geen fotos gevonden
+        </h4>
+        <% } %>  
+     <!-- als lengte 0 is, laat placeholder zien -->
+</article>
+
+</main>
+    
+<%- include('./partials/foot') %>
