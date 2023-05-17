@@ -21,6 +21,15 @@ let htmlMemberList = null
 // Serveer client-side bestanden
 app.use(express.static(path.resolve('public')))
 
+// view engine
+
+app.set('view engine', 'ejs')
+app.set('views', './views')
+
+// hoe json gebruikt moet worden
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
 io.on('connection', (socket) => {
   // Log de connectie naar console
   console.log('a user connected')
@@ -47,34 +56,34 @@ io.on('connection', (socket) => {
 // ROUTES
 
 // Route voor index
-server.get('/welkom', (request, response) => {
-    response.render('evenementen')
+app.get('/', (request, response) => {
+    response.render('welkom')
 })
 
 // Route voor loading
-server.get('/loading', (request, response) => {
-    response.render('contact')
+app.get('/loading', (request, response) => {
+    response.render('loading')
 })
 
 // Route voor trivia
-server.get('/trivia', (request, response) => {
-    response.render('contact')
+app.get('/trivia', (request, response) => {
+    response.render('trivia')
 })
 
 // Route voor score
-server.get('/score', (request, response) => {
-    response.render('contact')
+app.get('/score', (request, response) => {
+    response.render('score')
 })
 
 // Route voor error
-server.get('/error', (request, response) => {
-    response.render('contact')
+app.get('/error', (request, response) => {
+    response.render('error')
 })
 
 
 // Route voor chatroom
-server.get('/chatroom', (request, response) => {
-    response.render('contact')
+app.get('/chatroom', (request, response) => {
+    response.render('chatroom')
 })
 
 // Start een http server op het ingestelde poortnummer en log de url
