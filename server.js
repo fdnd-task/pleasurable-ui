@@ -70,11 +70,6 @@ app.get('/trivia', (request, response) => {
     response.render('trivia')
 })
 
-// Route voor score
-app.get('/score', (request, response) => {
-    response.render('score')
-})
-
 // Route voor error
 app.get('/error', (request, response) => {
     response.render('error')
