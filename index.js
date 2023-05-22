@@ -45,6 +45,10 @@ server.get("/over", (request, response) => {
   response.render("over");
 });
 
+server.get("/tipruimte", (request, response) => {
+  response.render("tipruimte");
+});
+
 server.get("/tekenmethodes", (request, response) => {
   let methodsUrl = url + "methods?first=1000";
 
