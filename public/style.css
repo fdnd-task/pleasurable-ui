@@ -64,7 +64,84 @@ p {
 
    /* ------------------ WELKOM PAGINA (JOELLE) ---------------  */
 
+/* INTRO WELKOM PAGE */
+.intro-welcome-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-welcome-page p{
+  text-align: center;
+  width: 300px;
+}
+
+/* FORMULIER NAAM */
+.flex-container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container-form input{
+  border-radius: 25px;
+  border: solid 2px var(--primary);
+  width: 180px;
+}
+
+.form-welcome-page h2 {
+  font-size: 1.5rem;
+}
+
+/* BUTTON WELCOME PAGE */
+.button-welcome-page{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-welcome-page button {
+  margin-top: 2rem;
+  background-color: var(--secondary);
+  color: white;
+  font-family: 'Murecho', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border: solid 2px #F26F21;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
    /* --------------- LOADING STATE PAGINA (JOELLE) -----------  */
+.header-loading-page h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#countdown{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.sticker-growing-plant {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sticker-growing-plant iframe {
+  width: 250px;
+}
+
 
    /* ----------------- IDEAL STATE PAGINA (ROSA) -------------  */
 
