@@ -263,6 +263,7 @@ li a {
 .methods {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -278,6 +279,35 @@ li a {
   margin-top: 20px;
   word-break: break-word;
 }
+
+/*
+                        method categorie colors  
+*/
+
+.Leren-over-jezelf-en-reflecteren {
+  border-left-color: var(--text-stroke-color-var01);
+}
+
+.Leren-over-anderen {
+  border-left-color: var(--sec-colors-04);
+}
+
+.Creatief-denken {
+  border-left-color: var(--text-stroke-color-var05);
+}
+
+.Organiseren-en-plannen {
+  border-left-color: var(--sec-colors-03);
+}
+
+.Communcieren-en-presenteren {
+  border-left-color: var(--sec-colors-08);
+}
+
+.Onderzoeken-en-begrijpen {
+  border-left-color: var(--text-stroke-color-var07);
+}
+
 
 /*
                         RESPONSIVE TABLET  
