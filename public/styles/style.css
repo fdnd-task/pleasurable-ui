@@ -280,32 +280,33 @@ li a {
   word-break: break-word;
 }
 
+
 /*
                         method categorie colors  
 */
 
 .Leren-over-jezelf-en-reflecteren {
-  border-left-color: var(--text-stroke-color-var01);
+  border-color: var(--text-stroke-color-var01);
 }
 
 .Leren-over-anderen {
-  border-left-color: var(--sec-colors-04);
+  border-color: var(--sec-colors-04);
 }
 
 .Creatief-denken {
-  border-left-color: var(--text-stroke-color-var05);
+  border-color: var(--text-stroke-color-var05);
 }
 
 .Organiseren-en-plannen {
-  border-left-color: var(--sec-colors-03);
+  border-color: var(--sec-colors-03);
 }
 
 .Communcieren-en-presenteren {
-  border-left-color: var(--sec-colors-08);
+  border-color: var(--sec-colors-08);
 }
 
 .Onderzoeken-en-begrijpen {
-  border-left-color: var(--text-stroke-color-var07);
+  border-color: var(--text-stroke-color-var07);
 }
 
 
