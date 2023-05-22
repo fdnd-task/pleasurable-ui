@@ -22,7 +22,6 @@ let htmlMemberList = null
 app.use(express.static(path.resolve('public')))
 
 // view engine
-
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
@@ -53,6 +52,7 @@ io.on('connection', (socket) => {
     console.log('user disconnected')
   })
 })
+
 // ROUTES
 
 // Route voor index
@@ -96,6 +96,7 @@ http.listen(port, () => {
  * @param {*} url the api endpoint to address
  * @returns the json response from the api endpoint
  */
+
 // async function fetchJson(url) {
 //   return await fetch(url)
 //     .then((response) => response.json())
