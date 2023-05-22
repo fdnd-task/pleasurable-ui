@@ -1,16 +1,191 @@
-<%- include('./partials/head') %> 
+<%- include('./partials/head') %>
 
-  <div class="layout">
+    <main>
+        <div class="grid-container">
+            <section class="gray1"></section>
 
-      <% methods.forEach(method => { %>
-      <section id="section-main">
-       <a href="/method/<%= method.slug %>?id=<%= method.id %>" class="link-detail-page">
-       <p class="method-title"><%= method.title %></p>
-       <img src="<%= method.template?.url %>" loading="lazy" onerror="this.src='assets/logo.svg';" class="image-template" alt="foto van <%= method.title %>" />
-      </a>
-      </section>
-      <% }) %> 
+            <section class="h3-gray1">
+                <img class="img" src="assets/img1.svg" alt="">
+            </section>
 
-  </div>
+            <section class="h1">
+                <h1>
+                    Visual Thinking <br> in het HBO
+                </h1>
+            </section>
 
-<%- include('./partials/foot') %>
+            <section class="gray2"></section>
+
+            <section class="h3-gray2">
+                <img class="img" src="assets/img2.svg" alt="">
+            </section>
+
+            <section class="red"></section>
+
+            <section class="h3-red">
+                <h3>
+                    Waarom <br> <em>Visual Thinking?</em>
+                </h3>
+            </section>
+
+            <section class="h2">
+                <h2>
+                    <em>Visual Thinking</em> is het gebruik van <br> beelden om je ideeën, <br> concepten en plannen
+                    <br> te
+                    beschrijven. <br> Ons platform helpt jou ook <br> <em>visual thinker</em> te worden.
+                </h2>
+            </section>
+
+            <section class="yellow"></section>
+
+            <section class="h3-yellow">
+                <h3>
+                    Welke <br> <em>methodes</em> <br> zijn er allemaal?
+                </h3>
+            </section>
+
+            <section class="gray3"></section>
+
+            <section class="h3-gray3">
+                <h3 class="black">
+                    Minicursus <br> <em>structuur en kleur</em>
+                </h3>
+
+                <img class="arrows" src="assets/arrows_black.svg" alt="">
+            </section>
+
+            <section class="light-blue"></section>
+
+            <section class="h3-light-blue">
+                <h3>
+                    Minicursus <br> <em>basisvormen</em>
+                </h3>
+
+                <img class="arrows" src="assets/arrows.svg" alt="">
+            </section>
+
+            <section class="p">
+                <p>
+                    Lees meer
+                </p>
+            </section>
+
+            <section class="blue"></section>
+
+            <section class="h3-blue">
+                <h3>
+                    Minicursus <br> <em>mensen tekenen</em>
+                </h3>
+
+                <img class="arrows" src="assets/arrows.svg" alt="">
+            </section>
+
+            <section class="gray4"></section>
+
+            <section class="h3-gray4">
+                <h3 class="black">
+                    Minicursus <br> <em>handlettering</em>
+                </h3>
+
+                <img class="arrows" src="assets/arrows_black.svg" alt="">
+            </section>
+
+            <section class="button">
+                <button>
+                    <img class="arrows" src="assets/arrows.svg" alt="Bekijk hoe het werkt, knop met pijl naar beneden">
+                </button>
+            </section>
+
+            <a class="gray5" href="/method/<%= m.method.slug %>/beschrijving">
+                <section class="h3-gray5">
+                    <h3 class="black">
+                        Populair <br> <em>Mindmap</em>
+                    </h3>
+
+                    <img class="arrows" src="assets/arrows_black.svg" alt="">
+                </section>
+            </a>
+
+            <a class="green" href="/method/<%= d.method.slug %>/beschrijving">
+                <section class="h3-green">
+                    <h3>
+                        Nieuw! <br> <em>Diversiteitscirkel</em>
+                    </h3>
+
+                    <img class="arrows" src="assets/arrows.svg" alt="">
+                </section>
+            </a>
+
+            <a class="gray6" href="/method/<%= p.method.slug %>/beschrijving">
+                <section class="h3-gray6">
+                    <h3 class="black">
+                        Uitgelicht <br> <em>Praatplaat</em>
+                    </h3>
+
+                    <img class="arrows" src="assets/arrows_black.svg" alt="">
+                </section>
+            </a>
+        </div>
+
+        <section class="lower">
+            <h1>Welke categorieën tekenmethodes zijn er allemaal?</h1>
+            <section class="categorien">
+                <article class="categorie">
+                    <img class="categorie-thumbnail" src="./assets/onderzoeken-en-begrijpen.jpg" alt="onderzoeken en begrijpen">
+                    <h2><img class="categorie-logo" src="./assets/oeb-logo.svg" alt="onderzoeken en begrijpen">Onderzoeken en begrijpen</h2>
+                    <span>Bij deze tekenmethodes leer je onderwerpen te onderzoeken. Daarnaast krijg je een dieper begrip van het onderzochte onderwerp.</span>
+                    <section class="view-method">
+                        <span>Bekijk tekenmethodes -></span>
+                        <span>Bekijk kennisclip -></span>
+                    </section>
+                </article>
+                <article class="categorie">
+                    <img class="categorie-thumbnail" src="./assets/leren-over-jezelf.jpg" alt="leren over jezelf">
+                    <h2><img class="categorie-logo" src="./assets/lojr-logo.svg" alt="leren over jezelf">Leren over jezelf reflecteren</h2>
+                    <span>Gebruik deze tekenmethodes om meer te leren over jezelf en te reflecteren op processen in bijvoorbeeld een project.</span>
+                    <section class="view-method">
+                        <span>Bekijk tekenmethodes -></span>
+                        <span>Bekijk kennisclip -></span>
+                    </section>
+                </article>
+                <article class="categorie">
+                    <img class="categorie-thumbnail" src="./assets/creatief-denken.jpg" alt="creatief denken">
+                    <h2><img class="categorie-logo" src="./assets/cd-logo.svg" alt="creatief denken">Creatief denken</h2>
+                    <span>Deze methodes helpen je met het brainstormen en met het vergaren van ideeën voor projecten op de opleiding.</span>
+                    <section class="view-method">
+                        <span>Bekijk tekenmethodes -></span>
+                        <span>Bekijk kennisclip -></span>
+                    </section>
+                </article>
+                <article class="categorie">
+                    <img class="categorie-thumbnail" src="./assets/organiseren-plannen.png" alt="organiseren en plannen">
+                    <h2><img class="categorie-logo" src="./assets/oep-logo.svg" alt="organiseren en plannen">Organiseren en plannen</h2>
+                    <span>Als je binnen projecten de planning op orde wilt krijgen zit je goed met deze tekenmethodes. Daarnaast helpen deze met het organiseren.</span>
+                    <section class="view-method">
+                        <span>Bekijk tekenmethodes -></span>
+                        <span>Bekijk kennisclip -></span>
+                    </section>
+                </article>
+                <article class="categorie">
+                    <img class="categorie-thumbnail" src="./assets/communiceren-presenteren.jpg" alt="communiceren en presenteren">
+                    <h2><img class="categorie-logo" src="./assets/cep-logo.svg" alt="communiceren en presenteren">Communiceren en presenteren</h2>
+                    <span class="categorie-info">Deze tekenmethodes helpen je met het communiceren van je ideeën. Ze zijn ook bedoeld om te gebruiken in presentaties.</span>
+                    <section class="view-method">
+                        <span>Bekijk tekenmethodes -></span>
+                        <span>Bekijk kennisclip -></span>
+                    </section>
+                </article>
+                <article class="categorie">
+                    <img class="categorie-thumbnail" src="./assets/leren-over-anderen.png" alt="leren over anderen">
+                    <h2><img class="categorie-logo" src="./assets/loa-logo.svg" alt="leren over anderen">Leren over anderen</h2>
+                    <span>Wil je je groepje beter leren kennen in het begin van een project? Dan kan je aan de slag met deze tekenmethodes.</span>
+                    <section class="view-method">
+                        <span>Bekijk tekenmethodes -></span>
+                        <span>Bekijk kennisclip -></span>
+                    </section>
+                </article>
+            </section>
+        </section>
+    </main>
+
+    <%- include('./partials/foot') %>
