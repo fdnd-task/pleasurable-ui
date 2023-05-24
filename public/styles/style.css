@@ -268,9 +268,9 @@ li a {
   justify-content: center;
 }
 
-.methods img {
+.method-container img {
   width: 300px;
-  border: 1px solid;
+  border: 2px solid;
   border-color: var(--vtGrey-50);
 }
 
@@ -286,27 +286,27 @@ li a {
 */
 
 .Leren-over-jezelf-en-reflecteren {
-  border-color: var(--text-stroke-color-var01);
+  border-color: var(--vtSec-Green);
 }
 
 .Leren-over-anderen {
-  border-color: var(--sec-colors-04);
+  border-color: var(--vtYellow);
 }
 
 .Creatief-denken {
-  border-color: var(--text-stroke-color-var05);
+  border-color: var(--vtRed-80);
 }
 
 .Organiseren-en-plannen {
-  border-color: var(--sec-colors-03);
+  border-color: var(--vtSec-DarkBlue);
 }
 
 .Communcieren-en-presenteren {
-  border-color: var(--sec-colors-08);
+  border-color: var(--vtLightBlue-80);
 }
 
 .Onderzoeken-en-begrijpen {
-  border-color: var(--text-stroke-color-var07);
+  border-color: var(--vtRed);
 }
 
 

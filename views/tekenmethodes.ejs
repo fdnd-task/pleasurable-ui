@@ -54,7 +54,7 @@
   <article class="methods">
     <% if (methods && methods.length > 0) { %> <% methods.forEach((method,
     index) => { %>
-    <section class="method-container" data-index="<%= index %>">
+    <section class="method-container <%= method.categories[0].title.replaceAll(" ", "-") %>" data-index="<%= index %>">
       <a
         href="/methods/<%= method.slug %>?id=<%= method.id %>"
         class="link-detail-page"
