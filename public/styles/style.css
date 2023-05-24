@@ -1135,14 +1135,14 @@ footer ul li {
     text-transform: none;
   }
 
-  button {
+  /* button {
     width: 72px;
     height: 66px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     transform: rotate(90deg);
     border: none;
     background: var(--vtYellow);
-  }
+  } */
 
   .arrows {
     margin-bottom: -7%;
@@ -1373,4 +1373,27 @@ footer ul li {
     color: var(--vtDarkBlue);
     font-family: var(--vtPrimaryFont);
   }
+}
+
+#stappenplanbutton{
+  background-color: white;
+  border: none;
+}
+
+.buttondeel{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+ol {
+  list-style-type: none;
+}
+
+.step-description p{
+  text-transform: none;
+}
+.stappen{
+  margin-bottom: 1em;
 }
