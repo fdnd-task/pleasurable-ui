@@ -1,17 +1,23 @@
 <%- include('./partials/head') %>
 
 <body>
-    <main>
-      <section>
-        <h1>Tipruimte<span>Meest recente tips</span></h1>
-        <ul></ul>
-        <form>
-          <input type="text" autocomplete="off" />
-          <button><span>Stuur</span></button>
-        </form>
-      </section>
-    </main>
-  </body>
+
+  <main>
+    <section>
+      <p class="top-text">Tekentips</p>
+      <p class="recent-tips">Recente tips</p>
+      <ul></ul>
+      <form>
+        <input type="text" autocomplete="off" placeholder="Geef hier je tip">
+        <button type="button">Verstuur!</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/script.js"></script>
+</body>
 </html>
+
 
 <%- include('./partials/foot') %>
