@@ -47,8 +47,8 @@ io.on('connection', (socket) => {
 // ROUTES
 
 // Route voor index
-server.get('/welkom', (request, response) => {
-    response.render('evenementen')
+server.get('/', (request, response) => {
+    response.render('welkom')
 })
 
 // Route voor loading
