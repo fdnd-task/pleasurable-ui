@@ -4,7 +4,7 @@ import * as path from 'path'
 
 import { Server } from 'socket.io'
 import { createServer } from 'http'
-import express from 'express'
+import express, { response } from 'express'
 
 const app = express()
 const http = createServer(app)
@@ -56,7 +56,6 @@ io.on('connection', (socket) => {
 // ROUTES
 
 // Route voor index
-server.get('/', (request, response) => {
 app.get('/', (request, response) => {
     response.render('welkom')
 })
@@ -86,6 +85,7 @@ app.get('/chatroom', (request, response) => {
 http.listen(port, () => {
   console.log('listening on http://localhost:' + port)
 })
+
 
 /**
  * Wraps the fetch api and returns the response body parsed through json
