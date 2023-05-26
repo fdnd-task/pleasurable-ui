@@ -1,3 +1,33 @@
+// WELCOME PAGE TIME COUNTDOWN
+
+// Set the countdown time in seconds
+
+var countdownTime = 10;
+
+// Get the countdown element
+var countdownElement = document.getElementById('countdown');
+
+// Update the countdown every second
+var countdownInterval = setInterval(updateCountdown, 1000);
+
+function updateCountdown() {
+  // Display the countdown
+  countdownElement.innerHTML = countdownTime + 's';
+
+  // Decrease the countdown time
+  countdownTime--;
+
+  // Stop the countdown when it reaches 0
+  if (countdownTime < 0) {
+    clearInterval(countdownInterval);
+    countdownElement.innerHTML = 'Lets go';
+
+    // Navigate to the trivia page
+    window.location.href = '/trivia';
+  }
+}
+
+
 
 // START - TRIVIA QUIZ ---------------------------------------------------------------
 
