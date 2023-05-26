@@ -325,6 +325,9 @@ p {
   flex-direction: column;
   max-width: 30rem;
   margin: .5rem;
+  left: 50%;
+  transform: translate(-50%);
+  position: relative;
 }
 
 .error-message > h2{
@@ -356,4 +359,9 @@ p {
   color: var(--secondary);
   border: solid 2px #F26F21;
   transition: 0.3s;
+}
+
+.error-message a{
+  text-decoration: none;
+  color: var(--p-color);
 }
