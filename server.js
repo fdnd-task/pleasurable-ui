@@ -56,6 +56,7 @@ io.on('connection', (socket) => {
 // ROUTES
 
 // Route voor index
+server.get('/', (request, response) => {
 app.get('/', (request, response) => {
     response.render('welkom')
 })
