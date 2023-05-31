@@ -1395,5 +1395,32 @@ ol {
   text-transform: none;
 }
 .stappen{
-  margin-bottom: 1em;
+  display: none;
+}
+
+.stappen.toon{
+  display: block;
+}
+
+.buttondeel{
+  display: flex;
+  justify-content: center;
+
+}
+
+#stappenplanbutton{
+  font: var(--rigid);
+  border-radius: 30px;
+  background-color: white;
+  border: 0px;
+  transition: 1s;
+}
+
+#stappenplanbutton:hover{
+  cursor: pointer;
+}
+
+#stappenplanbutton img{
+  width: 3em;
+  height: 3em;
 }
