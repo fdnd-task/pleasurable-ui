@@ -5,6 +5,7 @@ import { Server } from 'socket.io'
 import { createServer } from 'http'
 import express, { response } from 'express'
 
+
 const app = express()
 const http = createServer(app)
 const io = new Server(http)
@@ -12,6 +13,7 @@ const port = process.env.PORT || 8000
 // const apiUrl = 'https://whois.fdnd.nl/api/v1/squad?id=cldcspecf0z0o0bw59l8bwqim'
 
 const historySize = 50
+
 
 let history = []
 let membersLoaded = false
@@ -49,16 +51,21 @@ io.on('connection', (socket) => {
   })
 
   //  TEST 1 HOW MANY ACTIVE PLAYERS
-    let activePlayers = 0;
+
+    let activePlayers = [];
 
     io.on('connection', (socket) => {
-        activePlayers++;
+        const playerId = socket.id;
 
-        io.sockets.emit('active-players-count', activePlayers);
+        activePlayers.push(playerId);
+        console.log(`New client connected. Active players: ${activePlayers.length}`);
+
+        io.sockets.emit('activePlayersList', activePlayers);
 
         socket.on('disconnect', () => {
-            activePlayers--;
-            io.sockets.emit('active-players-count', activePlayers);
+            activePlayers = activePlayers.filter(player => player !== playerId);
+            console.log(`Client disconnected. Active players: ${activePlayers.length}`);
+            io.sockets.emit('activePlayersList', activePlayers);
         });
     });
 
@@ -68,6 +75,7 @@ io.on('connection', (socket) => {
     console.log('user disconnected')
   })
 })
+
 
 
 
