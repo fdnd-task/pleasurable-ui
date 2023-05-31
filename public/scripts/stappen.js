@@ -7,7 +7,7 @@ function toonStappenplan() {
   document.getElementById("stappen").classList.toggle("toon");
 }
 
-stappenplan.addEventListener("click", toonAlert);
-function toonAlert() {
-    alert(het);
-}
+// stappenplan.addEventListener("click", toonAlert);
+// function toonAlert() {
+//     alert(het);
+// }
