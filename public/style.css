@@ -106,24 +106,6 @@ p {
   width: 300px;
 }
 
-/* FORMULIER NAAM */
-.flex-container-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-container-form input{
-  border-radius: 25px;
-  border: solid 2px var(--primary);
-  width: 180px;
-}
-
-.form-welcome-page h2 {
-  font-size: 1.5rem;
-}
-
 /* BUTTON WELCOME PAGE */
 .button-welcome-page{
   display: flex;
@@ -143,6 +125,18 @@ p {
   cursor: pointer;
 }
 
+/* WEERGEVEN ACTIEVE SPELERS */
+.active-players{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5.5em;
+}
+
+.active-players h1 {
+  font-size: 1rem;
+}
+
    /* --------------- LOADING STATE PAGINA (JOELLE) -----------  */
 .header-loading-page h3 {
   display: flex;
@@ -150,6 +144,11 @@ p {
   align-items: center;
   text-align: center;
   font-size: 2rem;
+}
+
+.header-loading-page ul {
+  font-size: 2rem;
+  color: #4E7141;
 }
 
 #countdown{

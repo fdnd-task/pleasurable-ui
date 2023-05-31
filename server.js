@@ -1,7 +1,6 @@
 /* Losjes gebaseerd op https://socket.io/get-started/chat */
 
 import * as path from 'path'
-
 import { Server } from 'socket.io'
 import { createServer } from 'http'
 import express from 'express'
@@ -47,11 +46,28 @@ io.on('connection', (socket) => {
     io.emit('message', message)
   })
 
+  //  TEST 1 HOW MANY ACTIVE PLAYERS
+    let activePlayers = 0;
+
+    io.on('connection', (socket) => {
+        activePlayers++;
+
+        io.sockets.emit('active-players-count', activePlayers);
+
+        socket.on('disconnect', () => {
+            activePlayers--;
+            io.sockets.emit('active-players-count', activePlayers);
+        });
+    });
+
+
   // Luister naar een disconnect van een gebruiker
   socket.on('disconnect', () => {
     console.log('user disconnected')
   })
 })
+
+
 
 // ROUTES
 
