@@ -72,8 +72,6 @@ io.on('connection', (socket) => {
 
 
 
-
-
 // ROUTES
 
 // Route voor index

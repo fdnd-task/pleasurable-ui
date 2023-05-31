@@ -2,11 +2,17 @@
 // TEST 1 HOW MANY ACTIVE PLAYERS
 const socket = io();
 
+
+
+// WELCOME PAGE TIME COUNTDOWN
+
+// Set the countdown time in seconds
+
+
 socket.on('active-players-count', (count) => {
     const countElement = document.getElementById('active-players-count');
     countElement.textContent = count;
 });
-
 
 // WELCOME PAGE TIME COUNTDOWN
 // Set the countdown time in seconds
@@ -169,6 +175,7 @@ submitButton.addEventListener("click", () => {
         }
     }
 
+
 });
 
 // EINDE - TRIVIA QUIZ ---------------------------------------------------------------
@@ -176,6 +183,8 @@ submitButton.addEventListener("click", () => {
 
 
 
+
+// EINDE - TRIVIA QUIZ ---------------------------------------------------------------
 
 //  LIVE CHATROOM---------------------------------------------------------------------
 let ioServer = io()
@@ -225,3 +234,6 @@ function addMessage(uid, message) {
     messages.scrollTop = messages.scrollHeight
   }
 }
+
+
+
