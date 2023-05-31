@@ -130,7 +130,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5.5em;
+  margin-top: 3rem;
 }
 
 .active-players h1 {
@@ -167,12 +167,13 @@ p {
 }
 
 .sticker-growing-plant iframe {
+  margin-top: 3rem;
   width: 250px;
+  height: 250px;
 }
 
 
    /* ----------------- IDEAL STATE PAGINA (ROSA) -------------  */
-
 .quiz-container{
   padding: 3rem;
 }

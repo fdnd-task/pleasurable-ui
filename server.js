@@ -9,6 +9,9 @@ import express, { response } from 'express'
 const app = express()
 const http = createServer(app)
 const io = new Server(http)
+
+
+
 const port = process.env.PORT || 8000
 // const apiUrl = 'https://whois.fdnd.nl/api/v1/squad?id=cldcspecf0z0o0bw59l8bwqim'
 
@@ -22,6 +25,7 @@ let htmlMemberList = null
 // Serveer client-side bestanden
 app.use(express.static(path.resolve('public')))
 
+
 // view engine
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -29,6 +33,7 @@ app.set('views', './views')
 // hoe json gebruikt moet worden
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+
 
 //CHATROOM
 
@@ -51,23 +56,22 @@ io.on('connection', (socket) => {
   })
 
   //  TEST 1 HOW MANY ACTIVE PLAYERS
-
-    let activePlayers = [];
+    let activePlayers = 0;
 
     io.on('connection', (socket) => {
-        const playerId = socket.id;
-
-        activePlayers.push(playerId);
-        console.log(`New client connected. Active players: ${activePlayers.length}`);
-
-        io.sockets.emit('activePlayersList', activePlayers);
+        socket.on('activePlayersCount', () => {
+            let totalCount = socket.server.engine.clientsCount
+            io.emit('activePlayersCountClient', totalCount);
+        })
 
         socket.on('disconnect', () => {
-            activePlayers = activePlayers.filter(player => player !== playerId);
-            console.log(`Client disconnected. Active players: ${activePlayers.length}`);
-            io.sockets.emit('activePlayersList', activePlayers);
+            activePlayers--;
+            console.log(`Client disconnected. Active players: ${activePlayers}`);
+            io.emit('activePlayersCount', activePlayers);
         });
     });
+
+
 
 
   // Luister naar een disconnect van een gebruiker
@@ -76,11 +80,7 @@ io.on('connection', (socket) => {
   })
 })
 
-
-
-
 // ROUTES
-
 // Route voor index
 app.get('/', (request, response) => {
     response.render('welkom')

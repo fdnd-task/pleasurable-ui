@@ -2,15 +2,11 @@
 // TEST 1 HOW MANY ACTIVE PLAYERS
 const socket = io();
 
-socket.on('activePlayersList', (players) => {
-    const playersList = document.getElementById('activePlayersList');
-    playersList.innerHTML = '';
+socket.emit('activePlayersCount')
 
-    players.forEach(player => {
-        const listItem = document.createElement('li');
-        listItem.textContent = player;
-        playersList.appendChild(listItem);
-    });
+socket.on('activePlayersCountClient', (totalCount) => {
+    const countElement = document.getElementById('activePlayersCount');
+    countElement.textContent = totalCount;
 });
 
 
@@ -39,6 +35,22 @@ function updateCountdown() {
     }
 }
 
+// TIMEOUT IFRAME
+
+// Set the timeout duration in milliseconds (e.g., 5 seconds)
+const timeoutDuration = 8000;
+
+// Get the iframe element
+const iframe = document.getElementById('myIframe');
+
+// Set the timeout
+setTimeout(() => {
+    // Iframe timeout reached
+    console.log('Iframe timeout reached.');
+
+    // Hide or remove the iframe or perform any other desired action
+    iframe.style.display = 'none';
+}, timeoutDuration);
 
 
 // START - TRIVIA QUIZ ---------------------------------------------------------------
