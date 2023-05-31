@@ -3,7 +3,7 @@
 import * as path from 'path'
 import { Server } from 'socket.io'
 import { createServer } from 'http'
-import express from 'express'
+import express, { response } from 'express'
 
 const app = express()
 const http = createServer(app)
@@ -28,9 +28,11 @@ app.set('views', './views')
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+//CHATROOM
+
 io.on('connection', (socket) => {
   // Log de connectie naar console
-  console.log('a user connected')
+  console.log(`user ${socket.id} connected`)
   // Stuur de historie door, let op: luister op socket, emit op io!
   io.emit('history', history)
 
@@ -42,8 +44,8 @@ io.on('connection', (socket) => {
     }
     // Voeg het toe aan de historie
     history.push(message)
-    // Verstuur het bericht naar alle clients
-    io.emit('message', message)
+    // Verstuur het bericht naar alle clients, socket id toegevoegd, en content van het bericht toegevoegd
+    io.emit('message', {uid: socket.id, message: message})
   })
 
   //  TEST 1 HOW MANY ACTIVE PLAYERS
@@ -101,6 +103,7 @@ app.get('/chatroom', (request, response) => {
 http.listen(port, () => {
   console.log('listening on http://localhost:' + port)
 })
+
 
 /**
  * Wraps the fetch api and returns the response body parsed through json
