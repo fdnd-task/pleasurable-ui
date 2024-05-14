@@ -14,6 +14,22 @@ app.set("view engine", "ejs");
 
 // dont know what this does
 app.use(express.urlencoded({ extended: true }));
+
+//!!!!!!!!!! External router concept !!!!!!!!!!!!!
+
+// const authorRouter = require("./server-routes/author");
+// const userRouter = require("./server-routes/user");
+// const postRouter = require("./server-routes/post");
+// const categoriesRouter = require("./server-routes/categories");
+
+// app.use("/author", authorRouter);
+// app.use("/user", userRouter);
+// app.use("/post", postRouter);
+// app.use("/categories", categoriesRouter);
+
+
+
+
 // Redpers database //
 
 // main Url
