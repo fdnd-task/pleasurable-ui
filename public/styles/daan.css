@@ -18,7 +18,7 @@ header {
     border: none;
     width: 5em;
     height: 5em;
-    border-radius: 50%;
+    border-radius:20%;
     cursor: pointer;
     margin-bottom: 1.5em;
     margin-left: 1.5em;
@@ -44,6 +44,7 @@ header {
 
 body {
     overflow-x: hidden;
+    background-color: var(--primary-color);
 }
 
 main {
@@ -83,10 +84,11 @@ h1::first-line {
     padding-right: 1.5em;
 }
 
-#forYouDetails {
+.forYouDetails {
     background: none;
     border: none;
     font-size: 1.5em;
+    cursor: pointer;
 }
 
 ul {

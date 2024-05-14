@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6304664-9f9f-4ec2-a987-ce408830eb69" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/daan-animations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/menu.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/styles/daan.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/daan.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/personal-page.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/personal-page.ejs" afterDir="false" />
@@ -82,7 +80,8 @@
       <updated>1715677701921</updated>
       <workItem from="1715677703785" duration="586000" />
       <workItem from="1715678301410" duration="11118000" />
-      <workItem from="1715694951700" duration="5690000" />
+      <workItem from="1715694951700" duration="5744000" />
+      <workItem from="1715719267931" duration="696000" />
     </task>
     <servers />
   </component>
