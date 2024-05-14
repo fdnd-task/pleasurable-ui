@@ -1,0 +1,95 @@
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: var(--primary-color);
+    height: 10vh;
+    width: 100vw;
+
+}
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    background-color: white;
+    position: absolute;
+    width: 100vw;
+    top: 8%;
+
+}
+
+.profile-picture {
+    position: absolute;
+    bottom: 100%; /* Plaats het element verticaal in het midden */
+    top: 0.01%;
+     /* Plaats het element horizontaal in het midden */
+    transform: translate(-5%, -50%); /* Verschuif het element terug met 50% van zijn eigen breedte en hoogte */
+    border-radius: 100%; /* Maak de afbeelding rond */
+}
+
+h1::first-line {
+    font-weight:bold;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    margin-top: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+
+#forYouDetails {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+}
+
+ul {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: auto;
+    width: 100vw;
+
+}
+
+li {
+    list-style: none;
+    margin: 1em;
+}
+
+.bookCarouselImg {
+    border-radius: 2em;
+}
+
+/*ul {*/
+/*    max-height: 600px;*/
+/*    border: 1px solid #ddd;*/
+/*    display: flex;*/
+/*    overflow-x: auto;*/
+/*    overflow-y: hidden; !* verticale scroll uitzetten *!*/
+/*    gap: 4em;*/
+/*    margin: 2em;*/
+/*    text-align: center;*/
+/*}*/
+
+/*li{*/
+/*    min-width: 400px;*/
+/*    height: 600px;*/
+/*    line-height: 350px;*/
+/*    text-align: center;*/
+/*    background-color: #ddd;*/
+/*    margin-right: 10px;*/
+
+/*}*/
