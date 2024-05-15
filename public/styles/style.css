@@ -208,7 +208,6 @@ body {
     }
   }
   
-  
   .container {
     display: flex;
     flex-direction: column;
@@ -264,15 +263,37 @@ body {
       display: block;
       padding: 3px;
     }
+
+    .btn__container {
+      margin-top: 20px;
+    }
+
+    .btn-popup {
+      font-size: 1em;
+      padding: 10px;
+      background-color: var(--regent-blue-primary-color);
+      color: var(--color-main-text);
+      border: 2px solid var(--web-orange-primary-color);
+      border-radius: 20px/50px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+      position: relative;
+      z-index: 1; 
+    }
+
+    .btn-popup:hover {
+      background-color: var(--web-orange-primary-color);
+      z-index: 1;
+    }
 }
   
   .card-favorites {
     position: relative;
     border: solid 0.1em var(--regent-blue-primary-color);
-    height: auto;
+    height: 55vh;
     width: auto;
     background-color: var(--white-primary-color);
-    /* border-radius: 3px; */
     margin-bottom: 20px;
     z-index: 0;
   }
@@ -282,27 +303,6 @@ body {
     color: var(--color-main-text);
   }
 
-  .btn__container {
-    margin-top: 20px;
-  }
-
-  .btn-popup {
-    font-size: 1em;
-    padding: 10px;
-    background-color: var(--regent-blue-primary-color);
-    color: var(--color-main-text);
-    border: 2px solid var(--web-orange-primary-color);
-    border-radius: 20px/50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-    position: relative;
-    z-index: 1; 
-  }
-
-  .btn-popup:hover {
-    background-color: var(--web-orange-primary-color);
-  }
 
 
 /* TABLET */
@@ -349,6 +349,59 @@ body {
     background-color: var(--white-primary-color);
     border-radius: 16px;
   }
+}
+
+/****************************************************************
+                                                                *
+                          POPUP RATINGS                         *                        
+                                                                *
+*****************************************************************/
+
+.overlay { 
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--regent-blue-primary-color);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background-color: var(--regent-blue-primary-color);
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: var(--color-main-text);
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--color-main-text);
+}
+
+.popup .close:hover {
+  color: var(--web-orange-primary-color);
 }
 
 
@@ -510,7 +563,6 @@ article {
     padding-bottom: 1em;
   }
 }
-
 
 
 
