@@ -148,7 +148,7 @@ footer{
 /* media queries */
 @media (min-width: 520px) {
 
-	*{
+	main{
 		display: none; /* VERGEET NIET WEG TE HALEN */
 	}
 
