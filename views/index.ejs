@@ -14,12 +14,12 @@
             <article class="highlighted-post">
                 <a href="#" class="post-link">
                     <div class="post-image" style="background-image: url('<%= post.jetpack_featured_media_url %>');">
-                        <span class="post-category">Category</span>
                         <h2 class="post-title"><%- post.title.rendered %></h2>
                         <div class="post-meta">
                             <span>Data - <%= post.yoast_head_json.author %></span>
                             <span><%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
                         </div>
+                        <div class="overlay"></div>
                     </div>
                 </a>
             </article>
