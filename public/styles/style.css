@@ -466,6 +466,10 @@ svg {
   width: 20px;
 }
 
+.ratingsFavorieten {
+  position: relative;
+  z-index: 1;
+}
 
 /****************************************************************
                                                                 *
