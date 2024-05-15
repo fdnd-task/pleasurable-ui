@@ -5,10 +5,25 @@
 
 <body>
 
-<%- include('./partials/header',{header:'',img_src:"" }); -%>
+<!-- <%- include('./partials/header',{header:'',img_src:"" }); -%> -->
 
 
-<main >
+<main>
+    <section id="cat-highlight">
+        <% postData.slice(0, 3).forEach(post => { %>
+            <article class="highlighted-post">
+                <a href="#" class="post-link">
+                    <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="<%= post.jetpack_featured_media_alt_text ? post.jetpack_featured_media_alt_text : "" %>" loading="lazy" width="auto">
+                    <span class="post-category">Category</span>
+                    <h2 class="post-title"><%- post.title.rendered %></h2>
+                    <div class="post-meta">
+                        <span>Data - <%= post.yoast_head_json.author %></span>
+                        <span><%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
+                    </div>
+                </a>
+            </article>
+        <% }) %>
+    </section>    
 </main>
 
 
@@ -16,4 +31,4 @@
 
 
 
-<%- include('./partials/foot'); -%>
+<!-- <%- include('./partials/foot'); -%> -->
