@@ -49,14 +49,14 @@ body {
 
 	.post-title{
 		font-family: var(--content-text);
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		-webkit-line-clamp: 3;
-		max-height: 2em;
 		font-size: 18px;
 		font-weight: 800;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		text-overflow: ellipsis;
+		max-height: 2em;
+		overflow: hidden;
 	}
 
 	.post-meta {
@@ -124,7 +124,7 @@ body {
 			}
 
 			.post-title{
-				font-size: 16px;
+				font-size: 1em;
 				bottom: 40px;
 				-webkit-line-clamp: 2;
 			}
