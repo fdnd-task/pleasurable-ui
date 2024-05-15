@@ -1,5 +1,3 @@
-@ -1,21 +0,0 @@
-
 /**
  * An asynchronous helper function that wraps the standard node.js fetch API.
  * This function calls an API url passed as the first and mandatory parameter,
