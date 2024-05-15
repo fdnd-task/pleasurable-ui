@@ -38,9 +38,11 @@ const sdgData = await fetchJson(apiUrl + '/hf_sdgs'),
 
 console.log(companiesData.data.name)
 
-app.get('/', async function (request, response) {
-    const apiUrl = 'https://fdnd-agency.directus.app/items/hf_sdgs';
-    const responseData = await fetchJson(apiUrl);
-    const data = responseData.data || [];
-    response.render('index', { data });
-});
+app.get('/', function (request, response) {
+    response.render('index', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
+        company: companiesData.data,
+    })
+})
