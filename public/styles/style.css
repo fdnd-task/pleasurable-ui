@@ -1,0 +1,36 @@
+body{
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background-color: white;
+    margin-inline: auto;
+    margin-top: 2em;
+    padding: 2em;
+    border-radius: 12px;
+    width: 50%;
+    height: 550px;
+    & form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & input{
+            display: inline-block;
+            margin: .15em;
+            border-radius: 4px;
+            border: 1px solid #000000;
+            width: 30%;
+        }
+        & button{
+            margin: 1em;
+            padding: 0.5em;
+            border-radius: 4px;
+            width: 40%;
+            cursor: pointer;
+        }
+    }
+}
