@@ -148,6 +148,10 @@ footer{
 /* media queries */
 @media (min-width: 520px) {
 
+	*{
+		display: none; /* VERGEET NIET WEG TE HALEN */
+	}
+
 	body {
 		
 	  	/* background-color: var(--P-orange);
