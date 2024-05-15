@@ -52,7 +52,7 @@ const categoriesUrl = `${apiUrl}categories?per_page=100`
 // functions//
 
 // date parser
-const datePars = function(){ // ask how to implement this function and fix the post data
+const datePars = function(postData,categoryData){ // ask how to implement this function and fix the post data
 	for(var i = 0; i < postData.length;i++){
 	const parsedDate = new Date(postData[i].date),
 	day = parsedDate.getDate(),
@@ -68,11 +68,11 @@ const datePars = function(){ // ask how to implement this function and fix the p
 
 // page views 
 
-const views = function(){
-	if (!app.locals.pageViews[postId]) {
-		app.locals.pageViews[postId] = 1;
+const views = function(postID){
+	if (!app.locals.pageViews[postID]) {
+		app.locals.pageViews[postID] = 1;
 	} else {
-		app.locals.pageViews[postId]++;
+		app.locals.pageViews[postID]++;
 	}
 }
 
@@ -88,12 +88,15 @@ app.get("/",function(req,res){
 	.then(([postData,userData,categoryData]) => {
 
 		// all the other functions
-		postData = datePars(postData); 
+		// postData = datePars(postData); 
+		// categoryData = datePars(categoryData);
+		// console.log("postData");
 
 		res.render("index.ejs", {
-			postData,
-			userData,
-			categoryData});
+			posts  : postData,
+			user : userData,
+			categories : categoryData,
+		});
 		
 			console.log("home success");
 
@@ -103,10 +106,13 @@ app.get("/",function(req,res){
 
 // GET route for post
 app.get("/post/:id",function(req,res){
+
+	let postID = req.params.id;
+
 	Promise.all([
-		fetchJson(`${apiUrl}/posts/${postId}`),
+		fetchJson(`${apiUrl}/posts/${postID}`),
 		fetchJson(categoriesUrl),
-		fetchJson(`${directus_url}?filter[id][_eq]=${request.params.id}`),
+		fetchJson(`${directus_apiUrl}?filter[id][_eq]=${postID}`),
 	])
 		.then(([postData, categoryData, directusData]) => {
 			
@@ -115,8 +121,8 @@ app.get("/post/:id",function(req,res){
 			postData = datePars(postData); 
 			
 			// page views detection // can be used to show if a page has already been visited
-			views(postId);
-			
+			views(postID);
+
 			response.render("posts.ejs", {
 				post: postData,
 				categories: categoryData,
@@ -278,7 +284,7 @@ app.get("/author/:id",function(req,res){
 });
 
 // ports //
-app.set("port", process.env.PORT || 808);
+app.set("port", process.env.PORT || 8080);
 
 app.listen(app.get("port"), function(){
 	console.log(`Test link ${app.get("port")}`);
