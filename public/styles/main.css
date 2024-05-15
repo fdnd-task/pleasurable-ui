@@ -11,6 +11,17 @@ html {
   scroll-behavior: smooth;
 }
 
+@font-face {
+    font-family: Tiempos-Headline-Medium;
+    src: url(../fonts/TiemposHeadline-Medium.ttf);
+}
+
+@font-face {
+    font-family: Tiempos-Text-Regular;
+    src: url(../fonts/TiemposText-Regular.ttf);
+}
+
+
 :root{
 	/* Global colors */
 	--main-bg-color: #F7F7F5;
@@ -22,7 +33,7 @@ html {
 
 	/* Global fonts */
 	--medium-text: 'Tiempos-Headline-Medium', sans serif;
-	--regular-text: 'Tiempos-Headline-Regular', sans serif;
+	--regular-text: 'Tiempos-Text-Regular', sans serif;
 	--content-text: 'Inter', sans serif;
 }
 
