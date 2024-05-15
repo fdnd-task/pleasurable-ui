@@ -1,0 +1,36 @@
+/* favorites empty */
+
+.FavoritesEmp {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 6em;
+    color: #5883ff;
+  }
+  
+  .FavoritesEmp svg {
+    color: #5883ff;
+  }
+  
+  .FavoritesEmp h2 {
+    color: #5883ff;
+  }
+  
+  .FavoritesEmp p {
+    color: #5883ff;
+  }
+  
+  @media (width > 60em) {
+    .FavoritesEmp h2 {
+      font-size: 4em;
+    }
+  
+    .FavoritesEmp p {
+      font-size: 2em;
+      word-wrap: break-word;
+    }
+  }
