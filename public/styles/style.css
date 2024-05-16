@@ -42,7 +42,7 @@ main {
     }
 }
 
-.signup {
+.signup-form {
     width: 50%;
 
     & legend {
@@ -100,12 +100,12 @@ main {
         font-size: .9rem;
     }
 
-    & .content p {
+    & .password-strength-indicator p {
         color: #333;
         font-size: 0.9rem;
     }
 
-    & .content .requirement-list {
+    & .password-strength-indicator .requirement-list {
         margin-top: 8px;
 
         & li {
