@@ -90,7 +90,7 @@ nav {
     flex-direction: column;
     padding: 1.5em;
     z-index: 1;
-    background-color: var(--BGcolor);
+    background-color: var(--PrimaryColor);
 }
 
 nav li {
@@ -106,17 +106,20 @@ nav li a{
 }
 
 nav li a:hover{
-    background-color: var(--Accentcolor);
+    background-color: var(--Secondarycolor);
     padding: 0.5em;
     color: var(--green);
     font-size: 1.2em;
     font-weight: bold;
+    width: 100%;
     
 
 }
 
 nav:focus {
   outline: 4px solid var(--Secondarycolor);
+  padding: 10.5em;
+  
 }
 
 nav svg{
