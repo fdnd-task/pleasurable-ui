@@ -97,17 +97,29 @@ h1::first-line {
 }
 
 /*hidden details*/
-.for-you-details {
-    display: none;
-}
 
-.for-you-details-active {
+.details-item-container {
     display: grid;
     place-items: center;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: minmax(200px, auto); /* Vaste hoogte van 200px voor alle rijen */
     grid-gap: 1em; /* Optioneel: voeg ruimte toe tussen de kolommen */
+}
+
+.details-close-buttons {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 1em 0;
+}
+
+.for-you-details {
+    display: none;
+}
+
+.for-you-details-active {
+    display: block;
 
 }
 
@@ -136,8 +148,6 @@ h1::first-line {
     grid-auto-rows: minmax(200px, auto); /* Vaste hoogte van 200px voor alle rijen */
     grid-gap: 1em;
 }
-
-
 
 ul {
    list-style: none;
