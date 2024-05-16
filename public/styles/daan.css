@@ -91,6 +91,10 @@ h1::first-line {
     cursor: pointer;
 }
 
+.for-you-details {
+    display: none;
+}
+
 ul {
     display: flex;
     overflow-x: auto;

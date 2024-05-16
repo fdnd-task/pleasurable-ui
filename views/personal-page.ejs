@@ -43,10 +43,22 @@
     <h1>Gebruiker's Pagina</h1>
     <!--Voor Jou-->
     <section class="for-you">
+
         <div class="details">
             <h2>Voor Jou</h2>
-            <button class="forYouDetails">Details +</button>
-        </div>
+            <div class="details-container">
+
+                <button id="forYoudetails">Details +</button>
+
+                <ul class="for-you-details">
+                    <% apiItems.forEach(function(apiItem) { %>
+                        <li>
+                            <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
+                                 alt="<%= apiItem.title %>" width="200" height="300">
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
         <ul class="bookCarousel">
             <% apiItems.forEach(function(apiItem) { %>
                 <li>
