@@ -17,3 +17,11 @@ const companies = apiUrl + "hf_companies";
 app.get('/', function (request, response) {
   response.render('index');
 });
+
+app.post(
+  '/login',
+  passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/login',
+  })
+);
