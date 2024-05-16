@@ -112,6 +112,12 @@ h1::first-line {
     left: 50%;
     transform: translateX(-50%);
     margin: 1em 0;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .for-you-details {
