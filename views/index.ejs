@@ -25,7 +25,29 @@
             </article>
         <% }) %>
     </section>
-    
+    <% categoryData.forEach(category => { %> <!-- Need to fix this -->
+        <button><%-category.name%></button>
+        <section id="carousel">
+            <% postData.slice(0, 3).forEach(post => { %> <!-- Show 3 or 5 articles & only show post of the category -->
+                <article class="post">
+                    <a href="#">
+                        <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="">
+                        <h2 class="post-title"><%- post.title.rendered %></h2>
+                        <div class="post-meta">
+                            <span>Data - <%= post.yoast_head_json.author %></span>
+                            <span><%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
+                        </div>
+                    </a>
+                </article>
+            <% }) %>
+            <article>
+                <a href="#">
+                    <img class="post-image" src="" alt=""> <!-- SVG HERE -->
+                    <h2 class="post-title">Meer lezen</h2>
+                </a>
+            </article>
+        </section>
+    <% }) %>
 </main>
 
 
