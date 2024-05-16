@@ -39,34 +39,38 @@
     <img src="/img/OBA_wit.png" alt="oba logo" class="oba-logo" width="110" height="70">
 </header>
 <main>
+
     <img class="profile-picture" src="/img/profile-picture.jpg" alt="profiel foto" width="190" height="190">
     <h1>Gebruiker's Pagina</h1>
     <!--Voor Jou-->
+
+    <section class="content-wrapper">
+    <div class="for-you-details">
+        <% apiItems.forEach(function(apiItem) { %>
+
+                <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
+                     alt="<%= apiItem.title %>" width="200" height="300">
+
+        <% }) %>
+    </div>
+
+
     <section class="for-you">
 
         <div class="details">
             <h2>Voor Jou</h2>
             <div class="details-container">
-
                 <button id="forYoudetails">Details +</button>
-
-                <ul class="for-you-details">
-                    <% apiItems.forEach(function(apiItem) { %>
-                        <li>
-                            <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
-                                 alt="<%= apiItem.title %>" width="200" height="300">
-                        </li>
-                    <% }) %>
-                </ul>
             </div>
-        <ul class="bookCarousel">
-            <% apiItems.forEach(function(apiItem) { %>
-                <li>
-                    <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
-                         alt="<%= apiItem.title %>" width="200" height="300">
-                </li>
-            <% }) %>
-        </ul>
+            <ul class="carousel">
+                <% apiItems.forEach(function(apiItem) { %>
+                    <li class="carousel-items">
+                        <img class="bookCarouselImg"
+                             src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
+                             alt="<%= apiItem.title %>" width="200" height="300">
+                    </li>
+                <% }) %>
+            </ul>
     </section>
 
     <section class="favourites">
@@ -74,9 +78,9 @@
             <h2>Favorieten</h2>
             <button class="forYouDetails">Details +</button>
         </div>
-        <ul class="bookCarousel">
+        <ul class="carousel">
             <% apiItems.forEach(function(apiItem) { %>
-                <li>
+                <li class="carousel-items">
                     <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
                          alt="<%= apiItem.title %>" width="200" height="300">
                 </li>
@@ -89,15 +93,19 @@
             <h2>Geleende Boeken</h2>
             <button class="forYouDetails">Details +</button>
         </div>
-        <ul class="bookCarousel">
+        <ul class="carousel">
             <% apiItems.forEach(function(apiItem) { %>
-                <li>
+                <li class="carousel-items">
                     <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
                          alt="<%= apiItem.title %>" width="200" height="300">
                 </li>
             <% }) %>
         </ul>
     </section>
+
+    </section>
+
+
 
 
 
