@@ -1,1 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+:root {
+    --border-radius: 10px;
+}
+
+/* ---------------------------------------ANNA_KYRA DEEL---------------------------- */
+/* ---------------------------------------LOGIN---------------------------- */
+
+body {
+    height: 100vh;
+    background-color: hotpink;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------------INFO DEEL---------------------------- */
+
+section:first-of-type {
+    /* height: 100vh; */
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    & article {
+        margin: 2em;
+        max-width: 30em;
+        margin: auto;
+        background-color: yellow;
+    }
+}
+
+/* ---------------------------------------ANNA_KYRA DEEL---------------------------- */
+
+section:nth-of-type(2) {
+    height: 100%;
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    /* padding: 6em; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & article {
+        background-color: rgb(186, 186, 186);
+        width: 100%;
+        
+        overflow: hidden;
+
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.157);
+
+        & header {
+            
+            padding: 2em 2em 0;
+        }
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            padding: 2em;
+            background-color: white;
+        }
+    }
+}
+
+/* ---------------------------------------TABLET---------------------------- */
+@media screen and (min-width:40rem) {
+    section:nth-of-type(2) {
+        height: 100%;
+        width: 100%;
+        background-color: rgb(240, 240, 240);
+        padding: 3em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+}
+
+/* ---------------------------------------DESKTOP---------------------------- */
+@media screen and (min-width:60rem) {
+
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ---------------------------------------INFO DEEL---------------------------- */
+
+section:first-of-type {
+    height: 100vh;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    & article {
+        margin: 2em;
+        max-width: 30em;
+        margin: auto;
+        background-color: yellow;
+    }
+}
+
+/* ---------------------------------------ANNA_KYRA DEEL---------------------------- */
+
+section:nth-of-type(2) {
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    padding: 6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & article {
+        background-color: rgb(186, 186, 186);
+        max-width: 30em;
+        overflow: hidden;
+
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.157);
+
+        & header {
+            
+            padding: 2em 2em 0;
+        }
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            padding: 2em;
+            background-color: white;
+        }
+    }
+}
+}
