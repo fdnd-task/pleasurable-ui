@@ -4,8 +4,7 @@
 body {
     box-sizing: border-box;
     margin: 0;
-    background: radial-gradient(at left bottom, hsl(248, 32%, 49%), hsl(248, 57%, 19%));
-    padding: 0;
+    background: radial-gradient(at left bottom, hsl(248, 26%, 52%), hsl(248, 62%, 24%), hsl(249, 91%, 9%));
     color: #fff;
     font-family: 'Roboto serif', Arial, Helvetica, sans-serif;
 }
@@ -43,6 +42,7 @@ main {
 .signup-form {
     width: 100%;
     margin: auto;
+
     & legend {
         color: #000;
         font-size: 1.25em;
@@ -58,6 +58,8 @@ main {
         padding: 24px;
         max-width: 360px;
         margin: auto;
+        box-shadow: 8px -8px 8px 2px hsl(249, 91%, 9%);
+
         & input {
             border-radius: 12px;
             padding: 14px;
@@ -135,139 +137,141 @@ main {
     }
 }
 
-@media screen and (min-width:620px){
-body {
-    box-sizing: border-box;
-    margin: 0;
-    background: radial-gradient(at left bottom, hsl(248, 32%, 49%), hsl(248, 57%, 19%));
-    padding: 0;
-    color: #fff;
-    font-family: 'Roboto serif', Arial, Helvetica, sans-serif;
-}
-
-fieldset {
-    border: none;
-}
-
-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    padding: 0 30px;
-    width: 90vw;
-    height: 100vh;
-}
-
-.introduction-text {
-    margin: auto;
-    width: 30%;
-
-    & h1 {
-        margin-bottom: .25em;
-        font-size: 2.6em;
-        line-height: 1.2;
-        font-family: "roboto mono", Arial, Helvetica, sans-serif;
+@media screen and (min-width:620px) {
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        font-family: 'Roboto serif', Arial, Helvetica, sans-serif;
     }
 
-    & p {
-        padding-top: .2em;
-        font-size: 1.025em;
-    }
-}
-
-.signup-form {
-    width: 50%;
-
-    & legend {
-        color: #000;
-        font-size: 1.25em;
-        font-family: "roboto mono", Arial, Helvetica, sans-serif;
-        text-align: center;
+    fieldset {
+        border: none;
     }
 
-    & form {
+    main {
         display: flex;
-        flex-direction: column;
-        border-radius: 12px;
-        background: #fff;
-        padding: 36px;
-        max-width: 420px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        padding: 0 30px;
+        width: 90vw;
+        height: 100vh;
+    }
 
-        & input {
-            border-radius: 12px;
-            padding: 14px;
-            width: 90%;
+    .introduction-text {
+        margin: auto;
+        width: 40%;
+
+        & h1 {
+            margin-bottom: 1.25em;
+            font-size: 3.75em;
+            line-height: 1.2;
+            font-family: "roboto mono", Arial, Helvetica, sans-serif;
+        }
+
+        & p {
+            padding-top: .2em;
+            font-size: 1.5em;
+            line-height: 1.2em;
+            max-width: 45ch;
         }
     }
 
-    & button {
-        cursor: pointer;
-        margin: 20px 0;
-        border: 0;
-        border-radius: 8px;
-        padding: 14px;
-        width: 100%;
-        font-size: .9em;
-    }
+    .signup-form {
+        width: 50%;
 
-    & span {
-        font-weight: 200;
-    }
-
-    & .btn-green {
-        background-color: #38cc8c;
-        font-weight: 500;
-        font-size: 1em;
-        text-transform: uppercase;
-
-        & :hover {
-            background-color: #0ba864;
+        & legend {
+            color: #000;
+            font-size: 1.25em;
+            font-family: "roboto mono", Arial, Helvetica, sans-serif;
+            text-align: center;
         }
-    }
 
-    & input {
-        margin-bottom: 20px;
-        border: 2px solid hsl(246, 25%, 77%);
-        font-weight: 600;
-        font-size: .9em;
-    }
-
-    & .password-strength-indicator p {
-        color: #333;
-        font-size: 0.9em;
-    }
-
-    & .password-strength-indicator .requirement-list {
-        margin-top: 8px;
-
-        & li {
+        & form {
             display: flex;
-            align-items: center;
-            margin-bottom: 2px;
-            font-size: 0.7em;
-            list-style: none;
+            flex-direction: column;
+            border-radius: 12px;
+            background: #fff;
+            padding: 36px;
+            max-width: 420px;
 
-            & span {
-                margin-left: 4px;
-                color: #333;
-            }
-
-            & i {
-                width: 20px;
-                color: #ef4646;
-                font-size: 0.6em;
+            & input {
+                border-radius: 12px;
+                padding: 14px;
+                width: 90%;
             }
         }
-    }
 
-    & .requirement-list li.valid i {
-        color: #0ba864;
-        font-size: 1em;
+        & button {
+            cursor: pointer;
+            margin: 20px 0;
+            border: 0;
+            border-radius: 8px;
+            padding: 14px;
+            width: 100%;
+            font-size: .9em;
+        }
 
         & span {
-            color: #999;
+            font-weight: 200;
+        }
+
+        & .btn-green {
+            background-color: #38cc8c;
+            font-weight: 500;
+            font-size: 1em;
+            text-transform: uppercase;
+
+            & :hover {
+                background-color: #0ba864;
+            }
+        }
+
+        & input {
+            margin-bottom: 20px;
+            border: 2px solid hsl(246, 25%, 77%);
+            font-weight: 600;
+            font-size: .9em;
+        }
+
+        & .password-strength-indicator p {
+            color: #333;
+            font-size: 0.9em;
+        }
+
+        & .password-strength-indicator .requirement-list {
+            margin-top: 8px;
+
+            & li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 2px;
+                font-size: 0.7em;
+                list-style: none;
+
+                & span {
+                    margin-left: 4px;
+                    color: #333;
+                }
+
+                & i {
+                    width: 20px;
+                    color: #ef4646;
+                    font-size: 0.6em;
+                }
+            }
+        }
+
+        & .requirement-list li.valid i {
+            color: #0ba864;
+            font-size: 1em;
+
+            & span {
+                color: #999;
+            }
         }
     }
-}}
+}
