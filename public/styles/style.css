@@ -32,6 +32,21 @@ main {
     display: none;
 }
 
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding-top: 1em;
+}
+
+input, textarea {
+    margin-bottom: .5em;
+}
+
+input:required + label::before {
+    content: '*';
+}
+
 /* ---------------------------------------INFO DEEL---------------------------- */
 
 section:first-of-type {
@@ -95,7 +110,7 @@ section:nth-of-type(2) {
     }
 
     section:nth-of-type(2) {
-        padding: 3em;
+        padding: 2em;
         justify-content: center;
         & article {
             max-width: 30em;
@@ -127,7 +142,7 @@ section:nth-of-type(2) {
         padding: 2em;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        /* justify-content: center; */
 
 
         & article {
@@ -152,6 +167,7 @@ section:nth-of-type(2) {
         & article {
             background-color: rgb(186, 186, 186);
             max-width: 30em;
+            min-width: 20em;
             overflow: hidden;
 
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.157);
