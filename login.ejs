@@ -1,0 +1,122 @@
+<main>
+
+<h2>Log met je bedrijf hieronder in</h2>
+
+
+<form class="login" action="/dashboard" method="get">
+
+  <label for="username">Bedrijfsnaam:</label>
+  <input type="text" id="username" name="username">
+ 
+  <label for="password">Wachtwoord:</label>
+  <input type="password" id="password" name="password">
+  
+  <input type="submit" value="Log in">
+</form>
+</main>
+
+<section class="margin">
+  <h2>Kies uw bedrijf om te beginnen met werken!</h2>
+</section>
+
+<article class="flex">
+    <form method="POST" action="">
+      <div class="custom-select">
+        <select name="companies" id="hfcompany">
+          <option value="" disabled selected>Selecteer een bedrijf</option>
+          <% companies.forEach(company => { %>
+          <option value="<%=company.id%>" name="bedrijf" id="bedrijf">
+            <%= company.name %>
+          </option>
+          <% }) %>
+        </select>
+      </div>
+      <input class="btn" type="submit" value="Login" />
+    </form>
+</article>
+
+<!--Styling login scherm-->
+<!--input[type="text"], input[type="password"] {
+  width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--Accentcolor);
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+input[type='submit'] {
+  width: 100%;
+  padding: 0.5em;
+  font-family: halton, sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid var(--Accentcolor);
+  background-color: var(--BGcolor);
+  color: var(--TextColor);
+}
+
+input[type='submit']:hover {
+  background-color: var(--Secondarycolor);
+  color: var(--TextColor);
+  cursor: pointer;
+}-->
+
+<!--Styling rangesliders-->
+<!--input[type="range"] {
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+  margin: 0;
+
+  & p {
+    width: 100%;
+  }
+}
+
+& datalist {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 100%;
+  color: #fff;
+  & option {
+      rotate: -90deg;
+      /* color: red; */
+      font-weight: bold;
+      &[label="0"] {
+          font-weight: normal;
+      }
+  }
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--Accentcolor);
+  height: 0.8rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  height: 1.8em;
+  width: 1.8em;
+  background-color: var(--PrimaryColor);
+  border-radius: 50%;
+  margin-top: -5px;
+}
+
+input[type="range"] > label {
+  color: var(--TextColor);
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+  border: 1px solid var(--Secondarycolor);
+  outline: 3px solid var(--Secondarycolor);
+  outline-offset: 0.125rem;
+}-->
