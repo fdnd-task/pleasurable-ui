@@ -104,9 +104,9 @@ h1::first-line {
     display: grid;
     place-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: minmax(200px, auto); /* Vaste hoogte van 200px voor alle rijen */
-    grid-gap: 2em; /* Optioneel: voeg ruimte toe tussen de kolommen */
+    grid-gap: 1em; /* Optioneel: voeg ruimte toe tussen de kolommen */
 
 }
 
