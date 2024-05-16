@@ -46,6 +46,7 @@
 
     <section class="content-wrapper">
 
+<!--for you details (hidden)-->
         <div class="for-you-details">
         <% apiItems.forEach(function(apiItem) { %>
 
@@ -55,7 +56,27 @@
         <% }) %>
     </div>
 
+        <!--favorites details (hidden)-->
+        <div class="favorites-details">
+            <% apiItems.forEach(function(apiItem) { %>
 
+                <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
+                     alt="<%= apiItem.title %>" width="200" height="300">
+
+            <% }) %>
+        </div>
+
+        <!--borrowed books details (hidden)-->
+        <div class="borrowed-books-details">
+            <% apiItems.forEach(function(apiItem) { %>
+
+                <img class="bookCarouselImg" src='https://fdnd-agency.directus.app/assets/<%= apiItem.afbeelding %>'
+                     alt="<%= apiItem.title %>" width="200" height="300">
+
+            <% }) %>
+        </div>
+
+<!--main page content-->
     <section class="for-you">
 
         <div class="details">
@@ -77,7 +98,7 @@
     <section class="favourites">
         <div class="details">
             <h2>Favorieten</h2>
-            <button class="forYouDetails">Details +</button>
+            <button id="favoritesButton">Details +</button>
         </div>
         <ul class="carousel">
             <% apiItems.forEach(function(apiItem) { %>
@@ -92,7 +113,7 @@
     <section class="borrowed">
         <div class="details">
             <h2>Geleende Boeken</h2>
-            <button class="forYouDetails">Details +</button>
+            <button id="borrowedBooksButton">Details +</button>
         </div>
         <ul class="carousel">
             <% apiItems.forEach(function(apiItem) { %>
