@@ -1,22 +1,46 @@
 <%- include('partials/head') %>
-<main class="container">
-    <section class="left">
-      <h1> Observing experts to become one </h1>
-      <p> See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable. </p>
+  <main>
+    <section class="introduction-text">
+      <h1> Measuring company impact has never been this simple </h1>
+      <p> Gain insights into your company's environmental and social impact with our innovative tool.
+        Instead of relying solely on theoretical knowledge, observe real-time calculations of handprint and footprint.
+        Understanding how your actions affect the environment and society is crucial for responsible business practices.
+      </p>
     </section>
-    <section class="right">
-      <button class="btn btn-purple">
-        <span class="bold"> Try it free 7 days then $20/mo. thereafter </span>
-      </button>
+    <section class="signup">
       <form>
-        <input type="text" placeholder="First Name">
-        <input type="text" placeholder="Last Name">
-        <input type="email" placeholder="Email Address">
-        <input type="password" placeholder="Password">
-        <button class="btn btn-green">Claim your free trial</button>
-        <small> By clicking the button, you are agreeing to our <a href="#"> Terms and Services </a> </small>
+        <fieldset>
+          <legend>Sign up</legend>
+          <label> <span>Company Name</span>
+            <input type="text" placeholder="Company Name" required>
+          </label>
+          <label> <span>Username</span>
+            <input type="text" placeholder="Username" required>
+          </label>
+          <label> <span>Email Address</span>
+            <input type="email" placeholder="Email Address" required>
+          </label>
+          <label> <span>Password</span>
+            <input type="password" placeholder="Password" id="password" required>
+          </label>
+        </fieldset>
+        <div class="content">
+          <p>Password must contain</p>
+          <ul class="requirement-list">
+            <li> <i class="fa-solid fa-circle" alt="Requirement"></i> <span>At least 8 characters length</span> </li>
+            <li> <i class="fa-solid fa-circle" alt="Requirement"></i> <span>At least 1 number (0...9)</span> </li>
+            <li> <i class="fa-solid fa-circle" alt="Requirement"></i> <span>At least 1 lowercase letter (a...z)</span>
+            </li>
+            <li> <i class="fa-solid fa-circle" alt="Requirement"></i> <span>At least 1 special symbol (!...$)</span>
+            </li>
+            <li> <i class="fa-solid fa-circle" alt="Requirement"></i> <span>At least 1 uppercase letter (A...Z)</span>
+            </li>
+          </ul>
+        </div>
+        <button class="btn-green"> Sign up </button>
       </form>
     </section>
   </main>
-</body>
-</html>
+  </body>
+
+  </html>
