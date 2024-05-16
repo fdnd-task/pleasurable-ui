@@ -1,0 +1,16 @@
+<!-- dit is een demo lijst met iniatiefen voor de homepagina -->
+<ul>
+    <% services.slice(0, 6).forEach(function(service) { %>
+      <li>
+        <h2><%= service.title %></h2>
+        <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>" alt="<%= service.title %>" width="300" height="150">
+        <p>Neighbourhood: <%= service.neighbourhood %></p>
+        <p>Description: <%= service.short_description %></p>
+        <p>Likes: <%= service.likes %></p>
+      </li>
+    <% }); %>
+  </ul>
+
+
+  
+  

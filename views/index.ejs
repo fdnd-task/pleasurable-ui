@@ -1,0 +1,54 @@
+<%- include('./partials/head.ejs') -%>
+
+<Main>
+
+  <Section>
+      <h1>Welkom bij de community van Amsterdam west</h1>
+      <p>Dit is een plek om lokale initiatieven te bezoeken en te bekijken</p>
+      <button>Bekijk initiatieven</button>
+    </Section>
+  
+    <section>
+      <h1>Test Initiatieven</h1>
+      <%- include('./partials/initiatievenLijst.ejs') -%>
+    
+    </section>
+    
+  
+    <Section>
+
+      <h2>Plaats een initiatief</h2>
+      <p>Wil je zelf iets plaatsen, doe dat hieronder</p>
+
+       <!-- Formulier voor het aanmaken van een nieuw initiatief -->
+    <form id="initiatief" action="/success" method="post">
+      <label for="title">Titel:</label>
+      <input type="text" id="title" name="title" required><br>
+
+      <input type="radio" id="type-vraag" name="type" value="vraag" required>
+      <label for="type-vraag">Vraag</label>
+      <input type="radio" id="type-aanbod" name="type" value="aanbod" required>
+      <label for="type-aanbod">Aanbod</label><br>
+
+      <label for="neighbourhood">Buurt:</label>
+      <input type="text" id="neighbourhood" name="neighbourhood" required><br>
+
+      <label for="start_date">Startdatum:</label>
+      <input type="date" id="start_date" name="start_date" required><br>
+
+      <label for="end_date">Einddatum:</label>
+      <input type="date" id="end_date" name="end_date" required><br>
+
+      <label for="short_description">Korte Beschrijving:</label><br>
+      <textarea id="short_description" name="short_description" required></textarea><br>
+
+      <label for="image">Afbeelding:</label>
+      <input type="file" id="image" name="image" accept="image/*" required><br>
+
+      <button type="submit">Plaats Initiatief</button>
+  </form>
+
+    </Section>
+
+  </Main>
+  
