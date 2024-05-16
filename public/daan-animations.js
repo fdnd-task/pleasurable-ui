@@ -20,10 +20,15 @@ const forYouTimeline = gsap.timeline({defaults: { duration: 1 }});
 // .from('.for-you-details', {duration: 0.7, y: '100%', ease: 'ease-in', delay: 0.1});
 
 
-// detail buttons
+// detail active buttons
 const forYouDetailsButton = document.getElementById('forYoudetailsButton');
 const favoritesDetailsButton = document.getElementById('favoritesButton');
 const borrowedBooksDetailsButton = document.getElementById('borrowedBooksButton');
+
+// detail deactive buttons
+const forYouDetailsCloseButton = document.getElementById('forYouDetailsCloseButton');
+const favoritesDetailsCloseButton = document.getElementById('favoritesCloseButton');
+const borrowedBooksDetailsCloseButton = document.getElementById('borrowedBooksCloseButton');
 
 // elementen voor de detail functie
 const forYouDetails = document.querySelector('.for-you-details');
@@ -33,6 +38,9 @@ const contentWrapperActive = document.querySelector('.content-wrapper');
 const pageText = document.querySelector('.page');
 
 // click events
+
+// voor details active
+
 // for you
 forYouDetailsButton.addEventListener('click', () => {
     // Zorg ervoor dat de animaties in de timeline 3x zo snel gaan
@@ -69,6 +77,29 @@ borrowedBooksDetailsButton.addEventListener('click', () => {
     });
 });
 
+// voor details deactive
+
+// for you
+forYouDetailsCloseButton.addEventListener('click', () => {
+    // Zorg ervoor dat de animaties in de timeline 3x zo snel gaan
+    console.log('ik ben geklikt')
+        detailsForYouDeactive();
+        activeContentWrapperDeactive();
+});
+
+// favorites
+favoritesDetailsCloseButton.addEventListener('click', () => {
+        detailsFavoritesDeactive();
+        activeContentWrapperDeactive();
+});
+
+// borrowed books
+borrowedBooksDetailsCloseButton.addEventListener('click', () => {
+        detailsBorrowedBooksDeactive();
+        activeContentWrapperDeactive();
+});
+
+
 
 // details active functions
 
@@ -81,18 +112,52 @@ function detailsForYouActive(){
 //favorites
 function detailsFavoritesActive(){
     favoritesDetails.classList.add('favorites-details-active');
-    pageText.innerHTML = 'Favorieten'
+    pageText.innerHTML = 'Favorieten';
 }
 
 // borrowed books
 function detailsBorrowedBooksActive(){
     borrowedBooksDetails.classList.add('borrowed-books-details-active');
-    pageText.innerHTML = 'Geleende Boeken'
+    pageText.innerHTML = 'Geleende Boeken';
 }
 
 // content wrapper
 function activeContentWrapper(){
     contentWrapperActive.classList.add('content-wrapper-active');
+    console.log('wrapper');
+}
+
+// details deactive functions
+
+// for you
+// for you
+function detailsForYouDeactive(){
+    forYouDetails.classList.remove('for-you-details-active');
+    pageText.innerHTML = 'Gebruikers Pagina';
+    carouselTimeline.play(); // Speel de timeline-animatie opnieuw af zonder omkeren
+    activeContentWrapperDeactive(); // Roep de functie aan om de content wrapper ook te deactiveren
+}
+
+
+//favorites
+function detailsFavoritesDeactive(){
+    favoritesDetails.classList.remove('favorites-details-active');
+    pageText.innerHTML = 'Gebruikers Pagina'
+    carouselTimeline.play(); // Speel de timeline-animatie opnieuw af zonder omkeren
+    activeContentWrapperDeactive(); // Roep de functie aan om de content wrapper ook te deactiveren
+}
+
+// borrowed books
+function detailsBorrowedBooksDeactive(){
+    borrowedBooksDetails.classList.remove('borrowed-books-details-active');
+    pageText.innerHTML = 'Gebruikers Pagina'
+    carouselTimeline.play(); // Speel de timeline-animatie opnieuw af zonder omkeren
+    activeContentWrapperDeactive(); // Roep de functie aan om de content wrapper ook te deactiveren
+}
+
+// content wrapper
+function activeContentWrapperDeactive(){
+    contentWrapperActive.classList.remove('content-wrapper-active');
     console.log('wrapper');
 }
 

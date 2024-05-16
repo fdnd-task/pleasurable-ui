@@ -48,7 +48,7 @@
 
 <!--for you details (hidden)-->
         <div class="for-you-details">
-            <button class="details-close-buttons" id="forYouDetailsHiddenButton">Details Sluiten</button>
+            <button class="details-close-buttons" id="forYouDetailsCloseButton">Details Sluiten</button>
             <section class="details-item-container">
         <% apiItems.forEach(function(apiItem) { %>
 
@@ -56,12 +56,12 @@
                      alt="<%= apiItem.title %>" width="200" height="300">
 
         <% }) %>
-            <section class="details-item-container">
+            </section>
     </div>
 
         <!--favorites details (hidden)-->
         <div class="favorites-details">
-            <button class="details-close-buttons" id="favoritesHiddenButton">Details Sluiten</button>
+            <button class="details-close-buttons" id="favoritesCloseButton">Details Sluiten</button>
             <section class="details-item-container">
             <% apiItems.forEach(function(apiItem) { %>
 
@@ -74,7 +74,7 @@
 
         <!--borrowed books details (hidden)-->
         <div class="borrowed-books-details">
-            <button class="details-close-buttons" id="borrowedBooksHiddenButton">Details Sluiten</button>
+            <button class="details-close-buttons" id="borrowedBooksCloseButton">Details Sluiten</button>
             <section class="details-item-container">
             <% apiItems.forEach(function(apiItem) { %>
 
