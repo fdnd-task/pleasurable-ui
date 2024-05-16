@@ -1,0 +1,168 @@
+:root {
+    /* secundaire palette */
+    --BGcolor:#272932;
+    --PrimaryColor:#947eb0;
+    --Secondarycolor:#519879;
+    --TextColor:#ecf8f8;
+    --Accentcolor:#fb8b24;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--BGcolor);
+    color: var(--TextColor);
+    font-family: halton, sans-serif;
+    
+    
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: var(--TextColor);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+  padding: 1.5em;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1.5em;
+}
+
+p {
+  font-family: halton-italic, sans-serif;
+  font-size: 1em;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  margin: 3em;
+  transition: box-shadow 0.1s;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+section  {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 3.5em;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+nav {
+    width: 500px;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+    z-index: 1;
+    background-color: var(--BGcolor);
+}
+
+nav li {
+    list-style: none;
+    padding: 0.5em 0 1.5em 0;
+    
+}
+
+nav li a{
+    text-decoration: none;
+    color: var(--TextColor);
+    
+}
+
+nav li a:hover{
+    background-color: var(--Accentcolor);
+    padding: 0.5em;
+    color: var(--green);
+    font-size: 1.2em;
+    font-weight: bold;
+    
+
+}
+
+nav:focus {
+  outline: 4px solid var(--Secondarycolor);
+}
+
+nav svg{
+    float: right;
+    cursor: pointer;
+    
+}
+
+
+
+.show{
+    transform: translateX(0%);
+}
+
+.filter{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.596);
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    
+}
+
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid var(--Accentcolor);
+      border-radius: 3px;
+      box-sizing: border-box;
+  }
+  
+  input[type='submit'] {
+    width: 100%;
+    padding: 0.5em;
+    font-family: halton, sans-serif;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid var(--Accentcolor);
+    background-color: var(--BGcolor);
+    color: var(--TextColor);
+  }
+  
+  input[type='submit']:hover {
+    background-color: var(--Secondarycolor);
+    color: var(--TextColor);
+    cursor: pointer;
+  }

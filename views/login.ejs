@@ -1,10 +1,20 @@
+<%- include('./partials/head') %>
 <main>
 
 <h2>Log met je bedrijf hieronder in</h2>
 
 
-<form class="login" action="/dashboard" method="get">
+<form class="login" action="/dashboard" method="post">
 
+  <div class="custom-select">
+    <select name="companies" id="hfcompany">
+      <option value="" disabled selected>Selecteer een bedrijf</option>
+      <option value="" name="bedrijf" id="bedrijf">
+      </option>
+     
+    </select>
+  </div>
+  
   <label for="username">Bedrijfsnaam:</label>
   <input type="text" id="username" name="username">
  
@@ -19,21 +29,9 @@
   <h2>Kies uw bedrijf om te beginnen met werken!</h2>
 </section>
 
-<article class="flex">
-    <form method="POST" action="">
-      <div class="custom-select">
-        <select name="companies" id="hfcompany">
-          <option value="" disabled selected>Selecteer een bedrijf</option>
-          <% companies.forEach(company => { %>
-          <option value="<%=company.id%>" name="bedrijf" id="bedrijf">
-            <%= company.name %>
-          </option>
-          <% }) %>
-        </select>
-      </div>
-      <input class="btn" type="submit" value="Login" />
-    </form>
-</article>
+
+
+<%- include('./partials/foot') %>
 
 <!--Styling login scherm-->
 <!--input[type="text"], input[type="password"] {
