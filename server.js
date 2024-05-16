@@ -14,14 +14,18 @@ const stakeholders = apiUrl + "hf_stakeholders";
 const companies = apiUrl + "hf_companies";
 
 // Maak een GET route voor de index
-app.get('/', function (request, response) {
-  response.render('index');
+app.get('/login', function (request, response) {
+  response.render('login');
 });
 
-app.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/login',
-  })
-);
+
+
+
+// Stel het poortnummer in waar express op moet gaan luisteren
+app.set("port", process.env.PORT || 8000);
+
+// Start express op, haal daarbij het zojuist ingestelde poortnummer op
+app.listen(app.get("port"), function () {
+  // Toon een bericht in de console en geef het poortnummer door
+  console.log(`Application started on http://localhost:${app.get("port")}`);
+});
