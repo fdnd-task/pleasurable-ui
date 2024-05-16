@@ -10,6 +10,8 @@ app.use(express.urlencoded({ extended: true }))
 
 // Stel het basis endpoint in
 const apiUrl = 'https://fdnd-agency.directus.app/items';
+const stakeholders = apiUrl + "hf_stakeholders";
+const companies = apiUrl + "hf_companies";
 
 
 
