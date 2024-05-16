@@ -13,16 +13,7 @@ const apiUrl = 'https://fdnd-agency.directus.app/items';
 const stakeholders = apiUrl + "hf_stakeholders";
 const companies = apiUrl + "hf_companies";
 
-
-
-
-
-
 // Maak een GET route voor de index
 app.get('/', function (request, response) {
-    fetchJson(sdgList).then((sdgDataUitDeAPI) => {
-        fetchJson(companies).then((companiesUitDeAPI) => {
-            response.render("index", {sdgs: sdgDataUitDeAPI.data, companies: companiesUitDeAPI.data});
-        });  
-    });
+  response.render('index');
 });
