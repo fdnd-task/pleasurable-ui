@@ -24,6 +24,8 @@ const forYouTimeline = gsap.timeline({defaults: { duration: 1 }});
 const forYouDetailsButton = document.getElementById('forYoudetails');
 const forYouDetails = document.querySelector('.for-you-details');
 const contentWrapperActive = document.querySelector('.content-wrapper');
+const pageText = document.querySelector('.page');
+
 
 forYouDetailsButton.addEventListener('click', () => {
     // Zorg ervoor dat de animaties in de timeline 3x zo snel gaan
@@ -40,6 +42,7 @@ function detailsForYouActive(){
     forYouDetails.classList.add('for-you-details-active');
     forYouDetails.classList.remove('for-you-details');
     contentWrapperActive.classList.add('content-wrapper-active');
+    pageText.innerHTML = 'Voor Jou'
     console.log('ik werk');
 }
 
@@ -47,3 +50,4 @@ function activeContentWrapper(){
     contentWrapperActive.classList.add('content-wrapper-active');
     console.log('wrapper');
 }
+
