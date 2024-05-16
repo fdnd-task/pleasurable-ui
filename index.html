@@ -15,6 +15,26 @@
 </form>
 </main>
 
+<section class="margin">
+  <h2>Kies uw bedrijf om te beginnen met werken!</h2>
+</section>
+
+<article class="flex">
+    <form method="POST" action="">
+      <div class="custom-select">
+        <select name="companies" id="hfcompany">
+          <option value="" disabled selected>Selecteer een bedrijf</option>
+          <% companies.forEach(company => { %>
+          <option value="<%=company.id%>" name="bedrijf" id="bedrijf">
+            <%= company.name %>
+          </option>
+          <% }) %>
+        </select>
+      </div>
+      <input class="btn" type="submit" value="Login" />
+    </form>
+</article>
+
 <!--Styling login scherm-->
 <!--input[type="text"], input[type="password"] {
   width: 100%;
