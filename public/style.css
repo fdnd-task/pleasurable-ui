@@ -36,7 +36,7 @@ section.homepagina {
   gap: 10px;
   padding: 20px;
   margin-top: 20px;
-  border-style: solid;
+  border-style: solid; 
 }
 
 .container { 
@@ -67,6 +67,8 @@ section.homepagina button:hover {
   background-color: var(--primair);
 }
 
+/* mediaquery voor homepagina */
+
 @media only screen and (max-width: 600px) {
   section.homepagina {
     grid-template-columns: 1fr; 
@@ -74,6 +76,7 @@ section.homepagina button:hover {
     padding: 10px; 
     margin-top: 10px; 
   }
+
 
   .container {
     grid-column: 1; 
@@ -88,4 +91,31 @@ section.homepagina button:hover {
     justify-self: center; 
   }
 }
+/* Styles voor initiatief */
+.initiatieven {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+}
+
+/* Style voor een iniatief */
+.initiatieven li {
+  flex: 0 0 calc(50% - 20px); /* maak de items 50% breed en houd rekening met de margin */
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid var(--primair);
+}
+
+.initiatieven li img {
+  width: 100%; 
+  height: auto;
+  margin-right: 20px;
+}
+
+@media (min-width: 30em) {
+  .initiatieven li {
+    flex-basis: calc(50% - 20px);  
+  }
+}
+
 
