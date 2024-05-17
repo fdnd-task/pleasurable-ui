@@ -20,6 +20,10 @@ app.get('/', function(request, response) {
   response.render('index')
 });
 
+app.post('/dashboard', function(request, response) {
+  response.render('dashboard')
+});
+
 
 
 // Stel het poortnummer in waar express op moet gaan luisteren
