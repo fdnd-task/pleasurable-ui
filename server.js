@@ -164,7 +164,7 @@ app.get("/",function(req,res){
 });
 
 // GET route for post
-app.get("/post/:id",function(req,res){
+app.get("/detail/:id",function(req,res){
 
 	let postID = req.params.id;
 
@@ -175,6 +175,11 @@ app.get("/post/:id",function(req,res){
 	])
 		.then(([postData, categoryData, directusData]) => {
 			
+			// console.log(`Fetching data for post ID: ${postID}`);
+			// console.log('Fetched post data:', postData);
+			// console.log('Fetched category data:', categoryData);
+			// console.log('Fetched Directus data:', directusData);
+
 			// functions //
 			//date parser
 			//  postData = datePars(postData); 
@@ -182,28 +187,29 @@ app.get("/post/:id",function(req,res){
 			// console.log(formatPostMeta);
 			
 			// page views detection // can be used to show if a page has already been visited
-			views(postID);
+			// views(postData);
 
-			response.render("posts.ejs", {
-				posts: postData,
+			res.render("detail.ejs", {
+				post: postData,
 				categories: categoryData,
 				direct: directusData.data.length ? directusData.data[0] : false,
+
 			});
 			// response.render("header.ejs",{post: postData})
 
-			console.log("post succes");
+			console.log("detail-page succes");
 		})
 		.catch((error) => {
 			// Handle error if fetching data fails
 			console.error("Error fetching data:", error);
-			response.status(404).send("Post not found");
+			res.status(404).send("Post not found");
 		});
 
 });
 
 // POST route for post
 // likes
-app.post("/post/:id/likes",function(req,res){
+app.post("/detail/:id/likes",function(req,res){
 	fetchJson(`${directus_apiUrl}/?filter[id][_eq]=${req.params.id}`).then(({data})=>{
 		
 		// let newLikes = data.length == 0? 1 : data[0].likes >= 1? 0 : data[0].likes + 1;
@@ -233,7 +239,7 @@ app.post("/post/:id/likes",function(req,res){
 
 				})
 			} else{
-				res.redirect(303, `/post/${req.params.id}`);
+				res.redirect(303, `/detail/${req.params.id}`);
 			}
 		})
 		
@@ -241,7 +247,7 @@ app.post("/post/:id/likes",function(req,res){
 });
 
 // shares
-app.post("/post/:id/shares",function(req,res){
+app.post("/detail/:id/shares",function(req,res){
 	fetchJson(`${directus_apiUrl}/?filter[id][_eq]=${req.params.id}`).then(({data})=>{
 		
 		// need to be changed to a function that copies the url //
@@ -270,7 +276,7 @@ app.post("/post/:id/shares",function(req,res){
 
 					})
 				} else{
-					res.redirect(303, `/post/${req.params.id}`);
+					res.redirect(303, `/detail/${req.params.id}`);
 				}
 			})
 		}
