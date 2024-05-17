@@ -36,16 +36,14 @@ body {
 	/* background-color: rgba(231, 222, 210, 0.485); */
 	/* background-color: var(--e-global-color-c6c7b91);	 */
 
-	margin: 0px 10px 0px 10px;
-
 	a{
 		text-decoration: none;
 		color: var(--text-color);
 	}
 
-	.post-title, .post-meta{
+	/* .post-title, .post-meta{
 		width: 90%;
-	}
+	} */
 
 	.post-title{
 		font-family: var(--content-text);
@@ -53,7 +51,7 @@ body {
 		font-weight: 800;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 3;
+		-webkit-line-clamp: 2;
 		text-overflow: ellipsis;
 		max-height: 2.5em;
 		overflow: hidden;
@@ -62,15 +60,36 @@ body {
 
 	.post-meta {
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
+		align-items: center;
 		font-family: var(--content-text);
-		color: #B1B1B1;
+		color: #000;
 		font-weight: 600;
-		font-size: 12px;
+		font-size: 14px;
+		height: 30px;
+		background-color: #E5E5E5;
+	}
+
+	.category-banner {
+		background-color: #000;
+		color:#fff;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 35px;
+		padding: 0 20px 0 20px;
+		font-family: var(--content-text);
+		font-weight: 600;
+		text-transform: uppercase;
+		font-size: 16px;
+		gap: .5em;
+	}
+	.category-banner span{
+		font-size: 24px;
 	}
 
 	section{
-		padding: 0px 10px 0px 10px;
+		padding: 0px 20px 0px 20px;
 	}
 
 	section#cat-highlight{ /* Styling for the container of the first 3 articles */
@@ -109,6 +128,7 @@ body {
 			}
 
 			.post-title, .post-meta {
+				width: 90%;
 				z-index: 1;
 				position: absolute;
 				bottom: 15px;
@@ -116,6 +136,7 @@ body {
 				z-index: 1;
 				font-size: 14px;
 				max-height: 5em;
+				-webkit-line-clamp: 3;
 			}
 		}
 
@@ -135,6 +156,11 @@ body {
 			.post-meta {
 				bottom: 10px;
 				display: flex;
+				justify-content: space-between;
+				color: #B1B1B1;
+				font-size: 12px;
+				background-color: unset;
+				height: unset;
 			}
 		}
 	}
@@ -143,7 +169,7 @@ body {
 		display: flex;
 		overflow: auto;	
 		scroll-snap-type: x mandatory;
-		gap: 1em;
+		gap: 2em;
 
 		article {
 			margin-block: 3em;
@@ -156,9 +182,14 @@ body {
 		}
 
 		.post-image {
-			height: 150px;
+			height: 200px;
 			width: 100%;
 			object-fit: cover;
+			margin: 0 0 1rem 0;
+		}
+
+		.post-title{
+			margin: 0 0 1.5rem 0;
 		}
 	}
 

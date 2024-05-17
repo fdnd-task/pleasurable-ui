@@ -26,24 +26,26 @@
         <% }) %>
     </section>
     <% categoryData.forEach(category => { %> <!-- Need to fix this -->
-        <button><%-category.name%></button>
+        <a class="category-banner" href="#"><%-category.name%> <span>»</span></a>
         <section id="carousel">
-            <% postData.slice(0, 3).forEach(post => { %> <!-- Show 3 or 5 articles & only show post of the category -->
+            <% postData.slice(0, 5).forEach(post => { %>
                 <article class="post">
                     <a href="#">
                         <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="">
                         <h2 class="post-title"><%- post.title.rendered %></h2>
-                        <div class="post-meta">
-                            <span>Data - <%= post.yoast_head_json.author %></span>
-                            <span><%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
-                        </div>
+                        <% <!-- THIS CAN BE IMPROVED BY DOING THIS ALL INSIDE THE SERVER.JS ALREADY -->
+                        const options = { day: 'numeric', month: 'long' }; 
+                        const formattedDate = new Date(post.date_gmt).toLocaleDateString('nl-NL', options); 
+                        const estimatedReadingTime = post.yoast_head_json.twitter_misc["Geschatte leestijd"].replace("minuten", "min");
+                        %>
+                        <span class="post-meta"><%= formattedDate %> - <%= post.yoast_head_json.author %> - <%= estimatedReadingTime %></span>
                     </a>
                 </article>
             <% }) %>
             <article>
                 <a href="#">
-                    <svg class="post-image" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 8L19 12M19 12L15 16M19 12H5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> </g></svg>
-                    <h2 class="post-title">Meer lezen</h2>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15 8L19 12M19 12L15 16M19 12H5" stroke="#000000" stroke-width="2" stroke-linecap="round"></path> </g></svg>
+                    <h2>Meer lezen</h2>
                 </a>
             </article>
         </section>
