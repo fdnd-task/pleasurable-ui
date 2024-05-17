@@ -1,7 +1,7 @@
 import express from 'express';
 import fetchJson from './helpers/fetch-json.js';
 
-async function setupServer() {
+
   // Haal alle data op van de API
   const apiData = await fetchJson('https://fdnd-agency.directus.app/items/dh_services');
 
@@ -40,6 +40,3 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console met het gebruikte poortnummer
   console.log(`Application started on http://localhost:${app.get('port')}`);
 });
-}
-
-setupServer();
