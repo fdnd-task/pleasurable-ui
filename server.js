@@ -17,14 +17,10 @@ app.use(express.urlencoded({extended: true}))
 // get index
 app.get('/', (request, response) =>  {
   fetchJson(apiUrl + '/hf_sdgs').then((sdgData) =>{
-	  response.render('index', {
+	  response.render('sdg', {
     sdgs: sdgData.data
     })
   })
-})
-
-app.get('/dashboard', (request, response) => {
-  response.render('dashboard')
 })
 
 app.get('/score', (request, response) => {
