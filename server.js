@@ -162,26 +162,32 @@ app.get("/detail/:id",function(req,res){
 
 	Promise.all([
 		fetchJson(`${apiUrl}/posts/${postID}`),
-		fetchJson(categoriesUrl),
+		fetchJson(categoryUrl),
 		fetchJson(`${directus_apiUrl}?filter[id][_eq]=${postID}`),
 	])
 		.then(([postData, categoryData, directusData]) => {
 			
+			// console.log(`Fetching data for post ID: ${postID}`);
+			// console.log('Fetched post data:', postData);
+			// console.log('Fetched category data:', categoryData);
+			// console.log('Fetched Directus data:', directusData);
+
 			// functions //
 			//date parser
-			postData = datePars(postData); 
+			//  postData = datePars(postData); 
 			
 			// page views detection // can be used to show if a page has already been visited
-			views(postID);
+			// views(postData);
 
-			response.render("posts.ejs", {
-				posts: postData,
+			res.render("detail.ejs", {
+				post: postData,
 				categories: categoryData,
 				direct: directusData.data.length ? directusData.data[0] : false,
+
 			});
 			// response.render("header.ejs",{post: postData})
 
-			console.log("post succes");
+			console.log("detail-page succes");
 		})
 		.catch((error) => {
 			// Handle error if fetching data fails
@@ -223,7 +229,7 @@ app.post("/detail/:id/likes",function(req,res){
 
 				})
 			} else{
-				res.redirect(303, `/post/${req.params.id}`);
+				res.redirect(303, `/detail/${req.params.id}`);
 			}
 		})
 		
