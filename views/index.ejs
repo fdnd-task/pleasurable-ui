@@ -10,7 +10,7 @@
 
 <main>
     <section id="cat-highlight">
-        <% postData.slice(0, 3).forEach(post => { %>
+        <% posts.slice(0, 3).forEach(post => { %>
             <article class="highlighted-post">
                 <a href="#" class="post-link">
                     <div class="post-image" style="background-image: url('<%= post.jetpack_featured_media_url %>');">
@@ -28,7 +28,7 @@
     <% categoryData.forEach(category => { %> <!-- ONLY GET POSTS OF THIS CATEGORY (!!TO DO!!) -->
         <a class="category-banner" href="#"><%-category.name%> <span>»</span></a> <!-- !! CHANGE HREF LATER !! -->
         <section id="carousel">
-            <% postData.slice(0, 5).forEach(post => { %>
+            <% posts.slice(0, 5).forEach(post => { %>
                 <article class="post">
                     <a href="#"> <!-- !! CHANGE HREF LATER !! -->
                         <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="">
