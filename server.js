@@ -47,13 +47,13 @@ const postsUrl = `${apiUrl}/posts?per_page=100&orderby=date&order=desc`;
 const usersUrl = `${apiUrl}/users?_embed`;
 //categories
 const categoryUrl = `${apiUrl}/posts?per_page=100&orderby=date&order=desc&categories=1,4,6,9,63,94,1010,3211,7164&_fields=id,categories,slug,date_gmt,excerpt,status,author,yoast_head_json`;
-const categoriesUrl = `${apiUrl}/categories?per_page=100&id=1,4,6,9,63,94,1010,3211,7164`
+const categoriesUrl = `${apiUrl}categories?per_page=100`
 // GET route for index
 app.get("/",function(req,res){
 	Promise.all([
 		fetchJson(postsUrl),
 		fetchJson(usersUrl),
-		fetchJson(categoriesUrl)
+		fetchJson(categoryUrl)
 	])
 	.then(([postData,userData,categoryData]) => {
 
