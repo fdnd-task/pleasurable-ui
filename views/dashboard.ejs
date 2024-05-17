@@ -1,0 +1,101 @@
+<%- include('./partials/headbedrijf.ejs') %>
+
+<div class="dashboard">
+  <div>
+    <div class="introductie">
+      <h1>Welkom bij uw dashboard!</h1>
+    </div>
+  </div>
+  <header class="menu-wrap">
+    <figure class="user">
+      <div class="user-avatar">
+        <picture>
+          <!-- Gebruik de .avif als je dit type kent  -->
+          <source srcset="/assets/img_avatar.avif" type="image/avif" />
+          <!-- Gevbruik de .webp, als je dat type kent -->
+          <source srcset="/assets/img_avatar.webp" type="image/webp" />
+          <!-- Als je beide niet kent, of geen idee wat <source> betekent, doe dan dit -->
+          <img
+            loading="lazy"
+            src="https://www.w3schools.com/howto/img_avatar.png"
+            alt="<%=company.name%> foto"
+          />
+        </picture>
+      </div>
+      <figcaption><%=company.name%></figcaption>
+    </figure>
+    <!-- Sidebar met verschillende  -->
+    <nav>
+      <section class="tools">
+        <h3>Tools</h3>
+        <ul>
+          <li>
+            <a class="toolbox" href="/stakeholder/<%=company.id%>">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z                 
+              M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z"
+                  fill="#fff"
+                />
+              </svg>
+              <h3>Stakeholder toevoegen</h3>
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section class="tools">
+        <h3>Uw stakeholders</h3>
+        <ul>
+          <% stakers.forEach(stake => { %> <% if (stake.company_id.id ===
+          company.id) { %>
+          <li>
+            <a class="toolbox" href="#">
+              <h3><%= stake.name%> - <%=stake.type%></h3>
+            </a>
+          </li>
+          <% } %> <% }) %>
+        </ul>
+      </section>
+    </nav>
+  </header>
+  <main class="content-wrap">
+    <hr/>
+    <section>
+      <div class="parent">
+        <div class="hand-print">
+          <img
+            loading="lazy"
+            src="/assets/handprint.png"
+            width="300px"
+            height="300px"
+            alt="Handafdruk"
+          />
+          <H1>50%</H1>
+        </div>
+        <div class="inside-parent">
+          <div class="handprint-inside"></div>
+          <div class="footprint-inside"></div>
+          <div class="handprint-inside"></div>
+          <div class="footprint-inside"></div>
+        </div>       
+         <div class="foot-print">
+          <img
+            loading="lazy"
+            src="/assets/footprint.png"
+            width="300px"
+            height="300px"
+            alt="Voetafdruk"
+          />
+          <h1>50%</h1>
+        </div>
+        <div></div>
+      </div>
+      <hr/>
+    </section>
+  </main>
+</div>
