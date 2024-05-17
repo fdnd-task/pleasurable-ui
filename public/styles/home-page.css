@@ -69,6 +69,11 @@ body {
 		background-color: #E5E5E5;
 	}
 
+	/* Post Image Styles */
+	.post-image, .overlay{
+		border-radius: 4px;
+	}
+
 	/* Category Banner Styles */
 	.category-banner {
 		background-color: #000;
