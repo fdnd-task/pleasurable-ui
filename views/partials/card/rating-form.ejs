@@ -1,0 +1,18 @@
+<form
+  class="rating-form"
+  method="POST"
+  action="/rate/<%= house.id %>"
+  data-current-rating="<%- Math.floor(Math.random() * 6) %>"
+  data-id="<%= house.id %>"
+>
+  <%- include('../loader') %>
+  <%- include('../success') %>
+
+  <input type="radio" name="rating" value="1" />
+  <input type="radio" name="rating" value="2" />
+  <input type="radio" name="rating" value="3" />
+  <input type="radio" name="rating" value="4" />
+  <input type="radio" name="rating" value="5" />
+
+  <button type="submit">Submit</button>
+</form>
