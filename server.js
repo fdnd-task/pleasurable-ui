@@ -193,7 +193,7 @@ app.get("/detail/:id",function(req,res){
 
 // POST route for post
 // likes
-app.post("/post/:id/likes",function(req,res){
+app.post("/detail/:id/likes",function(req,res){
 	fetchJson(`${directus_apiUrl}/?filter[id][_eq]=${req.params.id}`).then(({data})=>{
 		
 		// let newLikes = data.length == 0? 1 : data[0].likes >= 1? 0 : data[0].likes + 1;
@@ -231,7 +231,7 @@ app.post("/post/:id/likes",function(req,res){
 });
 
 // shares
-app.post("/post/:id/shares",function(req,res){
+app.post("/detail/:id/shares",function(req,res){
 	fetchJson(`${directus_apiUrl}/?filter[id][_eq]=${req.params.id}`).then(({data})=>{
 		
 		// need to be changed to a function that copies the url //
@@ -260,7 +260,7 @@ app.post("/post/:id/shares",function(req,res){
 
 					})
 				} else{
-					res.redirect(303, `/post/${req.params.id}`);
+					res.redirect(303, `/detail/${req.params.id}`);
 				}
 			})
 		}
