@@ -41,6 +41,7 @@ app.get('/', function(request, response) {
 })
 
 // Hier moet de rest van de GET, POST en ROUTE komen
+app.get()
 
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
