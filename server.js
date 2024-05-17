@@ -186,7 +186,7 @@ app.get("/detail/:id",function(req,res){
 		.catch((error) => {
 			// Handle error if fetching data fails
 			console.error("Error fetching data:", error);
-			response.status(404).send("Post not found");
+			res.status(404).send("Post not found");
 		});
 
 });
