@@ -1,0 +1,146 @@
+.family_page {
+    position: relative;
+    display: flex;
+    color: var(--text-color);
+}
+
+strong {
+    color: #4a4848;
+}
+
+.family_page ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 75vw;
+}
+
+.family_page ul li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.family_page ul li article {
+    display: flex;
+    flex-direction: row;
+    background-color: #ddd;
+    margin: 1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 35vw;
+}
+
+.family_page ul li .info_list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+}
+
+.family_page ul li .info_list p:nth-of-type(4) {
+    margin-top: 0.5rem;
+}
+
+.family_page ul li article .item_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_overview {
+    position: relative;
+}
+
+.user_overview picture, .user_overview img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover   ;
+}
+
+
+.user_overview button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: var(--primary-color-light);
+    border: none;
+    border-radius: 1rem 0 1rem 0;
+    width: 4rem;
+    height: 2rem;
+}
+
+.popover {
+    width: 60vw;
+    height: 60vh;
+    margin: auto;
+    border: none;
+    background-color: var(--primary-color-light);
+    padding: 1rem;
+    box-shadow: 0 0 10rem 5rem rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+}
+
+
+.popover::backdrop {
+    backdrop-filter: blur(1rem);
+}
+
+.popover .user_overview {
+    min-width: 95%;
+    flex-direction: column;
+}
+
+.item_list {
+    margin-top: 2rem;
+    max-height: 25vh; 
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    scrollbar-width: thin; 
+    scrollbar-color: var(--primary-color) var(--primary-color-light);
+}
+
+.item_list ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.item_list ul li {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.top_side {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.popover ul li {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+}
+
+.popover button {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.danger {
+    color: var(--primary-color);
+}
+
+.mild_danger {
+    color: orange;
+}
