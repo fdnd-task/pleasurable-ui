@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: true}))
 // get index
 app.get('/', (request, response) =>  {
   fetchJson(apiUrl + '/hf_sdgs').then((sdgData) =>{
-	  response.render('sdg', {
+	  response.render('index', {
     sdgs: sdgData.data
     })
   })
