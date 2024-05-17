@@ -76,7 +76,58 @@ const views = function(postID){
 	}
 }
 
+// categories local storage 
+const categories = [
 
+	{
+		slug: "binnenland",
+		id: 9,
+		name: "Binnenland",
+		posts: [],
+	},
+	{
+		slug: "buitenland",
+		id: 1010,
+		name: "Buitenland",
+		posts: [],
+	},
+	{
+		slug: "column",
+		id: 7164,
+		name: "column",
+		posts: [],
+	},
+	{
+		slug: "economie",
+		id: 6,
+		name: "economie",
+		posts: [],
+	},
+	{
+		slug: "kunst-media",
+		id: 4,
+		name: "Kunst-media",
+		posts: [],
+	},
+	{
+		slug: "podcast",
+		id: 3211,
+		name: "Podcast",
+		posts: [],
+	},
+	{
+		slug: "politiek",
+		id: 63,
+		name: "Politiek",
+		posts: [],
+	},
+	{
+		slug: "wetenschap",
+		id: 94,
+		name: "Wetenschap",
+		posts: [],
+	},
+]
 
 // GET route for index
 app.get("/",function(req,res){
@@ -95,7 +146,7 @@ app.get("/",function(req,res){
 		res.render("index.ejs", {
 			posts  : postData,
 			user : userData,
-			categories : categoryData,
+			categories,
 		});
 		
 			console.log("home success");
@@ -124,7 +175,7 @@ app.get("/post/:id",function(req,res){
 			views(postID);
 
 			response.render("posts.ejs", {
-				post: postData,
+				posts: postData,
 				categories: categoryData,
 				direct: directusData.data.length ? directusData.data[0] : false,
 			});
