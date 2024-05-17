@@ -8,6 +8,8 @@
 }
 
 
+
+
 /* OUD Stijling, was puur om te zien wat ik maakte */
 * {
     margin: 0;
@@ -151,3 +153,121 @@ input[type="email"], input[type="password"] {
     color: var(--TextColor);
     cursor: pointer;
   }
+
+  /* mobiele weergave */
+  @media screen and (max-width: 480px) {
+    /* mobiel menu, nog niet werkend naar behoren. Moet hamburger-menu worden*/
+    nav {
+      width: 200px;
+      height: auto;
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5em;
+      z-index: 1;
+      background-color: var(--PrimaryColor);
+  }
+  
+  nav li {
+      list-style: none;
+      padding: 0.5em 0 1.5em 0; 
+  }
+  
+  nav li a{
+      text-decoration: none;
+      color: var(--TextColor);
+  }
+  
+  nav li a:hover{
+      background-color: var(--Secondarycolor);
+      padding: 0.5em;
+      color: var(--green);
+      font-size: 1.2em;
+      font-weight: bold;
+      width: 100%;
+  }
+  
+  nav:focus {
+    outline: 4px solid var(--Secondarycolor);
+  }
+
+  /* body */
+  body {
+    background-color: var(--BGcolor);
+    color: var(--TextColor);
+    font-family: halton, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: var(--TextColor);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+  padding: 1.5em;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5em;
+  padding: 1.5em;
+}
+
+p {
+  font-family: halton-italic, sans-serif;
+  font-size: 1em;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+section  {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 3.5em;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--Accentcolor);
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+input[type='submit'] {
+  width: 100%;
+  padding: 0.5em;
+  font-family: halton, sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid var(--Accentcolor);
+  background-color: var(--BGcolor);
+  color: var(--TextColor);
+}
+
+input[type='submit']:hover {
+  background-color: var(--Secondarycolor);
+  color: var(--TextColor);
+  cursor: pointer; 
+  }
+}
