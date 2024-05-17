@@ -156,7 +156,7 @@ app.get("/",function(req,res){
 });
 
 // GET route for post
-app.get("/post/:id",function(req,res){
+app.get("/detail/:id",function(req,res){
 
 	let postID = req.params.id;
 
