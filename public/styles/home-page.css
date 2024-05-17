@@ -49,9 +49,9 @@ body {
 		font-weight: 800;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
+		-webkit-line-clamp: 3;
 		text-overflow: ellipsis;
-		max-height: 2.5em;
+		max-height: 4em;
 		overflow: hidden;
 		text-align: left;
 	}
@@ -142,7 +142,6 @@ body {
 		left: 10px;
 		font-size: 14px;
 		max-height: 5em;
-		-webkit-line-clamp: 3;
 		z-index: 1;
 	}
 
