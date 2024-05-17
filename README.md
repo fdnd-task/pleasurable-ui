@@ -1,7 +1,11 @@
 > _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+
+<img width="1111" alt="Schermafbeelding 2024-05-17 123727 Readme" src="https://github.com/annelinderaadsheer/pleasurable-ui/assets/118179932/e92bd394-2154-4b01-a0ad-f7b83d28df89">
+
+
+
 
 ## Inhoudsopgave
 
