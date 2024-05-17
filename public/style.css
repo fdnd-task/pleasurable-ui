@@ -128,22 +128,6 @@ nav svg{
     
 }
 
-
-
-.show{
-    transform: translateX(0%);
-}
-
-.filter{
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.596);
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    
-}
-
-
 input[type="text"], input[type="password"] {
     width: 100%;
       padding: 10px;
