@@ -1,4 +1,4 @@
-import express from "express";
+console.log('Hier komt jullie server')import express from "express";
 
 const app = express();
 
