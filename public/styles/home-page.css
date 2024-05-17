@@ -55,7 +55,7 @@ body {
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 		text-overflow: ellipsis;
-		max-height: 2em;
+		max-height: 2.5em;
 		overflow: hidden;
 		text-align: left;
 	}
