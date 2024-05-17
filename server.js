@@ -12,9 +12,10 @@ app.use(express.urlencoded({ extended: true }))
 const apiUrl = 'https://fdnd-agency.directus.app/items';
 const stakeholders = apiUrl + "hf_stakeholders";
 const companies = apiUrl + "hf_companies";
+// Hier moeten de variabelen komen voor bedrijven kiezen
 
 
-// Maak een GET route voor de index
+// Hier de get en post routes van login
 app.get('/', function (request, response) {
   response.render('login');
 });
