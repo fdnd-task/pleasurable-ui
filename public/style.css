@@ -1,0 +1,63 @@
+/* Vraagaanbod sectie */
+.vraagaanbod {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 80em;
+    margin: 0 auto;
+  }
+  
+  .vraagaanbod article {
+    position: relative;
+    width: 25em;
+    height: 30em;
+    margin: 2em 1em; 
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: auto; 
+  }
+  
+  .vraagaanbod h2 {
+    color: #333;
+    margin: 0.4em 0;
+    font-size: 1.2em;
+    overflow: hidden; 
+    padding: 0.2em 1em;
+    /* padding: inline; */
+  }
+  
+  .vraagaanbod p {
+    margin: 8px 0;
+    font-size: 0.9em;
+    padding: 0.2em 1em;
+    /* text-transform: capitalize; */
+    /* overflow: hidden;  */
+  }
+  
+  .vraagaanbod .over-vraagaanbod-tekst {
+    font-style: italic;
+    color: #555;
+    font-size: 0.9em;
+    /* overflow: hidden;  */
+  }
+  
+  .vraagaanbod img {
+    width: 23em;
+    height: 10em;
+    object-fit: cover;
+    border-radius: 2px;
+    padding: 0.2em 1em;
+  }
+  
+  /* Like button */
+  
+  button.like-button {
+    right: 0.5em;
+    bottom: 0.5em;
+    cursor: pointer;
+    left: 50%; 
+    transform: translateX(50%); 
+    text-align: center; 
+  }
