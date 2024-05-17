@@ -1,0 +1,54 @@
+<%- include('./partials/head') %>
+
+<article>
+
+<div class="detail">
+    <% items.forEach(item=> { %>
+
+        <h2>
+            <%= item.title %>
+        </h2>
+
+        <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>" alt=""/>
+
+</div>
+
+<form class="leeslijst-btn" action="/detail/<%= item.id %>" method="POST">
+    <button class="add">Toevoegen aan leeslijst</button></form>
+
+<form id="myForm" action="/add-to-favorieten" method="post">
+    <input type="hidden" name="bookId" id="bookId" value="<%= item.id %>">
+    <button type="submit" id="submitButton">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="svg-icon">
+            <path id="svg-path" d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z"/>
+        </svg>
+    </button>
+</form>
+    
+    <div class="item-info">
+
+          <p><b>Type: </b><%= item.type %></p>
+          <p><b>Oba Link: </b><%= item.oba_link %></p>
+          <p><b>Uitgever: </b><%= item.publisher %></p>
+          <p><b>Taal: </b><%= item.language %></p>
+          <p><b>Kenmerken: </b><%= item.characteristics %></p>
+          <p><b>Onderwerp: </b><%= item.subject %></p>
+          <p><b>ISBN: </b><%= item.ISBN %></p>
+          <p><b>Pica nummer: </b><%= item.pica_number %></p>
+          <p><b>SISO: </b><%= item.SISO %></p>
+          <p><b>Editie: </b><%= item.editie %></p>
+          <p><b>Auteur: </b><%= item.auteur %></p>
+          <p><b>Vertaler: </b><%= item.vertaler %></p>
+          <p><b>Genre: </b><%= item.genre %></p>
+          <p><b>Datum: </b><%= item.datetime %></p>
+          <p><b>Prijs: €</b><%= item.price %></p>
+          <p><b>Locatie: </b><%= item.location %></p>
+
+    </div>
+
+      </div>
+
+    <% }) %>
+</article>
+
+<%- include('./partials/foot') %>
