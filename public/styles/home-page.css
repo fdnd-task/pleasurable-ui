@@ -89,6 +89,29 @@ body {
 		font-size: 24px;
 	}
 
+	/* Read More Banner Styles */
+	.read-more-banner {
+		display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 2em;
+        height: 100%;
+	}
+
+	.read-more-banner svg {
+		background-color: #000;
+		border-radius: 100%;
+	}
+
+	.read-more-banner h2 {
+		font-family: var(--content-text);
+		font-weight: 600;
+		font-size: 18px;
+	}
+
 	/* Section Padding */
 	section {
 		padding: 0 20px;
