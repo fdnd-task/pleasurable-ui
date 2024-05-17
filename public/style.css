@@ -79,10 +79,24 @@ header{
     align-items: center;
 }
 
+.menu-button {
+  padding: .6em 1.2em;
+	border: 1px solid transparent;
+	border-radius: .5rem;
+	font-family: inherit;
+	font-size: inherit;
+	text-decoration: none;
+	color: var(--TextColor);
+	background: var(--PrimaryColor);
+	cursor: pointer;
+}
+
 nav {
-    width: 500px;
+    width: 300px;
     height: 100%;
     position: fixed;
+    transform: translateX(-100%);
+		transition: 1s;
     display: flex;
     flex-direction: column;
     padding: 1.5em;
@@ -92,25 +106,20 @@ nav {
 
 nav li {
     list-style: none;
-    padding: 0.5em 0 1.5em 0;
-    
+    padding: 0.5em 0 1.5em 0; 
+    width: 100%;
 }
 
 nav li a{
     text-decoration: none;
     color: var(--TextColor);
-    
 }
 
 nav li a:hover{
     background-color: var(--Secondarycolor);
-    padding: 0.5em;
-    color: var(--green);
-    font-size: 1.2em;
-    font-weight: bold;
-    width: 100%;
-    
-
+    color: var(--TextColor);
+    font-size: 1em;
+    padding:.5em 5.5em 0.5em 5.5em; 
 }
 
 nav:focus {
@@ -120,9 +129,20 @@ nav:focus {
 }
 
 nav svg{
-    float: right;
-    cursor: pointer;
-    
+    float: left;
+    cursor: pointer;   
+}
+
+.show{
+  transform: translateX(0%);
+}
+
+.filter{
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.596);
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
 }
 /* Dit is oude code van mijn vorige sprint, puur om te zien hoe het eruit zag. Weet niet wiens stijling we gaan gebruiken */
 
@@ -158,7 +178,7 @@ input[type="email"], input[type="password"] {
   @media screen and (max-width: 480px) {
     /* mobiel menu, nog niet werkend naar behoren. Moet hamburger-menu worden*/
     nav {
-      width: 200px;
+      width: 100%;
       height: auto;
       position: fixed;
       display: flex;
