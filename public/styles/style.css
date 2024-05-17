@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,62.5,300&display=swap');
 
+:root{
+    --bg-color:radial-gradient(at left bottom, hsl(248, 26%, 52%), hsl(248, 62%, 24%), hsl(249, 91%, 9%));
+    --text-color:#f8f8f8;
+    --accent-text-color:#242424;
+    --accent:#067545;
+    --heading: "roboto mono", Arial, Helvetica, sans-serif;
+    --body-font: "roboto serif", Arial, Helvetica, sans-serif;
+    --btn-radius:8px;
+    --btn-padding:14px;
+    --object-radius:12px;
+    --shadow:8px -8px 8px 2px hsl(249, 91%, 9%);
+}
+
+
 body {
     box-sizing: border-box;
     margin: 0;
     background: radial-gradient(at left bottom, hsl(248, 26%, 52%), hsl(248, 62%, 24%), hsl(249, 91%, 9%));
-    color: #fff;
-    font-family: 'Roboto serif', Arial, Helvetica, sans-serif;
-}
-
-fieldset {
-    border: none;
+    color: var(--text-color);
+    font-family: var(--body-font);
 }
 
 main {
@@ -26,269 +36,147 @@ main {
     margin: auto;
     width: 100%;
 
-    & h1 {
+    h1 {
         margin-bottom: .25em;
         font-size: 1.6em;
         line-height: 1.2;
-        font-family: "roboto mono", Arial, Helvetica, sans-serif;
+        font-family: var(--heading);
     }
 
-    & p {
+    p {
         padding-top: .2em;
         font-size: 1.025em;
     }
 }
 
 .signup-form {
-    width: 100%;
     margin: auto;
+    width: 100%;
 
-    & legend {
-        color: #000;
+    legend {
+        color: var(--accent-text-color);
         font-size: 1.25em;
         font-family: "roboto mono", Arial, Helvetica, sans-serif;
         text-align: center;
     }
 
-    & form {
+    form {
         display: flex;
         flex-direction: column;
+        margin: auto;
+        box-shadow: var(--shadow);
         border-radius: 12px;
-        background: #fff;
+        background: var(--text-color);
         padding: 24px;
         max-width: 360px;
-        margin: auto;
-        box-shadow: 8px -8px 8px 2px hsl(249, 91%, 9%);
 
-        & input {
+        fieldset {
+            border: none;
+            color: var(--accent-text-color);
+        }
+
+        input {
             border-radius: 12px;
-            padding: 14px;
+            padding: var(--object-radius);
             width: 90%;
         }
 
-        & small {
-            color: #333;
+        small {
+            color: var(--accent-text-color);
             text-align: center;
 
-            & a {
-                color: #067545;
+            a {
+                color: var(--accent);
             }
         }
     }
 
-    & button {
+    button {
         cursor: pointer;
         margin: 20px 0;
         border: 0;
-        border-radius: 8px;
-        padding: 14px;
+        border-radius: var(--btn-radius);
+        padding: var(--btn-padding);
         width: 100%;
         font-size: .9em;
     }
 
-    & span {
+    span {
         font-weight: 200;
     }
 
-    & .btn-green {
+    .btn-green {
         background-color: #38cc8c;
-        color: #fff;
+        color: var(--text-color);
         font-weight: 700;
         font-size: 1em;
         text-transform: uppercase;
     }
 
-    & input {
+    input {
         margin-bottom: 20px;
         border: 2px solid hsl(246, 25%, 77%);
         font-weight: 600;
         font-size: .9em;
     }
 
-    & .password-strength-indicator p {
-        color: #333;
-        font-size: 0.9em;
-    }
-
-    & .password-strength-indicator .requirement-list {
-        margin-top: 8px;
-
-        & li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2px;
-            font-size: 0.7em;
-            list-style: none;
-
-            & span {
-                margin-left: 4px;
-                color: #333;
-            }
-
-            & i {
-                width: 20px;
-                color: #ef4646;
-                font-size: 0.6em;
-            }
-        }
-    }
-
-    & .requirement-list li.valid i {
-        color: #38cc8c;
-        font-size: 1em;
-
-        & span {
-            color: #999;
-        }
+    #password:invalid {
+        border: 2px solid red;
     }
 }
 
 @media screen and (min-width:620px) {
-    body {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        color: #fff;
-        font-family: 'Roboto serif', Arial, Helvetica, sans-serif;
-    }
-
-    fieldset {
-        border: none;
-    }
-
     main {
-        display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        margin: auto;
         padding: 0 30px;
         width: 90vw;
         height: 100vh;
     }
 
     .introduction-text {
-        margin: auto;
         width: 40%;
 
-        & h1 {
+        h1 {
             margin-bottom: 1.25em;
             font-size: 3.75em;
-            line-height: 1.2;
-            font-family: "roboto mono", Arial, Helvetica, sans-serif;
         }
 
-        & p {
+        p {
             padding-top: .2em;
-            font-size: 1.5em;
-            line-height: 1.2em;
             max-width: 45ch;
+            font-size: 1.5em;
         }
     }
 
     .signup-form {
         width: 50%;
 
-        & legend {
-            color: #000;
+        legend {
             font-size: 1.25em;
-            font-family: "roboto mono", Arial, Helvetica, sans-serif;
-            text-align: center;
         }
 
-        & form {
-            display: flex;
-            flex-direction: column;
-            border-radius: 12px;
-            background: #fff;
+        form {
             padding: 36px;
             max-width: 420px;
-
-            & input {
-                border-radius: 12px;
-                padding: 14px;
-                width: 90%;
-            }
-        }
-
-        & button {
-            cursor: pointer;
-            margin: 20px 0;
-            border: 0;
-            border-radius: 8px;
-            padding: 14px;
-            width: 100%;
-            font-size: .9em;
-        }
-
-        & span {
-            font-weight: 200;
-        }
-
-        & .btn-green {
-            background-color: #38cc8c;
-            font-weight: 700;
-            font-size: 1em;
-            text-transform: uppercase;
-        }
-
-        & input {
-            margin-bottom: 20px;
-            border: 2px solid hsl(246, 25%, 77%);
-            font-weight: 600;
-            font-size: .9em;
-        }
-
-        & .password-strength-indicator p {
-            color: #333;
-            font-size: 0.9em;
-        }
-
-        & .password-strength-indicator .requirement-list {
-            margin-top: 8px;
-
-            & li {
-                display: flex;
-                align-items: center;
-                margin-bottom: 2px;
-                font-size: 0.7em;
-                list-style: none;
-
-                & span {
-                    margin-left: 4px;
-                    color: #333;
-                }
-
-                & i {
-                    width: 20px;
-                    color: #ef4646;
-                    font-size: 0.6em;
-                }
-            }
-        }
-
-        & .requirement-list li.valid i {
-            color: #38cc8c;
-            font-size: 1em;
-
-            & span {
-                color: #999;
-            }
         }
     }
+}
 
-    .entrance {
-                animation: entrance 1s forwards;
+.entrance {
+    animation: entrance 1s forwards;
+}
+
+@keyframes entrance {
+    0% {
+        transform: translateY(-500px);
+        opacity: 0;
+        animation-timing-function: ease-in;
     }
-    @keyframes entrance {
-        0% {
-            transform: translateY(-500px);
-            animation-timing-function: ease-in;
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(0);
-            animation-timing-function: ease-out;
-        }
+
+    100% {
+        transform: translateY(0);
+        animation-timing-function: ease-out;
     }
 }
