@@ -162,7 +162,7 @@ app.get("/detail/:id",function(req,res){
 
 	Promise.all([
 		fetchJson(`${apiUrl}/posts/${postID}`),
-		fetchJson(categoryUrl),
+		fetchJson(categoriesUrl),
 		fetchJson(`${directus_apiUrl}?filter[id][_eq]=${postID}`),
 	])
 		.then(([postData, categoryData, directusData]) => {
