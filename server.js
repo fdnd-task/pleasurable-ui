@@ -49,19 +49,85 @@ const usersUrl = `${apiUrl}/users?_embed`;
 const categoryUrl = `${apiUrl}/posts?per_page=100&orderby=date&order=desc&categories=1,4,6,9,63,94,1010,3211,7164&_fields=id,categories,slug,date_gmt,excerpt,status,author,yoast_head_json`;
 const categoriesUrl = `${apiUrl}categories?per_page=100`
 
-// functions
-// const datePars = function(){ // ask how to implement this function and fix the post data
-// 	for(var i = 0; i < postData.length;i++){
-// 	const parsedDate = new Date(postData[i].date),
-// 	day = parsedDate.getDate(),
-// 	options = { month: "short" }, // De maand moet kort geschreven zijn
-// 	month = Intl.DateTimeFormat("nl-NL", options).format(parsedDate.getMonth() + 1),
-// 	newDate = day + ''+ month;
-// 	postData[i].date = newDate;
-// 	categoryData[i].date = newDate;
-// 	postData[i].author = userData.find(user => user.id === postData[i].author);
-// 	console.log('date parser works');
-// }}
+// functions//
+
+// date parser
+const datePars = function(postData,categoryData){ // ask how to implement this function and fix the post data
+	for(var i = 0; i < postData.length;i++){
+	const parsedDate = new Date(postData[i].date),
+	day = parsedDate.getDate(),
+	options = { month: "short" }, // De maand moet kort geschreven zijn
+	month = Intl.DateTimeFormat("nl-NL", options).format(parsedDate.getMonth() + 1),
+	newDate = day + ''+ month;
+	postData[i].date = newDate;
+	categoryData[i].date = newDate;
+	postData[i].author = userData.find(user => user.id === postData[i].author);
+	console.log('date parser works');
+	return(postData)
+}}
+
+// page views 
+
+const views = function(postID){
+	if (!app.locals.pageViews[postID]) {
+		app.locals.pageViews[postID] = 1;
+	} else {
+		app.locals.pageViews[postID]++;
+	}
+}
+
+// categories local storage 
+const categories = [
+
+	{
+		slug: "binnenland",
+		id: 9,
+		name: "Binnenland",
+		posts: [],
+	},
+	{
+		slug: "buitenland",
+		id: 1010,
+		name: "Buitenland",
+		posts: [],
+	},
+	{
+		slug: "column",
+		id: 7164,
+		name: "column",
+		posts: [],
+	},
+	{
+		slug: "economie",
+		id: 6,
+		name: "economie",
+		posts: [],
+	},
+	{
+		slug: "kunst-media",
+		id: 4,
+		name: "Kunst-media",
+		posts: [],
+	},
+	{
+		slug: "podcast",
+		id: 3211,
+		name: "Podcast",
+		posts: [],
+	},
+	{
+		slug: "politiek",
+		id: 63,
+		name: "Politiek",
+		posts: [],
+	},
+	{
+		slug: "wetenschap",
+		id: 94,
+		name: "Wetenschap",
+		posts: [],
+	},
+]
 
 // GET route for index
 app.get("/",function(req,res){
@@ -73,12 +139,15 @@ app.get("/",function(req,res){
 	.then(([postData,userData,categoryData]) => {
 
 		// all the other functions
-		// datePars(); // fix this parser issue
+		// postData = datePars(postData); 
+		// categoryData = datePars(categoryData);
+		// console.log("postData");
 
 		res.render("index.ejs", {
-			postData,
-			userData,
-			categoryData});
+			posts  : postData,
+			user : userData,
+			categories,
+		});
 		
 			console.log("home success");
 
@@ -89,8 +158,36 @@ app.get("/",function(req,res){
 // GET route for post
 app.get("/post/:id",function(req,res){
 
-	res.render("post.ejs",{})
-	res.redirect(303, '/');
+	let postID = req.params.id;
+
+	Promise.all([
+		fetchJson(`${apiUrl}/posts/${postID}`),
+		fetchJson(categoriesUrl),
+		fetchJson(`${directus_apiUrl}?filter[id][_eq]=${postID}`),
+	])
+		.then(([postData, categoryData, directusData]) => {
+			
+			// functions //
+			//date parser
+			postData = datePars(postData); 
+			
+			// page views detection // can be used to show if a page has already been visited
+			views(postID);
+
+			response.render("posts.ejs", {
+				posts: postData,
+				categories: categoryData,
+				direct: directusData.data.length ? directusData.data[0] : false,
+			});
+			// response.render("header.ejs",{post: postData})
+
+			console.log("post succes");
+		})
+		.catch((error) => {
+			// Handle error if fetching data fails
+			console.error("Error fetching data:", error);
+			response.status(404).send("Post not found");
+		});
 
 });
 
@@ -103,18 +200,57 @@ app.post("/post/:id/likes",function(req,res){
 
 		const x = data[0];
         const newLikes = (x.likes >= 1) ? 0 : 1;
-
+		const payload = {
+			headers: {"content-type":"application/json"}
+		}
 		if( req.body.action == 'like' && newLikes === 1){
-			fetchJson(`${directus_apiUrl}/${data[0].id? data[0].id : ''}`,{
-				method: POST,
-				// if the post exists, update it, otherwise create it
-				// method: data[0]?.id ? "PATCH" : "POST",
-				headers: {"content-type":"application/json"} ,
-				body: JSON.stringify({
-					id: request.params.id,
-					likes: newLikes,
-				}) ,
-			}).then((result)=>{
+			payload.method = 'POST'
+			payload.body = JSON.stringify({
+				id: request.params.id,
+				likes: newLikes,
+			})
+		} else if(req.body.action === 'like' && newLikes === 0) {
+			payload.method = 'DELETE'
+		}
+
+		fetchJson(`${directus_apiUrl}/${data[0].id? data[0].id : ''}`, payload).then((result)=>{
+			console.log(result);
+
+			if(req.body.enhanced){
+				res.render('./partials/likes.ejs',{
+					post :{id: req.params.id},
+					likes: { newLikes},
+
+				})
+			} else{
+				res.redirect(303, `/post/${req.params.id}`);
+			}
+		})
+		
+	})
+});
+
+// shares
+app.post("/post/:id/shares",function(req,res){
+	fetchJson(`${directus_apiUrl}/?filter[id][_eq]=${req.params.id}`).then(({data})=>{
+		
+		// need to be changed to a function that copies the url //
+		// let newShares = data.length > 0 ? data[0].shares + 1 : 1;
+
+		const x = data[0];
+        const newLikes = (x.likes >= 1) ? 0 : 1;
+		const payload = {
+			headers: {"content-type":"application/json"}
+		}
+		if( req.body.action == 'share' && newShares === 1){
+			payload.method = 'POST'
+			payload.body = JSON.stringify({
+				id: request.params.id,
+				likes: newLikes,
+			})
+		 
+
+			fetchJson(`${directus_apiUrl}/${data[0].id? data[0].id : ''}`, payload).then((result)=>{
 				console.log(result);
 
 				if(req.body.enhanced){
@@ -126,77 +262,80 @@ app.post("/post/:id/likes",function(req,res){
 				} else{
 					res.redirect(303, `/post/${req.params.id}`);
 				}
-
-
 			})
-		} else if(req.body.action === 'like' && newLikes === 0) {
-			fetchJson(`${directus_apiUrl}/${data[0].id? data[0].id : ''}`,{
-				method: DELETE,
-				Headers: {"content-type":"application/json"} ,
-				
-			}).then((result)=>{
-				console.log(result);
-
-				if(req.body.enhanced){
-					res.render('./partials/likes.ejs',{
-						post :{id: req.params.id},
-						likes: {newLikes},
-
-					})
-				} else{
-					res.redirect(303, `/post/${req.params.id}`);
-				}
-
-
-			})
-
 		}
-		
-		
-		
-		// res.render("post.ejs",{})
 	})
-})
-
-
-
+});
 
 
 // GET route for category list
 app.get("/categories",function(req,res){
+	fetchJson(categoriesUrl).then((categoriesData)=>{
+		res.render("category.ejs",{
 
-	res.render("category.ejs",{})
-	res.redirect(303, '/');
+			// cat : categories
+			cat: categoriesData,
+		})
+
+	})
 
 });
 
 // GET route for individual category 
 app.get("/category/:slug",function(req,res){
+	fetchJson(`${categoriesUrl}&slug=${req.params.slug}`).then((categoriesData)=>{
+		fetchJson(`${postsUrl}&categories=${categoriesData[0].id}`).then((postData)=>{
+			// function
+			postData = datePars(postData); 
 
+			res.render("category.ejs",{
+				post: postData,
+			})
 
-	res.render("category.ejs",{})
-	res.redirect(303, '/');
+		})
+	} )
+
 
 });
 
 // GET route for author list
 app.get("/authors",function(req,res){
-
-	res.render("authors.ejs",{})
-	res.redirect(303, '/');
+	promises.all([
+		fetchJson(usersUrl),
+		fetchJson(categoriesUrl)
+	]).then(([userData,categoriesData])=>{
+		res.render("authors.ejs",{
+			user:userData,
+			// cat : categories
+			cat: categoriesData,
+		})
+	})
+	
+	
+	
 
 });
 
 // GET route for individual author 
 app.get("/author/:id",function(req,res){
+	promises.all([
+		fetchJson(`${postsUrl}&author=${req.params.id}`),
+		fetchJson(`${usersUrl}&include=${req.params.id}`),
+		fetchJson(categoriesUrl),
+	]).then(([postData,userData,categoriesData])=>{
+		// functions
 
-	res.render("author.ejs",{})
-	res.redirect(303, '/');
-
-})
+		res.render("authors.ejs",{
+			post: postData,
+			user: userData,
+			// cat : categories
+			cat: categoriesData,
+		})
+	})
+});
 
 // ports //
-app.set("port", process.env.PORT || 808);
+app.set("port", process.env.PORT || 8080);
 
 app.listen(app.get("port"), function(){
 	console.log(`Test link ${app.get("port")}`);
