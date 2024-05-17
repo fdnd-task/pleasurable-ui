@@ -1,0 +1,173 @@
+*,
+*::before,
+*::after,
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  appearance: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+:root{
+
+	
+}
+
+body {
+}
+
+/* .darkmode{} */
+
+header{
+	
+
+}
+
+main{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+footer{
+}
+
+/* media queries */
+
+@media (min-width: 520px) {
+
+	body {
+	  
+	  /* background-color: var(--P-orange); */
+		/* grid-template-columns:
+		minmax(0px, auto)
+		[ct-start]
+		repeat(3, 18px)
+		[m-start]
+		repeat(3, 18px)
+		[mid]
+		repeat(3, 18px)
+		[m-end]
+		repeat(3, 18px)
+		[ct-end]
+		minmax(0px, auto);
+	  	column-gap: 30px;
+	  	background-color: rgba(255, 255, 255, 0.962); */
+
+  	}
+
+	header{
+
+		
+	}
+
+	
+
+	main{
+		/* outline: solid rgb(255, 0, 111); */
+	}
+			
+	/* footer {
+					
+	} */
+		
+	}
+
+  
+@media (min-width: 768px) {
+	body {
+	  /* background-color: var(--B-white); */
+	  /* background-color: var(--P-blue); */
+	  /* grid-template-columns:
+		minmax(0px, auto)
+		[ct-start]
+		repeat(3, 24px)
+		[m-start]
+		repeat(4, 24px)
+		[mid]
+		repeat(4, 24px)
+		[m-end]
+		repeat(3, 24px)
+		[ct-end]
+		minmax(0px, auto);
+	  column-gap: 40px; */
+	}
+
+	header{
+	}
+
+	main{
+		/* outline: solid rgb(92, 163, 88); */
+	}
+	footer {
+	  }
+	
+	}
+  
+  
+@media (min-width: 1200px) {
+	body {
+	  /* background-color: var(--P-yellow); */
+	  /* grid-template-columns:
+		minmax(0px, auto)
+		[ct-start]
+		repeat(3, 60px)
+		[m-start]
+		repeat(3, 60px)
+		[mid]
+		repeat(3, 60px)
+		[m-end]
+		repeat(3, 60px)
+		[ct-end]
+		minmax(0px, auto); */
+	}
+  
+	header {
+		
+
+	}
+
+
+
+	/* footer {
+	} */
+  }
+@media (min-width: 1560px) {
+	body {
+	  /* background-color: var(--P-blue90); */
+	  /* grid-template-columns:
+		minmax(0px, auto)
+		[ct-start]
+		repeat(3, 90px)
+		[m-start]
+		repeat(3, 90px)
+		[mid]
+		repeat(3, 90px)
+		[m-end]
+		repeat(3, 90px)
+		[ct-end]
+		minmax(0px, auto); */
+
+		/* background-color: rgb(224, 222, 204); */
+	}
+  
+	header {
+	}
+
+	main{
+		/* background-color: var(--e-global-color-c6c7b91); */
+	}
+
+}
