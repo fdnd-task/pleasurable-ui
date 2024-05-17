@@ -65,6 +65,15 @@ main {
             padding: 14px;
             width: 90%;
         }
+
+        & small {
+            color: #333;
+            text-align: center;
+
+            & a {
+                color: #067545;
+            }
+        }
     }
 
     & button {
@@ -83,13 +92,10 @@ main {
 
     & .btn-green {
         background-color: #38cc8c;
-        font-weight: 500;
+        color: #fff;
+        font-weight: 700;
         font-size: 1em;
         text-transform: uppercase;
-
-        & :hover {
-            background-color: #0ba864;
-        }
     }
 
     & input {
@@ -128,7 +134,7 @@ main {
     }
 
     & .requirement-list li.valid i {
-        color: #0ba864;
+        color: #38cc8c;
         font-size: 1em;
 
         & span {
@@ -221,13 +227,9 @@ main {
 
         & .btn-green {
             background-color: #38cc8c;
-            font-weight: 500;
+            font-weight: 700;
             font-size: 1em;
             text-transform: uppercase;
-
-            & :hover {
-                background-color: #0ba864;
-            }
         }
 
         & input {
@@ -266,12 +268,27 @@ main {
         }
 
         & .requirement-list li.valid i {
-            color: #0ba864;
+            color: #38cc8c;
             font-size: 1em;
 
             & span {
                 color: #999;
             }
+        }
+    }
+
+    .entrance {
+                animation: entrance 1s forwards;
+    }
+    @keyframes entrance {
+        0% {
+            transform: translateY(-500px);
+            animation-timing-function: ease-in;
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            animation-timing-function: ease-out;
         }
     }
 }
