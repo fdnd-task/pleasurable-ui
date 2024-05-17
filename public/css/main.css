@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "bold";
+  font-style: normal;
+  src: url(../fonts/ProximaNova-Bold_1760577842[2252].otf);
+}
+
+@font-face {
+  font-family: "medium";
+  font-style: normal;
+  src: url(../fonts/ProximaNova-Medium_2770618388[2258].otf);
+}
+
+@font-face {
+  font-family: "regular";
+  font-style: normal;
+  src: url(../fonts/ProximaNova-Regular_2607783814.otf);
+}
+
+@font-face {
+  font-family: "semibold";
+  font-style: normal;
+  src: url(../fonts/ProximaNova-Semibold_3872794340.otf);
+}
+
+*,
+*::before,
+*::after {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  /* primary colors */
+  --white: #fff;
+  --web-orange: #f7a100;
+  --regent-blue: #e6f2f7;
+  --lochmara: #0071b3;
+  --mine-shaft: 51, 51, 51;
+
+  /* secondary colors */
+  --orange-darker: #de9000;
+  --casablanca: #f8b73e;
+  --saffron-mango: #f8c463;
+  --cedar: #53241b;
+  --bahama-blue: #006199;
+  --curious-blue: #2c81b3;
+  --steel-blue: #2c81b3;
+  --malibu: #60c5f8;
+  --silver-tree: #66ba96;
+  --petite-orchid: #e09199;
+
+  /* gray values */
+  --color-Footer: #F2F2F2;
+  --gallery: #ededed;
+  --silver: #ccc;
+  --silver-chalice: #999;
+  --dove-gray: #666;
+
+  /* custom colors */
+  --heart-inner: rgb(255, 175, 175);
+  --heart-outer: rgb(255, 127, 127)
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  &.maxHeight {
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 0px) {
+  main,
+  footer {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    padding: 2rem 1rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  main,
+  footer {
+    padding: 0 2rem;
+  }
+
+  h1 {
+    padding: 2rem 2rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main,
+  footer {
+    padding: 0 10rem;
+  }
+
+  h1 {
+    padding: 2rem 10rem;
+  }
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-family: "Semibold";
+}
+
+h2 {
+    font-size: 2rem;
+    font-family: "regular";
+}
+
+p {
+    font-size: 1.25rem;
+    font-family: "medium";
+}
+h1, h2, h3, h4, h5, h6, p {
+  color: rgba(var(--mine-shaft), 1);
+}
+
+footer {
+  font-family: "regular";
+}
