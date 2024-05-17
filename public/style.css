@@ -7,6 +7,8 @@
     --Accentcolor:#fb8b24;
 }
 
+
+/* OUD Stijling, was puur om te zien wat ik maakte */
 * {
     margin: 0;
     padding: 0;
@@ -127,14 +129,17 @@ nav svg{
     cursor: pointer;
     
 }
+/* Dit is oude code van mijn vorige sprint, puur om te zien hoe het eruit zag. Weet niet wiens stijling we gaan gebruiken */
 
+
+/* Dit is de stijling van de inputvelden voor login */
 input[type="text"], input[type="password"] {
     width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid var(--Accentcolor);
-      border-radius: 3px;
-      box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--Accentcolor);
+    border-radius: 3px;
+    box-sizing: border-box;
   }
   
   input[type='submit'] {
