@@ -1,9 +1,6 @@
 <%- include('./partials/head') %>
 <main>
 
-<h2>Log met je bedrijf hieronder in</h2>
-
-
 <form class="login" action="/dashboard" method="post">
 
   <section class="margin">
@@ -11,21 +8,21 @@
   </section>
 
     <!-- Hier kunnen mensen kiezen met welk bedrijf ze willen inloggen. Werkt nog niet, heb hulp nodig om dit goed in de server neer te zetten -->
-  <div class="custom-select">
+  <section class="custom-select">
     <select name="companies" id="hfcompany">
       <option value="" disabled selected>Selecteer een bedrijf</option>
       <option value="" name="bedrijf" id="bedrijf">
       </option>
      
     </select>
-  </div>
+  </section>
   
   <!-- Hier kunnen bedrijven inloggen met hun gegevens -->
   <label for="username">E-mail:</label>
-  <input type="email" id="email" name="username">
+  <input type="email" id="email" pattern=".+@example\.com" size="30" required>
  
   <label for="password">Wachtwoord:</label>
-  <input type="password" id="password" name="password">
+  <input type="password" id="password" name="password" required>
   
   <input type="submit" value="Log in">
 </form>

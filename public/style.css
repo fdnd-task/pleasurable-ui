@@ -133,7 +133,7 @@ nav svg{
 
 
 /* Dit is de stijling van de inputvelden voor login */
-input[type="text"], input[type="password"] {
+input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;

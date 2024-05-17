@@ -16,9 +16,9 @@ const companies = apiUrl + "hf_companies";
 
 
 // Hier de get en post routes van login
-app.get('/', (request, response) => {
+app.get('/', function(request, response) {
   response.render('index')
-})
+});
 
 
 
