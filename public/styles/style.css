@@ -279,48 +279,37 @@ body {
     }
   
   
-  /* TABLET */
-  @media (min-width: 45rem) {
-  
-      header {
-        margin-bottom: 50px;
-      }
-  
-      .grid-container {
-        display: inline-grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-      }
-  
-      .card-favorites {
-        border: solid 0.1em black;
-        background-color: var(--white-primary-color);
-        border-radius: 16px;
-        width: 45vw;
-        height: auto;
-      }
-  
-      img {
-        width: 50%;
-      }
-    
+/* Tablet */
+@media (min-width: 45rem) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
-  
-  /* DESKTOP */
-  @media (min-width: 55rem) {
-    .grid-container {
-      display: inline-grid;
-      /* grid-template-columns: repeat(3, 1fr); */
-      justify-content: center;
-    }
-  
-    .card-favorites {
-      border: solid 0.1em black;
-      height: 550px;
-      background-color: var(--white-primary-color);
-      border-radius: 16px;
-    }
+
+  .card-favorites {
+    border: solid 0.1em black;
+    background-color: var(--white-primary-color);
+    border-radius: 16px;
+    width: 100%;  /* Use full width available in the grid */
+    height: auto;
   }
+
+  img {
+    width: 100%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 55rem) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-favorites {
+    height: 550px;
+  }
+}
 
 /****************************************************************
                                                                 *
