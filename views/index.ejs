@@ -1,3 +1,30 @@
 <%- include('partials/head') %>
-
+<main>
+  <section class="introduction-text">
+    <h1> Measuring company impact simplified </h1>
+    <p> Gain insights into your company's environmental and social impact with our innovative tool.
+      Instead of relying solely on theoretical knowledge, observe real-time calculations of handprint and footprint.
+      Understanding how your actions affect the environment and society is crucial for responsible business practices.
+    </p>
+  </section>
+  <section class="signup-form entrance">
+    <form action="POST">
+      <fieldset>
+        <legend>Register</legend>
+        <label> <span>Company Name</span>
+          <input type="text" placeholder="Company Name" required>
+        </label>
+        <label> <span>Email Address</span>
+          <input type="email" placeholder="Email Address" required>
+        </label>
+        <label> <span>Password</span>
+          <input type="password" placeholder="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!-*]).{8,}" 
+          title="Must contain at least one number and one uppercase and lowercase letter, one special symbol, and at least 8 or more characters">
+        </label>
+      </fieldset>
+      <button class="btn-green"> Register </button>
+      <small> Already registered? <a href=#>Log in here</a></small>
+    </form>
+  </section>
+</main>
 <%- include('partials/foot') %>
