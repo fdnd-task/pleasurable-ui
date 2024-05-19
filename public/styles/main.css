@@ -17,6 +17,14 @@ html {
 }
 
 body {
+
+	button {
+		/*remove standard given styling of buttons */
+		background: none;
+		color: inherit;
+		border: none;
+	}
+
 }
 
 /* .darkmode{} */
@@ -24,9 +32,28 @@ body {
 /* #region Mobile Nav Styling */
 
 header{
-	
+ /* Header styling if needed */ 
+}
+
+.mobile-menu {
+	display: flex;
+	justify-content: space-between;
+	margin: 5%;
+	padding-bottom: 5%;
+	border-bottom: solid 1px black;
+
+	.mobile-logo img {
+		width: 60%;
+	}
+
+	picture {
+		display: flex;
+		justify-content: center;
+	}
 
 }
+
+/* #endregion Mobile Nav Styling */
 
 main{
 }
