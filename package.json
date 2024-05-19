@@ -27,6 +27,7 @@
   "homepage": "https://github.com/fdnd-task/pleasurable-ui#readme",
   "dependencies": {
     "ejs": "^3.1.10",
+    "ejs-lint": "^2.0.0",
     "express": "^4.19.2"
   }
 }

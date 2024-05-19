@@ -8,6 +8,7 @@
   --blue: #0071b3;
   --blue-light: #E6F2F7;
 
+  --lightgray: #999;
   --gray: #666;
   --border-color: #e6e6e6;
 
@@ -37,6 +38,7 @@ body {
 
 .layout-container {
   max-width: 1032px;
+  padding: 1rem;
   margin: auto;
 }
 
@@ -152,6 +154,34 @@ nav li:not(.li-logo):hover {
   background-color: var(--primary-color-2);
 }
 
+/* Breadcumbs */
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.breadcrumbs > li {
+  color: var(--gray);
+}
+
+.breadcrumbs:last-child {
+  color: var(--lightgray);
+}
+
+.breadcrumbs > li::after {
+  content: ">";
+  width: 1em;
+  height: 1em;
+  margin: 0 0.75em;
+  color: var(--lightgray);
+}
+
+.breadcrumbs >li:last-child::after {
+  content: "";
+}
+
 /* ---- Favourites page ---- */
 
 .page-favourites h1 {
@@ -184,7 +214,6 @@ nav li:not(.li-logo):hover {
   justify-content: center;
   /* align-items: center; */
   gap: 1rem;
-  padding: 1rem;
   width: 100%;
 }
 
