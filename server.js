@@ -298,11 +298,11 @@ app.get("/categories",function(req,res){
 });
 
 // GET route for individual category 
-app.get("/category/:slug",function(req,res){
-	fetchJson(`${categoriesUrl}&slug=${req.params.slug}`).then((categoriesData)=>{
+app.get("/category/:name",function(req,res){
+	fetchJson(`${categoriesUrl}&name=${req.params.name}`).then((categoriesData)=>{
 		fetchJson(`${postsUrl}&categories=${categoriesData[0].id}`).then((postData)=>{
 			// function
-			postData = datePars(postData); 
+			// postData = datePars(postData); 
 
 			res.render("category.ejs",{
 				post: postData,
