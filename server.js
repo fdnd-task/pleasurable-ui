@@ -287,11 +287,14 @@ app.post("/detail/:id/shares",function(req,res){
 // GET route for category list
 app.get("/categories",function(req,res){
 	fetchJson(categoriesUrl).then((categoriesData)=>{
-		res.render("category.ejs",{
+		res.render("categories.ejs",{
 
 			// cat : categories
 			cat: categoriesData,
-		})
+		});
+		console.log("categories-page success");
+
+
 
 	})
 
@@ -304,9 +307,11 @@ app.get("/category/:name",function(req,res){
 			// function
 			// postData = datePars(postData); 
 
-			res.render("category.ejs",{
-				post: postData,
-			})
+			res.render("categories.ejs",{
+				post: postData
+			});
+
+			console.log(`${req.params.slug}`+"-page success");
 
 		})
 	} )
@@ -327,6 +332,8 @@ app.get("/authors",function(req,res){
 		})
 	})
 	
+	console.log("author-page success");
+
 	
 	
 
@@ -347,6 +354,9 @@ app.get("/author/:id",function(req,res){
 			// cat : categories
 			cat: categoriesData,
 		})
+
+		console.log(`author:${req.params.id}`+"page success");
+
 	})
 });
 
