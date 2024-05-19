@@ -2,7 +2,7 @@
 
 	<nav class="mobile-menu">
 
-		<button class="menu-icon">
+		<button class="menu-open">
 			<svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M20 7L4 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
 				<path d="M20 12L4 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
@@ -10,10 +10,10 @@
 			</svg>
 		</button>
 
-		<picture alt="RedPers logo" class="mobile-logo">
-			<source srcset="./assets/images/logo.avif">
-			<source srcset="./assets/images/logo.webp">
-			<img src="./assets/images/logo.png">
+		<picture class="mobile-logo">
+			<source srcset="./assets/images/logo.avif" alt="RedPers logo">
+			<source srcset="./assets/images/logo.webp" alt="RedPers logo">
+			<img src="./assets/images/logo.png" alt="RedPers logo">
 		</picture>
 
 		<button class="search-icon">
@@ -23,17 +23,18 @@
 		</button>	
 
 		<!--Mobile Menu Window if opened-->
-		<section class="mobile-menu-window" hidden>
+		<section id="mobile-menu-window" aria-hidden="true">
+		<button class="menu-exit">
 			<svg width="35px" height="35px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
 				<g id="SVGRepo_bgCarrier" stroke-width="0"/>
 				<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
 				<g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M3 3.32001L21 21.32" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </g>
 			</svg>
+		</button>
 
 		<div class="category-links">
 			<ul>
 				<li><a href="/"><span>voorpagina</span></a></li>
-					
 				<% for (key in locals.hardcodedCategories) { %>
 				<li>
 					<a href="/categories/<%= key %>">

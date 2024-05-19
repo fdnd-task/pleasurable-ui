@@ -18,6 +18,11 @@ html {
 
 body {
 
+	a {
+		color: inherit; /* blue colors for links too */
+		text-decoration: inherit; /* no underline */
+	  }
+	  
 	button {
 		/*remove standard given styling of buttons */
 		background: none;
@@ -29,13 +34,15 @@ body {
 
 /* .darkmode{} */
 
-/* #region Mobile Nav Styling */
+
 
 header{
  /* Header styling if needed */ 
 }
 
-.mobile-menu {
+/* #region Mobile Styling */
+
+/* .mobile-menu {
 	display: flex;
 	justify-content: space-between;
 	margin: 5%;
@@ -49,9 +56,111 @@ header{
 	picture {
 		display: flex;
 		justify-content: center;
+	} 
+}*/
+	/* mobile-menu-window */
+	/* section.mobile-menu-window{
+		display: flex;
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		inset: 0 auto 0 0;
+		background-color: #f4f4f4;
+		width: 100%;
+		z-index: 4;
+
+		.menu-exit {
+			position: absolute;
+			left: 0;
+		}
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-block: 10%;
+			outline: solid rgb(32, 159, 209);
+			font-size: 2em;
+
+			li {
+				margin: 0em 0em .25em 0em;
+				font-weight: 600;
+
+				a:hover {
+					color: #E84340;
+					transition: .25s
+				}
+			}
+		}
 	}
 
-}
+	.appear{
+		left: 0;
+		transition: .5s ease-in-out;
+		display: flex;
+	} */
+
+	.mobile-menu {
+		display: flex;
+		justify-content: space-between;
+		margin: 5%;
+		padding-bottom: 5%;
+		border-bottom: solid 1px black;
+	}
+	
+	.mobile-logo img {
+		width: 60%;
+	}
+	
+	picture {
+		display: flex;
+		justify-content: center;
+	}
+	
+	/* mobile-menu-window */
+	section#mobile-menu-window {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		inset: 0 auto 0 0;
+		background-color: #f4f4f4;
+		width: 100%;
+		z-index: 4;
+
+		.menu-exit{
+			position: absolute;
+			left: 0;
+			padding: 1.5em 0em 0em 1.5em;
+		}
+	}
+
+	
+	#mobile-menu-window ul {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-block: 20%;
+		outline: solid rgb(32, 159, 209);
+		font-size: 2em;
+	}
+	
+	#mobile-menu-window ul li {
+		margin: 0em 0em .25em 0em;
+		font-weight: 600;
+	}
+	
+	#mobile-menu-window ul li a:hover {
+		color: #E84340;
+		transition: .25s;
+	}
+
+	#mobile-menu-window.appear {
+		display: flex;
+		animation: blur-in .15s ease-in;
+	}
+
 
 /* #endregion Mobile Nav Styling */
 
@@ -200,3 +309,15 @@ footer{
 	}
 
 }
+
+
+/* #region Keyframe animations */ 
+
+@keyframes blur-in {
+	0%    { opacity: 0; }
+	50%   { opacity: 0.5; }
+	100%  { opacity: 1; }
+} 
+
+
+/* #endregion */ 
