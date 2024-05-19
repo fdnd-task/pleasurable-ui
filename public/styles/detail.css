@@ -2,7 +2,7 @@
 
 }
 
-body::after{
+body::before{
 	content: '';
 	height:7px ;
 	position: fixed;
@@ -21,12 +21,20 @@ body::after{
 	to{scale: 1 1;}
 }
 
+body{
+	background-color: #f5f5f5;
+
+}
+
 header{
 	
 }
 
 /* article post */
-main{}
+main{
+	background-color: tomato;
+	outline: solid red;
+}
 
 /* footer */
 footer{
@@ -53,6 +61,7 @@ footer{
 		minmax(0px, auto);
 	  	column-gap: 30px;
 	  	background-color: rgba(255, 255, 255, 0.962); */
+		  background-color: rgb(52, 69, 18);
 
 	
   	}
@@ -64,6 +73,9 @@ footer{
 	
 
 	main{
+		display: contents;
+		background-color: yellowgreen;
+		height: fit-content;
 	}
 			
 	footer {
@@ -92,6 +104,10 @@ footer{
 	  column-gap: 40px; */
 	}
 
+	main{
+		background-color: chocolate;
+	}
+
 	header{
 	}
 
@@ -115,6 +131,10 @@ footer{
 		repeat(3, 60px)
 		[ct-end]
 		minmax(0px, auto); */
+	}
+
+	main{
+		background-color: aqua;
 	}
   
 	header {
@@ -141,6 +161,10 @@ footer{
 		minmax(0px, auto); */
 
 		/* background-color: rgb(224, 222, 204); */
+	}
+
+	main{
+		background-color: yellow;
 	}
   
 	header {
