@@ -10,7 +10,7 @@
 
 <main>
     <section id="cat-highlight">
-        <% posts.slice(0, 3).forEach(post => { %>
+        <% posts.slice(0, 5).forEach(post => { %>
             <article class="highlighted-post">
                 <a href="/detail/<%-post.id%>" class="post-link">
                     <div class="post-image" style="background-image: url('<%= post.jetpack_featured_media_url %>');">
@@ -31,7 +31,7 @@
             <% 
             const categoryPosts = posts.filter(post => post.categories.includes(category.id)).slice(0, 5); 
             categoryPosts.forEach(post => { %>
-                <article class="post">
+                <article class="">
                     <a href="/detail/<%-post.id%>">
                         <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="">
                         <h2 class="post-title"><%- post.title.rendered %></h2>
@@ -53,6 +53,9 @@
             </article>
         </section>
     <% }) %>
+    <section class="grid-test">
+
+    </section>
 </main>
 
 
