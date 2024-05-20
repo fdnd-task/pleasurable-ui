@@ -31,6 +31,23 @@ main {
     width: 90vw;
     height: 120vh;
 }
+/* ------------------------------------DETAILS _ ANNA_KYRA-------------------------------------------- */
+details > summary {
+    /* background-color: white; */
+
+    color: var(--text-color);
+    padding: .5em;
+    /* border-radius: 5px; */
+    border-top: 1px solid var(--text-color);
+    margin: .2em 0;
+}
+
+details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* --------------------------------------------------LOGIN / REGISTER---------------------------------------------------------- */
 
 .introduction-text {
     margin: auto;
@@ -126,6 +143,7 @@ main {
 }
 
 @media screen and (min-width:620px) {
+
     main {
         flex-direction: row;
         justify-content: space-between;
@@ -136,10 +154,16 @@ main {
     }
 
     .introduction-text {
+        margin: 0;
         width: 40%;
+        height: 100vh;
+        /* background-color: aqua; */
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
 
         h1 {
-            margin-bottom: 1.25em;
+            /* margin-bottom: 1.25em; */
             font-size: 3.75em;
         }
 
@@ -147,6 +171,12 @@ main {
             padding-top: .2em;
             max-width: 45ch;
             font-size: 1.5em;
+        }
+
+        .more-info {
+            /* height: 30em; */
+            margin-bottom: 3em;
+            overflow: auto;
         }
     }
 
