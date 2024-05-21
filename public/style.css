@@ -96,7 +96,7 @@ nav {
     height: 100%;
     position: fixed;
     transform: translateX(-100%);
-		transition: 1s;
+		transition: .2s;
     display: flex;
     flex-direction: column;
     padding: 1.5em;

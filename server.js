@@ -9,7 +9,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
 // Stel het basis endpoint in
-const apiUrl = 'https://fdnd-agency.directus.app/items';
+const apiUrl = "https://fdnd-agency.directus.app/items/";
 const stakeholders = apiUrl + "hf_stakeholders";
 const companies = apiUrl + "hf_companies";
 // Hier moeten de variabelen komen voor bedrijven kiezen
@@ -17,10 +17,18 @@ const companies = apiUrl + "hf_companies";
 
 // Hier de get en post routes van login
 app.get('/', function(request, response) {
-  fetchJson('companies').then((companiesUitDeAPI)) => {
-  response.render("index", {
-    companies: companiesUitDeAPI.data
+  fetchJson(companies).then((companiesUitDeAPI) => {
+    response.render("index", {
+      companies: companiesUitDeAPI.data
+    });
   });
+});
+
+app.post('/', function (request, response) {
+  const bedrijfsID = request.body.companies;
+
+  console.log(bedrijfsID);
+  response.redirect("/dashboard/" + bedrijfsID);
 });
 
 app.get('/dashboard', function(request, response) {
