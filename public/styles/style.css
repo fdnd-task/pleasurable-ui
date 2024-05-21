@@ -145,8 +145,18 @@ main {
             }
         }
 
+        
+
         details > summary {
             color: rgb(148, 148, 148);
+            font-family: var(--heading);
+        }
+
+        details > fieldset {
+            /* margin: 1em 0; */
+            padding: 1em;
+            border-radius: var(--btn-radius);
+            background-color: rgba(148, 148, 148, 0.273);
         }
 
     }
@@ -163,6 +173,7 @@ main {
 
     span {
         font-weight: 200;
+        color: hsl(248, 62%, 24%);
     }
 
     .btn-green {
