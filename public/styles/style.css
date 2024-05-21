@@ -29,9 +29,17 @@ main {
     align-items: center;
     margin: auto;
     width: 90vw;
-    height: 120vh;
+    height: 100vh;
 }
 /* ------------------------------------DETAILS _ ANNA_KYRA-------------------------------------------- */
+.info-mobile {
+    display: block;
+}
+
+.info-desk {
+    display: none;
+}
+
 details > summary {
     /* background-color: white; */
 
@@ -41,12 +49,14 @@ details > summary {
     border-top: 1px solid var(--text-color);
     margin: .2em 0;
     font-family: var(--heading);
+    cursor: pointer;
     
 }
 
 details {
     display: flex;
     flex-direction: column;
+    transition: .2s;
 }
 
 /* --------------------------------------------------LOGIN / REGISTER---------------------------------------------------------- */
@@ -54,6 +64,7 @@ details {
 .introduction-text {
     margin: auto;
     width: 100%;
+    justify-content: center;
 
     h1 {
         margin-bottom: .25em;
@@ -65,6 +76,11 @@ details {
     p {
         padding-top: .2em;
         font-size: 1.025em;
+    }
+
+    .sdgs-login {
+        display: flex;
+        flex-wrap: wrap;
     }
 }
 
@@ -145,6 +161,14 @@ details {
 }
 
 @media screen and (min-width:620px) {
+
+    .info-mobile {
+        display: none;
+    }
+    
+    .info-desk {
+        display: block;
+    }
 
     main {
         flex-direction: row;
