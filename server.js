@@ -31,7 +31,7 @@ app.listen(app.get('port'), function () {
 // Stel het basis endpoint in
 const apiUrl = 'https://fdnd-agency.directus.app/items'
 
-const sdgData = await fetchJson(apiUrl + '/hf_sdgs'),
+const sdgData = await fetchJson(apiUrl + '/hf_sdgs?fields=*,icon.id,icon.height,icon.width'),
     stakeholdersData = await fetchJson(apiUrl + '/hf_stakeholders?filter={"company_id":2}'),
     scoresData = await fetchJson(apiUrl + '/hf_scores'),
     companiesData = await fetchJson(apiUrl + '/hf_companies/2')

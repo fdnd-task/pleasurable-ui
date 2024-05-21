@@ -11,12 +11,16 @@
     --btn-radius:8px;
     --btn-padding:14px;
     --object-radius:12px;
-    --shadow:8px -8px 8px 2px hsl(249, 91%, 9%);
+    --shadow: 0 0 20px hsla(248, 62%, 24%, 0.2);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    box-sizing: border-box;
     margin: 0;
     background: radial-gradient(at left bottom, hsl(248, 26%, 52%), hsl(248, 62%, 24%), hsl(249, 91%, 9%));
     color: var(--text-color);
@@ -24,17 +28,31 @@ body {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     align-items: center;
     margin: auto;
-    width: 90vw;
-    height: 120vh;
+    /* width: 90vw; */
+    height: 100vh;
 }
+/* ------------------------------------DETAILS _ ANNA_KYRA-------------------------------------------- */
+.info-mobile {
+    display: block;
+}
+
+.info-desk {
+    display: none;
+}
+
+
+
+/* --------------------------------------------------LOGIN / REGISTER---------------------------------------------------------- */
 
 .introduction-text {
     margin: auto;
     width: 100%;
+    justify-content: center;
+    padding: 3em 2em 0;
 
     h1 {
         margin-bottom: .25em;
@@ -47,11 +65,38 @@ main {
         padding-top: .2em;
         font-size: 1.025em;
     }
+
+    .sdgs-login {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    details > summary {
+        /* background-color: white; */
+    
+        color: var(--text-color);
+        padding: .5em;
+        /* border-radius: 5px; */
+        border-top: 1px solid var(--text-color);
+        margin: .2em 0;
+        font-family: var(--heading);
+        cursor: pointer;
+        
+    }
+    
+    details {
+        display: flex;
+        flex-direction: column;
+        transition: .2s;
+    }
 }
 
 .signup-form {
     margin: auto;
     width: 100%;
+    background-color: var(--text-color);
+    height: 100%;
+    overflow-y: auto;
 
     legend {
         color: var(--accent-text-color);
@@ -63,22 +108,32 @@ main {
     form {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         margin: auto;
-        box-shadow: var(--shadow);
-        border-radius: 12px;
+
+        /* border-radius: 12px; */
         background: var(--text-color);
         padding: 24px;
-        max-width: 360px;
+        max-width: 100%;
+
+        
+        legend, h1 {
+            margin-bottom: 1em;
+            font-weight: bold;
+            text-align: left;
+            color: hsl(248, 62%, 24%);
+            font-family: var(--heading);
+        }
 
         fieldset {
             border: none;
             color: var(--accent-text-color);
         }
 
-        input {
+        input, textarea {
             border-radius: 12px;
             padding: var(--object-radius);
-            width: 90%;
+            width: 100%;
         }
 
         small {
@@ -89,6 +144,21 @@ main {
                 color: var(--accent);
             }
         }
+
+        
+
+        details > summary {
+            color: rgb(148, 148, 148);
+            font-family: var(--heading);
+        }
+
+        details > fieldset {
+            /* margin: 1em 0; */
+            padding: 1em;
+            border-radius: var(--btn-radius);
+            background-color: rgba(148, 148, 148, 0.273);
+        }
+
     }
 
     button {
@@ -103,6 +173,7 @@ main {
 
     span {
         font-weight: 200;
+        color: hsl(248, 62%, 24%);
     }
 
     .btn-green {
@@ -113,33 +184,91 @@ main {
         text-transform: uppercase;
     }
 
-    input {
+    input, textarea {
         margin-bottom: 20px;
         border: 2px solid hsl(246, 25%, 77%);
-        font-weight: 600;
         font-size: .9em;
+    }
+
+    input[type="file"] {
+        background-color: hsl(246, 25%, 77%);
     }
 
     #password:invalid {
         border: 2px solid red;
     }
 }
-
-@media screen and (min-width:620px) {
+/* --------------------------------------------------MOBILE---------------------------------------------------------- */
+@media screen and (min-width:40em) {
     main {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 30px;
-        width: 90vw;
+        /* flex-direction: row;
+        justify-content: space-between; */
+        /* align-items: center; */
+        /* padding: 0 30px; */
+        /* width: 90vw; */
         height: 100vh;
+        width: 100vw;
+        display: grid;
+        /* padding: 3em; */
     }
 
     .introduction-text {
-        width: 40%;
+        padding: 3em 3em 0;
+    }
+
+    .signup-form { 
+        justify-content: center;
+        height: 100%;
+        padding: 3em;
+        
+
+        background-color: #e6e6e6;
+
+        form {
+            width: 30em;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+    }
+
+}
+
+/* --------------------------------------------------DESKTOP---------------------------------------------------------- */
+@media screen and (min-width:60em) { 
+    .info-mobile {
+        display: none !important;
+    }
+    
+    .info-desk {
+        display: block;
+    }
+
+
+    main {
+        /* flex-direction: row;
+        justify-content: space-between; */
+        /* align-items: center; */
+        /* padding: 0 30px; */
+        /* width: 90vw; */
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* padding: 3em; */
+    }
+
+    .introduction-text {
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        gap: 1em;
+        flex-direction: column;
+        padding: 3em 5em;
 
         h1 {
-            margin-bottom: 1.25em;
+            /* margin-bottom: 1.25em; */
             font-size: 3.75em;
         }
 
@@ -148,10 +277,20 @@ main {
             max-width: 45ch;
             font-size: 1.5em;
         }
+
+        .more-info {
+            margin-bottom: 3em;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+        }
     }
 
     .signup-form {
-        width: 50%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
 
         legend {
             font-size: 1.25em;
@@ -160,12 +299,12 @@ main {
         form {
             padding: 36px;
             max-width: 420px;
+
+            @media (prefers-reduced-motion) { /* intro animatie werkt als reduce motion prefered */
+                animation: entrance 1s forwards;
+            }
         }
     }
-}
-
-.entrance {
-    animation: entrance 1s forwards;
 }
 
 @keyframes entrance {
