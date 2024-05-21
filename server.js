@@ -17,7 +17,14 @@ const companies = apiUrl + "hf_companies";
 
 // Hier de get en post routes van login
 app.get('/', function(request, response) {
-  response.render('index')
+  fetchJson('companies').then((companiesUitDeAPI)) => {
+  response.render("index", {
+    companies: companiesUitDeAPI.data
+  });
+});
+
+app.get('/dashboard', function(request, response) {
+  response.render('dashboard')
 });
 
 app.post('/dashboard', function(request, response) {
