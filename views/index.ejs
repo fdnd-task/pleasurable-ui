@@ -31,7 +31,7 @@
           <article>
             <ol>
               <h2><a class="card-link" href="./huis/<%= huis.id %>"><%= huis.street %> <%= huis.house_nr %></a></h2>
-              <li>€ <%- huis.price %></li>
+              <li>€ <%- huis.price.toLocaleString('nl-NL') %></li>
               <li><%- huis.postal_code %> <%- huis.city %></li>
               <li><%- huis.m2 %> m² • <%- huis.rooms %> Kamers</li>
               <li><%- huis.m2 %></li>
