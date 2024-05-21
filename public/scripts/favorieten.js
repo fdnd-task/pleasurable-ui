@@ -44,7 +44,7 @@ document.querySelectorAll(".rating-form").forEach((form) => {
       loader.classList.remove("hidden");
     }
 
-    // Request logic
+    // Clientside fetch request
     const id = form.dataset.id;
     const rating = form.querySelector("input[name=rating]:checked").value;
 
