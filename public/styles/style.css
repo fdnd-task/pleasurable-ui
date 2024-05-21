@@ -225,7 +225,7 @@ main {
 /* --------------------------------------------------DESKTOP---------------------------------------------------------- */
 @media screen and (min-width:60em) { 
     .info-mobile {
-        display: none;
+        display: none !important;
     }
     
     .info-desk {
