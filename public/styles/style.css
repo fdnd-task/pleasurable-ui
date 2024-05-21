@@ -159,9 +159,11 @@ details {
         border: 2px solid red;
     }
 }
+/* --------------------------------------------------MOBILE---------------------------------------------------------- */
+@media screen and (min-width:40em) {}
 
-@media screen and (min-width:620px) {
-
+/* --------------------------------------------------DESKTOP---------------------------------------------------------- */
+@media screen and (min-width:60em) { 
     .info-mobile {
         display: none;
     }
@@ -184,7 +186,7 @@ details {
         width: 40%;
         height: 100vh;
         /* background-color: aqua; */
-        overflow: auto;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
 
