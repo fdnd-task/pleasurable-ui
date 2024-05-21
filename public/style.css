@@ -176,7 +176,7 @@ input[type="email"], input[type="password"] {
 
   /* mobiele weergave */
   @media screen and (max-width: 480px) {
-    /* mobiel menu, nog niet werkend naar behoren. Moet hamburger-menu worden*/
+    /* mobiel menu werkt naar behoren met knop*/
     nav {
       width: 100%;
       height: auto;

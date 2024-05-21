@@ -14,3 +14,4 @@ const filterdiv = document.querySelector('main div:first-child')
   			menu.classList.remove('show')
 			filterdiv.classList.remove('filter');
 });
+// einde menu script
