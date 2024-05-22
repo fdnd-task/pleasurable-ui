@@ -199,19 +199,14 @@ body {
 	}
 
 	/* Carousel Section */
-	section#carousel ul {
+	section.carousel ul {
 		display: flex;
 		overflow: auto;
 		scroll-snap-type: x mandatory;
 		gap: 2em;
-		scrollbar-width: none;
 	}
 
-	section#carousel ul::-webkit-scrollbar {
-		display: none;
-	}
-
-	section#carousel li {
+	section.carousel li {
 		margin-block: 2em;
 		text-align: center;
 		width: 70vw;
@@ -219,20 +214,24 @@ body {
 		scroll-snap-align: center;
 	}
 
-	section#carousel .post-image {
+	section.carousel .post-image {
 		height: 200px;
 		width: 100%;
 		object-fit: cover;
 		margin: 0 0 1rem;
 	}
 
-	section#carousel .post-title {
+	section.carousel .post-title {
 		margin: 0 0 1.5rem;
 	}
 
 	/* Scrollbar Support */
+	section.carousel ul::-webkit-scrollbar {
+		display: none;
+	}
+
 	@supports (scrollbar-width: none) {
-		section#carousel {
+		section.carousel ul{
 			scrollbar-width: none;
 		}
 	}
@@ -266,7 +265,9 @@ footer{
 		minmax(0px, auto);
 	  	column-gap: 30px;
 	  	background-color: rgba(255, 255, 255, 0.962); */
-
+		section.carousel li {
+			max-width: 300px;
+		}
 	}
   
 		header{
@@ -312,38 +313,40 @@ footer{
 			min-height: 100%;
 		}
 
-		section#carousel {
+		section.carousel {
 			position: relative;
+			max-width: 1200px;
 		}
 
-		section#carousel li {
-			max-width: 250px;
-		}
-
-		section#carousel .post-image {
+		section.carousel .post-image {
 			height: 150px;
 		}
 
-		section#carousel .post-title {
+		section.carousel .post-title {
 			font-size: 16px;
 		}
 
-		/* ADD CODE TO THE BUTTONS */
-		#prevBtn, #nextBtn {
+		.prevBtn, .nextBtn {
 			position: absolute;
 			top: 50%;
 			background-color: #000;
 			border-radius: 100%;
+			border: none;
 		}
 
-		#prevBtn {
+		.prevBtn.disabled, .nextBtn.disabled {
+			background-color: #888;
+			cursor: not-allowed;
+		}
+
+		.prevBtn {
 			left: 0;
-			translate: -50% -50%;
+			translate: 10% -50%;
 		}
-
-		#nextBtn {
+	
+		.nextBtn {
 			right: 0;
-			translate: 50% -50%;
+			translate: -10% -50%;
 		}
 
 	}
@@ -381,11 +384,22 @@ footer{
 	
 	}
 
-
-
-
 	/* footer {
 	} */
+}
+
+@media (min-width: 1300px) {
+	body {
+		.prevBtn {
+			left: 0;
+			translate: -50% -50%;
+		}
+	
+		.nextBtn {
+			right: 0;
+			translate: 50% -50%;
+		}
+	}
 }
 @media (min-width: 1560px) {
 	body {

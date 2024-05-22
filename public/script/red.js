@@ -82,27 +82,69 @@ if(CT){
 
 
 
-// Added carousel buttons
-const prevButtons = document.querySelectorAll("#prevBtn");
-const nextButtons = document.querySelectorAll("#nextBtn");
-const carousels = document.querySelectorAll("#carousel ul");
+const prevButtons = document.querySelectorAll(".prevBtn");
+const nextButtons = document.querySelectorAll(".nextBtn");
+const carousels = document.querySelectorAll(".carousel ul");
 
-prevButtons.forEach((button, index) => {
-	button.removeAttribute("hidden");
-    button.addEventListener('click', function() {
-        carousels[index].scrollBy({
-            left: -carousels[index].offsetWidth,
-            behavior: 'smooth'
-        });
+function updateButtonVisibility(carousel, prevButton, nextButton) {
+    const articles = carousel.querySelectorAll("li");
+    if (articles.length > 5 && window.innerWidth >= 769) {
+        prevButton.removeAttribute("hidden");
+        nextButton.removeAttribute("hidden");
+    } else {
+        prevButton.setAttribute("hidden", true);
+        nextButton.setAttribute("hidden", true);
+    }
+}
+
+function updateButtonState(carousel, prevButton, nextButton) {
+    if (carousel.scrollLeft <= 0) {
+        prevButton.classList.add('disabled');
+    } else {
+        prevButton.classList.remove('disabled');
+    }
+
+    if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth) {
+        nextButton.classList.add('disabled');
+    } else {
+        nextButton.classList.remove('disabled');
+    }
+}
+
+carousels.forEach((carousel, index) => {
+    const prevButton = prevButtons[index];
+    const nextButton = nextButtons[index];
+
+    updateButtonVisibility(carousel, prevButton, nextButton);
+    updateButtonState(carousel, prevButton, nextButton);
+
+    carousel.addEventListener('scroll', () => {
+        updateButtonState(carousel, prevButton, nextButton);
+    });
+
+    prevButton.addEventListener('click', function() {
+        if (carousel.scrollLeft > 0) {
+            carousel.scrollBy({
+                left: -carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    nextButton.addEventListener('click', function() {
+        if (carousel.scrollLeft + carousel.clientWidth < carousel.scrollWidth) {
+            carousel.scrollBy({
+                left: carousel.offsetWidth,
+                behavior: 'smooth'
+            });
+        }
     });
 });
 
-nextButtons.forEach((button, index) => {
-	button.removeAttribute("hidden");
-    button.addEventListener('click', function() {
-        carousels[index].scrollBy({
-            left: carousels[index].offsetWidth,
-            behavior: 'smooth'
-        });
+window.addEventListener('resize', () => { //UGLY BUT IDK HOW TO DO IT BETTER
+    carousels.forEach((carousel, index) => {
+        const prevButton = prevButtons[index];
+        const nextButton = nextButtons[index];
+        updateButtonVisibility(carousel, prevButton, nextButton);
     });
 });
