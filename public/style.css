@@ -89,6 +89,11 @@ header{
 	cursor: pointer;
 }
 
+.menu-button:focus-visible {
+  outline: 4px solid var(--Accentcolor);
+  padding: .5em;
+}
+
 nav {
     width: 300px;
     height: 100%;
@@ -111,24 +116,31 @@ nav li {
 nav li a{
     text-decoration: none;
     color: var(--TextColor);
+    padding: .8em;
+    width: 100%;
 }
 
 nav li a:hover{
     background-color: var(--Secondarycolor);
     color: var(--TextColor);
     font-size: 1em;
-    padding:.5em 5.5em 0.5em 5.5em; 
+    text-align: left;
 }
 
-nav:focus {
-  outline: 4px solid var(--Secondarycolor);
-  padding: 10.5em;
-  
+nav li a:active {
+  background-color: var(--Accentcolor);
+}
+
+nav li a:focus-visible {
+  outline: 4px solid var(--Accentcolor);
+  background-color: var(--BGcolor);
+  padding: .5em;
 }
 
 nav svg{
     float: left;
     cursor: pointer;   
+    margin-bottom: 1.5em;
 }
 
 .show{
@@ -172,6 +184,11 @@ input[type="email"], input[type="password"] {
     cursor: pointer;
   }
 
+  input:focus-visible {
+    outline: 4px solid var(--Secondarycolor);
+    padding: .5em;
+  }
+
  select {
     width: 50%;
     padding: .5em;
@@ -179,6 +196,11 @@ input[type="email"], input[type="password"] {
     background-color: var(--PrimaryColor);
     color: var(--TextColor);
     font-size: 1em;
+  }
+
+  select:focus-visible {
+    outline: 4px solid var(--Secondarycolor);
+    padding: .5em;
   }
 
   /* mobiele weergave */
