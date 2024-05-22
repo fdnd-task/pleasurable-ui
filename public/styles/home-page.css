@@ -320,6 +320,17 @@ footer{
 		}
 
 		/* ADD CODE TO THE BUTTONS */
+		.carousel-buttons{
+			display: flex;
+			pointer-events: all;
+			justify-content: space-between;
+		}
+
+		#prevBtn, #nextBtn {
+			background-color: #000;
+			border-radius: 100%;
+		}
+
 	}
 
 		header{
