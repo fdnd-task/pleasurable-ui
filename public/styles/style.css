@@ -1,0 +1,164 @@
+/* -----------------------------General styling-----------------------------*/
+:root{
+    --primary-orange: #F7A100;
+    --primary-lt-blue: #E6F2F7;
+    --primary-dk-blue: #0071B3;
+    --primary-lt-gray: #CCCCCC;
+
+    --secundary-brown: #53241B;
+    --accent-pink: #E09199;
+    --accent-yellow: #F8C463;
+}
+
+@font-face {
+    font-family: "ProximaNova";
+    src: url(../assets/Fonts/ProximaNova-Regular_2607783814[2260].otf);
+ }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+ body{
+    background-color: white;
+    font-size: 16px;
+    line-height: 1.6;
+    font-family: ProximaNova, sans-serif;
+    & h1{
+        text-align: start;
+        padding: .3em;
+        font-size: 2em;
+    }
+
+    & h1::after{
+        content: "";
+        display: block;
+        width: 10%;
+        height: 5px;
+        background-color: var(--primary-orange);
+    }
+
+}
+/* ---------------------------------------------------------------------------- */
+
+/* ----------------------------HEADER SECTION---------------------------------- */
+nav{
+    background-color: var(--primary-orange);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    max-height: 6em;
+    & ul{
+        display: flex;
+        list-style: none;
+    }
+    & li{
+        margin: 1em;
+    }
+    & a{
+        text-decoration: none;
+        color: white;
+    }
+} 
+#logo{
+    max-width: 10em;
+    margin-left: 2em;
+} 
+/* -----------------------------header section end------------------------------- */
+
+/* -----------------------------intro section------------------------------------- */
+.intro{
+   padding:1em;
+   padding-bottom: 3em;
+   margin: 0 4em;
+    & p{
+        color: grey;
+        padding-left: 1em;
+    }
+}
+.breadcrumbs{
+    background-color: var(--primary-lt-blue);
+    margin: 0;
+    color: var(--primary-orange);
+    align-items: center;
+    & a{
+        color: var(--primary-dk-blue);
+        text-align: center;
+
+    }
+    & svg{  
+        align-items: center;
+        
+    }
+  
+}
+/* -----------------------------intro section end--------------------------------- */
+
+/* -----------------------------house list section------------------------------------ */
+h2{
+    text-align: center;
+    padding: 1em;
+    font-size: 1.7em;
+    color: var(--primary-orange);
+}
+
+.house{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+    padding: 1em;
+    border-bottom: solid 5px var(--primary-orange);
+    border-radius: .5em;
+    background-color: var(--primary-lt-blue);
+    position: relative;
+    & img{
+        max-width: 20em;
+    }
+    & h3, p{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+    }
+    & li{
+        list-style: none;
+    }
+}
+    & button{
+    background-color: var(--primary-dk-blue);
+    color: white;
+    padding: .5em 1em;
+    border: solid 5px var(--primary-orange);
+    border-radius: .5em;
+    margin: 1em;
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+    font-size: 17px;
+}
+& button:hover{
+    background-color: var(--primary-orange);
+}
+& span{
+    font-size: 2.5em;
+    color: var(--primary-orange);
+    position: absolute;
+    top: 1em;
+    right: 1em;
+}
+
+.house-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img{
+    max-width: 20em;
+}
