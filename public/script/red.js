@@ -82,4 +82,27 @@ if(CT){
 
 
 
+// Added carousel buttons
+const prevButtons = document.querySelectorAll("#prevBtn");
+const nextButtons = document.querySelectorAll("#nextBtn");
+const carousels = document.querySelectorAll("#carousel");
 
+prevButtons.forEach((button, index) => {
+	button.removeAttribute("hidden");
+    button.addEventListener('click', function() {
+        carousels[index].scrollBy({
+            left: -carousels[index].offsetWidth,
+            behavior: 'smooth'
+        });
+    });
+});
+
+nextButtons.forEach((button, index) => {
+	button.removeAttribute("hidden");
+    button.addEventListener('click', function() {
+        carousels[index].scrollBy({
+            left: carousels[index].offsetWidth,
+            behavior: 'smooth'
+        });
+    });
+});

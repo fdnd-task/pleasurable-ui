@@ -212,7 +212,6 @@ body {
 		width: 70vw;
 		flex: 70vw 0 0;
 		scroll-snap-align: center;
-		max-width: 300px;
 	}
 
 	section#carousel .post-image {
@@ -307,6 +306,20 @@ footer{
 		article.highlighted-post:first-of-type .post-image {
 			min-height: 100%;
 		}
+
+		section#carousel article {
+			max-width: 250px;
+		}
+
+		section#carousel .post-image {
+			height: 150px;
+		}
+
+		section#carousel .post-title {
+			font-size: 16px;
+		}
+
+		/* ADD CODE TO THE BUTTONS */
 	}
 
 		header{
