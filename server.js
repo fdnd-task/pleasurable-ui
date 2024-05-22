@@ -7,6 +7,12 @@ import fetchJson from "./helpers/fetch-json.js";
 // Maak een nieuwe express app aan
 const app = express();
 
+const apiUrl = 'https://fdnd-agency.directus.app/items/'
+const f_houses = apiUrl + 'f_houses'
+const f_list = apiUrl + 'f_list'
+const f_files = apiUrl + 'f_houses_files'
+const f_feedback = apiUrl + 'f_feedback'
+
 // Stel ejs in als template engine
 app.set("view engine", "ejs");
 
