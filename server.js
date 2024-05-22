@@ -39,7 +39,6 @@ const sdgData = await fetchJson(apiUrl + '/hf_sdgs?fields=*,icon.id,icon.height,
 console.log(companiesData.data.name)
 
 // ROUTES -----------------------------------------------------------
-
 app.get('/', function (request, response) {
     response.render('index', {
         sdgs: sdgData.data,
@@ -49,7 +48,9 @@ app.get('/', function (request, response) {
     })
 })
 
-app.get('/gegevens-form', function (request, response) {
+// @ruben: verander wat je moet veranderen, denk niet dat ik die routes goed heb gedaan.
+
+app.get('/dashboard/:id', function (request, response) { // @ruben: Moet dit :id zijn of kan :company_id ook ?
     response.render('dashboard', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
@@ -58,7 +59,8 @@ app.get('/gegevens-form', function (request, response) {
     })
 })
 
-app.get('/sdg-form', function (request, response) {
+// VRAGENLIJST -----------------------------------------------------
+app.get('/gegevens-form/:id', function (request, response) { // @ruben: Moet dit :id zijn of kan :stakeholder_type ook ?
     response.render('dashboard', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
@@ -67,7 +69,7 @@ app.get('/sdg-form', function (request, response) {
     })
 })
 
-app.get('/score-form', function (request, response) {
+app.get('/sdg-form', function (request, response) { // @ruben: Geen idee of hier ook :id moet staan ben lost
     response.render('dashboard', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
@@ -76,7 +78,16 @@ app.get('/score-form', function (request, response) {
     })
 })
 
-app.get('/done', function (request, response) {
+app.get('/score-form', function (request, response) { // @ruben: etc.
+    response.render('dashboard', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
+        company: companiesData.data,
+    })
+})
+
+app.get('/done', function (request, response) {// @ruben: etc.
     response.render('dashboard', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
