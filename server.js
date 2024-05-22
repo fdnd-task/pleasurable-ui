@@ -38,6 +38,8 @@ const sdgData = await fetchJson(apiUrl + '/hf_sdgs?fields=*,icon.id,icon.height,
 
 console.log(companiesData.data.name)
 
+// ROUTES -----------------------------------------------------------
+
 app.get('/', function (request, response) {
     response.render('index', {
         sdgs: sdgData.data,
@@ -47,7 +49,7 @@ app.get('/', function (request, response) {
     })
 })
 
-app.get('/dashboard', function (request, response) {
+app.get('/gegevens-form', function (request, response) {
     response.render('dashboard', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
@@ -55,3 +57,31 @@ app.get('/dashboard', function (request, response) {
         company: companiesData.data,
     })
 })
+
+app.get('/sdg-form', function (request, response) {
+    response.render('dashboard', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
+        company: companiesData.data,
+    })
+})
+
+app.get('/score-form', function (request, response) {
+    response.render('dashboard', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
+        company: companiesData.data,
+    })
+})
+
+app.get('/done', function (request, response) {
+    response.render('dashboard', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
+        company: companiesData.data,
+    })
+})
+
