@@ -11,7 +11,7 @@ const CT = document.querySelector('header .h-main-datum strong');
 const menuBtn = document.querySelector(".menu-open");
 const menuExitBtn = document.querySelector(".menu-exit");
 const menuWindow = document.querySelector("#mobile-menu-window");
-const appear = document.querySelector(".appear");
+const showMenu = document.querySelector(".showMenu");
 
 
 //forms
@@ -89,11 +89,11 @@ if(CT){
 // Mobile window function
 
 menuBtn?.addEventListener("click", function (e) {
-	menuWindow.classList.add("appear");
+	menuWindow.classList.add("showMenu");
 });
 
 menuExitBtn?.addEventListener("click", (e) => {
-	menuWindow.classList.remove("appear");
+	menuWindow.classList.remove("showMenu");
 });
 
 

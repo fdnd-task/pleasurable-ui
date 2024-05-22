@@ -98,7 +98,7 @@ header{
 		transition: .25s;
 	}
 
-	#mobile-menu-window.appear {
+	#mobile-menu-window.showMenu {
 		display: flex;
 		animation: blur-in .15s ease-in;
 	}
