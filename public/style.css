@@ -8,7 +8,7 @@
 }
 
 
-/* OUD Stijling, was puur om te zien wat ik maakte */
+/* Algemene stijling */
 * {
     margin: 0;
     padding: 0;
@@ -76,7 +76,9 @@ header{
     justify-content: center;
     align-items: center;
 }
+/* einde algemene stijling */
 
+/* Nav stijling */
 .menu-button {
   padding: .6em 1.2em;
 	border: 1px solid transparent;
@@ -154,8 +156,7 @@ nav svg{
   width: 100%;
   pointer-events: none;
 }
-/* Dit is oude code van mijn vorige sprint, puur om te zien hoe het eruit zag. Weet niet wiens stijling we gaan gebruiken */
-
+/* Dit is het einde van de nav stijling
 
 /* Dit is de stijling van de inputvelden voor login */
 input[type="email"], input[type="password"] {
@@ -202,6 +203,7 @@ input[type="email"], input[type="password"] {
     outline: 4px solid var(--Secondarycolor);
     padding: .5em;
   }
+  /* Einde stijling inputvelden */
 
   /* mobiele weergave */
   @media screen and (max-width: 480px) {
@@ -240,7 +242,7 @@ input[type="email"], input[type="password"] {
     outline: 4px solid var(--Secondarycolor);
   }
 
-  /* body */
+ 
   body {
     background-color: var(--BGcolor);
     color: var(--TextColor);
@@ -320,3 +322,4 @@ input[type='submit']:hover {
   cursor: pointer; 
   }
 }
+/* Einde mobiele weergave */
