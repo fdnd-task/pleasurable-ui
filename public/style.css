@@ -72,18 +72,18 @@ ul{
     margin: 0 auto;
 }
 
-[type=checkbox] { 
+.sdgMenu [type=checkbox] { 
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
   }
 
-[type=checkbox] + picture {
+.sdgMenu [type=checkbox] + picture {
     cursor: pointer;
 }
 
-[type=checkbox]:checked + picture {
+.sdgMenu [type=checkbox]:checked + picture {
     outline: 4px solid var(--accent);
   }
 
@@ -118,7 +118,7 @@ ul{
 }
 
   /*accessibility*/
-[type=checkbox]:focus ~ picture{
+.sdgMenu [type=checkbox]:focus ~ picture{
     border: 2px solid white;
 
 }

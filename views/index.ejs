@@ -1,11 +1,10 @@
 <%- include ("./partials/head") %>
-<a href="/dashboard" name="terug" class="turnLeft"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" version="1" id="turn-left"><path d="M31.999 18.925v.03c.047 3.311-1.651 5.391-3.554 6.238-1.87.875-3.836.845-4.803.852H1.184a1.18 1.18 0 1 1-.002-2.362H23.64c.937.006 2.555-.028 3.791-.625 1.209-.629 2.146-1.504 2.205-4.094-.003-.012-.003-.025-.004-.04-.037-3.271-1.059-4.463-2.195-5.158-1.172-.688-2.739-.732-3.797-.722H12.31l2.711 2.709c.729.729.194 2.02-.838 2.02-.301 0-.605-.116-.836-.348L8.622 12.7c-.428-.428-.463-1.215-.019-1.655.017-.02 4.52-4.729 4.52-4.729a1.18 1.18 0 1 1 1.706 1.631l-2.608 2.73H23.64c1.08.011 3.101-.032 4.98 1.041 1.917 1.077 3.416 3.416 3.379 7.207z"/></svg></a>
 <h1>Kies uw SDG's</h1>
 <h2>Kies minimaal 3 SDG's aub</h2>
 <p class="quantityChoice">U heeft (<span id="selected">0</span>) SDG's geselecteerd</p>
 
 <main>
-    <form action="/score" method="POST">
+    <form action="/score" method="POST" class="sdgMenu">
         <ul>
         <% sdgs.forEach(sdg => { %>
         <li>
