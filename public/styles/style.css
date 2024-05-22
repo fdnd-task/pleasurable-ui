@@ -121,6 +121,7 @@ h2{
     & img{
         max-width: 20em;
     }
+   
     & h3, p{
         text-align: center;
         display: flex;
@@ -129,7 +130,7 @@ h2{
     & li{
         list-style: none;
     }
-}
+ }
     & button{
     background-color: var(--primary-dk-blue);
     color: white;
@@ -161,4 +162,63 @@ h2{
 
 img{
     max-width: 20em;
+}
+
+
+fieldset:nth-of-type(1) {	
+	label {
+		// vierkant 		
+		width:1.2em;
+		aspect-ratio:1;
+		line-height:1;
+		// ster in het midden
+		display:grid;
+		place-items:center;
+	}
+	
+	// sterretje in label
+	label::after {
+		content:"★";
+	}
+	
+	// default kleur voor sterretje
+	label {
+		color:var(--clr-star-default);
+	}
+	
+	// input foetsie
+	// niet helemaal netjes
+	input {
+		position:absolute;
+		left:-9999em;
+	}
+	
+	// randje om de fieldset als een input in the fieldset focus-visible heeft
+	&:has(:focus-visible) {
+		outline:solid .1em var(--border-fieldset-focus);
+	}
+	
+	// label na checked radio krijgt checked kleur
+	input:checked + label {
+		color:var(--clr-star-checked);
+	}
+	
+	// alle labels voor checked radio krijgen checked kleur
+	label:has(~ :checked) {
+		color:var(--clr-star-checked);
+	}
+	
+	// cursor van label wordt pointer bij hover//
+	// maar niet het label na een checked radio//
+	// en kleur wijzigt in hover kleur//
+	label:hover:not( input:checked + label ) {
+		cursor:pointer;
+		color:var(--clr-star-hover);
+	}
+	
+	// kleur van label wordt hover kleur bij hover over label na label
+	// maar niet het label na een checked radio
+	label:has(~ label:hover):not( input:checked + label ) {
+		color:var(--clr-star-hover);
+	}
 }
