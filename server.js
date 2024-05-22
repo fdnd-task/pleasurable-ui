@@ -66,6 +66,14 @@ const datePars = function(postData,categoryData){ // ask how to implement this f
 	return(postData)
 }}
 
+
+const formatPostMeta = (postData) => {
+	const options = { day: 'numeric', month: 'long' };
+	const formattedDate = new Date(post.date_gmt).toLocaleDateString('nl-NL', options);
+	const estimatedReadingTime = post.yoast_head_json.twitter_misc["Geschatte leestijd"].replace("minuten", "min");
+	return `${formattedDate} - ${post.yoast_head_json.author} - ${estimatedReadingTime}`;
+};
+
 // page views 
 
 const views = function(postID){
@@ -175,6 +183,8 @@ app.get("/detail/:id",function(req,res){
 			// functions //
 			//date parser
 			//  postData = datePars(postData); 
+			// formatPostMeta(postData);
+			// console.log(formatPostMeta);
 			
 			// page views detection // can be used to show if a page has already been visited
 			// views(postData);
