@@ -199,14 +199,19 @@ body {
 	}
 
 	/* Carousel Section */
-	section#carousel {
+	section#carousel ul {
 		display: flex;
 		overflow: auto;
 		scroll-snap-type: x mandatory;
 		gap: 2em;
+		scrollbar-width: none;
 	}
 
-	section#carousel article {
+	section#carousel ul::-webkit-scrollbar {
+		display: none;
+	}
+
+	section#carousel li {
 		margin-block: 2em;
 		text-align: center;
 		width: 70vw;
@@ -307,7 +312,11 @@ footer{
 			min-height: 100%;
 		}
 
-		section#carousel article {
+		section#carousel {
+			position: relative;
+		}
+
+		section#carousel li {
 			max-width: 250px;
 		}
 
@@ -320,15 +329,21 @@ footer{
 		}
 
 		/* ADD CODE TO THE BUTTONS */
-		.carousel-buttons{
-			display: flex;
-			pointer-events: all;
-			justify-content: space-between;
-		}
-
 		#prevBtn, #nextBtn {
+			position: absolute;
+			top: 50%;
 			background-color: #000;
 			border-radius: 100%;
+		}
+
+		#prevBtn {
+			left: 0;
+			translate: -50% -50%;
+		}
+
+		#nextBtn {
+			right: 0;
+			translate: 50% -50%;
 		}
 
 	}

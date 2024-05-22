@@ -85,7 +85,7 @@ if(CT){
 // Added carousel buttons
 const prevButtons = document.querySelectorAll("#prevBtn");
 const nextButtons = document.querySelectorAll("#nextBtn");
-const carousels = document.querySelectorAll("#carousel");
+const carousels = document.querySelectorAll("#carousel ul");
 
 prevButtons.forEach((button, index) => {
 	button.removeAttribute("hidden");
