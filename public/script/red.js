@@ -7,6 +7,13 @@ const testBTN = document.querySelector(".inleiding_text");
 // date
 const CT = document.querySelector('header .h-main-datum strong');
 
+// mobile menu 
+const menuBtn = document.querySelector(".menu-open");
+const menuExitBtn = document.querySelector(".menu-exit");
+const menuWindow = document.querySelector("#mobile-menu-window");
+const showMenu = document.querySelector(".showMenu");
+
+
 //forms
 if (formBTN) {
 	forms.forEach((form) => {
@@ -79,6 +86,15 @@ if(CT){
 }
 // check temporal api 
 
+// Mobile window function
+
+menuBtn?.addEventListener("click", function (e) {
+	menuWindow.classList.add("showMenu");
+});
+
+menuExitBtn?.addEventListener("click", (e) => {
+	menuWindow.classList.remove("showMenu");
+});
 
 
 
