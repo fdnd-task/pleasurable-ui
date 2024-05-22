@@ -11,6 +11,18 @@
   --gray: #666;
   --border-color: #e6e6e6;
 
+  /* colors */
+  --white: #FFFFFF;
+  --web-orange: #F7A100;
+  --regent-blue: #E6F2F7;
+  --lochmara: #0071B3;
+  --mine-shaft: #333333;
+  --neutral: #999999;
+  --neutral-2: #666666;
+  --silver: #CCCCCC;
+  --orange-darker: #DE9000;
+  --bahama-blue: #006199;
+
   --default-star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53.867 53.867" xml:space="preserve"><polygon fill="%23e6e6e6" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/></svg>');
   --active-star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53.867 53.867" xml:space="preserve"><polygon fill="%23f7a100" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/></svg>');
   --hover-star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 53.867 53.867" xml:space="preserve"><polygon fill="%23fff0d4" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "/></svg>');
@@ -42,6 +54,27 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+section {
+  padding: 1rem 2rem;
+}
+
+/* ======================================= */
+/* member section */
+/* ======================================= */
+section p {
+  color: var(--neutral-2);
+  margin-bottom: 0;
+}
+
+.member-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  background-color: #0071b3;
 }
 
 /* ---- Header / Nav ---- */
@@ -174,7 +207,7 @@ nav li:not(.li-logo):hover {
   font-size: 1rem;
   font-weight: 400;
   color: var(--gray);
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 }
 
 .favourites-grid {

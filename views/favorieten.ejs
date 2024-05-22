@@ -8,6 +8,26 @@
     de buurt en andere belangrijke details voor je zoektocht.
   </p>
 
+  <!-- leden section -->
+  <section>
+    <!-- leden beschrijving -->
+    <h2>Leden</h2>
+    <p>Alle leden van de favorieten lijst.</p>
+    <!-- leden list -->
+    <ul class="member-list">
+      <li class="member-item">
+        <img src="#" width="25" height="25">
+        <p>Naam</p>
+      </li>
+    </ul>
+    <!-- buttons -->
+    <select class="btn-blue">
+      <option selected>Relevantie</option>
+    </select>
+    <button class="btn-blue">Leden</button>
+
+  </section>
+
   <ul class="favourites-grid">
     <% data.houses.forEach(currentHouse => { %> <%-
     include('partials/card/house-card', {house: currentHouse.f_houses_id}) %> <% })
