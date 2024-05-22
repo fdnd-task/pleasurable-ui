@@ -8,7 +8,51 @@
 <%- include('./partials/header',{header:'',img_src:"" }); -%>
 
 
-<main >
+<main>
+    <section id="cat-highlight">
+        <% posts.slice(0, 3).forEach(post => { %>
+            <article class="highlighted-post">
+                <a href="/detail/<%-post.id%>" class="post-link">
+                    <div class="post-image" style="background-image: url('<%= post.jetpack_featured_media_url %>');">
+                        <h2 class="post-title"><%- post.title.rendered %></h2>
+                        <div class="post-meta">
+                            <span>Data - <%= post.yoast_head_json.author %></span>
+                            <span><%= post.yoast_head_json.twitter_misc["Geschatte leestijd"] %></span>
+                        </div>
+                        <div class="overlay"></div>
+                    </div>
+                </a>
+            </article>
+        <% }) %>
+    </section>
+    <% categories.forEach(category => { %>
+        <a class="category-banner" href="/category/<%-category.slug%>"><%-category.name%> <span>»</span></a>
+        <section id="carousel">
+            <% 
+            const categoryPosts = posts.filter(post => post.categories.includes(category.id)).slice(0, 5); 
+            categoryPosts.forEach(post => { %>
+                <article class="post">
+                    <a href="/detail/<%-post.id%>">
+                        <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="">
+                        <h2 class="post-title"><%- post.title.rendered %></h2>
+                        <% <!-- THIS CAN BE IMPROVED BY DOING THIS ALL INSIDE THE SERVER.JS ALREADY -->
+                        const options = { day: 'numeric', month: 'long' }; 
+                        const formattedDate = new Date(post.date_gmt).toLocaleDateString('nl-NL', options); 
+                        const readingTime = post.yoast_head_json?.twitter_misc?.["Geschatte leestijd"] ?? "N/A"; <!--Had to add this because reading time doesnt exist in some posts -->
+                        const estimatedReadingTime = readingTime.replace("minuten", "min");
+                        %>
+                        <span class="post-meta"><%= formattedDate %> - <%= post.yoast_head_json.author %> - <%= estimatedReadingTime %></span>
+                    </a>
+                </article>
+            <% }) %>
+            <article>
+                <a class="read-more-banner" href="/category/<%-category.slug%>">
+                    <svg width="150px" height="150px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M17 12L7 12M17 12L13 16M17 12L13 8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    <h2>Meer lezen</h2>
+                </a>
+            </article>
+        </section>
+    <% }) %>
 </main>
 
 

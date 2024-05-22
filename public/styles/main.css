@@ -11,25 +11,49 @@ html {
   scroll-behavior: smooth;
 }
 
-:root{
-
-	
+@font-face {
+    font-family: Tiempos-Headline-Medium;
+    src: url(../fonts/TiemposHeadline-Medium.ttf);
 }
 
-body {
+@font-face {
+    font-family: Tiempos-Text-Regular;
+    src: url(../fonts/TiemposText-Regular.ttf);
+}
+
+
+:root{
+	/* Global colors */
+	--main-bg-color: #F7F7F5;
+	--secondary-bg-color: #FFFFFF;
+	--text-color: #000000;
+	--accent-color: #E84340;
+	--secondary-accent-color: #F2D930;
+	--tertiary-accent-color: #5340E8;
+
+	/* Global fonts */
+	--medium-text: 'Tiempos-Headline-Medium', sans serif;
+	--regular-text: 'Tiempos-Text-Regular', sans serif;
+	--content-text: 'Inter', sans serif;
+}
+
+/* IMPORTANT: Needs to be fixed later */
+
+/* body {
 
 	a {
-		color: inherit; /* blue colors for links too */
-		text-decoration: inherit; /* no underline */
+		color: inherit;
+		text-decoration: inherit;
 	  }
 	  
 	button {
-		/*remove standard given styling of buttons */
 		background: none;
 		color: inherit;
 		border: none;
 	}
 
+=======
+	background-color: var(--main-bg-color, white);
 }
 
 /* .darkmode{} */
