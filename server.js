@@ -46,3 +46,12 @@ app.get('/', function (request, response) {
         company: companiesData.data,
     })
 })
+
+app.get('/score-form', function (request, response) { // @ruben: etc.
+    response.render('score-form', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
+        company: companiesData.data,
+    })
+})
