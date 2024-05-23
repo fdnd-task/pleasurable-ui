@@ -8,7 +8,7 @@ body::after{
 	position: fixed;
 	top: 0;
 	z-index: 100;
-	background-color: var(--e-global-color-accent);
+	background-color: red;
 	width: 100%;
 	scale: 0 1;
 	transform-origin: left;
@@ -23,6 +23,7 @@ body::after{
 
 body{
 	--sides : .03fr;
+	position: relative;
 	display: grid;
 	grid-template-columns: var(--sides) [mid-start] 1fr [mid-end] var(--sides);
 	grid-template-rows:auto ;
@@ -54,6 +55,8 @@ main{
 /* post landing section */
 .detail-landing-container{
 	grid-column: 1/-1;
+	grid-row: 1;
+
 	display: grid;
 	grid-template-columns: subgrid;
 	width: 100%;
@@ -196,8 +199,9 @@ main{
 /* //////////////////// */
 
 .main-article{
-	--ccol :green;
 	grid-column: 1/-1;
+	grid-row: 3;
+
 	display: grid;
 	grid-template-columns: subgrid;
 	/* row-gap: 1rem; */

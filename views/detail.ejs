@@ -10,7 +10,7 @@
 
 <main>
 	<% if (post.yoast_head_json) { %>
-		<section class="detail-landing-container ">
+		<section class="detail-landing-container" id="detail-landing">
 
 			<article class="detail-landing-intro">
 				<div class="post-cat-date">
@@ -59,12 +59,17 @@
 	
 	
 
+
 	<% if (post.content) { %>
-		<section class="main-article">
+		<section class="main-article" id="main-article">
 			<%- post.content.rendered; -%>
 		</section>
+	<% } else { %>
+		<section class="main-article">
+			<p>Er is geen inhoud beschikbaar voor <%= post.id %></p>
+			<a href="/">voorpagina</a>
+		</section>
 	<% } %>
-		
 </main>
 
 <%- include('./partials/foot'); -%>
