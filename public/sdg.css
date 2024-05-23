@@ -1,0 +1,112 @@
+/*telefoon versie*/
+/* form styling */
+.sdgMenu{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.sdgLabel{
+    display: flex;
+    flex-direction: column;
+    width: 7rem;
+    height: 7rem;
+    padding: 1rem 1rem 1rem 1rem;
+    justify-content: space-evenly;
+    scale: 1;
+    transition: 0.8s;
+}
+
+.sdgLabel:hover{
+    scale: 1.2;
+    transition: 0.4s;
+}
+
+.sdgRoster{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    list-style: none;
+    display: flex;
+    flex-flow: wrap row;
+    margin: 0 auto;
+}
+
+.sdgMenu [type=checkbox] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+.sdgMenu [type=checkbox] + picture {
+    cursor: pointer;
+}
+
+.sdgMenu [type=checkbox]:checked + picture {
+    outline: 4px solid var(--accent);
+  }
+
+.submitBtn{
+    position: relative;
+    width: 12rem;
+    height: 3rem ;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 25em;
+    cursor: pointer;
+    transition: 0.4s; 
+}
+
+
+
+.submitBtn:hover{
+    background: var(--subTitles);
+    transition: 0.4s;
+    scale: 1.2;
+}
+
+/*desktop versie*/
+@media only screen and (min-width: 730px) {
+    .sdgRoster{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-flow: wrap row;
+    }
+}
+
+  /*accessibility*/
+.sdgMenu [type=checkbox]:focus ~ picture{
+    border: 2px solid white;
+
+}
+
+.submitBtn:focus{
+    background: var(--subTitles);
+    transition: 0.4s;
+    scale: 1.2;
+}
+img{
+    background: grey;
+}
+
+.turnLeft:focus{
+
+    border: 1px solid white;
+}
+
+.quantityChoice{
+    display: none;
+}
+
+/* terug button styling */
+.turnLeft{
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+#turn-left{
+    fill: white;
+}
+
