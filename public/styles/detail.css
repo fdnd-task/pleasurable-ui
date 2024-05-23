@@ -22,8 +22,9 @@ body::after{
 }
 
 body{
+	--sides : .03fr;
 	display: grid;
-	grid-template-columns: .1fr 1fr .1fr;
+	grid-template-columns: var(--sides) [mid-start] 1fr [mid-end] var(--sides);
 	grid-template-rows:auto ;
 	width: 100%;
 
@@ -31,14 +32,18 @@ body{
 
 header{
 	grid-column: 1/-1;
-	display: none;
+	/* display: none; */
+
+	.header-background-shape{
+		display: none;
+	}
 }
 
 #sidebar{
 	display: none;
 }
 
-/* article post */
+/* article */
 main{
 	grid-column: 1/-1;
 	display: grid;
@@ -49,8 +54,8 @@ main{
 /* post landing section */
 .detail-landing-container{
 	grid-column: 1/-1;
-	/* display: grid; */
-	/* grid-template-columns: subgrid; */
+	display: grid;
+	grid-template-columns: subgrid;
 	width: 100%;
 	background-color: #F4F2EC;
 	padding-block:7%;
@@ -58,7 +63,7 @@ main{
 }
 
 .detail-landing-intro{
-	grid-column: 1/-1;
+	grid-column: mid;
 	display: flex;
 	gap: 1rem;
 	flex-direction: column;
@@ -82,7 +87,6 @@ main{
 
 	.post-cat a{
 		color: #E85340;
-
 	}
 }
 
@@ -171,6 +175,7 @@ main{
 /* //////////////////// */
 
 .main-article{
+	--ccol :green;
 	grid-column: 1/-1;
 	display: grid;
 	grid-template-columns: subgrid;
@@ -178,23 +183,66 @@ main{
 	width: 100%;
 	margin-block: 7%;
 	font-family: Tiempos-Text-Regular;
+	
 
 	.wp-block-heading{
 		text-decoration: underline;
 		font-size: 1.2rem;
+		
 	}
 
 	p ~ .wp-block-heading  {
 		margin-bottom: .5rem;
+		
 	}
 
-	.wp-block-heading a{
+	&:nth-child(n) a{
 		color: #E85340;
+		text-decoration: underline;
+	}
+
+	figure img{
+		width: 100% !important;
+		height: auto;
+	}
+
+	.wp-block-image{
+		width: 100% !important;
+		margin-block: 5% ;
+		
+	} 
+
+	.wp-block-image img{
+		width: 100%;
+		object-fit: cover;
+		height: auto;
+	}
+
+	.wp-element-caption{
+		width: 100%;
+	}
+	
+	.size-full{}
+
+	.wp-block-spacer{
+		height: 1.6rem !important;
+	}
+
+	.wp-block-quote {
+		font-family: Tiempos-Headline-Medium;
+		text-transform: capitalize;
+		text-decoration: wavy;
+		font-style: italic;
 	}
 
 	p {
 		margin-bottom: 1rem;
+		
 	}
+
+
+
+
 
 	em:nth-last-of-type(1){
 		color: rgb(107, 107, 18);
