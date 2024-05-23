@@ -76,3 +76,19 @@ document.querySelectorAll(".rating-form").forEach((form) => {
 // document.querySelectorAll(".rating-form button").forEach((button) => {
 //   button.classList.add("hidden");
 // });
+
+
+// ==================================================
+// Dialog venster
+// ==================================================
+const btnLeden = document.querySelector('#btn-leden');
+const dialogLeden = document.querySelector('#dialog-leden');
+const btnCloseDialog = document.querySelector('#btn-close-dialog');
+
+btnLeden.addEventListener("click", () =>{
+    dialogLeden.showModal();
+});
+
+btnCloseDialog.addEventListener("click", () =>{
+    dialogLeden.close();
+});

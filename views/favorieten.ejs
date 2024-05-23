@@ -8,7 +8,9 @@
     de buurt en andere belangrijke details voor je zoektocht.
   </p>
 
-  <!-- leden section -->
+  <!-- ================================================== -->
+  <!-- Leden section -->
+  <!-- ================================================== -->
   <section>
     <!-- leden beschrijving -->
     <h2>Leden</h2>
@@ -29,9 +31,49 @@
       <select class="btn-blue">
         <option selected>Relevantie</option>
       </select>
-      <button class="btn-blue">Leden</button>
+      <button class="btn-blue" id="btn-leden">Leden</button>
     </div>
   </section>
+  <!-- ================================================== -->
+  <!-- Leden dialog -->
+  <!-- ================================================== -->
+  <dialog id="dialog-leden">
+    <form>
+      <!-- Title -->
+      <div class="title-row">
+        <h2>Leden</h2>
+        <button id="btn-close-dialog" formmethod="dialog">X</button>
+      </div>
+      <p>Alle leden van de favorieten lijst.</p>
+
+      <!-- Leden lijst -->
+      <ul class="member-list">
+        <li class="member-item">
+          <img src="#" width="25" height="25">
+          <p>Naam</p>
+        </li>
+        <li class="member-item">
+          <img src="#" width="25" height="25">
+          <p>Naam</p>
+        </li>
+      </ul>
+
+      <hr>
+      <!-- Nieuwe leden -->
+      <h2>Nieuwe leden</h2>
+      <p>Voeg nieuwe leden toe aan je favorieten lijst.</p>
+      <input type="search" placeholder="Zoek naar nieuwe leden...">
+      <ul class="member-list">
+        <li class="member-item">
+          <img src="#" width="25" height="25">
+          <p>Naam</p>
+        </li>
+      </ul>
+      <!-- Buttons -->
+      <button class="btn-secondary-outline" value="cancel" formmethod="dialog">Annuleren</button>
+      <button class="btn-primary-solid" value="default">Opslaan</button>
+    </form>
+  </dialog>
 
   <ul class="favourites-grid">
     <% data.houses.forEach(currentHouse => { %> <%-
