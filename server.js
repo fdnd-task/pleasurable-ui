@@ -253,6 +253,8 @@ app.post("/detail/:id/shares",function(req,res){
 		// need to be changed to a function that copies the url //
 		// let newShares = data.length > 0 ? data[0].shares + 1 : 1;
 
+		console.log(data);
+
 		const x = data[0];
         const newLikes = (x.likes >= 1) ? 0 : 1;
 		const payload = {

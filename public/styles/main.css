@@ -9,6 +9,8 @@ html {
   appearance: none;
   text-decoration: none;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
 }
 
 @font-face {
