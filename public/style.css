@@ -1,5 +1,5 @@
 :root {
-    /* secundaire palette */
+    /* variabelen voor stijling */
     --BGcolor:#272932;
     --PrimaryColor:#947eb0;
     --Secondarycolor:#519879;
@@ -19,8 +19,6 @@ body {
     background-color: var(--BGcolor);
     color: var(--TextColor);
     font-family: halton, sans-serif;
-    
-    
 }
 
 h1 {
@@ -78,7 +76,7 @@ header{
 }
 /* einde algemene stijling */
 
-/* Nav stijling */
+/* Nav stijling. Menu button zit in head.ejs */
 .menu-button {
   padding: .6em 1.2em;
 	border: 1px solid transparent;
@@ -145,6 +143,7 @@ nav svg{
     margin-bottom: 1.5em;
 }
 
+/* Show en filter worden in client-side scripting */
 .show{
   transform: translateX(0%);
 }
