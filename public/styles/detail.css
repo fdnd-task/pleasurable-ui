@@ -333,7 +333,6 @@ footer{
 		minmax(0px, auto);
 
 	  	column-gap: 30px;
-		/* background-color: rgb(176, 183, 162); */
 
 	
   	}
@@ -425,7 +424,7 @@ footer{
 	}
 
 	main{
-		/* background-color: chocolate; */
+		background-color: rgba(214, 152, 108, 0.792);
 	}
 
 	#main-article{
@@ -482,7 +481,7 @@ footer{
 	}
 
 	main{
-		/* background-color: aqua; */
+		background-color: rgb(176, 183, 162);
 	}
 
 	#detail-landing{
@@ -541,7 +540,7 @@ footer{
 	}
 
 	main{
-		background-color: yellow;
+		background-color: rgba(237, 237, 124, 0.712);
 	}
   
 	header {
