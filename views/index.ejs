@@ -1,52 +1,38 @@
 <%- include('./partials/head') %> <!-- Deze regel voegt de inhoud van head.ejs toe aan de pagina -->
 
 
-    
+<!-------------------------------intro section--------------------------------------->
 <article class="intro">
-    <!-- <nav class="breadcrumbs" aria-label="breadcrumbs">
-        <ul class="flex">
-            <li>
-                <a href="https://www.funda.nl/">Home <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" role="presentation" viewBox="0 0 48 48" class="text-neutral-40 mx-1 inline-block w-4 fill-current"><path d="M31.56 22.93L21 12.34a1.5 1.5 0 00-2.12 2.12L28.37 24l-9.54 9.54A1.5 1.5 0 0021 35.66l10.53-10.57a1.52 1.52 0 000-2.13z"></path></svg></a>
-            </li>
-
-            <li>
-                 <a href="https://www.funda.nl/account">Mijn account <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" role="presentation" viewBox="0 0 48 48" class="text-neutral-40 mx-1 inline-block w-4 fill-current"><path d="M31.56 22.93L21 12.34a1.5 1.5 0 00-2.12 2.12L28.37 24l-9.54 9.54A1.5 1.5 0 0021 35.66l10.53-10.57a1.52 1.52 0 000-2.13z"></path></svg></a>
-            </li>
-
-            <li>
-                <span class="text-neutral-40">Favorieten<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#E6F2F7" role="presentation" viewBox="0 0 48 48" class="text-neutral-40 mx-1 inline-block w-4 fill-current"><path d="M31.56 22.93L21 12.34a1.5 1.5 0 00-2.12 2.12L28.37 24l-9.54 9.54A1.5 1.5 0 0021 35.66l10.53-10.57a1.52 1.52 0 000-2.13z"></path></svg></span>
-            </li>
-        </ul> -->
-    </nav>
     <h1>Gedeelde favorieten</h1>
     <p>In dit overzicht vind je al je favoriete huizen terug in je aangemaakte lijst. Maak het jezelf makkelijker door huizen te bewaren en beoordelingen toe te voegen en te delen over het huis, de buurt en andere belangrijke details voor je zoektocht.<p>
 </article> 
+<!-------------------------------intro section end--------------------------------------->
 
-<h2>Eerste woning</h2>
-  
+<!-------------------------------house-list section--------------------------------------->
 <section class="house-list">
+    <div class="list-name">
+        <h2>Eerste woning</h2>
+        <button class="add-house-button">Zie alle lijsten</button>
+  
+    </div>
     <% houses.forEach(function(house) { %>
-        <section class="house">
-            <img src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>" alt="Afbeelding van een huis">
-            <ul class="house-info">
-                <li>
-                    <h3><%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.nr_addition %></h3>
-                </li>
-                <li>  
-                    <p><%= house.f_houses_id.postal_code %></p>
-                    <p><%= house.f_houses_id.city %></p>
-                </li>
-                <li>
-                    <p>€<%= house.f_houses_id.price %>K.K.</p>
-                </li>
-                <li>
-                    <p><%= house.f_houses_id.m2 %> m2/<%= house.f_houses_id.rooms %> kamers</p>
-                </li>
-            </ul>
-          <!-- <span class="material-symbols-outlined">close</span> -->
-          <!-- <button class="ranking-button">Beoordeling toevoegen</button> -->
-        </section>
-        <% }) %>
+        <div class="house-card">
+            <img src="https://fdnd-agency.directus.app/assets/<%= house.f_houses_id.poster_image %>" alt="Afbeelding van een huis" class="house-image">
+            <article class="house-details">
+                <h3 class="house-title"><%= house.f_houses_id.street %> <%= house.f_houses_id.house_nr %> <%= house.f_houses_id.nr_addition %></h3>
+                <p class="house-location"><%= house.f_houses_id.postal_code %> <%= house.f_houses_id.city %></p>
+                <p class="house-price">€<%= house.f_houses_id.price %> K.K.</p>
+                <p class="house-size"><%= house.f_houses_id.m2 %> m² / <%= house.f_houses_id.rooms %> kamers</p>
+                <button class="beoordeling-button">Beoordeling toevoegen</button>
+            </article>
+        </div>
+
+<!-------------------------------house-list section end--------------------------------------->
+
+<!-------------------------------rating section--------------------------------------->
+<%- include('./partials/rating', { house: house }) %>  <!-- Deze regel voegt de inhoud van rating.ejs toe aan de pagina -->
+    <% }) %>
 </section>
+<!-------------------------------rating section end--------------------------------------->
 </body>
 </html>
