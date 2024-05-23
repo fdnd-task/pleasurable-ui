@@ -1,36 +1,11 @@
 
 /* Algemene stijling */
-/* img {
-  width: 250px;
-  height: 250px;
-  margin: 3em;
-  transition: box-shadow 0.1s;
-} */
-
 /* main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
 } */
-
-/* Nav stijling. Menu button zit in head.ejs */
-.menu-button {
-  padding: .6em 1.2em;
-	border: 1px solid transparent;
-	border-radius: .5rem;
-	font-family: inherit;
-	font-size: inherit;
-	text-decoration: none;
-	color: var(--TextColor);
-	background: var(--PrimaryColor);
-	cursor: pointer;
-}
-
-.menu-button:focus-visible {
-  outline: 4px solid var(--Accentcolor);
-  padding: .5em;
-}
 
 /* Show en filter worden in client-side scripting */
 .show{
@@ -39,9 +14,10 @@
 
 .filter{
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.596);
-  height: 100%;
-  width: 100%;
+  left: 0;
+  background-color: rgba(39, 39, 39, 0.596);
+  height: 100vh;
+  width: 25%;
   pointer-events: none;
 }
 /* Dit is het einde van de nav stijling
@@ -90,4 +66,22 @@ input[type="email"], input[type="password"] {
   select:focus-visible {
     outline: 4px solid var(--Secondarycolor);
     padding: .5em;
+  }
+
+  .custom-select{
+    display: block;
+    width: 15rem;
+    background: var(--text);
+    margin: 0 auto;
+  }
+  .loginBtn{
+    display: block;
+    width: 12rem;
+    height: 3rem ;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 25em;
+    cursor: pointer;
+    transition: 0.4s; 
+    margin: 0 auto;
   }

@@ -3,7 +3,7 @@
 const menu = document.querySelector('.crossnav')
 const button = document.querySelector('.menu-button')
 const close = document.querySelector('path')
-const filterdiv = document.querySelector('main div:first-child')
+const filterdiv = document.querySelector('#menu')
 
 			button.addEventListener('click', function(){
   			menu.classList.add('show');

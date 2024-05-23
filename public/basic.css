@@ -1,10 +1,5 @@
 /* basis styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
+:root{
     --background: #272932;
     --text: #fcffff;
     --headTitles: #947EB0;
@@ -114,6 +109,30 @@ nav svg{
     cursor: pointer;   
     margin-bottom: 1.5em;
 }
+
+/* Nav styling. Menu button zit in head.ejs */
+.menu-button {
+    position: absolute;
+    top: 1.5rem;
+    left: 0.5rem;
+    padding: .6em 1.2em;
+      border: 1px solid transparent;
+      border-radius: .5rem;
+      font-family: inherit;
+      font-size: inherit;
+      text-decoration: none;
+      color: var(--TextColor);
+      background: var(--PrimaryColor);
+      cursor: pointer;
+      font-size: 1.5rem;
+      background: var(--accent);
+
+  }
+  
+  .menu-button:focus-visible {
+    outline: 4px solid var(--text);
+    padding: .5em;
+  }
 
   /* mobiele weergave */
 @media screen and (max-width: 480px) {
