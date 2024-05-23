@@ -1,80 +1,18 @@
-:root {
-    /* variabelen voor stijling */
-    --BGcolor:#272932;
-    --PrimaryColor:#947eb0;
-    --Secondarycolor:#519879;
-    --TextColor:#ecf8f8;
-    --Accentcolor:#fb8b24;
-}
-
 
 /* Algemene stijling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--BGcolor);
-    color: var(--TextColor);
-    font-family: halton, sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
-    color: var(--TextColor);
-}
-
-h2 {
-  text-align: center;
-  font-size: 2em;
-  padding: 1.5em;
-}
-
-h3 {
-  text-align: center;
-  font-size: 1.5em;
-  padding: 1.5em;
-}
-
-p {
-  font-family: halton-italic, sans-serif;
-  font-size: 1em;
-}
-
-img {
+/* img {
   width: 250px;
   height: 250px;
   margin: 3em;
   transition: box-shadow 0.1s;
-}
+} */
 
-main {
+/* main {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: column;
-}
-
-section  {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-flow: row;
-    flex-wrap: wrap;
-    padding: 3.5em;
-    width: 100%;
-}
-
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* einde algemene stijling */
+} */
 
 /* Nav stijling. Menu button zit in head.ejs */
 .menu-button {
@@ -92,55 +30,6 @@ header{
 .menu-button:focus-visible {
   outline: 4px solid var(--Accentcolor);
   padding: .5em;
-}
-
-nav {
-    width: 300px;
-    height: 100%;
-    position: fixed;
-    transform: translateX(-100%);
-		transition: .2s;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5em;
-    z-index: 1;
-    background-color: var(--PrimaryColor);
-}
-
-nav li {
-    list-style: none;
-    padding: 0.5em 0 1.5em 0; 
-    width: 100%;
-}
-
-nav li a{
-    text-decoration: none;
-    color: var(--TextColor);
-    padding: .8em;
-    width: 100%;
-}
-
-nav li a:hover{
-    background-color: var(--Secondarycolor);
-    color: var(--TextColor);
-    font-size: 1em;
-    text-align: left;
-}
-
-nav li a:active {
-  background-color: var(--Accentcolor);
-}
-
-nav li a:focus-visible {
-  outline: 4px solid var(--Accentcolor);
-  background-color: var(--BGcolor);
-  padding: .5em;
-}
-
-nav svg{
-    float: left;
-    cursor: pointer;   
-    margin-bottom: 1.5em;
 }
 
 /* Show en filter worden in client-side scripting */
@@ -202,123 +91,3 @@ input[type="email"], input[type="password"] {
     outline: 4px solid var(--Secondarycolor);
     padding: .5em;
   }
-  /* Einde stijling inputvelden */
-
-  /* mobiele weergave */
-  @media screen and (max-width: 480px) {
-    /* mobiel menu werkt naar behoren met knop*/
-    nav {
-      width: 100%;
-      height: auto;
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      padding: 1.5em;
-      z-index: 1;
-      background-color: var(--PrimaryColor);
-  }
-  
-  nav li {
-      list-style: none;
-      padding: 0.5em 0 1.5em 0; 
-  }
-  
-  nav li a{
-      text-decoration: none;
-      color: var(--TextColor);
-  }
-  
-  nav li a:hover{
-      background-color: var(--Secondarycolor);
-      padding: 0.5em;
-      color: var(--green);
-      font-size: 1.2em;
-      font-weight: bold;
-      width: 100%;
-  }
-  
-  nav:focus {
-    outline: 4px solid var(--Secondarycolor);
-  }
-
- 
-  body {
-    background-color: var(--BGcolor);
-    color: var(--TextColor);
-    font-family: halton, sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
-    color: var(--TextColor);
-}
-
-h2 {
-  text-align: center;
-  font-size: 2em;
-  padding: 1.5em;
-}
-
-h3 {
-  text-align: center;
-  font-size: 1.5em;
-  padding: 1.5em;
-}
-
-p {
-  font-family: halton-italic, sans-serif;
-  font-size: 1em;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-}
-
-section  {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-flow: row;
-    flex-wrap: wrap;
-    padding: 3.5em;
-    width: 100%;
-}
-
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-input[type="email"], input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid var(--Accentcolor);
-  border-radius: 3px;
-  box-sizing: border-box;
-}
-
-input[type='submit'] {
-  width: 100%;
-  padding: 0.5em;
-  font-family: halton, sans-serif;
-  text-transform: uppercase;
-  border-radius: 5px;
-  border: 2px solid var(--Accentcolor);
-  background-color: var(--BGcolor);
-  color: var(--TextColor);
-}
-
-input[type='submit']:hover {
-  background-color: var(--Secondarycolor);
-  color: var(--TextColor);
-  cursor: pointer; 
-  }
-}
-/* Einde mobiele weergave */
