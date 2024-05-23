@@ -1,4 +1,4 @@
-rs<%- include('./partials/head', {head:'', title: post.title.rendered}); -%>
+<%- include('./partials/head', {head:'rs', title: post.title.rendered}); -%>
 <link rel="stylesheet" href="/styles/detail.css" type="text/css">
 
 </head>
@@ -9,43 +9,53 @@ rs<%- include('./partials/head', {head:'', title: post.title.rendered}); -%>
 <%- include('./partials/header',{header:'',img_src: post.yoast_head_json.og_image[0].url}); -%>
 
 <main>
-	
-	<section class="detail-landing-container ">
+	<% if (post.yoast_head_json) { %>
+		<section class="detail-landing-container ">
 
-		<div class="detail-landing-intro">
-			<div class="post-cat&date">
-				<a href="./categories/<%= post.yoast_head_json.schema["@graph"][0].articleSection[0] %>">
-					<span class="post-cat"><%- post.yoast_head_json.schema["@graph"][0].articleSection[0] %></span>
-				</a>
-				<span class="post-date"><%- post.date_gmt %></span>
-			</div>
-			<div class="post-intro">
-				<h1 class="title"><%- post.title.rendered; -%></h1>
-				<p><%- post.excerpt.rendered; -%></p>
-				<div class="author&leestijd">
-					<a href="./author/<%= post.author %>">
-						<span class="author"><%- post.yoast_head_json.author%></span>
-					</a>
-					<span class="leestijd"><%-post.yoast_head_json.twitter_misc["Geschatte leestijd"]%></span>
+			<article class="detail-landing-intro">
+				<div class="post-cat-date">
+					<span class="post-cat">	
+						<a href=./categories/<%= post.yoast_head_json.schema["@graph"][0].articleSection[0] %> > <%- post.yoast_head_json.schema["@graph"][0].articleSection[0] %></a>
+					</span>
+					<span class="post-date"><%- post.date_gmt %></span>
 				</div>
-			</div>
-		</div>
 
-		<div class="detail-landing img_container">
-			<div class="img-contents">
-				<img src="<%= post.yoast_head_json.og_image[0].url %>" 
-				alt="<%= post.yoast_head_json.og_image[0].alt %>"
-				width="<%= post.yoast_head_json.og_image[0].width %>"
-				height="<%= post.yoast_head_json.og_image[0].height %>" >
-				<p class="img-photographer">photographer</p>
-			</div>
-		</div>
+				<div class="post-intro">
+					<h1 class="title"><%- post.title.rendered -%></h1>
+					<div class="exerpt"><%- post.excerpt.rendered %> </div>
+					<div class="author-leestijd">
+						<div class="author">
+							<p>author :</p>
+							<span><a href="./author/<%= post.author %>"><%- post.yoast_head_json.author%></a></span>
+						</div>
+						<div class="leestijd">
+							<p>leestijd :</p>
+							<span><%-post.yoast_head_json.twitter_misc["Geschatte leestijd"]%></span>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="img-container">
+				<div class="img-contents">
+					<img src="<%= post.yoast_head_json.og_image[0].url %>" 
+					alt="<%= post.yoast_head_json.og_image[0].alt %>"
+					width="<%= post.yoast_head_json.og_image[0].width %>"
+					height="<%= post.yoast_head_json.og_image[0].height %>" >
+					<p class="img-photographer">Beeld: <span>photographer</span> </p>
+				</div>
+			</article>
+			
+		</section>
+	<% } %>
+	
+
+	<% if (post.content) { %>
+		<section class="main-article">
+			<%- post.content.rendered; -%>
+		</section>
+	<% } %>
 		
-	</section>
-
-	<section class="main-article">
-		<%- post.content.rendered; -%>
-	</section>
 </main>
 
 <%- include('./partials/foot'); -%>
