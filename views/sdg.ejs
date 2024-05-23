@@ -5,10 +5,10 @@
 
 <main>
     <form action="/score" method="POST" class="sdgMenu">
-        <ul>
+        <ul class="sgdRoster">
         <% sdgs.forEach(sdg => { %>
         <li>
-            <label>
+            <label class="sdgLabel">
                 <input  class="choose" type="checkbox"  name="sdg_id" value="<%= sdg.id %>">
                 <picture>
                     <source srcset="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>?format=avif" type="image/avif">

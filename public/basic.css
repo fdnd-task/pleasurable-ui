@@ -1,0 +1,41 @@
+/* basis styling */
+body{
+    --background: #272932;
+    --text: #fcffff;
+    --headTitles: #947EB0;
+    --subTitles: #519879;
+    --accent: #B05603;
+
+    background: var(--background);
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+h1{
+    font-family: halton, sans-serif;
+    font-size: 2rem;
+    color: var(--headTitles);
+    text-align: center;
+}
+
+h2{
+    font-family: halton, sans-serif;
+    font-size: 1.5rem;
+    color: var(--subTitles);
+    text-align: center;
+}
+
+p{
+    font-family: halton-italic, sans-serif;
+    font-size: 1em;
+    color: var(--text);
+    text-align: center;
+}
