@@ -4,8 +4,9 @@ import fetchJson from './helpers/fetch-json.js'
 const app = express(),
 apiUrl = 'https://fdnd-agency.directus.app/items',
 scores = 'https://fdnd-agency.directus.app/items/hf_scores/?filter[stakeholder_id]=6',
-sdgData = await fetchJson(apiUrl + '/hf_sdgs')
-// sdgChosen = []
+sdgData = await fetchJson(apiUrl + '/hf_sdgs'),
+stakeholders = apiUrl + "hf_stakeholders",
+companies = apiUrl + "hf_companies";
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -14,10 +15,20 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 // console.log(sdgData.data)
 
-// get index
-app.get('/', (request, response) =>  {
+// Hier de get route van login
+app.get('/', function(request, response) {
+  fetchJson(companies).then((companiesUitDeAPI) => {
+    response.render("index", {
+      companies: companiesUitDeAPI.data
+    });
+  });
+});
+
+
+// get sdg
+app.get('/sdg', (request, response) =>  {
   fetchJson(apiUrl + '/hf_sdgs').then((sdgData) =>{
-	  response.render('index', {
+	  response.render('sdg', {
     sdgs: sdgData.data
     })
   })
@@ -31,12 +42,21 @@ app.get('/score', (request, response) => {
   })
 })
 
+// post functie van index
+app.post('/', function (request, response) {
+  const bedrijfsID = request.body.companies;
+
+  console.log(bedrijfsID);
+  response.redirect("/dashboard/" + bedrijfsID);
+});
+
 app.post('/score', (request, response) =>{
   console.log(request.body)
   if (!Array.isArray(request.body.sdg_id)) {
     request.body.sdg_id = [request.body.sdg_id]
   }
-  let result
+  let result;
+  
   // Voor elke sdg_id in de request.body, loop door deze fetch
   request.body.sdg_id.forEach(async function(sdg_id) {
     let body = JSON.stringify({
@@ -54,8 +74,7 @@ app.post('/score', (request, response) =>{
 })
 
 
-
-// Stel het poortnummer in waar express op moet gaan luisteren
+// Stel het poortnummer in waar express naar moet gaan luisteren
 app.set('port', process.env.PORT || 8001)
 
 // Start express op, haal daarbij het zojuist ingestelde poortnummer op
