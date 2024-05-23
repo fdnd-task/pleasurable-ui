@@ -171,6 +171,27 @@ main{
 }
 
 /* //////////////////// */
+/* button navbar */
+/* //////////////////// */
+
+#btn-nav{
+	grid-column: 1/-1;
+	grid-row: 2;
+
+	display: grid;
+	height: fit-content;
+	gap: 1rem;
+	
+}
+
+.button-nav ul {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	padding-inline: auto;
+}
+
+/* //////////////////// */
 /* main article content */
 /* //////////////////// */
 
