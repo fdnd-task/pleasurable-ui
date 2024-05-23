@@ -3,7 +3,7 @@ import fetchJson from './helpers/fetch-json.js'
 
 const app = express(),
 apiUrl = 'https://fdnd-agency.directus.app/items',
-scores = apiUrl + '/hf_scores',
+scores = 'https://fdnd-agency.directus.app/items/hf_scores/?filter[stakeholder_id]=6',
 sdgData = await fetchJson(apiUrl + '/hf_sdgs')
 // sdgChosen = []
 
@@ -24,7 +24,11 @@ app.get('/', (request, response) =>  {
 })
 
 app.get('/score', (request, response) => {
-  response.render('score')
+  fetchJson(scores).then((scoreData) =>{
+    response.render('score', {
+      scores: scoreData.data
+    })
+  })
 })
 
 app.post('/score', (request, response) =>{
