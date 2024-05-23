@@ -224,7 +224,7 @@ body {
     .card-image {
       width: 100%;
       height: 40%;
-      object-fit: fill;
+      object-fit: cover;
     }
   
     .card-link:before {
@@ -266,7 +266,7 @@ body {
     .card-favorites {
       position: relative;
       border: solid 0.1em var(--regent-blue-primary-color);
-      height: 60vh;
+      height: auto;
       width: auto;
       background-color: var(--white-primary-color);
       margin-bottom: 20px;
@@ -313,124 +313,6 @@ body {
 
 /****************************************************************
                                                                 *
-                    Button Pop up index.EJS                     *                        
-                                                                *
-*****************************************************************/
-    .btn__container {
-      margin-top: 20px;
-    }
-
-    .btn-popup {
-      font-size: 1em;
-      padding: 10px;
-      background-color: var(--regent-blue-primary-color);
-      color: var(--color-main-text);
-      border: 2px solid var(--web-orange-primary-color);
-      border-radius: 20px/50px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s ease-out;
-      position: relative;
-      z-index: 1; 
-    }
-
-    .btn-popup:hover {
-      background-color: var(--web-orange-primary-color);
-      z-index: 1;
-    }
-
-  
-
-
-/****************************************************************
-                                                                *
-                          POPUP RATINGS                         *                        
-                                                                *
-*****************************************************************/
-
-.overlay { 
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--regent-blue-primary-color);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.popup {
-  margin: 70px auto;
-  padding: 20px;
-  background-color: var(--regent-blue-primary-color);
-  border-radius: 5px;
-  width: 70%;
-  position: relative;
-  /* transition: all 5s ease-in-out; */
-}
-
-.popup h2 {
-  margin-top: 0;
-  color: var(--color-main-text);
-}
-
-.popup .close {
-  position: absolute;
-  bottom: 5em;
-  left: 110%;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: var(--color-main-text);
-}
-
-.popup .close:hover {
-  color: var(--web-orange-primary-color);
-}
-
-@media (min-width: 45rem) {
-  .popup {
-    margin: 70px auto;
-    padding: 20px;
-    background-color: var(--regent-blue-primary-color);
-    border-radius: 5px;
-    width: 100%;
-    position: relative;
-  }
-
-  .popup .close {
-    position: absolute;
-    bottom: 5em;
-    left: 90%;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: var(--color-main-text);
-  }
-}
-
-@media (min-width:55rem) {
-  .popup .close {
-    position: absolute;
-    bottom: 5em;
-    left: 95%;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: var(--color-main-text);
-  }
-}
-
-
-/****************************************************************
-                                                                *
                         Index.EJS Ratings                       *                        
                                                                 *
 *****************************************************************/
@@ -441,6 +323,7 @@ form {
 input[type="radio"] {
   display: none;
 }
+
 input 
 {
   appearance: none;
@@ -460,6 +343,10 @@ label
   font-family: sans-serif;
   color: #999;
   padding: 1em;
+}
+
+input[type="submit"] {
+  display: none;
 }
 
 /* The adjacent sibling combinator */
