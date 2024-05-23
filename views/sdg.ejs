@@ -9,6 +9,7 @@
         <% sdgs.forEach(sdg => { %>
         <li>
             <label class="sdgLabel">
+
                 <input  class="choose" type="checkbox"  name="sdg_id" value="<%= sdg.id %>">
                 <picture>
                     <source srcset="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>?format=avif" type="image/avif">
