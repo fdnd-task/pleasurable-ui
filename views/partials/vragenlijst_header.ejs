@@ -1,0 +1,69 @@
+<header>
+    <section>
+        <ul>
+            <li>Jij bent hier:</li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li>Klant toevoegen</li>
+        </ul>
+
+        <a href="/dashboard">Annuleren X</a>
+        <h1>Klant toevoegen</h1>
+        
+    </section>
+
+    <section>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <label>
+            <% if (current == 'gegevens') { %>
+                <progress id="file" value="5" max="100" list="progress"> 0% </progress>
+            <% } %>
+            <% if (current == 'sdgs') { %>
+                <progress id="file" value="33" max="100" list="progress"> 33% </progress>
+            <% } %>
+            <% if (current == 'scores') { %>
+                <progress id="file" value="66" max="100" list="progress"> 66% </progress>
+            <% } %>
+            
+        </label> -->
+        <ol class="steps">
+            <li <% if (current == 'gegevens') { %> class="active"<% } %> <% if (current == 'sdgs') { %> class="done"<% } %> <% if (current == 'scores') { %> class="done" <% } %>>
+                <div>
+                    <% if (current == 'gegevens') { %>
+                        <div>1 </div>
+                    <% } else { %>
+                        <div>✓</div>
+                    <% } %>
+                    <p>Klant toevoegen</p>
+                </div>
+            </li>
+   
+            <li <% if (current == 'sdgs') { %> class="active" <% } %><% if (current == 'scores') { %> class="done" <% } %>>
+                <div>
+                    <% if (current == 'gegevens') { %>
+                        <div>2 </div>
+                    <% } %>
+                    <% if (current == 'sdgs') { %>
+                        <div>2 </div>
+                    <% } %>
+                    <% if (current == 'scores') { %>
+                        <div>✓</div>
+                    <% } %>
+                    <p>SDG's kiezen</p>
+                </div>
+                
+                
+            </li>
+  
+            <li <% if (current == 'scores') { %> class="active" <% } %>>
+                <div>
+                    <div> 3 </div>
+                    <p>Scores toevoegen</p>
+                </div>
+                
+            </li>
+        </ol>
+    </section>
+</header>
