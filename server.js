@@ -2,7 +2,7 @@ import express from 'express'
 import fetchJson from './helpers/fetch-json.js'
 
 const app = express(),
-apiUrl = 'https://fdnd-agency.directus.app/items',
+apiUrl = 'https://fdnd-agency.directus.app/items/',
 scores = 'https://fdnd-agency.directus.app/items/hf_scores/?filter[stakeholder_id]=6',
 sdgData = await fetchJson(apiUrl + '/hf_sdgs'),
 stakeholders = apiUrl + "hf_stakeholders",
