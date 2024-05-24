@@ -79,8 +79,8 @@ function ratingHandler(id, rating, loaderEl, successEl) {
     } catch (error) {
         // Log eventuele errors en verberg de loader
         console.error(error);
-        // Gebruik Toastify om een toast notificatie te weergeven als error state
         loaderEl.classList.add("hidden");
+        // Gebruik Toastify om een toast notificatie te weergeven als error state
         Toastify({
             text: "Beoordeling niet opgeslagen. Probeer het later nog eens. ",
             duration: 3000,
