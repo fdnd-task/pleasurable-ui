@@ -43,12 +43,9 @@ app.get("/", function (request, response) {
             return response.json();
         }));
     }).then(function (data) {
+        // Maak een nieuwe array aan waarin de huizen en de ratings worden gecombineerd
         // data[0] is de response van de huizen fetch
         // data[1] is de response van de ratings fetch
-        console.log('Data from first fetch', data[0]);
-        console.log('Data from second fetch', data[1]);
-
-        // Maak een nieuwe array aan waarin de huizen en de ratings worden gecombineerd
         const houses = data[0].data;
         const ratings = data[1].data.reverse();
         const updatedHousesData = houses.houses.map((house) => {
