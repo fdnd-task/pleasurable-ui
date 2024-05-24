@@ -9,6 +9,8 @@ html {
   appearance: none;
   text-decoration: none;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
 }
 
 @font-face {
@@ -39,12 +41,12 @@ html {
 
 /* IMPORTANT: Needs to be fixed later */
 
-/* body {
+body {
 
-	a {
+	/* a {
 		color: inherit;
 		text-decoration: inherit;
-	  }
+	  } */
 	  
 	button {
 		background: none;
@@ -52,10 +54,6 @@ html {
 		border: none;
 	}
 
-	
-
-=======
-	background-color: var(--main-bg-color, white);
 }
 
 /* .darkmode{} */

@@ -253,6 +253,8 @@ app.post("/detail/:id/shares",function(req,res){
 		// need to be changed to a function that copies the url //
 		// let newShares = data.length > 0 ? data[0].shares + 1 : 1;
 
+		console.log(data);
+
 		const x = data[0];
         const newLikes = (x.likes >= 1) ? 0 : 1;
 		const payload = {
@@ -287,26 +289,31 @@ app.post("/detail/:id/shares",function(req,res){
 // GET route for category list
 app.get("/categories",function(req,res){
 	fetchJson(categoriesUrl).then((categoriesData)=>{
-		res.render("category.ejs",{
+		res.render("categories.ejs",{
 
 			// cat : categories
 			cat: categoriesData,
-		})
+		});
+		console.log("categories-page success");
+
+
 
 	})
 
 });
 
 // GET route for individual category 
-app.get("/category/:slug",function(req,res){
-	fetchJson(`${categoriesUrl}&slug=${req.params.slug}`).then((categoriesData)=>{
+app.get("/category/:name",function(req,res){
+	fetchJson(`${categoriesUrl}&name=${req.params.name}`).then((categoriesData)=>{
 		fetchJson(`${postsUrl}&categories=${categoriesData[0].id}`).then((postData)=>{
 			// function
-			postData = datePars(postData); 
+			// postData = datePars(postData); 
 
-			res.render("category.ejs",{
-				post: postData,
-			})
+			res.render("categories.ejs",{
+				post: postData
+			});
+
+			console.log(`${req.params.slug}`+"-page success");
 
 		})
 	} )
@@ -327,6 +334,8 @@ app.get("/authors",function(req,res){
 		})
 	})
 	
+	console.log("author-page success");
+
 	
 	
 
@@ -347,6 +356,9 @@ app.get("/author/:id",function(req,res){
 			// cat : categories
 			cat: categoriesData,
 		})
+
+		console.log(`author:${req.params.id}`+"page success");
+
 	})
 });
 
