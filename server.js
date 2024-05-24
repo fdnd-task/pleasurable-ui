@@ -57,8 +57,6 @@ app.get("/", function (request, response) {
         });
         const finalData = { ...houses, houses: updatedHousesData };
 
-        console.log('Final data', finalData);
-
         // Render de favorieten.ejs template en geef de gecombineerde data mee
         response.render("favorieten", { data: finalData });
     }).catch(function (error) {
