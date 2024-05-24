@@ -52,11 +52,31 @@ html {
 		border: none;
 	}
 
+	
+
 =======
 	background-color: var(--main-bg-color, white);
 }
 
 /* .darkmode{} */
+
+body::before {
+	display: grid;
+	place-content: center;
+	position: fixed;
+	inset: 0;
+	background-color: #040404;
+	opacity: 1;
+	animation: fade-out 1.10s forwards;
+	animation-delay: .75s;
+	pointer-events: none;
+	content: 'RedPers podium voor journalistiek';
+	color: whitesmoke;
+	font-family: 'Arial', sans-serif;
+	font-size: 1.25em;
+	z-index: 3;
+  }
+
 
 
 
@@ -284,6 +304,13 @@ footer{
 	50%   { opacity: 0.5; }
 	100%  { opacity: 1; }
 } 
+
+@keyframes fade-out {
+	to {
+	  /* transform: translateY(-75%); */
+	  opacity: 0;
+	}
+  }
 
 
 /* #endregion */ 
