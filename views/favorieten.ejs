@@ -1,0 +1,20 @@
+<%- include('partials/head') %> <%- include('partials/nav') %>
+
+<div class="layout-container page-favourites">
+  <h1>Favorieten</h1>
+  <p>
+    In dit overzicht vind je al je favoriete huizen terug. Maak het jezelf
+    makkelijker door huizen te bewaren en notities toe te voegen over het huis,
+    de buurt en andere belangrijke details voor je zoektocht.
+  </p>
+
+  <ul class="favourites-grid">
+    <% data.houses.forEach(currentHouse => { %> <%-
+    include('partials/card/house-card', {house: currentHouse.f_houses_id}) %> <% })
+    %>
+  </ul>
+</div>
+
+<script src="/scripts/favorieten.js" defer></script>
+<%- include('partials/footer') %>
+<%- include('partials/foot') %>
