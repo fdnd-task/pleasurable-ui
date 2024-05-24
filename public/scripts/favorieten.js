@@ -13,6 +13,8 @@ prices.forEach((price) => {
     price.innerHTML = `€${numberWithPeriods(priceValue)}`;
 });
 
+// Mobile menu
+
 // Clientside POST ratings
 document.querySelectorAll(".rating-form").forEach((form) => {
     // Dit is een Progressive Enhancement feature om de form te submitten met een eventListener op de radio buttons, maar dit kreeg ik niet werkend
