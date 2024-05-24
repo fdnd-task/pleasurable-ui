@@ -65,6 +65,17 @@ document.querySelectorAll(".rating-form").forEach((form) => {
             // TODO: Error state
             console.error(error);
             loader.classList.add("hidden");
+            Toastify({
+                text: "Beoordeling niet gelukt. Probeer het later nog eens. ",
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: "linear-gradient(to right, #ad2429, #9e181c)",
+                },
+            }).showToast();
         }
 
         event.preventDefault();
