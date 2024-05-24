@@ -1,5 +1,3 @@
-console.log('Hier komt jullie server')
-
 /*** Express setup & start ***/
 
 // Importeer het npm pakket express uit de node_modules map

@@ -1,5 +1,8 @@
+<!-- Koppel de stylesheet -->
+<link rel="stylesheet" href="/style.css">
+
 <section class="vraagaanbod"> 
-    <!-- Doe dit meerdere keren.. -->
+    <!-- Doe dit meerdere keren -->
     <% vraagaanbod.forEach(function(initatief) {%>
         <article>
         <!-- Titel van het vraagaanbod -->
@@ -34,7 +37,7 @@
         <!-- Like button -->
         <form action="/like" method="POST">
             <input type="hidden" name="likes" value="<%= initatief.likes %>">
-            <button class="like-button" for="<%= initatief.id %>-like" value="<%= initatief.id %>" name="initiatiefId">Like</button>
+            <button class="like-button" value="<%= initatief.id %>-like" value="<%= initatief.id %>" name="initiatiefId">Like</button>
             <span><%= vraagaanbod.likes %></span>
         </form>  
         
