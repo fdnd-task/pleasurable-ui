@@ -1,0 +1,12 @@
+<figure>
+    <img src="https://fdnd-agency.directus.app/assets/<%= house.poster_image %>" alt="Foto van het huis">
+</figure>
+<div>
+    <h1><%= house.street %> <%= house.house_nr %> <%= house.nr_addition %></h1>
+    <p><%= house.postal_code%> <%= house.city %></p>
+    <p>€ <%= house.price %> k.k.</p>
+    <p><%= house.m2 %> m² / <%= house.m2_garden %> m² <%= house.rooms %> kamers</p>
+    <p><%= house.agent %></p>
+    <p><%- house.summary %></p>
+    <p><%- house.description %></p>
+</div>
