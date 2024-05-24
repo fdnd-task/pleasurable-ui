@@ -4,7 +4,7 @@
       <%- include('../icons/cross-icon') %>
     </button>
   </form>
-  <a href="/house/<%= house.id %>">
+  <a href="/detail/<%= house.id %>">
     <picture>
       <source
         srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?format=avif"
@@ -24,7 +24,7 @@
     </picture>
   </a>
   <div class="card-container">
-    <a href="/house/<%= house.id %>">
+    <a href="/detail/<%= house.id %>">
       <h2><%= house.street %> <%= house.house_nr %></h2>
     </a>
     <span class="price">€<%= house.price %></span>

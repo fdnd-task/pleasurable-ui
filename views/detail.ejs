@@ -1,0 +1,22 @@
+<%- include('partials/head') %> <%- include('partials/nav') %>
+
+<figure>
+    <img 
+        src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>"
+        height="<%= house.poster_image.height %>" 
+        width="<%= house.poster_image.width %>" 
+        alt="Foto van het huis">
+</figure>
+<div class="house-container">
+    <h1 class="house-name"><%= house.street %> <%= house.house_nr %> <%= house.nr_addition %></h1>
+    <p class="house-code"><%= house.postal_code%> <%= house.city %></p>
+    <p class="house-width"><%= house.m2 %> m² / <%= house.m2_garden %> m² <%= house.rooms %> kamers</p>
+    <p class="house-agent"><%= house.agent %></p>
+    <p class="house-price">€ <span><%= house.price %></span> k.k.</pricetag>
+    <h2 class="heading">Omschrijving</h2>
+    <p><%- house.description %></p>
+</div>
+
+<script src="/scripts/detail.js" defer></script>
+
+<%- include('partials/foot') %>
