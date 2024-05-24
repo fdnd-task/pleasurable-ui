@@ -27,13 +27,11 @@ document.querySelectorAll(".rating-form button").forEach((button) => {
     button.classList.add("hidden");
 });
 
-// Rating form logica wanneer de submit knop gebruikt wordt
+// Rating form logica
 document.querySelectorAll(".rating-form").forEach((form) => {
-    // Dit is een Progressive Enhancement feature om de form te submitten met een eventListener op de radio buttons, maar dit kreeg ik niet werkend
-    // FIXME: Zorg dat de form gesubmit wordt als een radio button geselecteerd wordt, en verberg de submit knop (onderaan de code, buitend de form forEach loop)
-
     const radios = form.querySelectorAll("input[type=radio]");
 
+    // Voeg een eventListener toe aan elke radio button
     radios.forEach((radio) => {
         radio.addEventListener("change", (event) => {
             const id = form.dataset.id;
@@ -41,9 +39,10 @@ document.querySelectorAll(".rating-form").forEach((form) => {
             const loaderEl = form.querySelector(".loader");
             const successEl = form.querySelector(".rating-success .tick");
 
+            // Als de radio button gecheckt is (want de 'change' event wordt ook uitgevoerd als een radio button unchecked wordt)
             if (event.target.checked) {
                 // Roep de RatingHandler functie aan met de juiste parameters
-                RatingHandler(id, rating, loaderEl, successEl);
+                ratingHandler(id, rating, loaderEl, successEl);
             }
         });
     });
@@ -60,7 +59,7 @@ document.querySelectorAll(".rating-form button").forEach((button) => {
 });
 
 // POST request handler voor het sturen van een rating
-function RatingHandler(id, rating, loaderEl, successEl) {
+function ratingHandler(id, rating, loaderEl, successEl) {
     if (loaderEl.classList.contains("hidden")) {
         loaderEl.classList.remove("hidden");
     }
