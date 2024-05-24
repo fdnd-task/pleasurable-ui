@@ -87,6 +87,16 @@ header{
 	color: var(--TextColor);
 	background: var(--PrimaryColor);
 	cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 1.375em;
+  transition-duration: .5s;
+}
+
+span {
+  width: .9em;
+  height: .15em;
+  background-color: var(--TextColor);
+  transition-duration: .5s;
 }
 
 .menu-button:focus-visible {
