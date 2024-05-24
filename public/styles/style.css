@@ -198,7 +198,7 @@ img{
     color: #555;
 }
 
-.beoordeling-button {
+.rating-button {
     background-color: #f59f00;
     color: white;
     border: none;
@@ -211,7 +211,7 @@ img{
     text-align: center;
 }
 
-.beoordeling-button:hover {
+.rating-button:hover {
     background-color: var(--primary-dk-blue);
 }
 /* -----------------------------house list section end------------------------------------ */
@@ -271,7 +271,7 @@ img{
     line-height: 2.2em;
 }
 
-.submit-ranking {
+.submit-rating {
     background-color: #f59f00;
     color: white;
     border: none;
@@ -284,9 +284,7 @@ img{
     text-align: center;
 }
 
-.submit-ranking:hover {
+.submit-rating:hover {
     background-color: var(--primary-dk-blue);
 }
-
-
 /* -----------------------------rating section end------------------------------------ */

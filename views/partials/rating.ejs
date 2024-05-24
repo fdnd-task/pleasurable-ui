@@ -1,6 +1,6 @@
 <article class="beoordeling">
     <h3>Beoordeel dit huis</h3>
-    <form id="scoreForm-<%= house.f_houses_id.house_nr %>" action="/" method="POST"></form>
+    <form id="scoreForm-<%= house.f_houses_id.house_nr %>" action="/submit-rating" method="POST">
         <div class="rating-group">
             <span class="rating-title">Algemene beoordeling</span>
             <div class="rating">
@@ -18,7 +18,6 @@
             <span class="rating-value" id="alg-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
 
-        <!-- Herhaal voor elke categorie met unieke id's -->
         <div class="rating-group">
             <span class="rating-title">Locatie</span>
             <div class="rating">
@@ -87,24 +86,7 @@
             <span class="rating-value" id="lig-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
 
-        <div class="rating-group">
-            <span class="rating-title">Kamers</span>
-            <div class="rating">
-                <input type="radio" id="kam-star5-<%= house.f_houses_id.house_nr %>" name="kamers-<%= house.f_houses_id.house_nr %>" value="5">
-                <label for="kam-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">☆</label>
-                <input type="radio" id="kam-star4-<%= house.f_houses_id.house_nr %>" name="kamers-<%= house.f_houses_id.house_nr %>" value="4">
-                <label for="kam-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">☆</label>
-                <input type="radio" id="kam-star3-<%= house.f_houses_id.house_nr %>" name="kamers-<%= house.f_houses_id.house_nr %>" value="3">
-                <label for="kam-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">☆</label>
-                <input type="radio" id="kam-star2-<%= house.f_houses_id.house_nr %>" name="kamers-<%= house.f_houses_id.house_nr %>" value="2">
-                <label for="kam-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">☆</label>
-                <input type="radio" id="kam-star1-<%= house.f_houses_id.house_nr %>" name="kamers-<%= house.f_houses_id.house_nr %>" value="1">
-                <label for="kam-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">☆</label>
-            </div>
-            <span class="rating-value" id="kam-value-<%= house.f_houses_id.house_nr %>">0</span>
-        </div>
-
-        <button type="submit" class="submit-ranking">Verstuur beoordeling</button>
+        <button type="submit" class="submit-rating">Verstuur beoordeling</button>
     </form>
 </article>
 </article>
