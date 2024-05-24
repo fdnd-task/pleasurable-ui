@@ -42,7 +42,10 @@ app.get("/dashboard/:id", function (request, response) {
     );
   });
 });
-
+//GET score.ejs
+app.get('/score', (request, response) => {
+    response.render('score')
+  })
 app.get("/stakeholder/:id", function (request, response) {
   // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
   fetchJson(companyList + "/" + request.params.id).then((companyData) => {
@@ -78,12 +81,6 @@ app.post("/stakeholder/:id", function (request, response) {
   } else if (omgeving) {
     aangevinkteRadiobox = "omgeving";
   }
-
-  console.log("Bedrijf: " + bedrijfId);
-  console.log("Type: " + aangevinkteRadiobox);
-  console.log("Naam: " + name);
-
-  stakeholder.push(bedrijfId, aangevinkteRadiobox, name);
 
   fetch("https://fdnd-agency.directus.app/items/hf_stakeholders", {
     method: "POST",

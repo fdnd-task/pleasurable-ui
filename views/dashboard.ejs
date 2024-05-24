@@ -24,7 +24,7 @@
       </div>
       <figcaption><%=company.name%></figcaption>
     </figure>
-    <!-- Sidebar met verschillende  -->
+    <!-- Sidebar met verschillende dingen -->
     <nav>
       <section class="tools">
         <h3>Tools</h3>
@@ -54,7 +54,7 @@
           <% stakers.forEach(stake => { %> <% if (stake.company_id.id ===
           company.id) { %>
           <li>
-            <a class="toolbox" href="#">
+            <a class="toolbox" href="/score">
               <h3><%= stake.name%> - <%=stake.type%></h3>
             </a>
           </li>
@@ -63,8 +63,9 @@
       </section>
     </nav>
   </header>
+  <!-- Midden van Dashboard -->
   <main class="content-wrap">
-    <hr/>
+    <hr />
     <section>
       <div class="parent">
         <div class="hand-print">
@@ -82,8 +83,8 @@
           <div class="footprint-inside"></div>
           <div class="handprint-inside"></div>
           <div class="footprint-inside"></div>
-        </div>       
-         <div class="foot-print">
+        </div>
+        <div class="foot-print">
           <img
             loading="lazy"
             src="/assets/footprint.png"
@@ -95,7 +96,7 @@
         </div>
         <div></div>
       </div>
-      <hr/>
+      <hr />
     </section>
   </main>
 </div>
