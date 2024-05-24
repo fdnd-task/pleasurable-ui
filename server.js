@@ -1,90 +1,51 @@
-/*** Express setup & start ***/
+import express from 'express';
+import fetchJson from './helpers/fetch-json.js';
 
-// Importeer het npm pakket express uit de node_modules map
-import express from "express";
 
-// Importeer de zelfgemaakte functie fetchJson uit de ./helpers map
-import fetchJson from "./helpers/fetch-json.js";
+  // Haal alle data op van de API
+  const apiData = await fetchJson('https://fdnd-agency.directus.app/items/dh_services');
 
-// Importeer slugify voor leesbare URLs met slug
-// import slugify from "slugify";
+  // Maak een nieuwe express app aan
+  const app = express();
 
-// Declare de base URL van de directus API
-const baseUrl = "https://fdnd-agency.directus.app";
+  // Dit zorgt ervoor dat je JSON kunt ontvangen in POST requests
+  app.use(express.json());
 
-// Maak een nieuwe express app aan
-const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+  // Stel ejs in als template engine
+  app.set('view engine', 'ejs');
 
-// Stel ejs in als template engine
-app.set("view engine", "ejs");
+  // Stel de map met ejs templates in
+  app.set('views', './views');
 
-// Stel de map met ejs templates in
-app.set("views", "./views");
+  // Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
+  app.use(express.static('public'));
 
-// Gebruik de map 'public' voor statische resources, zoals stylesheets, afbeeldingen en client-side JavaScript
-app.use(express.static("public"));
+  // Middleware om url-encoded bodies te parsen
+  app.use(express.urlencoded({ extended: true }));
 
-// Fetch de data van de API
-const fetchFromApi = (endpoint) => {
-    return fetchJson(baseUrl + endpoint).then((response) => response.data);
-  };
-  
-// Data ophalen van de API
-// fetchData().then((allAdvertisementsData) => {
-  
-// Zorg dat werken met request data makkelijker wordt
-app.use(express.urlencoded({ extended: true }));
-
-// GET-route voor vraag-aanbod pagina, eigen data inladen 
-app.get("/vraag-aanbod", function (request, response) {
-    fetchJson("https://fdnd-agency.directus.app/items/dh_services").then(
-      (apiData) => {
-        {
-          response.render("vraag-aanbod.ejs", { vraagaanbod: apiData.data });
-        }
-      }
-    );
+  app.get('/', async function (request, response) {
+    // Haal de data op van de API
+    const apiData = await fetchJson('https://fdnd-agency.directus.app/items/dh_services');
+    console.log('API Data:', apiData);
+    // Render de index pagina en geef de data mee
+    response.render('index', { services: apiData.data });
   });
 
-// POST-route voor het liken van een initatief
-app.post("/like", async function (request, response) {
-    const initiatiefId = request.body.initiatiefId;
-    const likes = request.body.likes
-  
-    console.log("Like verzoek voor service met ID:", initiatiefId);
-    
-    if (initiatiefId) {
-        // Update het aantal likes in de Directus API
-        fetchJson(`https://fdnd-agency.directus.app/items/dh_services/${initiatiefId}`, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ likes: Number(likes) + Number(1) })
-        }).then((data) => {
-            console.log(data);
-            console.log("Aantal likes bijgewerkt voor service:", initiatiefId, likes);
-            response.redirect("/vraag-aanbod")
-  
-  
-        }).catch((error) => {
-            console.error("Error patching likes in Directus API:", error);
-        });
-  
-    } else {
-      // Laat het weten als de service niet gevonden is.
-      console.log("Service niet gevonden voor ID:", initiatiefId);
-      response.status(404).send("Service niet gevonden");
-    }
+  // maak een nieuwe route aan voor de contact pagina
+  app.get('/contact', function (request, response) {  
+    response.render('contact')
   });
   
-  // Poortnummer instellen waarop Express moet luisteren
-  app.set("port", process.env.PORT || 8000);
-  
-  // Start express server op, haal daarbij het zojuist ingestelde poortnummer op
-  app.listen(app.get("port"), function () {
-    // Toon een bericht in de console en geef het poortnummer door
-    console.log(`Application started on http://localhost:${app.get("port")}`);
-  });
+  // GET-route voor FAQ pagina
+app.get("/faq", function (request, response) {
+  response.render("faq");
+});
+
+// Stel het poortnummer in waar express op moet gaan luisteren
+app.set('port', process.env.PORT || 8000);
+
+// Start express op en luister naar het ingestelde poortnummer
+app.listen(app.get('port'), function () {
+  // Toon een bericht in de console met het gebruikte poortnummer
+  console.log(`Application started on http://localhost:${app.get('port')}`);
+});
