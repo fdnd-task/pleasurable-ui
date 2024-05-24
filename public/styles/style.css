@@ -82,143 +82,66 @@ nav{
         padding-left: 1em;
     }
 }
-.breadcrumbs{
-    background-color: var(--primary-lt-blue);
-    margin: 0;
-    color: var(--primary-orange);
-    align-items: center;
-    & a{
-        color: var(--primary-dk-blue);
-        text-align: center;
-
-    }
-    & svg{  
-        align-items: center;
-        
-    }
-  
-}
 /* -----------------------------intro section end--------------------------------- */
 
 /* -----------------------------house list section------------------------------------ */
 h2{
     text-align: center;
-    padding: 1em;
+    padding: 1em 2em;
     font-size: 1.7em;
-    color: var(--primary-orange);
+    &::after{
+        content: "";
+        display: block;
+        width: 80%;
+        height: 5px;
+        background-color: var(--primary-orange);
+        margin: 0 auto;
+    }
 }
 
-.house{
+.list-name{
+    background-color: #f7a10061;
+    border-radius: .5em;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin: 1em;
-    padding: 1em;
-    border-bottom: solid 5px var(--primary-orange);
-    border-radius: .5em;
-    background-color: var(--primary-lt-blue);
-    position: relative;
-    & img{
-        max-width: 20em;
     }
-   
-    & h3, p{
-        text-align: center;
-        display: flex;
-        flex-direction: column;
+    & a::after{
+        content: "";
+        display: block;
+        width: 30%;
+        height: 5px;
+        background-color: var(--primary-orange);
+        margin: 0 auto;
     }
-    & li{
-        list-style: none;
-    }
- }
+
     & button{
-    background-color: var(--primary-dk-blue);
-    color: white;
-    padding: .5em 1em;
-    border: solid 5px var(--primary-orange);
-    border-radius: .5em;
-    margin: 1em;
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
-    font-size: 17px;
-}
-& button:hover{
-    background-color: var(--primary-orange);
-}
-& span{
-    font-size: 2.5em;
-    color: var(--primary-orange);
-    position: absolute;
-    top: 1em;
-    right: 1em;
+        background-color: #4096dc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.75em 1.5em;
+        cursor: pointer;
+        align-self: stretch;
+        margin: 1.2em 1em;
+    }
+    & button:hover{
+        background-color: var(--primary-orange);
+        transition: background-color 0.3s;
+        transform: scale(1.1);
+    }
 }
 
-.house-list{
+.house-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1.5em;
+    padding: 2em;
+    background-color: #f5f5f5;
 }
 
 img{
     max-width: 20em;
-}
-
-
-fieldset:nth-of-type(1) {	
-	label {
-		// vierkant 		
-		width:1.2em;
-		aspect-ratio:1;
-		line-height:1;
-		// ster in het midden
-		display:grid;
-		place-items:center;
-	}
-	
-	// sterretje in label
-	label::after {
-		content:"★";
-	}
-	
-	// default kleur voor sterretje
-	label {
-		color:var(--clr-star-default);
-	}
-	
-	// input foetsie
-	// niet helemaal netjes
-	input {
-		position:absolute;
-		left:-9999em;
-	}
-	
-	// randje om de fieldset als een input in the fieldset focus-visible heeft
-	&:has(:focus-visible) {
-		outline:solid .1em var(--border-fieldset-focus);
-	}
-	
-	// label na checked radio krijgt checked kleur
-	input:checked + label {
-		color:var(--clr-star-checked);
-	}
-	
-	// alle labels voor checked radio krijgen checked kleur
-	label:has(~ :checked) {
-		color:var(--clr-star-checked);
-	}
-	
-	// cursor van label wordt pointer bij hover//
-	// maar niet het label na een checked radio//
-	// en kleur wijzigt in hover kleur//
-	label:hover:not( input:checked + label ) {
-		cursor:pointer;
-		color:var(--clr-star-hover);
-	}
-	
-	// kleur van label wordt hover kleur bij hover over label na label
-	// maar niet het label na een checked radio
-	label:has(~ label:hover):not( input:checked + label ) {
-		color:var(--clr-star-hover);
-	}
 }
