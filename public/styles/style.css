@@ -416,7 +416,7 @@ nav li:not(.li-logo):hover {
 
 .favourites-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 20rem));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 19.5rem));
     grid-template-rows: auto;
     justify-content: center;
     /* align-items: center; */
