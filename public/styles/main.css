@@ -41,21 +41,20 @@ html {
 
 /* IMPORTANT: Needs to be fixed later */
 
-/* body {
+body {
 
-	a {
+	/* a {
 		color: inherit;
 		text-decoration: inherit;
-	  }
+	  } */
 	  
 	button {
 		background: none;
 		color: inherit;
 		border: none;
 	}
-
-=======
-	background-color: var(--main-bg-color, white);
+	
+	/* background-color: var(--main-bg-color, white); */
 }
 
 /* .darkmode{} */
