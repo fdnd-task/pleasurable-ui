@@ -2,12 +2,21 @@
     <nav>
         <ul class="nav">
             <div class="nav-left">
+                <!-- Nav menu button on mobile -->
                 <li class="li-menu">
-                    <button>
+                    <input type="checkbox" id="mobile-menu-check"/>
+                    <label for="mobile-menu-check" class="menu-button">
                         <%- include('./icons/menu-icon') %>
                         <span>Menu</span>
-                    </button>
+                    </label>
                 </li>
+                <!-- Nav menu on mobile -->
+                <ul class="mobile-nav">
+                    <li><a href="#" role="button">Kopen</a></li>
+                    <li><a href="#" role="button">Huren</a></li>
+                    <li><a href="#" role="button">Verkopen</a></li>
+                </ul>
+
                 <li class="li-logo">
                     <a href="/"><%- include('./icons/logo') %></a>
                 </li>

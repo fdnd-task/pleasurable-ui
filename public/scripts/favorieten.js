@@ -12,8 +12,6 @@ prices.forEach((price) => {
 
 // Mobile menu
 
-
-
 // Clientside POST ratings
 document.querySelectorAll(".rating-form").forEach((form) => {
     const successElement = form.querySelector(".rating-success .tick");
@@ -69,3 +67,4 @@ document.querySelectorAll(".rating-form").forEach((form) => {
 document.querySelectorAll(".rating-form button").forEach((button) => {
     // button.classList.add("hidden");
 });
+
