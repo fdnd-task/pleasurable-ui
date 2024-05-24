@@ -29,12 +29,44 @@ app.use(express.urlencoded({ extended: true }));
 
 // Maak een GET route voor de favorieten pagina
 app.get("/", function (request, response) {
-    // Neem alle huizen in mijn lijst uit de API
-    fetchJson(
-        "https://fdnd-agency.directus.app/items/f_list/6?fields=id,title,description,users.id,users.f_users_id.name,users.f_users_id.email,users.f_users_id.avatar,houses.id,houses.f_houses_id.id,houses.f_houses_id.street,houses.f_houses_id.house_nr,houses.f_houses_id.city,houses.f_houses_id.postal_code,houses.f_houses_id.price,houses.f_houses_id.poster_image.id,houses.f_houses_id.poster_image.width,houses.f_houses_id.poster_image.height"
-    ).then((apiData) => {
-        // Render favorieten.ejs uit de views map en geef de opgehaalde data mee
-        response.render("favorieten", apiData);
+    // Voer tegelijkertijd een GET request uit naar de API om de huizen, en de ratings op te halen
+    Promise.all([
+        fetch(
+            "https://fdnd-agency.directus.app/items/f_list/6?fields=id,title,description,users.id,users.f_users_id.name,users.f_users_id.email,users.f_users_id.avatar,houses.id,houses.f_houses_id.id,houses.f_houses_id.street,houses.f_houses_id.house_nr,houses.f_houses_id.city,houses.f_houses_id.postal_code,houses.f_houses_id.price,houses.f_houses_id.poster_image.id,houses.f_houses_id.poster_image.width,houses.f_houses_id.poster_image.height"
+        ),
+        fetch(
+            "https://fdnd-agency.directus.app/items/f_feedback?fields=house,rating&filter[list][_eq]=6"
+        )
+    ]).then(function (responses) {
+        // Maak van beide responses een json object
+        return Promise.all(responses.map(function (response) {
+            return response.json();
+        }));
+    }).then(function (data) {
+        // data[0] is de response van de huizen fetch
+        // data[1] is de response van de ratings fetch
+        console.log('Data from first fetch', data[0]);
+        console.log('Data from second fetch', data[1]);
+
+        // Maak een nieuwe array aan waarin de huizen en de ratings worden gecombineerd
+        const houses = data[0].data;
+        const ratings = data[1].data.reverse();
+        const updatedHousesData = houses.houses.map((house) => {
+            const foundRating = ratings.find((currentRating) => currentRating.house === house.f_houses_id.id);
+            return {
+                ...house,
+                rating: foundRating ? foundRating.rating.general : 0,
+            };
+        });
+        const finalData = { ...houses, houses: updatedHousesData };
+
+        console.log('Final data', finalData);
+
+        // Render de favorieten.ejs template en geef de gecombineerde data mee
+        response.render("favorieten", { data: finalData });
+    }).catch(function (error) {
+        // if there's an error in any of the fetches, it will be caught here
+        console.error('Error:', error);
     });
 });
 
