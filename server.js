@@ -39,13 +39,9 @@ app.get("/", function (request, response) {
 });
 
 // Get route voor een detailpagina met een request parameter id
-app.get("/huis/:id/", function (request, response) {
-  // Gebruik de request parameter id en haal het juiste huis uit de houses lijst
-  fetchJson(
-    "https://fdnd-agency.directus.app/items/f_houses/" + request.params.id
-  ).then((apiData) => {
-    // Render huis.ejs uit de views map en geef de opgehaalde data mee
-    response.render("huis", apiData);
+app.get("/detail/:id", function (request, response) {
+  fetchJson(f_houses + "/" + request.params.id + "?fields=*.*.*.*").then((housesData) => {
+      response.render("detail", { house: housesData.data });
   });
 });
 
