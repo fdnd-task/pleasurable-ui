@@ -172,6 +172,7 @@ nav span {
 
 .nav-left:has(input[type="checkbox"]:checked) .mobile-nav li {
     opacity: 1;
+    height: 4rem;
 }
 
 .mobile-nav {
@@ -189,7 +190,7 @@ nav span {
 .mobile-nav > li {
     opacity: 0;
     line-height: 1.875rem;
-    height: 4rem;
+    height: 0;
 }
 
 .mobile-nav > li:hover {
