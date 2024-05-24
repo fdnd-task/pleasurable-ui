@@ -15,20 +15,24 @@ app.listen(app.get('port'), function () {
 
 const apiUrl = 'https://fdnd-agency.directus.app/items',
     sdgData = await fetchJson(apiUrl + '/hf_sdgs?fields=*,icon.id,icon.height,icon.width'), 
-    stakeholdersData = await fetchJson(apiUrl + '/hf_stakeholders?filter={"company_id":2}'),
+    stakeholdersData = await fetchJson(apiUrl + '/hf_stakeholders'),
     scoresData = await fetchJson(apiUrl + '/hf_scores'),
-    companiesData = await fetchJson(apiUrl + '/hf_companies/2')
+    companiesData = await fetchJson(apiUrl + '/hf_companies')
 
 console.log(companiesData.data.name)
 
 // ROUTES -----------------------------------------------------------
 app.get('/', function (request, response) {
     response.render('index', {
+        sdgs: sdgData.data,
+        stakeholder: stakeholdersData.data,
+        score: scoresData.data,
         company: companiesData.data,
     })
 })
 
 app.get('/dashboard/:company_id', function (request, response) { 
+    var companyId = request.params.company_id
     response.render('dashboard', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
@@ -38,7 +42,8 @@ app.get('/dashboard/:company_id', function (request, response) {
 })
 
 // VRAGENLIJST -----------------------------------------------------
-app.get('/gegevens-form/:stakeholder_type', function (request, response) { 
+app.get('/gegevens-form/:stakeholder_type', function (request, response) {
+    var stakeholderType = request.params.stakeholder_type 
     response.render('gegevens-form', {
         stakeholder: stakeholdersData.data,
         company: companiesData.data,
@@ -54,7 +59,8 @@ app.get('/sdg-form', function (request, response) {
     })
 })
 
-app.get('/score-form', function (request, response) {
+app.get('/score-form/:sdg_id', function (request, response) {
+    var sdgId = request.params.sdg_id
     response.render('score-form', {
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
