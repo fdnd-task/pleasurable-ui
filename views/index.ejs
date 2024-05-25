@@ -36,13 +36,7 @@
                         <a href="/detail/<%-post.id%>">
                             <img class="post-image" src="<%= post.jetpack_featured_media_url %>" alt="">
                             <h2 class="post-title"><%- post.title.rendered %></h2>
-                            <% <!-- THIS CAN BE IMPROVED BY DOING THIS ALL INSIDE THE SERVER.JS ALREADY -->
-                            const options = { day: 'numeric', month: 'long' }; 
-                            const formattedDate = new Date(post.date_gmt).toLocaleDateString('nl-NL', options); 
-                            const readingTime = post.yoast_head_json?.twitter_misc?.["Geschatte leestijd"] ?? "N/A"; <!--Had to add this because reading time doesnt exist in some posts -->
-                            const estimatedReadingTime = readingTime.replace("minuten", "min");
-                            %>
-                            <span class="post-meta"><%= formattedDate %> - <%= post.yoast_head_json.author %> - <%= estimatedReadingTime %></span>
+                            <span class="post-meta"><%= post.meta %></span>
                         </a>
                     </li>
                 <% }) %>
