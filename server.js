@@ -19,27 +19,33 @@ const apiUrl = 'https://fdnd-agency.directus.app/items',
     scoresData = await fetchJson(apiUrl + '/hf_scores'),
     companiesData = await fetchJson(apiUrl + '/hf_companies')
 
-console.log(companiesData.data.name)
+console.log(companiesData.data)
 
 // ROUTES -----------------------------------------------------------
 app.get('/', function (request, response) {
     response.render('index', {
+        company: companiesData.data,
         sdgs: sdgData.data,
         stakeholder: stakeholdersData.data,
         score: scoresData.data,
-        company: companiesData.data,
     })
 })
 
 app.get('/dashboard/:company_id', function (request, response) { 
-    var companyId = request.params.company_id
+    var companyId = request.params.company_id;
+    var company = companiesData.data.find(c => c.id == companyId);
+    if (!company) {
+        response.status(404).send('Company not found');
+        return;
+    }
     response.render('dashboard', {
-        sdgs: sdgData.data,
+        company: company,
         stakeholder: stakeholdersData.data,
+        sdgs: sdgData.data,
         score: scoresData.data,
-        company: companiesData.data,
-    })
-})
+    });
+    console.log(companyId);
+});
 
 // VRAGENLIJST -----------------------------------------------------
 app.get('/gegevens-form/:stakeholder_type', function (request, response) {
