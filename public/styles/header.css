@@ -67,14 +67,42 @@ header{
 
    .desktop-menu {
     font-family: 'Inter', sans-serif;
+
     picture img {
-        width: 200px;
+        width: 220px;
     }
     .first-row {
         display: flex;
         justify-content: space-around;
-        margin: 5% 0% 5% 0%;
-        
+        margin: 5% 0;
+
+        .first-col {
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .second-col {
+            /* Ensure second-col has flex properties to center content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .third-col {
+            display: flex;
+            flex-direction: row;
+
+            & span {
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+        }
+
+        .newsletter {
+            display: flex;
+            align-items: center;
+        }
     }
 
     .second-row {
@@ -86,9 +114,9 @@ header{
         
         .desktop-pages {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            margin: 2.5% 0% 2.5% 0%;
+            margin: 2.5% 0;
             & svg {
                 fill: black;
             }
@@ -102,7 +130,8 @@ header{
             }
         }
     }
-   }
+}
+
 
    /*  #endregion  */
 

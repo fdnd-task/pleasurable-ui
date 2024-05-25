@@ -164,3 +164,13 @@ window.addEventListener('resize', () => { //UGLY BUT IDK HOW TO DO IT BETTER
         updateButtonVisibility(carousel, prevButton, nextButton);
     });
 });
+
+/* Current day and month code */
+
+const currentDateElement = document.querySelector('.first-col');
+const currentDate = new Date();
+const options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+
+let dateString = currentDate.toLocaleDateString('nl-US', options);
+dateString = dateString.replace(' ', ', ') 
+currentDateElement.textContent = dateString;
