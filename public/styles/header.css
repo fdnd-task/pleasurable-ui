@@ -94,32 +94,44 @@ header{
 .first-col,
 .second-col,
 .third-col {
-    display: flex;
+    flex: 0 0 33.33%; /* Set flex-basis to 33.33% */
     align-items: center;
 }
 
+
 .first-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-transform: uppercase;
 }
 
 .second-col {
+    display: flex;
     justify-content: center;
-    flex: 1;
 }
 
-.third-col {
-    flex-direction: row;
+.third-col .newsletter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .third-col .theme {
     display: flex;
+    justify-content: center;
     align-items: center;
+    margin: 15px 0;
 }
 
 .third-col span {
     text-transform: uppercase;
     font-weight: 700;
-    margin-left: 8px; /* Adjust this value for spacing between the icon and text */
+    margin-left: 8px;
+}
+
+.thirdcol a:hover{
+    color: #E84340;
 }
 
 .newsletter {
@@ -155,8 +167,6 @@ header{
     transition: .15s;
     fill: var(--accent-color, red);
 }
-
-
 
 
    /*  #endregion  */
