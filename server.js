@@ -33,7 +33,7 @@ app.get('/', function (request, response) {
 
 app.get('/dashboard/:company_id', function (request, response) { 
     var companyId = request.params.company_id;
-    var company = companiesData.data.find(c => c.id == companyId);
+    var company = companiesData.data.find(company => company.id == companyId);
     if (!company) {
         response.status(404).send('Company not found');
         return;
@@ -84,3 +84,13 @@ app.get('/done', function (request, response) {
     })
 })
 
+// POST routes ---------------------------------------------------
+app.post('/gegevens-form/:stakeholder_type', function (request, response) {
+})
+
+app.post('/sdg-form', function (request, response) {
+})
+
+// PUT routes ----------------------------------------------------
+app.put('/score-form/:sdg_id', function (request, response) {
+})
