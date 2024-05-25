@@ -164,6 +164,15 @@ main{
 
 /* footer */
 footer{
+	margin-top: 2em;
+	height: 5em;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: black;
+	color: #fff;
+	padding: 2em;
+	font-family: var(--medium-text);
 }
 
 /* media queries */
@@ -234,6 +243,9 @@ footer{
 		/* outline: solid rgb(92, 163, 88); */
 	}
 	footer {
+		background-color: var(--main-bg-color);
+		color: var(--text-color);
+		border-top: #000000 solid 3px;
 	  }
 	
 	}
