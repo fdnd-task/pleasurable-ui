@@ -51,28 +51,42 @@ const categoriesUrl = `${apiUrl}categories?per_page=100`
 
 // functions//
 
-// date parser
-const datePars = function(postData,categoryData){ // ask how to implement this function and fix the post data
-	for(var i = 0; i < postData.length;i++){
-	const parsedDate = new Date(postData[i].date),
-	day = parsedDate.getDate(),
-	options = { month: "short" }, // De maand moet kort geschreven zijn
-	month = Intl.DateTimeFormat("nl-NL", options).format(parsedDate.getMonth() + 1),
-	newDate = day + ''+ month;
-	postData[i].date = newDate;
-	categoryData[i].date = newDate;
-	postData[i].author = userData.find(user => user.id === postData[i].author);
-	console.log('date parser works');
-	return(postData)
-}}
+// metaParse
+function metaParse(postsData) {
+    postsData.forEach(postData => {
+        const postDate = new Date(postData.date_gmt);
+        
+        const dateOptions = { day: 'numeric', month: 'long' };
+        const timeOptions = { hour: '2-digit', minute: '2-digit' };
+        
+        const formattedDate = postDate.toLocaleDateString('nl-NL', dateOptions);
+        const formattedTime = postDate.toLocaleTimeString('nl-NL', timeOptions);
 
+		const author = postData.yoast_head_json?.twitter_misc?.["Geschreven door"] ?? "N/A";
 
-const formatPostMeta = (postData) => {
-	const options = { day: 'numeric', month: 'long' };
-	const formattedDate = new Date(post.date_gmt).toLocaleDateString('nl-NL', options);
-	const estimatedReadingTime = post.yoast_head_json.twitter_misc["Geschatte leestijd"].replace("minuten", "min");
-	return `${formattedDate} - ${post.yoast_head_json.author} - ${estimatedReadingTime}`;
-};
+		const readingTime = postData.yoast_head_json?.twitter_misc?.["Geschatte leestijd"] ?? "N/A";
+		const estimatedReadingTime = readingTime.replace("minuten", "min");
+        
+		postData.meta = `${formattedDate} ${formattedTime} - ${author} - ${estimatedReadingTime}`;
+    });
+
+    return postsData;
+}
+
+// dateParse
+function dateParse(postData) {
+    const postDate = new Date(postData.date_gmt);
+    
+    const dateOptions = { day: 'numeric', month: 'long' };
+    const timeOptions = { hour: '2-digit', minute: '2-digit' };
+    
+    const formattedDate = postDate.toLocaleDateString('nl-NL', dateOptions);
+    const formattedTime = postDate.toLocaleTimeString('nl-NL', timeOptions);
+    
+    postData.date_gmt = `${formattedDate} ${formattedTime}`;
+
+    return postData;
+}
 
 // page views 
 
@@ -151,6 +165,8 @@ app.get("/",function(req,res){
 		// categoryData = datePars(categoryData);
 		// console.log("postData");
 
+		postData = metaParse(postData);
+
 		res.render("index.ejs", {
 			posts  : postData,
 			user : userData,
@@ -185,6 +201,8 @@ app.get("/detail/:id",function(req,res){
 			//  postData = datePars(postData); 
 			// formatPostMeta(postData);
 			// console.log(formatPostMeta);
+
+			postData = dateParse(postData)
 			
 			// page views detection // can be used to show if a page has already been visited
 			// views(postData);
