@@ -84,6 +84,8 @@ header{
     width: 220px;
 }
 
+@supports (display: flex){
+
 .first-row {
     display: flex;
     justify-content: space-between;
@@ -152,6 +154,7 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: 1em;
+}
 }
 
 .desktop-pages svg {
