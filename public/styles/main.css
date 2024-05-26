@@ -77,15 +77,15 @@ body::before {
 
 
 
-
-header{
  /* Header styling if needed */ 
+/* header{
+
  	grid-column: 1/-1;
 	grid-template-columns: subgrid;
-}
+} */
 
 /* #region Mobile Styling */
-header nav{
+/* header nav{
 	grid-column: 1/-1;
 }
 
@@ -105,10 +105,10 @@ header nav{
 	picture {
 		display: flex;
 		justify-content: center;
-	}
+	} */
 	
 	/* mobile-menu-window */
-	section#mobile-menu-window {
+/* 	section#mobile-menu-window {
 		display: none;
 		flex-direction: column;
 		position: fixed;
@@ -151,22 +151,15 @@ header nav{
 	}
 
 
-/* #endregion Mobile Nav Styling */
+
+
+=======
+} */
 
 main{
 	
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* footer */
@@ -209,19 +202,12 @@ footer{
 
   	}
 
-	header{
-		display: none;
-	}
-
 	
 
 	main{
 		/* outline: solid rgb(255, 0, 111); */
 	}
 			
-	/* footer {
-					
-	} */
 		
 	}
 
@@ -250,7 +236,7 @@ footer{
 	}
 
 	main{
-		/* outline: solid rgb(92, 163, 88); */
+		
 	}
 	footer {
 		background-color: var(--main-bg-color);
