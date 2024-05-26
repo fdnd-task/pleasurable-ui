@@ -214,7 +214,9 @@ h1 {
     max-width: 1200px;
     margin: auto;
     background-color: #e6e6e6;
+    background: var(--bg-color);
     font-family: var(--body-font);
+
 }
 
     /* ------------------------------------------------- HEADER ------------------------------------------------------------- */
@@ -222,18 +224,19 @@ h1 {
 .vragenlijst header {
         width: 100%;
         position: relative;
-        background: var(--text-color);
-        padding: 1.5em;
+        /* background: var(--text-color); */
+        /* padding: 1.5em; */
         border-radius: 10px;
         box-shadow: var(--shadow);
+        color: var(--text-color);
 
-        & section:first-child {
+        section:first-child {
             display: flex;
             flex-wrap: wrap;
             gap: 1em;
         }
         
-        & ul {
+        ul {
             grid-area: bread;
             display: flex;
 
@@ -254,22 +257,22 @@ h1 {
             }
         }
 
-        & h1 {
+        h1 {
             grid-area: header;
             width: 100%;
         }
 
-        & a {
+        a {
             grid-area: annuleer;
             justify-self: end;
             margin-left: auto;
         }
 
-        & section:nth-of-type(2) {
+        section:nth-of-type(2) {
             padding: 1em 0;
         }
 
-        & ol {
+        ol {
             background: rgba(148, 148, 148, 0.273);
             border-radius: 10px;
             padding: 1em 2em ;
@@ -278,7 +281,7 @@ h1 {
             /* box-shadow: var(--shadow); */
             
 
-            & li {
+            li {
                 display: flex;
                 margin-right: 1em;
                 /* flex-direction: column; */
@@ -291,8 +294,9 @@ h1 {
                     content: '';
                     background-color: #595959;
                     width: 100%;
-                    height: 4px;
+                    height: 7px;
                     margin-left: 1em;
+                    border-radius: 5px;
                 }
 
                 &:last-child, &:last-child::after {
@@ -300,7 +304,7 @@ h1 {
                     /* margin: 1em; */
                 }
 
-                & div {
+                div {
                     display: flex;
                     flex-direction: column;
                     text-align: center;
@@ -308,16 +312,14 @@ h1 {
                     width: max-content;
                     
 
-                    & p {
+                    p {
                         width: max-content;
                     }
 
                     
-                }
+                } 
 
-                
-
-                & div div {
+                div div {
                     width: 40px;
                     height: 40px;
                     background-color: #e6e6e6;
@@ -328,40 +330,70 @@ h1 {
                     font-weight: 600;
                     text-align: center;
                     line-height: 35px;
-                    
                 }
 
-                
-
-                & hr {
+                hr {
                     border-color: #4763c8;
                     width: 100%;
                 }
 
             }
 
-            & .active div div {
+            .active div div {
                 border: 4px solid #4763c8;
                 color: #4763c8;
             }
 
-            & .done  {
-
+            .done  {
                 &::after {
-                    background-color: rgb(88, 187, 88);
+                    background: linear-gradient(to left, var(--text-color) 50%, rgb(88, 187, 88) 50%) right;
+                    animation: progress .5s cubic-bezier(0.81, -0.14, 0.2, 1) forwards;
+                    background-size: 200%;
                 }
 
-                & div div {
+                div div {
                     background-color: rgb(88, 187, 88);
+                    background: var(--text-color);
                     color: #fff;
+                    color: var(--accent-text-color);
+                    
+                    animation: progress-btn .3s cubic-bezier(0.23, 0.15, 0.51, 1.65) forwards;
+                    animation-delay: .5s;
                 }
             }
 
-            & p {
+            p {
                 font-weight: lighter;
             }
         }
+}
 
+@keyframes progress {
+    0% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
+}
+
+@keyframes progress-btn {
+    0% {
+        scale: 1;
+        background-color: var(--text-color);
+        
+    }
+
+    50% {
+        scale: 1.2;
+    }
+
+    100% {
+        scale: 1;
+        background-color: rgb(88, 187, 88);
+        color: var(--text-color);
+    }
 }
 
     /* ------------------------------------------------- MAIN ------------------------------------------------------------- */
@@ -450,6 +482,8 @@ h1 {
     }
 }
 
+
+
 .selected {
     display: flex;
     flex-direction: column;
@@ -468,8 +502,9 @@ h1 {
         gap: 2em;
         padding: 1em;
         border-radius: 10px;
-
+        --range-clr:rgba(148, 148, 148, 0.273); 
         background-color: rgba(148, 148, 148, 0.273);
+        background: var(--range-clr);
 
         & p {
             width: 100%;
@@ -492,12 +527,15 @@ h1 {
         justify-content: space-between;
         writing-mode: vertical-lr;
         width: 100%;
-        & option {
+        background-color: #38cc8c;
+
+        option {
             rotate: -90deg;
-            /* color: red; */
+            color: red;
             font-weight: bold;
-            &[label="0"] {
+            [label="0"] {
                 font-weight: normal;
+                align-self: center;
             }
         }
     }
@@ -518,41 +556,33 @@ h1 {
     )} */
 
     input[type="range"] {
-		outline: 0;
-		border: 0;
 		border-radius: 500px;
-		max-width: 500px;
-		margin: 24px 0 16px;
-		transition: box-shadow 0.2s ease-in-out;
+		width: 100%;
+        width:var(--width);
+
         @media screen and (-webkit-min-device-pixel-ratio:0) {
 			& {
 				overflow: hidden;
-				height: 40px;
-                appearance: none;
-				-webkit-appearance: none;
+				/* height: 40px; */
 				background-color: #ddd;
 			}
 			&::-webkit-slider-runnable-track {
-				height: 40px;
-				-webkit-appearance: none;
+				/* height: 40px; */
 				color: #444;
-				transition: box-shadow 0.2s ease-in-out;
 			}
 			&::-webkit-slider-thumb {
 				width: 40px;
-				-webkit-appearance: none;
 				height: 40px;
 				cursor: ew-resize;
-				background: #fff;
-				box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 40px #1597ff;
+				background: #1597ff;
+				/* box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 40px #1597ff; */
 				border-radius: 50%;
-				transition: box-shadow 0.2s ease-in-out;
 				position: relative;
+                
 			}
             
 			&:active::-webkit-slider-thumb {
-				background: #fff;
-				box-shadow: -340px 0 0 320px #1597ff, inset 0 0 0 3px #1597ff;
+				background: #1597ff;
 			}
         }
     }
