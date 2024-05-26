@@ -171,7 +171,7 @@ footer{
 /*  for the subgrid template  */
 	grid-column: 1/-1;
 
-	margin-top: 2em;
+	/* margin-top: 2em; */
 	height: 5em;
 	display: flex;
 	justify-content: center;
