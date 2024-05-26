@@ -191,11 +191,33 @@ header{
 	}
 }
 
+@media (min-width: 520px) and (max-width: 645px) {
+    .top-bar {
+      display: none;
+    }
+
+    .first-col {
+       /* ? */
+    }
+
+    .third-col .newsletter{
+        display: none;
+    }
+    .desktop-pages {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: calc(1em - .5em);
+    }
+
+    .desktop-pages li:nth-child(5),
+  .desktop-pages li:nth-child(6) {
+    display: none;
+  }
+  }
+
 
 @media (min-width: 60.0625em){
 
-    /* .desktop-menu {
-        display: block;
-    } */
     
 }
