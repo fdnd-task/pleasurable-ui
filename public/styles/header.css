@@ -192,17 +192,27 @@ header{
 }
 
 @media (min-width: 520px) and (max-width: 645px) {
+
     .top-bar {
-      display: none;
+      flex: 1;
     }
 
     .first-col {
-       /* ? */
+       flex: 1;
+    }
+
+    .second-col{
+        flex: 3;
+    }
+
+    .third-col{
+        flex: .75;
     }
 
     .third-col .newsletter{
         display: none;
     }
+
     .desktop-pages {
         display: flex;
         justify-content: space-between;
