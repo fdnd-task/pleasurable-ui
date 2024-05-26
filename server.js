@@ -29,6 +29,7 @@ fetchJson(apiUrl).then((apiData) => {
     app.set('views', 'views');
     app.use(express.static('public'));
     app.use(express.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
 
     // Dit zijn arrays die worden gebruikt om de beoordelingen van de gebruiker op te slaan.
     // arrays zijn een soort lijsten waarin je meerdere waarden kunt opslaan. In dit geval worden de beoordelingen van de gebruiker opgeslagen in de arrays.

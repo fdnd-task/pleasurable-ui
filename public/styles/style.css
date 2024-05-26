@@ -131,7 +131,7 @@ h2{
         transition: background-color 0.3s;
         transform: scale(1.1);
     }
-}
+
 
 .house-list {
     display: flex;
@@ -145,3 +145,187 @@ h2{
 img{
     max-width: 20em;
 }
+.house-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+    & img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.house-card:hover {
+    transform: translateY(-15px);
+}
+
+.house-details {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.house-details .house-title {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.house-details .house-location,
+.house-details .house-price,
+.house-details .house-size {
+    font-size: 1em;
+    margin: 0.5em 0;
+}
+
+.house-details .house-location {
+    color: #777;
+}
+
+.house-details .house-price {
+    font-size: 1.2em;
+    color: #f59f00;
+}
+
+.house-details .house-size {
+    color: #555;
+}
+
+.beoordeling-button {
+    background-color: #f59f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75em 1.5em;
+    margin-top: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: stretch; /* Dit zorgt ervoor dat de knop de volledige breedte inneemt */
+    text-align: center;
+}
+
+.beoordeling-button:hover {
+    background-color: var(--primary-dk-blue);
+}
+/* -----------------------------house list section end------------------------------------ */
+
+/* -----------------------------rating section------------------------------------ */
+
+/* Algemene stijl voor de beoordelingssectie */
+.beoordeling {
+    max-width: 600px;
+    margin: auto;
+    padding: 2em;
+    background-color: var(--primary-lt-blue);
+    border-radius: 10px;
+}
+
+/* Stijl voor de groep van beoordelingen */
+.rating-group {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Stijl voor de titel van de beoordeling */
+.rating-title {
+    flex: 1;
+    font-size: 1.2em;
+}
+
+/* Stijl voor de sterren */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    position: relative;
+    margin-left: 1em;
+}
+
+/* Verbergt de standaard radioknoppen */
+.rating input[type="radio"] {
+    display: none;
+}
+
+/* Stijl voor de labels van de sterren */
+.rating label {
+    font-size: 2em;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Voegt een schaduweffect toe aan de tekst van de sterren */
+}
+
+/* Kleur van de sterren bij hover en selectie */
+.rating label:hover,
+.rating input[type="radio"]:checked ~ label {
+    color: #f59f00; /* Verandert de kleur van de sterren bij hover of selectie */
+    transform: scale(1.2); /* Maakt de sterren groter bij hover of selectie */
+}
+
+/* Kleurstijlen voor de checked sterren */
+.rating input[type="radio"]:nth-of-type(5):checked ~ label {
+    color: hsl(354, 92%, 46%); /* Rood */
+}
+
+.rating input[type="radio"]:nth-of-type(4):checked ~ label {
+    color: hsl(27, 88%, 42%); /* Oranje */
+}
+
+.rating input[type="radio"]:nth-of-type(3):checked ~ label {
+    color: hwb(53 33% 10%); /* Geel */
+}
+
+.rating input[type="radio"]:nth-of-type(2):checked ~ label {
+    color: hwb(85 4% 24%); /* Groen-geel */
+}
+
+.rating input[type="radio"]:nth-of-type(1):checked ~ label {
+    color: hsl(120, 88%, 65%); /* Groen */
+}
+
+/* Stijl voor de beoordelingswaarde */
+.rating-value {
+    font-size: 1.5em;
+    margin-left: 10px;
+    color: #333;
+    font-weight: bold;
+    line-height: 2.2em;
+}
+
+/* Stijl voor de knop voor het indienen van de beoordeling */
+.submit-ranking {
+    background-color: #f59f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* Animatie voor het veranderen van kleur en grootte van de sterren */
+.rating label:hover,
+.rating input[type="radio"]:checked ~ label {
+    animation: pulse 0.5s ease; /* Dit voegt een pulse animatie toe aan de sterren bij hover of selectie */
+}
+
+/* Keyframes voor de pulse animatie, groter worden */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+/* -----------------------------rating section end------------------------------------
