@@ -75,91 +75,12 @@ body::before {
 	z-index: 4;
   }
 
+header {
 
-
-
-header{
- /* Header styling if needed */ 
 }
-
-/* #region Mobile Styling */
-
-
-	.mobile-menu {
-		display: flex;
-		justify-content: space-between;
-		margin: 5%;
-		padding-bottom: 5%;
-		border-bottom: solid 1px black;
-	}
-	
-	.mobile-logo img {
-		width: 60%;
-	}
-	
-	picture {
-		display: flex;
-		justify-content: center;
-	}
-	
-	/* mobile-menu-window */
-	section#mobile-menu-window {
-		display: none;
-		flex-direction: column;
-		position: fixed;
-		inset: 0 auto 0 0;
-		background-color: #f4f4f4;
-		width: 100%;
-		z-index: 4;
-
-		.menu-exit{
-			position: absolute;
-			left: 0;
-			padding: 1.5em 0em 0em 1.5em;
-		}
-	}
-
-	
-	#mobile-menu-window ul {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		margin-block: 20%;
-		outline: solid rgb(32, 159, 209);
-		font-size: 2em;
-	}
-	
-	#mobile-menu-window ul li {
-		margin: 0em 0em .25em 0em;
-		font-weight: 600;
-	}
-	
-	#mobile-menu-window ul li a:hover {
-		color: #E84340;
-		transition: .25s;
-	}
-
-	#mobile-menu-window.showMenu {
-		display: flex;
-		animation: blur-in .15s ease-in;
-	}
-
-
-/* #endregion Mobile Nav Styling */
 
 main{
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* footer */
@@ -199,19 +120,12 @@ footer{
 
   	}
 
-	header{
-		display: none;
-	}
-
 	
 
 	main{
 		/* outline: solid rgb(255, 0, 111); */
 	}
 			
-	/* footer {
-					
-	} */
 		
 	}
 
@@ -240,7 +154,7 @@ footer{
 	}
 
 	main{
-		/* outline: solid rgb(92, 163, 88); */
+		
 	}
 	footer {
 		background-color: var(--main-bg-color);
