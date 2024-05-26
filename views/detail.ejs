@@ -61,14 +61,14 @@
 	
 
 
-	<% if (post.content) { %>
+	<% if (post.status === "publish") { %>
 		<section class="main-article" id="main-article">
-			<%- post.content.rendered; -%>
+			<%- post.content.rendered %>
 		</section>
 	<% } else { %>
-		<section class="main-article">
-			<p>Er is geen inhoud beschikbaar voor <%= post.id %></p>
-			<a href="/">voorpagina</a>
+		<section class="main-article error">
+			<p>Er is geen inhoud beschikbaar voor <%- post.id %> </p>
+			<p> Terug naar <a href="/"> voorpagina</a></p>
 		</section>
 	<% } %>
 </main>

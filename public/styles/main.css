@@ -80,9 +80,14 @@ body::before {
 
 header{
  /* Header styling if needed */ 
+ 	grid-column: 1/-1;
+	grid-template-columns: subgrid;
 }
 
 /* #region Mobile Styling */
+header nav{
+	grid-column: 1/-1;
+}
 
 
 	.mobile-menu {
@@ -149,6 +154,8 @@ header{
 /* #endregion Mobile Nav Styling */
 
 main{
+	
+
 }
 
 
@@ -164,6 +171,8 @@ main{
 
 /* footer */
 footer{
+	grid-column: 1/-1;
+
 }
 
 /* media queries */
