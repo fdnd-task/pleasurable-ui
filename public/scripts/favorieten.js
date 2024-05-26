@@ -71,6 +71,27 @@ document.querySelectorAll(".rating-form").forEach((form) => {
     });
 });
 
+/* ---- Footer ---- */
+
+// Voeg een class toe aan de ul elementen om ze zichtbaar te maken als JS werkt
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".footer-col ul").forEach(function (ul) {
+      ul.classList.add("js-enabled");
+    });
+
+    // Voeg click event listeners toe aan de titels
+    document.querySelectorAll(".footer-title").forEach(function (button) {
+      button.addEventListener("click", function () {
+        let ul = this.nextElementSibling;
+        if (ul.style.display === "block") {
+          ul.style.display = "none";
+        } else {
+          ul.style.display = "block";
+        }
+      });
+    });
+  });
+
 // Onderdeel van de Progressive Enhancement feature voor het submitten op de eventListener van de radio buttons, verbergt de submit knop
 
 // document.querySelectorAll(".rating-form button").forEach((button) => {
