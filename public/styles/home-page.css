@@ -50,6 +50,9 @@ body {
 	}
 }
 
+header{
+	width: 100%;
+}
 
 main{
 	grid-column: 1/-1;
