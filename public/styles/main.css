@@ -77,24 +77,24 @@ body::before {
 
 
 
+ /* Header styling if needed */ 
+/* header{
 
-header{
  	grid-column: 1/-1;
 	display: grid;
 	grid-template-columns: subgrid;
-}
+} */
 
-header nav{
+/* #region Mobile Styling */
+/* header nav{
 	grid-column: 1/-1;
 }
 
 
 /* #region Mobile Styling */
-.mobile-menu {
+/* .mobile-menu {
 	display: flex;
 	justify-content: space-between;
-	/* preferably do not use margin for header body or footer  */
-	/* margin: 5%; */
 	padding-block: 5%;
 	padding-inline: 5%;
 	border-bottom: solid 1px black;
@@ -108,22 +108,23 @@ header nav{
 picture {
 		display: flex;
 		justify-content: center;
-}
+	}  */
 	
-/* mobile-menu-window */
-section#mobile-menu-window {
-	flex-direction: column;
-	position: fixed;
-	inset: 0 auto 0 0;
-	background-color: #f4f4f4;
-	width: 100%;
-	z-index: 4;
-	display: none;
-	
-	.menu-exit{
-		position: absolute;
-		left: 0;
-		padding: 1.5em 0em 0em 1.5em;
+	/* mobile-menu-window */
+/* 	section#mobile-menu-window {
+		display: none;
+		flex-direction: column;
+		position: fixed;
+		inset: 0 auto 0 0;
+		background-color: #f4f4f4;
+		width: 100%;
+		z-index: 4;
+
+		.menu-exit{
+			position: absolute;
+			left: 0;
+			padding: 1.5em 0em 0em 1.5em;
+		}
 	}
 }
 
@@ -154,22 +155,15 @@ section#mobile-menu-window {
 }
 	
 
-/* #endregion Mobile Nav Styling */
+
+
+=======
+} */
 
 main{
 	
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /* footer */
@@ -212,19 +206,12 @@ footer{
 
   	}
 
-	header{
-		/* display: none; */
-	}
-
 	
 
 	main{
 		/* outline: solid rgb(255, 0, 111); */
 	}
 			
-	/* footer {
-					
-	} */
 		
 	}
 
@@ -253,7 +240,7 @@ footer{
 	}
 
 	main{
-		/* outline: solid rgb(92, 163, 88); */
+		
 	}
 	footer {
 		background-color: var(--main-bg-color);
