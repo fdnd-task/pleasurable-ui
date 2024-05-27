@@ -24,6 +24,71 @@ app.get('/', function(request, response) {
   });
 });
 
+// GET && POST voor Dashboard
+app.get("/dashboard/:id", function (request, response) {
+  // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+  fetchJson(companyList + "/" + request.params.id).then((companyData) => {
+    fetchJson(stakeholders + "/" + request.params.id).then(
+      (stakeholderData) => {
+        response.render("dashboard", {
+          company: companyData.data,
+          stakers: stakeholderData.data,
+        });
+      }
+    );
+  });
+});
+app.get("/stakeholder/:id", function (request, response) {
+  // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+  fetchJson(companyList + "/" + request.params.id).then((companyData) => {
+    fetchJson(stakeholders + "/" + request.params.id).then(
+      (stakeholderData) => {
+        response.render("stakeholder", {
+          company: companyData.data,
+          stakers: stakeholderData.data,
+        });
+      }
+    );
+  });
+});
+
+app.post("/stakeholder/:id", function (request, response) {
+  const bedrijfId = request.params.id;
+  const medewerkers = request.body.medewerkers;
+  const financiers = request.body.financiers;
+  const leveranciers = request.body.leveranciers;
+  const klanten = request.body.klanten;
+  const omgeving = request.body.omgeving;
+  const name = request.body.message;
+  const stakeholder = [];
+  let aangevinkteRadiobox;
+  if (medewerkers) {
+    aangevinkteRadiobox = "medewerkers";
+  } else if (financiers) {
+    aangevinkteRadiobox = "financiers";
+  } else if (leveranciers) {
+    aangevinkteRadiobox = "leveranciers";
+  } else if (klanten) {
+    aangevinkteRadiobox = "klanten";
+  } else if (omgeving) {
+    aangevinkteRadiobox = "omgeving";
+  }
+
+  fetch("https://fdnd-agency.directus.app/items/hf_stakeholders", {
+    method: "POST",
+    body: JSON.stringify({
+      company_id: bedrijfId,
+      type: aangevinkteRadiobox,
+      name: name,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  }).then((postReponse) => {
+
+  });
+  console.log(stakeholder);
+});
 
 // get sdg
 app.get('/sdg', (request, response) =>  {
