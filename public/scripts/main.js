@@ -56,8 +56,3 @@ ranges.forEach((range, index) => {
         }
     })
 })
-
-
-
-
-
