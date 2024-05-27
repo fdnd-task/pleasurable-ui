@@ -1,5 +1,4 @@
 const ranges = document.querySelectorAll('[type="range"]');
-// const output = document.querySelector('.selected article');
 const jsConfetti = new JSConfetti()
 
 ranges.forEach((range, index) => {
@@ -20,39 +19,30 @@ ranges.forEach((range, index) => {
         }
 
         if (range.value == 4){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#8EC58E")
         }
         if (range.value == 3){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#98C098")
         }
         if (range.value == 2){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#A1BDA1")
         }
         if (range.value == 1){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#ACB8AC")
         }
         if (range.value == 0){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#DDDDDD")
         }
         if (range.value == -1){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#B9ABAB")
         }
         if (range.value == -2){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#BDA1A1")
         }
         if (range.value == -3){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#C19897")
         }
         if (range.value == -4){
-            console.log('jup')
             output.style.setProperty('--range-clr', "#C58E8E")
         }
         if (range.value == -5){
