@@ -80,7 +80,7 @@ main:has(.elementor-widget-container) {
 				height: auto;
 			}
 
-			[data-elementor-type=footer]{
+			[data-elementor-type=footer],[data-elementor-type=header]{
 				display: none;
 			}
 
@@ -246,6 +246,11 @@ main:has(.elementor-widget-container) {
 	flex-direction: row;
 	gap: 1rem;
 	padding-inline: 3%;
+}	
+
+.button-nav ul li:nth-last-of-type(3n) {
+	display: none;
+	
 }
 
 button,input,select{
@@ -446,9 +451,9 @@ footer{
 
 
 			
-	footer {
-					
-	}
+		footer {
+			grid-column: 1/-1;
+		}
 		
 	}
 
