@@ -50,7 +50,7 @@ body {
 }
 
 section {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 h1,
@@ -636,35 +636,35 @@ nav li:not(.li-logo):hover {
 }
 
 .page-favourites p {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--neutral-2);
-  /* margin-bottom: 4rem; */
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--neutral-2);
+    /* margin-bottom: 4rem; */
 }
 
 .favourites-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 19.5rem));
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 20.15rem));
     grid-template-rows: auto;
     justify-content: center;
     /* align-items: center; */
     gap: 1rem;
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 100%;
 }
 
 .house-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid var(--silver);
-  border-radius: 0.5rem;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  background-color: white;
-  padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--silver);
+    border-radius: 0.5rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    padding-bottom: 1rem;
 }
 
 .house-card .card-container {
@@ -729,21 +729,21 @@ nav li:not(.li-logo):hover {
 }
 
 .delete-house:hover {
-  background-color: var(--white);
-  border: 1px solid var(--silver);
+    background-color: var(--white);
+    border: 1px solid var(--silver);
 }
 
 /* Ratings */
 
 .rating-form {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-top: 1px solid var(--silver);
-  padding-top: 1rem;
-  margin-top: 0.5rem;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid var(--silver);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .rating-form input[type="radio"] {
