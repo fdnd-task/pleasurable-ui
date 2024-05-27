@@ -629,3 +629,21 @@ footer{
 
 
 }
+
+
+@media (prefers-color-scheme: dark) {
+	
+	.detail-landing-container {
+	background-color: #292825;
+	}
+
+	.author span a {
+		color: white;
+	}
+
+	.main {
+		backdrop-filter: brightness(60%);
+	}
+
+
+}
