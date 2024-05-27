@@ -1,9 +1,23 @@
 const loginBtn = document.querySelector('.btn-green')
 const requiredInputs = document.querySelectorAll('[required]')
 const emailInput = document.querySelector('[type="email"]')
-const formLogin = document.querySelector('.login-form')
-const ranges = document.querySelectorAll('[type="range"]');
+const formLogin = document.querySelector('form')
+const ranges = document.querySelectorAll('[type="range"]')
+console.log(formLogin)
+
 const jsConfetti = new JSConfetti()
+formLogin.addEventListener('submit', handleSubmit)
+function handleSubmit(event) {
+    if(validateForm()) {
+        event.preventDefault(); 
+        jsConfetti.addConfetti({
+            confettiNumber: 100,
+        })
+        setTimeout(() => {       formLogin.submit();      }, 1000);
+    }
+    function validateForm() {    return true; } 
+    
+}
 
 ranges.forEach((range, index) => {
     range.addEventListener('input', function(event) {
@@ -61,16 +75,3 @@ ranges.forEach((range, index) => {
     })
 })
 
-formLogin.addEventListener('submit', handleSubmit); 
-
-function handleSubmit(event) {
-    if(validateForm()) {
-        event.preventDefault(); 
-        jsConfetti.addConfetti({
-            confettiNumber: 100,
-        })
-        setTimeout(() => {       formLogin.submit();      }, 1000);
-    }
-    function validateForm() {    return true; } 
-    
-}
