@@ -1,19 +1,19 @@
 <article class="beoordeling">
     <h3>Beoordeel dit huis</h3>
-    <form id="scoreForm-<%= house.f_houses_id.house_nr %>" action="/submit-rating" method="POST">
+    <form id="scoreForm-<%= house.f_houses_id.house_nr %>" action="/submit-rating" method="POST" class="scoreForm">
         <div class="rating-group">
             <span class="rating-title">Algemene beoordeling</span>
             <div class="rating">
                 <input type="radio" id="alg-star5-<%= house.f_houses_id.house_nr %>" name="algemeneBeoordeling-<%= house.f_houses_id.house_nr %>" value="5">
-                <label for="alg-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">☆</label>
+                <label for="alg-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">★</label>
                 <input type="radio" id="alg-star4-<%= house.f_houses_id.house_nr %>" name="algemeneBeoordeling-<%= house.f_houses_id.house_nr %>" value="4">
-                <label for="alg-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">☆</label>
+                <label for="alg-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">★</label>
                 <input type="radio" id="alg-star3-<%= house.f_houses_id.house_nr %>" name="algemeneBeoordeling-<%= house.f_houses_id.house_nr %>" value="3">
-                <label for="alg-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">☆</label>
+                <label for="alg-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">★</label>
                 <input type="radio" id="alg-star2-<%= house.f_houses_id.house_nr %>" name="algemeneBeoordeling-<%= house.f_houses_id.house_nr %>" value="2">
-                <label for="alg-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">☆</label>
+                <label for="alg-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">★</label>
                 <input type="radio" id="alg-star1-<%= house.f_houses_id.house_nr %>" name="algemeneBeoordeling-<%= house.f_houses_id.house_nr %>" value="1">
-                <label for="alg-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">☆</label>
+                <label for="alg-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">★</label>
             </div>
             <span class="rating-value" id="alg-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
@@ -22,15 +22,15 @@
             <span class="rating-title">Locatie</span>
             <div class="rating">
                 <input type="radio" id="loc-star5-<%= house.f_houses_id.house_nr %>" name="locatie-<%= house.f_houses_id.house_nr %>" value="5">
-                <label for="loc-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">☆</label>
+                <label for="loc-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">★</label>
                 <input type="radio" id="loc-star4-<%= house.f_houses_id.house_nr %>" name="locatie-<%= house.f_houses_id.house_nr %>" value="4">
-                <label for="loc-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">☆</label>
+                <label for="loc-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">★</label>
                 <input type="radio" id="loc-star3-<%= house.f_houses_id.house_nr %>" name="locatie-<%= house.f_houses_id.house_nr %>" value="3">
-                <label for="loc-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">☆</label>
+                <label for="loc-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">★</label>
                 <input type="radio" id="loc-star2-<%= house.f_houses_id.house_nr %>" name="locatie-<%= house.f_houses_id.house_nr %>" value="2">
-                <label for="loc-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">☆</label>
+                <label for="loc-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">★</label>
                 <input type="radio" id="loc-star1-<%= house.f_houses_id.house_nr %>" name="locatie-<%= house.f_houses_id.house_nr %>" value="1">
-                <label for="loc-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">☆</label>
+                <label for="loc-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">★</label>
             </div>
             <span class="rating-value" id="loc-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
@@ -39,15 +39,15 @@
             <span class="rating-title">Prijs</span>
             <div class="rating">
                 <input type="radio" id="prijs-star5-<%= house.f_houses_id.house_nr %>" name="prijs-<%= house.f_houses_id.house_nr %>" value="5">
-                <label for="prijs-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">☆</label>
+                <label for="prijs-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">★</label>
                 <input type="radio" id="prijs-star4-<%= house.f_houses_id.house_nr %>" name="prijs-<%= house.f_houses_id.house_nr %>" value="4">
-                <label for="prijs-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">☆</label>
+                <label for="prijs-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">★</label>
                 <input type="radio" id="prijs-star3-<%= house.f_houses_id.house_nr %>" name="prijs-<%= house.f_houses_id.house_nr %>" value="3">
-                <label for="prijs-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">☆</label>
+                <label for="prijs-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">★</label>
                 <input type="radio" id="prijs-star2-<%= house.f_houses_id.house_nr %>" name="prijs-<%= house.f_houses_id.house_nr %>" value="2">
-                <label for="prijs-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">☆</label>
+                <label for="prijs-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">★</label>
                 <input type="radio" id="prijs-star1-<%= house.f_houses_id.house_nr %>" name="prijs-<%= house.f_houses_id.house_nr %>" value="1">
-                <label for="prijs-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">☆</label>
+                <label for="prijs-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">★</label>
             </div>
             <span class="rating-value" id="prijs-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
@@ -56,15 +56,15 @@
             <span class="rating-title">Oppervlakte</span>
             <div class="rating">
                 <input type="radio" id="opp-star5-<%= house.f_houses_id.house_nr %>" name="oppervlakte-<%= house.f_houses_id.house_nr %>" value="5">
-                <label for="opp-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">☆</label>
+                <label for="opp-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">★</label>
                 <input type="radio" id="opp-star4-<%= house.f_houses_id.house_nr %>" name="oppervlakte-<%= house.f_houses_id.house_nr %>" value="4">
-                <label for="opp-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">☆</label>
+                <label for="opp-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">★</label>
                 <input type="radio" id="opp-star3-<%= house.f_houses_id.house_nr %>" name="oppervlakte-<%= house.f_houses_id.house_nr %>" value="3">
-                <label for="opp-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">☆</label>
+                <label for="opp-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">★</label>
                 <input type="radio" id="opp-star2-<%= house.f_houses_id.house_nr %>" name="oppervlakte-<%= house.f_houses_id.house_nr %>" value="2">
-                <label for="opp-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">☆</label>
+                <label for="opp-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">★</label>
                 <input type="radio" id="opp-star1-<%= house.f_houses_id.house_nr %>" name="oppervlakte-<%= house.f_houses_id.house_nr %>" value="1">
-                <label for="opp-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">☆</label>
+                <label for="opp-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">★</label>
             </div>
             <span class="rating-value" id="opp-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
@@ -73,21 +73,23 @@
             <span class="rating-title">Ligging</span>
             <div class="rating">
                 <input type="radio" id="lig-star5-<%= house.f_houses_id.house_nr %>" name="ligging-<%= house.f_houses_id.house_nr %>" value="5">
-                <label for="lig-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">☆</label>
+                <label for="lig-star5-<%= house.f_houses_id.house_nr %>" title="5 sterren">★</label>
                 <input type="radio" id="lig-star4-<%= house.f_houses_id.house_nr %>" name="ligging-<%= house.f_houses_id.house_nr %>" value="4">
-                <label for="lig-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">☆</label>
+                <label for="lig-star4-<%= house.f_houses_id.house_nr %>" title="4 sterren">★</label>
                 <input type="radio" id="lig-star3-<%= house.f_houses_id.house_nr %>" name="ligging-<%= house.f_houses_id.house_nr %>" value="3">
-                <label for="lig-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">☆</label>
+                <label for="lig-star3-<%= house.f_houses_id.house_nr %>" title="3 sterren">★</label>
                 <input type="radio" id="lig-star2-<%= house.f_houses_id.house_nr %>" name="ligging-<%= house.f_houses_id.house_nr %>" value="2">
-                <label for="lig-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">☆</label>
+                <label for="lig-star2-<%= house.f_houses_id.house_nr %>" title="2 sterren">★</label>
                 <input type="radio" id="lig-star1-<%= house.f_houses_id.house_nr %>" name="ligging-<%= house.f_houses_id.house_nr %>" value="1">
-                <label for="lig-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">☆</label>
+                <label for="lig-star1-<%= house.f_houses_id.house_nr %>" title="1 ster">★</label>
             </div>
             <span class="rating-value" id="lig-value-<%= house.f_houses_id.house_nr %>">0</span>
         </div>
 
         <button type="submit" class="submit-rating">Verstuur beoordeling</button>
+    
     </form>
+    
 </article>
 </article>
 </div>
