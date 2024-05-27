@@ -53,7 +53,8 @@
 
 	<nav class="button-nav" id="btn-nav">
 		<ul>
-			<li><%- include('./partials/share') %></li>
+			<li><%- include('./partials/share') %> </li>
+			<li><%- include('./partials/like') %> </li>
 		</ul>
 	</nav>
 	
@@ -66,10 +67,9 @@
 		</section>
 	<% } else { %>
 		<section class="main-article error">
-			<p>Er is geen inhoud beschikbaar voor <%- post.id %> </p>
+			<p>Er is geen inhoud beschikbaar voor <%= post.id %> </p>
 			<p> Terug naar <a href="/"> voorpagina</a></p>
 		</section>
 	<% } %>
 </main>
 
-<%- include('./partials/foot'); -%>
