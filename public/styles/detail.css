@@ -238,7 +238,6 @@ main:has(.elementor-widget-container) {
 	height: fit-content;
 	padding-block: 1rem;
 	border-bottom: 1px solid #C4C4C4;
-	;
 }
 
 .button-nav ul {
@@ -248,12 +247,15 @@ main:has(.elementor-widget-container) {
 	padding-inline: 3%;
 }
 
+
 button,input,select{
 	--btn-color : #C4C4C4;
 	--btn-color : #373636;
+	--btn-border-color : #AAAAAA;
 
+	font-size: 1.25em;
 	border: 1px solid var(--btn-color);
-	border-radius: 10px;
+	border-radius: 5px;
 	padding: 5%;
 	color: var(--btn-color) ;
 	background-color: transparent;
@@ -264,6 +266,31 @@ button,input,select{
 	width: fit-content;
 	align-items: center;
 	
+}
+
+button svg{
+	fill: var(--btn-border-color);
+}
+
+
+.share-btn {
+	/* Default state of buttons */
+	color: var(--btn-border-color);
+	border: solid 1px var(--btn-border-color);
+	padding: .5em;
+
+	span {
+		padding: 3px;
+	}
+}
+
+.share-btn:hover {
+	border: solid 1px #3CBD27;
+}
+
+.share-btn::after {
+	color: #3CBD27;
+	border: solid 1px #3CBD27;
 }
 
 select{
