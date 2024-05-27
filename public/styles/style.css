@@ -246,8 +246,8 @@ nav {
 ul.nav {
     list-style: none;
     display: flex;
-    max-width: 61.5rem;
-    padding: 0rem 0.5rem;
+    max-width: 1032px;
+    padding: 0rem 1rem;
     justify-content: space-between;
     align-items: center;
     flex: 1 0 0;
