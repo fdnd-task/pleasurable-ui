@@ -106,36 +106,43 @@ header{
 }
 
 nav {
-    width: 300px;
+    width: 500px;
     height: 100%;
     position: fixed;
-    transform: translateX(-100%);
-		transition: .2s;
     display: flex;
     flex-direction: column;
-    padding: 1.5em;
+    transform: translateX(-100%);
+    transition: .2s;
+    padding: 1.55em;
     z-index: 1;
     background-color: var(--PrimaryColor);
 }
 
 nav li {
     list-style: none;
-    padding: 0.5em 0 1.5em 0; 
+    padding: 0.5em 1.5rem 1.5em 0; 
     width: 100%;
+    margin: .8rem;
 }
 
 nav li a{
     text-decoration: none;
     color: var(--TextColor);
-    padding: .8em;
+    background-color: var(--BGcolor);
+    border: 2px solid var(--a);
+    border-radius: 1.5em;
+    padding: 1.85em;
     width: 100%;
+    text-transform: capitalize;
+    display: block;
+    text-align: center;
 }
 
 nav li a:hover{
     background-color: var(--Secondarycolor);
     color: var(--TextColor);
     font-size: 1em;
-    text-align: left;
+    text-align: center;
 }
 
 nav li a:active {
@@ -148,7 +155,7 @@ nav li a:focus-visible {
   padding: .5em;
 }
 
-nav svg{
+nav svg {
     float: left;
     cursor: pointer;   
     margin-bottom: 1.5em;
@@ -169,10 +176,12 @@ nav svg{
 /* Dit is het einde van de nav stijling
 
 /* Dit is de stijling van de inputvelden voor login */
-form {
+.login {
   border: 3px solid var(--Accentcolor);
-  padding: 1.575em;
+  padding: 3.575em;
   border-radius: 1.375em;
+  width: 100%;
+  
 }
 
 input[type="email"], input[type="password"] {
@@ -224,12 +233,35 @@ input[type="email"], input[type="password"] {
   /* mobiele weergave */
   @media screen and (max-width: 480px) {
     /* mobiel menu werkt naar behoren met knop*/
+    .menu-button {
+      padding: .6em 1.2em;
+      border: 1px solid transparent;
+      border-radius: .5rem;
+      font-family: inherit;
+      font-size: inherit;
+      text-decoration: none;
+      color: var(--TextColor);
+      background: var(--PrimaryColor);
+      cursor: pointer;
+      text-transform: uppercase;
+      border-radius: 1.375em;
+      transition-duration: .5s;
+      position: fixed;
+    }
+
+  .menu-button:focus-visible {
+  outline: 4px solid var(--Accentcolor);
+  padding: .5em;
+}
+    
     nav {
       width: 100%;
       height: auto;
       position: fixed;
       display: flex;
       flex-direction: column;
+      transform: translateX(-100%);
+      transition: .2s;
       padding: 1.5em;
       z-index: 1;
       background-color: var(--PrimaryColor);
@@ -257,6 +289,8 @@ input[type="email"], input[type="password"] {
   nav:focus {
     outline: 4px solid var(--Secondarycolor);
   }
+
+
 
  
   body {
@@ -310,6 +344,20 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.margin h2 {
+  letter-spacing: 3px;
+  text-align: left;
+}
+
+.login {
+  border: none;
+}
+
+select {
+  font-size: 1em;
+  width: 100%;
 }
 
 input[type="email"], input[type="password"] {
