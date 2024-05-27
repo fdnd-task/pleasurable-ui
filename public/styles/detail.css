@@ -642,7 +642,7 @@ footer{
 	}
 
 	.main {
-		backdrop-filter: brightness(60%);
+		/* backdrop-filter: brightness(30%); */
 	}
 
 
