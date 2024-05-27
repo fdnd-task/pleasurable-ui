@@ -290,6 +290,10 @@ header{
        fill: var(--text-dm-color);
     }
 
+    .desktop-pages svg {
+        fill: white;
+    }
+
     .second-row  {
         border-top: solid 1px white;
         border-bottom: solid 1px white;
