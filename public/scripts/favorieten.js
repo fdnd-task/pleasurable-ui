@@ -1,3 +1,4 @@
+// Houd de positie van de cursor bij. Zet dit om naar een waarde tussen 0 en 1 & zet dit in een globaal variabel
 let normalizedX = 0;
 let normalizedY = 0;
 
@@ -5,6 +6,8 @@ document.addEventListener("mousemove", function (e) {
     normalizedX = e.clientX / window.innerWidth;
     normalizedY = e.clientY / window.innerHeight;
 });
+
+// ---- Prijzen conversie ----
 
 // Functie om nummers te converteren voor leesbaarheid (30000 -> 30.000)
 const numberWithPeriods = (value) => {
@@ -23,6 +26,7 @@ prices.forEach((price) => {
 
 // ---- Confetti effect ----
 
+// Configureer de confetti
 const confettiDefaults = {
     spread: 120,
     // ticks: 20,
@@ -80,8 +84,8 @@ document.querySelectorAll(".rating-form").forEach((form) => {
 
             // Als de radio button gecheckt is (want de 'change' event wordt ook uitgevoerd als een radio button unchecked wordt)
             if (event.target.checked) {
+                // Als de rating 5 is, schiet dan confetti
                 if (rating == 5) {
-                    // Als de rating 5 is, schiet confetti
                     shootConfetti();
                 }
                 // Roep de RatingHandler functie aan met de juiste parameters
@@ -98,13 +102,14 @@ document.querySelectorAll(".rating-form button").forEach((button) => {
 
 // POST request handler voor het sturen van een rating
 function ratingHandler(id, rating, loaderEl, successEl) {
+    // Toon de loading state
     if (loaderEl.classList.contains("hidden")) {
         loaderEl.classList.remove("hidden");
     }
-
     try {
         // POST request naar de server met de rating
         // (URL: "/rate/:id/:rating", e.g. "/rate/6/5")
+
         // throw "Debug error";
         fetch(`/rate/${id}/${rating}`, {
             method: "POST",
@@ -124,9 +129,9 @@ function ratingHandler(id, rating, loaderEl, successEl) {
             text: "Beoordeling niet opgeslagen. Probeer het later nog eens. ",
             duration: 3000,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
             style: {
                 background: "linear-gradient(to right, #ad2429, #9e181c)",
             },
@@ -134,9 +139,8 @@ function ratingHandler(id, rating, loaderEl, successEl) {
     }
 }
 
-// ==================================================
-// Dialog venster
-// ==================================================
+// ---- Dialog venster ----
+
 const btnLeden = document.querySelector("#btn-leden");
 const dialogLeden = document.querySelector("#dialog-leden");
 const btnCloseDialog = document.querySelector("#btn-close-dialog");
