@@ -9,7 +9,10 @@
     background: var(--background);
     font-family: halton, sans-serif;
 }
-
+html{
+  overflow-x: hidden;
+}
+ 
 header{
     display: flex;
     justify-content: center;

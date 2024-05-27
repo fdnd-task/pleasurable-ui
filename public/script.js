@@ -1,5 +1,4 @@
 // Deze code is voor het zij-menu die over de gehele website komt
-
 const menu = document.querySelector('.crossnav')
 const button = document.querySelector('.menu-button')
 const close = document.querySelector('path')
@@ -91,9 +90,9 @@ function submitAddFormHandler(event) {
     }
 
     // Als er een type is geselecteerd, stuur het formulier door
-    successMessage.style.display = 'block';
+    successMessage.hidden = false;
     setTimeout(function () {
-        successMessage.style.display = 'none';
+        successMessage.hidden = true;
     }, 5000);
 
     event.preventDefault();

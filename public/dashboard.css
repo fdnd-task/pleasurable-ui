@@ -213,7 +213,6 @@ input {
   border-radius: 20px;
   width: 100%;
   border: solid black 1px;
-  background-color: var(--primarypurple);
   cursor: pointer;
   transition: all 0.5s;
 }
