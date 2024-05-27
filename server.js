@@ -5,8 +5,8 @@ const app = express(),
 apiUrl = 'https://fdnd-agency.directus.app/items/',
 scores = 'https://fdnd-agency.directus.app/items/hf_scores/?filter[stakeholder_id]=6',
 sdgData = await fetchJson(apiUrl + '/hf_sdgs'),
-stakeholders = apiUrl + "hf_stakeholders",
-companies = apiUrl + "hf_companies";
+stakeholders = apiUrl + "hf_stakeholders?fields=*.*.*.*`",
+companyList = apiUrl + "hf_companies";
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended: true}))
 
 // Hier de get route van login
 app.get('/', function(request, response) {
-  fetchJson(companies).then((companiesUitDeAPI) => {
+  fetchJson(companyList).then((companiesUitDeAPI) => {
     response.render("index", {
       companies: companiesUitDeAPI.data
     });
@@ -33,7 +33,7 @@ app.get("/dashboard/:id", function (request, response) {
         response.render("dashboard", {
           company: companyData.data,
           stakers: stakeholderData.data,
-        });
+        })
       }
     );
   });
@@ -53,14 +53,14 @@ app.get("/stakeholder/:id", function (request, response) {
 });
 
 app.post("/stakeholder/:id", function (request, response) {
-  const bedrijfId = request.params.id;
-  const medewerkers = request.body.medewerkers;
-  const financiers = request.body.financiers;
-  const leveranciers = request.body.leveranciers;
-  const klanten = request.body.klanten;
-  const omgeving = request.body.omgeving;
-  const name = request.body.message;
-  const stakeholder = [];
+  const bedrijfId = request.params.id,
+  medewerkers = request.body.medewerkers,
+  financiers = request.body.financiers,
+  leveranciers = request.body.leveranciers,
+  klanten = request.body.klanten,
+  omgeving = request.body.omgeving,
+  name = request.body.message,
+  stakeholder = [];
   let aangevinkteRadiobox;
   if (medewerkers) {
     aangevinkteRadiobox = "medewerkers";
@@ -108,11 +108,16 @@ app.get('/score', (request, response) => {
 })
 
 // post functie van index
-app.post('/', function (request, response) {
-  const bedrijfsID = request.body.companies;
+app.post("/", function (request, response) {
+  const bedrijfId = request.body.companies;
+ 
+  console.log(bedrijfId);
+  response.redirect("/dashboard/" + bedrijfId);
+});
 
-  console.log(bedrijfsID);
-  response.redirect("/dashboard/" + bedrijfsID);
+app.post("/dashboard/:id", function (request, response) {
+  console.log(bedrijfId);
+  response.redirect("/dashboard/" + bedrijfId);
 });
 
 app.post('/score', (request, response) =>{

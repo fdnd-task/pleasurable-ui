@@ -1,4 +1,5 @@
-<%- include('./partials/headdash.ejs') %>
+<link rel="stylesheet" href="/dashboard.css" />
+<%- include('./partials/head') %>
 
 <div class="dashboard">
   <div>
@@ -51,21 +52,19 @@
       <section class="tools">
         <h3>Uw stakeholders</h3>
         <ul>
-          <% stakers.forEach(stake => { %> <% if (stake.company_id.id ===
-          company.id) { %>
+          <% stakers.forEach(stake => { if (stake.company_id.id === company.id) { %>
           <li>
             <a class="toolbox" href="/score">
-              <h3><%= stake.name%> - <%=stake.type%></h3>
+              <%= stake.name%> - <%=stake.type%>
             </a>
           </li>
-          <% } %> <% }) %>
+          <% } }) %>
         </ul>
       </section>
     </nav>
   </header>
   <!-- Midden van Dashboard -->
   <main class="content-wrap">
-    <hr />
     <section>
       <div class="parent">
         <div class="hand-print">
@@ -94,9 +93,8 @@
           />
           <h1>50%</h1>
         </div>
-        <div></div>
       </div>
-      <hr />
     </section>
   </main>
 </div>
+<%- include('./partials/foot') %>
