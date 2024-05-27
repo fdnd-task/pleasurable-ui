@@ -753,10 +753,19 @@ nav li:not(.li-logo):hover {
     width: 1.5rem;
     cursor: pointer;
     margin: 0;
+    transition: scale 0.1s ease-in;
+    transition: background-image 0.08s ease-in;
 }
+
+.rating-form input[type="radio"]:nth-of-type(1) {--i:1;}
+.rating-form input[type="radio"]:nth-of-type(2) {--i:2;}
+.rating-form input[type="radio"]:nth-of-type(3) {--i:3;}
+.rating-form input[type="radio"]:nth-of-type(4) {--i:4;}
+.rating-form input[type="radio"]:nth-of-type(5) {--i:5;}
 
 .rating-form input[type="radio"]:hover,
 .rating-form input[type="radio"]:has(~ input[type="radio"]:hover) {
+	scale: calc(1 + var(--i) * .03);	
     background-image: var(--active-star);
 }
 
