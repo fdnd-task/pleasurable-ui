@@ -1,0 +1,87 @@
+
+/* Algemene stijling */
+/* main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+} */
+
+/* Show en filter worden in client-side scripting */
+.show{
+  transform: translateX(0%);
+}
+
+.filter{
+  position: absolute;
+  left: 0;
+  background-color: rgba(39, 39, 39, 0.596);
+  height: 100vh;
+  width: 25%;
+  pointer-events: none;
+}
+/* Dit is het einde van de nav stijling
+
+/* Dit is de stijling van de inputvelden voor login */
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--Accentcolor);
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  input[type='submit'] {
+    width: 100%;
+    padding: 0.5em;
+    font-family: halton, sans-serif;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid var(--Accentcolor);
+    background-color: var(--BGcolor);
+    color: var(--TextColor);
+  }
+  
+  input[type='submit']:hover {
+    background-color: var(--Secondarycolor);
+    color: var(--TextColor);
+    cursor: pointer;
+  }
+
+  input:focus-visible {
+    outline: 4px solid var(--Secondarycolor);
+    padding: .5em;
+  }
+
+ select {
+    width: 50%;
+    padding: .5em;
+    border: 2px solid var(--Accentcolor);
+    background-color: var(--PrimaryColor);
+    color: var(--TextColor);
+    font-size: 1em;
+  }
+
+  select:focus-visible {
+    outline: 4px solid var(--Secondarycolor);
+    padding: .5em;
+  }
+
+  .custom-select{
+    display: block;
+    width: 15rem;
+    background: var(--text);
+    margin: 0 auto;
+  }
+  .loginBtn{
+    display: block;
+    width: 12rem;
+    height: 3rem ;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 25em;
+    cursor: pointer;
+    transition: 0.4s; 
+    margin: 0 auto;
+  }
