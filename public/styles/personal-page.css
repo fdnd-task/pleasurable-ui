@@ -44,7 +44,7 @@ header {
 
 body {
     overflow-x: hidden;
-    background-color: var(--primary-color);
+    background-color: #ff0000;
 }
 
 main {
