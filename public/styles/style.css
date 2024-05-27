@@ -9,6 +9,7 @@
     --mine-shaft: #333333;
     --neutral: #999999;
     --neutral-2: #666666;
+    --neutral-3: #fafafa;
     --silver: #cccccc;
     --orange-darker: #de9000;
     --bahama-blue: #006199;
@@ -30,6 +31,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+    background-color: var(--neutral-3);
 }
 
 /* ---- Utility classes ---- */
@@ -399,11 +401,11 @@ nav li:not(.li-logo):hover {
 }
 
 .breadcrumbs > li {
-    color: var(--gray);
+    color: var(--neutral-2);
 }
 
-.breadcrumbs:last-child {
-    color: var(--lightgray);
+.breadcrumbs > li:last-child {
+    color: var(--neutral);
 }
 
 .breadcrumbs > li::after {
