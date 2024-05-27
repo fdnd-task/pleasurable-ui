@@ -462,3 +462,9 @@ footer{
 
 }
 
+@media (prefers-color-scheme: dark) {
+	body {
+	  color: #eee;
+	  background: #121212;
+	}
+}
