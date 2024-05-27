@@ -237,13 +237,13 @@ h1 {
 
         a {
             grid-area: annuleer;
-            justify-self: end;
-            margin-left: auto;
             color: white;
         }
 
+
         section:nth-of-type(2) {
             padding: 1em 0;
+
         }
 
         ol {

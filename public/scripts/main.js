@@ -2,7 +2,7 @@ const ranges = document.querySelectorAll('[type="range"]');
 const jsConfetti = new JSConfetti()
 
 ranges.forEach((range, index) => {
-    range.addEventListener('change', function(event) {
+    range.addEventListener('input', function(event) {
         console.log(range.value)
         console.log(`Slider ${index+1} is gewijzigd`); 
         const output = document.querySelector(`.selected .selected-${index+1}`);

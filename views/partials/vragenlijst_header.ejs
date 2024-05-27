@@ -13,9 +13,11 @@
                     <% if (current == 'gegevens') { %>
                         <div>1 </div>
                     <% } else { %>
-                        <div>✓</div>
+                        <a href="#">
+                            <div>✓</div>
+                        </a>
                     <% } %>
-                    <p>Klant toevoegen</p>
+                    <p>Klant <span class="info-desk" >toevoegen</span></p>
                 </div>
             </li>
 
@@ -28,9 +30,12 @@
                         <div>2 </div>
                     <% } %>
                     <% if (current == 'scores') { %>
-                        <div>✓</div>
+                        <a href="#">
+                            <div>✓</div>
+                        </a>
+                        
                     <% } %>
-                    <p>SDG's kiezen</p>
+                    <p>SDG's <span class="info-desk" >kiezen</span></p>
                 </div>
                 
                 
@@ -39,7 +44,7 @@
             <li <% if (current == 'scores') { %> class="active" <% } %>>
                 <div>
                     <div> 3 </div>
-                    <p>Scores toevoegen</p>
+                    <p>Scores <span class="info-desk" >toevoegen</span></p>
                 </div>
                 
             </li>
