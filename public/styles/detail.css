@@ -307,23 +307,12 @@ button svg{
 	transition: var(--hover-time);
 }
 
-.share-btn::after {
-	color: var(--share-color);
-	border-color: var(--share-color);
-
-	svg{
-		fill: var(--share-color);
-	}
-}
-
 .like-btn:hover {
     border-color: var(--like-color);
 	transition: var(--hover-time);
-
-	svg{
-		fill: var(--like-color);
-	}
 }
+
+/* After states for btns */
 
 .share-btn::after {
 	color: var(--share-color);
@@ -342,6 +331,8 @@ button svg{
 		fill: var(--like-color);
 	}
 }
+
+/* ---------------------- */
 
 
 
