@@ -22,7 +22,7 @@
   </section>
   <section class="signup-form entrance">
     
-    <form action="POST">
+    <form action="POST" class="login-form">
       <header><h1>Register</h1>
       </header>
     
@@ -36,9 +36,10 @@
           <input type="email" placeholder="Email Address" required>
         </label>
         <label> <span>Password</span>
-          <input type="password" placeholder="Password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!-*]).{8,}" 
+          <input type="password" placeholder="Password" id="password" 
           title="Must contain at least one number and one uppercase and lowercase letter, one special symbol, and at least 8 or more characters">
         </label>
+        <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!-*]).{8,}"  was van het wachtwoord code deed het kut -->
       </fieldset>
 
       <details>
