@@ -277,30 +277,46 @@ button svg{
 	fill: var(--btn-border-color);
 }
 
+/* Common button styles */
+.btn {
+	--share-color: #3CBD27;
+	--like-color: #E85340;
+	--read-color: #27AFB8;
+	--hover-time: .25s;
 
-.share-btn {
-	/* Default state of buttons */
-	color: var(--btn-border-color);
-	border: solid 1px var(--btn-border-color);
-	padding: .5em;
-
-	span {
-		padding: 3px;
-	}
+    color: var(--btn-border-color);
+    border: solid 1px var(--btn-border-color);
+    display: inline-flex; 
+    height: 2.5em;
+    padding: 0 10px;
+    box-sizing: border-box; 
+    min-width: 80px;
 }
 
+/* Specific styles for .share-btn */
+.share-btn p, .like-btn span {
+    margin: 0;
+	padding: 3px;
+}
+
+/* Hover effects for buttons */
 .share-btn:hover {
-	border: solid 1px #3CBD27;
+    border-color: var(--share-color);
+	transition: var(--hover-time);
 }
 
-.share-btn::after {
-	color: #3CBD27;
-	border: solid 1px #3CBD27;
+.like-btn:hover {
+    border-color: var(--like-color);
+	transition: var(--hover-time);
 }
 
-select{
-	display: none;
-}
+
+
+
+
+
+
+
 
 /* //////////////////// */
 /* main article content */
