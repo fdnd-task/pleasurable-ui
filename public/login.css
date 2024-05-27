@@ -78,7 +78,7 @@ header{
 
 /* Nav stijling. Menu button zit in head.ejs */
 .menu-button {
-  /* padding: .6em 1.2em;
+  padding: .6em 1.2em;
 	border: 1px solid transparent;
 	border-radius: .5rem;
 	font-family: inherit;
@@ -89,15 +89,6 @@ header{
 	cursor: pointer;
   text-transform: uppercase;
   border-radius: 1.375em;
-  transition-duration: .5s; */
-  padding: .5em 1em;
-  aspect-ratio: unset;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: .5em;
-  align-items: center;
-  border-radius: 1.375em;
-  text-transform: uppercase;
   transition-duration: .5s;
 }
 
@@ -178,6 +169,12 @@ nav svg{
 /* Dit is het einde van de nav stijling
 
 /* Dit is de stijling van de inputvelden voor login */
+form {
+  border: 3px solid var(--Accentcolor);
+  padding: 1.575em;
+  border-radius: 1.375em;
+}
+
 input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
