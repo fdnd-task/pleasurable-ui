@@ -14,7 +14,7 @@ header{
        }
 
        .mobile-logo{
-            outline: solid yellow;
+          
             display: flex;
             place-content:center;
             
