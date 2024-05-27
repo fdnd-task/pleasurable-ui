@@ -49,10 +49,6 @@ body {
     display: none !important;
 }
 
-section {
-    margin-top: 1rem;
-}
-
 h1,
 h2,
 h3 {
@@ -135,10 +131,11 @@ dialog {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: 0.75rem 0.75rem 0 0;
     border: none;
     box-shadow: 0 -0.25rem 0.75rem rgb(0 0 0 / 0.2);
     padding: 1rem;
+    z-index: 2;
 }
 
 dialog::backdrop {
@@ -228,7 +225,7 @@ header {
     background-color: var(--web-orange);
     color: #fff;
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -622,8 +619,8 @@ nav li:not(.li-logo):hover {
 .page-favourites h1 {
     font-size: 3rem;
     font-weight: 600;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .page-favourites h1::after {
@@ -639,7 +636,7 @@ nav li:not(.li-logo):hover {
     font-size: 1rem;
     font-weight: 400;
     color: var(--neutral-2);
-    /* margin-bottom: 4rem; */
+    margin-bottom: 1rem;
 }
 
 .favourites-grid {
@@ -659,7 +656,7 @@ nav li:not(.li-logo):hover {
     justify-content: center;
     align-items: center;
     border: 1px solid var(--silver);
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
     width: 100%;
     position: relative;
     overflow: hidden;
