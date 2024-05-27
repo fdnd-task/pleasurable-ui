@@ -1,4 +1,5 @@
-<%- include('partials/head', {page: 'Favorieten'}) %> <%- include('partials/nav') %>
+<%- include('partials/head', {page: 'Favorieten'}) %> <%-
+include('partials/nav') %>
 
 <div class="layout-container page-favourites">
     <%- include('partials/breadcrumbs', {items: ['Home', 'Mijn Account',
@@ -10,78 +11,84 @@
         huis, de buurt en andere belangrijke details voor je zoektocht.
     </p>
 
-  <!-- ================================================== -->
-  <!-- Leden section -->
-  <!-- ================================================== -->
-  <section>
-    <!-- leden beschrijving -->
-    <h2>Leden</h2>
-    <p>Alle leden van de favorieten lijst.</p>
-    <!-- leden list -->
-    <ul class="member-list">
-      <li class="member-item">
-        <img src="#" width="25" height="25">
-        <p>Naam</p>
-      </li>
-      <li class="member-item">
-        <img src="#" width="25" height="25">
-        <p>Naam</p>
-      </li>
-    </ul>
-    <!-- buttons -->
-    <div class="option-row">
-      <select class="btn-blue">
-        <option selected>Relevantie</option>
-      </select>
-      <button class="btn-blue" id="btn-leden">Leden</button>
-    </div>
-  </section>
-  <!-- ================================================== -->
-  <!-- Leden dialog -->
-  <!-- ================================================== -->
-  <dialog id="dialog-leden">
-    <form>
-      <!-- Title -->
-      <div class="title-row">
+    <!-- ================================================== -->
+    <!-- Leden section -->
+    <!-- ================================================== -->
+    <section>
+        <!-- leden beschrijving -->
         <h2>Leden</h2>
-        <button id="btn-close-dialog" formmethod="dialog">X</button>
-      </div>
-      <p>Alle leden van de favorieten lijst.</p>
+        <p>Alle leden van de favorieten lijst.</p>
+        <!-- leden list -->
+        <ul class="member-list">
+            <li class="member-item">
+                <img src="#" width="25" height="25" />
+                <p>Naam</p>
+            </li>
+            <li class="member-item">
+                <img src="#" width="25" height="25" />
+                <p>Naam</p>
+            </li>
+        </ul>
+        <!-- buttons -->
+        <div class="option-row">
+            <select class="btn-blue">
+                <option selected>Relevantie</option>
+            </select>
+            <button class="btn-blue" id="btn-leden">Leden</button>
+        </div>
+    </section>
+    <!-- ================================================== -->
+    <!-- Leden dialog -->
+    <!-- ================================================== -->
+    <dialog id="dialog-leden">
+        <form>
+            <!-- Title -->
+            <div class="title-row">
+                <h2>Leden</h2>
+                <button id="btn-close-dialog" formmethod="dialog">X</button>
+            </div>
+            <p>Alle leden van de favorieten lijst.</p>
 
-      <!-- Leden lijst -->
-      <ul class="member-list">
-        <li class="member-item">
-          <img src="#" width="25" height="25">
-          <p>Naam</p>
-        </li>
-        <li class="member-item">
-          <img src="#" width="25" height="25">
-          <p>Naam</p>
-        </li>
-      </ul>
+            <!-- Leden lijst -->
+            <ul class="member-list">
+                <li class="member-item">
+                    <img src="#" width="25" height="25" />
+                    <p>Naam</p>
+                </li>
+                <li class="member-item">
+                    <img src="#" width="25" height="25" />
+                    <p>Naam</p>
+                </li>
+            </ul>
 
-      <hr>
-      <!-- Nieuwe leden -->
-      <h2>Nieuwe leden</h2>
-      <p>Voeg nieuwe leden toe aan je favorieten lijst.</p>
-      <input type="search" placeholder="Zoek naar nieuwe leden...">
-      <ul class="member-list">
-        <li class="member-item">
-          <img src="#" width="25" height="25">
-          <p>Naam</p>
-        </li>
-      </ul>
-      <!-- Buttons -->
-      <button class="btn-secondary-outline" value="cancel" formmethod="dialog">Annuleren</button>
-      <button class="btn-primary-solid" value="default">Opslaan</button>
-    </form>
-  </dialog>
+            <hr />
+            <!-- Nieuwe leden -->
+            <h2>Nieuwe leden</h2>
+            <p>Voeg nieuwe leden toe aan je favorieten lijst.</p>
+            <input type="search" placeholder="Zoek naar nieuwe leden..." />
+            <ul class="member-list">
+                <li class="member-item">
+                    <img src="#" width="25" height="25" />
+                    <p>Naam</p>
+                </li>
+            </ul>
+            <!-- Buttons -->
+            <button
+                class="btn-secondary-outline"
+                value="cancel"
+                formmethod="dialog"
+            >
+                Annuleren
+            </button>
+            <button class="btn-primary-solid" value="default">Opslaan</button>
+        </form>
+    </dialog>
 
-  <ul class="favourites-grid">
-    <% data.houses.forEach(currentHouse => { %> <%-
-    include('partials/card/house-card', {house: currentHouse.f_houses_id}) %> <% })
-    %>
-  </ul>
+    <ul class="favourites-grid">
+        <% data.houses.forEach(currentHouse => { %> <%-
+        include('partials/card/house-card', {house: currentHouse.f_houses_id, rating: currentHouse.rating}) %>
+        %> <% }) %>
+    </ul>
 </div>
 
 <script src="/scripts/favorieten.js" defer></script>
@@ -90,5 +97,4 @@
     src="https://cdn.jsdelivr.net/npm/toastify-js"
 ></script>
 
-<%- include('partials/footer') %>
-<%- include('partials/foot') %>
+<%- include('partials/footer') %> <%- include('partials/foot') %>
