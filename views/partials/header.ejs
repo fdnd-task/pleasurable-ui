@@ -1,0 +1,119 @@
+<header>
+
+	<nav class="mobile-menu">
+
+		<button class="menu-open">
+			<svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M20 7L4 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+				<path d="M20 12L4 12" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+				<path d="M20 17L4 17" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+			</svg>
+		</button>
+
+		<picture class="mobile-logo">
+			<source srcset="../assets/images/logo.avif" alt="RedPers logo">
+			<source srcset="../assets/images/logo.webp" alt="RedPers logo">
+			<img src="../assets/images/logo.png" alt="RedPers logo">
+		</picture>
+
+		<button class="search-icon">
+			<svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+		</button>	
+
+		<!--Mobile Menu Window if opened-->
+		<section id="mobile-menu-window" aria-hidden="true">
+		<button class="menu-exit">
+			<svg width="35px" height="35px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
+				<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+				<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+				<g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M3 3.32001L21 21.32" stroke="#0a0a0a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> </g>
+			</svg>
+		</button>
+
+		<div class="category-links">
+			<ul>
+				<li><a href="/"><span>voorpagina</span></a></li>
+				<% for (key in locals.hardcodedCategories) { %>
+				<li>
+					<a href="/categories/<%= key %>">
+						<span><%= key %></span>
+					</a>
+				</li>
+				<%	} %>	
+			</ul>
+		</div>
+		</section>
+
+	</nav>
+
+	<nav class="desktop-menu">
+		<section class="top-bar">
+		</section>
+		<section class="first-row">
+			<div class="first-col">
+				
+			</div>
+			<div class="second-col">
+				<picture>
+                    <source srcset="../assets/images/logo.avif" type="image/avif">
+                    <source srcset="../assets/images/logo.webp" type="image/webp">
+                    <img src="../assets/images/logo.png" class="logo_desktop" alt="Redpers logo">
+                </picture>
+			</div>
+			<div class="third-col">
+				<div class="newsletter">		
+					<svg fill="#000000" height="30" width="30" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 					viewBox="0 0 256 196.7" xml:space="preserve">
+						<path d="M127.5,194.9c12,0,21.9-8.6,24-20h-48C105.6,186.3,115.5,194.9,127.5,194.9z M207.5,134.7c-8.5-8.5-19-12.6-19-53.8
+						c0-30.3-22.1-55.4-51-60.2H136c1.8-2,3-4.7,3-7.7c0-6.3-5.1-11.4-11.4-11.4c-6.3,0-11.4,5.1-11.4,11.4c0,3,1.1,5.7,3,7.7h-1.6
+						c-28.9,4.8-51,29.9-51,60.2c0,41.2-10.5,45.3-19,53.8C35.9,146.2,44.1,166,60.4,166h134.2C210.9,166,219.1,146.2,207.5,134.7z
+	 					M10.8,69.2c0,14.5,5.3,28.5,15.1,39.8l-6.8,6.8c-11.5-12.4-18-29.1-18-46.3c0-17.3,6.6-34,18.2-46.2l6.8,6.8
+						C16.1,41.1,10.8,54.6,10.8,69.2z M28,69.5c0-10.3,3.6-19.8,10.4-27.8l6.8,6.8c-4.9,6-7.4,13.1-7.4,20.8c0,7.7,2.6,15,7.4,20.8
+						l-6.8,6.8C31.6,89.3,28,79.7,28,69.5z M230,30.1l6.8-6.8C248.4,35.5,255,52.1,255,69.5c0,17.2-6.5,33.9-18,46.3l-6.8-6.8
+						c9.7-11.2,15.1-25.2,15.1-39.8C245.3,54.6,240,41.1,230,30.1z M217.8,96.8L211,90c4.8-5.8,7.4-13.1,7.4-20.8
+						c0-7.6-2.6-14.8-7.4-20.8l6.8-6.8c6.8,8,10.4,17.5,10.4,27.8C228.2,79.7,224.5,89.3,217.8,96.8z"/>
+					</svg>
+					<span>Nieuwsbrief</span>
+				</div>
+				<div class="theme">		
+					<svg width="24" height="24" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+					  <g id="Layer_2" data-name="Layer 2">
+						<g id="Icons">
+						  <g>
+							<rect width="48" height="48" fill="none"/>
+							<g>
+							  <path d="M14,24A10,10,0,0,0,24,34V14A10,10,0,0,0,14,24Z"/>
+							  <path d="M24,2A22,22,0,1,0,46,24,21.9,21.9,0,0,0,24,2ZM6,24A18.1,18.1,0,0,1,24,6v8a10,10,0,0,1,0,20v8A18.1,18.1,0,0,1,6,24Z"/>
+							</g>
+						  </g>
+						</g>
+					  </g>
+					</svg>
+					<span>Thema</span>
+				</div>
+			</div>
+		</section>
+		<section class="second-row">
+			<ul class="desktop-pages">
+                <li><a href="/">VOORPAGINA</a></li>
+                <li><a href="/binnenland">BINNENLAND</a></li>
+                <li><a href="/buitenland">BUITENLAND</a></li>
+                <li><a href="/columns">COLUMNS</a></li>
+                <li><a href="/economie">ECONOMIE</a></li>
+                <li><a href="/kunst-media">KUNST & MEDIA</a></li>
+				<!--Link to all categories page-->
+                <li><a href="/categories.ejs">
+					<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path d="M7.24 2H5.34C3.15 2 2 3.15 2 5.33V7.23C2 9.41 3.15 10.56 5.33 10.56H7.23C9.41 10.56 10.56 9.41 10.56 7.23V5.33C10.57 3.15 9.42 2 7.24 2Z" />
+					<path d="M18.6695 2H16.7695C14.5895 2 13.4395 3.15 13.4395 5.33V7.23C13.4395 9.41 14.5895 10.56 16.7695 10.56H18.6695C20.8495 10.56 21.9995 9.41 21.9995 7.23V5.33C21.9995 3.15 20.8495 2 18.6695 2Z"/>
+					<path d="M18.6695 13.4297H16.7695C14.5895 13.4297 13.4395 14.5797 13.4395 16.7597V18.6597C13.4395 20.8397 14.5895 21.9897 16.7695 21.9897H18.6695C20.8495 21.9897 21.9995 20.8397 21.9995 18.6597V16.7597C21.9995 14.5797 20.8495 13.4297 18.6695 13.4297Z"/>
+					<path d="M7.24 13.4297H5.34C3.15 13.4297 2 14.5797 2 16.7597V18.6597C2 20.8497 3.15 21.9997 5.33 21.9997H7.23C9.41 21.9997 10.56 20.8497 10.56 18.6697V16.7697C10.57 14.5797 9.42 13.4297 7.24 13.4297Z"/>
+					</svg>
+				</a></li>
+            </ul>
+		</section>
+	</nav>
+
+</header>

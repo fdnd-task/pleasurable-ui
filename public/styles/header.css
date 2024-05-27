@@ -1,0 +1,234 @@
+header{
+    /* Header styling if needed */ 
+    grid-column: 1/-1;
+   }
+   
+   /* #region Mobile Styling */
+   
+       .mobile-menu {
+           display: flex;
+           justify-content: space-between;
+           margin: 5%;
+           padding-bottom: 5%;
+           border-bottom: solid 1px black;
+       }
+       
+       .mobile-logo img {
+           width: 12em;
+       }
+       
+       
+       /* mobile-menu-window */
+       section#mobile-menu-window {
+           display: none;
+           flex-direction: column;
+           position: fixed;
+           inset: 0 auto 0 0;
+           background-color: #f4f4f4;
+           width: 100%;
+           z-index: 4;
+   
+           .menu-exit{
+               position: absolute;
+               left: 0;
+               padding: 1.5em 0em 0em 1.5em;
+           }
+       }
+   
+       
+       #mobile-menu-window ul {
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           margin-block: 20%;
+           outline: solid rgb(32, 159, 209);
+           font-size: 2em;
+       }
+       
+       #mobile-menu-window ul li {
+           margin: 0em 0em .25em 0em;
+           font-weight: 600;
+       }
+       
+       #mobile-menu-window ul li a:hover {
+           color: #E84340;
+           transition: .25s;
+       }
+   
+       #mobile-menu-window.showMenu {
+           display: flex;
+           animation: blur-in .15s ease-in;
+       }
+   
+   
+   /* #endregion Mobile Nav Styling */
+
+   /*  #region Desktop styling */
+
+.desktop-menu {
+    font-family: 'Inter', sans-serif;
+}
+
+.top-bar {
+    background-color: black; 
+    color: white;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.25em 0;
+}
+
+
+.desktop-menu picture img {
+    width: 220px;
+}
+
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5% 0;
+}
+
+.first-col,
+.second-col,
+.third-col {
+    flex: 0 0 33.33%; /* Set flex-basis to 33.33% */
+    align-items: center;
+}
+
+
+.first-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.second-col {
+    display: flex;
+    justify-content: center;
+}
+
+.third-col .newsletter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.third-col .theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.third-col span {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.thirdcol a:hover{
+    color: #E84340;
+}
+
+.newsletter {
+    display: flex;
+    align-items: center;
+}
+
+.second-row {
+    font-size: .8em;
+    /* margin-bottom: 5%; */
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    white-space: nowrap;
+}
+
+.desktop-pages {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em;
+}
+
+.desktop-pages svg {
+    fill: black;
+}
+
+.desktop-pages a:hover {
+    transition: .15s;
+    color: var(--accent-color, red);
+}
+
+.desktop-pages a:hover path {
+    transition: .15s;
+    fill: var(--accent-color, red);
+}
+
+
+   /*  #endregion  */
+
+   /* media queries */
+
+@media(max-width:520px) {
+
+    .desktop-menu{
+        display: none;
+    }
+}
+
+@media (min-width: 520px) {
+
+	header{
+		.mobile-menu {
+			display: none;
+		}
+
+	}
+}
+
+@media (min-width: 520px) and (max-width: 645px) {
+
+    .top-bar {
+      flex: 1;
+    }
+
+    .first-col {
+       flex: 1;
+    }
+
+    .second-col{
+        flex: 3;
+    }
+
+    .third-col{
+        flex: .75;
+    }
+
+    .third-col .newsletter{
+        display: none;
+    }
+
+    .desktop-pages {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: calc(1em - .5em);
+    }
+
+    .desktop-pages li:nth-child(5),
+  .desktop-pages li:nth-child(6) {
+    display: none;
+  }
+  }
+
+
+@media (min-width: 60.0625em){
+
+    
+}

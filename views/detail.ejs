@@ -1,0 +1,75 @@
+<%- include('./partials/head', {head:'rs', title: post.title.rendered}); -%>
+<link rel="stylesheet" href="/styles/detail.css" type="text/css">
+
+</head>
+
+
+<body>
+
+
+<%- include('./partials/header', {title: post.title.rendered}); -%>
+
+
+<main>
+	<% if (post.yoast_head_json) { %>
+		<section class="detail-landing-container" id="detail-landing">
+
+			<article class="detail-landing-intro">
+				<div class="post-cat-date">
+					<span class="post-cat">	
+						<a href=./categories/<%= post.yoast_head_json.schema["@graph"][0].articleSection[0] %> > <%- post.yoast_head_json.schema["@graph"][0].articleSection[0] %></a>
+					</span>
+					<span class="post-date"><%- post.date_gmt %></span>
+				</div>
+
+				<div class="post-intro">
+					<h1 class="title"><%- post.title.rendered -%></h1>
+					<div class="exerpt"><%- post.excerpt.rendered %> </div>
+					<div class="author-leestijd">
+						<div class="author">
+							<p>author :</p>
+							<span><a href="./author/<%= post.author %>"><%- post.yoast_head_json.author%></a></span>
+						</div>
+						<div class="leestijd">
+							<p>leestijd :</p>
+							<span><%-post.yoast_head_json.twitter_misc["Geschatte leestijd"]%></span>
+						</div>
+					</div>
+				</div>
+			</article>
+
+			<article class="img-container">
+				<div class="img-contents">
+					<img src="<%= post.yoast_head_json.og_image[0].url %>" 
+					alt="<%= post.yoast_head_json.og_image[0].alt %>"
+					width="<%= post.yoast_head_json.og_image[0].width %>"
+					height="<%= post.yoast_head_json.og_image[0].height %>" >
+					<p class="img-photographer">Beeld: <span>photographer</span> </p>
+				</div>
+			</article>
+			
+		</section>
+	<% } %>
+
+	<nav class="button-nav" id="btn-nav">
+		<ul>
+			<li><%- include('./partials/share') %> </li>
+			<li><%- include('./partials/like') %> </li>
+		</ul>
+	</nav>
+	
+	
+
+
+	<% if (post.status === "publish") { %>
+		<section class="main-article" id="main-article">
+			<%- post.content.rendered %>
+		</section>
+	<% } else { %>
+		<section class="main-article error">
+			<p>Er is geen inhoud beschikbaar voor <%= post.id %> </p>
+			<p> Terug naar <a href="/"> voorpagina</a></p>
+		</section>
+	<% } %>
+</main>
+
