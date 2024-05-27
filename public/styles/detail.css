@@ -282,10 +282,9 @@ button svg{
 	--share-color: #3CBD27;
 	--like-color: #E85340;
 	--read-color: #27AFB8;
-	--hover-time: .25s;
-
-    /* color: var(--btn-border-color); */
-    /* border: solid 1px var(--btn-border-color); */
+	--focus-color: #6369EF; 
+	--hover-time: .15s;
+	
 	color: black;
 	border: solid 1px black;
     display: inline-flex; 
@@ -299,6 +298,11 @@ button svg{
 .share-btn p, .like-btn span {
     margin: 0;
 	padding: 3px;
+
+}
+
+.share-btn svg{
+	fill: black;
 }
 
 /* Hover effects for buttons */
@@ -312,7 +316,7 @@ button svg{
 	transition: var(--hover-time);
 }
 
-/* After states for btns */
+/* After state */
 
 .share-btn::after {
 	color: var(--share-color);
@@ -330,6 +334,11 @@ button svg{
 	svg{
 		fill: var(--like-color);
 	}
+}
+
+.btn:focus, .btn:focus-visible {
+    border-color: var(--focus-color);
+    outline: none;
 }
 
 /* ---------------------- */
