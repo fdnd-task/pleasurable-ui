@@ -66,6 +66,10 @@ function metaParse(postsData) {
 
 		const readingTime = postData.yoast_head_json?.twitter_misc?.["Geschatte leestijd"] ?? "N/A";
 		const estimatedReadingTime = readingTime.replace("minuten", "min");
+
+		postData.date_gmt = `${formattedDate} ${formattedTime}`; // Added this for home page
+
+		postData.readingTime = `${estimatedReadingTime}`		
         
 		postData.meta = `${formattedDate} ${formattedTime} - ${author} - ${estimatedReadingTime}`;
     });
