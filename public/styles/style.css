@@ -386,7 +386,7 @@ nav svg {
 
 nav li:not(.li-logo):hover {
     cursor: pointer;
-    background-color: var(--primary-color-2);
+    background-color: var(--orange-darker);
 }
 
 /* Breadcumbs */
