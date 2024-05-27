@@ -1,4 +1,4 @@
-<%- include('partials/head') %>
+<%- include('partials/head', {current: 'login'}) %>
 <main>
   <section class="introduction-text">
     <h1> Measuring company impact simplified </h1>
@@ -21,14 +21,14 @@
     </section>
   </section>
   <section class="signup-form entrance">
-    
-    <form action="POST" class="login-form">
+    <form action="POST">
+      <input type="hidden" name="stakeholder_id" value="39">
+      <input type="hidden" name="sdg_id" value="<%= sdg.number%>">
+
       <header><h1>Register</h1>
       </header>
     
       <fieldset>
-        
-        
         <label> <span>Company Name</span>
           <input type="text" placeholder="Company Name" required>
         </label>
