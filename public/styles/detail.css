@@ -284,8 +284,10 @@ button svg{
 	--read-color: #27AFB8;
 	--hover-time: .25s;
 
-    color: var(--btn-border-color);
-    border: solid 1px var(--btn-border-color);
+    /* color: var(--btn-border-color); */
+    /* border: solid 1px var(--btn-border-color); */
+	color: black;
+	border: solid 1px black;
     display: inline-flex; 
     height: 2.5em;
     padding: 0 10px;
@@ -305,9 +307,40 @@ button svg{
 	transition: var(--hover-time);
 }
 
+.share-btn::after {
+	color: var(--share-color);
+	border-color: var(--share-color);
+
+	svg{
+		fill: var(--share-color);
+	}
+}
+
 .like-btn:hover {
     border-color: var(--like-color);
 	transition: var(--hover-time);
+
+	svg{
+		fill: var(--like-color);
+	}
+}
+
+.share-btn::after {
+	color: var(--share-color);
+	border-color: var(--share-color);
+
+	svg{
+		fill: var(--share-color);
+	}
+}
+
+.like-btn::after {
+	color: var(--share-color);
+	border-color: var(--like-color);
+
+	svg{
+		fill: var(--like-color);
+	}
 }
 
 
