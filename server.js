@@ -6,6 +6,7 @@ import express from 'express'
 const app = express()
 const port = 3000
 console.log('server opent op poort 3000')
+// const bodyParser = require('body-parser');
 
 // Dit houdt in dat je de fetchJson functie importeert vanuit het bestand fetch-json.js en deze vervolgens gebruikt om data op te halen van de server.
 import fetchJson from './helpers/fetch-json.js'
@@ -16,20 +17,21 @@ const apiUrl = `https://fdnd-agency.directus.app/items/f_list/${9}?fields=*.*.*`
 console.log(apiUrl)
 
 
+// Hiermee zet je de view engine van de express applicatie op ejs en zorg je ervoor dat de views in de map views worden opgeslagen.
+// Daarnaast maak je de public map statisch zodat de bestanden in deze map kunnen worden opgehaald.
+// Ook gebruik je de express.urlencoded middleware om het werken met request data makkelijker te maken.
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
+
 // ...
 // Dit zorgt ervoor dat de fetchJson functie wordt aangeroepen met de apiUrl als parameter. Een parameter is een waarde die je meegeeft aan een functie.
 // Dit houdt in dat de apiUrl wordt gebruikt om data op te halen van de server.
 fetchJson(apiUrl).then((apiData) => {
     console.log(apiData);
-
-    // Hiermee zet je de view engine van de express applicatie op ejs en zorg je ervoor dat de views in de map views worden opgeslagen.
-    // Daarnaast maak je de public map statisch zodat de bestanden in deze map kunnen worden opgehaald.
-    // Ook gebruik je de express.urlencoded middleware om het werken met request data makkelijker te maken.
-    app.set('view engine', 'ejs');
-    app.set('views', 'views');
-    app.use(express.static('public'));
-    app.use(express.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
 
     // Dit zijn arrays die worden gebruikt om de beoordelingen van de gebruiker op te slaan.
     // arrays zijn een soort lijsten waarin je meerdere waarden kunt opslaan. In dit geval worden de beoordelingen van de gebruiker opgeslagen in de arrays.

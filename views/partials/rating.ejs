@@ -1,6 +1,6 @@
 <article class="beoordeling">
     <h3>Beoordeel dit huis</h3>
-    <form id="scoreForm-<%= house.f_houses_id.house_nr %>" action="/submit-rating" method="POST">
+    <form id="scoreForm-<%= house.f_houses_id.house_nr %>" action="/submit-rating" method="POST" class="scoreForm">
         <div class="rating-group">
             <span class="rating-title">Algemene beoordeling</span>
             <div class="rating">
@@ -89,6 +89,7 @@
         <button type="submit" class="submit-rating">Verstuur beoordeling</button>
     
     </form>
+    
 </article>
 </article>
 </div>

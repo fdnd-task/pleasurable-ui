@@ -300,7 +300,7 @@ img{
 }
 
 /* Stijl voor de knop voor het indienen van de beoordeling */
-.submit-ranking {
+/* .submit-ranking {
     background-color: #f59f00;
     color: white;
     border: none;
@@ -311,7 +311,37 @@ img{
     display: block;
     width: 100%;
     text-align: center;
+} */
+/* Standaardstijl voor de knop */
+.submit-rating {
+    background-color: #f59f00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.75em 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
+
+/* Stijl voor hover-state van de knop */
+.submit-rating:hover {
+    background-color: #e68a00; /* Donkerdere tint van de primaire kleur */
+}
+
+/* Stijl voor active-state van de knop */
+.submit-rating:active {
+    transform: translateY(1px); /* Geef een subtiele klikanimatie */
+}
+
+/* Stijl voor focus-state van de knop */
+.submit-rating:focus {
+    outline: none; /* Verwijder de standaard focus-ring */
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.5); /* Voeg een gloed toe rond de knop bij focus */
+}
+
 
 /* Animatie voor het veranderen van kleur en grootte van de sterren */
 .rating label:hover,
@@ -328,4 +358,16 @@ img{
         transform: scale(1.2);
     }
 }
-/* -----------------------------rating section end------------------------------------
+
+/* .beoordeling {
+    display: none;
+}
+
+.beoordeling.show-hide-ranking {
+    display: block;
+} */
+
+/* -----------------------------rating section end------------------------------------/ */
+
+
+
