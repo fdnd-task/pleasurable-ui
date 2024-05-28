@@ -1,90 +1,23 @@
-:root {
-    /* variabelen voor stijling */
-    --BGcolor:#272932;
-    --PrimaryColor:#947eb0;
-    --Secondarycolor:#519879;
-    --TextColor:#ecf8f8;
-    --Accentcolor:#fb8b24;
-}
-
-
-/* Algemene stijling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--BGcolor);
-    color: var(--TextColor);
-    font-family: halton, sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
-    color: var(--TextColor);
-}
-
-h2 {
-  text-align: center;
-  font-size: 2em;
-  padding: 1.5em;
-}
-
-h3 {
-  text-align: center;
-  font-size: 1.5em;
-  padding: 1.5em;
-}
-
-p {
-  font-family: halton-italic, sans-serif;
-  font-size: 1em;
-}
-
-img {
-  width: 250px;
-  height: 250px;
-  margin: 3em;
-  transition: box-shadow 0.1s;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column;
-}
-
-section  {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-flow: row;
-    flex-wrap: wrap;
-    padding: 3.5em;
-    width: 100%;
-}
-
-header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* einde algemene stijling */
-
-
-
 /* Dit is de stijling van de inputvelden voor login */
+
 .login {
   border: 3px solid var(--Accentcolor);
   padding: 3.575em;
   border-radius: 1.375em;
   width: 100%;
   
+/* Show en filter worden in client-side scripting */
+.show{
+  transform: translateX(0%);
+}
+
+.filter{
+  position: absolute;
+  left: 0;
+  background-color: rgba(39, 39, 39, 0.596);
+  height: 100vh;
+  width: 25%;
+  pointer-events: none;
 }
 
 input[type="email"], input[type="password"] {
@@ -131,39 +64,10 @@ input[type="email"], input[type="password"] {
     outline: 4px solid var(--Secondarycolor);
     padding: .5em;
   }
-  /* Einde stijling inputvelden */
 
   /* mobiele weergave */
   @media screen and (max-width: 480px) {
     /* mobiel menu werkt naar behoren met knop*/
-  body {
-    background-color: var(--BGcolor);
-    color: var(--TextColor);
-    font-family: halton, sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2em;
-    text-transform: uppercase;
-    color: var(--TextColor);
-}
-
-h2 {
-  text-align: center;
-  font-size: 2em;
-  padding: 1.5em;
-}
-
-h3 {
-  text-align: center;
-  font-size: 1.5em;
-  padding: 1.5em;
-}
-
-p {
-  font-family: halton-italic, sans-serif;
-  font-size: 1em;
 }
 
 main {
@@ -227,6 +131,16 @@ input[type='submit']:hover {
   background-color: var(--Secondarycolor);
   color: var(--TextColor);
   cursor: pointer; 
+
   }
-}
-/* Einde mobiele weergave */
+  .loginBtn{
+    display: block;
+    width: 12rem;
+    height: 3rem ;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 25em;
+    cursor: pointer;
+    transition: 0.4s; 
+    margin: 0 auto;
+  }

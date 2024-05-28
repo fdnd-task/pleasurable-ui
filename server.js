@@ -5,8 +5,8 @@ const app = express(),
 apiUrl = 'https://fdnd-agency.directus.app/items/',
 scores = 'https://fdnd-agency.directus.app/items/hf_scores/?filter[stakeholder_id]=6',
 sdgData = await fetchJson(apiUrl + '/hf_sdgs'),
-stakeholders = apiUrl + "hf_stakeholders",
-companies = apiUrl + "hf_companies";
+stakeholders = apiUrl + "hf_stakeholders?fields=*.*.*.*`",
+companyList = apiUrl + "hf_companies";
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
@@ -17,13 +17,78 @@ app.use(express.urlencoded({extended: true}))
 
 // Hier de get route van login
 app.get('/', function(request, response) {
-  fetchJson(companies).then((companiesUitDeAPI) => {
+  fetchJson(companyList).then((companiesUitDeAPI) => {
     response.render("index", {
       companies: companiesUitDeAPI.data
     });
   });
 });
 
+// GET && POST voor Dashboard
+app.get("/dashboard/:id", function (request, response) {
+  // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+  fetchJson(companyList + "/" + request.params.id).then((companyData) => {
+    fetchJson(stakeholders + "/" + request.params.id).then(
+      (stakeholderData) => {
+        response.render("dashboard", {
+          company: companyData.data,
+          stakers: stakeholderData.data,
+        })
+      }
+    );
+  });
+});
+app.get("/stakeholder/:id", function (request, response) {
+  // Gebruik de request parameter id en haal de juiste persoon uit de WHOIS API op
+  fetchJson(companyList + "/" + request.params.id).then((companyData) => {
+    fetchJson(stakeholders + "/" + request.params.id).then(
+      (stakeholderData) => {
+        response.render("stakeholder", {
+          company: companyData.data,
+          stakers: stakeholderData.data,
+        });
+      }
+    );
+  });
+});
+
+app.post("/stakeholder/:id", function (request, response) {
+  const bedrijfId = request.params.id,
+  medewerkers = request.body.medewerkers,
+  financiers = request.body.financiers,
+  leveranciers = request.body.leveranciers,
+  klanten = request.body.klanten,
+  omgeving = request.body.omgeving,
+  name = request.body.message,
+  stakeholder = [];
+  let aangevinkteRadiobox;
+  if (medewerkers) {
+    aangevinkteRadiobox = "medewerkers";
+  } else if (financiers) {
+    aangevinkteRadiobox = "financiers";
+  } else if (leveranciers) {
+    aangevinkteRadiobox = "leveranciers";
+  } else if (klanten) {
+    aangevinkteRadiobox = "klanten";
+  } else if (omgeving) {
+    aangevinkteRadiobox = "omgeving";
+  }
+
+  fetch("https://fdnd-agency.directus.app/items/hf_stakeholders", {
+    method: "POST",
+    body: JSON.stringify({
+      company_id: bedrijfId,
+      type: aangevinkteRadiobox,
+      name: name,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  }).then((postReponse) => {
+
+  });
+  console.log(stakeholder);
+});
 
 // get sdg
 app.get('/sdg', (request, response) =>  {
@@ -43,11 +108,16 @@ app.get('/score', (request, response) => {
 })
 
 // post functie van index
-app.post('/', function (request, response) {
-  const bedrijfsID = request.body.companies;
+app.post("/", function (request, response) {
+  const bedrijfId = request.body.companies;
+ 
+  console.log(bedrijfId);
+  response.redirect("/dashboard/" + bedrijfId);
+});
 
-  console.log(bedrijfsID);
-  response.redirect("/dashboard/" + bedrijfsID);
+app.post("/dashboard/:id", function (request, response) {
+  console.log(bedrijfId);
+  response.redirect("/dashboard/" + bedrijfId);
 });
 
 app.post('/score', (request, response) =>{

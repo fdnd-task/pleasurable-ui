@@ -1,5 +1,5 @@
 /* basis styling */
-body{
+:root{
     --background: #272932;
     --text: #fcffff;
     --headTitles: #947EB0;
@@ -7,6 +7,16 @@ body{
     --accent: #B05603;
 
     background: var(--background);
+    font-family: halton, sans-serif;
+}
+html{
+  overflow-x: hidden;
+}
+ 
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main{
@@ -19,19 +29,33 @@ main{
     margin: 0 auto;
 }
 
+section  {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 3.5em;
+    width: 100%;
+}
+
+
 h1{
-    font-family: halton, sans-serif;
     font-size: 2rem;
     color: var(--headTitles);
     text-align: center;
 }
 
 h2{
-    font-family: halton, sans-serif;
     font-size: 1.5rem;
     color: var(--subTitles);
     text-align: center;
 }
+
+h3 {
+    text-align: center;
+    font-size: 1.5em;
+  }
 
 p{
     font-family: halton-italic, sans-serif;
@@ -145,7 +169,6 @@ button.open .line:nth-of-type(3) {
   background-color: var(--BGcolor);
   padding: .5em;
 }
-
 .show{
     transform: translateX(0%);
   }
