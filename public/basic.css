@@ -83,7 +83,6 @@ button.open .line:nth-of-type(2) {
     transform: scaleX(0);
 }
 
-
 .line:nth-of-type(3) {
     transform: translateY(.3em);
 }
@@ -147,12 +146,6 @@ button.open .line:nth-of-type(3) {
   padding: .5em;
 }
 
-.crossnav svg {
-    float: left;
-    cursor: pointer;   
-    margin-bottom: 1.5em;
-}
-
 .show{
     transform: translateX(0%);
   }
@@ -183,6 +176,11 @@ button.open .line:nth-of-type(3) {
     border-radius: 1.375em;
     transition-duration: .5s;
     position: fixed;
+    z-index: 2;
+    }
+
+.menu-button:hover {
+    background-color: var(--accent);
     }
 
 .menu-button:focus-visible {
@@ -192,13 +190,14 @@ button.open .line:nth-of-type(3) {
     
 .crossnav {
     width: 100%;
-    height: auto;
+    height: 80%;
     position: fixed;
     display: flex;
     flex-direction: column;
     transform: translateX(-100%);
     transition: .2s;
     padding: 1.5em;
+    margin-top: 3.5em;
     z-index: 1;
     background-color: var(--PrimaryColor);
   }
@@ -224,6 +223,18 @@ button.open .line:nth-of-type(3) {
 
 .crossnav:focus {
     outline: 4px solid var(--Secondarycolor);
+  }
+
+  .show{
+    transform: translateX(0%);
+  }
+  
+.filter {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.296);
+    height: 80%;
+    width: 80%;
+    pointer-events: none;
   }
 }
    /* Einde media query*/
