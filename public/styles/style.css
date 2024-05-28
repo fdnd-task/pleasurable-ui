@@ -69,6 +69,8 @@ section p {
     justify-content: start;
     align-items: center;
     list-style-type: none;
+    overflow-x: scroll;
+    padding: 1rem 0;
 }
 
 .member-list .member-item {
@@ -77,14 +79,27 @@ section p {
     justify-content: center;
     align-items: center;
     margin-right: 1rem;
+    position: relative;
+    width: 5rem;
+    transition: 0.2s ease-in;
 }
 
-.member-list .member-item img {
+.member-list .member-item picture {
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
-    background-color: var(--neutral-2);
-    padding: 1rem;
+    background-color: var(--web-orange);
+    overflow: hidden;
+}
+
+.member-list .member-item picture img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.member-list .member-item:hover {
+    scale: 1.2;
 }
 
 .option-row {
@@ -92,12 +107,16 @@ section p {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1rem;
 }
 
 .option-row .btn-blue {
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     background-color: var(--regent-blue);
-    margin: 1rem 0;
+    margin-right: 1rem;
     flex: 1;
     outline: none;
     border: 0.1rem solid var(--regent-blue);
@@ -112,12 +131,19 @@ section p {
     outline-offset: 1rem;
 }
 
-.option-row .btn-blue:nth-child(1) {
-    margin-right: 1rem;
+.option-row .btn-blue:last-child {
+    margin-right: 0;
 }
 
 .option-row .btn-blue:nth-child(2)::before {
-    content: url("./assets/icons/icon-user.svg");
+    content: url('../assets/icons/icon-sort.svg');
+    margin-right: 0.25rem;
+    width: 24px;
+    height: 24px;
+}
+
+.option-row .btn-blue:nth-child(3)::before {
+    content: url('../assets/icons/icon-user-2.svg');
     margin-right: 0.25rem;
     width: 24px;
     height: 24px;
@@ -125,9 +151,17 @@ section p {
 /* ======================================= */
 /* Dialog
 /* ======================================= */
+#dialog-list {
+    top: 16.2rem;
+}
+
+#dialog-leden {
+    top: 7.5rem;
+}
+
 dialog {
     position: fixed;
-    bottom: 0;
+    /* bottom: 0; */
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -136,6 +170,7 @@ dialog {
     box-shadow: 0 -0.25rem 0.75rem rgb(0 0 0 / 0.2);
     padding: 1rem;
     z-index: 2;
+    overflow: hidden;
 }
 
 dialog::backdrop {
@@ -197,7 +232,7 @@ dialog .btn-primary-solid {
     color: var(--white);
     padding: 0.75rem;
     border-radius: 0.25rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 dialog .btn-primary-solid:hover {
@@ -212,11 +247,20 @@ dialog .btn-secondary-outline {
     color: var(--lochmara);
     padding: 0.75rem;
     border-radius: 0.25rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 dialog .btn-secondary-outline:hover {
     background-color: var(--regent-blue);
+}
+
+dialog .title-row .btn-close-dialog {
+    background-image: url('../assets/icons/icon-close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
 }
 
 /* ---- Header / Nav ---- */
@@ -853,6 +897,11 @@ nav li:not(.li-logo):hover {
         font-size: 1rem;
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    dialog {
+        width: 50%;
+        border-radius: 0.75rem;
     }
 }
 

@@ -140,17 +140,31 @@ function ratingHandler(id, rating, loaderEl, successEl) {
 }
 
 // ---- Dialog venster ----
-
-const btnLeden = document.querySelector("#btn-leden");
+const dialogList = document.querySelector("#dialog-list");
 const dialogLeden = document.querySelector("#dialog-leden");
-const btnCloseDialog = document.querySelector("#btn-close-dialog");
+const btnDialogs = document.querySelectorAll(".btn-dialog");
+const btnCloseDialogs = document.querySelectorAll(".btn-close-dialog");
 
-btnLeden.addEventListener("click", () => {
-    dialogLeden.showModal();
+btnDialogs.forEach((btnDialog, index) => {
+    btnDialog.addEventListener("click", () => {
+        // console.log(index);
+        if (index == 1) {
+            dialogLeden.showModal();
+        } else {
+            dialogList.showModal();
+        }
+    });
 });
 
-btnCloseDialog.addEventListener("click", () => {
-    dialogLeden.close();
+btnCloseDialogs.forEach((btnClose, index) => {
+    btnClose.addEventListener("click", () => {
+        // console.log(index);
+        if (index == 1) {
+            dialogLeden.close();
+        } else {
+            dialogList.close();
+        }
+    })
 });
 
 /* ---- Footer ---- */

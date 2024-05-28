@@ -32,7 +32,24 @@ app.get("/", function (request, response) {
     // Voer tegelijkertijd een GET request uit naar de API om de huizen, en de ratings op te halen
     Promise.all([
         fetch(
-            "https://fdnd-agency.directus.app/items/f_list/6?fields=id,title,description,users.id,users.f_users_id.name,users.f_users_id.email,users.f_users_id.avatar,houses.id,houses.f_houses_id.id,houses.f_houses_id.street,houses.f_houses_id.house_nr,houses.f_houses_id.city,houses.f_houses_id.postal_code,houses.f_houses_id.price,houses.f_houses_id.poster_image.id,houses.f_houses_id.poster_image.width,houses.f_houses_id.poster_image.height"
+            `https://fdnd-agency.directus.app/items/f_list/6?fields=
+            id,
+            title,
+            description,
+            users.id,
+            users.f_users_id.name,
+            users.f_users_id.email,
+            users.f_users_id.avatar,
+            houses.id,
+            houses.f_houses_id.id,
+            houses.f_houses_id.street,
+            houses.f_houses_id.house_nr,
+            houses.f_houses_id.city,
+            houses.f_houses_id.postal_code,
+            houses.f_houses_id.price,
+            houses.f_houses_id.poster_image.id,
+            houses.f_houses_id.poster_image.width,
+            houses.f_houses_id.poster_image.height`
         ),
         fetch(
             "https://fdnd-agency.directus.app/items/f_feedback?fields=house,rating&filter[list][_eq]=6"

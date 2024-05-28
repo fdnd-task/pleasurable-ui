@@ -1,0 +1,11 @@
+<li class="member-item">
+    <picture>
+        <% if (user.f_users_id.avatar !== null) { %>
+            <source src="https://fdnd-agency.directus.app/assets/<%= user.f_users_id.avatar %>?format=webp" type="image/webp">
+            <img loading="lazy" src="https://fdnd-agency.directus.app/assets/<%= user.f_users_id.avatar %>" width="25" height="25" alt="profile-image">
+        <% } else { %>
+            <img loading="lazy" src="/assets/icons/icon-user.svg" width="25" height="25" alt="profile-image">
+        <% } %>
+    </picture>                    
+    <p><%= user.f_users_id.name %></p>
+</li>
