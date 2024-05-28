@@ -185,5 +185,9 @@ p{
     font-weight: bold;
     width: 100%;
   }
+
+.crossnav:focus {
+    outline: 4px solid var(--Secondarycolor);
+  }
 }
    /* Einde media query*/
