@@ -105,7 +105,7 @@ header{
   padding: .5em;
 }
 
-nav {
+.crossnav {
     width: 500px;
     height: 100%;
     position: fixed;
@@ -118,14 +118,14 @@ nav {
     background-color: var(--PrimaryColor);
 }
 
-nav li {
+.crossnav li {
     list-style: none;
     padding: 0.5em 1.5rem 1.5em 0; 
     width: 100%;
     margin: .8rem;
 }
 
-nav li a{
+.crossnav li a{
     text-decoration: none;
     color: var(--TextColor);
     background-color: var(--BGcolor);
@@ -138,24 +138,24 @@ nav li a{
     text-align: center;
 }
 
-nav li a:hover{
+.crossnav li a:hover{
     background-color: var(--Secondarycolor);
     color: var(--TextColor);
     font-size: 1em;
     text-align: center;
 }
 
-nav li a:active {
+.crossnav li a:active {
   background-color: var(--Accentcolor);
 }
 
-nav li a:focus-visible {
+.crossnav li a:focus-visible {
   outline: 4px solid var(--Accentcolor);
   background-color: var(--BGcolor);
   padding: .5em;
 }
 
-nav svg {
+.crossnav svg {
     float: left;
     cursor: pointer;   
     margin-bottom: 1.5em;
