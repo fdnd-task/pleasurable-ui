@@ -1,9 +1,11 @@
-<%- include('partials/head') %>
-<header>
-<h1>gegevens</h1>
-</header>
-<main>
+<%- include('partials/head', {current: 'vragenlijst' }); %>
+    <%- include('partials/vragenlijst_header', {current: 'klanten' }); %>
 
-</main>
-<footer></footer>
-<%- include('partials/foot') %>
+        <header>
+            <h1>Gegevens</h1>
+        </header>
+        <main>
+
+        </main>
+        <footer></footer>
+        <%- include('partials/foot') %>
