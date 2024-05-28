@@ -1,10 +1,33 @@
 <%- include('partials/head', {current: 'vragenlijst' }); %>
-    <%- include('partials/vragenlijst_header', {current: 'klanten' }); %>
+    <%- include('partials/vragenlijst_header', {current: 'vragenlijst' }); %>
 
         <header>
             <h1>Gegevens</h1>
         </header>
         <main>
+
+            <form action="/stakeholders-form">
+                <fieldset>
+                    <legend>Kies jouw stakeholder</legend>
+
+                    <input type="radio" id="medewerkers" name="stakeholder" value="M" />
+                    <label for="medewerkers">Medewerkers</label><br />
+
+                    <input type="radio" id="leverancier" name="stakeholder" value="L" />
+                    <label for="leverancier">Leverancier</label><br />
+
+                    <input type="radio" id="klanten" name="stakeholder" value="" />
+                    <label for="klanten">Klanten</label>
+                </fieldset>
+            </form>
+
+            <form action="/url" method="POST">
+                <p>Voeg naam Stakeholder toe</p>
+                <input type="text" placeholder="Typ hier..">
+
+                <p>Voeg beschrijving toe</p>
+                <input type="text" placeholder="Typ hier..">
+            </form>
 
         </main>
         <footer></footer>
