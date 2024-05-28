@@ -209,9 +209,218 @@ h1 {
 
 
 /*---------------------------------------------- STAKEHOLDERS _ ILONA ----------------------------------------------- */
-.gegevens-form{
-    /* zet alles maar hierin */
+.gegevens-form {
+    margin: 1em auto;
+    box-shadow: var(--shadow);
+    background-color: var(--text-color);
+    border-radius: 10px;
+    padding: 1em 2em 2em;
+
+    fieldset {
+        border: unset;
+        display: flex;
+        flex-direction: row;
+        gap: 2em;
+        border-radius: 10px;
+
+        label {
+            display: grid;
+        }
+
+        legend {
+            font-family: var(--heading);
+            color: hsl(248, 62%, 24%);
+        }
+    }
 }
+
+.gegevens-form header {
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    color: var(--text-color);
+
+    section:first-child {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+    }
+
+    h1 {
+        grid-area: header;
+        width: 100%;
+    }
+
+    a {
+        grid-area: annuleer;
+        color: white;
+    }
+
+
+    section:nth-of-type(2) {
+        padding: 1em 0;
+
+    }
+
+    ol {
+        background: rgba(148, 148, 148, 0.273);
+        border-radius: 10px;
+        padding: 1em 2em;
+        display: flex;
+        justify-content: space-between;
+        /* box-shadow: var(--shadow); */
+
+
+        li {
+            display: flex;
+            margin-right: 1em;
+            /* flex-direction: column; */
+            text-align: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+
+            &::after {
+                content: '';
+                background-color: #595959;
+                width: 100%;
+                height: 7px;
+                margin-left: 1em;
+                border-radius: 5px;
+                margin-top: -1em;
+            }
+
+            &:last-child,
+            &:last-child::after {
+                all: unset;
+                /* margin: 1em; */
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                width: max-content;
+                gap: .5em;
+
+                p {
+                    width: max-content;
+                }
+
+
+            }
+
+            div div {
+                width: 40px;
+                height: 40px;
+                background-color: #e6e6e6;
+                border: 4px solid;
+                border-color: transparent;
+                border-radius: 50%;
+                color: #595959;
+                font-weight: 600;
+                text-align: center;
+                line-height: 35px;
+            }
+
+            hr {
+                border-color: #4763c8;
+                width: 100%;
+            }
+
+        }
+
+        .active div div {
+            /* border: 4px solid #4763c8; */
+            color: #4763c8;
+            animation: progress-active .3s cubic-bezier(0.23, 0.15, 0.51, 1.65) forwards;
+            animation-delay: 1.2s;
+        }
+
+        .done {
+            &::after {
+                background: linear-gradient(to left, var(--text-color) 50%, rgb(88, 187, 88) 50%) right;
+                animation: progress .5s cubic-bezier(0.81, -0.14, 0.2, 1) forwards;
+                background-size: 200%;
+                animation-delay: .7s;
+            }
+
+            div div {
+                background-color: rgb(88, 187, 88);
+                background: var(--text-color);
+                color: #fff;
+                color: var(--accent-text-color);
+
+                animation: progress-done .3s cubic-bezier(0.23, 0.15, 0.51, 1.65) forwards;
+                animation-delay: .5s;
+            }
+        }
+
+        .done-post {
+            &::after {
+                background-color: rgb(88, 187, 88);
+            }
+
+            div div {
+                background-color: rgb(88, 187, 88);
+                color: #fff;
+            }
+        }
+
+        p {
+            font-weight: lighter;
+        }
+    }
+}
+
+@keyframes progress {
+    0% {
+        background-position: right;
+    }
+
+    100% {
+        background-position: left;
+    }
+}
+
+@keyframes progress-done {
+    0% {
+        scale: 1;
+        background-color: var(--text-color);
+
+    }
+
+    50% {
+        scale: 1.2;
+    }
+
+    100% {
+        scale: 1;
+        background-color: rgb(88, 187, 88);
+        color: var(--text-color);
+    }
+}
+
+@keyframes progress-active {
+    0% {
+        scale: 1;
+        background-color: var(--text-color);
+
+    }
+
+    50% {
+        scale: 1.2;
+    }
+
+    100% {
+        scale: 1;
+        background-color: #4763c8;
+        color: var(--text-color);
+    }
+}
+
 /*---------------------------------------------- SCORE _ ANNA-KYRA ----------------------------------------------- */
 .vragenlijst {
     padding: 2rem 2rem;
