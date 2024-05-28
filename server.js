@@ -52,7 +52,7 @@ app.post('/', function (request, response) {
       list: 12,
       user: 7,
       rating: {
-        stars: request.body.stars,
+        stars: request.body.algemeenNumber,
       },
     }),
     headers: {
