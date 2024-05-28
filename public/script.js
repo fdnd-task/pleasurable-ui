@@ -16,6 +16,8 @@ const filterdiv = document.querySelector('main div:first-child')
 });
 // einde menu script
 
+
+
 // variables sdg
 const appear = document.querySelector(".quantityChoice");
 appear.style.display = 'block';
