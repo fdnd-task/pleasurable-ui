@@ -10,12 +10,6 @@ const filterdiv = document.querySelector('main div:first-child')
 			filterdiv.classList.toggle('filter');
 			button.classList.toggle('open');
 });
-
-// 			close.addEventListener('click', function(){
-//   			menu.classList.remove('show')
-// 			filterdiv.classList.remove('filter');
-// 			button.classList.remove('open');
-// });
 // einde menu script
 
 
