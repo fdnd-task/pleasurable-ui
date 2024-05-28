@@ -42,7 +42,7 @@ p{
 
 /* Stijling van nav en menuknop */
 .menu-button {
-    padding: .6em 1.2em;
+    padding: .6em .6em .6em 1.2em;
     border: 1px solid transparent;
     border-radius: .5rem;
     font-family: inherit;
@@ -54,7 +54,43 @@ p{
     text-transform: uppercase;
     border-radius: 1.375em;
     transition-duration: .5s;
+    display: grid;
+    grid-template-columns: max-content 1.3em;
+    gap: .4em;
   }
+
+.line {
+    display: block;
+    width: .8em;
+    height: .12em;
+    background-color: currentColor;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    justify-self: center;
+    align-self: center;  
+    transition: .3s;
+}
+
+.line:nth-of-type(1) {
+    transform: translateY(-.3em);
+}
+
+button.open .line:nth-of-type(1) {
+    transform: rotate(45deg);
+}
+
+button.open .line:nth-of-type(2) {
+    transform: scaleX(0);
+}
+
+
+.line:nth-of-type(3) {
+    transform: translateY(.3em);
+}
+
+button.open .line:nth-of-type(3) {
+    transform: rotate(-45deg);
+}
 
   .menu-button:focus-visible {
     outline: 4px solid var(--Accentcolor);

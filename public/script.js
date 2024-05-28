@@ -2,18 +2,20 @@
 
 const menu = document.querySelector('.crossnav')
 const button = document.querySelector('.menu-button')
-const close = document.querySelector('path')
+// const close = document.querySelector('path')
 const filterdiv = document.querySelector('main div:first-child')
 
 			button.addEventListener('click', function(){
-  			menu.classList.add('show');
+  			menu.classList.toggle('show');
 			filterdiv.classList.toggle('filter');
+			button.classList.toggle('open');
 });
 
-			close.addEventListener('click', function(){
-  			menu.classList.remove('show')
-			filterdiv.classList.remove('filter');
-});
+// 			close.addEventListener('click', function(){
+//   			menu.classList.remove('show')
+// 			filterdiv.classList.remove('filter');
+// 			button.classList.remove('open');
+// });
 // einde menu script
 
 
