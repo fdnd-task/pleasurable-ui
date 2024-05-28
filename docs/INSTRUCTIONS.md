@@ -43,11 +43,11 @@ Er is veel werk aan de winkel deze sprint, maak afspraken om elke dag aan het pr
 ### Materiaal voor samenwerken
 
 - [About Github Projects, quickstart en best practices](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+- [De Daily standup meeting: uitleg en tips](https://scrumguide.nl/daily-standup-meeting/)
 <!-- - [Making a pull-request](https://www.atlassian.com/git/tutorials/making-a-pull-request) (nb. wij gebruiken de feature-branch workflow) -->
 <!-- - [How to Collaborate on GitHub](https://code.tutsplus.com/tutorials/how-to-collaborate-on-github--net-34267) -->
 <!-- - [download het Team Canvas](https://github.com/fdnd-task/performance-matters-fast-website/blob/main/docs/Teamcanvas.pdf) -->
 <!-- - [Lees instructies over het gebruik van het Teamcanvas in de deeltaak uit sprint 1](https://github.com/fdnd-task/your-tribe-team-canvas) -->
-- [De Daily standup meeting: uitleg en tips](https://scrumguide.nl/daily-standup-meeting/)
 
 ## Ontwerpen
 In de ontwerpfase bepaal je met je team wat je gaat maken. 
@@ -67,11 +67,12 @@ Bepaal welke pagina's jullie gaan ontwerpen en bouwen, welke url's daarbij horen
 ### Wireframe, Wireflow & Breakdown
 Schets per pagina en onderdelen gezamenlijk een wireframe en/of wireflow en maak een breakdown van de HTML, CSS en Client-side JS. Het is belangrijk om dit gezamenlijk te doen, nu maak je met het team afspraken over code, semantiek en naamgeving. 
 
+### Ontwerp
 Maak voor elke pagina, of onderdeel, een ontwerp op basis van de huisstijl. (Bijvoorbeeld in Figma) Dit wordt het ontwerp dat jullie gaan realiseren. Het ontwerp zal tijdens de werkzaamheden veranderen. Dat is prima. Soms zal je de veranderingen bijhouden in het Figma file, soms is dat niet nodig. 
 
 ### Code afspraken
 Maak code afspraken met je team over de Node-code, (semantische) HTML, gestructureerde CSS en conventies.
-Denk na over de HTML structuur, en het voorkomen van layout shifts, toepassen van perceived performance en loading hints aan de browser en het toepassen van responsive images. Maak afspraken over de volgorde van de CSS, van generiek-naar-specifiek. Bedenk een goede volgorde in de Node en de routing. Maak afspraken over het schrijven van comments. Etc ..
+Denk na over de HTML structuur en nesting van elementen, en het voorkomen van layout shifts, toepassen van perceived performance en loading hints aan de browser en het toepassen van responsive images. Maak afspraken over de volgorde van de CSS, van generiek-naar-specifiek. Bedenk een goede volgorde in de Node en de routing. Maak afspraken over het schrijven van comments. Etc ..
 
 ## Bouwen
 In de bouwfase realiseer je de beslissingen uit de ontwerpfase. 
