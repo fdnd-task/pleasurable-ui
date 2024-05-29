@@ -1,10 +1,25 @@
-/* Dit is de stijling van de inputvelden voor login */
+:root{
+  --background: #272932;
+  --text: #fcffff;
+  --headTitles: #947EB0;
+  --subTitles: #519879;
+  --accent: #B05603;
 
-.login {
-  border: 3px solid var(--Accentcolor);
+  background: var(--background);
+  font-family: halton, sans-serif;
+}
+
+/* Dit is de stijling van de inputvelden voor login */
+form {
+  border: 3px solid var(--accent);
   padding: 3.575em;
   border-radius: 1.375em;
   width: 100%;
+}
+
+label {
+  color: var(--text);
+}
   
 /* Show en filter worden in client-side scripting */
 .show{
@@ -23,9 +38,10 @@
 input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid var(--Accentcolor);
+    margin-bottom: 20px;
+    border: 1px solid var(--accent);
     border-radius: 3px;
+    color: var(--text);
     box-sizing: border-box;
   }
   
@@ -41,13 +57,19 @@ input[type="email"], input[type="password"] {
   }
   
   input[type='submit']:hover {
-    background-color: var(--Secondarycolor);
-    color: var(--TextColor);
+    background-color: var(--subTitles);
+    color: var(--text);
     cursor: pointer;
   }
 
+.loginBtn:focus-visible {
+  outline: 4px solid var(--subTitles);
+  padding: .5em;
+
+}
+
   input:focus-visible {
-    outline: 4px solid var(--Secondarycolor);
+    outline: 4px solid var(--subTitles);
     padding: .5em;
   }
 
@@ -61,7 +83,7 @@ input[type="email"], input[type="password"] {
   }
 
   select:focus-visible {
-    outline: 4px solid var(--Secondarycolor);
+    outline: 4px solid var(--subTitles);
     padding: .5em;
   }
 
@@ -98,19 +120,22 @@ header{
   text-align: left;
 }
 
-.login {
+form {
   border: none;
 }
 
 select {
   font-size: 1em;
   width: 100%;
+  background-color: var(--accent);
+  color: var(--text);
+  margin-bottom: 30px;
 }
 
 input[type="email"], input[type="password"] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   border: 1px solid var(--Accentcolor);
   border-radius: 3px;
   box-sizing: border-box;
@@ -133,6 +158,7 @@ input[type='submit']:hover {
   cursor: pointer; 
 
   }
+  
   .loginBtn{
     display: block;
     width: 12rem;
