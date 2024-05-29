@@ -15,22 +15,38 @@
                         <input type="radio" id="medewerkers" name="stakeholder" value="M" />
                         <label for="medewerkers">Medewerkers</label><br />
 
+
                         <input type="radio" id="leverancier" name="stakeholder" value="L" />
                         <label for="leverancier">Leverancier</label><br />
 
                         <input type="radio" id="klanten" name="stakeholder" value="" />
                         <label for="klanten">Klanten</label>
+
                     </fieldset>
                 </form>
 
                 <form action="/url" method="POST">
-                    <p>Voeg naam Stakeholder toe</p>
-                    <input type="text" placeholder="Typ hier..">
 
-                    <p>Voeg beschrijving toe</p>
-                    <input type="text" placeholder="Typ hier..">
+                    <article class="enter-name">
+
+                        <p>Voeg naam Stakeholder toe</p>
+                        <input type="text" placeholder="Typ hier..">
+
+                    </article>
+
+                    <article class="enter-description">
+
+                        <p>Voeg beschrijving toe</p>
+                        <input type="text" placeholder="Typ hier..">
+
+                    </article>
+
                 </form>
+
+                <input type="submit" value="Submit" />
+
             </article>
+
         </main>
         <footer></footer>
         <%- include('partials/foot') %>

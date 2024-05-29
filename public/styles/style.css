@@ -210,7 +210,6 @@ h1 {
 
 /*---------------------------------------------- STAKEHOLDERS _ ILONA ----------------------------------------------- */
 .stakeholder-form {
-    background: white;
     display: flex;
     flex-direction: column;
     align-items: baseline;
@@ -224,6 +223,7 @@ h1 {
     background: var(--bg-color);
     border-radius: 10px;
     padding: 1em 2em 2em;
+    width: 100%;
 
     fieldset {
         border: unset;
@@ -238,36 +238,76 @@ h1 {
 
         label {
             display: grid;
-            font-size: 1.1em;
+            font-size: 1.3em;
             margin-top: 20px;
+            color: var(--text-color);
+
         }
 
         legend {
             font-family: var(--heading);
             font-size: 1.5em;
-            color: hsl(248, 62%, 24%);
+            color: var(--text-color);
         }
     }
 
     form {
         color: hsl(248, 62%, 24%);
+        width: 100%;
+
+        .enter-name {
+            display: flex;
+            flex-direction: column;
+            margin: 1em auto;
+            background: #e6e6e6;
+
+            input[type="text"] {
+                border-radius: var(--object-radius);
+                margin: 0;
+                height: 3em;
+                width: 100%;
+            }
+        }
+
+        .enter-description {
+            background: #e6e6e6;
+            display: flex;
+            flex-direction: column;
+            margin: 1em auto;
+
+            input[type="text"] {
+                border-radius: var(--object-radius);
+                margin: 0;
+                height: 6em;
+                width: 100%;
+            }
+        }
 
         p {
-            margin: .7em auto;
+            margin: .2em auto;
             font-size: 1.5em;
         }
+    }
 
-        input[type="text"] {
-            border-radius: var(--object-radius);
-            height: 2em;
-            width: auto;
-        }
-
-        input[type="text"]:nth-of-type(2) {
-            height: 5em;
-        }
+    input[type="submit"] {
+        border-radius: var(--btn-radius);
+        height: 45px;
+        width: 65px;
     }
 }
+
+/* .enter-name {
+    background: #e6e6e6;
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .enter-description {
+    background: #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    margin: 1em auto;
+} */
 
 .gegevens-form header {
     width: 100%;
