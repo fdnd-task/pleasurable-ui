@@ -27,7 +27,7 @@
         --tran-03: all 0.2s ease;
         --tran-03: all 0.3s ease;
         --tran-04: all 0.3s ease;
-        --tran-05: all 0.3s ease;
+        --tran-05: all 0.5s ease-in-out;
         /* Spacing */
      --none: 0px;
      --extra-small:  4px;
@@ -75,5 +75,31 @@
   body {
     font-family: "Poppins", sans-serif;
     color: var(--body-color);
+    transition: var(--tran-05);
   }
 
+  span {
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+
+  a {
+      color: var(--text-color);
+      text-decoration: none;
+  }
+
+  h1 {
+      color: var(--text-color);
+  }
+
+  h2 {
+      color: var(--primary-color);
+  }
+
+  h3 {
+    color: var(--text-color);
+  }
+
+  p {
+    text-align: center;
+  }

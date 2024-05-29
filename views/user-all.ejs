@@ -1,134 +1,74 @@
 <%- include('partials/head') %>
 <%- include('partials/nav') %>
 
-<style>
-    body {
-        padding-left: 10rem;
-    }
-</style>
+<ul class="family-list">
+    <div class="title">
+        <h1>User Overview</h1>
+        <a href="/">Terug naar <span>Home</span></a>
+    </div>
+    <% data.forEach(user => { %>
+        <% 
+        const today = new Date();
+        const endOfWeek = new Date();
+        endOfWeek.setDate(today.getDate() + (7 - today.getDay()));
+        
+        let teLaat = 0;
+        let weekTeLaat = 0;
 
-<body class="family_page">
-    <h1>User Overview</h1>
-    <ul>
-        <% data.forEach(user => { %>
-            <li>
-                <article class="user_overview">
-                    <picture>
-                        <source srcset="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>?format=avif" media="(max-width: 160px)" type="image/avif">
-                        <source srcset="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>?format=webp" type="image/webp">
-                        <img src="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>" loading="lazy"/>
-                    </picture>
-                    <div class="info_list">
-                        <h2><%= user.data.name %></h2>
-                        <% if (user.data.linked_item && user.data.linked_item.length > 0) { %> 
-                            <p><strong><%= user.data.linked_item.length %></strong> items momenteel aan het lenen</p>
+        if (user.data.linked_item && user.data.linked_item.length > 0) {
+            user.data.linked_item.forEach(item => {
+                const itemDate = new Date(item.oba_item_id.datetime);
+                if (itemDate < today) {
+                    teLaat++;
+                } else if (itemDate <= endOfWeek) {
+                    weekTeLaat++;
+                }
+            });
+        }
+        %>
+        <li onclick="grow(event)">
+            <article>
+                <h2><%= user.data.name %></h2>
+                <picture>
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>?format=avif" media="(max-width: 160px)" type="image/avif">
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>?format=webp" type="image/webp">
+                    <img src="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>" loading="lazy"/>
+                </picture>
+                <% if (user.data.linked_item && user.data.linked_item.length > 0) { %> 
+                    <p><%= user.data.linked_item.length %> geleende items</p>
+                    <p><%= teLaat %> items al te laat terug, <%= weekTeLaat %> items deze week terug</p>
+                <% } else { %>
+                    <p>Geen geleende items</p>
+                <% } %>
+            </article>            
+            <ul class="hidden">
+                <a href="/user-overview/<%= user.data.id %>">Bekijk details</a>
 
-                            <% 
-                            const itemsTerugWeek = user.data.linked_item.filter(item => { 
-                                const datumTerug = new Date(item.oba_item_id.datetime);
-                                const huidigeDatum = new Date();
-                                const startOfWeek = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth(), huidigeDatum.getDate() - huidigeDatum.getDay());
-                                const endOfWeek = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth(), huidigeDatum.getDate() - huidigeDatum.getDay() + 6);
-                                return datumTerug >= startOfWeek && datumTerug <= endOfWeek;
-                            });
+                <% 
+                if (user.data.linked_item && user.data.linked_item.length > 0) {
+                    const sortedItems = user.data.linked_item.sort((a, b) => new Date(a.oba_item_id.datetime) - new Date(b.oba_item_id.datetime));
+                    
+                    sortedItems.forEach(item => { 
+                        const itemDate = new Date(item.oba_item_id.datetime);
+                        const isBeforetoday = itemDate < today;
+                        const classList = isBeforetoday ? 'danger' : '';
+                %>
+                        <li class="<%= classList %>" id="item-list">
+                            <p><%= item.oba_item_id.title %></p>
+                            <p><%= item.oba_item_id.auteur %></p>
+                            <p><%= itemDate.toLocaleString('nl-NL', { month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) %><p>
+                        </li>
+                <% 
+                    });
+                } else {
+                %>
+                    <li>
+                        <p><%= user.data.name %> leent momenteel geen items!</p>
+                    </li>
+                <% } %>
+            </ul>
+        </li>
+    <% }); %>
+</ul>
 
-                            const itemsTerugMaand = user.data.linked_item.filter(item => { 
-                                const datumTerug = new Date(item.oba_item_id.datetime);
-                                const huidigeDatum = new Date();
-                                const startOfMonth = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth(), 1);
-                                const endOfMonth = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth() + 1, 0);
-                                return datumTerug >= startOfMonth && datumTerug <= endOfMonth;
-                            });
-
-                            const itemsDueCountThisWeek = itemsTerugWeek.length;
-                            const itemsDueCountThisMonth = itemsTerugMaand.length;
-
-                            const totalAmount = user.data.linked_item.reduce((total, item) => total + parseFloat(item.oba_item_id.price), 0);
-                            %>
-
-                            <p><strong class="<%= itemsDueCountThisMonth > 0 ? 'mild_danger' : '' %>"><%= itemsDueCountThisMonth %></strong> items deze maand terug</p>
-                            <p><strong class="<%= itemsDueCountThisWeek > 0 ? 'danger' : '' %>"><%= itemsDueCountThisWeek %></strong> items deze week terug</p>
-                            <p><strong>€ <%= totalAmount.toFixed(2) %></strong> totaal aan het lenen</p>
-                        <% } else { %>
-                            <p>Er wordt momenteel niks geleend!</p>
-                        <% } %>
-                    </div>
-                    <button popovertarget="my-popover-<%= user.data.id %>">details</button>
-
-                    <div class="popover" popover id="my-popover-<%= user.data.id %>">
-                        <article class="user_overview">
-                            <div class="top_side">
-                                <picture>
-                                    <source srcset="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>?format=avif" media="(max-width: 160px)" type="image/avif">
-                                    <source srcset="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>?format=webp" type="image/webp">
-                                    <img src="https://fdnd-agency.directus.app/assets/<%= user.data.avatar %>" loading="lazy"/>
-                                </picture>
-                                <div class="info_list">
-                                    <h2><%= user.data.name %></h2>
-                                    <% if (user.data.linked_item && user.data.linked_item.length > 0) { %> 
-                                        <p><strong><%= user.data.linked_item.length %></strong> items momenteel aan het lenen</p>
-
-                                        <% 
-                                        const itemsTerugWeek = user.data.linked_item.filter(item => { 
-                                            const datumTerug = new Date(item.oba_item_id.datetime);
-                                            const huidigeDatum = new Date();
-                                            const startOfWeek = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth(), huidigeDatum.getDate() - huidigeDatum.getDay());
-                                            const endOfWeek = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth(), huidigeDatum.getDate() - huidigeDatum.getDay() + 6);
-                                            return datumTerug >= startOfWeek && datumTerug <= endOfWeek;
-                                        });
-
-                                        const itemsTerugMaand = user.data.linked_item.filter(item => { 
-                                            const datumTerug = new Date(item.oba_item_id.datetime);
-                                            const huidigeDatum = new Date();
-                                            const startOfMonth = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth(), 1);
-                                            const endOfMonth = new Date(huidigeDatum.getFullYear(), huidigeDatum.getMonth() + 1, 0);
-                                            return datumTerug >= startOfMonth && datumTerug <= endOfMonth;
-                                        });
-
-                                        const itemsDueCountThisWeek = itemsTerugWeek.length;
-                                        const itemsDueCountThisMonth = itemsTerugMaand.length;
-
-                                        const totalAmount = user.data.linked_item.reduce((total, item) => total + parseFloat(item.oba_item_id.price), 0);
-                                        %>
-
-                                        <p><strong class="<%= itemsDueCountThisMonth > 0 ? 'mild_danger' : '' %>"><%= itemsDueCountThisMonth %></strong> items deze maand terug</p>
-                                        <p><strong class="<%= itemsDueCountThisWeek > 0 ? 'danger' : '' %>"><%= itemsDueCountThisWeek %></strong> items deze week terug</p>
-                                        <p><strong>€ <%= totalAmount.toFixed(2) %></strong> totaal aan het lenen</p>
-                                    <% } else { %>
-                                        <p>Er wordt momenteel niks geleend!</p>
-                                    <% } %>
-                                </div>
-                            </div>
-                            <div class="item_list">
-                                <% if (user.data.linked_item && user.data.linked_item.length > 0) { %> 
-                                    <ul>
-                                        <% 
-                                        const today = new Date();
-                                        const sortedItems = user.data.linked_item.sort((a, b) => new Date(a.oba_item_id.datetime) - new Date(b.oba_item_id.datetime));
-
-                                        sortedItems.forEach(item => { 
-                                            const itemDate = new Date(item.oba_item_id.datetime);
-                                            const isBeforeToday = itemDate < today;
-                                            const classList = isBeforeToday ? 'danger' : '';
-                                        %>
-                                            <li class="<%= classList %>">
-                                                <div><%= item.oba_item_id.title %></div>
-                                                <div><%= item.oba_item_id.auteur %></div>
-                                                <div>
-                                                    <%= itemDate.toLocaleString('nl-NL', { month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) %>
-                                                </div>
-                                            </li>
-                                        <% }); %>
-                                    </ul>
-                                <% } else { %>
-                                    <p>Er wordt momenteel niks geleend!</p>
-                                <% } %>
-                            </div>
-                        </article>
-                    </div>
-                </article>
-            </li>
-        <% }); %>
-    </ul>
-</body>
 <%- include('partials/foot') %>
