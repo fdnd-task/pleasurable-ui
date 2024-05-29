@@ -84,6 +84,12 @@ include('partials/nav') %>
         <% data.houses.forEach(currentHouse => { %> <%-
         include('partials/card/house-card', {house: currentHouse.f_houses_id, rating: currentHouse.rating}) %>
         %> <% }) %>
+        <li class="agent-card">
+            <img src="/assets/icons/agent-img.svg" alt="vind een makelaar" width="104" height="104">
+            <h2>Overweeg je om te verkopen?</h2>
+            <p>Een makelaar kan je helpen om de opties te bekijken die relevant zijn voor jou.</p>
+            <a href="#" class="btn-agent">Vind een makelaar</a>
+        </li>
     </ul>
 </div>
 

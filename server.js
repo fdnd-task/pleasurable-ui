@@ -47,6 +47,10 @@ app.get("/", function (request, response) {
             houses.f_houses_id.city,
             houses.f_houses_id.postal_code,
             houses.f_houses_id.price,
+            houses.f_houses_id.m2,
+            houses.f_houses_id.m2_garden,
+            houses.f_houses_id.rooms,
+            houses.f_houses_id.agent,
             houses.f_houses_id.poster_image.id,
             houses.f_houses_id.poster_image.width,
             houses.f_houses_id.poster_image.height`

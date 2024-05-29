@@ -680,7 +680,7 @@ nav li:not(.li-logo):hover {
     font-size: 1rem;
     font-weight: 400;
     color: var(--neutral-2);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .favourites-grid {
@@ -714,6 +714,45 @@ nav li:not(.li-logo):hover {
     padding: 0 1rem;
     width: 100%;
     height: 100%;
+}
+
+.house-card .card-container .price {
+    font-weight: 600;
+}
+
+.house-card .card-container .info-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    list-style-type: none;
+    margin-bottom: 1rem;
+}
+
+.house-card .card-container .info-list .info-item {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.house-card .card-container .info-list .info-item:nth-child(1)::before {
+    content: url('../assets/icons/icon-size.svg');
+    width: 24px;
+    height: 24px;
+}
+
+.house-card .card-container .info-list .info-item:nth-child(2)::before {
+    content: url('../assets/icons/icon-room.svg');
+    width: 24px;
+    height: 24px;
+}
+
+.house-card .card-container .info-list .info-item:nth-child(3)::before {
+    content: url('../assets/icons/icon-garden.svg');
+    width: 24px;
+    height: 24px;
 }
 
 .house-card a {
@@ -772,6 +811,37 @@ nav li:not(.li-logo):hover {
 .delete-house:hover {
     background-color: var(--white);
     border: 1px solid var(--silver);
+}
+
+.agent-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--regent-blue-darker);
+    border-radius: 0.75rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--regent-blue);
+    padding: 1rem;
+    text-align: center;
+}
+
+.agent-card h2 {
+    font-size: 1.3rem;
+}
+
+.agent-card .btn-agent {
+    background-color: var(--white);
+    border: 0.1rem solid var(--lochmara);
+    color: var(--lochmara);
+    border-radius: 0.25rem;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.agent-card .btn-agent:hover {
+    background-color: var(--regent-blue);
 }
 
 /* Ratings */
