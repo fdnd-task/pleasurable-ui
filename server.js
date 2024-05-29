@@ -23,6 +23,21 @@ import fetchJson from './helpers/fetch-json.js';
   // Middleware om url-encoded bodies te parsen
   app.use(express.urlencoded({ extended: true }));
 
+  // post request
+
+app.post('/bedankt', async function (request, response) {
+ 
+  // krijg de form data binnen
+  const formData = request.body;
+
+  // Log in de console data die binnenkomt
+  console.log('Form data:', formData);
+
+  // Render the success page and pass the form data to it
+  response.render('bedankt', { formData: formData });
+}
+);
+
   app.get('/', async function (request, response) {
     // Haal de data op van de API
     const apiData = await fetchJson('https://fdnd-agency.directus.app/items/dh_services');
@@ -30,6 +45,32 @@ import fetchJson from './helpers/fetch-json.js';
     // Render de index pagina en geef de data mee
     response.render('index', { services: apiData.data });
   });
+
+// footer pagina
+app.get('/footer', function (request, response) {
+  response.render('footer');
+});
+
+// overzin pagina
+app.get('/overzicht', async function (request, response) {
+  // Haal de data op van de API
+  const apiData = await fetchJson('https://fdnd-agency.directus.app/items/dh_services');
+  console.log('API Data:', apiData);
+  // Render de index pagina en geef de data mee
+  response.render('overzicht', { services: apiData.data });
+});
+
+app.get('/service/:id', async function (request, response) {
+  // Haal de data op van de API
+  const apiData = await fetchJson('https://fdnd-agency.directus.app/items/dh_services');
+  console.log('API Data:', apiData);
+  // Vind de service met het opgegeven id
+  const service = apiData.data.find(service => service.id == request.params.id);
+  // Render de service pagina en geef de data mee
+  response.render('service', { service: service });
+});
+
+
   
 
 // Stel het poortnummer in waar express op moet gaan luisteren

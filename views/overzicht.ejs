@@ -1,0 +1,27 @@
+<%- include('./partials/head.ejs') -%>
+
+<main>
+    <section class="services">
+        <h1>Our Services</h1>
+        <ul class="service-list">
+            <% services.forEach(function(service, index) { %>
+                <li class="service-item" id="service-item-<%= index + 1 %>">
+                    <div class="image-container">
+                        <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>" alt="<%= service.title %>" class="service-image">
+                    </div>
+                    <div class="service-item-content">
+                        <h2><%= service.title %></h2>
+                        <p><strong>Neighbourhood:</strong> <%= service.neighbourhood %></p>
+                        <p><strong>Description:</strong> <%= service.short_description %></p>
+                        <p><strong>Likes:</strong> <%= service.likes %></p>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+    </section>
+
+    <%- include('./partials/footer.ejs') -%>   
+
+
+</main>
+

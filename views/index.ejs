@@ -15,12 +15,30 @@
 
       </picture>
     </Section>
+
+    <!-- lijst met services -->
   
-    <!-- paar iniatiefen voor de bezoeker op de homepagina  -->
-    <section class="initiatieven">
-      <h1>Test Initiatieven</h1>
-      <%- include('./partials/initiatievenLijst.ejs') -%>
-    </section>
+    <section class="services">
+      <h1>Our Services</h1>
+      <ul class="service-list">
+          <% services.forEach(function(service, index) { %>
+              <li class="service-item" id="service-item-<%= index + 1 %>">
+                  <div class="image-container">
+                      <img src="https://fdnd-agency.directus.app/assets/<%= service.image %>" alt="<%= service.title %>" class="service-image">
+                  </div>
+                  <div class="service-item-content">
+                      <h2><%= service.title %></h2>
+                      <p><strong>Neighbourhood:</strong> <%= service.neighbourhood %></p>
+                      <p><strong>Description:</strong> <%= service.short_description %></p>
+                      <p><strong>Likes:</strong> <%= service.likes %></p>
+                  </div>
+              </li>
+          <% }); %>
+      </ul>
+  </section>
+
+  comments
+
     
     <section class="homepagina-formulier">
       <div class="linker-inhoud">
@@ -29,7 +47,7 @@
       </div>
       <div class="rechts-inhoud">
         <!-- Formulier voor het aanmaken van een nieuw initiatief -->
-        <form id="initiatief" action="/success" method="post">
+        <form id="initiatief" action="/bedankt" method="post">
           <label for="title">Titel:</label>
           <input type="text" id="title" name="title" required><br>
 
@@ -66,4 +84,6 @@
     
 
   </Main>
+
+<%- include('./partials/footer.ejs') -%>
   
