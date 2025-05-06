@@ -1,0 +1,75 @@
+<%- include('partials/head') %>
+
+<main>
+    <section>
+        <header>
+            <p>Hand- Footprint</p>
+            <div>
+                <h1>Welkom</h1>
+                <p>Bij onze hand- voetprint calculator,...stukje over wat deze calculator doet. </p>
+            </div>
+        </header>
+        <article>
+            
+            <details class="info-mobile">
+                <summary>Zie meer</summary>
+                <%- include('partials/info') %>
+            </details>
+            <div class="info-desk">
+                <%- include('partials/info') %>
+            </div>
+        </article>
+    </section>
+    <section>
+        <article>
+            <header>
+                <button type="button">aanmelden</button>
+                <button type="button">inloggen</button>
+            </header>
+            <form action="">
+                <i>* geeft een verplicht veld aan</i>
+                <fieldset>
+                    <legend>Bedrijfs gegevens</legend>
+                    <label for="company_name">
+                        * Bedrijfs naam:
+                    </label>
+                    <input name="company_name" id="company_name" type="text" placeholder="bijv. ..." required>
+                    
+                    <label for="company_ww">
+                        * Wachtwoord:
+                    </label>
+                    <input  name="company_ww" id="company_ww" type="password" placeholder="bijv. ..." required>
+                    
+                    <div>
+                        <a href="#">Wachtwoord vergeten</a>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Bedrijf Details</legend>
+                    <label for="company_description">
+                        Bedrijf descriptie:
+                    </label>
+                        <textarea name="description" id="company_description"  rows="2" cols="33" placeholder="bijv. ..."></textarea>
+                    
+                    <label class="profile" for="profile" >
+                        Profielfoto:
+                    </label>  
+                    <input type="file" id="profile" name="avatar" accept="image/png, image/jpeg" />
+                    <small>300px x 300px recommended. JPGs JPEGs and PNGs supported</small>
+                </fieldset>
+                <label>
+                    <input name="remember" type="checkbox">
+                    Onthoud me
+                </label>
+                <button type="submit">verstuur</button>
+                <p>All een account? <a href="/">Login</a></p>
+            </form>
+            
+        </article>
+        <!-- <footer>
+            <p>&copy; 2023 CrossMarx</p> 
+        </footer> -->
+    </section>
+    
+</main>
+<%- include('partials/foot') %>
