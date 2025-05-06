@@ -1,0 +1,49 @@
+<!-- Koppel de stylesheet -->
+<link rel="stylesheet" href="/style.css">
+
+<section class="vraagaanbod"> 
+    <!-- Doe dit meerdere keren -->
+    <% vraagaanbod.forEach(function(initatief) {%>
+        <article>
+        <!-- Titel van het vraagaanbod -->
+        <h2> <%= initatief.title %></h2>
+            
+        <!-- Startdatum van het vraagaanbod -->
+        <p>Startdatum: <%= initatief.start_date %></p>
+            
+        <!-- Einddatum van het vraagaanbod -->
+        <p>Einddatum: <%= initatief.end_date %></p>
+            
+        <!-- Buurt waar het vraagaanbod plaatsvindt -->
+        <p>Buurt: <%= initatief.neighbourhood %></p>
+
+        <p>Aantal likes: <%= initatief.likes %></p>
+            
+        <!-- Optioneel: tijd van het vraagaanbod -->
+        <% if (initatief.time) { %>
+        <p>Tijd: <%= initatief.time %></p>
+        <% } %>
+
+        <p class="over-vraagaanbod-tekst"> <%- initatief.long_description %> </p>
+        <!-- Afbeelding van het vraagaanbod -->
+        <% if (initatief.image) { %>
+            <picture>
+                <source srcset="https://fdnd-agency.directus.app/assets/<%= initatief.image %>?format=avif" type="image/avif">
+                <source srcset="https://fdnd-agency.directus.app/assets/<%= initatief.image %>?format=webp" type="image/webp">
+                <img src="https://fdnd-agency.directus.app/assets/<%= initatief.image %>">
+            </picture>
+        <alt="<%- initatief.short_description %>">
+
+        <!-- Like button -->
+        <form action="/like" method="POST">
+            <input type="hidden" name="likes" value="<%= initatief.likes %>">
+            <button class="like-button" value="<%= initatief.id %>-like" value="<%= initatief.id %>" name="initiatiefId">Like</button>
+            <span><%= vraagaanbod.likes %></span>
+        </form>  
+        
+        <% } %>
+        
+        </article>
+        <%});%>
+        
+</section>
