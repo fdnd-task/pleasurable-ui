@@ -1,0 +1,15 @@
+<!-- 
+    Deze partial verwacht een data object.
+    Het object bevat 1 key-value pair met de key 'items' en een array als value.
+    De array bevat de namen van de breadcrumbs in volgorde van links naar rechts.
+    Zo kan het hergebruikt worden op meerdere pagina's en daarbij de juiste items tonen.
+
+    Voorbeeld:
+    include('partials/breadcrumbs', {items: ['Home', 'Mijn Account', 'Favorieten']})
+-->
+
+<ul class="breadcrumbs">
+    <% items.forEach(item => { %>
+    <li><%= item %></li>
+    <% }) %>
+</ul>

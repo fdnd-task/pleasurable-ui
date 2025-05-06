@@ -1,0 +1,41 @@
+<li class="house-card">
+    <form method="post" action="/delete/<%= house.id %>">
+        <button type="submit" class="delete-house">
+            <%- include('../icons/cross-icon') %>
+        </button>
+    </form>
+    <a href="/detail/<%= house.id %>">
+        <picture>
+            <source
+                srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?format=avif"
+                type="image/avif"
+            />
+            <source
+                srcset="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>?format=webp"
+                type="image/webp"
+            />
+            <img
+                src="https://fdnd-agency.directus.app/assets/<%= house.poster_image.id %>"
+                alt="<%= house.title %>"
+                height="<%= house.poster_image.height %>"
+                width="<%= house.poster_image.width %>"
+                loading="lazy"
+            />
+        </picture>
+    </a>
+    <div class="card-container">
+        <a href="/detail/<%= house.id %>">
+            <h2><%= house.street %> <%= house.house_nr %></h2>
+        </a>
+        <p><%= house.postal_code + house.city %></p>
+        <p class="price">€<%= house.price %> k.k.</p>
+        <ul class="info-list">
+            <li class="info-item"><%= house.m2 ? house.m2 + "m²" : 0 %></li>
+            <li class="info-item"><%= house.rooms ? house.rooms : 0 %></li>
+            <li class="info-item"><%= house.m2_garden ? house.m2_garden + "m²" : 0 %></li>
+        </ul>
+        <p><%= house.agent %></p>
+        <!-- <span class="underlined">Bekijken</span> -->
+        <%- include('./rating-form', {house: house, rating: rating}) %>
+    </div>
+</li>

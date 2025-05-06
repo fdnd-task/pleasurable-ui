@@ -1,0 +1,105 @@
+<%- include('partials/head', {page: 'Favorieten'}) %> <%-
+include('partials/nav') %>
+
+<div class="layout-container page-favourites">
+    <%- include('partials/breadcrumbs', {items: ['Home', 'Mijn Account',
+    'Favorieten']}) %>
+    <h1>Favorieten</h1>
+    <p>
+        In dit overzicht vind je al je favoriete huizen terug. Maak het jezelf
+        makkelijker door huizen te bewaren en notities toe te voegen over het
+        huis, de buurt en andere belangrijke details voor je zoektocht.
+    </p>
+
+    <!-- ================================================== -->
+    <!-- Leden section -->
+    <!-- ================================================== -->
+    <section>
+        <!-- leden beschrijving -->
+        <h2>Leden</h2>
+        <p>Alle leden van de favorieten lijst.</p>
+        <!-- leden list -->
+        <ul class="member-list">
+            <% data.users.forEach(user => { %>
+            <%- include('partials/users', {user: user}) %>
+            <%  }) %>
+        </ul>
+        <!-- buttons -->
+        <div class="option-row">
+            <select class="btn-blue">
+                <option selected>Relevantie</option>
+            </select>
+            <button class="btn-blue btn-dialog">Lijst</button>
+            <button class="btn-blue btn-dialog">Leden</button>
+        </div>
+    </section>
+    <!-- ================================================== -->
+    <!-- List dialog -->
+    <!-- ================================================== -->
+    <dialog id="dialog-list">
+            <!-- Title -->
+            <div class="title-row">
+                <h2><%= data.title %></h2>
+                <button class="btn-close-dialog" formmethod="dialog"></button>
+            </div>
+            <p><%= data.description %></p>
+            <p>Leden: <%= data.users %></p>
+            <p>Huizen: <%= data.houses %></p>
+            <hr>
+            <!-- Buttons -->
+            <button class="btn-secondary-outline" formmethod="dialog">Annuleren</button>
+    </dialog>
+    <!-- ================================================== -->
+    <!-- Leden dialog -->
+    <!-- ================================================== -->
+    <dialog id="dialog-leden">
+        <form>
+            <!-- Title -->
+            <div class="title-row">
+                <h2>Leden</h2>
+                <button class="btn-close-dialog" formmethod="dialog"></button>
+            </div>
+            <p>Alle leden van de favorieten lijst.</p>
+
+            <!-- Leden lijst -->
+            <ul class="member-list">
+                <% data.users.forEach(user => { %>
+                <%- include('partials/users', {user: user}) %>
+                <%  }) %>
+            </ul>
+            <hr>
+            <!-- Nieuwe leden -->
+            <h2>Nieuwe leden</h2>
+            <p>Voeg nieuwe leden toe.</p>
+            <input type="search" placeholder="Zoek naar nieuwe leden..." />
+            <ul class="member-list">
+            </ul>
+            <!-- Buttons -->
+            <button class="btn-secondary-outline" value="cancel" formmethod="dialog">Annuleren</button>
+            <button class="btn-primary-solid" value="default">Opslaan</button>
+        </form>
+    </dialog>
+
+    <ul class="favourites-grid">
+        <% data.houses.forEach(currentHouse => { %> <%-
+        include('partials/card/house-card', {house: currentHouse.f_houses_id, rating: currentHouse.rating}) %>
+        %> <% }) %>
+        <li class="agent-card">
+            <img src="/assets/icons/agent-img.svg" alt="vind een makelaar" width="104" height="104">
+            <h2>Overweeg je om te verkopen?</h2>
+            <p>Een makelaar kan je helpen om de opties te bekijken die relevant zijn voor jou.</p>
+            <a href="#" class="btn-agent">Vind een makelaar</a>
+        </li>
+    </ul>
+</div>
+
+<script src="/scripts/favorieten.js" defer></script>
+<!-- Script voor toast notificaties -->
+<script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/toastify-js"
+></script>
+<!-- Script voor confetti effect (bij 5 sterren rating) -->
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
+<%- include('partials/footer') %> <%- include('partials/foot') %>
