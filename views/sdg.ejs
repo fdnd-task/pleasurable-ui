@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/sdg.css">
+<%- include ("./partials/head") %>
+<h1>Kies uw SDG's</h1>
+<h2>Kies minimaal 3 SDG's aub</h2>
+<p class="quantityChoice">U heeft (<span id="selected">0</span>) SDG's geselecteerd</p>
+
+<main>
+    <form action="/score" method="POST" class="sdgMenu">
+        <ul class="sdgRoster">
+        <% sdgs.forEach(sdg => { %>
+        <li>
+            <label class="sdgLabel">
+
+                <input  class="choose" type="checkbox"  name="sdg_id" value="<%= sdg.id %>">
+                <picture>
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>?format=avif" type="image/avif">
+                    <source srcset="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>?format=webp" type="image/webp">
+                    <img src="https://fdnd-agency.directus.app/assets/<%= sdg.icon %>" height="112" width="112" value="<%= sdg.id %>" alt="<%= sdg.title %>">
+                </picture>
+            </label>
+        </li>
+        <% }); %>
+        </ul>
+        <input type="hidden" name="stakeholder_id" value="6">
+        <button class="submitBtn">Opslaan en Verder</button>
+    </form>
+</main>
+
+<%- include ("./partials/foot") %>

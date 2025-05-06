@@ -1,0 +1,172 @@
+:root{
+  --background: #272932;
+  --text: #fcffff;
+  --headTitles: #947EB0;
+  --subTitles: #519879;
+  --accent: #B05603;
+
+  background: var(--background);
+  font-family: halton, sans-serif;
+}
+
+/* Dit is de stijling van de inputvelden voor login */
+form {
+  border: 3px solid var(--accent);
+  padding: 3.575em;
+  border-radius: 1.375em;
+  width: 100%;
+}
+
+label {
+  color: var(--text);
+}
+  
+/* Show en filter worden in client-side scripting */
+.show{
+  transform: translateX(0%);
+}
+
+.filter{
+  position: absolute;
+  left: 0;
+  background-color: rgba(39, 39, 39, 0.596);
+  height: 100vh;
+  width: 25%;
+  pointer-events: none;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    color: var(--text);
+    box-sizing: border-box;
+  }
+  
+  input[type='submit'] {
+    width: 100%;
+    padding: 0.5em;
+    font-family: halton, sans-serif;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 2px solid var(--Accentcolor);
+    background-color: var(--BGcolor);
+    color: var(--TextColor);
+  }
+  
+  input[type='submit']:hover {
+    background-color: var(--subTitles);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+.loginBtn:focus-visible {
+  outline: 4px solid var(--subTitles);
+  padding: .5em;
+
+}
+
+  input:focus-visible {
+    outline: 4px solid var(--subTitles);
+    padding: .5em;
+  }
+
+ select {
+    width: 50%;
+    padding: .5em;
+    border: 2px solid var(--Accentcolor);
+    background-color: var(--PrimaryColor);
+    color: var(--TextColor);
+    font-size: 1em;
+  }
+
+  select:focus-visible {
+    outline: 4px solid var(--subTitles);
+    padding: .5em;
+  }
+
+  /* mobiele weergave */
+  @media screen and (max-width: 480px) {
+    /* mobiel menu werkt naar behoren met knop*/
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+section  {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 3.5em;
+    width: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.margin h2 {
+  letter-spacing: 3px;
+  text-align: left;
+}
+
+form {
+  border: none;
+}
+
+select {
+  font-size: 1em;
+  width: 100%;
+  background-color: var(--accent);
+  color: var(--text);
+  margin-bottom: 30px;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border: 1px solid var(--Accentcolor);
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+input[type='submit'] {
+  width: 100%;
+  padding: 0.5em;
+  font-family: halton, sans-serif;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 2px solid var(--Accentcolor);
+  background-color: var(--BGcolor);
+  color: var(--TextColor);
+}
+
+input[type='submit']:hover {
+  background-color: var(--Secondarycolor);
+  color: var(--TextColor);
+  cursor: pointer; 
+
+  }
+  
+  .loginBtn{
+    display: block;
+    width: 12rem;
+    height: 3rem ;
+    color: var(--text);
+    background: var(--accent);
+    border-radius: 25em;
+    cursor: pointer;
+    transition: 0.4s; 
+    margin: 0 auto;
+  }

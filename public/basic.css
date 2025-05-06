@@ -1,0 +1,263 @@
+/* basis styling */
+:root{
+    --background: #272932;
+    --text: #fcffff;
+    --headTitles: #947EB0;
+    --subTitles: #519879;
+    --accent: #B05603;
+
+    background: var(--background);
+    font-family: halton, sans-serif;
+}
+html{
+  overflow-x: hidden;
+}
+ 
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: hidden;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+section  {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row;
+    flex-wrap: wrap;
+    padding: 3.5em;
+    width: 100%;
+}
+
+
+h1{
+    font-size: 2rem;
+    color: var(--headTitles);
+    text-align: center;
+}
+
+h2{
+    font-size: 1.5rem;
+    color: var(--subTitles);
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+p{
+    font-family: halton-italic, sans-serif;
+    font-size: 1em;
+    color: var(--text);
+    text-align: center;
+}
+
+/* Stijling van nav en menuknop */
+.menu-button {
+    padding: .6em .6em .6em 1.2em;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: none;
+    color: var(--TextColor);
+    background: var(--PrimaryColor);
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 1.375em;
+    transition-duration: .5s;
+    display: grid;
+    grid-template-columns: max-content 1.3em;
+    gap: .4em;
+  }
+
+.line {
+    display: block;
+    width: .8em;
+    height: .12em;
+    background-color: currentColor;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    justify-self: center;
+    align-self: center;  
+    transition: .3s;
+}
+
+.line:nth-of-type(1) {
+    transform: translateY(-.3em);
+}
+
+button.open .line:nth-of-type(1) {
+    transform: rotate(45deg);
+}
+
+button.open .line:nth-of-type(2) {
+    transform: scaleX(0);
+}
+
+.line:nth-of-type(3) {
+    transform: translateY(.3em);
+}
+
+button.open .line:nth-of-type(3) {
+    transform: rotate(-45deg);
+}
+
+  .menu-button:focus-visible {
+    outline: 4px solid var(--Accentcolor);
+    padding: .5em;
+  }
+
+  .crossnav {
+    width: 500px;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: .2s;
+    padding: 1.55em;
+    z-index: 1;
+    background-color: var(--PrimaryColor);
+}
+
+.crossnav li {
+    list-style: none;
+    padding: 0.5em 1.5rem 1.5em 0; 
+    width: 100%;
+    margin: .8rem;
+}
+
+.crossnav li a{
+    text-decoration: none;
+    color: var(--TextColor);
+    background-color: var(--BGcolor);
+    border: 2px solid var(--a);
+    border-radius: 1.5em;
+    padding: 1.85em;
+    width: 100%;
+    text-transform: capitalize;
+    display: block;
+    text-align: center;
+}
+
+.crossnav li a:hover{
+    background-color: var(--Secondarycolor);
+    color: var(--TextColor);
+    font-size: 1em;
+    text-align: center;
+}
+
+.crossnav li a:active {
+  background-color: var(--Accentcolor);
+}
+
+.crossnav li a:focus-visible {
+  outline: 4px solid var(--Accentcolor);
+  background-color: var(--BGcolor);
+  padding: .5em;
+}
+.show{
+    transform: translateX(0%);
+  }
+  
+.filter {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.296);
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+  /* Einde Stijling van nav en menuknop */
+
+  /* mobiele weergave */
+  @media screen and (max-width: 480px) {
+    /* mobiel menu werkt naar behoren met knop*/
+.menu-button {
+    padding: .6em 1.2em;
+    border: 1px solid transparent;
+    border-radius: .5rem;
+    font-family: inherit;
+    font-size: inherit;
+    text-decoration: none;
+    color: var(--TextColor);
+    background: var(--PrimaryColor);
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 1.375em;
+    transition-duration: .5s;
+    position: fixed;
+    z-index: 2;
+    }
+
+.menu-button:hover {
+    background-color: var(--accent);
+    }
+
+.menu-button:focus-visible {
+    outline: 4px solid var(--Accentcolor);
+    padding: .5em;
+}
+    
+.crossnav {
+    width: 100%;
+    height: 80%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: .2s;
+    padding: 1.5em;
+    margin-top: 3.5em;
+    z-index: 1;
+    background-color: var(--PrimaryColor);
+  }
+  
+.crossnav li {
+    list-style: none;
+    padding: 0.5em 0 1.5em 0; 
+  }
+  
+.crossnav li a{
+    text-decoration: none;
+    color: var(--TextColor);
+  }
+  
+.crossnav li a:hover {
+    background-color: var(--Secondarycolor);
+    padding: 0.5em;
+    color: var(--green);
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 100%;
+  }
+
+.crossnav:focus {
+    outline: 4px solid var(--Secondarycolor);
+  }
+
+  .show{
+    transform: translateX(0%);
+  }
+  
+.filter {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.296);
+    height: 80%;
+    width: 80%;
+    pointer-events: none;
+  }
+}
+   /* Einde media query*/
