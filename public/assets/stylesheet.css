@@ -1,0 +1,124 @@
+@font-face {
+  font-family: "Archivo";
+  src: url(../font/Archivo-Regular.woff2);
+}
+
+@font-face {
+  font-family: "MartianMono";
+  src: url(../font/MartianMono-Regular.woff2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Colors */
+    --black: #222226;
+    --grey: #666666;
+    --white: #FFFFFF;
+    --blue: #364BF7;
+    --letter-spacing: -0.04em; /* -4% van de font size */
+
+    /* Sizes */
+    --size-xs: 0.5rem;
+    --size-sm: 1rem;
+    --size-md: 2rem;
+    --size-lg: 3rem;
+    --size-xl: 4rem;
+    --size-xxl: 6rem;
+
+    /* Fonts */
+    --primary-font: "Archivo", sans-serif;
+    --secondary-font: "MartianMono", monospace;
+
+    /* Line heights */
+    --line-height-s: 1.5;
+    --line-height-m: 1.6;
+    --line-height-l: 1.7;
+
+    /* Fonts */
+    --font-weight-heading: SemiBold;
+    --font-weight-body: Regular;
+
+    /* Spacing */
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+    --spacing-64: 64px;
+    --spacing-72: 72px;
+    --spacing-96: 96px;
+    --spacing-104: 104px;
+    --spacing-128: 128px;
+
+    --border: 1px solid black;
+
+    background-color: var(--white);
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: var(--line-height-s);
+}
+
+/* Typografie */
+h1,
+.xxxl {
+  font-size: clamp(2.5rem, 6vw, var(--size-xxl));
+  font-weight: 600; /* stays semibold */
+  letter-spacing: var(--letter-spacing);
+  line-height: clamp(1em, 5vw, var(--size-xxl));
+  text-transform: uppercase;
+  font-family: "Archivo";
+}
+
+h2,
+.xxl {
+  font-size: clamp(2.5rem, 5vw, var(--size-xl));
+  font-weight: 600; /* stays semibold */
+  letter-spacing: var(--letter-spacing);
+  line-height: 2.5rem;
+}
+
+h3,
+.xl {
+  font-size: clamp(var(--size-md), 4vw, 3rem);
+  font-weight: 400; /* regular on sm | semiBold on md+ */
+  letter-spacing: var(--letter-spacing);
+  line-height: clamp(1.5rem, 3.5vw, 1em);
+  text-transform: uppercase;
+}
+
+h4,
+.lg {
+  font-size: clamp(1.5rem, 3.5vw, var(--size-md));
+  font-weight: 400; /* stays regular */
+  letter-spacing: 0;
+  line-height: clamp(var(--size-md), 3vw, 2.5rem);
+}
+
+h5,
+h6,
+.md {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 600; /* stays semibold */
+  letter-spacing: 0;
+  line-height: clamp(var(--size-md), 2vw, 2.5rem);
+}
+
+h6,
+.light {
+  font-weight: 400; /* stays regular */
+}
+
+p,
+.sm {
+  font-size: clamp(var(--size-sm), 2.5vw, 1.125rem);
+  font-weight: 400; /* stays regular */
+  letter-spacing: 0;
+  line-height: clamp(1.5rem, 2.5vw, var(--size-md));
+}
