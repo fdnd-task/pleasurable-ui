@@ -23,6 +23,7 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// GET routes 
 
 app.get('/', async function (request, response) {
   response.render('index.liquid')
@@ -34,6 +35,27 @@ app.get('/details', async function (request, response) {
 
 app.get('/acquisition', async function (request, response) {
   response.render('acquisition.liquid')
+})
+
+app.get('/en', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+  const apiResponseJSON = await apiResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
+  
+  response.render("index.liquid", { 
+      artwork: apiResponseJSON.data,
+      lang: 'en'
+  })
+})
+
+// Route voor de homepagina in het arabisch
+app.get('/ar', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+  const apiResponseJSON = await apiResponse.json(); 
+  
+  response.render("index-ar.liquid", { 
+      artwork: apiResponseJSON.data,
+      lang: 'ar'
+   }) 
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
