@@ -85,6 +85,34 @@ app.get('/ar', async function (request, response) {
    }) 
 })
 
+// POST for like
+
+app.post('/like-artwork/:id', async function (request, response) {
+  // console.log("we hebben een post " + request.params.id)
+
+  // Hier wil je een fetch naar Directus waarmee je een like oplsaat die hoort bij een artwork
+  const postLikeUrl = `https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter={"fabrique_users_id":1,"fabrique_art_objects_id":[id][_eq]=${request.params.id}`
+//   console.log("postLikeUrl " + postLikeUrl)
+
+  // Post naar database
+  await fetch(postLikeUrl,{
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    // body: JSON.stringify({
+    //   //"fabrique_users_id": 1,
+    //   //"fabrique_art_objects_id": 33,
+    //   // Naam in database: id van de user
+    //   fabrique_users_id: 3,
+    //   // Naam in database: id van item die je wilt toevoegen
+    //   fabrique_art_objects_id: request.params.id
+    // }),
+  })
+
+  response.redirect(303, '/details/'+request.params.id)
+})
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
