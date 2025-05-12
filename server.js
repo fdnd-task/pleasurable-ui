@@ -74,6 +74,8 @@ app.get('/en', async function (request, response) {
   })
 })
 
+
+
 // Route voor de homepagina in het arabisch
 app.get('/ar', async function (request, response) {
   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
@@ -135,6 +137,7 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   // Redirect terug naar de detailpagina
   response.redirect(303, '/details/' + request.params.id);
 });
+
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
