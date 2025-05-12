@@ -7,6 +7,7 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasur
 ## Code conventies
 
 - Alles engels
+- In branches werken
 - Conventional commits
 - Kebab case voor classes
 - Camel case voor JS
