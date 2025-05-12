@@ -25,6 +25,7 @@ app.set('views', './views')
 
 
 app.get('/', async function (request, response) {
+  console.log('/')
   response.render('index.liquid')
 })
 
