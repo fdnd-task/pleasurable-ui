@@ -29,9 +29,7 @@ app.get('/', async function (request, response) {
 })
 
 
-app.get('/detail', async function (request, response) {
-  response.render('detail.liquid')
-})
+
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
