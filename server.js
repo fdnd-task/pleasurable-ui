@@ -29,9 +29,12 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
+// Detail-page
+
 app.get('/details', async function (request, response) {
   response.render('details.liquid')
 })
+//  main
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
