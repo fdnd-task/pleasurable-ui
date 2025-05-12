@@ -2,7 +2,7 @@
 
 ## Sprint Planning
 
-Repo klaarzetten, taken plannen en afspraken maken met je team.
+Repo klaarzetten, taken plannen en afspraken maken met je team..
 
 ### Aanpak
 Deze sprint werk je in een team aan de website voor de opdrachtgever. 
