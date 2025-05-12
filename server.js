@@ -25,7 +25,7 @@ app.set('views', './views')
 
 // GET routes 
 
-app.get('/', async function (request, response) {
+app.get('/en', async function (request, response) {
 
   const artworkURL = 'https://fdnd-agency.directus.app/items/fabrique_art_objects'
   const artworkFetch = await fetch(artworkURL)
@@ -36,7 +36,17 @@ app.get('/', async function (request, response) {
 
 })
 
-app.get('/details/:id', async function (request, response) {
+// Route voor de homepagina in het arabisch
+app.get('/ar', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+  const apiResponseJSON = await apiResponse.json(); 
+  
+  response.render("index-ar.liquid", { 
+      artwork: apiResponseJSON.data,
+   }) 
+})
+
+app.get('/:lang/details/:id', async function (request, response) {
   // console.log("GET detail pagina met een id "+request.params.id)
 
   // Const  de links naar de verschillende data
@@ -51,41 +61,20 @@ app.get('/details/:id', async function (request, response) {
   const likedArtworksFetch = await fetch(likedArtworks)
   const likedArtworksJSON = await likedArtworksFetch.json()
 
+  const langId = request.params.lang;
+
   // console.log(artworkJSON.data)
 
   response.render('details.liquid', {
     artworkData: artworkJSON.data,
-    likedArtworks: likedArtworksJSON.data
+    likedArtworks: likedArtworksJSON.data,
+    lang: langId
+
   })
 })
 //  main
 
-app.get('/acquisition', async function (request, response) {
-  response.render('acquisition.liquid')
-})
 
-app.get('/en', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
-  const apiResponseJSON = await apiResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-  
-  response.render("index.liquid", { 
-      artwork: apiResponseJSON.data,
-      lang: 'en'
-  })
-})
-
-
-
-// Route voor de homepagina in het arabisch
-app.get('/ar', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
-  const apiResponseJSON = await apiResponse.json(); 
-  
-  response.render("index-ar.liquid", { 
-      artwork: apiResponseJSON.data,
-      lang: 'ar'
-   }) 
-})
 
 // POST for like
 
