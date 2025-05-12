@@ -4,6 +4,16 @@ Ontwerp en maak met een team voor een opdrachtgever een interface waar gebruiker
 
 De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/INSTRUCTIONS.md)
 
+## Code conventies
+
+- Alles engels
+- In branches werken
+- Conventional commits
+- Kebab case voor classes
+- Camel case voor JS
+- Button -> btn
+- Witruimtes
+- Nesting (maar niet teveel)
 
 
 ## Inhoudsopgave
