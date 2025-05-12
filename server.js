@@ -113,6 +113,29 @@ app.post('/like-artwork/:id', async function (request, response) {
   response.redirect(303, '/details/'+request.params.id)
 })
 
+// DELETE for like
+
+app.post('/unlike-artwork/:id', async function (request, response) {
+  const likedArtobject = await fetch(`https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter={"fabrique_users_id":3,"fabrique_art_objects_id":${request.params.id}}`)
+  const likedArtobjectResponseJSON = await likedArtobject.json()
+  const likedArtobjectID = likedArtobjectResponseJSON.data[0].id
+  console.log(likedArtobjectID)
+
+  const deleteUrl = `https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects/${likedArtobjectID}`;
+
+  const data = await fetch(deleteUrl);
+  const result = await data.json();
+
+  console.log("Hier is een like verwijderd met id nummer " + request.params.id)
+  
+  await fetch(deleteUrl, {
+    method: 'DELETE',
+  });
+
+  // Redirect terug naar de detailpagina
+  response.redirect(303, '/details/' + request.params.id);
+});
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
