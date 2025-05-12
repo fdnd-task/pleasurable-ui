@@ -74,7 +74,22 @@ app.get('/:lang/details/:id', async function (request, response) {
 })
 //  main
 
-
+// Voor de pagina's met het formulier
+app.get('/:lang/acquisition', async function (request, response) {
+    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+    const apiResponseJSON = await apiResponse.json()
+    const messageResponse = await fetch("https://fdnd-agency.directus.app/items/fabrique_messages/?filter={%22for%22:%20{%22_contains%22:%20%22Karima_%22}}")
+    const messageResponseJSON = await messageResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
+    const langId = request.params.lang; //parameter voor de language switch
+    
+    response.render("acquisitions.liquid", { 
+      api: apiResponseJSON.data, 
+      messages: messageResponseJSON.data,
+      id: 'karima-form',
+      lang: langId
+    })
+  })
+  
 
 // POST for like
 
@@ -126,7 +141,6 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   // Redirect terug naar de detailpagina
   response.redirect(303, '/details/' + request.params.id);
 });
-
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
