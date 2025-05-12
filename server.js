@@ -27,7 +27,25 @@ app.get('/', async function (request, response) {
   response.render('home.liquid')
 })
 
+app.get('/events', async function (request, response) {
+  response.render('events.liquid')
+})
 
+app.get('/leden', async function (request, response) {
+  response.render('leden.liquid')
+})
+
+app.get('/overons', async function (request, response) {
+  response.render('overons.liquid')
+})
+
+app.get('/publicaties', async function (request, response) {
+  response.render('publicaties.liquid')
+})
+
+app.get('/vacatures', async function (request, response) {
+  response.render('vacatures.liquid')
+})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
