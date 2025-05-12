@@ -26,7 +26,12 @@ app.set('views', './views')
 // GET routes 
 
 app.get('/', async function (request, response) {
-  response.render('index.liquid')
+  const artworkURL = 'https://fdnd-agency.directus.app/items/fabrique_art_objects'
+  const artworkFetch = await fetch(artworkURL)
+
+  const artworkJSON = await artworkFetch.json()
+
+  response.render('index.liquid', { artworkData: artworkJSON.data })
 })
 
 app.get('/details', async function (request, response) {
