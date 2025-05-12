@@ -76,7 +76,6 @@ app.get('/:lang/details/:id', async function (request, response) {
 
 
 
-
 // POST for like
 
 app.post('/like-artwork/:id', async function (request, response) {
@@ -127,6 +126,7 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   // Redirect terug naar de detailpagina
   response.redirect(303, '/details/' + request.params.id);
 });
+
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
