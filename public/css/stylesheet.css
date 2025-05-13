@@ -1,0 +1,49 @@
+/* algemene styling zoals kleuren, font styling etc. */
+
+body{
+
+    /*veronica*/
+    --veronica-primary: #0091FF;
+    --veronica-secondary: #FE0170;
+    --veronica-accent: #011564;
+    --veronica-bg: #FAFAFA;
+    --veronica-timeline: #5D5D5D;
+    --veronica-text-header: #1e1e1e;
+    --veronica-text-main: var(--veronica-black);
+    --veronica-text-ghost: #8B8B8B;
+    --veronica-foot-icon: #BABABA;
+    --veronica-light: #e8e8e8;
+    --veronica-icon-hover: var(--veronica-primary);
+    --veronica-card-bg: #fff;
+    --veronica-card-txt: #000;
+
+    /*slam*/
+    --slam-primary: var(--slam-black);
+    --slam-secondary: #e50069;
+    --slam-accent: var(--slam-black);
+    --slam-bg: #222222;
+    --slam-timeline: #5D5D5D;
+    --slam-text-header: #F5F5F5;
+    --slam-text-main: var(--slam-white);
+    --slam-text-ghost: #8B8B8B;
+    --slam-light: #5d5d5d;
+    --slam-card-bg: #111;
+    --slam-card-txt: #fff;
+
+    /* 100%nl-> nl100 want mag niet beginnen met getal */
+    --nl100-primary: #000;
+    --nl100-secondary: #12a638;
+    --nl100-tabs: # ;
+    --nl100-accent: #000;
+    --nl100-bg: #fafafa;
+    --nl100-timeline: #5D5D5D;
+    --nl100-text-header: #1e1e1e;
+    --nl100-text-main: var(--nl100-black);
+    --nl100-text-ghost: #8B8B8B;
+    --nl100-foot-icon: #BABABA;
+    --nl100-light: #e8e8e8;
+    --nl100-icon-hover: var(--nl100-primary);
+    --nl100-card-bg: #fff;
+    --nl100-card-txt: #000;
+
+}

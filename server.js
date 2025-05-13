@@ -24,8 +24,12 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
+app.get('/', async function (req, res) {
+  res.render('index.liquid')
+})
+
+app.get('/', async function (req, res) {
+  res.render('bookmarks.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
