@@ -25,7 +25,12 @@ app.set('views', './views')
 
 
 app.get('/', async function (request, response) {
-  response.render('index.liquid')
+  const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task')
+  const taskResponseJSON = await taskResponse.json()
+
+  response.render('index.liquid', {
+    task: taskResponseJSON.data
+  })
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
