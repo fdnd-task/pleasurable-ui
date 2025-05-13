@@ -54,7 +54,8 @@ app.get('/object/:id/', async function (request, response) {
 
   const apiResponseJSON = await apiResponse.json();
 
-  response.render('details.liquid', {object: apiResponseJSON.data})
+  response.render('details.liquid', {object: apiResponseJSON.data});
+})
   
   
 app.get('/:lang/details/:id', async function (request, response) {
