@@ -24,7 +24,12 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 app.get('/', async function (request, response) {
-  response.render('home.liquid')
+  let vacaturesResponseJSON
+
+    const vacaturesResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_agencies?limit=1&fields=id,title,vacancies.*`)
+    vacaturesResponseJSON = await vacaturesResponse.json()
+
+  response.render('home.liquid', {vacatures: vacaturesResponseJSON.data});
 })
 
 app.get('/events', async function (request, response) {
