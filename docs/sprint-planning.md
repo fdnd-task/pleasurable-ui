@@ -7,7 +7,7 @@ Repo klaarzetten, taken plannen en afspraken maken met je team..
 ### Aanpak
 Deze sprint werk je in een team aan de website voor de opdrachtgever. 
 Jullie gaan het beste werk en ideeën samenbrengen in 1 complete website.
-Deze sprint ga je dus weer "Kill Your Darlings' toepassen. Huilen ... Met je team bouw je de website deze week from scratch op vanaf de _functional_ en _reliable_ laag.
+Deze sprint ga je dus weer “Kill Your Darlings” toepassen. Huilen ... Met je team bouw je de website deze week from scratch op vanaf de _functional_ en _reliable_ laag.
 
 Jullie gaan op 1 repository werken met de *Feature Branch Workflow*; issue oppakken, feature branch maken, pull request maken, code laten reviewen, mergen...
 
@@ -40,7 +40,7 @@ Geef op het whiteboard aan welke onderdelen wel en welke nog geen design hebben.
 
 ## Taken plannen en MoSCoW bepalen
 
-Omdat je met een team gaat samenwerken gaan jullie een nieuw project board aanmaken. Dat moet één van de teamleden doen, die de anderen toegang geeft. Laat één teamlid deze leertaak Forken om het project board en issues te kunnen koppelen. Dit wordt jullie gezamenlijke *repository*.
+Omdat je met een team gaat samenwerken, gaan jullie een nieuw project board aanmaken. Dat moet één van de teamleden doen, die de anderen toegang geeft. Laat één teamlid deze leertaak Forken om het project board en issues te kunnen koppelen. Dit wordt jullie gezamenlijke *repository*.
 
 ![](ghprojects-example-roadmap.webp)
 *GitHub projects geeft een duidelijk overzicht van taken en planning.*
@@ -54,6 +54,8 @@ Wat is daarvoor nodig? Hier kan je de _MoSCoW methode_ voor gebruiken.
 MoSCoW is een afkorting van *Must haves*, *Should haves*, *Could haves* en *Won't haves (this time)*. Dit is een methode waarmee je taken kan _prioriteren_. Wat moet er sowieso zijn voor de oplevering? Welke onderdelen zijn belangrijk, maar niet noodzakelijk voor de oplevering? Welke onderdelen of pagina's zijn niet per se nodig en doen jullie alleen als er genoeg tijd is? En welke onderdelen zijn nu niet nodig?
 
 Prioriteer jullie taken met de MoSCoW labels. Prioriteiten kunnen gedurende het project veranderen; elke vrijdag gaan jullie gezamenlijk het project board bespreken en bijwerken. Dit is ook een mooi moment om nog een paar *Could haves* te bedenken, wat zou echt vet zijn om te maken? Misschien lukt het wel...
+
+💡 tip: Je kan hier ook het 'priority' veld voor gebruiken en de labels veranderen in MoSCoW
 
 Een aantal *Must haves* in week 1 zijn belangrijk om ervoor te zorgen dat niemand hoeft te wachten. Bijvoorbeeld het `server.js` file netjes opzetten. En de styleguide stylesheet die iedereen nodig heeft.
 
@@ -101,7 +103,7 @@ Ga nu met je team uitproberen hoe je met branches moet werken en via een pull re
 1. Maak een Feature Branch aan met een logische naam (dit kan zowel in Visual Studio Code, in de GitHub Desktop app, of op github.com)
 2. Maak een eigen Route en een bijhorende View aan in jouw Feature Branch en _commit_ en _push_ je code
 3. Maak daarna een Pull Request naar de `main` van jullie repo (Dit doe je op github.com)
-4. Assign je teamgenoten om jouw Pull Request te reviewen
+4. Voeg je teamgenoten toe als reviewer om jouw Pull Request te checken
 5. Merge naar `main` en kijk wat er gebeurt ...
 
 ### Bronnen
