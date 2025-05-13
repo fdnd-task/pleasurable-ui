@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/stylesheet.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <script src="/scripts/script.js"></script>
+    {% assign pageTitle = "Dutch Digital Agencies" %}
+    <title>
+        {{ pageTitle }}
+    </title>
+  </head>
+<body>  
+
+<header class="header">
+  <img class="logo" src="/img/logo.svg" alt="DDA logo" width="50" height="50">
+
+    <a href="#menu" class="menu-open-link" id="toggle-menu-open">
+      <img class="hamburger-svg" src="/img/hamburger.svg" alt="Menu openen" width="25" height="25">
+    </a>
+
+    <nav id="menu" class="main-nav">
+
+      <a href="" class="menu-close-link" id="toggle-menu-close">
+        <img class="close-svg" src="/img/close.svg" alt="Menu sluiten" width="25" height="25">
+      </a>
+
+      <ul class="nav-list">
+        <li><a href="/overons">Over ons</a></li>
+        <li><a href="/events">Events</a></li>
+        <li><a href="/publicaties">Publicaties</a></li>
+        <li><a href="/leden">Leden</a></li>
+        <li><a href="/vacatures">Vacatures</a></li>
+      </ul>
+
+      <hr class="bar">
+      
+      <div class="nav-actions">
+        <a class="inloggen-link" href="/inloggen">Inloggen 
+        <img src="/img/arrow.svg" alt="" width="15" height="15">
+        </a>
+        <div class="lid-worden-container">
+          <a class="lid-worden-link" href="/word-lid">Word lid</a>
+          <span class="lid-worden-svg">
+            <img src="/img/arrow-right-black.svg" alt="" width="15" height="15">
+          </span>
+        </div>
+      </div>
+    </nav>
+</header>
