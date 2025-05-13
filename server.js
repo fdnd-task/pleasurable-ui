@@ -28,7 +28,7 @@ app.get('/', async function (req, res) {
   res.render('index.liquid')
 })
 
-app.get('/', async function (req, res) {
+app.get('/bookmarks', async function (req, res) {
   res.render('bookmarks.liquid')
 })
 
