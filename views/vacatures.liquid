@@ -1,0 +1,168 @@
+{% render 'partials/head.liquid', title: 'Vacatures' %}
+
+<header>
+    <nav class="topnav">
+      <img src="/assets/DDAlogo.png" alt="logo" class="logo">
+
+       <div class="home">
+        <a href="https://dutchdigitalagencies.com/">Home</a>
+        </div>
+
+
+    </nav>
+  </header>
+
+  <header class="titles">
+    <h1>ONZE VACATURES</h1>
+    <p>Verslim je carrière bij de beste digitale bureaus van Nederland.<br>
+     Pak je rol als developer of designer, researcher, als scrum master of marketeer,
+     als strateeg.<br> Start of groei door – en laat zien wat je kan.</p>
+  </header>
+
+
+<form>
+    <input type="text" class="zoek" id="search" name="search" placeholder="Zoek een vacature..."
+    >
+    <div "buttons">
+    <select class="button">
+        <option value="all">Expertise</option>
+        <option value="frontend">Frontend Developer</option>
+        <option value="backend">Backend Developer</option>
+        <option value="fullstack">Fullstack Developer</option>
+        <option value="designer">Designer</option>
+        <option value="marketeer">Marketeer</option>
+    </select>
+    <select class="button">
+        <option value="all">Uren</option>
+        <option value="vol">Voltijd 38-40 uur</option>
+        <option value="deel">Deeltijd 16-24 uur</option>
+        <option value="stage">Stage</option>
+
+    </select>
+    <select class="button">
+        <option value="all">Locatie</option>
+        <option value="ams">Amsterdam</option>
+        <option value="dh">Den Haag</option>
+        <option value="ut">Utrecht</option>
+        <option value="bre">Breda</option>
+        <option value="hfd">Hooftdorp</option>
+    </select>
+    <select class="button">
+        <option value="all">Taal</option>
+        <option value="En">Engels</option>
+        <option value="Nl">Nederlands</option>
+    </select>
+    <button type="submit">Filter</button>
+    </div>
+</form>
+
+<main class="gridview">
+    <ul>
+        {% if vacatures %}
+
+        {% for vacature in vacatures %}
+        <li>
+         <h3 class="title">{{vacature.title}}</h3>
+         <a href="{{vacature.photo}}"> </a>
+            <h4 class="title"><span>{{vacature.hours}} </span> Uur - <span> {{vacature.locatie}}</span> </h4>
+            <button id="showingmore" class="showmore">Meer zien</button>
+
+            <section class="speakerinfo">
+            <div class="container">
+        <p> Als Strateeg ben je de schakel tussen klantdoelstellingen, marktkansen en creatieve oplossingen. 
+        Je duikt in data en trends, zet strategische lijnen uit en helpt klanten hun doelen te bereiken. Je werkt samen met een team 
+        van digital consultants, projectmanagers, customer success managers, marketeers, creatieven en developers om strategieën niet 
+        alleen te bedenken, maar ook echt tot leven te brengen. <br>
+        </br>
+Je hebt al een aantal jaar ervaring in strategie, maar nog belangrijker: je voelt feilloos aan wat werkt en hoe je strategische kansen kunt benutten.
+ Je bent sterk in stakeholdermanagement en weet verschillende belangen te overbruggen om tot de beste oplossingen te komen. Jij bent de 
+ verbindende factor tussen klantdoelstellingen, marktkansen en creativiteit.
+        </p>
+        {% if appliedFor == vacature.id %}
+        {% render './partials/loading.liquid' %}
+            {% else %}
+        {% render './partials/soliciteer.liquid', vacature: vacature %}
+
+        {% endif %}
+
+
+    {% comment %}
+<!-- If verstuur is successful, show gelukt.liquid
+{% if verstuur  == "true" %}
+show gelukt
+{% elsif  == "name error" %}
+have you entered your name correctly?
+{% else == "email error" %}
+have you entered your email address correctly?
+{% endif %}
+{% endcomment %}
+
+  </section>
+</li>
+
+</div>
+
+        <form>
+        </form>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>Er zijn geen vacatures beschikbaar.</p>
+{% endif %}
+</main> 
+
+
+<!-- Client side fetch - refresh code -->
+  <script type="module">
+  // We maken hieronder aannames over wat de browser ondersteunt
+  // Dus laten we deze eerst testen met Feature Detection
+  // https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection
+  if ('fetch' in window && 'DOMParser' in window) {
+  
+    // Als er ergens op de pagina een formulier wordt gesubmit..
+    // (We maken hier gebruik van Event Delegation)
+    document.addEventListener('submit', async function(event) {
+  
+      // Hou in een variabele bij welk formulier dat was
+      const form = event.target
+  
+      // Als dit formulier geen data-enhanced attribuut heeft, doe dan niks
+      // Dit doen we, zodat we sommige formulieren op de pagina kunnen 'enhancen'
+      // Data attributen mag je zelf verzinnen; dit is dus niet iets speciaals
+      // https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes
+ 
+  
+      // Voorkom de standaard submit van de browser
+      // Let op: hiermee overschrijven we de default Loading state van de browser...
+      event.preventDefault()
+  
+      // Doe een fetch naar de server, net als hoe de browser dit normaal zou doen
+      // Gebruik daarvoor het action en method attribuut van het originele formulier
+      // Inclusief alle formulierelementen
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new URLSearchParams(new FormData(form))
+      })
+  
+      // De server redirect op de normale manier, en geeft HTML terug
+      // (De server weet niet eens dat deze fetch via client-side JavaScript gebeurde)
+      const responseText = await response.text()
+  
+      // Normaal zou de browser die HTML parsen en weergeven, maar daar moeten we nu zelf iets mee
+      // Parse de nieuwe HTML en maak hiervan een nieuw Document Object Model in het geheugen
+      const parser = new DOMParser()
+      const responseDOM = parser.parseFromString(responseText, 'text/html')
+  
+      // Zoek in die nieuwe DOM onze nieuwe state op, die we via Liquid hebben klaargemaakt
+      // We gebruiken hiervoor het data-enhanced attribuut, zodat we weten waar we naar moeten zoeken
+      // (Hierdoor kunnen we ook meerdere formulieren op dezelfde pagina gebruiken)
+      const newState = responseDOM.getElementById('solicitatieform')
+  
+      // Overschrijf ons formulier met de nieuwe HTML
+      // Hier wil je waarschijnlijk de Loading state vervangen door een Success state
+      form.outerHTML = newState.outerHTML
+  
+    })
+  }
+  </script>
+{% render 'partials/footer.liquid' %}

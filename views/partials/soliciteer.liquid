@@ -1,0 +1,16 @@
+<a class="bedrijf" href="{{vacature.url}}">Bedrijf Bekijken</a>
+
+<h5>Klaar om te soliciteren?</h5>
+<form id="solicitatieform" method="POST" action="/">
+<label for="name">Naam</label>
+<input type="text" id="input" name="name" placeholder="John Doe">
+
+<label for="email">E-mail</label>
+<input type="text" id="input" name="email" placeholder="johndoe@gmail.com">
+<input type="hidden" name="vacature" value="{{ vacature.id }}">
+<input type="submit" id="verstuur" value="verstuur">
+</form>
+
+{% for input in soliciteer %}
+        <p>{{ input }}</p>
+    {% endfor %}

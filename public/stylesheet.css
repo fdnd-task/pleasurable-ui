@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Figtree:ital,wght@0,300..900;1,300..900&family=Martian+Mono:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Martian+Mono:wght@100..800&display=swap');
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+body 
+{
+
+/* colour scheme */
+
+--black: #222226;
+--grey: #666666;
+--white: #FFFFFF;
+--blue: #364BF7;
+
+/* Fonts */
+
+--font-family-regular: 'Archivo', sans-serif;
+--font-family-mono: 'MartianMono', sans-serif;
+
+
+@font-face {
+  font-family: Archivo;
+  font-display: swap;
+  src: url(/fonts/Archivo-Regular.woff2) format("woff2"),url(/fonts/Archivo-Regular.woff) format("woff")
+}
+
+@font-face {
+  font-family: Archivo;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/fonts/Archivo-SemiBold.woff2) format("woff2"),url(/fonts/Archivo-SemiBold.woff) format("woff")
+}
+
+@font-face {
+  font-family: MartianMono;
+  font-display: swap;
+  src: url(/fonts/MartianMono-Regular.woff2) format("woff2"),url(/fonts/MartianMono-Regular.woff) format("woff")
+}
+
+@font-face {
+  font-family: MartianMono;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/MartianMono-Light.woff2) format("woff2"),url(/fonts/MartianMono-Light.woff) format("woff")
+}
+
+/* Font heights */
+--letter-spacing: -0.04em;
+
+--font-size-xs: 0.5rem;
+--font-size-sm: 1rem;
+--font-size-md: 2rem;
+--font-size-lg: 3rem;
+--font-size-xl: 4rem;
+--font-size-xxl: 6rem;
+
+
+/* Line heights */
+--line-height-s: 1.5;
+--line-height-m: 1.6;
+--line-height-l: 1.7;
+
+/* Font Weights */
+--font-weight-heading: SemiBold;
+--font-weight-body: Regular;
+    
+font-family: 'Archivo', sans-serif;
+font-size: 16px;
+
+--border: 1px solid black;
+
+background-color: var(--white);
+font-family: var(--primary-font);
+font-size: 16px;
+
+
+/* Typography */
+
+/* BIG BOY SIZES*/
+h1,
+.xxxl {
+  font-size: 3rem;
+    font-weight: 600;
+    line-height: 3rem;
+    letter-spacing: -.04em;
+  text-transform: uppercase;
+  font-family: var(--font-family-regular);
+}
+
+h2,
+.xxl {
+  font-size: 2.5rem;
+    line-height: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -.04em;
+    font-family: var(--font-family-regular);
+}
+
+/* MEDIUM SIZES*/
+h3,
+.xl {
+  font-size: 2rem;
+    font-weight: 600;
+    line-height: 2rem;
+    letter-spacing: -.04em;
+  text-transform: uppercase;
+  font-family: var(--font-family-regular);
+}
+
+h4,
+.lg {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  font-family: var(--font-family-regular);
+}
+
+/* MINI SIZES*/
+
+h5,
+.m {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 2rem;
+  font-family: var(--font-family-regular);
+}
+
+h6,
+s {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 2rem;
+  font-family: var(--font-family-regular);
+}}
