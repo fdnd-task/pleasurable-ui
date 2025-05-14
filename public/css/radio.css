@@ -1,0 +1,6 @@
+@import url("./sticky-menu.css"); /* sticky menu styling */
+
+body{
+  background-color: #FAFAFA;
+  background-color: var(--color-bg);
+}

@@ -24,6 +24,156 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 
+const showsResponse = await fetch('https://fdnd-agency.directus.app/items/mh_shows');
+const showsResponseJSON = await showsResponse.json();
+
+const showResponse = await fetch('https://fdnd-agency.directus.app/items/mh_show');
+const showResponseJSON = await showResponse.json();
+
+const uniqueAllUsersResponse = await fetch('https://fdnd-agency.directus.app/items/mh_users?groupBy=full_name');
+const uniqueAllUsersResponseJSON = await uniqueAllUsersResponse.json();
+
+const radiostationsResponse = await fetch('https://fdnd-agency.directus.app/items/mh_radiostations?sort=id');
+const radiostationsResponseJSON = await radiostationsResponse.json();
+
+const chatsResponse = await fetch('https://fdnd-agency.directus.app/items/mh_chats');
+const chatsResponseJSON = await chatsResponse.json();
+
+// Maak multi demsionele array aan met id van station en de naam
+const radiostations = radiostationsResponseJSON.data.map(station => ({
+  id: station.id,
+  name: station.name
+}));
+
+app.get('/radio/:name/programmering{/:dayname}', async function (request, response) {
+  const dayNames = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
+
+  const thisWeekshows = [];
+  let daysResponse;
+  let dayID;
+  if (request.params.dayname == undefined) {
+    daysResponse = await fetch('https://fdnd-agency.directus.app/items/mh_day?fields=*,shows.mh_shows_id.show');
+  }
+  else {
+    dayID = dayNames.findIndex(day => day === request.params.dayname);
+    console.log(dayID);
+    daysResponse = await fetch('https://fdnd-agency.directus.app/items/mh_day?fields=*,shows.mh_shows_id.show&filter={"sort":"' + dayID + '"}');
+  }
+  const daysResponseJSON = await daysResponse.json();
+
+  daysResponseJSON.data.forEach(day => {
+    const genDate = new Date(day.date);
+    const dayofWeekJSON = genDate.getDay();
+    const shows = day.shows;
+    const showIDs = [];
+    shows.forEach(show => {
+      const show_id = show.mh_shows_id.show;
+      showIDs.push(show_id);
+    });
+    thisWeekshows.push({
+      day: dayofWeekJSON,
+      dayName: dayNames[dayofWeekJSON],
+      shows: showIDs
+    });
+  });
+  const now = new Date()
+  let startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay() - 5)
+  const thisWeek = [];
+
+  // Chat GPT-3
+  function getDatesOfCurrentWeek(refDate = new Date()) {
+
+    const datesOfWeek = [];
+    for (let i = 0; i < 8; i++) { // Loop through 8 days to include next Monday
+      const date = new Date(startOfWeek);
+      date.setDate(startOfWeek.getDate() + i);
+      console.log(date);
+      datesOfWeek.push(date);
+    }
+
+    return datesOfWeek;
+  }
+
+  const datesOfCurrentWeek = getDatesOfCurrentWeek();
+  datesOfCurrentWeek.forEach(date => {
+    const dateString = date.toISOString().split('T')[0];
+    thisWeek.push({
+      day: dateString.split('-')[2],
+      dayOfWeek: date.getDay()
+    });
+  });
+
+  // End of Chat GPT code
+
+
+
+
+  const stationArr = request.params.name;
+  const stationURL = radiostations.find(station => station.name === stationArr);
+  let stationID = stationURL.id;
+  const ShowsforStationUL = "https://fdnd-agency.directus.app/items/mh_shows?fields=*.*.*.*";
+  const showsforStationFilterPart = "&filter={\"show\":{\"radiostation\":{\"id\":\"" + stationID + "\"}}}&limit=-1";
+
+
+  const showsforStation = await fetch(ShowsforStationUL + showsforStationFilterPart);
+  const showsforStationJSON = await showsforStation.json();
+  const nestedShows = [];
+
+  showsforStationJSON.data.forEach(function (show) {
+
+    nestedShows.push({
+      ...show.show,
+      from: show.from,
+      until: show.until,
+    });
+  });
+  nestedShows.sort((a, b) => new Date(a.from) - new Date(b.from));
+
+  const updatedWeekShowsforStation = thisWeekshows.map(day => {
+    const updatedShows = day.shows
+      .filter(show => show !== undefined && show !== null) // Filter out null values before mapping
+      .map(show => {
+
+        // console.log("Processing show ID: " + show);
+        let dayShowID = show;
+        const showObj = nestedShows.find(s => s.id == dayShowID);
+        return showObj;
+      })
+      .filter(show => show !== undefined && show !== null);// Hiermee map je als het door de array heen, en filter je de nulls eruit.
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+    updatedShows.sort((a, b) => a.from.localeCompare(b.from));
+    return { ...day, shows: updatedShows };
+  });
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+  // Het feit dat ik een updated array moest maken met de spread operator heb ik van Chat. Ik snap wel dat het de day object pakt en de shows array updated met de juiste shows, maar had dit niet zelf bedacht. Ik snap nog niet helemaal hoe het werkt.
+
+  let today;
+  let todayName;
+  if (request.params.dayname == undefined) {
+    today = parseInt(thisWeekshows[0].day);  // Parse the day from thisWeekshows
+    todayName = dayNames[today];
+  } else {
+    today = dayID;  // Parse the dayid from the request params
+
+  }
+
+  response.render('radio.liquid', {
+    showsforStation: showsforStationJSON.data,
+    stationNameGenerated: stationArr,
+    stationNameGeneratedEncoded: encodeURIComponent(stationArr),
+    thisWeek: thisWeek,
+    dayNames: dayNames,
+    thisWeekShows: updatedWeekShowsforStation,
+    radiostations: radiostationsResponseJSON.data,
+    thisstation: stationID,
+    today: today,
+    todayName: request.params.dayname
+  });
+});
+
+
+
+
 app.get('/', async function (req, res) {
   res.render('index.liquid')
 })

@@ -1,0 +1,153 @@
+/* Part sticky */
+.part-sticky.top-wrapper{
+  display: block;
+  width: 100%;
+  background-color: #FAFAFA;
+  z-index: 5;
+  position: relative;
+  background-color: var(--color-bg);
+}
+@supports (position: sticky){
+  .part-sticky.top-wrapper{
+    position: sticky;
+    top: 65px;
+  }
+}
+
+.part-sticky.top-wrapper::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  height: 10px;
+  background-image:linear-gradient(to bottom,#FAFAFA calc(100% - 2rem),rgba(255,255,255,0));
+  background-image:linear-gradient(to bottom,var(--color-bg) calc(100% - 2rem),rgba(255,255,255,0));
+}
+
+
+
+.part-sticky.top-wrapper nav.sticky-menu-top{
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  padding-top: 1rem;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top:after{
+  background-color: #e8e8e8;
+  background-color: var(--color-light);
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  z-index: -1;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding: 0 2rem;
+  overflow-x: auto;
+  gap: 32px;
+  width: fit-content;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top ul li{
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top ul li a{
+  color: #8B8B8B;
+  color: var(--color-text-ghost);
+  display: block;
+  height: 100%;
+  width: fit-content;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top ul li a:hover, .part-sticky.top-wrapper nav.sticky-menu-top ul li a:focus, .part-sticky.top-wrapper nav.sticky-menu-top ul li a.active{
+  color: #FE0170;
+  border-bottom: 1px solid;
+  color: var(--color-secondary);
+  /* border-bottom: 1px solid var(--color-secondary); is niet nodig want hij neemt de # over van color.*/
+}
+
+
+
+/* Day menu */
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu{
+    width: 100vw;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul{
+    display: flex;
+    list-style: none;
+    justify-content: start;
+    padding: 0 20px;
+    overflow-x: auto;
+    gap: 10px;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li{
+    min-width: 4.2rem;
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: 56px;
+    font-size: var(--text-s);
+    color: var(--color-text-header);
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a b{
+    color: var(--color-text-header);
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a:hover, .part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a:focus, .part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a.active{
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a.active b{
+    color: var(--color-white);
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a.active, .part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a:hover, .part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a:focus{
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+.part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a.active b, .part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a:hover b, .part-sticky.top-wrapper nav.sticky-menu-top nav.day-menu ul li a:focus b{
+    color: var(--color-white);
+}
+nav.day-menu{
+                width: calc(100vw);
+                ul{
+                    display: flex;
+                    list-style: none;
+                    justify-content: start;
+                    padding: 0 20px;
+                    overflow-x: auto;
+                    gap: 10px;
+                    li{
+                        min-width: 4.2rem;
+                        a{
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: 8px;
+                            height: 56px;
+                            font-size: var(--text-s);
+                            color: var(--color-text-header);
+                            b{
+                                color: var(--color-text-header);
+                            }
+                            &.active, &:hover, &:focus{
+                                background-color: var(--color-secondary);
+                                color: var(--color-white);
+                                b{
+                                    color: var(--color-white);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
