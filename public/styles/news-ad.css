@@ -37,10 +37,6 @@
             appearance: none;
             border-bottom: var(--border);
             padding-bottom: .25em;
-            &:focus-visible {
-                outline: 1px solid blue;
-                outline-offset: 1px;
-            }
         }
         & input:focus + label,
         input:not(:placeholder-shown) + label {
