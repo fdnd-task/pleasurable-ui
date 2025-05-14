@@ -1,0 +1,194 @@
+:root {
+    /* Kleuren */
+    
+    /* Home Background */
+        --home-achtergrond:linear-gradient(#3F93B7,#1C5872);
+     
+    /* Story nightmode */
+        --story-nightmode:linear-gradient(#471871,#142151);
+       
+     
+    /* Menu lay-over */
+        --menu-lay-over-kleur: #292929;
+        --menu-lay-over-opacity: 95%;
+    
+    /* Menu knoppen */
+        --button-color-one: #3F92B6;
+        --hover-button-color-one: #3D7A95;
+        
+        --button-color-two: #599AE7;
+        --hover-button-color-two: #4D7EB7;
+        
+        --button-color-three: #9264F4;
+        --hover-button-color-three: #451ACF;
+        
+        --button-color-four: #06A192;
+        --hover-button-color-four: #078377;
+        
+        --button-color-five: #FD8C73;
+        --hover-button-color-five: #EA775E;
+    
+        --play-button-stories:#3A54DE;
+        --hover-play-button-stories:#092eea;
+
+        --play-button-playlist:#F3A22A;
+        --hover-play-button-playlist:#ff9900;
+
+
+    /* Knoppen tekst kleur */
+        --button-text-color:#ffffff;
+    /* Methode kleuren*/
+        --methode-background-color: ;
+        --methode-color-one: #1CB854;
+        --methode-color-two: #37C6AB;
+        --methode-color-three: #059CC0;
+        --methode-color-four: #FF8C59;
+        --methode-color-five: #FFA02E;
+    
+    /* Statistics */
+        --van-kleur-statistics: #219B9B;
+        --naar-kleur-statistics: #1B7070;
+    
+    /* Testing */
+        --van-kleur-testing: #21599B;
+        --naar-kleur-testing: #1B3D70;
+    
+    /* Profile */
+        --van-kleur-profile: #F0775D;
+        --naar-kleur-profile: ##B45751;
+    
+    /* Method */
+        --van-kleur-method: #471871;
+        --naar-kleur-method: #142151;
+    
+    /* Typografie */
+        --font-text: 'Poppins', sans-serif; 
+    
+    /* Font-sizes*/
+        --font-size-h1: 1.75em;
+        --font-size-h2: 1.25rem;
+        --font-size-h3: 0.75rem;
+        --font-size-story-title: 0.75rem;
+        --font-size-story-description: 0.5rem;
+    
+    /* Font-weights */
+        --font-weight-h1: 600;
+        --font-weight-h2: 600;
+        --font-weight-h3: 400;
+        --font-weight-story-title: 600;
+        --font-weight-story-description: 400;
+    
+    /* Line-heights */
+        --line-height-h1: 3rem;
+        --line-height-h2: 1.375rem;
+        --line-height-h3: 1.3125rem;
+        --line-height-story-title: 0.938rem;
+        --line-height-story-description: 0.75rem;
+    
+    }
+
+    body{
+        background: var(--home-achtergrond);
+        background-size: cover;  
+        height: 100vh;
+        font-family: var(--font-text), Arial, Helvetica, sans-serif;
+    }
+
+/* === Typografie === */
+
+    h1{
+        font-size: var(--font-size-h1);
+        font-weight: var(--font-weight-h1);
+        line-height: var(--line-height-h1);
+        color: white;
+    }   
+
+    h2{
+        font-size: var(--font-size-h2);
+        font-weight: var(--font-weight-h2);
+        line-height: var(--line-height-h2);
+        color: white;
+    }
+
+    h3{
+        font-size: var(--font-size-h3);
+        font-weight: var(--font-weight-h3);
+        line-height: var(--line-height-h3);
+        color: white;
+    }
+
+
+    p{
+        font-size: var(--font-size-story-title);
+        font-weight: var(--font-weight-story-title);
+        line-height: var(--line-height-story-title);
+    }
+
+
+
+/* === Lijsten === */
+
+    ul{
+        list-style-type: none;
+    }
+
+
+    /* === Buttons === */
+    button{
+        border: none;
+    }
+    .play-button-stories{
+        display: flex;
+        justify-content: center ;
+        align-items: center;
+        background-color:var(--play-button-stories) ;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+
+        svg{
+            margin: 0 0 0 1.5px;
+        }
+
+        &:hover{
+            background-color: var(--hover-play-button-stories);
+        }
+    }
+
+    .play-button-playlist{
+        display: flex;
+        justify-content: center ;
+        align-items: center;
+        background-color:var(--play-button-playlist) ;
+        width: 31px;
+        height: 31px;
+        border-radius: 50%;
+
+        svg{
+            margin: 0 0 0 1.5px;
+            width: 14px;
+            height: 15px;
+        }
+
+        &:hover{
+            background-color: var(--hover-play-button-playlist);
+        }
+    }
+
+    .filter-button{
+        display: flex;
+        gap: 5px;
+        justify-content: center; 
+        align-items: center;
+        background-color: var(--button-color-three);
+        color: var(--button-text-color);
+        padding: 5px 10px;
+        border-radius: 4px;
+
+        &:hover{
+            background-color: var(--hover-button-color-three);
+        }
+
+
+    }
+    
