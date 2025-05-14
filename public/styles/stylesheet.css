@@ -73,7 +73,7 @@ h1,
   letter-spacing: var(--letter-spacing);
   line-height: clamp(1em, 5vw, var(--size-xxl));
   text-transform: uppercase;
-  font-family: "Archivo";
+  font-family: "Archivo", sans-serif;
 }
 
 h2,
