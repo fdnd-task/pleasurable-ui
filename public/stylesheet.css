@@ -49,6 +49,15 @@ body {
     --bg-facetfilter-girl: #FFCBE4;
     --bg-facetfilter-standard: #B9B9B9;
     --bg-filters: #EEEEEE;
+
+    --illustratie: #575757;
+
+    --text-suggestions-chat: #F6F5F5;
+    --text-general: #000000;
+    --text-share: #616161;
+    --text-secondary: #ffffff;
+
+
     --m-paragraph: 19px;
     --s-paragraph: 18px;
     --xs-paragraph: 16px;
