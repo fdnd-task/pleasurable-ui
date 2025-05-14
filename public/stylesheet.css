@@ -104,6 +104,14 @@
     --font-weight-normal: 400;
     --font-weight-light: 300;
 
+    /* font-sizes */
+    --font-size-xxl: 3rem; /* 48px ÷ 16 = 3rem */
+    --font-size-xl: 2rem; /* 32px ÷ 16 = 2rem */
+    --font-size-l: 1.5rem;
+    --font-size-m: 1rem; /*16px, voor de header*/
+    --font-size-s: .9rem;
+    --font-size-xs: 0.875rem; /* 14px ÷ 16 = 0.875rem */
+
     /*h1*/
    --h1-font-size: 3.75rem;
    --h1-font-weight: var(--font-weight-light);
