@@ -4,7 +4,7 @@
     gap: var(--spacing-40);
     list-style-type: none;
     margin: 0;
-    padding: var(--spacing-40) var(--spacing-16);
+    padding: var(--spacing-40) var(--spacing-32);
     & li {
         border-bottom: var(--border);
         display: flex;

@@ -1,0 +1,30 @@
+<section class="thank-partner-container">
+  <h4 class="thank-partner-title">Wij bedanken onze trouwe partners</h4>
+
+  <div class="btn-container">
+    {% render 'partials/button.liquid', submit: "WORD PARTNER" %}
+  </div>
+</section>
+
+
+<style>
+.thank-partner-container {
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto;
+  padding: var(--spacing-48);
+  gap: var(--spacing-24);
+  border-top: var(--border);
+  border-bottom: var(--border);
+
+      @media (min-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.thank-partner-title {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+</style>

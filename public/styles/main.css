@@ -153,4 +153,9 @@ header{
     .hero-links{
         flex-direction: row;
     }
+  
+.link {
+    gap: .5em;
+    display: flex;
+    align-items: center;
 }
