@@ -1,0 +1,45 @@
+.partner-carousel-container-1, .partner-carousel-container-2{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.partner-logos-slide-1{  
+    animation: 15s slide-1 infinite linear;
+    display: flex;
+}
+
+@keyframes slide-1 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.partner-logos-slide-2{    
+    animation: 15s slide-2 infinite linear;
+    display: flex;
+}
+
+@keyframes slide-2 {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.partner-carousel-container-1 > .partner-logos-slide-1 > img{
+    width: clamp(5em, 10vw, 15em);
+    height: clamp(5em, 10vw, 15em);
+}
+
+.partner-carousel-container-2 > .partner-logos-slide-2 > img{
+    width: clamp(5em, 10vw, 15em);
+    height: clamp(5em, 10vw, 15em);
+}
+
