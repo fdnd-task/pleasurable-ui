@@ -46,37 +46,6 @@ header{
     gap: 1em;
 }
 
-.inloggen-link{
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    text-decoration: none;
-}
-
-.lid-worden-link{
-    border: solid var(--black) 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--black);
-    padding: 0.5em;
-    text-decoration: none;
-}
-
-.lid-worden-container{
-    display: flex;
-}
-
-.lid-worden-svg{
-    border-top: solid var(--black) 1px;
-    border-bottom: solid var(--black) 1px;
-    border-right: solid var(--black) 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-}
-
 .main-nav{
     background-color: var(--white);
     height: 100%;

@@ -8,12 +8,8 @@
         <p class="hero-text">Dutch Digital Agency (DDA) verenigt en verbindt {{ leden | size }} toonaangevende digitale bureaus. Samen maken we de wereld elke dag een beetje slimmer.</p>
     
         <div class="hero-links">
-            <div class="lid-worden-container">
-                <a class="lid-worden-link" href="/word-lid">Word lid</a>
-                <span class="lid-worden-svg">
-                    <img src="/img/arrow-right-black.svg" alt="" width="15" height="15">
-                </span>
-            </div>
+
+            {% render 'partials/button.liquid' %}
             
             <a class="zoek-een-bureau-link" href="/zoek-een-bureau">Zoek een bureau
                 <img src="/img/arrow.svg" alt="" width="15" height="15">
