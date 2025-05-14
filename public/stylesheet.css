@@ -1,5 +1,64 @@
+/* English light */
+@font-face {
+    font-family: "Din Next it pro light";
+    src: url(./fonts/din-next-lt-pro-light.woff2);
+    font-style: light;
+}
+
+/* English regular */
+
+@font-face {
+    font-family: "Din Next it pro";
+    src: url(./fonts/din-next-lt-pro-regular.ttf);
+    font-style: normal;
+}
+
+/* English bold */
+
+@font-face {
+    font-family: "Din Next it bold";
+    src: url(./fonts/din-next-lt-pro-bold.woff2);
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+/* Arabische fonts */
+
+/* Arabic light */
+@font-face {
+    font-family: "Din Next it light arabic";
+    src: url(./fonts/din-next-lt-arabic-light.woff2);
+    font-style: normal;
+    font-weight: light;
+}
+
+/* Arabic regular */
+@font-face {
+    font-family: "Din Next it arabic regular";
+    src: url(./fonts/din-next-lt-arabic-regular.ttf);
+    font-style: normal;
+}
+
+/* Arabic bold */
+@font-face {
+    font-family: "Din Next it bold arabic";
+    src: url(./fonts/din-next-lt-arabic-bold.woff2);
+    font-style: normal;
+    font-weight: bold;
+}
+
 :root{
 
+    /* Font variables */
+    --font-en-light: "Din Next it pro light";
+    --font-en-regular: "Din Next it pro";
+    --font-en-bold: "Din Next it bold";
+
+    --font-ar-light: "Din Next it light arabic";
+    --font-ar-regular: "Din Next it arabic regular";
+    --font-ar-bold: "Din Next it bold arabic";
+    
     /*Breakpoints*/
    --breakpoint-mobile: 320px;
    --breakpoint-tablet-small: 530px;
