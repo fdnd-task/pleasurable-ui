@@ -99,7 +99,7 @@ app.post('/like-artwork/:id', async function (request, response) {
   // Hier wil je een fetch naar Directus waarmee je een like oplsaat die hoort bij een artwork
   const postLikeUrl = `https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter={"fabrique_users_id":1,"fabrique_art_objects_id":[id][_eq]=${request.params.id}`
 //   console.log("postLikeUrl " + postLikeUrl)
-
+  console.log("like succesfull" + request.params.id)
   // Post naar database
   await fetch(postLikeUrl,{
     method: 'POST',
@@ -116,7 +116,7 @@ app.post('/like-artwork/:id', async function (request, response) {
     // }),
   })
 
-  response.redirect(303, '/details/'+request.params.id)
+  response.redirect(303,)
 })
 
 // DELETE for like
@@ -132,14 +132,14 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   const data = await fetch(deleteUrl);
   const result = await data.json();
 
-  console.log("Hier is een like verwijderd met id nummer " + request.params.id)
+  console.log("unlike item succesfull " + request.params.id)
   
   await fetch(deleteUrl, {
     method: 'DELETE',
   });
 
   // Redirect terug naar de detailpagina
-  response.redirect(303, '/details/' + request.params.id);
+  response.redirect(303);
 });
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
