@@ -58,6 +58,35 @@ body {
     --text-secondary: #ffffff;
 
 
+    /* FONT-SIZE */
+
+    /*H1*/
+    --l-heading: 68px;
+    --m-heading: 60px;
+    --s-heading: 40px;
+    --xs-heading: 37px;
+    --xxs-heading: 27px;
+
+    /*H2*/
+    --l-subtitle: 28px;
+    --m-subtitle: 27px;
+    --s-subtitle: 26px;
+
+    /*H3*/
+    --l-detail-heading: 24px;
+    --m-detail-heading: 23px;
+    --s-detail-heading: 20px;
+    --xs-detail-heading:16px;
+
+    /*H4*/
+    --m-info-title: 16px;
+
+    /*P*/
+    --xxxl-paragraph: 26px;
+    --xxl-paragraph: 25px;
+    --xl-paragraph: 24px;
+    --l-paragraph: 22px;
+    --ml-paragraph: 20px;
     --m-paragraph: 19px;
     --s-paragraph: 18px;
     --xs-paragraph: 16px;
