@@ -10,6 +10,7 @@
     color: var(--black);
     cursor: pointer;
     appearance: none;
+    font-family: "MartianMono", monospace;
 
     &:hover {
         color: var(--blue);
