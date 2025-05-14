@@ -1,0 +1,52 @@
+.btn-container {
+    position: relative;
+    display: inline-block;
+}
+
+.basic-button {
+    padding: 1em 4em 1em 1em;
+    background-color: var(--white);
+    border: var(--border);
+    color: var(--black);
+    cursor: pointer;
+    appearance: none;
+
+    &:hover {
+        color: var(--blue);
+    }
+}
+
+.basic-button::after {
+    content: "";
+    border-left: none;
+}
+
+.basic-button::after {
+    content: "\279D";
+    font-size: 2em;
+    font-family: var(--secondary-font);
+    color: var(--black);
+
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-left: 10px;
+    border-left: var(--border);
+}
+
+.hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
