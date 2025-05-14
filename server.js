@@ -8,6 +8,37 @@ import { Liquid } from 'liquidjs';
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
+//Hier komen de routes voor onze website. MARK: API
+const api = "https://fdnd-agency.directus.app/items/tm_"
+const api_users = "users"
+const api_profile = "profile"
+const api_buddy = "buddy"
+const api_lang = "language"
+const api_audio = "audio"
+const api_playlist = "playlist"
+const api_story = "story"
+const api_animal = "animal"
+
+//Hier komen de fetches naar de API. MARK: Fetch API
+const usersResponse = await fetch(`${api}${api_users}`)
+const profileResponse = await fetch(`${api}${api_profile}`)
+const buddyResponse = await fetch(`${api}${api_buddy}`)
+const languageResponse = await fetch(`${api}${api_lang}`)
+const audioResponse = await fetch(`${api}${api_audio}`)
+const playlistResponse = await fetch(`${api}${api_playlist}`)
+const storyResponse = await fetch(`${api}${api_story}`)
+const animalReponse = await fetch(`${api}${api_animal}`)
+
+//Hier wordt de data opgehaald en vertaald in JSON. MARK: JSON DATA
+const usersResponseJSON = await usersResponse.json()
+const profileResponseJSON = await profileResponse.json()
+const buddyResponseJSON = await buddyResponse.json()
+const languageResponseJSON = await languageResponse.json()
+const audioResponseJSON = await audioResponse.json()
+const playlistResponseJSON = await playlistResponse.json()
+const storyResponseJSON = await storyResponse.json()
+const animalReponseJSON = await animalReponse.json()
+
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
 
@@ -23,7 +54,7 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-
+//-----------------------Dit is de homepagina. MARK: Homepage-----------------------
 app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
