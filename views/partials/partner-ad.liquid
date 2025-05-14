@@ -1,0 +1,75 @@
+<section class="thank-partner-container">
+  <h4 class="thank-partner-title">Wij bedanken onze trouwe partners</h4>
+
+  <div class="btn-container">
+    <button type="submit" class="basic-button">WORD PARTNER</button>
+  </div>
+</section>
+
+
+<style>
+.thank-partner-container {
+  display: grid;
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto;
+  padding: var(--spacing-40) var(--spacing-16);
+  gap: var(--spacing-24);
+  border-top: var(--border);
+  border-bottom: var(--border);
+
+      @media (min-width: 800px) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.thank-partner-title {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.btn-container {
+  position: relative;
+  display: block; 
+  justify-self: center; 
+  align-self: center; 
+
+   @media (min-width: 800px) {
+        justify-self: last baseline; 
+    }
+}
+
+.basic-button {
+  padding: 1em 4em 1em 1em;
+  background-color: var(--white);
+  border: var(--border);
+  color: var(--black);
+  cursor: pointer;
+  appearance: none;
+}
+
+.basic-button:hover {
+  color: var(--blue);
+}
+
+.basic-button::after {
+  content: "\279D"; 
+  font-size: 2em;
+  font-family: var(--secondary-font);
+  color: var(--black);
+  
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding-left: 10px;
+  border-left: var(--border);
+}
+
+
+</style>
