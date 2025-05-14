@@ -111,7 +111,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (request, respon
   const stationArr = request.params.name;
   const stationURL = radiostations.find(station => station.name === stationArr);
   let stationID = stationURL.id;
-  const ShowsforStationUL = "https://fdnd-agency.directus.app/items/mh_shows?fields=*.*.*.*";
+  const ShowsforStationUL = "https://fdnd-agency.directus.app/items/mh_shows?fields=*.*.*.*,show.users.mh_users_id.cover.*";
   const showsforStationFilterPart = "&filter={\"show\":{\"radiostation\":{\"id\":\"" + stationID + "\"}}}&limit=-1";
 
 

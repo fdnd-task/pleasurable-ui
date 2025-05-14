@@ -13,7 +13,7 @@ body{
     --color-card-txt: #fff;
 }
 /* Specific slam styles */
-header.header-o.radio-2{
+header.radio-2{
     background-image: url("https://www.slam.nl/slam/campaign-banner.png");
     background-position: 40% center;
     background-size: 180%;

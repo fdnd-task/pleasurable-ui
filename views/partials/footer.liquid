@@ -1,9 +1,5 @@
 {% comment %} Mobile footer {% endcomment %}
-<div class="tabbar 
-{% if v == "o" %}
-desktop-hidden
-{% endif %}
-">
+<div class="tabbar desktop-hidden">
     <nav>
         <ul>
             <li>
@@ -40,82 +36,81 @@ desktop-hidden
         </ul>
     </nav>
 </div>
-{% if v == "o" %}
-    <footer class="mobile-hidden">
-        <img src="/assets/radio-{{thisstation}}.png" alt="Logo van {{ thisstation }}">
 
-        <div class="footer-top">
-            <div class="footer-left">
-                <p class="text-xxl">
-                    We. Love. Music
-                </p>
-                <p class="social-text">volg ons social media</p>
-                <ul class="links-socialmedia">
-                    <li class="link-socialmedia">
-                        <a href="#" class="button button-soc" aria-label="Facebook">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.94574 14.6666V8.71308H10.8217L11.2054 6.39136H8.94574V4.77444C8.94574 4.11109 9.20155 3.61358 10.2248 3.61358H11.3333V1.49915C10.7364 1.41623 10.0543 1.33331 9.45736 1.33331C7.49612 1.33331 6.13178 2.49418 6.13178 4.56714V6.39136H4V8.71308H6.13178V14.6666H8.94574Z" fill="black"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="link-socialmedia">
-                        <a href="#" class="button button-soc" aria-label="X">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.1428 7.08177L13.6108 2H12.5524L8.6712 6.41152L5.5736 2H2L6.6852 8.67164L2 14H3.0584L7.1544 9.34028L10.4264 14H14M3.4404 2.78095H5.0664L12.5516 13.2574H10.9252" fill="black"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="link-socialmedia">
-                        <a href="#" class="button button-soc" aria-label="Youtube">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3915 2.9654C14.0066 3.13005 14.49 3.6134 14.6546 4.22848C14.9521 5.34219 14.9533 7.66723 14.9533 7.66723C14.9533 7.66723 14.9533 9.99228 14.6546 11.106C14.49 11.7211 14.0066 12.2044 13.3915 12.369C12.2779 12.6678 7.81002 12.6678 7.81002 12.6678C7.81002 12.6678 3.34225 12.6678 2.22853 12.369C1.61347 12.2044 1.13011 11.7211 0.965463 11.106C0.666748 9.99228 0.666748 7.66723 0.666748 7.66723C0.666748 7.66723 0.666748 5.34219 0.965463 4.22848C1.13011 3.6134 1.61347 3.13005 2.22853 2.9654C3.34225 2.66669 7.81002 2.66669 7.81002 2.66669C7.81002 2.66669 12.2779 2.66669 13.3915 2.9654ZM10.0916 7.66745L6.38002 9.81018V5.52468L10.0916 7.66745Z" fill="black"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="link-socialmedia">
-                        <a href="#" class="button button-soc" aria-label="Instagram">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.94574 14.6666V8.71308H10.8217L11.2054 6.39136H8.94574V4.77444C8.94574 4.11109 9.20155 3.61358 10.2248 3.61358H11.3333V1.49915C10.7364 1.41623 10.0543 1.33331 9.45736 1.33331C7.49612 1.33331 6.13178 2.49418 6.13178 4.56714V6.39136H4V8.71308H6.13178V14.6666H8.94574Z" fill="black"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
+<footer class="mobile-hidden">
+    <img src="/assets/radio-{{thisstation}}.png" alt="Logo van {{ thisstation }}">
+
+    <div class="footer-top">
+        <div class="footer-left">
+            <p class="text-xxl">
+                We. Love. Music
+            </p>
+            <h2 class="social-text text-m">volg ons social media</p>
+            <ul class="links-socialmedia">
+                <li class="link-socialmedia">
+                    <a href="#" class="button button-soc" aria-label="Facebook">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.94574 14.6666V8.71308H10.8217L11.2054 6.39136H8.94574V4.77444C8.94574 4.11109 9.20155 3.61358 10.2248 3.61358H11.3333V1.49915C10.7364 1.41623 10.0543 1.33331 9.45736 1.33331C7.49612 1.33331 6.13178 2.49418 6.13178 4.56714V6.39136H4V8.71308H6.13178V14.6666H8.94574Z" fill="black"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="link-socialmedia">
+                    <a href="#" class="button button-soc" aria-label="X">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.1428 7.08177L13.6108 2H12.5524L8.6712 6.41152L5.5736 2H2L6.6852 8.67164L2 14H3.0584L7.1544 9.34028L10.4264 14H14M3.4404 2.78095H5.0664L12.5516 13.2574H10.9252" fill="black"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="link-socialmedia">
+                    <a href="#" class="button button-soc" aria-label="Youtube">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3915 2.9654C14.0066 3.13005 14.49 3.6134 14.6546 4.22848C14.9521 5.34219 14.9533 7.66723 14.9533 7.66723C14.9533 7.66723 14.9533 9.99228 14.6546 11.106C14.49 11.7211 14.0066 12.2044 13.3915 12.369C12.2779 12.6678 7.81002 12.6678 7.81002 12.6678C7.81002 12.6678 3.34225 12.6678 2.22853 12.369C1.61347 12.2044 1.13011 11.7211 0.965463 11.106C0.666748 9.99228 0.666748 7.66723 0.666748 7.66723C0.666748 7.66723 0.666748 5.34219 0.965463 4.22848C1.13011 3.6134 1.61347 3.13005 2.22853 2.9654C3.34225 2.66669 7.81002 2.66669 7.81002 2.66669C7.81002 2.66669 12.2779 2.66669 13.3915 2.9654ZM10.0916 7.66745L6.38002 9.81018V5.52468L10.0916 7.66745Z" fill="black"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="link-socialmedia">
+                    <a href="#" class="button button-soc" aria-label="Instagram">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.94574 14.6666V8.71308H10.8217L11.2054 6.39136H8.94574V4.77444C8.94574 4.11109 9.20155 3.61358 10.2248 3.61358H11.3333V1.49915C10.7364 1.41623 10.0543 1.33331 9.45736 1.33331C7.49612 1.33331 6.13178 2.49418 6.13178 4.56714V6.39136H4V8.71308H6.13178V14.6666H8.94574Z" fill="black"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer-right">
+            <div class="footer-right-left">
+                <h2 class="text-m">{{stationName}}</h2>
+                <nav class="footermenu-left">
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Programmering</a></li>
+                        <li><a href="#">Ontdek</a></li>
+                        <li><a href="#">Acties</a></li>
+                    </ul>
+                </nav>
             </div>
-            <div class="footer-right">
-                <div class="footer-right-left">
-                    <strong>{{stationName}}</strong>
-                    <nav class="footermenu-left">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Programmering</a></li>
-                            <li><a href="#">Ontdek</a></li>
-                            <li><a href="#">Acties</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="footer-right-right">
-                    <strong>Algemeen</strong>
-                    <nav class="footermenu-right">
-                        <ul>
-                            <li><a href="#">Frequenties</a></li>
-                            <li><a href="#">Alle programma's</a></li>
-                            <li><a href="#">DJ Overzicht</a></li>
-                            <li><a href="#">Pers</a></li>
-                        </ul>
-                    </nav>
-                </div>
+            <div class="footer-right-right">
+                <h2 class="text-m">Algemeen</h2>
+                <nav class="footermenu-right">
+                    <ul>
+                        <li><a href="#">Frequenties</a></li>
+                        <li><a href="#">Alle programma's</a></li>
+                        <li><a href="#">DJ Overzicht</a></li>
+                        <li><a href="#">Pers</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; Mediahuis {{ "now" | date: "%Y" }}
-            <nav class="legal-menu">
-                <ul>
-                    <li><a href="#">Privacyverklaring</a></li>
-                    <li><a href="#">Gebruiksvoorwaarden</a></li>
-                    <li><a href="#">Cookieverklaring</a></li>
-                    <li><a href="#">Cookie voorkeuren</a></li>
-                </ul>
-            </nav>
-        </div>
-    </footer>
-{% endif %}
+    </div>
+    <div class="footer-bottom">
+        &copy; Mediahuis {{ "now" | date: "%Y" }}
+        <nav class="legal-menu">
+            <ul>
+                <li><a href="#">Privacyverklaring</a></li>
+                <li><a href="#">Gebruiksvoorwaarden</a></li>
+                <li><a href="#">Cookieverklaring</a></li>
+                <li><a href="#">Cookie voorkeuren</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>

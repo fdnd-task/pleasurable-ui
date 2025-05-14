@@ -1,4 +1,6 @@
 @import url("./general.css"); /* Main styling */
 
+@import url("./head.css"); /* Main styling */
+@import url("./footer.css"); /* Main styling */
 /* Hier styling toevoegen per radio kleuren en shit */
 @import url("./radio.css"); /* radio styling */

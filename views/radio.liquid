@@ -1,15 +1,18 @@
 {% render 'partials/head.liquid' pageTitle: "Radio: {{thisstation}}" style: thisstation%}
+{% render 'partials/header.liquid' v: "o" thisstation: thisstation stationNameGenerated: stationNameGenerated %}{% comment %} Version : Other {% endcomment %}
+{% comment %} Start of Chat GPT Code [Calc percentage of minutes pased] {% endcomment %}
+{% assign curTime = "now" | date: "%H:%M", "Europe/Amsterdam"%}
+{% assign curHours = curTime | split: ":" | first %}
+{% assign curMinutes = curTime | split: ":" | last %}
+{% assign curTimeInMinutes = curHours | times: 60 | plus: curMinutes %}
+{% assign totalMinutesInDay = 1440 %}
+
+{% assign percentageGone = curTimeInMinutes | divided_by: totalMinutesInDay | times: 100 %}
+{% comment %} End of Chat GPT Code {% endcomment %}
 <body class="deejays-{{thisstation}}">
     <main class="radio-station">
         <div class="part-sticky top-wrapper">
-            <nav class="sticky-menu sticky-menu-top">
-                <ul>
-                    <li><a class="active" href="#">Programmering</a></li>
-                    <li><a href="/station/{{ stationNameGeneratedEncoded }}/djs/">DJ's</a></li>
-                    <li><a href="#">Playlist</a></li>
-                    <li><a href="#">Frequenties</a></li>
-                </ul>
-            </nav>
+            
             <nav class="sticky-menu sticky-menu-bottom day-menu">            
                 <ul>
                     {% comment %} Modulo i found out because of chat {% endcomment %}
@@ -25,7 +28,7 @@
                             class="active"  
                             {% endif %}
                             
-                            href="/station/{{ stationNameGeneratedEncoded }}/programmering/{{ dayNames[dayIndex] }}"> 
+                            href="/radio/{{ stationNameGeneratedEncoded }}/programmering/{{ dayNames[dayIndex] }}"> 
                                 {{ dayNames[dayIndex] }}
                                 <b>{{ thisWeek[index].day }}</b>
                             </a>
@@ -36,16 +39,88 @@
         </div>
         <div class="overview-shows">
             <h1 class="text-xl">Programmering van {{stationNameGenerated}}<br>{{todayName}} </h1>
+            <div class="timeline-wrapper">
+                <div class="current-time" style="top: calc({{ percentageGone }}%);">
+                {% comment %} Rode balk op huidige tijd
+                 
+                ik zat te denken aan een calc met huidige tijd (huidige minuut na 00:00 / aantal minuten in een dag * 100%) en die in een css variabele zetten inline
+                en dan absolute stylen met left: calc(var(--current-time) * 100%)
+                
+                {% endcomment %}
 
+
+                
+                </div>
+                <div class="timeline">
+                    {% for i in (0..24) %} {% comment %} 24 hours {% endcomment %}
+                        {% if i == 24 %}
+                            <div class="hour hour-end" data-content="00:00">
+                                <div class="dots"></div>
+                            </div>
+                        {% else %}
+                            <div class="hour"data-content="{{i}}:00">
+                                <div class="dots"></div>
+                            </div>
+                            
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
             <div class="show-wrapper">
                 {% comment %} offset moet het nummer van de dagnummer zijn {% endcomment %}
                 {% for todayshows in thisWeekShows offset:0 limit:1 %}
                     {% for oneshow in todayshows.shows %}
+                        {% comment %} Start of ChatGPT Code {% endcomment %}
+                        {% assign start_time = oneshow.from | date: "%H:%M", "Europe/Amsterdam" | strip | split: ":" %}
+                        {% assign end_time = oneshow.until | date: "%H:%M", "Europe/Amsterdam" | strip | split: ":" %}
+
+                        {% assign start_hours = start_time[0] | times: 60 %}
+                        {% assign start_minutes = start_time[1] | plus: start_hours %}
+                        {% assign end_hours = end_time[0] | times: 60 %}
+                        {% assign end_minutes = end_time[1] | plus: end_hours %}
+
+                        {% assign time_difference = end_minutes | minus: start_minutes %}
+                        {% assign hour_difference = end_time[0] | minus: start_time[0] %}
+
+
+                        {% assign start_time_per = start_minutes | divided_by: totalMinutesInDay | times: 100 %}
+                        {% assign end_time_per = end_minutes | divided_by: totalMinutesInDay | times: 100 %}
+
+                        {% if start_time_per <= percentageGone and percentageGone < end_time_per %}
+                            {% assign extra_class_percentage = "active-show" %}
+                        {% else %}
+                            {% assign extra_class_percentage = "" %}
+                        {% endif %}
+
+
+                        {% comment %} End of ChatGPT Code {% endcomment %}
+                        {% comment %} https://shopify.dev/docs/api/liquid/objects/forloop {% endcomment %}
                         
-                        <div class="card-show card-show-{{ forloop.index }}">
-                            <figure>
-                                <img src="https://fdnd-agency.directus.app/assets/{{oneshow.users[0].mh_users_id.cover}}" alt="Foto van {{oneshow.users[0].mh_users_id.full_name }}" class="deejay-image">
-                            </figure>    
+                        {% if forloop.index == 1 %}
+                            {% assign firstoffset = start_time[0] | split: ":00" | first | times: 60 | divided_by: 1440 | times: 100 %}
+                            {% comment %} this and then / 1440 * 100 {% endcomment %}
+                            {% if firstoffset > 0 %}
+                                <div class="card-fill" style="min-height: {{firstoffset}}%; max-height: {{firstoffset}}%; margin-bottom: 10px;">
+                               
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if hour_difference < 2 %}
+                            {% assign extra-class = "short-show" %}
+                        {% else %}
+                            {% assign extra-class = "long-show" %}
+                        {% endif %}
+                        {% if hour_difference < 2 %}
+                            {% assign extra-class = "short-show" %}
+                        {% else %}
+                            {% assign extra-class = "long-show" %}
+                        {% endif %} 
+                        <div class="card-show {{extra-class}} {{extra_class_percentage}} card-show-{{ forloop.index }}" data-hours="{{hour_difference}}" style="min-height: calc(({{ time_difference }} / 1440 * 100%) - 10px); max-height: calc(({{ time_difference }} / 1440 * 100%) - 10px); margin-bottom: 10px;">
+                            <picture>
+                                <source srcset="https://fdnd-agency.directus.app/assets/{{oneshow.users[0].mh_users_id.cover.id}}?format=avif" type="image/avif">
+                                <source srcset="https://fdnd-agency.directus.app/assets/{{oneshow.users[0].mh_users_id.cover.id}}?format=webp" type="image/webp">
+                                <img src="https://fdnd-agency.directus.app/assets/{{oneshow.users[0].mh_users_id.cover.id}}"  alt="Foto van {{oneshow.users[0].mh_users_id.full_name }}" class="deejay-image" width="{{ oneshow.users[0].mh_users_id.cover.width }}" height="{{oneshow.users[0].mh_users_id.cover.height }}">
+                            </picture>
                             <div class="part-content">
                                 <h2 class="text-l">{{oneshow.name}}</h2>
                                 <p class="show-time part-ghost">
@@ -105,4 +180,6 @@
         </div>
 
     </main>
+{%  render 'partials/footer.liquid' thisstation: thisstation, stationName: stationNameGenerated v: "o" %}
+
 </body>
