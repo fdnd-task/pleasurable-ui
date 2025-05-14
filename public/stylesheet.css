@@ -27,6 +27,28 @@
     src: url('/font/Parkinsans-Medium.ttf');
     font-weight: 500;
 }
+
+body {
+    font-family: 'Parkinsans', sans-serif;
+}
+
+
+
+/* COLOR */
+:root {
+    --bg-general: #f6f5f5;
+    --bg-secondary: #ffffff;
+    --bg-tertiary:#EDEDED;
+    --bg-chat-closed: #F6F5F5;
+    --bg-filters-not-choose: #A9ABAD;
+    --bg-register: #868686;
+    --bg-filters-choose: #101010;
+    --bg-chat-speechbubble: #000000;
+    --bg-button: #000000;
+    --bg-facetfilter-boy: #AFDEFF;
+    --bg-facetfilter-girl: #FFCBE4;
+    --bg-facetfilter-standard: #B9B9B9;
+    --bg-filters: #EEEEEE;
     --m-paragraph: 19px;
     --s-paragraph: 18px;
     --xs-paragraph: 16px;
