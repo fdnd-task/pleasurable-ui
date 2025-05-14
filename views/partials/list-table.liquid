@@ -1,0 +1,26 @@
+<ul class="vacancies">
+    {% for agency in vacatures %}
+    {% for vacature in agency.vacancies %}
+    <li>
+        <h2>{{ vacature.title }}</h2>
+        <div>
+            <span>ENG & NL</span>
+            <span class="agency-title">{{ agency.title|title }}</span>
+            <span>{{ vacature.hours }} uur</span>
+            <span>{{ vacature.locatie }}</span>
+        </div>
+        <a href="vacature/{{ vacature.id }}">bekijken <img src="assets/blue-arrow-up.svg" width="16" height="16"
+                alt="pijltje"></a>
+
+        {% comment %} DELETE KNOP VOOR VACATURES {% endcomment %}
+        {% comment %} <form action="/delete/{{ vacature.id }}" method="POST">
+            <input type="hidden" name="vacature_id" value="{{ vacature.id }}">
+            <button type="submit">delete</button>
+        </form> {% endcomment %}
+
+    </li>
+    {% endfor %}
+    {% else %}
+    <p class="empty-state">Er zijn op dit moment geen vacatures beschikbaar...</p>
+    {% endfor %}
+</ul>
