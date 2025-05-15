@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(#219999, #144C5E);
+    display: block;
+}
+
+h1, h2, h3, p, span {
+    color: white;
+}
+
+h1 {
+   margin-inline: 33.3%; 
+}
+
+.todays-activities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        align-self: flex-start;
+    }
+
+ 
+    .boog {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        top: 0;
+        left: 0;
+        width: 323px;
+        height: 150px;
+        border: 8px solid #70CFAD;
+        border-bottom: none;
+        border-radius: 200px 200px 0 0;
+        opacity: 0.5;
+    }
+
+    a {
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+img {
+    max-width: 250px;
+}
+
