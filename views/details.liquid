@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail pagina</title>
+    <link rel="stylesheet" href="/detail.css">
+    <link rel="stylesheet" href="/styles/stylesheet.css">
+    <script defer src="/script/main.js"></script>
+  </head>
+  <body>  
+
+
 <section class="hero-img">
 
     <a href="/" class="back-button">BACK</a>
@@ -10,45 +23,4 @@
     {% endif %}
     
 </section>
-
-<section class="info-detailpagina">
-
-<div class="object-title">
-    <h1 class="h1-title">{{ object.title }}</h1>
-</div>
-
-<div class="info-tekst">
-    <img src="/assets/blauwe-blok.svg" alt="blauwe-blok">
-    <p class="tekst-medium">Museum of Islamic Art</p>
-</div>
-
-<div class="info-object">
-    <p class="tekst-bold">Full title:</p>       <p class="tekst-medium">{{ object.title }}</p>
-    <p class="tekst-bold">Artist:</p>           <p class="tekst-medium">{{ object.artist }}</p>
-    <p class="tekst-bold">Location created:</p> <p class="tekst-medium">{{ object.site }}</p>
-    <p class="tekst-bold">Period:</p>           <p class="tekst-medium">{{ object.displayDate }}</p>
-    <p class="tekst-bold">Materials:</p>        <p class="tekst-medium">{{ object.materials }}</p>
-    <p class="tekst-bold">Object nummer:</p>    <p class="tekst-medium">{{ object.objectNumber }}</p>
-    <p class="tekst-bold">Record type:</p>      <p class="tekst-medium">{{ object.recordtype }}</p>
-</div>
-
-<div class="object-summary">
-    
-    {% if object.summary %}
-        <h2 class="tekst-medium">{{ object.summary }}</h2>
-
-    {% else  %}
-        <p class="tekst-medium"> No summary available</p>
-    {% endif %}    
-
-<p class="tekst-bold">Share with a friend</p>
-
-<div class="share-icons">
-    <a href="" class="icon-links"><img src="/assets/paperclip-icoon.png" alt="paperclip-icoon"></a>
-    <a href="" class="icon-links"><img src="/assets/email-icoon.png" alt="email-icoon"></a>
-    <a href="" class="icon-links"><img src="/assets/linkedin-icoon.png" alt="linkedin-icoon"></a>
-    <a href="" class="icon-links"><img src="/assets/facebook-icoon.png" alt="facebook-icoon"></a>
-    <a href="" class="icon-links"><img src="/assets/Union.png" alt="x-icoon"></a>
-</div>
-</div> 
-</section>
+</body>
