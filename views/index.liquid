@@ -16,20 +16,20 @@
                                 <picture>
                                     <source type="image/avif" srcset="/assets/radio-1.avif">
                                     <source type="image/webp" srcset="/assets/radio-1.webp">
-                                    <img src="/assets/radio-1.png" width="93" height="33" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
+                                    <img fetchpriority="high" src="/assets/radio-1.png" width="93" height="33" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
                                 </picture>
                                 
                             {% when 2 %}
                                 <picture>
                                     <source type="image/avif" srcset="/assets/radio-2.avif">
                                     <source type="image/webp" srcset="/assets/radio-2.webp">
-                                    <img src="/assets/radio-2.png" width="143" height="29" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
+                                    <img fetchpriority="high" src="/assets/radio-2.png" width="143" height="29" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
                                 </picture>
                             {% when 3 %}
                                 <picture>
                                     <source type="image/avif" srcset="/assets/radio-3.avif">
                                     <source type="image/webp" srcset="/assets/radio-3.webp">
-                                    <img src="/assets/radio-3.png" width="369" height="150" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
+                                    <img fetchpriority="high" src="/assets/radio-3.png" width="369" height="150" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
                                 </picture>
                         {% endcase %}
                     </a>
