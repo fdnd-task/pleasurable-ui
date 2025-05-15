@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail pagina</title>
+    <link rel="stylesheet" href="/styles/detail.css">
+    <link rel="stylesheet" href="/stylesheet.css">
+    <script defer src="/script/main.js"></script>
+  </head>
+  <body>  
+
+
+<section class="hero-img">
+
+    <a href="/" class="back-button">BACK</a>
+
+    {% if object.image %}
+        <img class="object-id" style="view-transition-name: artwork-{{ artwork.image.id }} ;" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="images of object in qatar " width="300px">        
+
+    {% else %}
+        <p>No image availible</p>
+    {% endif %}
+    
+</section>
+</body>
