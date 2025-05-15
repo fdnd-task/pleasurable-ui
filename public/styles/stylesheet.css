@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+/* colors */
+--white: #fff;
+--black: #111111;
+
+--header-bg: #0c0c0c;
+--background-color: #181414;
+--exercise-bg: #201c1c;
+--input-field: #1d1d1d;
+
+--color-rouwtaak1: #64aac7;
+--color-rouwtaak2: #984a4a;
+--color-rouwtaak3: #6e9158;
+--color-rouwtaak4: #7c6097;
+
+--gray: #A6A6A6;
+--inactive-color: #777;
+--success-state: #363636;
+
+/* fonts */
+--dmserifdisplay: DM Serif Display, serif, Helvetica;
+--figtree: Figtree, Tahoma, system-ui;
+
+/* font sizes */
+--size-xxl: 3.75rem;
+--size-xl: 3rem;
+--size-lg: 2.625rem;
+--size-md: 2.5rem;
+--size-sm: 2rem;
+--size-s: 1.75rem;
+--size-xs: 1.5rem;
+--size-xxs: 1.25rem;
+--size-default: 1rem;
+
+/* spacing */
+
+
+}
+
+h1 {
+    font-family: var(--dmserifdisplay);
+    font-size: clamp(2rem, 3vw, 2rem);
+}
+
+h2 {
+    font-family: var(--dmserifdisplay);
+    font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+}
+
+h3 {
+    font-family: var(--dmserifdisplay);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+h4,h5 {
+    font-family: var(--figtree);
+}
+
+p {
+    font-family: var(--figtree);
+    font-size: clamp(1rem, 1.5vw, 1rem);
+}
+
+
+.btn {
+    background: #6aa6d8;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    &:hover {
+        background: #5b95c6;
+    }
+}

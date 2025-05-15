@@ -4,10 +4,6 @@ import express from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
-const apiTasks = "https://fdnd-agency.directus.app/items/dropandheal_task";
-const tasksResponse = await fetch(apiTasks);
-const tasksData = await tasksResponse.json();
-
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
@@ -27,8 +23,23 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// ALLES HIERBOVEN NIET AANKOMEN SVP
 
-// This is the rouwtaakpage page router where you can responsively switch Rouwtaak from the header
+const apiTasks = "https://fdnd-agency.directus.app/items/dropandheal_task";
+const tasksResponse = await fetch(apiTasks);
+const tasksData = await tasksResponse.json();
+
+
+app.get('/', async function (request, response) {
+  const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task')
+  const taskResponseJSON = await taskResponse.json()
+
+  response.render('index.liquid', {
+    task: taskResponseJSON.data
+  })
+})
+
+// This is the rouwtaakpage page route where you can responsively switch Rouwtaak from the header
 app.get('rouwtaak/:id', async function (request, response) {
   try {
     const taskId = request.params.id;
@@ -48,22 +59,11 @@ app.get('rouwtaak/:id', async function (request, response) {
   }
 });
 
-
-
-app.get('/', async function (request, response) {
-  const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task')
-  const taskResponseJSON = await taskResponse.json()
-
-  response.render('index.liquid', {
-    task: taskResponseJSON.data
-  })
-})
-
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
-  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
+  console.log(`Project draait via http://localhost:${app.get('port')}/`)
 })
