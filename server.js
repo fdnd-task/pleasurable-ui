@@ -25,6 +25,24 @@ app.set('views', './views')
 
 // GET routes 
 
+
+
+// Home route
+app.get('/', async (req, res) => {
+  try {
+    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects');
+    const apiResponseJSON = await apiResponse.json();
+
+    res.render('index.liquid', {
+      artworkData: apiResponseJSON.data
+    });
+  } catch (error) {
+    console.error('Fout bij ophalen van data:', error);
+    res.status(500).send('Er ging iets mis bij het laden van de homepage.');
+  }
+});
+
+
 app.get('/en', async function (request, response) {
 
   const artworkURL = 'https://fdnd-agency.directus.app/items/fabrique_art_objects'
@@ -50,13 +68,15 @@ app.get('/ar', async function (request, response) {
 app.get('/object/:id/', async function (request, response) {
   const artworkId = request.params.id;
   const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate,artist,materials,recordType`
-  );
+);
 
   const apiResponseJSON = await apiResponse.json();
-
+  
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
   
+
+//  main
   
 app.get('/:lang/details/:id', async function (request, response) {
   // console.log("GET detail pagina met een id "+request.params.id)
