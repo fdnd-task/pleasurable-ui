@@ -5,7 +5,8 @@
 <section class="home-list">
     <ul>
         {% for task in task %}
-         <a href="/{{ task.title | downcase | replace: ' ', '-' }}">
+         {% comment %} <a href="/{{ task.title | downcase | replace: ' ', '-' }}"> {% endcomment %}
+        <a href="/rouwtaak-demo">
             <li>
                 <img class="thumb" src="assets/{{task.title}}.png">
             </li>

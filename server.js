@@ -59,6 +59,18 @@ app.get('rouwtaak/:id', async function (request, response) {
   }
 });
 
+app.get('/rouwtaak-demo', async function (request, response) {
+  const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task/?filter={"id":1}')
+  const exerciseResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_exercise/?filter={"task":1}')
+  const taskResponseJSON = await taskResponse.json()
+  const exerciseResponseJSON = await exerciseResponse.json()
+
+  response.render('rouwtaak-demo.liquid', {
+    task: taskResponseJSON.data,
+    exercise: exerciseResponseJSON.data
+  })
+})
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
