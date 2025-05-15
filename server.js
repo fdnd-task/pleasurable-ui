@@ -87,6 +87,15 @@ app.get('/ar', async function (request, response) {
    }) 
 })
 
+
+
+//Route naar admin
+app.get('/admin', async function (request, response){
+  response.render('admin.liquid', {
+  });
+
+})
+
 // POST for like
 
 app.post('/like-artwork/:id', async function (request, response) {
