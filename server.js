@@ -24,14 +24,18 @@ app.engine('liquid', engine.express())
 app.set('views', './views')
 
 app.get('/', async function (request, response) {
-  
-    const vacaturesResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_agencies?limit=1&fields=id,title,vacancies.*`)
-    const vacaturesResponseJSON = await vacaturesResponse.json()
-    
-    const ledenResponse = await fetch ('https://fdnd-agency.directus.app/items/dda_agencies')
-    const ledenResponseJSON = await ledenResponse.json()
+  let vacaturesResponseJSON
 
-  response.render('home.liquid', {vacatures: vacaturesResponseJSON.data, leden: ledenResponseJSON.data });
+  const vacaturesResponse = await fetch(`https://fdnd-agency.directus.app/items/dda_agencies?limit=1&fields=id,title,vacancies.*`)
+  vacaturesResponseJSON = await vacaturesResponse.json()
+
+  const apiResponseHeaderEvents = await fetch('https://fdnd-agency.directus.app/items/dda_events?filter[id][_in]=5&fields=*,photo.id,photo.width,photo.height');
+  const apiResponseHeaderEventsJSON = await apiResponseHeaderEvents.json()
+    
+  const ledenResponse = await fetch ('https://fdnd-agency.directus.app/items/dda_agencies')
+  const ledenResponseJSON = await ledenResponse.json()
+
+  response.render('home.liquid', {vacatures: vacaturesResponseJSON.data, headerEvents: apiResponseHeaderEventsJSON.data, leden: ledenResponseJSON.data });
 })
 
 app.get('/events', async function (request, response) {
