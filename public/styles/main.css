@@ -44,35 +44,6 @@ header{
     display: flex;
     flex-direction: column;
     gap: 1em;
-
-    .inloggen-link{
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-        font-weight: normal;
-    }
-    .lid-worden-link{
-        border: solid var(--black) 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--black);
-        font-weight: normal;
-        padding: 0.5em;
-    }
-    .lid-worden-container{
-        display: flex;
-    }
-    .lid-worden-svg{
-        border-top: solid var(--black) 1px;
-        border-bottom: solid var(--black) 1px;
-        border-right: solid var(--black) 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1em;
-    }
-
 }
 
 .main-nav{
