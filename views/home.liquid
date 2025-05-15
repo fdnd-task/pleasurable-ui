@@ -1,8 +1,9 @@
 {% render 'partials/head.liquid' %}
+
+<main>
 {% render 'partials/header.liquid' %}
 <script src="scripts/script.js"></script>
 
-<main>
     <section class="hero">
         <h1 class="hero-title">De beste digitale bureaus van nederland</h1>
         <p class="hero-text">Dutch Digital Agency (DDA) verenigt en verbindt {{ leden | size }} toonaangevende digitale bureaus. Samen maken we de wereld elke dag een beetje slimmer.</p>
@@ -18,17 +19,9 @@
    
     </section>
 
-
-
+    {% render 'partials/partner-carousel.liquid' %}
+    {% render 'partials/list-table.liquid', vacatures: vacatures %}
+    {% render 'partials/news-ad.liquid', message: "Meld je aan voor onze nieuwsbrief", submit: "aanmelden" %}
+    {% render 'partials/foto-card.liquid' %}
+    {% render 'partials/footer.liquid' %}
 </main>
-
-
-
-
-
-
-{% render 'partials/partner-carousel.liquid' %}
-{% render 'partials/list-table.liquid', vacatures: vacatures %}
-{% render 'partials/news-ad.liquid', message: "Meld je aan voor onze nieuwsbrief", submit: "aanmelden" %}
-{% render 'partials/foto-card.liquid' %}
-{% render 'partials/footer.liquid' %}

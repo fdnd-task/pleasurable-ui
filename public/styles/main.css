@@ -1,3 +1,11 @@
+body {
+    padding: 3em;
+}
+
+main {
+    border: var(--border);
+}
+
 /* navigtaion */
 .hamburger-svg, .close-svg{
     border: solid var(--black) 1px;
