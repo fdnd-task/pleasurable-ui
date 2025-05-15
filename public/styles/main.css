@@ -44,35 +44,6 @@ header{
     display: flex;
     flex-direction: column;
     gap: 1em;
-
-    .inloggen-link{
-        display: flex;
-        align-items: center;
-        gap: 0.5em;
-        font-weight: normal;
-    }
-    .lid-worden-link{
-        border: solid var(--black) 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--black);
-        font-weight: normal;
-        padding: 0.5em;
-    }
-    .lid-worden-container{
-        display: flex;
-    }
-    .lid-worden-svg{
-        border-top: solid var(--black) 1px;
-        border-bottom: solid var(--black) 1px;
-        border-right: solid var(--black) 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1em;
-    }
-
 }
 
 .main-nav{
@@ -143,6 +114,45 @@ header{
 
 .nav-open #menu{
     display: block;
+}
+
+/* hero homepage */
+.zoek-een-bureau-link{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none;
+}
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2em;
+    padding: 2em;
+    max-width: 120ch;
+}
+
+.hero-text{
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hero-links{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 2em
+}
+
+@media (min-width: 600px){
+    .hero-links{
+        flex-direction: row;
+    }
 }
 
 .link {
