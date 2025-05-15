@@ -4,6 +4,10 @@ import express from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
+const apiTasks = "https://fdnd-agency.directus.app/items/dropandheal_task";
+const tasksResponse = await fetch(apiTasks);
+const tasksData = await tasksResponse.json();
+
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
@@ -22,6 +26,28 @@ app.engine('liquid', engine.express())
 // Stel de map met Liquid templates in
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
+
+
+// This is the rouwtaakpage page router where you can responsively switch Rouwtaak from the header
+app.get('rouwtaak/:id', async function (request, response) {
+  try {
+    const taskId = request.params.id;
+    const specificTaskResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_task/?filter={"id":${taskId}}`);
+    
+    const specificTaskData = await specificTaskResponse.json();
+    const taskObject = Array.isArray(specificTaskData.data) ? specificTaskData.data[0] : specificTaskData.data;
+
+    response.render('rouwtaak.liquid', {
+      title: 'rouwtaak',
+      tasks: tasksData.data,
+      taskObject
+    });
+  } catch (error) {
+    console.error("Something Wrong in the index page check this",error);
+    response.status(500).render("error.liquid");
+  }
+});
+
 
 
 app.get('/', async function (request, response) {
