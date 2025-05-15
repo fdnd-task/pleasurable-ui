@@ -1,4 +1,74 @@
+html, body {
+    margin: 1vw;
+    padding: 0;
+    font-family: var(--font);
+    background-color: var(--main-background-color);
+}
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-text-color);
+}
+
+body {
+    /*----------------------------------- ALLE VARIABELEN --------------------------------------*/
+
+    /* Lettertypen */
+    --font: 'Parkinsans', sans-serif;
+
+    /* Lettergroottes voor koppen */
+    --h1: 50px;
+
+    --main-p: 16.6px;
+    --big-text: 20px;
+    --big-important-text: 24px;
+
+    /* Font weight */
+    --regular: 400;
+    --medium: 500;
+    --semi-bold: 600;
+    --bold: 800;
+
+    /* Kleuren */
+    --primary-color: #FEFCFA;
+    --main-text-color: #000000;
+    --alt-text-color: #FFFFFF;
+    --main-background-color: #F6F5F5;
+
+    /* Knoppen */
+    --button-background-color: #FFFFFF;
+
+    /*----------------------------------- VARIABELEN VOOR ALLE KNOPPEN EN ANDERE ELEMENTEN --------------------------------------*/
+
+    h1 {
+        font-size: var(--h1);
+        font-weight: var(--regular);
+    }
+
+    h1.slogan {
+        font-size: var(--h3);
+        margin: 0;
+    }
+
+    h2 {
+        font-size: var(--h2);
+    }
+
+    h3 {
+        font-size: var(--h3);
+        margin: 0 0 5px 0;
+        padding: 0;
+    }
+
+    p {
+        font-size: var(--main-p);
+        margin: 0;
+    }
+  
 /*----------------------------------- HEADER STYLE, GELDIG VOOR ELKE PAGINA --------------------------------------*/
 header {
     .logo{
