@@ -9,6 +9,7 @@
         <ul class="radiostations">
             {% for radiostation in sorted_radiostations limit: 3%}
                 <li class="one-radiostation block-radio-{{radiostation.id}}">
+                    <h2 class="text-l radio-name">{{radiostation.name}}</h2>
                     <a href="/radio/{{radiostation.name | url_encode | replace: '+', '%20'}}/programmering">
                         {% case radiostation.id %}
                             {% when 1 %}
@@ -32,7 +33,6 @@
                                 </picture>
                         {% endcase %}
                     </a>
-                    <p class="text-l">{{radiostation.name}}</p>
                     <ul class="socials">
                         <li>
                             {% case radiostation.id %}

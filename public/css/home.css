@@ -13,7 +13,8 @@ body.home{
             flex-direction: column;
             justify-content: center;
             >li{
-
+                display: flex;
+                flex-direction: column;
                 >a{
                     padding: 10px 0;
                     border-radius: 8px;
@@ -36,10 +37,11 @@ body.home{
                         }
                     }
                 }
-                p{
+                .radio-name{
                     margin-top: 1rem;
                     text-align: center;
                     font-weight: 900;
+                    order: 1;
                 }
                 ul.socials{
                     margin: 1rem 0;
@@ -47,6 +49,7 @@ body.home{
                     flex-wrap: wrap;
                     justify-content: center;
                     gap: .5rem;
+                    order: 1;
                     >li{
                         max-width: 48px;
                         >a{
