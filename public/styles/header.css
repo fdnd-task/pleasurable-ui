@@ -1,11 +1,12 @@
 header {
     display: flex; 
     flex-direction: column; 
-    background-color: var(--background-color);
+    background-color: var(--header-bg);
     border-bottom: var(--border);
     padding: 20px;
     width: 100vw;
     box-sizing: border-box;
+    color: var(--white);
   }
   
   header ul.inline {
