@@ -1,9 +1,16 @@
 body {
-    padding: 3em;
+    @media (min-width: 550px) {
+        margin: var(--spacing-16);
+    }
+    @media (min-width: 890px) {
+        margin: var(--spacing-16) var(--spacing-64);
+    }
 }
 
 main {
-    border: var(--border);
+    @media (min-width: 481px) {
+        border: var(--border);
+    }
 }
 
 /* navigtaion */
