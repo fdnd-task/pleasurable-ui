@@ -1,10 +1,10 @@
-
+{% render 'partials/head.liquid', title: 'Homepage' slogan: 'Finding and sharing gift ideas' %}
 
 <section>
-    <label for="">I'm looking for a gift for...</label>
+    <h1>I'm looking for a gift for...</h1>
 
     <div>
-        <input type="chat" id="chat" name="chat" placeholder="describe me the person">
+        <input type="search" id="chat" name="chat" placeholder="describe me the person">
         <button class="search-button">
             <img class="search" src="docs/zoekicoon.svg" alt="search">
         </button>
