@@ -144,7 +144,7 @@ body.home{
             background: #B0120C;
             border-radius: 10px;
             outline: 7px solid rgba(176, 18, 12, 0.22);
-            margin: 100px auto 25px auto;
+            margin: 100px auto 50px auto;
             display: block;
             width: fit-content;
             transition: 0.2s ease-in;
