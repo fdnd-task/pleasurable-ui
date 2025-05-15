@@ -21,7 +21,7 @@ body {
     --font: 'Parkinsans', sans-serif;
 
     /* Lettergroottes voor koppen */
-    --h1: 60px;
+    --h1: 50px;
 
     --main-p: 16.6px;
     --big-text: 20px;
@@ -46,7 +46,7 @@ body {
 
     h1 {
         font-size: var(--h1);
-        font-weight: var(--bold);
+        font-weight: var(--regular);
     }
 
     h1.slogan {
@@ -68,5 +68,117 @@ body {
         font-size: var(--main-p);
         margin: 0;
     }
+  
+/*----------------------------------- HEADER STYLE, GELDIG VOOR ELKE PAGINA --------------------------------------*/
+header {
+    .logo{
+        display: flex;
+        align-items: center;
+        .m{
+            margin-right: 15px;
+            height: 76px;
+            @media (min-width: 0px) {
+                margin-top: -10px;
+            }
+            @media (min-width: 1340px) {
+                margin-top: -25px;
+            }
+        }
+        .illedoni{
+            margin-top: 6px;
+            @media (min-width: 0px) {
+                display: none;
+            }
+            @media (min-width: 1340px) {
+                display: block;
+            }
+        }
+    }
+    nav {
+        display: flex;
+        position: fixed; 
+        z-index: 1000; 
+    }
+    @media (min-width: 0px) {
+        nav{
+            top: 15px;
+            right: 10px; 
+        }
+        .rest {
+            display: none;
+        }
+        .list-button {
+            position: sticky;
+            width: 40px;
+            height: 40px;
+            #list-button-text {
+                display: none;
+            }
+            .save-icon{
+                 margin: 0;
+            }
+        }
+    }
+    @media (min-width: 1340px) {
+        nav{
+            top: 25px;
+            right: 25px;
+        }
+        .rest {
+            display: inline-block;
+        }
+        .list-button {
+            width: 170px;
+            height: 40px;
+            #list-button-text {
+                display: inline-block;
+            }
+            .save-icon{
+                margin-left: 5px;
+            }
+        }
+    }
+}
 
+/*----------------------------------- BUTTONS --------------------------------------*/
+
+/* ALGEMENE BUTTON STYLES */
+
+.list-button, .profile-button {
+    font-family: var(--main-font);
+    font-weight: var(--semi-bold);
+    margin: 5px;
+    background-color: var(--button-background-color);
+    box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 50px;
+}
+
+/* Andere buttonstijlen */
+
+.list-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E8E8E8;
+    border-radius: 50px;
+    padding: 5px;
+    img {
+        margin-left: 10px;
+        width: 15px;
+        height: 20px;
+    }
+}
+
+.profile-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #E8E8E8;
+    height: 50px;
+    width: 50px;
+    img {
+        width: 25px;
+        height: 30px;
+    }
 }
