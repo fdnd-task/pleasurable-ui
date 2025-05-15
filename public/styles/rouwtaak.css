@@ -84,8 +84,8 @@
     position: absolute;
     top: 48%;
     right: 10px;
-    background: #6aa6d8;
-    color: white;
+    background: var(--color-rouwtaak1);
+    color: var(--white);
     border: none;
     border-radius: 20px;
     font-size: 14px;
