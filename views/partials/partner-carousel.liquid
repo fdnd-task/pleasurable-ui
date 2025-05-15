@@ -1,0 +1,22 @@
+{% assign partner_logos_1 = '/img/io.png,/img/grenberry.png,/img/resolut.png,/img/verve.png,/img/clever.png,/img/q42.png,/img/powerkraut.png,/img/h.png' | split: ',' %}
+{% assign partner_logos_2 = '/img/fabrique.png,/img/humanoids.png,/img/b.png,/img/koos.png,/img/mediamonks.png,/img/dept.png,/img/v.png,/img/stimmt.png' | split: ',' %}
+
+<div class="partner-carousel-container-1">
+  {% for i in (1..3) %}
+    <div class="partner-logos-slide-1">
+      {% for logo in partner_logos_1 %}
+        <img src="{{ logo }}" alt="{{ logo | split: '/' | last | remove: '.png' }} logo" width="100" height="100">
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
+
+<div class="partner-carousel-container-2">
+  {% for i in (1..3) %}
+    <div class="partner-logos-slide-2">
+      {% for logo in partner_logos_2 %}
+        <img src="{{ logo }}" alt="{{ logo | split: '/' | last | remove: '.png' }} logo" width="100" height="100">
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>
