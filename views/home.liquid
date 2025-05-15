@@ -1,10 +1,29 @@
 {% render 'partials/head.liquid' %}
+
+<main>
 {% render 'partials/header.liquid' %}
 <script src="scripts/script.js"></script>
 
+    <section class="hero">
+        <h1 class="hero-title">De beste digitale bureaus van nederland</h1>
+        <p class="hero-text">Dutch Digital Agency (DDA) verenigt en verbindt {{ leden | size }} toonaangevende digitale bureaus. Samen maken we de wereld elke dag een beetje slimmer.</p>
+    
+        <div class="hero-links">
 
-{% render 'partials/list-table.liquid', vacatures: vacatures %}
-{% render 'partials/news-ad.liquid', message: "Meld je aan voor onze nieuwsbrief", submit: "aanmelden" %}
+            {% render 'partials/button.liquid' %}
+            
+            <a class="zoek-een-bureau-link" href="/zoek-een-bureau">Zoek een bureau
+                <img src="/img/arrow.svg" alt="" width="15" height="15">
+            </a>
+        </div>
+   
+    </section>
 
-{% render 'partials/footer.liquid' %}
-{% render 'partials/card-list-events.liquid', headerEvents: headerEvents %}
+  {% render 'partials/card-list-events.liquid', headerEvents: headerEvents %}
+  {% render 'partials/partner-carousel.liquid' %}
+  {% render 'partials/list-table.liquid', vacatures: vacatures %}
+  {% render 'partials/news-ad.liquid', message: "Meld je aan voor onze nieuwsbrief", submit: "aanmelden" %}
+  {% render 'partials/foto-card.liquid' %}
+  {% render 'partials/footer.liquid' %}
+  
+</main>
