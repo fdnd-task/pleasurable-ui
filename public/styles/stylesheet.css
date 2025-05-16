@@ -74,6 +74,8 @@ p {
 
 
 .btn {
+    font-family: var(--figtree);
+    padding: 10px;
     background: #6aa6d8;
     color: white;
     border: none;
@@ -86,4 +88,8 @@ p {
     }
 }
 
+.spacing-s {
+    display: block;
+    height: 10px;
+}
 
