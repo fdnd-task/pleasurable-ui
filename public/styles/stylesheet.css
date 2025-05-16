@@ -36,7 +36,16 @@
 
 /* spacing */
 
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
 }
 
 *,
@@ -74,6 +83,8 @@ p {
 
 
 .btn {
+    font-family: var(--figtree);
+    padding: 10px;
     background: #6aa6d8;
     color: white;
     border: none;
@@ -84,6 +95,11 @@ p {
     &:hover {
         background: #5b95c6;
     }
+}
+
+.spacing-s {
+    display: block;
+    height: 10px;
 }
 
 .theme-blue{
@@ -138,3 +154,4 @@ p {
   .them-1,.them-2,.them-3,.them-4,.them-blue, .them-red, .them-green, .them-pink{
       color: var(--white);
   }
+
