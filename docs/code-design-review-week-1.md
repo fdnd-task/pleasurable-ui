@@ -33,7 +33,7 @@ In je team heb je duidelijke afspraken gemaakt over jullie werkwijze en hoe jull
 | Tijd     | Teams |
 | ----------- | ----------- |
 | 10:00-10:45  | Mediahuis 1G	+ DDA 1H     |
-| 10:45-11:30  | Drop & Heal + 1G	Tumi Mundo 1G   |
+| 10:45-11:30  | Drop & Heal 1G	+ Tumi Mundo 1G   |
 | 11:30-12:15  | Oncollaboration      |
 | 12:15-13:00  | DDA 1G	Drop + Heal 1H  |
 
