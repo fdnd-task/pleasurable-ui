@@ -23,7 +23,7 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// GET routes 
+// GET routes
 
 
 
@@ -43,6 +43,7 @@ app.get('/', async (req, res) => {
 });
 
 
+
 app.get('/en', async function (request, response) {
 
   const artworkURL = 'https://fdnd-agency.directus.app/items/fabrique_art_objects'
@@ -57,11 +58,11 @@ app.get('/en', async function (request, response) {
 // Route voor de homepagina in het arabisch
 app.get('/ar', async function (request, response) {
   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
-  const apiResponseJSON = await apiResponse.json(); 
-  
-  response.render("index-ar.liquid", { 
+  const apiResponseJSON = await apiResponse.json();
+
+  response.render("index-ar.liquid", {
       artwork: apiResponseJSON.data,
-   }) 
+   })
 })
 
 // Detail-page
@@ -71,10 +72,32 @@ app.get('/details/:id', async function (request, response) {
 );
 
   const apiResponseJSON = await apiResponse.json();
-  
+
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
+app.get('/tickets', async (req, res) => {
+  // Mock data for now; replace with API calls as needed
+  const museums = [
+    {
+      id: 1,
+      name: "National Museum of Qatar",
+      image: "/assets/nmoq.jpg",
+      description: "Your ticket covers admission to the museum and all exhibitions.",
+      exhibitions: [
+        "Ultraleggera: A Design Journey...",
+        "LATINOAMERICANO | Modern and Contemporary Art..."
+      ],
+      tickets: [
+        { label: "Adult Non-resident of Qatar", price: 25 },
+        { label: "Child (16 and under)",      price:  0 },
+        { label: "Student Resident of Qatar",  price:  0 }
+      ]
+    }
 
+  ]
+
+  res.render('tickets.liquid', { museums })
+})
 
 // POST for like
 
@@ -118,7 +141,7 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   const result = await data.json();
 
   console.log("Hier is een like verwijderd met id nummer " + request.params.id)
-  
+
   await fetch(deleteUrl, {
     method: 'DELETE',
   });
@@ -131,7 +154,7 @@ app.post('/unlike-artwork/:id', async function (request, response) {
 let forms = [] //array voor het opslaan van formulieren
 
 app.post('/acquisition', async function (request, response) {
-  
+
     await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
       method: "POST",
       body: JSON.stringify({ //gegevens die  naar de server wordt gestuurd, omzetten in een JSON-string.
@@ -141,15 +164,15 @@ app.post('/acquisition', async function (request, response) {
       }),
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }, //request met post, met headers geef je aan wat er is meegegeven, je geeft informatie over wat je in de request heb meegegeven. 
+      }, //request met post, met headers geef je aan wat er is meegegeven, je geeft informatie over wat je in de request heb meegegeven.
     });
-    
+
     response.redirect(303, '/en/succesfull') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
-  
+
   })
 
   app.post('/ar/acquisition', async function (request, response) {
-  
+
     await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
       method: "POST",
       body: JSON.stringify({
@@ -159,9 +182,9 @@ app.post('/acquisition', async function (request, response) {
       }),
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
-      }, 
+      },
     });
-    
+
     response.redirect(303, '/ar/succesfull')
   })
 
