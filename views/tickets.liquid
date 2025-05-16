@@ -1,0 +1,147 @@
+{% include 'partials/head.liquid' %}
+{% include 'partials/header.liquid' %}
+
+<main class="tickets-page">
+
+    <h1 class="tickets-h1">BOOK YOUR TICKETS</h1>
+
+    <nav class="step-navigation" aria-label="Progress">
+        <ul>
+            <li class="active">1. SELECT TICKETS</li>
+            <li>2. PICK A DATE</li>
+            <li>3. YOUR INFORMATION</li>
+            <li>4. REVIEW</li>
+            <li>5. PAYMENT</li>
+            <li>6. CONFIRMATION</li>
+        </ul>
+    </nav>
+
+    <section class="museum-list">
+        <h2>Choose a Location</h2>
+
+        {% for museum in museums %}
+            <article class="museum-card">
+                <!-- 1) Radio + Info -->
+                <div class="museum-info">
+                    <input type="radio"
+                           name="museum"
+                           id="museum-{{ museum.id }}" />
+
+                    <label for="museum-{{ museum.id }}">
+                        <h3>{{ museum.name }}</h3>
+                        <p>{{ museum.description }}</p>
+
+                        {% if museum.exhibitions %}
+                            <strong>Current Exhibitions:</strong>
+                            <ul>
+                                {% for ex in museum.exhibitions %}
+                                    <li><em>{{ ex }}</em></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </label>
+                </div>
+
+                <!-- 2) Image -->
+                <div class="museum-image">
+                    <img src="{{ museum.image }}"
+                         alt="Photo of {{ museum.name }}"
+                         loading="lazy" />
+                </div>
+
+                <!-- 3) Ticket Table (hidden until selected) -->
+                <div class="ticket-table-wrapper">
+                    <table class="ticket-table">
+                        <thead>
+                        <tr>
+                            <th>Type of ticket</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ticket in museum.tickets %}
+                            <tr>
+                                <td>
+                                    <strong>{{ ticket.label }}</strong>
+                                    {% if ticket.price > 0 %}
+                                        <div class="ticket-price">QAR {{ ticket.price }}</div>
+                                    {% else %}
+                                        <div class="ticket-price">Free</div>
+                                    {% endif %}
+                                </td>
+                                <td class="ticket-qty-cell">
+                                    <button class="decrease">–</button>
+                                    <input type="number"
+                                           min="0"
+                                           value="0"
+                                           data-price="{{ ticket.price }}"
+                                           class="ticket-qty" />
+                                    <button class="increase">+</button>
+                                </td>
+                                <td class="subtotal">QAR 0</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+
+    <aside class="cart-summary">
+        <h3>Your Cart</h3>
+        <p>Total: QAR 0</p>
+        <button class="next-step">NEXT STEP</button>
+    </aside>
+</main>
+
+
+{% comment %}JS{% endcomment %}
+
+<script>
+    // + / – buttons
+    document.querySelectorAll('.increase').forEach(btn =>
+        btn.addEventListener('click', () => {
+            const input = btn.previousElementSibling
+            input.value = +input.value + 1
+            updateSubtotal(input)
+        })
+    )
+    document.querySelectorAll('.decrease').forEach(btn =>
+        btn.addEventListener('click', () => {
+            const input = btn.nextElementSibling
+            input.value = Math.max(0, +input.value - 1)
+            updateSubtotal(input)
+        })
+    )
+    function updateSubtotal(input) {
+        const price = parseFloat(input.dataset.price)
+        const qty   = +input.value
+        const row   = input.closest('tr')
+        row.querySelector('.subtotal')
+            .textContent = `QAR ${price * qty}`
+        updateCartTotal()
+    }
+    function updateCartTotal() {
+        let total = 0
+        document.querySelectorAll('.ticket-qty').forEach(input => {
+            total += parseFloat(input.dataset.price) * +input.value
+        })
+        const cart = document.querySelector('.cart-summary')
+        cart.querySelector('p')
+            .textContent = `Total: QAR ${total}`
+    }
+    // Show table only when radio is checked
+    document.querySelectorAll('.museum-card input[type=radio]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            document.querySelectorAll('.ticket-table-wrapper')
+                .forEach(w => w.classList.remove('visible'))
+            radio.closest('.museum-card')
+                .querySelector('.ticket-table-wrapper')
+                .classList.add('visible')
+        })
+    })
+</script>
+
+{% include 'partials/foot.liquid' %}
