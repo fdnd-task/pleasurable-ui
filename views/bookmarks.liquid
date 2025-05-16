@@ -1,0 +1,41 @@
+<div>
+    <nav>
+        <img src="/icon-radiostations" alt="">
+        <h2>Radiostations</h2>
+        <p>Ga naar de programma's</p>
+        {% for station in radiostations %} {% comment %} TO DO: koppelen serverjs {% endcomment %}
+        <ul>
+            <li>
+                <a href=""> 
+                    <picture> 
+                        <source srcset="/assets/radio-id"> {% comment %} Forloop {% endcomment %}
+                        <img src="/assets/radio-id" alt="Veronica">
+                    </picture>
+                </a>
+            </li>
+        </ul>
+        {% endfor %}
+    </nav>
+
+    <main>
+        <img src="/icon-bookmarks" alt="">
+        <h1>Bookmarks</h1>
+            {% for programma in programmas %} {% comment %} TO DO: koppelen serverjs {% endcomment %} {% comment %} Loads in the data out of the databse {% endcomment %} 
+                {% comment %} setup for every show {% endcomment %}
+                <article> 
+                    <p>{{ programma.mh_shows_id.show.radiostation.name }}</p>
+                    <picture>
+                        <source srcset="https://fdnd-agency.directus.app/assets/{{ programma.mh_shows_id.show.radiostation.logo }}">
+                        <img src="https://fdnd-agency.directus.app/assets/{{ programma.mh_shows_id.show.radiostation.logo }}" alt="">
+                    </picture>
+                    <h3>{{ programma.mh_shows_id.show.name }}</h3>
+                    <dl> {% comment %} dl (description list) is a list inclusing terms and descriptions {% endcomment %}
+                        <dt><img src="/icon-clock" alt="tijd"></dt> {% comment %} TO DO: vul de alt in bij de iconen zoals tijd en dj {% endcomment %}
+                        <dd>{{ programma.mh_shows_id.from }} - {{ programma.mh_shows_id.until }}</dd>
+                        <dt><img src="/icon-dj" alt="dj"></dt>
+                        <dd>{{ programma.mh_shows_id.show.users.0.mh_users_id.full_name }}</dd>
+                    </dl>
+                </article>
+            {% endfor %}
+    </main>
+</div>
