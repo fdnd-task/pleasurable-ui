@@ -65,7 +65,7 @@ app.get('/ar', async function (request, response) {
 })
 
 // Detail-page
-app.get('/object/:id/', async function (request, response) {
+app.get('/details/:id', async function (request, response) {
   const artworkId = request.params.id;
   const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate,artist,materials,recordType`
 );
@@ -74,39 +74,6 @@ app.get('/object/:id/', async function (request, response) {
   
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
-  
-
-//  main
-  
-app.get('/:lang/details/:id', async function (request, response) {
-  // console.log("GET detail pagina met een id "+request.params.id)
-
-  // Const  de links naar de verschillende data
-  // Hier moet je en fetch doen die de data van het artwork ophaalt
-  // Plus uit een andere tabel halen of het artwork een like heeft!
-
-  const artworkURL = `https://fdnd-agency.directus.app/items/fabrique_art_objects?filter[id][_eq]=${request.params.id}&fields=*,fabrique_users_fabrique_art_objects.*`;
-  const artworkFetch = await fetch(artworkURL)
-  const artworkJSON = await artworkFetch.json()
-
-  const likedArtworks = `https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter={"fabrique_users_id":3}`
-  const likedArtworksFetch = await fetch(likedArtworks)
-  const likedArtworksJSON = await likedArtworksFetch.json()
-
-  const langId = request.params.lang;
-
-  // console.log(artworkJSON.data)
-
-  response.render('details.liquid', {
-    artworkData: artworkJSON.data,
-    likedArtworks: likedArtworksJSON.data,
-    lang: langId
-
-  })
-
-})
-//  main
-
 
 
 // POST for like
