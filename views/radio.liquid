@@ -1,5 +1,5 @@
-{% render 'partials/head.liquid' pageTitle: "Radio: {{thisstation}}" style: thisstation%}
-{% render 'partials/header.liquid' v: "o" thisstation: thisstation stationNameGenerated: stationNameGenerated %}{% comment %} Version : Other {% endcomment %}
+{% render 'partials/head.liquid' pageTitle: "{{thisstation}}" style: thisstation%}
+
 {% comment %} Start of Chat GPT Code [Calc percentage of minutes pased] {% endcomment %}
 {% assign curTime = "now" | date: "%H:%M", "Europe/Amsterdam"%}
 {% assign curHours = curTime | split: ":" | first %}
@@ -10,6 +10,7 @@
 {% assign percentageGone = curTimeInMinutes | divided_by: totalMinutesInDay | times: 100 %}
 {% comment %} End of Chat GPT Code {% endcomment %}
 <body class="deejays-{{thisstation}}">
+    {% render 'partials/header.liquid' v: "o" thisstation: thisstation stationNameGenerated: stationNameGenerated %}{% comment %} Version : Other {% endcomment %}
     <main class="radio-station">
         <div class="part-sticky top-wrapper">
             

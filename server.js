@@ -45,17 +45,17 @@ const radiostations = radiostationsResponseJSON.data.map(station => ({
   name: station.name
 }));
 
-app.get('/radio/:name/programmering{/:dayname}', async function (request, response) {
+app.get('/radio/:name/programmering{/:dayname}', async function (req, res) {
   const dayNames = ['Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag'];
 
   const thisWeekshows = [];
   let daysResponse;
   let dayID;
-  if (request.params.dayname == undefined) {
+  if (req.params.dayname == undefined) {
     daysResponse = await fetch('https://fdnd-agency.directus.app/items/mh_day?fields=*,shows.mh_shows_id.show');
   }
   else {
-    dayID = dayNames.findIndex(day => day === request.params.dayname);
+    dayID = dayNames.findIndex(day => day === req.params.dayname);
     console.log(dayID);
     daysResponse = await fetch('https://fdnd-agency.directus.app/items/mh_day?fields=*,shows.mh_shows_id.show&filter={"sort":"' + dayID + '"}');
   }
@@ -108,7 +108,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (request, respon
 
 
 
-  const stationArr = request.params.name;
+  const stationArr = req.params.name;
   const stationURL = radiostations.find(station => station.name === stationArr);
   let stationID = stationURL.id;
   const ShowsforStationUL = "https://fdnd-agency.directus.app/items/mh_shows?fields=*.*.*.*,show.users.mh_users_id.cover.*";
@@ -149,7 +149,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (request, respon
 
   let today;
   let todayName;
-  if (request.params.dayname == undefined) {
+  if (req.params.dayname == undefined) {
     today = parseInt(thisWeekshows[0].day);  // Parse the day from thisWeekshows
     todayName = dayNames[today];
   } else {
@@ -157,7 +157,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (request, respon
 
   }
 
-  response.render('radio.liquid', {
+  res.render('radio.liquid', {
     showsforStation: showsforStationJSON.data,
     stationNameGenerated: stationArr,
     stationNameGeneratedEncoded: encodeURIComponent(stationArr),
@@ -167,7 +167,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (request, respon
     radiostations: radiostationsResponseJSON.data,
     thisstation: stationID,
     today: today,
-    todayName: request.params.dayname
+    todayName: req.params.dayname
   });
 });
 
@@ -175,7 +175,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (request, respon
 
 
 app.get('/', async function (req, res) {
-  res.render('index.liquid')
+  res.render('index.liquid', { radiostations: radiostationsResponseJSON.data })
 })
 
 app.get('/bookmarks', async function (req, res) {

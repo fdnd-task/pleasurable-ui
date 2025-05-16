@@ -72,7 +72,7 @@ body{
     --text-m: 1rem; /* 16px */
     --text-l: 1.25rem; /* 20px */
     --text-xl: 1.75rem; /* 28px */
-    --text-xxl: 2.25rem; /* 36px */
+    --text-xxl: 3.625rem; /* 58px */
     font-family: 'BrutalType', sans-serif;
     --one-day: 2000px; /* 1 day in px for the timetables. Increasing this will increase eaxch timeblock. */
     @media (min-width: 1200px){

@@ -12,6 +12,14 @@
         <link rel="preload" href="/fonts/BrutalType-ExtraBold.ttf" as="font" type="font/ttf" >
         <link rel="preload" href="/fonts/BrutalType-Black.ttf" as="font" type="font/ttf" >
         <link rel="preload" href="/fonts/BrutalType.ttf" as="font" type="font/ttf" >
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/colors-{{style}}.css">
+
+        {% if style != "home" %}
+            <link rel="stylesheet" href="/css/style.css">
+            <link rel="stylesheet" href="/css/colors-{{style}}.css">
+            <link rel="stylesheet" href="/css/radio.css">
+        {% else %}
+            <link rel="stylesheet" href="/css/general.css">
+            <link rel="stylesheet" href="/css/home.css">
+        {% endif %}
+
     </head>
