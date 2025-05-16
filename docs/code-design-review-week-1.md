@@ -28,6 +28,23 @@ Wat hebben jullie geleerd van deze code/design review? Zijn er zaken in jullie e
 ## 2. Voortgangsgesprek 
 In je team heb je duidelijke afspraken gemaakt over jullie werkwijze en hoe jullie elkaar op de hoogte houden van vorderingen. Elk team komt langs bij een tweetal docenten om te vertellen hoe de samenwerking tot zover is gegaan. Zorg dat je het Project Board, de verschillende branches en de PR's bij de hand hebt. 
 
+
+**Bij Krijn & Charley:**
+| Tijd     | Teams |
+| ----------- | ----------- |
+| 10:00-10:45  | Mediahuis 1G	+ DDA 1H     |
+| 10:45-11:30  | Drop & Heal + 1G	Tumi Mundo 1G   |
+| 11:30-12:15  | Oncollaboration      |
+| 12:15-13:00  | DDA 1G	Drop + Heal 1H  |
+
+**Bij Koop & Suus:**
+| Tijd     | Teams |
+| ----------- | ----------- |
+| 10:00-10:45  | Milledoni 1G	+ Bieb in Bloei 1H    |
+| 10:45-11:30  | Bieb in Bloei 1G	+ Mediahuis 1H  |
+| 11:30-12:15  | Qatar      |
+| 12:15-13:00  | Tumi Mundo 1H	+ Milledoni 1H  |
+
 <!-- 
 
 Checklist:
