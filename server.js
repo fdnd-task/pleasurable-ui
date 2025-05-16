@@ -53,19 +53,29 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-//-----------------------Dit is de homepagina. MARK: Homepage-----------------------
+// MARK: Homepage
 app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
+// MARK: Lessons
+app.get('/lessons', async function (request, response) {
+  response.render('lessons.liquid')
+})
+
+//MARK: Profilepage
+app.get('/profile', async function (request, response) {
+  response.render('profilepagina.liquid')
+})
+
+// MARK: Statistics
 app.get('/statistics', async function (request, response) {
- 
-  const animal = await fetch('https://fdnd-agency.directus.app/items/tm_animal');
- 
-  const animalJSON = await animal.json();
- 
-  // Zie https://expressjs.com/en/5x/api.html#res.render over response.render()
-  response.render('statistics.liquid', { animal: animalJSON.data })
+  response.render('statistics.liquid')
+})
+
+// MARK: Story settings
+app.get('/story-settings', async function (request, response) {
+  response.render('storysettings.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
@@ -74,5 +84,5 @@ app.set('port', process.env.PORT || 8000)
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
-  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
+  console.log(`http://localhost:${app.get('port')}`)
 })
