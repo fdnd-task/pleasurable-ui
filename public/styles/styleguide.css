@@ -1,9 +1,12 @@
 :root {
     /* Kleuren */
+        --main-ligth-text-color:#ffffff;
+        --main-dark-text-color:#000000;
     
     /* Home Background */
         --home-achtergrond:linear-gradient(#3F93B7,#1C5872);
-     
+    /* Profiel achtergrond */
+        --profiel-achtergrond:linear-gradient(#F0775D,#B45751);
     /* Story nightmode */
         --story-nightmode:linear-gradient(#471871,#142151);
        
