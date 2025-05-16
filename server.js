@@ -70,7 +70,7 @@ app.get('/profile', async function (request, response) {
 
 // MARK: Statistics
 app.get('/statistics', async function (request, response) {
-  response.render('statistics.liquid', { animal: animalJSON.data })
+  response.render('statistics.liquid')
 })
 
 // MARK: Story settings
