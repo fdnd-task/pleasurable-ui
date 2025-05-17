@@ -17,6 +17,11 @@ const api_audio = "audio"
 const api_playlist = "playlist"
 const api_story = "story"
 const api_animal = "animal"
+const api_season = "season"
+const api_likes = "likes" 
+const api_segments = "segments"
+const api_events = "events"
+const api_results = "results"
 
 //Hier komen de fetches naar de API. MARK: Fetch API
 const usersResponse = await fetch(`${api}${api_users}`)
@@ -27,6 +32,12 @@ const audioResponse = await fetch(`${api}${api_audio}`)
 const playlistResponse = await fetch(`${api}${api_playlist}`)
 const storyResponse = await fetch(`${api}${api_story}`)
 const animalReponse = await fetch(`${api}${api_animal}`)
+const seasonResponse = await fetch(`${api}${api_season}`)
+const likesResponse = await fetch(`${api}${api_likes}`)
+const segmentsResponse = await fetch (`${api}${api_segments}`)
+const eventsResponse = await fetch (`${api}${api_events}`)
+const resultsResponse = await fetch (`${api}${api_results}`)
+
 
 //Hier wordt de data opgehaald en vertaald in JSON. MARK: JSON DATA
 const usersResponseJSON = await usersResponse.json()
@@ -37,6 +48,17 @@ const audioResponseJSON = await audioResponse.json()
 const playlistResponseJSON = await playlistResponse.json()
 const storyResponseJSON = await storyResponse.json()
 const animalReponseJSON = await animalReponse.json()
+const seasonResponseJSON = await seasonResponse.json()
+const likesResponseJSON = await likesResponse.json()
+const segmentsResponseJSON = await segmentsResponse.json()
+const eventsResponseJSON = await eventsResponse.json()
+const resultsResponseJSON = await resultsResponse.json()
+// console.log(likesResponseJSON)
+// console.log(segmentsResponseJSON)
+// console.log(eventsResponseJSON)
+// console.log(resultsResponseJSON)
+
+
 
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
