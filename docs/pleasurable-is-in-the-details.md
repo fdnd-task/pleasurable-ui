@@ -88,9 +88,7 @@ De hover state over de elementen geeft mooie feedback met animaties, de visuele 
 
 De slideshow op de Spotify.design maakt gebruik van verschillende slicke animaties, en je kan de slideshow op verschillende manieren bedienen, dat is ook een vorm van pleasurable UI. Ook de achtergrond kleur verandert en past zodoende bij de volgende pagina.
 
-👉 Check de Slicke Slideshow op [spotify.design](https://spotify.design). Beantwoord deze vragen op het whiteboard:
-- Welke slicke animatie zie je allemaal? 
-- Op welke manieren kan je de slideshow bedienen?
+👉 Check de Slicke Slideshow op [spotify.design](https://spotify.design). Beantwoord deze vragen op het whiteboard: <br>- Welke slicke animatie zie je allemaal? <br>- Op welke manieren kan je de slideshow bedienen?
 
 
 ## Pleasurable UI ontwerpen en maken
