@@ -86,21 +86,18 @@ De hover state over de elementen geeft mooie feedback met animaties, de visuele 
 
 <video width="1024" src="https://github.com/user-attachments/assets/eef09048-2ea6-43e7-bbe7-8939c3cac504" muted loop autoplay playsinline></video>
 
-De slideshow op de Spotify.design maakt gebruik van verschillende slicke animaties. De slideshow speelt automatisch, je kan het met de knoppen bedienen en met pijltjes, en je kan de items slepen. Aan het eind van de slideshow komen de items weer in beeld. Wat zie je nog meer?
+De slideshow op de Spotify.design maakt gebruik van verschillende slicke animaties, en je kan de slideshow op verschillende manieren bedienen, dat is ook een vorm van pleasurable UI. Ook de achtergrond kleur verandert en past zodoende bij de volgende pagina.
 
-👉 Opdracht alle animaties en enhancements van de slideshow anlyseren en opschrijven? https://spotify.design
+👉 Check de Slicke Slideshow op [spotify.design](https://spotify.design). Beantwoord deze vragen op het whiteboard:
+- Welke slicke animatie zie je allemaal? 
+- Op welke manieren kan je de slideshow bedienen?
 
 
 ## Pleasurable UI ontwerpen en maken
 
-<!--
-- Usability uitleggen
-- Animatie principes van Disney (en perceived performance bron?)
-- Hoe JS hierin verwerken?
-- Clientside
+Convergeren en divergeren
 
-- Prototyping in figma, verschillende versies: Duup end adjust. Animeren in Figma. 
--->
+Prototyping in Figma, verschillende versies maken met je team: Duup and varieren. Animeren in Figma. 
 
 
 ### Pleasurable - button states
@@ -108,25 +105,25 @@ De slideshow op de Spotify.design maakt gebruik van verschillende slicke animati
 
 In de huisstijl
 
-Team maakt verschillende versies mbv de disney animtie principes
-
-
+Team maakt verschillende versies mbv de disney animatie principes
 
 ### Pleasurable - micro interactie
 carousel, scroll, open/close element zoals menu
 animeren in Figma
 
-in de huisstijl
+In de huisstijl
 
 Team maakt verschillende versies
 
 
 
 ### Pleasurable - Client side enhancement
-POST functionaliteit
+POST functionaliteit, zoals filteren/sorteren, paginatie en ...
 
 Design pattern uitwerken in Figma
 met interactie en animatie
+
+Link maken naar feature branches
 
 Breakdown maken en bespreken hoe je dit met client-side js kan maken
 (Verwijs naar 3 stappenplan in fix the flow)
