@@ -30,14 +30,19 @@ nav {
             height: 4px;
             width: 25.33px;
             border-radius: 8px;
+            transition: all 1s ease;
         }
     }
 }
 
 header {
     display: none;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: center;
 }
 
+/*na klikken navigatie menu */
 .navigation-menu-open {
     position: fixed;
     top: 0;
@@ -50,6 +55,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: scale(1);
+    animation: pop-in 0.5s ease forwards;
 
     ul {
         display: grid;
@@ -92,5 +99,42 @@ header {
         li:nth-of-type(5) a {
             background-color: #FD8C73;
         }
+    }
+}
+
+/* animatie vd header */
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*button als na klikken*/
+.hamburger-open {
+    background-color: white;
+
+    span {
+        background-color: black;
+        margin-right: 0.5em;
+    }
+
+    span:nth-child(1) {
+      transform-origin: right;
+      transform: rotateZ(-45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform-origin: right;
+      transform: rotateZ(45deg)
     }
 }
