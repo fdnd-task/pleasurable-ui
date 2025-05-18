@@ -57,20 +57,46 @@
 
 
     <!-- footer and links-->
-        <div>
-          <ul>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Corporate Sponsorship</a></li>
-            <li><a href="#">Host Your Event</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Accessibility</a></li>
-            <li><a href="#">Terms and Conditions</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-          <img src="/assets/logo.png" alt="Qatar Museums logo" class="logo-dropdown-footer" />
-        </div>
+    <div>
+        <ul>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Corporate Sponsorship</a></li>
+          <li><a href="#">Host Your Event</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Terms and Conditions</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      
+        <!-- Qatar Museums logo -->
+        <a href="/" class="logo-dropdown-footer">
+          <picture>
+            <!-- AVIF format -->
+            <source 
+              srcset="/assets/logo.avif"
+              sizes="(max-width: 400px) 150px, (max-width: 768px) 180px, 200px"
+              type="image/avif">
+      
+            <!-- WebP format -->
+            <source 
+              srcset="/assets/logo.webp"
+              sizes="(max-width: 400px) 150px, (max-width: 768px) 180px, 200px"
+              type="image/webp">
+      
+            <!-- PNG fallback -->
+            <img 
+              src="/assets/logo.png" 
+              alt="Qatar Museums logo" 
+              width="200" 
+              height="80" 
+              loading="lazy"
+              sizes="(max-width: 400px) 150px, (max-width: 768px) 180px, 200px">
+          </picture>
+        </a>
+      </div>
+      
       </section>
 
     </section>
