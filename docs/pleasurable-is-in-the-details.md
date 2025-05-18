@@ -4,7 +4,7 @@
 Over het ontwerpen en bouwen van de pleasurable laag van interactie.
 
 ### Aanpak
-Vandaag ga je met je team convergeren - divergeren op het design en de uitwerking van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide.
+Vandaag ga je met je team convergeren en divergeren op het design en de uitwerking van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide.
 
 
 ## Hierarchy of User Needs
@@ -95,9 +95,13 @@ De slideshow op de Spotify.design maakt gebruik van verschillende slicke animati
 
 ## Pleasurable UI ontwerpen en maken
 
-Convergeren en divergeren
+Deze sprint gaan we een aantal nieuwe interacties ontwerpen en uitwerken, die de UI meer pleasurable maken. We gaan oefenen met Figma en hoe je daarin animaties kunt prototypen. Dit levert nog geen werkende code op, maar je kunt hiermee snel een bepaald idee overbrengen. Misschien bedenk je wel iets dat je nog niet in code weet uit te werken, maar waar je wel in Figma een voorbeeld van kunt maken.
 
-Prototyping in Figma, verschillende versies maken met je team: Duup and varieren. Animeren in Figma. 
+Gebruik de volgende bronnen om onderstaande opdrachten te maken. De bedoeling is dus dat je een prototype van je ontwerp mét animatie uitwerkt in Figma. Later deze week gaan we hiervoor ook code schrijven.
+
+- [Mastering Animations in Figma by Building 7 Common UI Animations](https://www.jurn.io/figma-animation-examples/) + [Figma design file](https://www.figma.com/community/file/866532393298219995)
+- [Figma for Education: Animation basics in Figma @ YouTube](https://www.youtube.com/watch?v=02fO4qVnbc0) + [Figma design file](https://www.figma.com/community/file/1198305561541816622)
+- [UI Interactions and Animations Roundups @ Codrops](https://tympanus.net/codrops/category/articles/ui-interactions-animations-roundups/)
 
 
 ### Pleasurable - button states
@@ -105,7 +109,7 @@ Prototyping in Figma, verschillende versies maken met je team: Duup and varieren
 
 In de huisstijl
 
-Team maakt verschillende versies mbv de disney animatie principes
+Team maakt verschillende versies mbv de Disney animatie principes
 
 ### Pleasurable - micro interactie
 carousel, scroll, open/close element zoals menu
