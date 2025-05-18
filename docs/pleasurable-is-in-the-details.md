@@ -61,28 +61,31 @@ Beautiful, relevant high-resolution imagery
 Sound interactions
 -->
 
-De pleasurable laag is leuk om te ontwerpen en bouwen, met animaties en leuke of grappige feedback. Het is ook voor je opdrachtgever van belang, wanr als een interface echt leuk is zullen mensen de website sneller aanbevelen bij anderen. 
+De pleasurable laag is leuk om te ontwerpen en bouwen, met animaties en leuke of grappige feedback. Het is ook voor je opdrachtgever van belang, want als een interface echt leuk is zullen mensen de website sneller aanbevelen bij anderen.
 <br>Therese Fessenden van Nielson Norman Group schrijft hierover:
 > Users who experience a state of deep delight will be more likely to recommend the product or service to a friend, and to become a passionate return user.
 
 Alleen een pleasurable interface zonder _functional_, _reliable_, en _usable_ laag werkt juist averechts. Een mooie website die niet goed werkt is ... aaaargh ... grrrr ... laat maar ....
-<br>Het is zelfs zo dat gebruikers een website die niet goed te gebruiken is beter heinneren dan een goede website. Dit heet _negativity bias_, de neiging van mensen om meer aandacht te besteden aan een negatieve ervaring.
+<br>Het is zelfs zo dat gebruikers een website die niet goed te gebruiken is beter herinneren dan een goede website. Dit heet _negativity bias_, de neiging van mensen om meer aandacht te besteden aan een negatieve ervaring.
 
 Voorbeelden van een pleasurable interface zijn:
 
 #### Blije button
 
 <video controls src="pleasurable-button.mp4" title=""></video>
+
 Deze button wil heel graag geklikt worden. Het komt een beetje naar de cursor toe en blijft de cursor volgen.
 
 #### Funky focus state
 
 <video controls src="pleasurable-focus-state.mp4" title=""></video>
+
 De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de vervolgpagina terug. 
 
 #### Slicke Slideshow
 
 <video controls src="pleasurable-slideshow.mov" title=""></video>
+
 De slideshow op de Spotify.design maakt gebruik van verschillende slicke animaties. De slideshow speelt automatisch, je kan het met de knoppen bedienen en met pijltjes, en je kan de items slepen. Aan het eind van de slideshow komen de items weer in beeld. Wat zie je nog meer?
 
 👉 Opdracht alle animaties en enhancements van de slideshow anlyseren en opschrijven? https://spotify.design
