@@ -93,6 +93,8 @@ p {
     height: 10px;
 }
 
+/* This class makes sure the content u wrote under this class is only visible for screenreaders */
+
 .sr-only {
     position: absolute;
     width: 1px;
