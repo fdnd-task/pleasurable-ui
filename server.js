@@ -59,6 +59,29 @@ app.get('rouwtaak/:id', async function (request, response) {
   }
 });
 
+//exercise page router  also count the messages here
+app.get('/exercise/:id', async function (request, response) {
+  try {
+    const exerciseId = request.params.id;
+
+    const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exerciseId}"}&limit=1`);
+    const exerciseResponseJSON = await exerciseResponse.json();
+
+    const countResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages?aggregate[count]=*&filter={"exercise":{"_eq":${exerciseId}}}`);
+    const countResponseJSON = await countResponse.json();
+    const messageCount = countResponseJSON.data[0].count;
+
+    response.render('exercise.liquid', {
+      title: "exercise",
+      countMessages: messageCount,
+      specificExercise: exerciseResponseJSON.data
+    });
+  } catch (error) {s
+    console.error("Something Wrong in the exercise page, check this:",error);
+    response.status(500).render("error.liquid");
+  }
+});
+
 app.get('/rouwtaak-demo', async function (request, response) {
   const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task/?filter={"id":1}')
   const exerciseResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_exercise/?filter={"task":1}')
