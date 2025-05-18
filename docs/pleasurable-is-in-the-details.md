@@ -84,7 +84,7 @@ De hover state over de elementen geeft mooie feedback met animaties, de visuele 
 
 #### Slicke Slideshow
 
-<video controls src="pleasurable-slideshow.mov" title=""></video>
+<video controls src="pleasurable-slideshow.mp4" title=""></video>
 
 De slideshow op de Spotify.design maakt gebruik van verschillende slicke animaties. De slideshow speelt automatisch, je kan het met de knoppen bedienen en met pijltjes, en je kan de items slepen. Aan het eind van de slideshow komen de items weer in beeld. Wat zie je nog meer?
 
