@@ -72,19 +72,19 @@ Voorbeelden van een pleasurable interface zijn:
 
 #### Blije button
 
-<video width="712" src="pleasurable-button.mp4" muted loop autoplay playsinline></video>
+<video width="712" src="https://github.com/user-attachments/assets/b3ad692e-7d34-4d80-860e-cb44dd49f84c" muted loop autoplay playsinline></video>
 
 Deze button wil heel graag geklikt worden. Het komt een beetje naar de cursor toe en blijft de cursor volgen.
 
 #### Funky focus state
 
-<video width="1024" src="pleasurable-focus-state.mp4" muted loop autoplay playsinline></video>
+<video width="1024" src="https://github.com/user-attachments/assets/f1055f50-3d1f-4a81-8e58-585577bf9aac" muted loop autoplay playsinline></video>
 
 De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de vervolgpagina terug. 
 
 #### Slicke Slideshow
 
-<video width="1024" src="pleasurable-slideshow.mp4" muted loop autoplay playsinline></video>
+<video width="1024" src="https://github.com/user-attachments/assets/eef09048-2ea6-43e7-bbe7-8939c3cac504" muted loop autoplay playsinline></video>
 
 De slideshow op de Spotify.design maakt gebruik van verschillende slicke animaties. De slideshow speelt automatisch, je kan het met de knoppen bedienen en met pijltjes, en je kan de items slepen. Aan het eind van de slideshow komen de items weer in beeld. Wat zie je nog meer?
 
