@@ -44,6 +44,13 @@
 
 /* spacing */
 
+
+
+body {
+    background-color: var(--background-color);
+}
+
+
 *,
 *::before,
 *::after {
@@ -92,7 +99,9 @@ body {
 
 .btn {
 
+
     font-family: var(--details-font);
+main
     padding: 10px;
     background: #6aa6d8;
     color: white;
@@ -104,6 +113,11 @@ body {
     &:hover {
         background: #5b95c6;
     }
+}
+
+.spacing-s {
+    display: block;
+    height: 10px;
 }
 
 .theme-blue{
@@ -158,3 +172,4 @@ body {
   .them-1,.them-2,.them-3,.them-4,.them-blue, .them-red, .them-green, .them-pink{
       color: var(--white);
   }
+

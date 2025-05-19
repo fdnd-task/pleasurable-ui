@@ -12,6 +12,7 @@ header {
     padding: 20px;
     width: 100vw;
     box-sizing: border-box;
+    color: var(--white);
   }
   
   header ul.inline {
