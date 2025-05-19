@@ -167,22 +167,26 @@ form input[type="text"] {
 
 .return-homepage {
     position: relative;
-    left: 45%;
-    border: 2px solid var(--color-default);
+    left: 33%;
+    border: 2px solid var(--color-black);
     font-family: var(--font-default);
-    background-color: var(--color-accent-yellow);
+    background-color: var(--color-yellow);
     padding: .8em 1.8em .8em 1.8em;
     text-transform: uppercase;
     font-size: var(--font-size-s);
     color: var(--color-default);
-    font-weight: 550;
-    margin-top: 2em;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 2em;
     &:hover {
-        background-color: var(--color-default);
-        color: var(--color-accent);
+        background-color: var(--color-black);
+        color: var(--color-white);
         transition-timing-function: ease-in;
         transition: .5s;
     }
+    @media (min-width: 680px) {
+        left: 45%;
+    }
+
 }
 
 .loading {
