@@ -7,11 +7,7 @@ main {
 header {
     display: flex; 
     flex-direction: column; 
-<<<<<<< Updated upstream
-    background-color: var(--background-color);
-=======
     background-color: var(--black);
->>>>>>> Stashed changes
     border-bottom: var(--border);
     padding: 20px;
     width: 100vw;
