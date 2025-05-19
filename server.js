@@ -75,6 +75,22 @@ app.get('/details/:id', async function (request, response) {
 
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
+
+app.get('/:lang/acquisition', async function (request, response) {
+    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+    const apiResponseJSON = await apiResponse.json()
+    const messageResponse = await fetch("https://fdnd-agency.directus.app/items/fabrique_messages/?filter={%22for%22:%20{%22_contains%22:%20%22Karima_%22}}")
+    const messageResponseJSON = await messageResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
+    const langId = request.params.lang; //parameter voor de language switch
+    
+    response.render("acquisitions.liquid", { 
+      artworkData: apiResponseJSON.data, 
+      messages: messageResponseJSON.data,
+      id: 'karima-form',
+      lang: langId
+    })
+  })
+  
 app.get('/tickets', async (req, res) => {
   // Mock data for now; replace with API calls as needed
   const museums = [
