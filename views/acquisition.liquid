@@ -53,25 +53,25 @@
     <!-- Arabische form acquistion -->
         <section class="title">
             <h1 class="title-acquisition">اقتراح لاكتساب كائن</h1>
-            <p class="paragraph-acquisition">هل أنت مهتم بالتبرع أو بيع عمل فني لمتاحف قطر؟ قم بإرسال معلوماتك من خلال هذا النموذج لاقتراح الاقتناء.</p>
+            <p class="paragraph-acquisition-ar" dir="rtl">هل أنت مهتم بالتبرع أو بيع عمل فني لمتاحف قطر؟ قم بإرسال معلوماتك من خلال هذا النموذج لاقتراح الاقتناء.</p>
         </section>
 
         <section class="form-section">
             <p class="paragraph-mandatory">الحقول المحددة بـ * إلزامية</p>
 
             <form method="post" action="/acquisition" lang="ar">
-                <h2 dir="rtl">معلوماتك</h2>
+                <h2 class="title-form-acquisition" dir="rtl">معلوماتك</h2>
                 <p dir="rtl" class="paragraph-mandatory">الاسم الكامل*</p>
                 <input type="text" name="name" required  lang="ar" dir="rtl"/> <!-- de lang en dir attributen geven aan dat de inhoud van rechts naar links is en in het Arabisch is (mobiel) -->
 
                 <p dir="rtl" class="paragraph-mandatory">البريد الإلكتروني*</p>
                 <input type="text" name="email" required  lang="ar" dir="rtl"/>
 
-                <h2 dir="rtl">تفاصيل الكائن</h2>
+                <h2 class="title-form-acquisition" dir="rtl">تفاصيل الكائن</h2>
                 <input type="text" name="description" required  lang="ar" dir="rtl"/>
 
 
-                <h2 dir="rtl">التحميلات</h2>
+                <h2 class="title-form-acquisition" dir="rtl">التحميلات</h2>
                 <p dir="rtl" class="paragraph-upload">مستندات إضافية</p>
                 <input accept="*" type="file" class="file-input-ar">
 
@@ -80,7 +80,7 @@
         </section>
 
         <section class="form-section history">
-            <h2>سجل الاقتراحات</h2>
+            <h2 class="title-form-acquisition">سجل الاقتراحات</h2>
 
             {% for message in messages reversed %}
                 {% if forloop.index <= 3 %}

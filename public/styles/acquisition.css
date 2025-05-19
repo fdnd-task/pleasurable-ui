@@ -27,7 +27,7 @@
     font-family: var(--font-default);
     font-weight: 100;
     font-size: var(--font-size-m);
-    line-height: var(--line-height-text);
+    line-height: var( --line-height-default);
     letter-spacing: var(--letter-spacing);
     padding: 2em 0 2em 0;
     @supports (display: flex) {
@@ -121,22 +121,34 @@ form input[type="text"] {
         }
 }
 
+.paragraph-acquisition-ar {
+    font-family: var(--arabic-font);
+    font-size: var(--font-size-m);
+    line-height: var( --line-height-default);
+    letter-spacing: var(--letter-spacing);
+    padding: 2em 2em 2em 0;
+    @supports (display: flex) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
 .submit-button-ar {
     display: flex;
-    left: 73%;
+    left: 78%;
     position: relative;
     border: 2px solid var(--color-default);
     font-family: var(--font-default);
-    background-color: var(--color-accent-yellow);
+    background-color: var(--color-yellow);
     padding: 1em 1.5em 1em 1.5em;
     text-transform: uppercase;
     font-size: var(--font-size-s);
-    color: var(--color-default);
+    color: var(--color-black);
     font-weight: 550;
-    margin-top: 10%;
+    margin-top: 15%;
         &:hover {
-            background-color: var(--color-default);
-            color: var(--color-accent);
+            background-color: var(--color-black);
+            color: var(--color-white);
             transition-timing-function: ease-in;
             transition: .5s;
         }
