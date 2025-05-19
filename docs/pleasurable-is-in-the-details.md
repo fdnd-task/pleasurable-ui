@@ -83,19 +83,38 @@ Maar een pleasurable interface zonder _functional_, _reliable_, en _usable_ laag
 
 #### Blije button
 
-<video width="712" src="https://github.com/user-attachments/assets/b3ad692e-7d34-4d80-860e-cb44dd49f84c" muted loop autoplay playsinline></video>
+<video width="712" src="https://github.com/user-attachments/assets/844d642d-7613-4359-bc78-db3713349c6d" muted loop autoplay playsinline></video>
+
+
+
+
+
 
 Deze button wil heel graag geklikt worden. Het komt een beetje naar de cursor toe en blijft de cursor volgen.
 
 #### Funky hover state
 
-<video width="1024" src="https://github.com/user-attachments/assets/f1055f50-3d1f-4a81-8e58-585577bf9aac" muted loop autoplay playsinline></video>
+<video width="1024" src="https://github.com/user-attachments/assets/e5d22837-f17e-436c-ba11-f0cf8d829615" muted loop autoplay playsinline></video>
+
+
+
+
+
+
+
 
 De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de vervolgpagina terug. 
 
 #### Slicke Slideshow
 
-<video width="1024" src="https://github.com/user-attachments/assets/eef09048-2ea6-43e7-bbe7-8939c3cac504" muted loop autoplay playsinline></video>
+<video width="1024" src="https://github.com/user-attachments/assets/ada3e561-c4df-4266-b9c1-1bc52a0034ce" muted loop autoplay playsinline></video>
+
+
+
+
+
+
+
 
 De slideshow op Spotify.design maakt gebruik van verschillende slicke animaties, en je kan de slideshow op verschillende manieren bedienen. Dat is ook een vorm van pleasurable UI. Ook de achtergrondkleur verandert en past zodoende bij de volgende pagina.
 
