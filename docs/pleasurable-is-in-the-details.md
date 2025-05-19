@@ -109,7 +109,8 @@ De slideshow op Spotify.design maakt gebruik van verschillende slicke animaties,
 Deze sprint gaan we een aantal nieuwe interacties ontwerpen en uitwerken, die de UI meer pleasurable maken. We gaan oefenen met Figma en hoe je _daarin_ animaties kunt _prototypen_. Dit levert nog geen werkende code op, maar je kunt hiermee snel een bepaald idee overbrengen, bijvoorbeeld binnen je team of naar de opdrachtgever. 
 <!-- Misschien bedenk je wel iets dat je nog niet in code kunt maken, maar waar je wel in Figma een voorbeeld van kunt maken. -->
 
-Woensdag gaan we de ontwerpen bekjken en in code maken. Zorg ervoor dat je woensdag verschillende Figma protoypes af hebt, zodat je vrijdag via een pull request de beste implementatie kiest met je team.
+Woensdag ga je met je team de prototypes bekjken en in code maken. Zorg ervoor dat je woensdag verschillende Figma protoypes af hebt om in feature branches aan de code te werken. 
+<!-- Vrijdag via een pull request de beste implementatie kiest met je team. -->
 
 #### Bronnen
 Gebruik de volgende bronnen om onderstaande opdrachten te maken. 
@@ -122,23 +123,23 @@ Gebruik de volgende bronnen om onderstaande opdrachten te maken.
 
 ### Ontwerp pleasurable button states
 
-Ontwerp nieuwe pleasurable hover, active en/of focus states voor buttons (of links) in de huisstijl van de opdrachtgever, en prototype deze met animaties in Figma.
+Ontwerp een pleasurable hover, active en/of focus states voor buttons (of links) in de huisstijl van de opdrachtgever, en prototype deze met animaties in Figma.
 
-Ieder teamlid ontwerpt een eigen versie aan de hand van de Disney animatie principes.
+Ieder teamlid ontwerpt een eigen versie van de button en/of links aan de hand van de Disney animatie principes.
 
 
 ### Ontwerp een pleasurable micro interactie
 
 Zoek een micro interactie in jullie project, en bepaal samen voor welke interactie je een nieuw pleasurable ontwerp gaat maken. Bijvoorbeeld een carrousel die leuker kan, een blije animatie als je scrollt, of een slicke manier van het openen en sluiten van een menu. Kies samen de interactie, zodat jullie met hetzelfde onderwerp bezig zijn. Ontwerp daarna allemaal individueel een prototype met animatie in Figma. Gebruik de huisstijl van de opdrachtgever, maar varieer naar eigen inzicht.
 
-Ieder teamlid ontwerpt weer een eigen versie.
+Ieder teamlid ontwerpt een eigen versie van de micro interactie.
 
 
 ### Ontwerp een pleasurable laag voor het fetchen van data
 
 Je hebt in Sprint 9 of 10 een formulier `POST` verrijkt met een client-side script en een `fetch`, waardoor niet de hele pagina hoeft te verversen. Hiermee heb je de interactie voor User Generated Content iets beter _usable_ gemaakt voor veel bezoekers. Met een loading state en success state heb je deze volledig gemaakt.
 
-Maar er zijn ook interacties die via `GET` requests gaan. Denk aan filteren, sorteren, zoeken, pagineren, of simpelweg navigeren tussen pagina's. Ook deze kun je meer pleasurable maken, met bijvoorbeeld een soepele overgang tussen pagina's, of een vette animatie terwijl je filtert. Hiervoor heb je al kort met multi-page View Transitions gespeeld, maar in het ontwerp kunnen we ook wat meer tijd steken.
+Maar er zijn ook interacties die via `GET` requests gaan. Denk aan filteren en sorteren, zoeken, of bijvoorbeeld pagineren, of simpelweg navigeren tussen pagina's. Ook deze kun je meer pleasurable maken, met bijvoorbeeld een soepele overgang tussen pagina's, of een vette animatie terwijl je filtert. 
+<!-- Hiervoor heb je al kort met multi-page View Transitions gespeeld, maar in het ontwerp kunnen we ook wat meer tijd steken.-->
 
-Kies weer samen een `GET` interactie uit je project, zodat je met hetzelfde onderwerp werkt. Maak daarna weer individueel een eigen prototype met animatie in Figma, waarin je de overgang tussen beide pagina's of states goed laat zien. Gebruik de huisstijl van de opdrachtgever, maar voeg eigen pleasurable ideeën toe in je prototype.
-
+Kies een interactie uit je project of bedenk een nieuwe. Ontwerp een prototype met animatie in Figma met een pleasurable animatie. Gebruik de huisstijl van de opdrachtgever. 
