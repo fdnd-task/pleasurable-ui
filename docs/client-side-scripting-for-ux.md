@@ -20,6 +20,8 @@ Daarna feature branch maken en coderen.
 
 
 https://frontendmasters.com/blog/reanimating-the-css-day-buttons/
+https://lab.hakim.se/ladda/
+https://lab.hakim.se/scroll-effects/
 
 
 -->
