@@ -13,7 +13,7 @@ Nog iets met het archief van https://littlebigdetails.com/archive ? Was tussen 2
 Teams/Whiteboard opdracht met https://tympanus.net/codrops/category/articles/ui-interactions-animations-roundups/ ook nog wel vet misschien
 
 -->
-👉 Check de verzameling 'Pleasurable is in the details' op [LittleBigDetails.com](https://littlebigdetails.com/archive). Post een de link naar een leuk voorbeeld in Teams.
+👉 Check de verzameling 'Pleasurable is in the details' op [LittleBigDetails.com](https://littlebigdetails.com/archive). Post een link naar een leuk voorbeeld in Teams.
 
 
 ## Hierarchy of User Needs
