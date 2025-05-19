@@ -4,7 +4,7 @@
 Over het ontwerpen en bouwen van de pleasurable laag van interactie.
 
 ### Aanpak
-Vandaag ga je met je team convergeren en divergeren op het design van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide.
+Vandaag ga je met je team convergeren en divergeren op het design van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide. Daarna ga je in Figma pleasurabel UI ontwerpen en animeren.
 
 <!--
 
@@ -13,6 +13,7 @@ Nog iets met het archief van https://littlebigdetails.com/archive ? Was tussen 2
 Teams/Whiteboard opdracht met https://tympanus.net/codrops/category/articles/ui-interactions-animations-roundups/ ook nog wel vet misschien
 
 -->
+👉 Check de verzameling 'Pleasurable is in the details' op [littlebigdetails.com](https://littlebigdetails.com/archive). Post een leuk voorbeeld van een Pleasurable UI in Teams.
 
 
 ## Hierarchy of User Needs
@@ -21,6 +22,8 @@ In de piramide van User Needs van Aarron Walter is goed te zien dat een _pleasur
 <img src="aarron-walter-user-needs.png" alt="piramide van user needs" width="400"> 
 
 *De hierarchy of user needs van Aarron Walter (hij is hoofd UX designer van MailChimp en schrijver van het boek "Designing for Emotion")*
+
+
 
 ### Functional & Reliable
 De _functional_ en _reliable_ laag van een website komen overeen met de eerste twee lagen van Progressive Enhancement,
@@ -103,9 +106,13 @@ De slideshow op Spotify.design maakt gebruik van verschillende slicke animaties,
 
 ## Pleasurable UI ontwerpen
 
-Deze sprint gaan we een aantal nieuwe interacties ontwerpen en uitwerken, die de UI meer pleasurable maken. We gaan oefenen met Figma en hoe je _daarin_ animaties kunt _prototypen_. Dit levert nog geen werkende code op, maar je kunt hiermee snel een bepaald idee overbrengen, bijvoorbeeld binnen je team of naar de opdrachtgever. Misschien bedenk je wel iets dat je nog niet in code kunt maken, maar waar je wel in Figma een voorbeeld van kunt maken.
+Deze sprint gaan we een aantal nieuwe interacties ontwerpen en uitwerken, die de UI meer pleasurable maken. We gaan oefenen met Figma en hoe je _daarin_ animaties kunt _prototypen_. Dit levert nog geen werkende code op, maar je kunt hiermee snel een bepaald idee overbrengen, bijvoorbeeld binnen je team of naar de opdrachtgever. 
+<!-- Misschien bedenk je wel iets dat je nog niet in code kunt maken, maar waar je wel in Figma een voorbeeld van kunt maken. -->
 
-Gebruik de volgende uitgebreide bronnen om onderstaande opdrachten te maken. De bedoeling is dus dat je vandaag en morgen een prototype van je ontwerp mét animatie maakt in Figma. Later deze week gaan we hiervoor ook code schrijven, zodat je vrijdag via een pull request de beste implementatie kiest met je team.
+Woensdag gaan we de ontwerpen bekjken en in code maken. Zorg ervoor dat je woensdag verschillende Figma protoypes af hebt, zodat je vrijdag via een pull request de beste implementatie kiest met je team.
+
+#### Bronnen
+Gebruik de volgende bronnen om onderstaande opdrachten te maken. 
 
 - [Animation basics in Figma @ YouTube](https://www.youtube.com/watch?v=02fO4qVnbc0) + [Figma design file](https://www.figma.com/community/file/1198305561541816622)
 - [Mastering Animations in Figma by Building 7 Common UI Animations](https://www.jurn.io/figma-animation-examples/) + [Figma design file](https://www.figma.com/community/file/866532393298219995)
