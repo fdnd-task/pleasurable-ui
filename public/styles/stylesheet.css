@@ -8,7 +8,10 @@
 --header-bg: #0c0c0c;
 --background-color: #181414;
 --exercise-bg: #201c1c;
---input-field: #1d1d1d;
+--input-field: #1d1d1d;/*it secondary color not only input*/
+--secondary-color: #1d1d1d;
+--color-gray: #a6a6a6;
+
 
 --color-rouwtaak1: #64aac7;
 --color-rouwtaak2: #984a4a;
@@ -19,9 +22,14 @@
 --inactive-color: #777;
 --success-state: #363636;
 
+
+/*main button*/
+--start-button-padding: 8px 12px;
+--start-button-radius: 20px;
+
 /* fonts */
---dmserifdisplay: DM Serif Display, serif, Helvetica;
---figtree: Figtree, Tahoma, system-ui;
+--primary-font: DM Serif Display, serif, Helvetica;
+--details-font: Figtree, Tahoma, system-ui;
 
 /* font sizes */
 --size-xxl: 3.75rem;
@@ -36,9 +44,6 @@
 
 /* spacing */
 
-
-}
-
 *,
 *::before,
 *::after {
@@ -47,33 +52,48 @@
   padding: 0;
 }
 
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: var(--black);
+  line-height: 1.5;
+}
+  .border{
+    border: 0.1em solid var(--secondary-color);
+    border-radius: 1rem;
 
-h1 {
-    font-family: var(--dmserifdisplay);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--primary-font);
+    color: var(--white);
+  }
+  
+  h1 {
     font-size: clamp(2rem, 3vw, 2rem);
-}
-
-h2 {
-    font-family: var(--dmserifdisplay);
+    font-weight: bold;
+  }
+  
+  h2 {
     font-size: clamp(1.1rem, 2.5vw, 1.75rem);
-}
-
-h3 {
-    font-family: var(--dmserifdisplay);
+  }
+  
+  h3,h4,h5 {
     font-size: clamp(1rem, 2vw, 1.5rem);
-}
-
-h4,h5 {
-    font-family: var(--figtree);
-}
-
-p {
-    font-family: var(--figtree);
+  }
+  p, li {
+    font-family: var(--details-font);
     font-size: clamp(1rem, 1.5vw, 1rem);
-}
+    color: var(--color-gray);
+  }
 
 
 .btn {
+
+    font-family: var(--details-font);
+    padding: 10px;
     background: #6aa6d8;
     color: white;
     border: none;
