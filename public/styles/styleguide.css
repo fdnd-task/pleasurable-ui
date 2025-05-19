@@ -6,7 +6,7 @@
     /* Home Background */
         --home-achtergrond:linear-gradient(#3F93B7,#1C5872);
     /* Profiel achtergrond */
-        --profiel-achtergrond:linear-gradient(#F0775D,#B45751);
+        --profiel-achtergrond:linear-gradient(#F0775D 0%,#B45751 100%);
     /* Story nightmode */
         --story-nightmode:linear-gradient(#471871,#142151);
        
@@ -28,8 +28,11 @@
         --button-color-four: #06A192;
         --hover-button-color-four: #078377;
         
-        --button-color-five: #FD8C73;
+        --button-color-five: #E98D7B;
         --hover-button-color-five: #EA775E;
+
+        --button-color-six:#E76A59;
+        --hover-button-color-six:#d1503f;
     
         --play-button-stories:#3A54DE;
         --hover-play-button-stories:#092eea;
@@ -93,7 +96,7 @@
     body{
         background: var(--home-achtergrond);
         background-size: cover;  
-        height: 100vh;
+        
         font-family: var(--font-text), Arial, Helvetica, sans-serif;
     }
 
