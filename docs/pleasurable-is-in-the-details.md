@@ -161,4 +161,4 @@ Je hebt in Sprint 9 of 10 een formulier `POST` verrijkt met een client-side scri
 Maar er zijn ook interacties die via `GET` requests gaan. Denk aan filteren en sorteren, zoeken, of bijvoorbeeld pagineren, of simpelweg navigeren tussen pagina's. Ook deze kun je meer pleasurable maken, met bijvoorbeeld een soepele overgang tussen pagina's, of een vette animatie terwijl je filtert. 
 <!-- Hiervoor heb je al kort met multi-page View Transitions gespeeld, maar in het ontwerp kunnen we ook wat meer tijd steken.-->
 
-Kies een interactie uit je project of bedenk een nieuwe. Ontwerp een prototype met animatie in Figma met een pleasurable animatie. Gebruik de huisstijl van de opdrachtgever. 
+Kies een interactie uit je project of bedenk een nieuwe. Maak een prototype met animatie in Figma met een pleasurable animatie. Gebruik de huisstijl van de opdrachtgever. 
