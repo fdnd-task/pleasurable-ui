@@ -91,13 +91,13 @@ app.get('/:lang/acquisition', async function (request, response) {
     })
   })
 
-  app.get('/:lang/succesfull', async function (request, response) {
+  app.get('/:lang/succes', async function (request, response) {
     const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
     const apiResponseJSON = await apiResponse.json()
     const langId = request.params.lang; 
 
     response.render("succes.liquid", { 
-      api: apiResponseJSON.data,
+      artworkData: apiResponseJSON.data,
       lang: langId
      })
   })
