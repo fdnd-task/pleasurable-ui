@@ -3,13 +3,13 @@
         <img src="/icon-radiostations" alt="">
         <h2>Radiostations</h2>
         <p>Ga naar de programma's</p>
-        {% for station in radiostations %} {% comment %} TO DO: koppelen serverjs {% endcomment %}
+        {% for bookmark in bookmarks %}
         <ul>
             <li>
-                <a href=""> 
+                <a href="/radio{{radiostation.name | url_encode | replace: '+', '%20'}}/programering">
                     <picture> 
-                        <source srcset="/assets/radio-id"> {% comment %} Forloop {% endcomment %}
-                        <img src="/assets/radio-id" alt="Veronica">
+                        <source srcset="https://fdnd-agency.directus.app/assets/{{ bookmark.show.radiostation.logo.id }} alt="{{ bookmark.show.radiostation.name }}">
+                        <img src="https://fdnd-agency.directus.app/assets/{{ bookmark.show.radiostation.logo.id }} alt="{{ bookmark.show.radiostation.name }}">
                     </picture>
                 </a>
             </li>
@@ -20,20 +20,23 @@
     <main>
         <img src="/icon-bookmarks" alt="">
         <h1>Bookmarks</h1>
-            {% for programma in programmas %} {% comment %} TO DO: koppelen serverjs {% endcomment %} {% comment %} Loads in the data out of the databse {% endcomment %} 
+            {% for bookmark in bookmarks %} {% comment %} TO DO: koppelen serverjs {% endcomment %} {% comment %} Loads in the data out of the databse {% endcomment %} 
                 {% comment %} setup for every show {% endcomment %}
+                {% comment %} <pre>{{ bookmarks | json }}</pre> {% endcomment %}
+                 {% comment %} {{ bookmark.show.headermobile.title  }} {% endcomment %}
                 <article> 
-                    <p>{{ programma.mh_shows_id.show.radiostation.name }}</p>
+                    <p>{{ bookmark.show.radiostation.name }}</p>
+                    <h4>{{ bookmark.headermobile.title }}</h4>
                     <picture>
-                        <source srcset="https://fdnd-agency.directus.app/assets/{{ programma.mh_shows_id.show.radiostation.logo }}">
-                        <img src="https://fdnd-agency.directus.app/assets/{{ programma.mh_shows_id.show.radiostation.logo }}" alt="">
+                        <source srcset="https://fdnd-agency.directus.app/assets/{{ bookmark.show.headermobile.id }} alt="{{ bookmark.show.headermobile.title }}">
+                        <img src="https://fdnd-agency.directus.app/assets/{{ bookmark.show.headermobile.id }} alt="{{ bookmark.show.headermobile.title }}">
                     </picture>
-                    <h3>{{ programma.mh_shows_id.show.name }}</h3>
+                    <h3>{{ bookmark.show.name }}</h3>
                     <dl> {% comment %} dl (description list) is a list inclusing terms and descriptions {% endcomment %}
                         <dt><img src="/icon-clock" alt="tijd"></dt> {% comment %} TO DO: vul de alt in bij de iconen zoals tijd en dj {% endcomment %}
-                        <dd>{{ programma.mh_shows_id.from }} - {{ programma.mh_shows_id.until }}</dd>
+                        <dd>{{ bookmark.from }} - {{ bookmark.until }}</dd>
                         <dt><img src="/icon-dj" alt="dj"></dt>
-                        <dd>{{ programma.mh_shows_id.show.users.0.mh_users_id.full_name }}</dd>
+                        <dd>{{ bookmark.show.name }}</dd>
                     </dl>
                 </article>
             {% endfor %}
