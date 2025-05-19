@@ -4,7 +4,7 @@
 Over het ontwerpen en bouwen van de pleasurable laag van interactie.
 
 ### Aanpak
-Vandaag ga je met je team convergeren en divergeren op het design van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide. Daarna ga je in Figma pleasurabel UI ontwerpen en animeren.
+Vandaag ga je met je team convergeren en divergeren op het design van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide. Daarna ga je in Figma pleasurable UI ontwerpen en animeren.
 
 <!--
 
@@ -79,7 +79,7 @@ De pleasurable laag is leuk om te ontwerpen en bouwen, met animaties en leuke of
 Maar een pleasurable interface zonder _functional_, _reliable_, en _usable_ laag werkt juist averechts. Een mooie website die niet goed werkt is ... aaaargh ... grrrr ... laat maar ...
 <br>Het is zelfs zo dat gebruikers een website die _niet goed_ te gebruiken is beter herinneren dan een goede website. Dit heet _negativity bias_; de neiging van mensen om meer aandacht te besteden aan een negatieve ervaring.
 
-### Voorbeelden van een pleasurable interfaces
+### Voorbeelden van pleasurable interfaces
 
 #### Blije button
 
@@ -109,7 +109,7 @@ De slideshow op Spotify.design maakt gebruik van verschillende slicke animaties,
 Deze sprint gaan we een aantal nieuwe interacties ontwerpen en uitwerken, die de UI meer pleasurable maken. We gaan oefenen met Figma en hoe je _daarin_ animaties kunt _prototypen_. Dit levert nog geen werkende code op, maar je kunt hiermee snel een bepaald idee overbrengen, bijvoorbeeld binnen je team of naar de opdrachtgever. 
 <!-- Misschien bedenk je wel iets dat je nog niet in code kunt maken, maar waar je wel in Figma een voorbeeld van kunt maken. -->
 
-Woensdag ga je met je team de prototypes bekjken en in code maken. Zorg ervoor dat je woensdag verschillende Figma protoypes af hebt om in feature branches aan de code te werken. 
+Woensdag ga je met je team de prototypes bekijken en in code maken. Zorg ervoor dat je woensdag verschillende Figma prototypes af hebt om in feature branches aan de code te werken. 
 <!-- Vrijdag via een pull request de beste implementatie kiest met je team. -->
 
 #### Bronnen
