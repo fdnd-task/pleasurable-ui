@@ -7,15 +7,13 @@ Client-side enhancements gebruiken voor een goede UI.
 
 
 
-<!-->
-## Aanpak
+<!--
 
-Itereren met kleine aanpassingen. 
-Snel prototypen met client-side scripting. 
+Teams gaan de Figma prototypes bekijken en beoordelen. 
 
-Misschien dev tools gebruiken om animaties te testen?
+Daarna uitdenken hoe ze dit  kunnen maken met een breakdown/pseudocode van de wireflow/screenflow < bespreken met docent
 
-Verschillende tafels aanbieden voor client-side scripting? 
-Dan moeten studenten kiezen. En dat kan ze aanwakkeren om iets te willen leren?
+Daarna feature branch maken en coderen.
+
 
 -->
