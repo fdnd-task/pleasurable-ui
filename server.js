@@ -83,7 +83,7 @@ app.get('/:lang/acquisition', async function (request, response) {
     const messageResponseJSON = await messageResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
     const langId = request.params.lang; //parameter voor de language switch
     
-    response.render("acquisitions.liquid", { 
+    response.render("acquisition.liquid", { 
       artworkData: apiResponseJSON.data, 
       messages: messageResponseJSON.data,
       id: 'karima-form',

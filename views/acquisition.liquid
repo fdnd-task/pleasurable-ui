@@ -1,5 +1,6 @@
 <main>
     <!-- Engelse versie acquisition pagina --> 
+    {% if lang == 'en' %}
 
     <section class="title">
         <h1 class="title-acquisition">Proposal for object acquisition</h1>
@@ -40,6 +41,7 @@
         {% endfor %}
     </section>
 
+    {% elsif lang == 'ar'%}
 
     <!-- Arabische form acquistion -->
         <section class="title">
@@ -81,13 +83,17 @@
                 {% endif %}
             {% endfor %}
         </section>
-            
+           
+{% else %}
+
         <!-- Error bij invoeren onbekende taal in URL -->
         <section class="title">
             <h1 class="title-acquisition">Page not found</h1>
             <p class="paragraph-acquisition">Looks like this page doesn’t exist in this language.</p>
             <a class="return-homepage" href="/">Homepage</a>    
     </section>
+
+{% endif %}
 
 </main>
 
