@@ -1,17 +1,21 @@
 .title {
-    border-bottom: solid 1px var(--color-default);
-    margin-bottom: 5em;
+    border-bottom: solid 1px var(--color-black);
     padding-bottom: 1em;
+    margin: 0 0 2em 0;
+   
+    @media (min-width: 1024px) {
+        margin: 3em 0 5em 0;
+    }
 }
 
 .title-acquisition {
-    
     font-family: var(--font-default);
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-xxl);
     font-weight: 300;
     text-transform: uppercase;
     padding: 1em 0 1em 0;
-    border-bottom: solid 1px var(--color-default);
+    border-bottom: solid 1px var(--color-black);
+
     @supports (display: flex) {
         display: flex;
         justify-content: center;
@@ -25,8 +29,7 @@
     font-size: var(--font-size-m);
     line-height: var(--line-height-text);
     letter-spacing: var(--letter-spacing);
-    padding: 2em;
-    text-align: right;
+    padding: 2em 0 2em 0;
     @supports (display: flex) {
         display: flex;
         justify-content: center;
@@ -57,10 +60,11 @@
 
 }
 
-h2 {
-    font-family: var(--font-default);
+.title-form-acquisition {
+font-size: var(--h2-font-size);
+    font-weight: var(--h2-font-weight);
     font-weight: 100 ;
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-l);
     margin-top: 2em;
     margin-bottom: 1.2em;
     place-content: center;
@@ -96,13 +100,13 @@ form input[type="text"] {
 .submit-button-en {
     display: flex;
     position: relative;
-    border: 2px solid var(--color-default);
+    border: 2px solid var(--color-black);
     font-family: var(--font-default);
-    background-color: var(--color-accent-yellow);
+    background-color: var(--color-yellow);
     padding: 1em 1.5em 1em 1.5em;
     text-transform: uppercase;
     font-size: var(--font-size-s);
-    color: var(--color-default);
+    color: var(--color-black);
     font-weight: 550;
     margin-top: 3em;
         &:hover {
