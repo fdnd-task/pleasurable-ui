@@ -79,7 +79,7 @@ De pleasurable laag is leuk om te ontwerpen en bouwen, met animaties en leuke of
 Maar een pleasurable interface zonder _functional_, _reliable_, en _usable_ laag werkt juist averechts. Een mooie website die niet goed werkt is ... aaaargh ... grrrr ... laat maar ...
 <br>Het is zelfs zo dat gebruikers een website die _niet goed_ te gebruiken is beter herinneren dan een goede website. Dit heet _negativity bias_; de neiging van mensen om meer aandacht te besteden aan een negatieve ervaring.
 
-Voorbeelden van een pleasurable interface zijn:
+### Voorbeelden van een pleasurable interfaces
 
 #### Blije button
 
