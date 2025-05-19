@@ -19,5 +19,7 @@ Daarna uitdenken hoe ze dit kunnen maken met een breakdown/pseudocode van de wir
 Daarna feature branch maken en coderen.
 
 
+https://frontendmasters.com/blog/reanimating-the-css-day-buttons/
+
 
 -->
