@@ -103,7 +103,7 @@ Deze button wil heel graag geklikt worden. Het komt een beetje naar de cursor to
 
 
 
-De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de vervolgpagina terug. 
+De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de detailpagina terug. 
 
 #### Slicke Slideshow
 
