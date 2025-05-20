@@ -6,8 +6,10 @@
     background-color: #464646;
     max-width: 100vw;
     position: relative;
+    
+    @media(min-width: 1024px){
     padding-top: 50px;
-
+    }
 }
 
 .back-button {
@@ -126,8 +128,10 @@
 
 /* Suggesties */
 
-h2 {
-            padding-left: 10px;
+.h2-suggesties {
+    padding-left: 10px;
+    font-family: var(--font-en-light);
+    font-weight:lighter;
 }
 
 .ul-suggesties {
