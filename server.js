@@ -91,7 +91,10 @@ app.get('/ar', async function (request, response) {
 
 //Route naar admin
 app.get('/admin', async function (request, response){
+
+
   response.render('admin.liquid', {
+
   });
 
 })
