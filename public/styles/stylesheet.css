@@ -61,7 +61,7 @@ body {
 }
 
 h1 {
-    font-family: var(--dmserifdisplay);
+    font-family: var(--primary-font);
     font-size: clamp(2rem, 3vw, 2rem);
 }
   .border{
@@ -94,7 +94,7 @@ h1 {
   }
 
 .btn {
-    font-family: var(--figtree);
+    font-family: var(--details-font);
     position: absolute;
     top: 46%;
     right: 10px;
@@ -105,6 +105,62 @@ h1 {
     font-size: 14px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+}
+
+.theme-blue{
+  --main-color:var(--color-rouwtaak1);
+}
+
+.theme-red{
+  --main-color:var(--color-rouwtaak2);
+}
+
+.theme-green{
+  --main-color:var(--color-rouwtaak3);
+}
+
+.theme-pink{
+  --main-color:var(--color-rouwtaak4);
+}
+.them-1, .them-blue {
+  --main-color:var(--color-rouwtaak1);
+  background-color: var(--color-rouwtaak1);
+  border: 1px solid var(--color-rouwtaak1);
+  &:hover {
+    background-color: var(--color-rouwtaak2);
+  }
+}
+
+.them-2, .them-red {
+  --main-color:var(--color-rouwtaak2);
+  background-color: var(--color-rouwtaak2);
+  border: 1px solid var(--color-rouwtaak2);
+  &:hover {
+    background-color: var(--color-rouwtaak3);
+  }
+}
+
+.them-3, .them-green {
+  --main-color:var(--color-rouwtaak3);
+  background-color: var(--color-rouwtaak3);
+  border: 1px solid var(--color-rouwtaak3);
+  &:hover {
+    background-color: var(--color-rouwtaak4);
+  }
+}
+
+.them-4, .them-pink {
+  --main-color:var(--color-rouwtaak4);
+  background-color: var(--color-rouwtaak4);
+  border: 1px solid var(--color-rouwtaak4);
+  &:hover {
+    background-color: var(--color-rouwtaak1);
+  }
+}
+
+
+.them-1,.them-2,.them-3,.them-4,.them-blue, .them-red, .them-green, .them-pink{
+    color: var(--white);
 }
 
 .spacing-s {
@@ -125,3 +181,5 @@ h1 {
     white-space: nowrap;
     border: 0;
 }
+
+
