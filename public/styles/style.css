@@ -47,9 +47,15 @@
         border: 3px solid var(--white);
         padding-left: 40px;
         padding-right: 40px;
+        text-decoration: none;
+        display: block;
+        position: absolute;
+        top: 93vh;
         &:hover {
-            transform: scale(1.2) translateY(-20%);
-            transition: transform 0.3s ease-in-out;
+            transform: scale(1.2);
+            transition: transform 0.2s ease-in-out;
+            background-color: var(--white);
+            color: var(--black);
         }
     }
 }
