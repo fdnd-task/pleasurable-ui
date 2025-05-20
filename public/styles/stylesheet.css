@@ -44,13 +44,6 @@
 
 /* spacing */
 
-
-
-body {
-    background-color: var(--background-color);
-}
-
-
 *,
 *::before,
 *::after {
@@ -64,8 +57,12 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: var(--black);
+  background-color: var(--background-color);
   line-height: 1.5;
+
+h1 {
+    font-family: var(--dmserifdisplay);
+    font-size: clamp(2rem, 3vw, 2rem);
 }
   .border{
     border: 0.1em solid var(--secondary-color);
@@ -96,23 +93,18 @@ body {
     color: var(--color-gray);
   }
 
-
 .btn {
-
-
-    font-family: var(--details-font);
-main
+    font-family: var(--figtree);
+    position: absolute;
+    top: 46%;
+    right: 10px;
     padding: 10px;
-    background: #6aa6d8;
     color: white;
     border: none;
     border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
-    transition: background 0.3s ease;
-    &:hover {
-        background: #5b95c6;
-    }
+    transition: background 0.3s ease-in-out;
 }
 
 .spacing-s {
@@ -120,56 +112,16 @@ main
     height: 10px;
 }
 
-.theme-blue{
-    --main-color:var(--color-rouwtaak1);
-  }
-  .theme-red{
-    --main-color:var(--color-rouwtaak2);
-  }
-  .theme-green{
-    --main-color:var(--color-rouwtaak3);
-  }
-  .theme-pink{
-    --main-color:var(--color-rouwtaak4);
-  }
-  .them-1, .them-blue {
-    --main-color:var(--color-rouwtaak1);
-    background-color: var(--color-rouwtaak1);
-    border: 1px solid var(--color-rouwtaak1);
-    &:hover {
-      background-color: var(--color-rouwtaak2);
-    }
-  }
-  
-  .them-2, .them-red {
-    --main-color:var(--color-rouwtaak2);
-    background-color: var(--color-rouwtaak2);
-    border: 1px solid var(--color-rouwtaak2);
-    &:hover {
-      background-color: var(--color-rouwtaak3);
-    }
-  }
-  
-  .them-3, .them-green {
-    --main-color:var(--color-rouwtaak3);
-    background-color: var(--color-rouwtaak3);
-    border: 1px solid var(--color-rouwtaak3);
- 
-    &:hover {
-      background-color: var(--color-rouwtaak4);
-    }
-  }
-  
-  .them-4, .them-pink {
-    --main-color:var(--color-rouwtaak4);
-    background-color: var(--color-rouwtaak4);
-    border: 1px solid var(--color-rouwtaak4);
+/* This class makes sure the content u wrote under this class is only visible for screenreaders */
 
-    &:hover {
-      background-color: var(--color-rouwtaak1);
-    }
-  }
-  .them-1,.them-2,.them-3,.them-4,.them-blue, .them-red, .them-green, .them-pink{
-      color: var(--white);
-  }
-
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
