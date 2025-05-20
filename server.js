@@ -182,11 +182,62 @@ app.get('/bookmarks', async function (req, res) {
   res.render('bookmarks.liquid')
 })
 
+
+// Dylan. Kan jij checken of de route klopt en anders ff aanpassen? zelfde bij de delete please
+app.post('/radio/:name/programmering/:id/bookmark', async (req, res) => {
+  try {
+    const directusResponse = await fetch('https://fdnd-agency.directus.app/items/mh_messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: 'bookmarked',
+        for: req.params.id, //id van show die je wilt marken
+        from: '1G',
+      })
+    });
+
+    if (!directusResponse.ok) {
+      throw new Error('Directus response error!!');
+    }
+
+    res.redirect(303, `/radio/${encodeURIComponent(req.params.name)}/programmering`);
+  } catch (error) {
+    console.error('Error saving bookmark:', error);
+    res.status(500).send('Bookmark error');
+  }
+});
+
+
+
+app.post('/radio/:name/programmering/:id/unmark', async (req, res) => {
+  try {
+    const markedResponse = await fetch(`https://fdnd-agency.directus.app/items/mh_messages?filter={"_and":[{"from": "1G"},{"for": ${req.params.id}}]}`); // filter op 1g en de id van e show die je wilt unmarken
+    const markedJSON = await markedResponse.json();
+
+    if (markedJSON.data.length > 0) {
+      const markedId = markedJSON.data[0].id;
+      // als de show al is gemarked word deze verwijderd en unmarked met een delete functie
+
+      await fetch(`https://fdnd-agency.directus.app/items/mh_messages/${markedId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    res.redirect(303, `/radio/${encodeURIComponent(req.params.name)}/programmering`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Unmark failed!");
+  }
+});
+
+
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
-  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
+  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nYippie`)
 })
