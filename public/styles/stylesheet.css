@@ -107,6 +107,17 @@ h1 {
     transition: background 0.3s ease-in-out;
 }
 
+.btn2 {
+  font-family: var(--details-font);
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
 .theme-blue{
   --main-color:var(--color-rouwtaak1);
 }
