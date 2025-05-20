@@ -120,10 +120,15 @@
     font-family: var(--font-en-bold);
     text-align: center;
     line-height: 1;
-  
   }
   
+
+  .tickets-btn:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
   
+
   .venues-btn {
     display: inline-flex;
     align-items: center;
