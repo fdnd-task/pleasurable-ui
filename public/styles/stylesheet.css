@@ -60,6 +60,14 @@ body {
   line-height: 1.5;
 }
 
+  img,svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+
+
 h1 {
     font-family: var(--primary-font);
     font-size: clamp(2rem, 3vw, 2rem);
@@ -173,6 +181,9 @@ h1 {
 .them-1,.them-2,.them-3,.them-4,.them-blue, .them-red, .them-green, .them-pink{
     color: var(--white);
 }
+ .border-black{
+    border-color: var(--black);
+  }
 
 .spacing-s {
     display: block;
