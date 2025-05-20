@@ -23,28 +23,9 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// GET routes
+// GET routes 
 
-
-
-// Home route
-app.get('/', async (req, res) => {
-  try {
-    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects');
-    const apiResponseJSON = await apiResponse.json();
-
-    res.render('index.liquid', {
-      artworkData: apiResponseJSON.data
-    });
-  } catch (error) {
-    console.error('Fout bij ophalen van data:', error);
-    res.status(500).send('Er ging iets mis bij het laden van de homepage.');
-  }
-});
-
-
-
-app.get('/en', async function (request, response) {
+app.get('/', async function (request, response) {
 
   const artworkURL = 'https://fdnd-agency.directus.app/items/fabrique_art_objects'
   const artworkFetch = await fetch(artworkURL)
@@ -55,86 +36,74 @@ app.get('/en', async function (request, response) {
 
 })
 
+app.get('/details/:id', async function (request, response) {
+  // console.log("GET detail pagina met een id "+request.params.id)
+
+  // Const  de links naar de verschillende data
+  // Hier moet je en fetch doen die de data van het artwork ophaalt
+  // Plus uit een andere tabel halen of het artwork een like heeft!
+
+  const artworkURL = `https://fdnd-agency.directus.app/items/fabrique_art_objects?filter[id][_eq]=${request.params.id}&fields=*,fabrique_users_fabrique_art_objects.*`;
+  const artworkFetch = await fetch(artworkURL)
+  const artworkJSON = await artworkFetch.json()
+
+  const likedArtworks = `https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter={"fabrique_users_id":3}`
+  const likedArtworksFetch = await fetch(likedArtworks)
+  const likedArtworksJSON = await likedArtworksFetch.json()
+
+  // console.log(artworkJSON.data)
+
+  response.render('details.liquid', {
+    artworkData: artworkJSON.data,
+    likedArtworks: likedArtworksJSON.data
+  })
+})
+//  main
+
+app.get('/acquisition', async function (request, response) {
+  response.render('acquisition.liquid')
+})
+
+app.get('/en', async function (request, response) {
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+  const apiResponseJSON = await apiResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
+  
+  response.render("index.liquid", { 
+      artwork: apiResponseJSON.data,
+      lang: 'en'
+  })
+})
+
+
+
 // Route voor de homepagina in het arabisch
 app.get('/ar', async function (request, response) {
   const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
-  const apiResponseJSON = await apiResponse.json();
-
-  response.render("index-ar.liquid", {
-      artwork: apiResponseJSON.data,
-   })
-})
-
-// Detail-page
-app.get('/details/:id', async function (request, response) {
-  const artworkId = request.params.id;
-  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate,artist,materials,recordType`
-);
-
-  const apiResponseJSON = await apiResponse.json();
-
-  response.render('details.liquid', {object: apiResponseJSON.data});
-})
-
-app.get('/:lang/acquisition', async function (request, response) {
-    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
-    const apiResponseJSON = await apiResponse.json()
-    const messageResponse = await fetch("https://fdnd-agency.directus.app/items/fabrique_messages/?filter={%22for%22:%20{%22_contains%22:%20%22Karima_%22}}")
-    const messageResponseJSON = await messageResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-    const langId = request.params.lang; //parameter voor de language switch
-    
-    response.render("acquisition.liquid", { 
-      artworkData: apiResponseJSON.data, 
-      messages: messageResponseJSON.data,
-      id: 'karima-form',
-      lang: langId
-    })
-  })
-
-  app.get('/:lang/succes', async function (request, response) {
-    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
-    const apiResponseJSON = await apiResponse.json()
-    const langId = request.params.lang; 
-
-    response.render("succes.liquid", { 
-      artworkData: apiResponseJSON.data,
-      lang: langId
-     })
-  })
-
+  const apiResponseJSON = await apiResponse.json(); 
   
-app.get('/tickets', async (req, res) => {
-  // Mock data for now; replace with API calls as needed
-  const museums = [
-    {
-      id: 1,
-      name: "National Museum of Qatar",
-      image: "/assets/nmoq.jpg",
-      description: "Your ticket covers admission to the museum and all exhibitions.",
-      exhibitions: [
-        "Ultraleggera: A Design Journey...",
-        "LATINOAMERICANO | Modern and Contemporary Art..."
-      ],
-      tickets: [
-        { label: "Adult Non-resident of Qatar", price: 25 },
-        { label: "Child (16 and under)",      price:  0 },
-        { label: "Student Resident of Qatar",  price:  0 }
-      ]
-    }
-
-  ]
-
-  res.render('tickets.liquid', { museums })
+  response.render("index-ar.liquid", { 
+      artwork: apiResponseJSON.data,
+      lang: 'ar'
+   }) 
 })
 
 
 
 //Route naar admin
 app.get('/admin', async function (request, response){
+
+  // Haal gelikete artworks op van gebruiker met id 3
+  const likedArtworksURL = `https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter={"fabrique_users_id":3}&fields=id,fabrique_art_objects_id.id,fabrique_art_objects_id.title,fabrique_art_objects_id.artist,fabrique_art_objects_id.image`
+  const likedArtworksFetch = await fetch(likedArtworksURL)
+  const likedArtworksJSON = await likedArtworksFetch.json()
+
   response.render('admin.liquid', {
+    likedArtworks: likedArtworksJSON.data
   });
 
 })
+
+
 
 // POST for like
 
@@ -176,7 +145,7 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   const result = await data.json();
 
   console.log("Hier is een like verwijderd met id nummer " + request.params.id)
-
+  
   await fetch(deleteUrl, {
     method: 'DELETE',
   });
@@ -184,44 +153,6 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   // Redirect terug naar de detailpagina
   response.redirect(303, '/details/' + request.params.id);
 });
-
-//POST routes
-let forms = [] //array voor het opslaan van formulieren
-
-app.post('/acquisition', async function (request, response) {
-
-    await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
-      method: "POST",
-      body: JSON.stringify({ //gegevens die  naar de server wordt gestuurd, omzetten in een JSON-string.
-        for: "Karima_" + request.body.name,  // De naam van de gebruiker, toegevoegd aan een vaste string "Karima_" voor het alleen weergeven van mijn posts.
-        from: request.body.email,  // E-mail van de gebruiker
-        text: request.body.description,  // De beschrijving die door de gebruiker is ingevoerd in het formulier
-      }),
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
-      }, //request met post, met headers geef je aan wat er is meegegeven, je geeft informatie over wat je in de request heb meegegeven.
-    });
-
-    response.redirect(303, '/en/succesfull') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
-
-  })
-
-  app.post('/ar/acquisition', async function (request, response) {
-
-    await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
-      method: "POST",
-      body: JSON.stringify({
-        for: "Karima_" + request.body.name,
-        from: request.body.email,
-        text: request.body.description,
-      }),
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
-      },
-    });
-
-    response.redirect(303, '/ar/succesfull')
-  })
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
