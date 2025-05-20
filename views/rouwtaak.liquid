@@ -1,5 +1,5 @@
 {% render 'partials/head.liquid' %}
-{% include  'partials/header.liquid' %}
+{% render  'partials/header.liquid' %}
 
  <section class="hero">
     <img class="hero-img" src="/photos/rouwtaak-{{ taskObject.theme }}.svg">
@@ -16,7 +16,7 @@
     <article class="exerc-card"> 
         <figure class="exerc-image-container">
           <img src="https://fdnd-agency.directus.app/assets/{{ exercise.image }}?width=200&height=200" alt="Task Image" class="exerc-image">
-          <a class="btn them-{{ taskObject.theme }}">Start oefening</a>
+          <a href="/exercise/{{ exercise.id }}" class="btn them-{{ taskObject.theme }}">Start oefening</a>
         </figure>
 
       <section class="exerc-content">
