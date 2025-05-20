@@ -97,10 +97,10 @@ app.get('/rouwtaak-demo', async function (request, response) {
 
 // get route voor de chat pagina
 app.get ('/chat', async function (request, response){
-  const chatResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages?&limit=-1');
+  const chatResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages?fields=from,text,date_created&filter[exercise][_eq]=1&limit=-1');
   const chatResponseJson = await chatResponse.json();
 
-  const reversedChat = chatResponseJson.data.reverse();
+  // const reversedChat = chatResponseJson.data.reverse();
 
   response.render('chat.liquid', {
     chat: chatResponseJson.data,
