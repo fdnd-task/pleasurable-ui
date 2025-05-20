@@ -85,6 +85,18 @@ app.get('/exercise/:id', async function (request, response) {
   }
 });
 
+// get route voor de chat pagina
+app.get ('/chat', async function (request, response){
+  const chatResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages?fields=from,text,date_created&filter[exercise][_eq]=1&limit=-1');
+  const chatResponseJson = await chatResponse.json();
+
+  // const reversedChat = chatResponseJson.data.reverse();
+
+  response.render('chat.liquid', {
+    chat: chatResponseJson.data,
+  })
+})
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
