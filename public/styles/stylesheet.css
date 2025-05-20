@@ -110,7 +110,7 @@ h1 {
 .btn2 {
   font-family: var(--details-font);
   padding: 10px;
-  color: white;
+  color: var(--white);
   border: none;
   border-radius: 20px;
   font-size: 14px;
