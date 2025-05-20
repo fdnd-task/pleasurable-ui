@@ -20,7 +20,11 @@
             <h3>{{ chat.from }}</h3>
 
             {% comment %} hier ook aangepast {% endcomment %}
-            <time class="message-date" datetime="{{ chat.date | date: "%d %B" }}">
+            <time 
+                class="message-date" 
+                datetime="{{ chat.date_created }}">
+                {{ chat.date_created | date: "%-d %B %Y, %H:%M" }}
+                </time> 
             <p>{{ chat.text }}</p>
             
             {% if chat.from == "Mikiyas" %}
