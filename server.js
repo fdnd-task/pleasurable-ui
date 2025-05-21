@@ -184,7 +184,8 @@ app.get('/bookmarks', async function (req, res) {
   const bookmarkResponse = await fetch(bookmarkUrl);
   const bookmarkResponseJSON = await bookmarkResponse.json();
 
-  
+  const radioData = radiostationsResponseJSON.data;
+
 
   const { data } = bookmarkResponseJSON;
   // console.log(data);
@@ -194,7 +195,8 @@ app.get('/bookmarks', async function (req, res) {
   }
 
   res.render('bookmarks.liquid', {
-    bookmarks: data
+    bookmarks: data,
+    radioData: radioData
   });
 });
 

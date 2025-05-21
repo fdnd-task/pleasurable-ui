@@ -1,19 +1,21 @@
+{{ radioData | json }}
+
 <div>
     <nav>
         <img src="/icon-radiostations" alt="">
         <h2>Radiostations</h2>
         <p>Ga naar de programma's</p>
-        {% for bookmark in bookmarks %}
-        <ul>
-            <li>
-                <a href="/radio{{radiostation.name | url_encode | replace: '+', '%20'}}/programering">
-                    <picture> 
-                        <source srcset="https://fdnd-agency.directus.app/assets/{{ bookmark.show.radiostation.logo.id }} alt="{{ bookmark.show.radiostation.name }}">
-                        <img src="https://fdnd-agency.directus.app/assets/{{ bookmark.show.radiostation.logo.id }} alt="{{ bookmark.show.radiostation.name }}" width="250">
-                    </picture>
-                </a>
-            </li>
-        </ul>
+        {% for oneradio in radioData limit: 3 %}
+            <ul>
+                <li>
+                    <a href="/radio{{radiostation.name | url_encode | replace: '+', '%20'}}/programering">
+                        <picture> 
+                            <source srcset="https://fdnd-agency.directus.app/assets/{{ oneradio.logo }} alt="{{ oneradio.name }}">
+                            <img src="https://fdnd-agency.directus.app/assets/{{ oneradio.logo }} alt="{{ oneradio.name }}" width="250">
+                        </picture>
+                    </a>
+                </li>
+            </ul>
         {% endfor %}
     </nav>
 
