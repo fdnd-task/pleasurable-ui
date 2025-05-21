@@ -4,6 +4,7 @@ main {
   gap: 1rem;
   padding: 1rem;
 }
+
 header {
     display: flex; 
     flex-direction: column; 
@@ -13,7 +14,10 @@ header {
     width: 100vw;
     box-sizing: border-box;
     color: var(--white);
+    position: relative; 
+
   }
+
   
   header ul.inline {
     display: flex;
@@ -40,18 +44,22 @@ header {
       display: none; 
       position: absolute; 
       top: 15%; 
+      background-color: var(--background-color);
+      top: 100%; 
+      left: 0;
+      width: 100vw;
       background-color: var(--black);
       margin-top: 0;
       grid-template-rows: auto;
       justify-content: center;
       border-radius: 0 0 10px 10px;
       z-index: 1000; 
-  
-  
     }
+    
   
     .menu.open {
       display: grid;
+      min-height: 10px; 
     }
     
     .menu ul {
@@ -162,7 +170,6 @@ header {
   .custom-progress::-moz-progress-bar {
     background-color: var(--black);
   }
-
 
 
   .photo-cont {
