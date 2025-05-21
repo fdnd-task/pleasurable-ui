@@ -21,13 +21,13 @@ Deel jouw Figma prototypes in Teams, bekijk alle gedeelde prototypes van anderen
 
 <!-- Daarna uitdenken hoe ze dit kunnen maken met een breakdown/pseudocode van de wireflow/screenflow < bespreken met docent (hier kunnen we studenten helpen met client-side scripting, hoe pak je dit nou aan in js + css? Over het algemeen 'gewoon' met het 3 stappenplan van js. Dus niet gaan googlen nu of llm-en, maar zelf bedenken) -->
 
-Maak met je team een breakdown van de prototpes die jullie hebben gemaakt. Bespreek hoe je de pleasurable ui kan bouwen met client-side scripting. Je kan een schets maken met aantekeningen, of je kan het in het protoype in Figma aantekeningen maken. 
+Maak met je team een breakdown van de prototypes die jullie hebben gemaakt. Bespreek hoe je de pleasurable UI kan bouwen met client-side scripting. Je kan een schets maken met aantekeningen, of je kan in het prototype in Figma aantekeningen maken. 
 
-Bedenk in detail hoe je de aniamtie kan maken met bv een key frames in CSS, en wat voor easings je nodig hebt. 
+Bedenk in detail hoe je de animaties kunt maken met bijvoorbeeld keyframes in CSS, en wat voor _easings_ je nodig hebt. 
 
-Tip: Gebruik het 3 stappenplan van javascript om op basis van een event iets te laten gebeuren. 
+Tip: Gebruik het 3 stappenplan van JavaScript om op basis van een event iets te laten gebeuren. 
 
-Als jullie verschillende breakdowns hebben gemaakt komt een docent langs om jullie technische plan te bespreken en te helpen. 
+Als jullie verschillende breakdowns hebben gemaakt, komt een docent langs om jullie technische plan te bespreken en te helpen. 
 
 
 ## Prototypes uitwerken in feature branches

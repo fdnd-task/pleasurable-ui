@@ -136,7 +136,8 @@ Gebruik de volgende bronnen om onderstaande opdrachten te maken.
 
 - [Animation basics in Figma @ YouTube](https://www.youtube.com/watch?v=02fO4qVnbc0) + [Figma design file](https://www.figma.com/community/file/1198305561541816622)
 - [Mastering Animations in Figma by Building 7 Common UI Animations](https://www.jurn.io/figma-animation-examples/) + [Figma design file](https://www.figma.com/community/file/866532393298219995)
-- [Prototype animations](https://help.figma.com/hc/en-us/articles/360040522373-Prototype-animations)
+- [Create prototypes @ Figma](https://help.figma.com/hc/en-us/sections/360006534454-Create-prototypes)
+- [Prototype animations @ Figma](https://help.figma.com/hc/en-us/articles/360040522373-Prototype-animations)
 - Voor inspiratie: [UI Interactions and Animations Roundups @ Codrops](https://tympanus.net/codrops/category/articles/ui-interactions-animations-roundups/)
 - Uit Sprint 6: [How to Apply Disney’s 12 Principles of Animation to UI Design](https://www.interaction-design.org/literature/article/ui-animation-how-to-apply-disney-s-12-principles-of-animation-to-ui-design)
 
