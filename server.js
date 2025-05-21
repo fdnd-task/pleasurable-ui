@@ -69,7 +69,7 @@ app.get('/exercise/:id', async function (request, response) {
   try {
     const exerciseId = request.params.id;
 
-    const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exerciseId}"}&limit=1`);
+    const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exerciseId}"}&limit=-1`);
     const exerciseResponseJSON = await exerciseResponse.json();
 
     const countResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages?aggregate[count]=*&filter={"exercise":{"_eq":${exerciseId}}}`);
