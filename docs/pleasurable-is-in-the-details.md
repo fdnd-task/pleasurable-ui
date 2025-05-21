@@ -1,7 +1,7 @@
 # Pleasurable User Interface
 
 ## Pleasurable is in the details
-Over het ontwerpen en bouwen van de pleasurable laag van interactie.
+Over het ontwerpen van de pleasurable laag van interactie.
 
 ### Aanpak
 Vandaag ga je met je team convergeren en divergeren op het design van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide. Daarna ga je in Figma pleasurable UI ontwerpen en animeren.
@@ -162,3 +162,6 @@ Maar er zijn ook interacties die via `GET` requests gaan. Denk aan filteren en s
 <!-- Hiervoor heb je al kort met multi-page View Transitions gespeeld, maar in het ontwerp kunnen we ook wat meer tijd steken.-->
 
 Kies een interactie uit je project of bedenk een nieuwe. Maak een prototype met animatie in Figma met een pleasurable animatie. Gebruik de huisstijl van de opdrachtgever. 
+
+
+Woensdag gaan we deze prototype uitwerken in code, dus zorg dat je dan drie ontwerpen klaar hebt staan.
