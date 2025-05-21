@@ -49,12 +49,14 @@ app.get('/rouwtaak/:id', async function (request, response) {
     const specificTaskData = await specificTaskResponse.json();
     const specificExerciseData = await specificExerciseRes.json()
     const taskObject = Array.isArray(specificTaskData.data) ? specificTaskData.data[0] : specificTaskData.data;
+    const exerciseObject = Array.isArray(specificExerciseData.data) ? specificExerciseData.data[0] : specificExerciseData.data;
 
     response.render('rouwtaak.liquid', {
       title: 'rouwtaak',
       tasks: tasksData.data,
       exerc: specificExerciseData.data,
-      taskObject
+      taskObject,
+      exerciseObject
     });
   } catch (error) {
     console.error("Something Wrong in the index page check this",error);
