@@ -6,7 +6,7 @@ Client-side enhancements gebruiken voor een goede UI.
 ### Aanpak
 Vandaag gaan we de drie prototypes die je de afgelopen dagen hebt gemaakt bekijken met elkaar. Daarna ga je bedenken hoe je jouw prototypes kunt maken, en ze vervolgens uitwerken in een verschillende feature branches.
 
-## Prototypes bekijken
+## Prototypes delen en bekijken
 
 <!-- Ook naar elkaars prototype kijken, misschien hiermee beginnen? Daarna in teams verder. -->
 <!-- Teams gaan de Figma prototypes bekijken en beoordelen. -->
@@ -17,11 +17,11 @@ Deel jouw Figma prototypes in Teams, bekijk alle gedeelde prototypes van anderen
 
 - [Share files and prototypes @ Figma](https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes)
 
-## Prototypes 
+## Prototypes ontleden en uitschetsen
 
 <!-- Daarna uitdenken hoe ze dit kunnen maken met een breakdown/pseudocode van de wireflow/screenflow < bespreken met docent (hier kunnen we studenten helpen met client-side scripting, hoe pak je dit nou aan in js + css? Over het algemeen 'gewoon' met het 3 stappenplan van js. Dus niet gaan googlen nu of llm-en, maar zelf bedenken) -->
 
-## Prototypes uitwerken
+## Prototypes uitwerken in feature branches
 
 Maak individueel voor elk van je drie prototypes een nieuwe feature branch aan, waarin je de code voor jouw idee uitwerkt in jullie project. Je hoeft hier geen issues voor aan te maken.
 
