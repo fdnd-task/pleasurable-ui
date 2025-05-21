@@ -17,11 +17,11 @@ Deel jouw Figma prototypes in Teams, bekijk alle gedeelde prototypes van anderen
 
 - [Share files and prototypes @ Figma](https://help.figma.com/hc/en-us/articles/360040531773-Share-files-and-prototypes)
 
-## Breakdown maken van de Prototypes
+## Breakdowns maken van de Prototypes
 
 <!-- Daarna uitdenken hoe ze dit kunnen maken met een breakdown/pseudocode van de wireflow/screenflow < bespreken met docent (hier kunnen we studenten helpen met client-side scripting, hoe pak je dit nou aan in js + css? Over het algemeen 'gewoon' met het 3 stappenplan van js. Dus niet gaan googlen nu of llm-en, maar zelf bedenken) -->
 
-Maak met je team een breakdown van de prototypes die jullie hebben gemaakt. Bespreek hoe je de pleasurable UI kan bouwen met client-side scripting. Je kan een schets maken met aantekeningen, of je kan in het prototype in Figma aantekeningen maken. 
+Maak met je team breakdown van de prototypes die jullie hebben gemaakt. Bespreek hoe je de pleasurable UI kan bouwen met client-side scripting. Je kan een schets maken met aantekeningen, of je kan in het prototype in Figma aantekeningen maken. 
 
 Bedenk in detail hoe je de animaties kunt maken met bijvoorbeeld keyframes in CSS, en wat voor _easings_ je nodig hebt. 
 
