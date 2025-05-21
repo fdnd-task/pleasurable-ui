@@ -40,17 +40,20 @@ app.get('/', async function (request, response) {
 })
 
 // This is the rouwtaakpage page route where you can responsively switch Rouwtaak from the header
-app.get('rouwtaak/:id', async function (request, response) {
+app.get('/rouwtaak/:id', async function (request, response) {
   try {
     const taskId = request.params.id;
     const specificTaskResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_task/?filter={"id":${taskId}}`);
+    const specificExerciseRes = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?filter={"task":${taskId}}`)
     
     const specificTaskData = await specificTaskResponse.json();
+    const specificExerciseData = await specificExerciseRes.json()
     const taskObject = Array.isArray(specificTaskData.data) ? specificTaskData.data[0] : specificTaskData.data;
 
     response.render('rouwtaak.liquid', {
       title: 'rouwtaak',
       tasks: tasksData.data,
+      exerc: specificExerciseData.data,
       taskObject
     });
   } catch (error) {
@@ -82,15 +85,15 @@ app.get('/exercise/:id', async function (request, response) {
   }
 });
 
-app.get('/rouwtaak-demo', async function (request, response) {
-  const taskResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_task/?filter={"id":1}')
-  const exerciseResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_exercise/?filter={"task":1}')
-  const taskResponseJSON = await taskResponse.json()
-  const exerciseResponseJSON = await exerciseResponse.json()
+// get route voor de chat pagina
+app.get ('/chat', async function (request, response){
+  const chatResponse = await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages?fields=from,text,date_created&filter[exercise][_eq]=1&limit=-1');
+  const chatResponseJson = await chatResponse.json();
 
-  response.render('rouwtaak-demo.liquid', {
-    task: taskResponseJSON.data,
-    exercise: exerciseResponseJSON.data
+  // const reversedChat = chatResponseJson.data.reverse();
+
+  response.render('chat.liquid', {
+    chat: chatResponseJson.data,
   })
 })
 
