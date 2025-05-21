@@ -1,0 +1,29 @@
+.art-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+
+    li {
+        list-style-type: none;
+    }
+
+    img {
+        height: 400px;
+        transition: ease-in-out 0.3s;
+    }
+
+    img:hover {
+        transform: scale(0.95);
+    } 
+}  
+
+.post-like {
+    button {
+        background: none;
+        border: none;
+        color: black;
+    }
+}
