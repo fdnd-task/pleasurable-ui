@@ -69,7 +69,7 @@ app.get('/exercise/:id', async function (request, response) {
   try {
     const exerciseId = request.params.id;
 
-    const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exerciseId}"}&limit=-1`);
+    const exerciseResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_exercise/?fields=*.*&filter={"id":"${exerciseId}"}&limit=1`);
     const exerciseResponseJSON = await exerciseResponse.json();
 
     const countResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages?aggregate[count]=*&filter={"exercise":{"_eq":${exerciseId}}}`);
@@ -90,7 +90,7 @@ app.get('/exercise/:id', async function (request, response) {
 // get route voor de chat pagina
 app.get ('/community-drops/:id', async function (request, response){
   const chatId = request.params.id;
-  const chatIdResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages/?fields=*.*&filter={"exercise":"${chatId}"}&limit=1`);
+  const chatIdResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages/?fields=*.*&filter={"exercise":"${chatId}"}&limit=-1`);
   const chatResponseJson = await chatIdResponse.json();
 
   // const reversedChat = chatResponseJson.data.reverse();
