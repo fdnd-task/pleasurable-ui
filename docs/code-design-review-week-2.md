@@ -1,35 +1,58 @@
 # Pleasurable User Interface
 
-Deze week heb je drie interacties die de UI meer pleasurable maken ontworpen in Figma. Vervolgens ben je deze prototypes in feature-branches in code gaan uitwerken.
+Deze week heb je drie interacties ontworpen in Figma die de UI meer pleasurable maken. Vervolgens ben je deze prototypes in feature branches in gaan uitwerken in code.
 
 ## Code/Design review - Week 2
-Vandaag ga je voor elk van de drie feature branches een pull request aanmaken. Deze pull requests ga je in het team met elkaar reviewen en ga je samen bepalen welke variaties gemerged gaan worden met de main branch. 
+Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed is zijn dat er drie) een pull request aanmaken. Je gaat vervolgens met elkaar de verschillende experimenten en variaties waar het team deze week aan heeft gewerkt vergelijken en beoordelen. Je bepaalt met elkaar welke 3 branches jullie gaan mergen met de main.  
 
 ## Aanpak
 
+**Stap 1: Individueel: Rond de drie feature branches af voor een PR**
+Elk teamlid heeft als het goed is drie feature branches aangemaakt voor de verschillende interacties die zijn ontworpen. Zorg dat alle aanpassingen live staan en maak een pull request aan voor alle drie de branches. 
 
-Beoordeel en vergelijk verschillende experimenten en variaties van features waar het team aan heeft gewerkt.
+**Stap 2: Met het team: PR template aanvullen**
+Jullie hebben eerder een pull qequest template gemaakt als team. Pak deze er nog eens bij. Is deze nog volledig? Missen jullie onderdelen waar op gereviewd moet worden? Wat maakt een pull request goed? Pas dit aan. 
 
-<!--
-Plan:
-- Drie goede pull requests klaarzetten van de drie verschillende feature branches van deze week; wat maakt een goede pull request?
-- Ontwerpkeuzes overbrengen binnen je team (oefenen voor volgende week met de opdrachtgever) -> in je pull request je prototype laten zien + waarom dit goed is (feedback, feedforward, gestalt principes, Disney animatie principes, perceived performance, wat maakt dit pleasurable, dat soort dingen)
-- Pull Request template misschien herzien? Hoe heb je rekening gehouden met Responsive Design? Hoe met Accessibility? Hoe met Performance? En hoe met Progressive Enhancement? Welke tests heb je al gedaan, welke verbetering is er ten op zichte van daarvoor, en welke verwachtingen heb je nog van je reviewers? Misschien extra aandacht aan een bepaald onderdeel, waar je een second opinion op wilt?
-- Prototype meenemen in het PR
+Word er bijvoorbeeld gekeken naar:
+- **R**eponsive design?
+- **A**ccessibility?
+- **P**erformance?
+- **P**rogressive **E**nhancement?
+- Welke tests er al gedaan zijn?
+- Heb je ergens twijfels over? Vraag om een second opinion! 
 
-Daarna:
-- Pull Requests met het hele team reviewen, en samen tot de beste features komen. 
-- Geef duidelijk aan wat jullie hebben gedaan met een PR. Laat weten waarom je het wel of niet hebt gemerged. 
--->
+**Stap 3: Individueel: Drie PR's schrijven**
+Schrijf nu individueel 3 pull requests voor elke feature branch. Gebruik het PR om te oefenen voor volgende week met de opdrachtgever. Leg je ontwerpkeuzes uit aan je teamgenoten. Neem in je pull request screenshots op van wat je hebt gemaakt. Link ook naar je ontwerp in Figma. Leg vervolgens uit welke ontwerpkeuzes je hebt gemaakt op elke laag van de [Hierarcy van User Needs](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/pleasurable-is-in-the-details.md#hierarchy-of-user-needs). Dit kan er bijvoorbeeld zo uit komen te zien:
+
+In de usable laag kun je bijvoorbeeld je ontwerpkeuzes onderbouwen met een duidelijke visuele hiërarchie, door Gestalt principes toe gepast te hebben en door het gebruik maken van goed ontworpen feedback en feedforward.
+
+**Stap 4: Met het team: Review alle pull requests**
+Nu ga je met elkaar alle pull requests reviewen. Pak één laptop waarop jullie het pull request bekijken en typ op een andere laptop de feedback. Omschrijf duidelijk wat er volgens jullie goed gaat, nog ontbreekt en wat beter kan. Een review als 'Ziet er goed uit' is niet voldoende. Geef duidelijk aan waar je naar hebt gekeken, wat je hebt getest en wat er volgens jou nog beter kan (of goed gaat). 
+
+**Stap 5: Met het team: Bepaal welke branches er gemerged gaan worden**
+Nu jullie alle pull request hebben bekeken en gereviewd, gaan julie met elkaar bepalen welke drie branches met de main gemerged kunnen worden. Het kan ook zijn dat jullie meerdere feature branches met elkaar willen combineren.  
+
+**Stap 6: Met het team: Bekijk de merge van een ander team**
+Kies een andere groep uit die alle bovenstaande stappen heeft doorlopen. Bekijk of het voor jullie als team navolgbaar is welke feedback ze hebben gegeven op de pull requests en voor welke feature branches ze zijn gegaan. Is dit navolgbaar? Schiet hiervoor een issue voor in bij elkaar. 
 
 
 ## Voortgangsgesprek 
-Met een coach bespreek je met je team jullie vorderingen
+Met een coach bespreek je met je team jullie vorderingen. In je team heb je duidelijke afspraken gemaakt over jullie werkwijze en hoe jullie elkaar op de hoogte houden. Zorg dat je het Project Board, de verschillende branches en de pull requests bij de hand hebt. 
+
+**Bij Krijn & Charley:**
+| Tijd     | Teams |
+| ----------- | ----------- |
+| 10:00-10:45  | Milledoni 1H	+ Bieb in Bloei 1G    |
+| 10:45-11:30  | Bieb in Bloei 1H	+ Tumi Mundo 1H  |
+| 11:30-12:15  | Qatar      |
+| 12:15-13:00  | Mediahuis 1H	+ Milledoni 1G  |
+
+**Bij Koop & Suus:**
+| Tijd     | Teams |
+| ----------- | ----------- |
+| 10:00-10:45  | Oncollaboration    |
+| 10:45-11:30  | Drop & Heal 1H	+ Tumi Mundo 1G   |
+| 11:30-12:15  | Mediahuis 1G	+ DDA 1G    |
+| 12:15-13:00  | DDA 1H	 + Drop Heal 1G  |
 
 
-<!--
-## Aanpak
-
-
-
--->
