@@ -36,7 +36,7 @@ Maak individueel voor elk van je drie prototypes een nieuwe feature branch aan, 
 
 Gebruik onderstaande bronnen en de bronnen die we je tijdens het rondlopen gegeven hebben om je code uit te werken. Maak eventueel ook kleine Codepen demo's om in een simpelere omgeving te oefenen, maar pas jouw prototype wel toe in de context van het project. Als je bijvoorbeeld een lekkere animatie voor een button of link hebt ontworpen en geprototyped, zorg dan dat dit voor alle vergelijkbare buttons of links werkt. Hier maak je het verschil tussen een op zichzelf staand idee en het grotere plaatje.
 
-Vrijdag gaan we deze drie uitwerkingen in een _pull request_ klaarzetten en van elkaar reviewen, dus zorg dat je dan drie feature branches klaar hebt staan.
+Vrijdag gaan we deze drie uitwerkingen in verschillende _pull requests_ klaarzetten en van elkaar reviewen, dus zorg dat je dan drie feature branches klaar hebt staan.
 
 Ga hiernaast door met de leertaak en de issues die openstaan in je team. Blijf je dagelijkse standups in de gaten houden; hou elkaar op de hoogte van voortgang, bespreek waar je mee bezig bent en geef aan waar je vastloopt en extra hulp kunt gebruiken.
 
