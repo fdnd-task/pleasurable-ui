@@ -1,31 +1,32 @@
 # Pleasurable User Interface
 
-Deze week heb je drie interacties ontworpen in Figma die de UI meer pleasurable maken. Vervolgens ben je deze prototypes in feature branches in gaan uitwerken in code.
+Deze week heb je drie interacties ontworpen in Figma die de UI meer pleasurable maken. Vervolgens ben je deze prototypes in feature branches gaan uitwerken.
 
 ## Code/Design review - Week 2
-Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed is zijn dat er drie) een pull request aanmaken. Je gaat vervolgens met elkaar de verschillende experimenten en variaties waar het team deze week aan heeft gewerkt vergelijken en beoordelen. Je bepaalt met elkaar welke 3 branches jullie gaan mergen met de main.  
+Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed is zijn dat er drie) een pull request aanmaken. Je gaat vervolgens met elkaar de verschillende experimenten en variaties waar het team deze week aan heeft gewerkt vergelijken en beoordelen. Je bepaalt met elkaar welke 3 branches jullie gaan mergen met de main, nadat alle pull requests een review hebben ontvangen.  
 
 ## Aanpak
 
 ### **Stap 1: Individueel: Rond de drie feature branches af voor een PR**
 
-Elk teamlid heeft als het goed is drie feature branches aangemaakt voor de verschillende interacties die zijn ontworpen. Zorg dat alle aanpassingen live staan en maak een pull request aan voor alle drie de branches. 
+Elk teamlid heeft drie feature branches aangemaakt voor de verschillende interacties. Zorg dat alle aanpassingen live staan en maak drie pull requests aan. 
 
 
-### **Stap 2: Met het team: PR template aanvullen**
-Jullie hebben eerder een pull qequest template gemaakt als team. Pak deze er nog eens bij. Is deze nog volledig? Missen jullie onderdelen waar op gereviewd moet worden? Wat maakt een pull request goed? Pas dit aan. 
+### **Stap 2: Met het team: pull request template aanvullen**
+De kwalitieit van een pull request en de review daarop zijn erg belangrijk voor het kwaliteitsbeheerd op jullie werk. Bespreek met elkaar wat een pull request goed maakt? Pak er een aantal voorbeelden bij en analyseer deze met elkaar. Schrijf een aantal steekworden op het whiteboard die volgens jullie belangrijk zijn bij een goede pull request (en review).  
 
-Word er bijvoorbeeld gekeken naar:
+Jullie hebben eerder een pull request template gemaakt als team. Pak deze er nog eens bij. Is deze nog volledig? Missen jullie onderdelen waar op gereviewd moet worden? Komt dit overeen met de steekwoorden? Pas het pull request waar nodig aan. 
+
+Tip: Word er bijvoorbeeld gekeken naar:
 - **R**eponsive design?
 - **A**ccessibility?
 - **P**erformance?
 - **P**rogressive **E**nhancement?
 - Welke tests er al gedaan zijn?
-- Heb je ergens twijfels over? Vraag om een second opinion! 
 
 
 ### **Stap 3: Individueel: Drie PR's schrijven**
-Schrijf nu individueel 3 pull requests voor elke feature branch. Gebruik het PR om te oefenen voor volgende week met de opdrachtgever. Leg je ontwerpkeuzes uit aan je teamgenoten. Neem in je pull request screenshots op van wat je hebt gemaakt. Link ook naar je ontwerp in Figma. Leg vervolgens uit welke ontwerpkeuzes je hebt gemaakt op elke laag van de [Hierarcy van User Needs](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/pleasurable-is-in-the-details.md#hierarchy-of-user-needs). Dit kan er bijvoorbeeld zo uit komen te zien:
+Schrijf individueel 3 pull requests voor elke feature branch. Gebruik het PR om te oefenen voor volgende week met de opdrachtgever. Leg je ontwerpkeuzes uit aan je teamgenoten. Neem in je pull request screenshots op van wat je hebt gemaakt. Link ook naar je ontwerp in Figma. Leg vervolgens uit welke ontwerpkeuzes je hebt gemaakt op elke laag van de [Hierarcy van User Needs](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/pleasurable-is-in-the-details.md#hierarchy-of-user-needs). Dit kan er bijvoorbeeld zo uit komen te zien:
 
 In de usable laag kun je bijvoorbeeld je ontwerpkeuzes onderbouwen met een duidelijke visuele hiërarchie, door Gestalt principes toe gepast te hebben en door het gebruik maken van goed ontworpen feedback en feedforward.
 
