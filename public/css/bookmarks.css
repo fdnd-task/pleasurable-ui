@@ -4,45 +4,45 @@ body.bookmarks .container-bookmarks main svg, body.bookmarks .container-bookmark
 body.bookmarks .text-xxl{
     font-weight: 900;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview{
+.container-bookmarks main .bookmarks-overview{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 3rem 0;
 }
 
-body.bookmarks .container-bookmarks main .bookmarks-overview article{
+.container-bookmarks main .bookmarks-overview article{
     margin-bottom: 1rem;
     max-width: 380px;
     color: #fff;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article svg > *{
+.container-bookmarks main .bookmarks-overview article svg > *{
     fill: #fff;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article:last-of-type{
+.container-bookmarks main .bookmarks-overview article:last-of-type{
     margin-bottom: 0;
 }
 
-body.bookmarks .container-bookmarks main .bookmarks-overview article picture{
+.container-bookmarks main .bookmarks-overview article picture{
     width: 100%;
     height: 330px;
     display: block;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article picture img{
+.container-bookmarks main .bookmarks-overview article picture img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-body.bookmarks .container-bookmarks aside {
-    background-color: rgba(255, 38, 30, 0.8);
+.container-bookmarks aside {
+    background-color: #1E1E1E;
     padding: 45px 20px;
     text-align: center;
     color: #fff;
 }
-body.bookmarks .container-bookmarks aside svg > *{
+.container-bookmarks aside svg > *{
     fill: #fff;
 }
-body.bookmarks .container-bookmarks aside nav ul.radiostations{
+.container-bookmarks aside nav ul.radiostations{
     gap: 10px;
     margin-top: 40px;
     max-width: 400px;
@@ -52,11 +52,11 @@ body.bookmarks .container-bookmarks aside nav ul.radiostations{
     margin-left: auto;
     margin-right: auto;
 }
-body.bookmarks .container-bookmarks aside nav ul.radiostations li{
+.container-bookmarks aside nav ul.radiostations li{
     display: flex;
     flex-direction: column;
 }
-body.bookmarks .container-bookmarks aside nav ul.radiostations li a{
+.container-bookmarks aside nav ul.radiostations li a{
     padding: 10px 0;
     border-radius: 8px;
     width: 100%;
@@ -66,13 +66,13 @@ body.bookmarks .container-bookmarks aside nav ul.radiostations li a{
     align-items: center;
     transition: 0.2s ease-in;
 }
-body.bookmarks .container-bookmarks aside nav ul.radiostations li a img{
+.container-bookmarks aside nav ul.radiostations li a img{
     max-width: 140px;
     max-height: 60px;
     transition: 0.2s ease-in;
 }
 .block-radio-1 > a {
-    background-color: #33B6E8; /* Veronica */
+    background-color: #0076D1; /* Veronica */
 }
 
 .block-radio-1 img {
@@ -80,7 +80,7 @@ body.bookmarks .container-bookmarks aside nav ul.radiostations li a img{
 }
 
 .block-radio-1 ul.socials > li > a {
-    background-color: #33B6E8;
+    background-color: #0076D1;
 }
 
 .block-radio-2 > a {
@@ -117,21 +117,21 @@ dd {
   width: calc(100% - 2rem)
 }
 /* Base colors */
-body.bookmarks .container-bookmarks main .bookmarks-overview article.radio-1 {
+.bookmarks-overview article.radio-1 {
     background-color: #0076D1;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article.radio-1 .bookmark-label{
+.bookmarks-overview article.radio-1 .bookmark-label{
     background-color: #0076D1;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article.radio-2 {
+.bookmarks-overview article.radio-2 {
     background-color: #E90166;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article.radio-2 .bookmark-label{
+.bookmarks-overview article.radio-2 .bookmark-label{
     background-color: #E90166;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article.radio-3 {
+.bookmarks-overview article.radio-3 {
     background-color: #0F852C;
 }
-body.bookmarks .container-bookmarks main .bookmarks-overview article.radio-3 .bookmark-label{
+.bookmarks-overview article.radio-3 .bookmark-label{
     background-color: #0F852C;
 }
