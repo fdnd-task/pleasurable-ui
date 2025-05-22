@@ -7,12 +7,12 @@ Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed
 
 ## Aanpak
 
-**Stap 1: Individueel: Rond de drie feature branches af voor een PR**
+### **Stap 1: Individueel: Rond de drie feature branches af voor een PR**
 
 Elk teamlid heeft als het goed is drie feature branches aangemaakt voor de verschillende interacties die zijn ontworpen. Zorg dat alle aanpassingen live staan en maak een pull request aan voor alle drie de branches. 
 
 
-**Stap 2: Met het team: PR template aanvullen**
+### **Stap 2: Met het team: PR template aanvullen**
 Jullie hebben eerder een pull qequest template gemaakt als team. Pak deze er nog eens bij. Is deze nog volledig? Missen jullie onderdelen waar op gereviewd moet worden? Wat maakt een pull request goed? Pas dit aan. 
 
 Word er bijvoorbeeld gekeken naar:
@@ -24,21 +24,21 @@ Word er bijvoorbeeld gekeken naar:
 - Heb je ergens twijfels over? Vraag om een second opinion! 
 
 
-**Stap 3: Individueel: Drie PR's schrijven**
+### **Stap 3: Individueel: Drie PR's schrijven**
 Schrijf nu individueel 3 pull requests voor elke feature branch. Gebruik het PR om te oefenen voor volgende week met de opdrachtgever. Leg je ontwerpkeuzes uit aan je teamgenoten. Neem in je pull request screenshots op van wat je hebt gemaakt. Link ook naar je ontwerp in Figma. Leg vervolgens uit welke ontwerpkeuzes je hebt gemaakt op elke laag van de [Hierarcy van User Needs](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/pleasurable-is-in-the-details.md#hierarchy-of-user-needs). Dit kan er bijvoorbeeld zo uit komen te zien:
 
 In de usable laag kun je bijvoorbeeld je ontwerpkeuzes onderbouwen met een duidelijke visuele hiërarchie, door Gestalt principes toe gepast te hebben en door het gebruik maken van goed ontworpen feedback en feedforward.
 
 
-**Stap 4: Met het team: Review alle pull requests**
+### **Stap 4: Met het team: Review alle pull requests**
 Nu ga je met elkaar alle pull requests reviewen. Pak één laptop waarop jullie het pull request bekijken en typ op een andere laptop de feedback. Omschrijf duidelijk wat er volgens jullie goed gaat, nog ontbreekt en wat beter kan. Een review als 'Ziet er goed uit' is niet voldoende. Geef duidelijk aan waar je naar hebt gekeken, wat je hebt getest en wat er volgens jou nog beter kan (of goed gaat). 
 
 
-**Stap 5: Met het team: Bepaal welke branches er gemerged gaan worden**
+### **Stap 5: Met het team: Bepaal welke branches er gemerged gaan worden**
 Nu jullie alle pull request hebben bekeken en gereviewd, gaan julie met elkaar bepalen welke drie branches met de main gemerged kunnen worden. Het kan ook zijn dat jullie meerdere feature branches met elkaar willen combineren.  
 
 
-**Stap 6: Met het team: Bekijk de merge van een ander team**
+### **Stap 6: Met het team: Bekijk de merge van een ander team**
 Kies een andere groep uit die alle bovenstaande stappen heeft doorlopen. Bekijk of het voor jullie als team navolgbaar is welke feedback ze hebben gegeven op de pull requests en voor welke feature branches ze zijn gegaan. Is dit navolgbaar? Schiet hiervoor een issue voor in bij elkaar. 
 
 
