@@ -8,6 +8,7 @@ Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed
 ## Aanpak
 
 **Stap 1: Individueel: Rond de drie feature branches af voor een PR**
+
 Elk teamlid heeft als het goed is drie feature branches aangemaakt voor de verschillende interacties die zijn ontworpen. Zorg dat alle aanpassingen live staan en maak een pull request aan voor alle drie de branches. 
 
 
