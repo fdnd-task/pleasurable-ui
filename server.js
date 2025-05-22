@@ -131,7 +131,10 @@ app.get('/tickets', async (req, res) => {
 
 //Route naar admin
 app.get('/admin', async function (request, response){
+
+
   response.render('admin.liquid', {
+
   });
 
 })
