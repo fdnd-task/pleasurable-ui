@@ -16,48 +16,21 @@
     }
 
 
-.chat-main {
-    position: relative;
-    overflow: auto;
-}
-
-.chat-main::after {
-    content: "";
-    position: fixed;           
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 19em;             
-    pointer-events: none;      
-    background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.9) 0%,
-    rgba(0,0,0,0) 100%
-    );
-    z-index: 1;                
-}
-
-
 /* de gradient als fixed element */
 .blauwe-gradient-img {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: auto;              
+    bottom: 0;
+    right: 0;
+    width: 75em;              
     height: auto;
-    max-width: none;
-    transform: translate(-50%, -50%);
     z-index: 0;
-    pointer-events: none;     
+    pointer-events: none;
+    object-fit: contain;
 }
 
 /* message cards donker of doorzichtig */
-.chat-header,
-.chat-intro,
-.chat-message,
-.overlay,
-.floating-button {
-    /* position: relative; */
+.chat-message {
+    position: relative;
     z-index: 1;
 }
 
@@ -117,11 +90,11 @@ button[type="submit"] {
 
 
 /* Plaats bericht button */
-.floating-button {
+.plaatsbericht-button {
     position: fixed;
     bottom: 20px;
-    right: 20px;
     padding: 10px 20px;
+    width: 17em;
     background-color: #87CEEB;
     color: white;
     border: none;
@@ -133,8 +106,8 @@ button[type="submit"] {
     left: 50%;
     transform: translate(-50%);
     height: 3em;
+    }
 
-}
 
 /* Overlay stijlen */
 .overlay {
@@ -159,6 +132,7 @@ button[type="submit"] {
     width: 90%;
     text-align: center;
 }
+
 
 .overlay-form {
     display: flex;
