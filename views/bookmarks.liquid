@@ -9,7 +9,7 @@
                 <li>
                     <a href="/radio{{radiostation.name | url_encode | replace: '+', '%20'}}/programering">
                         <picture> 
-                            <source srcset="https://fdnd-agency.directus.app/assets/{{ oneradio.logo }} alt="{{ oneradio.name }}">
+                            <source srcset="https://fdnd-agency.directus.app/assets/{{ oneradio.logo }}">
                             <img src="https://fdnd-agency.directus.app/assets/{{ oneradio.logo }} alt="{{ oneradio.name }}" width="250">
                         </picture>
                     </a>
@@ -26,7 +26,7 @@
                     <p>{{ bookmark.show.radiostation.name }}</p>
                     <h4>{{ bookmark.headermobile.title }}</h4>
                     <picture>
-                        <source srcset="https://fdnd-agency.directus.app/assets/{{ bookmark.show.headermobile.id }} alt="{{ bookmark.show.headermobile.title }}">
+                        <source srcset="https://fdnd-agency.directus.app/assets/{{ bookmark.show.headermobile.id }}">
                         <img src="https://fdnd-agency.directus.app/assets/{{ bookmark.show.headermobile.id }} alt="{{ bookmark.show.headermobile.title }}" width="800">
                     </picture>
                     <h3>{{ bookmark.show.name }}</h3>
