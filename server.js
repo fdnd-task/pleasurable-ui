@@ -75,6 +75,7 @@ app.get('/details/:id', async function (request, response) {
 
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
+
 app.get('/tickets', async (req, res) => {
   // Mock data for now; replace with API calls as needed
   const museums = [
