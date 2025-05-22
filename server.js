@@ -173,6 +173,7 @@ app.get('/radio/:name/programmering{/:dayname}', async function (req, res) {
 
 
 
+
 app.get('/', async function (req, res) {
   res.render('index.liquid', { radiostations: radiostationsResponseJSON.data })
 })
@@ -199,8 +200,6 @@ app.get('/bookmarks', async function (req, res) {
     radioData: radioData
   });
 });
-
-
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
