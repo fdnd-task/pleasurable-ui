@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{pageTitle}}</title>
+        <link rel="preload" href="/fonts/BrutalType-Thin.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType-ExtraLight.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType-Light.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType-Medium.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType-Bold.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType-ExtraBold.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType-Black.ttf" as="font" type="font/ttf" >
+        <link rel="preload" href="/fonts/BrutalType.ttf" as="font" type="font/ttf" >
+
+        {% if style != "home" %}
+            <link rel="stylesheet" href="/css/style.css">
+            <link rel="stylesheet" href="/css/colors-{{style}}.css">
+            <link rel="stylesheet" href="/css/radio.css">
+        {% else %}
+            <link rel="stylesheet" href="/css/general.css">
+            <link rel="stylesheet" href="/css/home.css">
+        {% endif %}
+
+    </head>
