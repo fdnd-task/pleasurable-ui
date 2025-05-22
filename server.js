@@ -178,9 +178,28 @@ app.get('/', async function (req, res) {
   res.render('index.liquid', { radiostations: radiostationsResponseJSON.data })
 })
 
+// BOOKMARKS PAGINA
 app.get('/bookmarks', async function (req, res) {
-  res.render('bookmarks.liquid')
-})
+  const bookmarkUrl = "https://fdnd-agency.directus.app/items/mh_shows?fields=*.*.*.*,show.users.mh_users_id.cover.*";
+
+  const bookmarkResponse = await fetch(bookmarkUrl);
+  const bookmarkResponseJSON = await bookmarkResponse.json();
+
+  const radioData = radiostationsResponseJSON.data;
+
+
+  const { data } = bookmarkResponseJSON;
+  // console.log(data);
+
+  if (!data || data.length === 0) {
+    return res.send('No data found!');
+  }
+
+  res.render('bookmarks.liquid', {
+    bookmarks: data,
+    radioData: radioData
+  });
+});
 
 app.get('/testpage', async function (req, res) {
   res.render('testpage.liquid')
@@ -234,8 +253,6 @@ app.post('/radio/:name/programmering/:id/unmark', async (req, res) => {
     res.status(500).send("Unmark failed!");
   }
 });
-
-
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
