@@ -12,6 +12,7 @@
   </section>
 
   <section class="exerc-container">
+    <section class="exerc-grid">
   {% for exercise in exerc %}
     <article class="exerc-card"> 
         <figure class="exerc-image-container">
@@ -40,8 +41,9 @@
       </section>
     </article>
     {% endfor %}
-      <p class="end-text">Einde voor vandaag</p>
+    </section>
   </section>
+        <p class="end-text">Einde voor vandaag</p>
 
 {% render 'partials/footer.liquid' %}
 {% render 'partials/foot.liquid' %}
