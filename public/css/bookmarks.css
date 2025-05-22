@@ -4,6 +4,13 @@ body.bookmarks .container-bookmarks main svg, body.bookmarks .container-bookmark
 body.bookmarks .text-xxl{
     font-weight: 900;
 }
+body.bookmarks .container-bookmarks main .bookmarks-overview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem 0;
+}
+
 body.bookmarks .container-bookmarks main .bookmarks-overview article{
     margin-bottom: 1rem;
     max-width: 380px;
@@ -38,9 +45,12 @@ body.bookmarks .container-bookmarks aside svg > *{
 body.bookmarks .container-bookmarks aside nav ul.radiostations{
     gap: 10px;
     margin-top: 40px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 body.bookmarks .container-bookmarks aside nav ul.radiostations li{
     display: flex;
