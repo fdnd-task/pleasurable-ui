@@ -6,7 +6,7 @@
     text-align: center;
     position: relative;
     padding: 30px 20px;
-    overflow-x: hidden;
+    overflow: hidden;
     .hero-img {
         width: 16em;
     }
@@ -16,12 +16,23 @@
         filter: blur(100px);
         z-index: -1;
         top: 25%;   
+        @media (min-width: 768px) {
+            top: 10%;     
+        }
     }
     .gradient-left {
         left: -25%;
+        @media (min-width: 768px) {
+            width: 30rem;
+            left: -10%;    
+        }
     }
     .gradient-right {
         right: -25%;
+        @media (min-width: 768px) {
+            width: 30rem; 
+            right: -10%;    
+        }
     }
     .hero-text{
         margin: 40px 40px 0 40px;
@@ -80,7 +91,7 @@
     margin-bottom: 15px;
     border: 1px solid var(--gray);
     @media (min-width: 768px) {
-        width: 30vw;    
+        width: 25vw;    
     }
 }
 
