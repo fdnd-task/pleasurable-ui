@@ -24,7 +24,7 @@
         padding: 0.5rem 2rem;
         height: 4rem;
         width: 100%;
-        border-bottom: 0.1rem solid var(--color-black);
+        border-bottom: 0.1rem solid rgb(118, 118, 118);
         position: fixed;
         top: 0;
         background-color: var(--color-white);
@@ -121,6 +121,7 @@
     height: auto;
     text-transform: uppercase;
     line-height: var(--line-height-heading);
+    margin-left: 1rem;
 }
 
 .highlight:hover {
@@ -140,21 +141,19 @@
     cursor: pointer;
 }
 
-
 .hamburger svg {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.6rem;
+    height: 1.6rem;
     stroke: var(--color-black);
-    transition: transform 0.3s ease;
-}
+    vertical-align: middle;
+  }
 
 /* Desktop */
 @media (min-width: 1024px) {
     .menu-container {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        margin-left: 1rem;
+        margin-left: 0rem;
     }
 
     .menu-text {
@@ -163,8 +162,9 @@
         color: var(--color-black);
         display: flex;
         align-items: center;
+        line-height: 1;
+        margin-left: 0.2rem;
     }
-
 }
 
 /* Desktop Member, Venue & Arabic Link Styles */
@@ -208,9 +208,12 @@
 
 /* Desktop focus styles */
 @media (min-width: 1024px) {
-    .nav-links a:focus,
     .hamburger:focus {
-        outline: 3px solid #ffcc00;
+        outline: 3px solid #ffffff;
+    }
+
+    .nav-links a:focus{
+        outline: 3px solid #9bc9e3;
     }
 
     .nav-right {
@@ -231,9 +234,4 @@
     }
 }
 
-/* Focus styling for accessibility */
-.nav-links a:focus,
-.hamburger:focus {
-    outline: 3px solid #ffcc00;
-}
 }
