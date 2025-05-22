@@ -182,6 +182,10 @@ app.get('/bookmarks', async function (req, res) {
   res.render('bookmarks.liquid')
 })
 
+app.get('/testpage', async function (req, res) {
+  res.render('testpage.liquid')
+})
+
 
 // Dylan. Kan jij checken of de route klopt en anders ff aanpassen? zelfde bij de delete please
 app.post('/radio/:name/programmering/:id/bookmark', async (req, res) => {
