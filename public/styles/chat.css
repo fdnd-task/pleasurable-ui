@@ -90,11 +90,10 @@ button[type="submit"] {
 
 
 /* Plaats bericht button */
-.plaatsbericht-button {
+.plaatsbericht-btn {
     position: fixed;
     bottom: 20px;
     padding: 10px 20px;
-    width: 17em;
     background-color: #87CEEB;
     color: white;
     border: none;
@@ -106,7 +105,10 @@ button[type="submit"] {
     left: 50%;
     transform: translate(-50%);
     height: 3em;
-    }
+    width: 18em;
+}
+
+
 
 
 /* Overlay stijlen */
