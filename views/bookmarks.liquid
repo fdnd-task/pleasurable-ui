@@ -8,7 +8,7 @@
             <section class="bookmarks-overview">
 
                 {% for bookmark in bookmarks limit: 3%} 
-                    <article class="radio-{{forloop.index}}"> {% comment %} hier moet het nummer van de radiostation komen {% endcomment %}
+                    <article class="radio-{{bookmark.show.radiostation.id}}"> {% comment %} hier moet het nummer van de radiostation komen {% endcomment %}
                         <p class="bookmark-label">{{ bookmark.show.radiostation.name }}</p>
                         <picture>
                             <source srcset="https://fdnd-agency.directus.app/assets/{{ bookmark.show.headermobile.id }}">
