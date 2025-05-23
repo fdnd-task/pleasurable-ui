@@ -1,0 +1,17 @@
+.storysettings{
+   h1{
+    margin: 0 auto;
+   }
+
+    .heading-story-settings{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+
+                
+    }
+
+    .titel-settings{
+        
+    }
+}
