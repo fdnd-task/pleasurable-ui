@@ -192,6 +192,7 @@ app.post('/unlike-artwork/:id', async function (request, response) {
 let forms = [] //array voor het opslaan van formulieren
 
 app.post('/acquisition', async function (request, response) {
+  try {
 
     await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
       method: "POST",
@@ -203,14 +204,17 @@ app.post('/acquisition', async function (request, response) {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       }, //request met post, met headers geef je aan wat er is meegegeven, je geeft informatie over wat je in de request heb meegegeven.
-    });
+    })
 
-    response.redirect(303, '/en/succesfull') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
+    response.redirect(303, '/en/succes') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
+  } catch (error) {
+    console.error('Fout bij ophalen van data:', error);
+    response.status(500).send('Er ging iets mis bij het laden van de homepage.');
+  }
+})
 
-  })
-
-  app.post('/ar/acquisition', async function (request, response) {
-
+app.post('/ar/acquisition', async function (request, response) {
+  try {
     await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
       method: "POST",
       body: JSON.stringify({
@@ -221,10 +225,14 @@ app.post('/acquisition', async function (request, response) {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
-    });
+    })
 
-    response.redirect(303, '/ar/succesfull')
-  })
+    response.redirect(303, '/ar/succes');
+  } catch (error) {
+    console.error('Fout bij ophalen van data:', error);
+    response.status(500).send('Er ging iets mis bij het laden van de homepage.');
+  }
+})
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
