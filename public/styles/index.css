@@ -1,5 +1,4 @@
 body {
-    margin: 0;
     scroll-behavior: smooth;
   }
   
@@ -21,8 +20,8 @@ body {
     top: 25vh;
     width: 70vw;
     height: 55vh;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* twee gelijke kolommen */
     align-items: center;
     background: linear-gradient(145deg, #f0f0f0, #d4d4d4);
     border: 1px solid #aaa;
@@ -31,11 +30,15 @@ body {
     scroll-snap-align: start;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-
-    h1 {
-        font-size: var(--h1-font-size);
-        text-align: left;
-    }
+    gap: 2rem;
+  }
+  
+  .post-title {
+    text-align: left;
+  }
+  
+  .post-title h1 {
+    margin: 0 0 1rem 0;
   }
   
   
