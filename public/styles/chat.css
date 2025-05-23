@@ -105,11 +105,76 @@ button[type="submit"] {
     left: 50%;
     transform: translate(-50%);
     height: 3em;
-    width: 18em;
+    width: 19em;
+    overflow: hidden;
 }
 
+/* kleur links naar rechts bij hover */
+.plaatsbericht-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #5aaac6;
+    /* scaleX zorgt ervoor dat de kleur horizontaal "op de x-as" verschijnt */
+    transform: scaleX(0); 
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    z-index: 0;
+}
 
+/* glimmende shine-animatie (alleen bij klik) */
+.plaatsbericht-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.2) 100%
+    );
+    /* skewX zorgt ervoor dat die backgroundglans schuin op de x-as terecht komt */
+    transform: skewX(-20deg);
+    opacity: 0;
+    z-index: 2;
+}
 
+/* tekst zichtbaar boven animaties */
+.plaatsbericht-btn span {
+    position: relative;
+    z-index: 3;
+}
+
+/* hover triggert alleen de inkleuring */
+.plaatsbericht-btn.hovered::before {
+    transform: scaleX(1);
+}
+
+/*  klik triggert glans-animatie */
+.plaatsbericht-btn.clicked::after {
+    animation: shine 1s ease forwards;
+    opacity: 1;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        left: 125%;
+        opacity: 0;
+    }
+}
 
 /* Overlay stijlen */
 .overlay {
