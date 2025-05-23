@@ -51,4 +51,20 @@ body {
     max-width: 90%;
     object-fit: contain;
   }
+
+  @media (max-width: 768px) {
+    .post-title {
+      display: none;
+    }
+
+    .image-container {
+        grid-template-columns: 1fr;
+        place-items: center;
+        }
+  
+    img {
+      width: 500px;
+      max-width: 100%;
+    }
+  }
   
