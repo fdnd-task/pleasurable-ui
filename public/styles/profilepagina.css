@@ -1,0 +1,104 @@
+.profiel-pagina {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    
+
+    .heading{
+        display: flex;
+        justify-content: center;
+    }
+    h3{
+        font-size: var(--font-size-h2);
+        font-weight: 700;
+    }
+    
+    h4{
+        font-weight: 500;
+        margin: 0;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding:0;
+        
+
+         li{
+            display: flex;
+            justify-content:flex-start;
+            align-items: flex-end;
+            gap: 10px;
+            color:var(--main-ligth-text-color);
+            border-bottom: 1px rgba(255, 255, 255, 0.6) solid;
+            padding:0 0 10px 0;
+
+            svg:last-child{
+                margin-left:auto;
+            }
+        }
+    }
+
+    .profiel-foto-section{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img{
+            width: 40px;
+            height: 40px;
+        }
+
+        button{
+            background-color:rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 6.66px 9px;
+            margin-left: auto;
+        }
+    }
+
+
+    .account-knoppen{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        button{
+            display: inline-block;
+            width: auto;
+            max-width: max-content;
+            color: var(--main-ligth-text-color);
+            filter: drop-shadow(0px 2px 4px #00000022);
+        }
+
+        .switch-account{
+            border-radius: 8px;
+            padding: 8px 25px;
+            background-color: var(--button-color-five);
+            font-size: 15px;
+
+            &:hover{
+                background-color: var(--hover-button-color-five);
+            }
+        }
+
+        .sign-out{
+            border-radius:8px;
+            padding: 8px 15px;
+            background-color: var(--button-color-six);
+            font-size: 14px;
+
+            &:hover{
+                background-color: var(--hover-button-color-six);
+            }
+
+        }
+    }
+        
+}
+    
+
+

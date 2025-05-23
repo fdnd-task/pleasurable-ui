@@ -1,0 +1,138 @@
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0.8em;
+    bottom: 0.8em;
+    width: 56px;
+    height: 56px;
+    background-color: #1C1C1C;
+    border-radius: 16px;
+    opacity: 0.8;
+    z-index: 2;
+
+    button {
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4.81px;
+        
+
+        span {
+            display: block;
+            background-color: white;
+            height: 4px;
+            width: 25.33px;
+            border-radius: 8px;
+            transition: all 1s ease;
+        }
+    }
+}
+
+header {
+    display: none;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: center;
+}
+
+/*na klikken navigatie menu */
+.navigation-menu-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.98;
+    background-color: #292929;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1);
+    animation: pop-in 0.5s ease forwards;
+
+    ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
+        row-gap: 30px;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                height: 100px;
+                border-radius: 16px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+        }
+
+        li:nth-of-type(1) a {
+            background-color: #3F92B6;
+        }
+        li:nth-of-type(2) a {
+            background-color: #599AE7;
+        }
+        li:nth-of-type(3) a {
+            background-color: #954BE2;
+        }
+        li:nth-of-type(4) a {
+            background-color: #06A192;
+        }
+        li:nth-of-type(5) a {
+            background-color: #FD8C73;
+        }
+    }
+}
+
+/* animatie vd header */
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/*button als na klikken*/
+.hamburger-open {
+    background-color: white;
+
+    span {
+        background-color: black;
+        margin-right: 0.5em;
+    }
+
+    span:nth-child(1) {
+      transform-origin: right;
+      transform: rotateZ(-45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform-origin: right;
+      transform: rotateZ(45deg)
+    }
+}
