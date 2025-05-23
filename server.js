@@ -153,6 +153,51 @@ app.post('/unlike-artwork/:id', async function (request, response) {
   response.redirect(303, '/details/' + request.params.id);
 });
 
+//POST routes
+let forms = [] //array voor het opslaan van formulieren
+
+app.post('/acquisition', async function (request, response) {
+  try {
+
+    await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
+      method: "POST",
+      body: JSON.stringify({ //gegevens die  naar de server wordt gestuurd, omzetten in een JSON-string.
+        for: "Karima_" + request.body.name,  // De naam van de gebruiker, toegevoegd aan een vaste string "Karima_" voor het alleen weergeven van mijn posts.
+        from: request.body.email,  // E-mail van de gebruiker
+        text: request.body.description,  // De beschrijving die door de gebruiker is ingevoerd in het formulier
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }, //request met post, met headers geef je aan wat er is meegegeven, je geeft informatie over wat je in de request heb meegegeven.
+    })
+
+    response.redirect(303, '/en/succes') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
+  } catch (error) {
+    console.error('Fout bij ophalen van data:', error);
+    response.status(500).send('Er ging iets mis bij het laden van de homepage.');
+  }
+})
+
+app.post('/ar/acquisition', async function (request, response) {
+  try {
+    await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
+      method: "POST",
+      body: JSON.stringify({
+        for: "Karima_" + request.body.name,
+        from: request.body.email,
+        text: request.body.description,
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+    })
+
+    response.redirect(303, '/ar/succes');
+  } catch (error) {
+    console.error('Fout bij ophalen van data:', error);
+    response.status(500).send('Er ging iets mis bij het laden van de homepage.');
+  }
+})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
