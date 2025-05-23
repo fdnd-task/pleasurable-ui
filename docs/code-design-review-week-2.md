@@ -52,15 +52,15 @@ Met een coach bespreek je met je team jullie vorderingen. In je team heb je duid
 | ----------- | ----------- |
 | 10:00-10:45  | Milledoni 1H	+ Bieb in Bloei 1G    |
 | 10:45-11:30  | Bieb in Bloei 1H	+ Tumi Mundo 1H  |
-| 11:30-12:15  | Qatar      |
-| 12:15-13:00  | Mediahuis 1H	+ Milledoni 1G  |
+| 11:30-12:15  | Mediahuis 1H	+ Milledoni 1G       |
+| 12:15-13:00  | Qatar  |
 
 **Bij Koop & Suus:**
 | Tijd     | Teams |
 | ----------- | ----------- |
-| 10:00-10:45  | Oncollaboration    |
+| 10:00-10:45  | DDA 1H	 + Drop Heal 1G   |
 | 10:45-11:30  | Drop & Heal 1H	+ Tumi Mundo 1G   |
 | 11:30-12:15  | Mediahuis 1G	+ DDA 1G    |
-| 12:15-13:00  | DDA 1H	 + Drop Heal 1G  |
+| 12:15-13:00  | Oncollaboration |
 
 
