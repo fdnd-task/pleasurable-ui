@@ -1,8 +1,18 @@
-body.bookmarks .container-bookmarks main svg, body.bookmarks .container-bookmarks main .text-xxl, body.bookmarks .container-bookmarks aside svg, body.bookmarks .container-bookmarks aside .text-xxl{
-    display: inline-block;
+body.bookmarks .container-bookmarks main svg > *, body.bookmarks .container-bookmarks aside svg > *{
+    fill: transparent;
+}
+body.bookmarks .container-bookmarks aside svg {
+    stroke: #fff;
+    stroke-width: 5px;
 }
 body.bookmarks .text-xxl{
     font-weight: 900;
+}
+.container-bookmarks{
+    text-align: center;
+}
+.container-bookmarks main{
+    padding: 45px  0;
 }
 .container-bookmarks main .bookmarks-overview{
     display: flex;
@@ -32,6 +42,9 @@ body.bookmarks .text-xxl{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.container-bookmarks main .bookmarks-overview article .bookmark-content{
+    text-align: left;
 }
 .container-bookmarks aside {
     background-color: #1E1E1E;
@@ -135,3 +148,92 @@ dd {
 .bookmarks-overview article.radio-3 .bookmark-label{
     background-color: #0F852C;
 }
+
+
+@supports selector(&){
+    body.bookmarks{
+        height: 100vh;
+    }
+    .container-bookmarks{
+        height: 100%;
+            @media (min-width: 880px){
+                display: grid;
+                grid-template-columns: 440px 1fr;
+                grid-gap: 3rem;
+            }
+        main{
+            @media (min-width: 880px){
+                grid-column: 2 / 2;
+                margin-right: 3rem;
+            }
+            .bookmarks-overview{
+                @media (min-width: 880px){
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                    grid-gap: 1rem;
+                }
+            }
+            .bookmarks-overview article{
+                border-radius: 8px;
+                @media (min-width: 880px){
+                    margin-bottom: 0 !important;
+                    min-width: 320px;
+                    max-width: none;
+                }
+                position: relative;
+                border: 5px solid black;
+                &.radio-1{
+                    border-color: #0076D1;
+                    box-shadow: 0 4px 10px #0076D1;
+
+                }
+                &.radio-2{
+                    border-color: #E90166;
+                    box-shadow: 0 4px 10px #E90166;
+                }
+                &.radio-3{
+                    border-color: #0F852C;
+                    box-shadow: 0 4px 10px #0F852C;
+                }
+                .bookmark-label{
+                    position: absolute;
+                    width: 165px;
+                    right: 0;
+                    top: 0;
+                    padding: 4px 18px;
+                    font-weight: bold;
+                    border-bottom-left-radius: 8px;
+                    z-index: 3;
+                }
+                picture{
+                    position: relative;
+                    &:after{
+                        height: 100%;
+                        width: 100%;
+                        background-image: linear-gradient(to bottom, rgba(28, 30, 37, 0) 0%, rgba(28, 30, 37, 1) 100%);
+                        position: absolute;
+                        content: '';
+                        left: 0;
+                        top: 0;
+
+                    }
+                }
+                .bookmark-content{
+                    padding: 1rem 30px 64px 30px;
+                    .text-xl{
+                        text-align: center;
+                        margin-bottom: 12px;
+                        font-size: var(--text-xl) !important /* overwrite mobile */
+                    }
+                }
+            }
+        }
+        aside{
+            grid-column: 1 / 1;
+            grid-row: 1 / 1;
+        }
+    
+    } 
+}
+
+
