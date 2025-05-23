@@ -381,6 +381,143 @@
 }
 
 
+
+
+/*  ANIMATIE BIJ BINNENKOMEN  */
+@keyframes dropdownEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initieel verborgen nav-sectie */
+#dropdown-menu .nav-columns {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: none;
+}
+
+/* Toon nav-sectie met animatie */
+#dropdown-menu:target .nav-columns {
+  animation: dropdownEnter 0.6s ease forwards;
+}
+
+
+.column {
+  position: relative;
+  flex: 1;
+  overflow: visible; 
+}
+
+
+/*  https://codepen.io/pehaa/pen/bGNxWrB */
+
+
+/* Overlay binnen elke kolom */
+.column .hover-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(200, 225, 255, 0.2) 40%,
+    rgba(255, 255, 255, 0.05) 80%
+  );
+  z-index: 10;
+  border-radius: 50%;
+  filter: blur(12px);
+}
+
+/* Hover: laat overlay zien en micro-animatie */
+.column:hover .hover-overlay {
+  opacity: 1;
+  animation: subtlePulse 2s ease-in-out infinite;
+  transform: scale(1);
+}
+
+/* Micro pulse animatie */
+@keyframes subtlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.85;
+  }
+}
+
+/* Fallbacks voor oude browsers */
+@supports not (mix-blend-mode: screen) {
+  .column .hover-overlay {
+    background-color: rgba(236, 28, 141, 0.5);
+    filter: none;
+    mix-blend-mode: normal;
+  }
+}
+
+/*   ANIMATIES PER KOLOM  */
+.column:nth-child(1):hover .hover-overlay {
+  clip-path: circle(6vw);
+  transform: translate3d(-100%, -100%, 0);
+}
+
+.column:nth-child(2):hover .hover-overlay {
+  clip-path: circle(7vw);
+  transform: translate3d(0%, -100%, 0);
+}
+
+.column:nth-child(3):hover .hover-overlay {
+  clip-path: circle(6vw);
+  transform: translate3d(-100%, 0%, 0);
+}
+
+.column:nth-child(4):hover .hover-overlay {
+  clip-path: circle(6vw);
+  transform: translate3d(0%, 0%, 0);
+}
+
+
+/* HOVER STYLING LINKS  */
+ a:hover {
+  transition: color 0.3s ease;
+  text-decoration: underline;
+
+}
+
+/*  HOVER STYLING LINKS  */
+.sub-links  a:hover
+ {
+  color: #EC1C8D; 
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .column .hover-overlay {
+    opacity: 0;
+    animation: none;
+    transform: none;
+    display: none;
+  }
+
+  .column:hover .hover-overlay {
+    opacity: 0;
+    animation: none;
+    transform: none;
+    display: none;
+  }
+}
+
 /*  ACCESSIBILITY  */
 .visually-hidden {
   position: absolute;
@@ -393,4 +530,9 @@
   white-space: nowrap;
   border: 0;
 }
+
+
+
+
+
 
