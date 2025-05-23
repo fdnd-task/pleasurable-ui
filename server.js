@@ -76,6 +76,36 @@ app.get('/details/:id', async function (request, response) {
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
 
+Ticketspagina-Amir
+=======
+app.get('/:lang/acquisition', async function (request, response) {
+    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+    const apiResponseJSON = await apiResponse.json()
+    const messageResponse = await fetch("https://fdnd-agency.directus.app/items/fabrique_messages/?filter={%22for%22:%20{%22_contains%22:%20%22Karima_%22}}")
+    const messageResponseJSON = await messageResponse.json(); // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
+    const langId = request.params.lang; //parameter voor de language switch
+    
+    response.render("acquisition.liquid", { 
+      artworkData: apiResponseJSON.data, 
+      messages: messageResponseJSON.data,
+      id: 'karima-form',
+      lang: langId
+    })
+  })
+
+  app.get('/:lang/succes', async function (request, response) {
+    const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+    const apiResponseJSON = await apiResponse.json()
+    const langId = request.params.lang; 
+
+    response.render("succes.liquid", { 
+      artworkData: apiResponseJSON.data,
+      lang: langId
+     })
+  })
+
+  
+ main
 app.get('/tickets', async (req, res) => {
   // Mock data for now; replace with API calls as needed
   const museums = [
@@ -100,6 +130,18 @@ app.get('/tickets', async (req, res) => {
   res.render('tickets.liquid', { museums })
 })
 
+
+
+//Route naar admin
+app.get('/admin', async function (request, response){
+
+
+  response.render('admin.liquid', {
+
+  });
+
+})
+
 // POST for like
 
 app.post('/like-artwork/:id', async function (request, response) {
@@ -112,17 +154,15 @@ app.post('/like-artwork/:id', async function (request, response) {
   // Post naar database
   await fetch(postLikeUrl,{
     method: 'POST',
+    body: JSON.stringify({
+      "fabrique_users_id": 5,
+      "fabrique_art_objects_id": request.params.id
+
+    }),
     headers: {
       'Content-Type': 'application/json',
     },
-    // body: JSON.stringify({
-    //   //"fabrique_users_id": 1,
-    //   //"fabrique_art_objects_id": 33,
-    //   // Naam in database: id van de user
-    //   fabrique_users_id: 3,
-    //   // Naam in database: id van item die je wilt toevoegen
-    //   fabrique_art_objects_id: request.params.id
-    // }),
+
   })
 
   response.redirect(303, '/details/'+request.params.id)
