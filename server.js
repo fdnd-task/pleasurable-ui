@@ -110,7 +110,7 @@ app.get('/all-stories', async function (request, response) {
 
  
   // Zie https://expressjs.com/en/5x/api.html#res.render over response.render()
-  response.render('all-stories.liquid', { animal: animalJSON.data, season: seasonJSON.data, language: languageJSON.data, stories: storiesJSON.data })
+  response.render('all-stories.liquid', { language: languageJSON.data, stories: storiesJSON.data })
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
