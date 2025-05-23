@@ -96,7 +96,6 @@
     body{
         background: var(--home-achtergrond);
         background-size: cover;  
-        
         font-family: var(--font-text), Arial, Helvetica, sans-serif;
     }
 
