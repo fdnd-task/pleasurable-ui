@@ -1,0 +1,101 @@
+<!-- Source: Qatar Museums website -->
+
+<!-- Header section: Contains the navigation bar -->
+<header>
+  <nav class="navbar">
+
+    <!-- Qatar Museums logo -->
+    <a href="/" class="logo">
+      <picture>
+        <!-- AVIF format -->
+        <source 
+          srcset="/assets/logo.avif"
+          sizes="(max-width: 400px) 150px, (max-width: 768px) 180px, 200px"
+          type="image/avif">
+    
+        <!-- WebP format -->
+        <source 
+          srcset="/assets/logo.webp"
+          sizes="(max-width: 400px) 150px, (max-width: 768px) 180px, 200px"
+          type="image/webp">
+    
+        <!-- PNG fallback -->
+        <img 
+          src="/assets/logo.png" 
+          alt="Qatar Museums Logo" 
+          width="200" 
+          height="80" 
+          loading="lazy"
+          sizes="(max-width: 400px) 150px, (max-width: 768px) 180px, 200px"
+        >
+      </picture>
+    </a>
+
+    <!-- Main navigation links: includes multilingual labels -->
+    <ul class="nav-links">
+      <li>
+        <a href="https://qm.org.qa/en/stories/">
+          <span class="arabic-text">قصصنا</span>STORIES
+        </a>
+      </li>
+      <li>
+        <a href="https://qm.org.qa/en/collection/">
+          <span class="arabic-text">المقتنيات</span>COLLECTION
+        </a>
+      </li>
+      <li>
+        <a href="https://qm.org.qa/en/calendar/">
+          <span class="arabic-text">الفعاليات</span>WHAT'S ON
+        </a>
+      </li>
+      <li>
+        <a href="https://qm.org.qa/en/visit/">
+          <span class="arabic-text">زيارة</span>VISIT
+        </a>
+      </li>
+      <li>
+        <a href="/tickets" class="highlight">
+          TICKETS
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right section of the navbar: MEMBERS, VENUES, and language switch -->
+    <ul class="nav-right">
+      <li>
+        <a href="https://members/en/" class="member-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="member-icon" style="width: 0.8rem; height: auto; vertical-align: middle;">
+            <path fill="#000000" d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512h388.6c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3h-91.4z"/>
+          </svg>
+          MEMBERS
+        </a>
+      </li>
+      <li>
+        <a href="https://qm.org.qa/en/" class="venue-link">
+          <svg width="16" height="16" viewBox="0 0 28 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 29.3c-3.1-3.8-9.9-12.9-9.9-18C3.1 5 8.1 0 14.4 0c6.2 0 11.3 5 11.3 11.3 0 5.1-6.9 14.3-9.9 18-.8.9-2.1.9-2.8 0zM14.4 15a3.8 3.8 0 1 0 0-7.6 3.8 3.8 0 0 0 0 7.6z"></path>
+          </svg>
+          <span class="button__span">VENUES</span>
+        </a>
+      </li>
+      <li>
+        <a href="?lang=ar" lang="ar">العربية</a>
+      </li>
+    </ul>
+
+    <!-- Hidden checkbox for menu toggle -->
+    <input type="checkbox" id="menu-toggle" hidden>
+
+    <!-- Menu-container: Bevat het menu-icoon -->
+<a href="#dropdown-menu" class="menu-container hamburger">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none">
+    <path d="M5 15H19M5 9H19" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  </svg>
+  <span class="menu-text">MENU</span>
+</a>
+
+    
+  </nav>
+</header>
+
+
