@@ -76,6 +76,8 @@ app.get('/details/:id', async function (request, response) {
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
 
+Ticketspagina-Amir
+=======
 app.get('/:lang/acquisition', async function (request, response) {
     const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
     const apiResponseJSON = await apiResponse.json()
@@ -103,6 +105,7 @@ app.get('/:lang/acquisition', async function (request, response) {
   })
 
   
+ main
 app.get('/tickets', async (req, res) => {
   // Mock data for now; replace with API calls as needed
   const museums = [
