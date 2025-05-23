@@ -39,6 +39,8 @@ body {
   
   .post-title h1 {
     margin: 0 0 1rem 0;
+    font-size: var(--h2-font-size);
+    font-family: "Din Next it pro";
   }
   
   
