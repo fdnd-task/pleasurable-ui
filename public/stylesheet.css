@@ -1,0 +1,295 @@
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+
+/* English light */
+@font-face {
+    font-family: "Din Next it pro light";
+    src: url(./fonts/din-next-lt-pro-light.woff2);
+    font-style: light;
+}
+
+/* English regular */
+
+@font-face {
+    font-family: "Din Next it pro";
+    src: url(./fonts/din-next-lt-pro-regular.ttf);
+    font-style: normal;
+}
+
+/* English bold */
+
+@font-face {
+    font-family: "Din Next it bold";
+    src: url(./fonts/din-next-lt-pro-bold.woff2);
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+/* Arabische fonts */
+
+/* Arabic light */
+@font-face {
+    font-family: "Din Next it light arabic";
+    src: url(./fonts/din-next-lt-arabic-light.woff2);
+    font-style: normal;
+    font-weight: light;
+}
+
+/* Arabic regular */
+@font-face {
+    font-family: "Din Next it arabic regular";
+    src: url(./fonts/din-next-lt-arabic-regular.ttf);
+    font-style: normal;
+}
+
+/* Arabic bold */
+@font-face {
+    font-family: "Din Next it bold arabic";
+    src: url(./fonts/din-next-lt-arabic-bold.woff2);
+    font-style: normal;
+    font-weight: bold;
+}
+
+:root{
+
+    /* Font variables */
+    --arabic-font: 'Tajawal', 'Cairo', sans-serif;
+
+    --font-en-light: "Din Next it pro light";
+    --font-en-regular: "Din Next it pro";
+    --font-en-bold: "Din Next it bold";
+
+    --font-ar-light: "Din Next it light arabic";
+    --font-ar-regular: "Din Next it arabic regular";
+    --font-ar-bold: "Din Next it bold arabic";
+    
+    /*Breakpoints*/
+   --breakpoint-mobile: 320px;
+   --breakpoint-tablet-small: 530px;
+   --breakpoint-tablet: 800px;
+   --breakpoint-desktop: 1480px;
+   --breakpoint-desktop-large: 2260px;
+
+   /*Colors*/
+   --color-black: #000;
+   --color-white: #fff;
+   --color-blue: #78aaf9;
+   --color-orange: #f6c343;
+   --color-yellow: #ffe40c;
+   --hilight-color: #FFFF67;
+   --color-magenta: #e83082;
+   --color-dark-grey: #222222;
+
+
+   --transparency-overlay: rgba(255, 255, 255, 0.8);
+   --transparency-background: rgba(0, 0, 0, 0.55);
+   --transparency-button: rgba(0, 0, 0, 0.33);
+
+
+
+   /*border*/
+   --border: 1px solid #000;
+   --border-white: 1px solid #fff;
+
+   /* colors for the switch */
+   --switch-darkmode-background: #ffffff;
+   --switch-darkmode: linear-gradient(180deg, #f6c343, #d8860b) ;
+   --switch-darkmode-box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+
+   --switch-lightmode-background:#242424;
+   --switch-lightmode:linear-gradient(180deg, #777, #3a3a3a);
+   --switch-lightmode-box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+
+
+
+    /*Typography*/
+    /*Font*//*To do: add font-family to all heading and p*/
+    /*Font Weight*/
+    --font-weight-bold: 700;
+    --font-weight-normal: 400;
+    --font-weight-light: 300;
+
+    /* font-sizes */
+    --font-size-xxl: 3rem; /* 48px ÷ 16 = 3rem */
+    --font-size-xl: 2rem; /* 32px ÷ 16 = 2rem */
+    --font-size-l: 1.5rem;
+    --font-size-m: 1rem; /*16px, voor de header*/
+    --font-size-s: .9rem;
+    --font-size-xs: 0.875rem; /* 14px ÷ 16 = 0.875rem */
+
+    /*h1*/
+   --h1-font-size: 3.75rem;
+   --h1-font-weight: var(--font-weight-light);
+   --h1-line-height: 1em;
+    /*h2*/
+   --h2-font-size: 1.875rem;
+   --h2-font-weight: var(--font-weight-light);
+   --h2-line-height: 1.1em;
+    /*h3*/
+   --h3-font-size: 1.625rem;
+   --h3-font-weight: var(--font-weight-normal);
+   --h3-line-height: 1em;
+    /*h4*/
+   --h4-font-size: 1.5rem;
+   --h4-font-weight: var(--font-weight-bold);
+   --heading-4-line-height: 1em;
+    /*h5*/
+   --h5-font-size: 1.125rem;
+   --h5-font-weight: var(--font-weight-bold);
+   --heading-5-line-height: 1.1em;
+    /*h6*/
+   --h6-font-size: 1rem;
+   --h6-font-weight: var(--font-weight-bold);
+   --h6-line-height: 1.1em;
+    /*p*/
+   --font-size-base: 1rem;
+   --p-font-size: 1.2rem;
+   --p-font-weight: var(--font-weight-light);
+   --p-line-height: 1.5em;
+
+   /* Layout and spacing */
+ --navbar-height: 3rem;
+ --logo-height: 3.5rem;
+ --gap-size: 1.5rem;
+ --padding-standard: 1rem 5vw;
+ --border-radius: 12px;
+ --line-height-default: 1.6;
+ --line-height-heading: 1.3;
+
+  
+}
+
+
+
+*{
+    font-family: "DIN Next LT Pro Regular";
+}
+
+body{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Dark Mode */
+
+header.dark-mode{
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+}
+
+body.dark-mode {
+    background-color: var(--color-dark-grey);
+    color: var(--color-white);
+}
+
+body.dark-mode a {
+    color: var(--color-white);
+}
+
+body.dark-mode button {
+    background-color: none;
+    color: var(--color-dark-grey);
+    border: none;
+}
+
+body.dark-mode button:hover {
+    background-color: none;
+    color: var(--color-white);
+}
+
+/*breakpoints*/
+
+@media (min-width: 530px) {
+
+ }
+
+@media (min-width: 800px) {
+
+ }
+
+@media (min-width: 1480px) {
+
+ }
+ 
+@media (min-width: 2260px) {
+
+ }
+
+
+ h1{
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-font-weight);
+    line-height: var(--h1-line-height);
+}
+
+h2{
+    font-size: var(--h2-font-size);
+    font-weight: var(--h2-font-weight);
+    line-height: var(--h2-line-height);
+}
+
+h3{
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-font-weight);
+    line-height: var(--h3-line-height);
+}
+
+h4{
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-font-weight);
+    line-height: var(--h4-line-height);
+}
+
+h5{
+    font-size: var(--h5-font-size);
+    font-weight: var(--h5-font-weight);
+    line-height: var(--h5-line-height);
+}
+
+h6{
+    font-size: var(--h6-font-size);
+    font-weight: var(--h6-font-weight);
+    line-height: var(--h6-line-height);
+}
+
+p{
+    font-size: var(--p-font-size);
+    font-weight: var(--p-font-weight);
+    line-height: var(--p-line-height);
+}
+
+.button{
+    text-decoration: none;
+    color: var(--color-black);
+    background-color: var(--color-yellow);
+    border: var(--border);
+    padding: 1em;
+}
+
+.button:hover{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    border: var(--color-white);
+}
+
+.button:active{
+    color: var(--color-black);
+    color: var(--transparency-button);
+    background-color: var(--color-yellow);
+    border: var(--border);
+}
+
+a{
+    text-decoration: none;
+    color: var(--color-black);
+}
+
+main{
+    padding: 1.25em;
+}
