@@ -87,19 +87,33 @@ app.get('/exercise/:id', async function (request, response) {
   }
 });
 
-// get route voor de chat pagina
+// get route voor de community-drop pagina
 app.get ('/community-drops/:id', async function (request, response){
   const chatId = request.params.id;
   const chatIdResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages/?fields=*.*&filter={"exercise":"${chatId}"}&limit=-1`);
   const chatResponseJson = await chatIdResponse.json();
 
-  // const reversedChat = chatResponseJson.data.reverse();
+  const reversedChat = chatResponseJson.data.reverse();
 
   response.render('chat.liquid', {
     chat: chatResponseJson.data,
+    exerciseId: chatId
   })
 })
 
+// post funtion voor de community-drop pagina
+app.post('/community-drops/:id', async (request, response) => {
+  const chatId = request.params.id;
+  const { from, text } = request.body;
+
+  await fetch('https://fdnd-agency.directus.app/items/dropandheal_messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' }, 
+    body: JSON.stringify({ from, text, exercise: chatId }) 
+  });
+
+  response.redirect(303, `/community-drops/${chatId}`); 
+});
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
