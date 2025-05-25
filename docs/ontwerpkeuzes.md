@@ -21,7 +21,7 @@ Leg eerst uit hoe je de website en interactie hebt opgebouwd in lagen, begin met
 
 
 
-<!-->
+<!--
 ## Aanpak
 
 Hoe schrijf je zoiets op? 
