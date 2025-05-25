@@ -7,11 +7,14 @@ Frontenders worden ingehuurd door opdrachtgevers omdat ze alles weten van websit
 Hoe presenteer je je ontwerpkeuzes zonder dat je opdrachtgever denkt dat het gibberish is?
 
 
-### Usable & PLeasurable UI
+### Usable & Pleasurable UI
 
 Voor het overbregen van ontwerpkeuzes is het aan te bevelen om voor de opdrachtgever vooral de _Usable_ en _Pleasurable_ laag van de _Hierarchy of User Needs_ uit te leggen. Focus voor de opdrachtgever op hoe het eruit ziet en hoe het werkt als er niets mis gaat. 
 
 In je Readme laat zien hoe de website en interactie die je hebt gemaakt werkt, en leg je uit hoe de website usable en pleasurable is. Focus in je uitleg op de feedback en feedforward van interacties en animaties. Leg loading, succes en/of error states uit.
+
+👉 Samen een voorbeeld van ontwerpkeuzes bekijken, wat werkt hier goed? Wat kan beter?
+
 
 ### Technische documentatie
 
@@ -19,6 +22,7 @@ De ontwerpkeuzes die je hebt gemaakt voor de opbouw van je code volgens het prin
 
 Leg eerst uit hoe je de website en interactie hebt opgebouwd in lagen, begin met de functional (HTML/Server-Side) en reliable laag (basic CSS), voordat je de code uitlegt voor de usable en pleasurabel laag.
 
+👉 Samen een voorbeeld van technische documentatie bekijken, wat werkt hier goed? Wat kan beter?
 
 
 <!--
