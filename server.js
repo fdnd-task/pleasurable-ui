@@ -76,7 +76,6 @@ app.get('/details/:id', async function (request, response) {
   response.render('details.liquid', {object: apiResponseJSON.data});
 })
 
-
 app.get('/:lang/acquisition', async function (request, response) {
     const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
     const apiResponseJSON = await apiResponse.json()
@@ -103,6 +102,7 @@ app.get('/:lang/acquisition', async function (request, response) {
      })
   })
 
+  
 app.get('/tickets', async (req, res) => {
   // Mock data for now; replace with API calls as needed
   const museums = [
@@ -192,7 +192,6 @@ app.post('/unlike-artwork/:id', async function (request, response) {
 let forms = [] //array voor het opslaan van formulieren
 
 app.post('/acquisition', async function (request, response) {
-  try {
 
     await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
       method: "POST",
@@ -204,17 +203,14 @@ app.post('/acquisition', async function (request, response) {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       }, //request met post, met headers geef je aan wat er is meegegeven, je geeft informatie over wat je in de request heb meegegeven.
-    })
+    });
 
-    response.redirect(303, '/en/succes') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
-  } catch (error) {
-    console.error('Fout bij ophalen van data:', error);
-    response.status(500).send('Er ging iets mis bij het laden van de homepage.');
-  }
-})
+    response.redirect(303, '/en/succesfull') //Na het versturen van de gegevens naar de API wordt de gebruiker doorgestuurd naar de pagina /succesfull
 
-app.post('/ar/acquisition', async function (request, response) {
-  try {
+  })
+
+  app.post('/ar/acquisition', async function (request, response) {
+
     await fetch("https://fdnd-agency.directus.app/items/fabrique_messages", {
       method: "POST",
       body: JSON.stringify({
@@ -225,14 +221,10 @@ app.post('/ar/acquisition', async function (request, response) {
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
       },
-    })
+    });
 
-    response.redirect(303, '/ar/succes');
-  } catch (error) {
-    console.error('Fout bij ophalen van data:', error);
-    response.status(500).send('Er ging iets mis bij het laden van de homepage.');
-  }
-})
+    response.redirect(303, '/ar/succesfull')
+  })
 
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
