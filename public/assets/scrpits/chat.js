@@ -15,3 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+// 1) Open op klik
+document.getElementById("PlaatsBerichtBtn")
+  .addEventListener("click", function() {
+
+    // na 1000ms (duur shine) de overlay tonen
+    setTimeout(() => {
+      document.getElementById("overlay").style.display = "flex";
+    }, 800);
+  });
+
+// 2) Sluit op Annuleer
+document.getElementById("closeFormButton")
+  .addEventListener("click", () => {
+    document.getElementById("overlay").style.display = "none";
+  });
+
+
+
