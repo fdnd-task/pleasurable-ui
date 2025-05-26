@@ -1,27 +1,93 @@
 {% render 'partials/head.liquid' %}
 
-<section class="intro-container">
-    <section class="img-container">
-    <h2 class="sr-only">Intro Rouwtaak</h2>
-        <img class="intro-img" src="photos/rouwtaak-blue.svg" alt="rouwtaak-icon">
+  <main class="main-index">
+    <!-- Screen 0: Startpagina -->
+    <section class="intro-container screen active" id="screen-0">
+      <section class="img-container">
+        <h2 class="sr-only">Intro Rouwtaak</h2>
+        <img class="intro-img" src="photos/rouwtaak-blue.svg" alt="rouwtaak icoon blauw">
+      </section>
+      <section class="intro-text">
+        <h1><span>Drop</span><span>& Heal</span></h1>
+        <p>Welkom bij Drop & Heal. Een veilige plek voor jouw reis door rouwverwerking.<br><span class="spacing-s"></span>Er volgt eerst een introductie en kennismaking, hierna kan je op eigen tempo aan de slag in de omgeving.</p>
+      </section>
+      <section class="intro-foot">
+        <h2 class="sr-only">Button om te starten met rouwen</h2>
+        <div class="nav-buttons">
+          <button class="btn2 intro-btn" onclick="nextScreen()">Starten</button>
+        </div>
+      </section>
     </section>
+
+    <!-- Screens 1 t/m 4 (Rouwtaken) -->
+    <section class="screen" id="screen-1">
+    <img class="screen-icon" src="photos/rouwtaak-blue.svg" alt="Rouwtaak 1">
+    <img class="screen-gradient" src="photos/rouwtaak-blue.svg" alt="Gradient Rouwtaak 1">
     <section class="intro-text">
-        <h1>
-            <span>Drop</span> 
-            <span>& Heal</span>
-        </h1>
-        <p>
-            Welkom bij Drop & Heal. Een veilige plek voor jouw reis door rouwverwerking. 
-            <br> <span class="spacing-s"></span>
-            Er volgt eerst een introductie en kennismaking, hierna kan je op eigen tempo aan de slag in de omgeving. 
-        </p>
+        <h2>Introductie rouwtaken</h2>
+        <h1>Rouwtaak 1</h1>
+        <p>Het verlies aanvaarden. Ontdek hoe je de realiteit van het verlies kunt omarmen.</p>
+    </section>
+    <section class="intro-foot">
+        <div class="nav-buttons">
+            <button class="btn-nav" onclick="prevScreen()">←</button>
+            <a href="/rouwtaak/1" class="btn-nav">Start Taak</a>
+            <button class="btn-nav" onclick="nextScreen()">→</button>
+        </div>
+    </section>
     </section>
 
-    <section class="intro-foot"> 
-    <h2 class="sr-only">Button om te starten met rouwen</h2>
-        <a class="btn2 intro-btn" href="/rouwtaak/1">Starten</a>
+    <section class="screen" id="screen-2">
+      <img class="screen-icon" src="photos/rouwtaak-red.svg" alt="Rouwtaak 2">
+      <img class="screen-gradient" src="photos/rouwtaak-red.svg" alt="Gradient Rouwtaak 2">
+      <section class="intro-text">
+        <h2>Introductie rouwtaken</h2>
+        <h1>Rouwtaak 2</h1>
+        <p>De pijn doorvoelen. Sta jezelf toe om te voelen en leer om deze op jouw manier te verwerken.</p>
+    </section>
+        <section class="intro-foot">
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="prevScreen()">←</button>
+                <a href="/rouwtaak/2" class="btn-nav">Start Taak</a>
+                <button class="btn-nav" onclick="nextScreen()">→</button>
+            </div>
+        </section>
     </section>
 
-</section>
+    <section class="screen" id="screen-3">
+      <img class="screen-icon" src="photos/rouwtaak-green.svg" alt="Rouwtaak 3">
+      <img class="screen-gradient" src="photos/rouwtaak-green.svg" alt="Gradient Rouwtaak 3">
+      <section class="intro-text">
+        <h2>Introductie rouwtaken</h2>
+        <h1>Rouwtaak 3</h1>
+        <p>Verder in verandering. Vind jouw weg in een wereld die nu anders is door het verlies van je dierbare.</p>
+      </section>
+        <section class="intro-foot">
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="prevScreen()">←</button>
+                <a href="/rouwtaak/3" class="btn-nav">Start Taak</a>
+                <button class="btn-nav" onclick="nextScreen()">→</button>
+            </div>
+        </section>
+    </section>
+
+    <section class="screen" id="screen-4">
+      <img class="screen-icon" src="photos/rouwtaak-pink.svg" alt="Rouwtaak 4">
+      <img class="screen-gradient" src="photos/rouwtaak-pink.svg" alt="Gradient Rouwtaak 4">
+      <section class="intro-text">
+        <h2>Introductie rouwtaken</h2>
+        <h1>Rouwtaak 4</h1>
+        <p>Emotioneel verder gaan. Ontdek hoe je een nieuw pad kunt inslaan terwijl jij het verlies een betekenisvolle plek geeft in je leven.</p>
+      </section>
+        <section class="intro-foot">
+            <div class="nav-buttons">
+                <button class="btn-nav" onclick="prevScreen()">←</button>
+                <a href="/rouwtaak/4" class="btn-nav">Start Taak</a>
+                <button class="btn-nav" onclick="nextScreen()">→</button>
+            </div>
+        </section>
+    </section>
+  </main>
+
 
 {% render 'partials/foot.liquid' %}
