@@ -57,11 +57,11 @@ app.get('/en', async function (request, response) {
 
 // Route voor de homepagina in het arabisch
 app.get('/ar', async function (request, response) {
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects')
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/?fields=title,id,image,titleAR,summaryAR,objectNameAR`);
   const apiResponseJSON = await apiResponse.json();
 
   response.render("index-ar.liquid", {
-      artwork: apiResponseJSON.data,
+      artworkData: apiResponseJSON.data
    })
 })
 
