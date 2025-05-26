@@ -12,7 +12,12 @@ Voor het overbregen van ontwerpkeuzes is het aan te bevelen te beginnen met het 
 
 In je Readme laat je zien hoe de website en interactie die je hebt gemaakt werkt, en leg je uit hoe de website goed te gebruiken is. Focus in je uitleg op de feedback en feedforward van interacties met animaties. Laat loading, success en/of error states zien en leg het uit.
 
-👉 Lees twee sprint reviews van Lisa. Bedenk met je tafel hoe je dit in een readme zou kunnen presenteren, teken een wireframe van de readme’s op het whiteboard.
+👉 Lees de twee sprint reviews van Lisa. Bedenk met je tafel hoe je dit in een readme zou kunnen presenteren, teken een wireframe van de readme’s op het whiteboard.
+
+#### Bronnen
+
+- [BEA + Chatbot - presentatie klant](https://github.com/users/lisagjh/projects/13/views/14?visibleFields=%5B%22Title%22%2C%22Status%22%2C%22Labels%22%2C133392529%2C133392554%2C%22Parent+issue%22%2C184698587%5D&pane=issue&itemId=111038260&issue=lisagjh%7Ci-love-web%7C261)
+- [SIH - presentatie a11y aan klant](https://github.com/users/lisagjh/projects/13/views/14?pane=issue&itemId=111743727&issue=lisagjh%7Ci-love-web%7C270)
 <!--
 👉 Bekijk met je team de case 'ons land' van Norday: https://norday.nl/en/cases/onsland/. Hoe hebben ze de website gepresenteerd en wat laten ze allemaal zien?
 -->
