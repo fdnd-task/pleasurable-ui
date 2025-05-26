@@ -12,7 +12,10 @@ Voor het overbregen van ontwerpkeuzes is het aan te bevelen te beginnen met het 
 
 In je Readme laat je zien hoe de website en interactie die je hebt gemaakt werkt, en leg je uit hoe de website goed te gebruiken is. Focus in je uitleg op de feedback en feedforward van interacties met animaties. Laat loading, success en/of error states zien en leg het uit.
 
+👉 Lees twee sprint reviews van Lisa. Bedenk met je tafel hoe je dit in een readme zou kunnen presenteren, teken een wireframe van de readme’s op het whiteboard.
+<!--
 👉 Bekijk met je team de case 'ons land' van Norday: https://norday.nl/en/cases/onsland/. Hoe hebben ze de website gepresenteerd en wat laten ze allemaal zien?
+-->
 
 ### Technische documentatie
 
@@ -20,7 +23,7 @@ De ontwerpkeuzes die je hebt gemaakt voor de opbouw van je code leg je uit in de
 
 Leg uit hoe je de website en interactie hebt opgebouwd in lagen, begin met de Functional (HTML/Server-Side) en Reliable laag (basic CSS met huisstijl), voordat je ingaat op de _enhancements_ voor de Usable en Pleasurable lagen.
 
-👉 Samen een voorbeeld van technische documentatie bekijken, hoe wordt de code beschreven?
+👉 Bedenk hoe je de ontwerpkeuzes voor de pleasurable button states, pleasurable micro interactie en pleasurable laag voor het fetchen van data kan overbrengen. Gebruikt de lagen functional, reliable, usable en pleasurable. Schets een outline van hoe jou readme er uit komt te zien. Bespreek dit daarna met je team. 
 
 <!--
 ## Aanpak
