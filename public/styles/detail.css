@@ -123,6 +123,7 @@
 .h1-title {
     font-family: var(--font-en-regular);
     font-weight: normal;
+    padding: .5em;
 }
 
 
