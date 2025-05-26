@@ -115,6 +115,21 @@ app.post('/community-drops/:id', async (request, response) => {
   response.redirect(303, `/community-drops/${chatId}`); 
 });
 
+app.post('/community-drops/:exerciseId/delete/:messageId', async (request, response) => {
+  const { exerciseId, messageId } = request.params;  
+
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages/${messageId}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+  });
+
+  if (apiResponse.ok) {
+    response.redirect(303, `/community-drops/${exerciseId}`);  
+  } else {
+    response.status(500).send('Er is iets misgegaan met het verwijderen van het bericht.');
+  }
+});
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
