@@ -112,7 +112,9 @@
     <section class="main-objectpagina">
 
         <article class="object-title">
-            <h1 class="h1-title">{{ object.title }}</h1>
+            <h1 class="h1-title">{{ object.titleAR }}</h1>
+            <p class="summary-ar">{{ object.summaryAR }}</p>
+
         </article>
 
         <div class="info-tekst">
@@ -121,7 +123,7 @@
         </div>
 
         <div class="info-object">
-            <p class="tekst-bold">العنوان الكامل:</p>        <p class="tekst-medium">{{ object.title }}</p>
+            <p class="tekst-bold">العنوان الكامل:</p>        <p class="tekst-medium">{{ object.titleAR }}</p>
             <p class="tekst-bold">الفنان:</p>                <p class="tekst-medium">{{ object.artist }}</p>
             <p class="tekst-bold">مكان الإنشاء:</p>          <p class="tekst-medium">{{ object.site }}</p>
             <p class="tekst-bold">الفترة الزمنية:</p>        <p class="tekst-medium">{{ object.displayDate }}</p>
@@ -132,12 +134,7 @@
 
         <div class="object-summary">
             
-            {% if object.summary %}
-                <h2 class="tekst-medium">{{ object.summary }}</h2>
-
-            {% else %}
-                <p class="tekst-medium">لا يوجد ملخص متاح</p>
-            {% endif %}    
+               
 
             <p class="tekst-bold">شارك مع صديق</p>
 
