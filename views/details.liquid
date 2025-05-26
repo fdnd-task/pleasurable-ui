@@ -3,6 +3,7 @@
 {% render 'partials/header.liquid' %}
 
 <body>  
+{% if lang == 'en' %}
 
     <section class="hero-img">
 
@@ -91,90 +92,92 @@
     </section>
 
 <!-- Arabische versie --> 
-            
-<section class="hero-img">
+{% elsif lang == 'ar'%}
+           
+    <section class="hero-img">
 
-    <a href="/" class="back-button">العودة</a>
+        <a href="/" class="back-button">العودة</a>
 
-    {% if object.image %}
-        <img class="object-id" style="view-transition-name: artwork-{{ artwork.image.id }} ;" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="صورة للكائن في قطر" width="300px">        
-
-    {% else %}
-        <p>لا توجد صورة متاحة</p>
-    {% endif %}
-
-</section>
-
-<section class="main-objectpagina">
-
-    <article class="object-title">
-        <h1 class="h1-title">{{ object.title }}</h1>
-    </article>
-
-    <div class="info-tekst">
-        <img src="/assets/blauwe-blok.svg" alt="كتلة زرقاء">
-        <p class="tekst-medium">متحف الفن الإسلامي</p>
-    </div>
-
-    <div class="info-object">
-        <p class="tekst-bold">العنوان الكامل:</p>        <p class="tekst-medium">{{ object.title }}</p>
-        <p class="tekst-bold">الفنان:</p>                <p class="tekst-medium">{{ object.artist }}</p>
-        <p class="tekst-bold">مكان الإنشاء:</p>          <p class="tekst-medium">{{ object.site }}</p>
-        <p class="tekst-bold">الفترة الزمنية:</p>        <p class="tekst-medium">{{ object.displayDate }}</p>
-        <p class="tekst-bold">المواد:</p>                <p class="tekst-medium">{{ object.materials }}</p>
-        <p class="tekst-bold">رقم الكائن:</p>            <p class="tekst-medium">{{ object.objectNumber }}</p>
-        <p class="tekst-bold">نوع السجل:</p>             <p class="tekst-medium">{{ object.recordtype }}</p>
-    </div>
-
-    <div class="object-summary">
-        
-        {% if object.summary %}
-            <h2 class="tekst-medium">{{ object.summary }}</h2>
+        {% if object.image %}
+            <img class="object-id" style="view-transition-name: artwork-{{ artwork.image.id }} ;" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="صورة للكائن في قطر" width="300px">        
 
         {% else %}
-            <p class="tekst-medium">لا يوجد ملخص متاح</p>
-        {% endif %}    
+            <p>لا توجد صورة متاحة</p>
+        {% endif %}
 
-        <p class="tekst-bold">شارك مع صديق</p>
+    </section>
 
-        <div class="share-icons">
-            <a href="" class="icon-links"><img src="/assets/paperclip-icoon.png" alt="رمز مشبك الورق"></a>
-            <a href="" class="icon-links"><img src="/assets/email-icoon.png" alt="رمز البريد الإلكتروني"></a>
-            <a href="" class="icon-links"><img src="/assets/linkedin-icoon.png" alt="رمز لينكدإن"></a>
-            <a href="" class="icon-links"><img src="/assets/facebook-icoon.png" alt="رمز فيسبوك"></a>
-            <a href="" class="icon-links"><img src="/assets/Union.png" alt="رمز إكس (تويتر سابقًا)"></a>
+    <section class="main-objectpagina">
+
+        <article class="object-title">
+            <h1 class="h1-title">{{ object.title }}</h1>
+        </article>
+
+        <div class="info-tekst">
+            <img src="/assets/blauwe-blok.svg" alt="كتلة زرقاء">
+            <p class="tekst-medium">متحف الفن الإسلامي</p>
         </div>
-    </div> 
-</section>
 
-<section class="suggesties"> 
-    <h2 class="h2-suggesties">قد يعجبك أيضًا</h2>
+        <div class="info-object">
+            <p class="tekst-bold">العنوان الكامل:</p>        <p class="tekst-medium">{{ object.title }}</p>
+            <p class="tekst-bold">الفنان:</p>                <p class="tekst-medium">{{ object.artist }}</p>
+            <p class="tekst-bold">مكان الإنشاء:</p>          <p class="tekst-medium">{{ object.site }}</p>
+            <p class="tekst-bold">الفترة الزمنية:</p>        <p class="tekst-medium">{{ object.displayDate }}</p>
+            <p class="tekst-bold">المواد:</p>                <p class="tekst-medium">{{ object.materials }}</p>
+            <p class="tekst-bold">رقم الكائن:</p>            <p class="tekst-medium">{{ object.objectNumber }}</p>
+            <p class="tekst-bold">نوع السجل:</p>             <p class="tekst-medium">{{ object.recordtype }}</p>
+        </div>
 
-    <ul class="ul-suggesties">
-        <li class="li-suggesties">
-            <img class="suggestie-img" src="/assets/image 11.png">
-            <p class="tekst-medium">مصر، سوريا</p>
-            <p class="tekst-bold">محبرة</p>
-        </li>
+        <div class="object-summary">
+            
+            {% if object.summary %}
+                <h2 class="tekst-medium">{{ object.summary }}</h2>
 
-        <li class="li-suggesties">
-            <img class="suggestie-img" src="/assets/image 19.png">
-            <p class="tekst-medium">سوريا، العراق</p>
-            <p class="tekst-bold">حامل صينية</p>
-        </li>
+            {% else %}
+                <p class="tekst-medium">لا يوجد ملخص متاح</p>
+            {% endif %}    
 
-        <li class="li-suggesties">
-            <img class="suggestie-img" src="/assets/image 12.png">
-            <p class="tekst-medium">العراق</p>
-            <p class="tekst-bold">وعاء خزفي من العصر العباسي</p>
-        </li>
+            <p class="tekst-bold">شارك مع صديق</p>
 
-        <li class="li-suggesties">
-            <img class="suggestie-img" src="/assets/image 18.png">
-            <p class="tekst-medium">إزنيق</p>
-            <p class="tekst-bold">قارورة</p>
-        </li>
-    </ul>
-</section>
+            <div class="share-icons">
+                <a href="" class="icon-links"><img src="/assets/paperclip-icoon.png" alt="رمز مشبك الورق"></a>
+                <a href="" class="icon-links"><img src="/assets/email-icoon.png" alt="رمز البريد الإلكتروني"></a>
+                <a href="" class="icon-links"><img src="/assets/linkedin-icoon.png" alt="رمز لينكدإن"></a>
+                <a href="" class="icon-links"><img src="/assets/facebook-icoon.png" alt="رمز فيسبوك"></a>
+                <a href="" class="icon-links"><img src="/assets/Union.png" alt="رمز إكس (تويتر سابقًا)"></a>
+            </div>
+        </div> 
+    </section>
+
+    <section class="suggesties"> 
+        <h2 class="h2-suggesties">قد يعجبك أيضًا</h2>
+
+        <ul class="ul-suggesties">
+            <li class="li-suggesties">
+                <img class="suggestie-img" src="/assets/image 11.png">
+                <p class="tekst-medium">مصر، سوريا</p>
+                <p class="tekst-bold">محبرة</p>
+            </li>
+
+            <li class="li-suggesties">
+                <img class="suggestie-img" src="/assets/image 19.png">
+                <p class="tekst-medium">سوريا، العراق</p>
+                <p class="tekst-bold">حامل صينية</p>
+            </li>
+
+            <li class="li-suggesties">
+                <img class="suggestie-img" src="/assets/image 12.png">
+                <p class="tekst-medium">العراق</p>
+                <p class="tekst-bold">وعاء خزفي من العصر العباسي</p>
+            </li>
+
+            <li class="li-suggesties">
+                <img class="suggestie-img" src="/assets/image 18.png">
+                <p class="tekst-medium">إزنيق</p>
+                <p class="tekst-bold">قارورة</p>
+            </li>
+        </ul>
+    </section>
+{% endif %}
 
 </body>
