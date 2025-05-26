@@ -87,3 +87,15 @@
     }
         
 }
+
+.pick-background-section{
+
+    div{
+        display: flex;
+        overflow-x: auto;
+        margin-left: -9px;
+    }
+    button{
+        background-color: transparent;
+    }
+}
