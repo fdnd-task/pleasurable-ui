@@ -93,7 +93,7 @@ app.get ('/community-drops/:id', async function (request, response){
   const chatIdResponse = await fetch(`https://fdnd-agency.directus.app/items/dropandheal_messages/?fields=*.*&filter={"exercise":"${chatId}"}&limit=-1`);
   const chatResponseJson = await chatIdResponse.json();
 
-  const reversedChat = chatResponseJson.data.reverse();
+  // const reversedChat = chatResponseJson.data.reverse();
 
   response.render('chat.liquid', {
     chat: chatResponseJson.data,
