@@ -68,7 +68,7 @@ app.get('/ar', async function (request, response) {
 // Detail-page
 app.get('/details/:id', async function (request, response) {
   const artworkId = request.params.id;
-  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate,artist,materials,recordType`
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,id,image,summary,artist,location,displayDate,materials,techniques,objectNumber,recordType,titleAR,summaryAR,objectNameAR`
 );
 
   const apiResponseJSON = await apiResponse.json();
