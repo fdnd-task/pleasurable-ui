@@ -77,13 +77,14 @@ form {
 
 
 button[type="submit"] {
-    background-color: #e0e0e0;
+    background-color: #87cfebbe;
     border: none;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border-radius: 2em;
     font-size: 0.9rem;
     cursor: pointer;
-    color: #333;
+    color: white;
+    height: 2.5em;
         }
     }
 }
