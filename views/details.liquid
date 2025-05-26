@@ -24,6 +24,7 @@
 
         <article class="object-title">
             <h1 class="h1-title">{{ object.title }}</h1>
+            
         </article>
 
         <div class="info-tekst">
@@ -114,9 +115,8 @@
     <section class="main-objectpagina">
 
         <article class="object-title">
-            <h1 class="h1-title">{{ object.titleAR }}</h1>
+            <h1 class="h1-title">{{ object.titleAR | default: 'لا يوجد عنوان '}}</h1>
             <p class="summary-ar">{{ object.summaryAR }}</p>
-
         </article>
 
         <div class="info-tekst">
