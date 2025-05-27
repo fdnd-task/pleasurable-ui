@@ -6,6 +6,16 @@
   }
 </style>
 
+<div class="overlay">
+  <div class="popup">
+    <button class="popup-close" aria-label="Close popup">&times;</button>
+    <p class="popup-text">
+      Good morning, Shall we start with a story?
+    </p>
+    <button class="popup-cta">Let’s do it!</button>
+  </div>
+</div>
+
 {% comment %} Listening Progess {% endcomment %}
 
 {% comment %} Ellipse groen {% endcomment %}
@@ -626,3 +636,5 @@
     </linearGradient>
   </defs>
 </svg>
+
+{% render 'partials/footer.liquid' %}
