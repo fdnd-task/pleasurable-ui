@@ -20,19 +20,25 @@ Voor deze sprint hebben we als team gewerkt aan het opnieuw bouwen van de websit
 
 **Live:** [https://pleasurable-ui-mw41.onrender.com/](https://pleasurable-ui-mw41.onrender.com/)
 
+---
+
 ## Gebruik
 
 Deze website is bedoeld voor bezoekers van het Qatar Museum die informatie willen opzoeken over kunstobjecten, in zowel het Arabisch als het Engels.
 
+---
+
 ### Fatima  Menu Overlay, Dropdown & Home Route
 
-#### De gebruiker
+### De gebruiker
 
-Mijn onderdeel was het bouwen van het overlaymenu aan de frontend en de `GET/`route aan de backend.
+Mijn onderdeel was het bouwen van het overlaymenu aan de frontend en de GET/ route voor de homepage
 
 - Als je op MENU klikt, verschijnt een overlay over het hele scherm.
 - Op desktop zie je links een grote afbeelding en rechts grote navigatielinks in Arabisch en Engels.
 - Op mobiel is de afbeelding verborgen en het menu simpeler, zodat het rustig en overzichtelijk blijft.
+
+---
 
 ### Screenshots
 
@@ -44,6 +50,8 @@ Mijn onderdeel was het bouwen van het overlaymenu aan de frontend en de `GET/`ro
 <br>
 <img src="public/assets/navm.png" width="300" alt="Mobile navigation" />
 
+---
+
 #### Feedback & Feedforward
 
 - Als je over een menu link hovert, verschijnt een subtiele pulse animatie: zo ziet de gebruiker dat je kunt klikken.
@@ -52,6 +60,8 @@ Mijn onderdeel was het bouwen van het overlaymenu aan de frontend en de `GET/`ro
 - Het menu opent met een rustige animatie, zodat de overgang niet stoort.
 
 Deze keuzes zorgen ervoor dat het menu makkelijker te gebruiken is
+
+---
 
 #### Toegankelijkheid
 
@@ -62,6 +72,8 @@ Deze keuzes zorgen ervoor dat het menu makkelijker te gebruiken is
   - In oudere browsers
   - Met alleen een toetsenbord (voor mensen met een beperking)
 - Afbeeldingen zijn responsive en worden lazy geladen.
+
+---
 
 ### Ontwerpkeuzes
 
@@ -90,6 +102,8 @@ Ik wilde dat het menu door iedereen te gebruiken is op elk apparaat, met of zond
    - Fallback styling voor browsers zonder ondersteuning
    - Afbeeldingen worden snel geladen met lazy loading en moderne formaten
 
+   ---
+
 ### Homepagina Route (Server-side)
 
 Ik maakte de `GET /` route voor de homepage. Deze haalt kunstobjecten op uit de Directus API en stuurt ze naar de template:
@@ -109,6 +123,8 @@ app.get('/', async (req, res) => {
   }
 });
 ```
+
+---
 
 ### Karima
 
@@ -139,9 +155,13 @@ De taalswitch wordt via de backend uitgevoerd. De juiste taalversie van de conte
 {% endif %}
 ```
 
+---
+
 ### Tessa 
 ### Renzo 
 ### Amir 
+
+---
 
 ## Installatie
 
@@ -181,10 +201,13 @@ http://localhost:8000
 
 Nu draait je project lokaal!
 
+---
+
 ## Bronnen
 
-- [Qatar Museums](https://qm.org.qa) 
-Voor inhoud, inspiratie en visuele stijl.
+-[Qatar Museums](https://qm.org.qa) Voor inhoud, inspiratie en visuele stijl.
+
+---
 
 ## Licentie
 
