@@ -1,5 +1,56 @@
-<!doctype html>
-<html lang="nl">
-<title>Sprint 11</title>
-<h1>Welkom in Sprint 11!</h1>
-<p>Succes!</p>
+<!-- Inladen van de CSS -->
+{% render 'partials/head.liquid' %}
+
+<!-- Inladen van de header (navbar) via Liquid partials -->
+{% render 'partials/header.liquid' %}
+
+
+{% render 'partials/dropdown.liquid' %}
+
+
+<ul class="art-images">
+  {% for api in artworkData %}
+    <li class="image-container">
+      <a style="view-transition-name: image-{{ api.id }};" href="/en/details/{{ api.id }}">
+        <div class="image-wrapper">
+          <img
+            class="image-styling scroll-fade-in"
+            src="https://fdnd-agency.directus.app/assets/{{ api.image }}"
+            alt="art images for qatar museums">
+        </div>
+      </a>
+    </li>
+
+  {% endfor %}
+</ul>
+
+<!-- Scroll observer script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+// Wacht tot de hele pagina is geladen. Pas dan begint het script te draaien, zodat het zeker weet dat alle afbeeldingen in de HTML staan.
+
+  const elements = document.querySelectorAll('.scroll-fade-in');
+  // Zoek op de pagina alle elementen met de class .scroll-fade-in. Dat zijn de afbeeldingen die je later wilt laten "fade-in"-animeren.
+
+    const observer = new IntersectionObserver((entries) => {
+      // Hier maken we een “waarnemer” (observer) aan. Die kijkt of een afbeelding in beeld komt (dus of jij ernaartoe scrollt).
+        
+      entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+        //  Voor elk element dat in beeld komt controleert het script of dat element daadwerkelijk zichtbaar is op je scherm. Als dat zo is, voegt het de class visible toe
+    }, {
+        threshold: 0.1
+    });
+    // Als minstens 10% van het element zichtbaar is op het scherm, dan moet de fade-in gestart worden.
+
+    elements.forEach(el => observer.observe(el));
+  });
+  // “Hou elk van die elementen in de gaten.” Dus nu weet de browser welke afbeeldingen hij moet laten animeren als je naar beneden scrollt.
+</script>
+</body>
+
+
+</body>
