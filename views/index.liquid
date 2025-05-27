@@ -20,73 +20,29 @@
     </section>
 
     <!-- Screens 1 t/m 4 (Rouwtaken) -->
-    <section class="screen" id="screen-1">
-    <img class="screen-icon" src="photos/rouwtaak-blue.svg" alt="Rouwtaak 1">
-    <img class="screen-gradient" src="photos/rouwtaak-blue.svg" alt="Gradient Rouwtaak 1">
-    <section class="intro-text">
-        <h2>Introductie rouwtaken</h2>
-        <h1>Rouwtaak 1</h1>
-        <p>Het verlies aanvaarden. Ontdek hoe je de realiteit van het verlies kunt omarmen.</p>
-    </section>
-    <section class="intro-foot">
-        <div class="nav-buttons">
-            <button class="btn-nav" onclick="prevScreen()">←</button>
-            <a href="/rouwtaak/1" class="btn-nav">Start Taak</a>
-            <button class="btn-nav" onclick="nextScreen()">→</button>
-        </div>
-    </section>
-    </section>
+    {% for task in task %}
+      <section class="screen" id="screen-{{task.id}}">
 
-    <section class="screen" id="screen-2">
-      <img class="screen-icon" src="photos/rouwtaak-red.svg" alt="Rouwtaak 2">
-      <img class="screen-gradient" src="photos/rouwtaak-red.svg" alt="Gradient Rouwtaak 2">
-      <section class="intro-text">
-        <h2>Introductie rouwtaken</h2>
-        <h1>Rouwtaak 2</h1>
-        <p>De pijn doorvoelen. Sta jezelf toe om te voelen en leer om deze op jouw manier te verwerken.</p>
-    </section>
+        <img class="screen-icon" src="photos/rouwtaak-{{task.theme}}.svg" alt="Rouwtaak {{task.id}}">
+        <img class="screen-gradient" src="photos/rouwtaak-{{task.theme}}.svg" alt="Gradient Rouwtaak {{task.id}}">
+
+        <section class="intro-text">
+            <h2>Introductie rouwtaken</h2>
+            <h1>Rouwtaak {{task.id}}</h1>
+            <p>{{task.title}}. {{task.description}}</p>
+        </section>
+        
         <section class="intro-foot">
             <div class="nav-buttons">
                 <button class="btn-nav" onclick="prevScreen()">←</button>
-                <a href="/rouwtaak/2" class="btn-nav">Start Taak</a>
+                <a href="/rouwtaak/{{task.id}}" class="btn-nav">Start Taak</a>
                 <button class="btn-nav" onclick="nextScreen()">→</button>
             </div>
         </section>
-    </section>
 
-    <section class="screen" id="screen-3">
-      <img class="screen-icon" src="photos/rouwtaak-green.svg" alt="Rouwtaak 3">
-      <img class="screen-gradient" src="photos/rouwtaak-green.svg" alt="Gradient Rouwtaak 3">
-      <section class="intro-text">
-        <h2>Introductie rouwtaken</h2>
-        <h1>Rouwtaak 3</h1>
-        <p>Verder in verandering. Vind jouw weg in een wereld die nu anders is door het verlies van je dierbare.</p>
       </section>
-        <section class="intro-foot">
-            <div class="nav-buttons">
-                <button class="btn-nav" onclick="prevScreen()">←</button>
-                <a href="/rouwtaak/3" class="btn-nav">Start Taak</a>
-                <button class="btn-nav" onclick="nextScreen()">→</button>
-            </div>
-        </section>
-    </section>
+    {% endfor %}
 
-    <section class="screen" id="screen-4">
-      <img class="screen-icon" src="photos/rouwtaak-pink.svg" alt="Rouwtaak 4">
-      <img class="screen-gradient" src="photos/rouwtaak-pink.svg" alt="Gradient Rouwtaak 4">
-      <section class="intro-text">
-        <h2>Introductie rouwtaken</h2>
-        <h1>Rouwtaak 4</h1>
-        <p>Emotioneel verder gaan. Ontdek hoe je een nieuw pad kunt inslaan terwijl jij het verlies een betekenisvolle plek geeft in je leven.</p>
-      </section>
-        <section class="intro-foot">
-            <div class="nav-buttons">
-                <button class="btn-nav" onclick="prevScreen()">←</button>
-                <a href="/rouwtaak/4" class="btn-nav">Start Taak</a>
-                <button class="btn-nav" onclick="nextScreen()">→</button>
-            </div>
-        </section>
-    </section>
   </main>
 
 
