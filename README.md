@@ -165,7 +165,6 @@ De taalswitch wordt via de backend uitgevoerd. De juiste taalversie van de conte
 Mijn deel van de opdracht ging over het stylen van de home pagina en het opzetten van de server met server-side JavaScript. Als feedback van de opdrachtgever had ik de opdracht gekregen de home pagina meer te laten lijken op het ontwerp. Dit heb ik gedaan door gebruik te maken van veel witruimte, de afbeeldingen zonder styling, zonder te croppen, en ook heb ik een fijne scroll-animatie toegevoegd. Voor de scroll-animatie heb ik gebruik gemaakt van een fade-in op scroll basis, zo lijkt het net alsof de afbeeldingen rustig binnenvallen op de pagina hoe verder je srollt. Ook heb ik op aanvraag van de opdrachtgever niet meer gebruik gemaakt van `display: grid`, maar gebruik gemaakt van `column` om zo de kolommen weer te geven.
 
 ``` Client-side JS voor scroll-fade-in animatie
-<script>
   document.addEventListener("DOMContentLoaded", function () {
 // Wacht tot de hele pagina is geladen. Pas dan begint het script te draaien, zodat het zeker weet dat alle afbeeldingen in de HTML staan.
 
@@ -189,7 +188,6 @@ Mijn deel van de opdracht ging over het stylen van de home pagina en het opzette
     elements.forEach(el => observer.observe(el));
   });
   // “Hou elk van die elementen in de gaten.” Dus nu weet de browser welke afbeeldingen hij moet laten animeren als je naar beneden scrollt.
-</script>
 ```
 
 In de server heb ik ervoor gezorgd dat wat /GET routes klaarstonden om te gebruiken door de rest van de groep, ook is er een POST en DELETE gemaakt voor de like buttons die worden gebruikt op de Admin page. 
