@@ -44,16 +44,6 @@ app.get('/', async (req, res) => {
 
 
 
-app.get('/en', async function (request, response) {
-
-  const artworkURL = 'https://fdnd-agency.directus.app/items/fabrique_art_objects'
-  const artworkFetch = await fetch(artworkURL)
-
-  const artworkJSON = await artworkFetch.json()
-
-  response.render('index.liquid', { artworkData: artworkJSON.data })
-
-})
 
 // Route voor de homepagina in het arabisch
 app.get('/ar', async function (request, response) {
