@@ -48,7 +48,7 @@ body {
     transform: scale(0.97);
   }
   
-  img {
+  .image-styling {
     height: 400px;
     max-width: 90%;
     object-fit: contain;
