@@ -1,70 +1,58 @@
 body {
     scroll-behavior: smooth;
   }
+
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+  
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   .art-images {
     padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 100vh; /* grote ruimte tussen kaarten voor scrolleffect */
-    padding: 5rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    padding: 5rem;
     list-style: none;
-    margin: 0;
-    scroll-snap-type: y mandatory;
+    gap: 10px;
   }
   
   .image-container {
-    position: sticky;
     top: 25vh;
-    width: 70vw;
-    height: 55vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* twee gelijke kolommen */
     align-items: center;
-    background: linear-gradient(145deg, #f0f0f0, #d4d4d4);
-    border: 1px solid #aaa;
-    border-radius: 30px;
-    padding: 30px;
-    scroll-snap-align: start;
+    object-fit: contain;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     gap: 2rem;
+    max-width: 100%;
+    padding: 1rem;
   }
-  
-  .post-title {
-    text-align: left;
-  }
-  
-  .post-title h1 {
-    margin: 0 0 1rem 0;
-    font-size: var(--h2-font-size);
-    font-family: "Din Next it pro";
-  }
-  
   
   .image-container:hover {
     transform: scale(0.97);
   }
   
   .image-styling {
-    height: 400px;
-    max-width: 90%;
+    height: 350px;
+    max-width: 100%; /* Voorkomt dat afbeelding buiten container gaat */
+    width: 100%; /* Zorgt dat afbeelding zich aanpast aan containerbreedte */
     object-fit: contain;
   }
+  
 
   @media (max-width: 768px) {
-    .post-title {
-      display: none;
-    }
 
-    .image-container {
+    .art-images {
         grid-template-columns: 1fr;
         place-items: center;
         }
   
-    img {
+    .image-styling {
       width: 500px;
       max-width: 100%;
     }
