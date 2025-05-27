@@ -5,7 +5,7 @@ body {
   .scroll-fade-in {
     opacity: 0;
     transform: translateY(50px);
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   }
   
   .scroll-fade-in.visible {
@@ -38,16 +38,8 @@ body {
     height: auto;
     display: block;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    /* transition: transform 0.5s ease; */
   }
-  
-  /* .image-styling {
-    height: 350px;
-    max-width: 100%; /* Voorkomt dat afbeelding buiten container gaat 
-    width: 100%; /* Zorgt dat afbeelding zich aanpast aan containerbreedte 
-    object-fit: contain;
-  } */
-  
 
   @media (max-width: 768px) {
 
