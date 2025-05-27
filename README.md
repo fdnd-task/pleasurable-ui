@@ -30,7 +30,6 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasur
 ### Loading State
 Voordat het formulier wordt verzonden krijg je een loading state te zien. De opacity van de button wordt verlaagd en er komt een zandloper emoji tevoorschijn. De loading state is gecodeerd met behulp van javascript en CSS.
 
-https://github.com/user-attachments/assets/a2d31e63-afc6-49ce-91be-2f96a40fde67
 
 
 ### Succes State
