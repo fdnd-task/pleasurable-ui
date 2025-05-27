@@ -520,6 +520,12 @@
   transition: color 0.3s ease;
 }
 
+.column:hover .arabic,
+.column:hover .english {
+  text-decoration: underline;
+  transition: text-decoration 0.3s ease;
+}
+
 
 @media (max-width: 768px) {
     .column .hover-overlay,
