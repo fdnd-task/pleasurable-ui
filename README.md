@@ -35,7 +35,7 @@ Voordat het formulier wordt verzonden krijg je een loading state te zien. De opa
 ### Succes State
 Na het verzenden van het acquisition formulier krijg je een “succes state”  te zien. Het is een apart scherm die ziet nadat je een formulier succesvol hebt ingevuld. Dit is belangrijk voor de gebruikerservaring (UX) omdat het geeft duidelijkheid en het bevestigd dat alles goed is gegaan. 
 
-![image](https://github.com/user-attachments/assets/1f615669-9414-4b77-a6f7-85189ad3a813)
+![image](https://github.com/user-attachments/assets/a028b967-26d0-4d19-a345-ca960062337a)
 
 ### Tweetalige navigatie (Engels & Arabisch)
 Vanuit de navigatie kan je switchen van een Engelse site naar een Arabische site. Op de homepage kan je vervolgens een artobject kiezen. De informatie van het artobject wordt in het arabisch opgehaald vanuit de database. Als er geen informatie beschikbaar wordt een default tekst weergegeven. Vanuit het artobject kan je ervoor kiezen een formulier in te vullen. De bezoeker kan het formulier invullen als de bezoeker een artobject wil verkopen of verdere informatie heeft over een bepaald artobject. Dit formulier kan zowel in het arabisch als engels worden ingevuld. 
