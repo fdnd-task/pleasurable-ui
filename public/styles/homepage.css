@@ -1,24 +1,37 @@
-#tapijt{
-   height: 10em;
-   width: auto;
-}
+#muis{
+    position: absolute;
+    height: 16em;
+    width: 16em;
 
-#vloer{
-    height: 20em;
-    width: auto;
+    margin-top: -25em;
+    left: 10em;
 }
 
 #bank{
     height: 10em;
-    width: auto;
+    margin-bottom: -5em;
+    margin-top: 5em;
 }
 
-#muis{
-    height: 10em;
-    width: auto;
+#tapijt{
+    position: relative;
+    width: 20em;
 }
 
 #plant{
-    height: 10em;
-    width: auto;
+    margin-bottom: -5em;
+    margin-top: 5em;
+}
+
+.boven{
+    display: flex;
+}
+
+.midden{
+    display: flex;
+}
+
+.onder {
+    background-color: #d4af76;
+    
 }
