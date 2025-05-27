@@ -28,7 +28,7 @@ Deze website is bedoeld voor bezoekers van het Qatar Museum die informatie wille
 
 #### De gebruiker
 
-Mijn onderdeel was het bouwen van het overlaymenu aan de voorkant en de `GET/`route aan de serverkant.
+Mijn onderdeel was het bouwen van het overlaymenu aan de frontend en de `GET/`route aan de backend.
 
 - Als je op MENU klikt, verschijnt een overlay over het hele scherm.
 - Op desktop zie je links een grote afbeelding en rechts grote navigatielinks in Arabisch en Engels.
@@ -46,7 +46,7 @@ Mijn onderdeel was het bouwen van het overlaymenu aan de voorkant en de `GET/`ro
 
 #### Feedback & Feedforward
 
-- Als je over een menu link hovert, verschijnt een subtiele pulse-animatie: zo ziet de gebruiker dat je kunt klikken.
+- Als je over een menu link hovert, verschijnt een subtiele pulse animatie: zo ziet de gebruiker dat je kunt klikken.
 - Andere links worden roze bij hover, wat extra feedback geeft.
 - De CLOSE-knop maakt duidelijk hoe je het menu weer sluit.
 - Het menu opent met een rustige animatie, zodat de overgang niet stoort.
@@ -71,7 +71,7 @@ Ik wilde dat het menu door iedereen te gebruiken is op elk apparaat, met of zond
    - Semantische structuur met `<nav>`, `<section>`, `<article>`, `<h1>`, `<h3>`
    - Werkt zonder styling
    - Afbeeldingen via `<picture>` met AVIF/WebP/JPG als fallback
-   - RTL-styling voor Arabische teksten
+   - RTL styling voor Arabische teksten
 
 2. **Reliable (CSS)**
    - Eenvoudige CSS zonder afhankelijk te zijn van grid of animatie
@@ -81,14 +81,14 @@ Ik wilde dat het menu door iedereen te gebruiken is op elk apparaat, met of zond
    - Responsive layout via media queries
    - Duidelijke hover, focus en active states
    - Menu opent met alleen een `#dropdown-menu`  (geen JS nodig)
-   - SVG-iconen
+   - SVG iconen
 
 4. **Pleasurable (Interactie & Animatie)**
    - Animatie bij openen (`@keyframes dropdownEnter`)
-   - Glow effect via `mix-blend-mode` en `clip-path`
+   - Glow effect via `mix blend-mode` en `clip path`
    - Micro interactie met `subtlePulse` animatie
-   - Fallback-styling voor browsers zonder ondersteuning
-   - Afbeeldingen worden snel geladen met lazy-loading en moderne formaten
+   - Fallback styling voor browsers zonder ondersteuning
+   - Afbeeldingen worden snel geladen met lazy loading en moderne formaten
 
 ### Homepagina Route (Server-side)
 
@@ -138,6 +138,10 @@ De taalswitch wordt via de backend uitgevoerd. De juiste taalversie van de conte
   <p>Language not supported</p>
 {% endif %}
 ```
+
+### Tessa 
+### Renzo 
+### Amir 
 
 ## Installatie
 
