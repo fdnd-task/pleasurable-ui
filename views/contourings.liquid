@@ -1,0 +1,12 @@
+{% render "partials/head.liquid" %}
+
+<h1 class="section-title">Contourings</h1>
+
+<div class="contourings-grid">
+  {% for contouring in contourings %}
+    {% render "partials/contourings-card.liquid", contouring: contouring %}
+  {% endfor %}
+</div>
+
+
+{% render "partials/foot.liquid" %}
