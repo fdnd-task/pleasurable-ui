@@ -185,6 +185,8 @@ app.get('/bookmarks', async function (req, res) {
   const allShowsAllStationsFetch = await fetch(allShowsAllStations);
   const allShowsAllStationsFetchJSON = await allShowsAllStationsFetch.json();
   const nestedShows = [];
+ 
+  const radioData = radiostationsResponseJSON.data;
 
   allShowsAllStationsFetchJSON.data.forEach(function (show) {
 
@@ -210,7 +212,8 @@ app.get('/bookmarks', async function (req, res) {
     index === self.findIndex(s => s.id === show.id)
   );
   res.render('bookmarks.liquid', {
-    bookmarkedShowObjects: bookmarkedShowObjects
+    bookmarkedShowObjects: bookmarkedShowObjects,
+    radioData: radioData
   })
 })
 
