@@ -1,0 +1,144 @@
+/* Intro page styling */
+
+.main-index {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fade-slide-in {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fade-slide-out {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+  }
+  
+  .screen.active {
+    display: block;
+    view-transition-name: screen-transition;
+  }
+  
+  @layer view-transitions {
+    ::view-transition-new(screen-transition) {
+      animation: fade-slide-in 400ms ease forwards;
+    }
+  
+    ::view-transition-old(screen-transition) {
+      animation: fade-slide-out 400ms ease forwards;
+    }
+  } 
+
+.screen {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.intro-container {
+    color: var(--white);
+}
+
+.intro-img {
+    position: relative;
+    width: 90%;
+    right: 25%;
+}
+
+.img-container, .screen-icon {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center; 
+    height: 100vh; 
+}
+
+.intro-text {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    h1 {
+        font-size: var(--size-xxl);
+        letter-spacing: -1px;
+        line-height: 0.8;
+        span {
+            display: block;
+        }
+    }
+}
+
+
+.intro-foot{
+    width: 100vw;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    .intro-btn {
+        background: none;
+        border: 3px solid var(--white);
+        padding-left: 40px;
+        padding-right: 40px;
+        text-decoration: none;
+        display: block;
+        position: absolute;
+        top: 93vh;
+        &:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s ease-in-out;
+            background-color: var(--white);
+            color: var(--black);
+        }
+    }
+    .nav-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        .btn-nav {
+            background: none;
+            border: 3px solid var(--white);
+            border-radius: 20px;
+            color: var(--white);
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            position: relative;
+            bottom: 6vh;
+            display: inline-block;
+        }
+        a {
+            text-decoration: none;
+            &:hover {
+                color: var(--black);
+                background-color: var(--white);
+                transition: background-color 0.2s ease-in-out;
+            }
+        }
+      }
+}
+
+.screen-gradient {
+    position: absolute;
+    filter: blur(100px);
+    top: 80vh;
+    right: 10px;
+}
+
+
