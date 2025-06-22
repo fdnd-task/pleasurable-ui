@@ -1,0 +1,61 @@
+/* Intro page styling */
+
+.intro-container {
+    color: var(--white);
+}
+
+.intro-img {
+    position: relative;
+    width: 90%;
+    right: 25%;
+    /* transform: translateY(30%);
+    height: 50%; */
+}
+
+.img-container {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    height: 100vh;
+}
+
+.intro-text {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    h1 {
+        font-size: var(--size-xxl);
+        letter-spacing: -1px;
+        line-height: 0.8;
+        span {
+            display: block;
+        }
+    }
+}
+
+.intro-foot{
+    width: 100vw;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    .intro-btn {
+        background: none;
+        border: 3px solid var(--white);
+        padding-left: 40px;
+        padding-right: 40px;
+        text-decoration: none;
+        display: block;
+        position: absolute;
+        top: 93vh;
+        &:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s ease-in-out;
+            background-color: var(--white);
+            color: var(--black);
+        }
+    }
+}
