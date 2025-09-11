@@ -22,7 +22,7 @@ Review de website vervolgens op basis van de onderstaande criteria voor **RAPPE*
 - **P**erforming: voer verschillende testen uit voor de performance. 
 - **P**rogressive **E**nhanced: zijn de verschillende features op de pagina Progressive Enhanced opgebouwd? Pak eventueel de deeltaak _Progressive Enhancement_ er eens bij om te bepalen hoe bepaalde componenten zo gebouwd kunnen worden dat ze het altijd blijven doen. 
 
-**Stap 3: integeren van geleeerde lessen** 
+**Stap 3: integeren van geleerde lessen** 
 Wat hebben jullie geleerd van deze code/design review? Zijn er zaken in jullie eigen werkwijze die jullie kunnen verbeteren? Of hebben jullie een mooie ontwerpoplossing gezien? Maak waar nodig nieuwe taken (issues) aan en assign deze binnen jullie team. 
 
 ## 2. Voortgangsgesprek 
