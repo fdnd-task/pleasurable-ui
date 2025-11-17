@@ -1,5 +1,104 @@
-<!doctype html>
-<html lang="nl">
-<title>Sprint 11</title>
-<h1>Welkom in Sprint 11!</h1>
-<p>Succes!</p>
+{% render 'partials/head.liquid' pageTitle: "Radio: {{thisstation}}" style: "home" stylesheet: "home" %}
+<body class="home">
+    
+    <main>
+        <h1 class="text-xxl">
+            Radiostations
+        </h1>
+        {% assign sorted_radiostations = radiostations | sort: radiostation.id %}
+        <ul class="radiostations">
+            {% for radiostation in sorted_radiostations limit: 3%}
+                <li class="one-radiostation block-radio-{{radiostation.id}}">
+                    <h2 class="text-l radio-name">{{radiostation.name}}</h2>
+                    <a href="/radio/{{radiostation.name | url_encode | replace: '+', '%20'}}/programmering">
+                        {% case radiostation.id %}
+                            {% when 1 %}
+                                <picture>
+                                    <source type="image/avif" srcset="/assets/radio-1.avif">
+                                    <source type="image/webp" srcset="/assets/radio-1.webp">
+                                    <img fetchpriority="high" src="/assets/radio-1.png" width="616" height="206" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
+                                </picture>
+                                
+                            {% when 2 %}
+                                <picture>
+                                    <source type="image/avif" srcset="/assets/radio-2.avif">
+                                    <source type="image/webp" srcset="/assets/radio-2.webp">
+                                    <img fetchpriority="high" src="/assets/radio-2.png" width="143" height="29" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
+                                </picture>
+                            {% when 3 %}
+                                <picture>
+                                    <source type="image/avif" srcset="/assets/radio-3.avif">
+                                    <source type="image/webp" srcset="/assets/radio-3.webp">
+                                    <img fetchpriority="high" src="/assets/radio-3.png" width="369" height="150" alt="Ga naar de programmeringspagina van {{radiostation.name}}" title="Logo van {{ radiostation.name }}">
+                                </picture>
+                        {% endcase %}
+                    </a>
+                    <ul class="socials">
+                        <li>
+                            {% case radiostation.id %}
+                                {% when 1 %}
+                                    <a href="https://www.instagram.com/radioveronica/" target="_blank">
+                                {% when 2 %}
+                                    <a href="https://www.instagram.com/slamofficial/" target="_blank">
+                                {% when 3 %}
+                                    <a href="https://www.instagram.com/100pnl/" target="_blank">
+                            {% endcase %}
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 17 16" fill="none">
+                                <path d="M8.71158 2.53448C10.4917 2.53448 10.7025 2.54125 11.4055 2.57333C12.0555 2.60299 12.4085 2.7116 12.6434 2.80287C12.9546 2.92381 13.1767 3.0683 13.4099 3.30157C13.6432 3.53485 13.7877 3.75695 13.9086 4.06811C13.9999 4.30305 14.1085 4.65605 14.1382 5.30601C14.1703 6.00901 14.177 6.21985 14.177 7.99993C14.177 9.78002 14.1703 9.99085 14.1382 10.6938C14.1085 11.3438 13.9999 11.6968 13.9086 11.9318C13.7877 12.2429 13.6432 12.465 13.4099 12.6983C13.1767 12.9316 12.9546 13.0761 12.6434 13.197C12.4085 13.2883 12.0555 13.3969 11.4055 13.4265C10.7026 13.4586 10.4918 13.4654 8.71158 13.4654C6.93138 13.4654 6.72055 13.4586 6.01768 13.4265C5.36769 13.3969 5.01469 13.2883 4.77978 13.197C4.4686 13.0761 4.24649 12.9316 4.01321 12.6983C3.77994 12.465 3.63545 12.2429 3.51454 11.9318C3.42324 11.6968 3.31463 11.3438 3.28497 10.6939C3.2529 9.99085 3.24612 9.78002 3.24612 7.99993C3.24612 6.21985 3.2529 6.00901 3.28497 5.30604C3.31463 4.65605 3.42324 4.30305 3.51454 4.06811C3.63545 3.75695 3.77994 3.53485 4.01321 3.30157C4.24649 3.0683 4.4686 2.92381 4.77978 2.80287C5.01469 2.7116 5.36769 2.60299 6.01766 2.57333C6.72066 2.54125 6.93149 2.53448 8.71158 2.53448ZM8.71158 1.33325C6.901 1.33325 6.674 1.34093 5.96293 1.37337C5.25331 1.40576 4.76872 1.51844 4.34464 1.68326C3.90625 1.85363 3.53447 2.08158 3.16385 2.4522C2.79323 2.82282 2.56527 3.19461 2.3949 3.633C2.23009 4.05707 2.11741 4.54167 2.08501 5.25129C2.05257 5.96233 2.04492 6.18936 2.04492 7.99993C2.04492 9.8105 2.05257 10.0375 2.08501 10.7486C2.11741 11.4582 2.23009 11.9428 2.3949 12.3669C2.56527 12.8052 2.79323 13.177 3.16385 13.5477C3.53447 13.9183 3.90625 14.1462 4.34464 14.3166C4.76872 14.4814 5.25331 14.5941 5.96293 14.6265C6.674 14.6589 6.901 14.6666 8.71158 14.6666C10.5221 14.6666 10.7492 14.6589 11.4602 14.6265C12.1698 14.5941 12.6544 14.4814 13.0785 14.3166C13.5169 14.1462 13.8887 13.9183 14.2593 13.5477C14.6299 13.177 14.8579 12.8053 15.0283 12.3669C15.1931 11.9428 15.3057 11.4582 15.3381 10.7486C15.3706 10.0375 15.3783 9.8105 15.3783 7.99993C15.3783 6.18936 15.3706 5.96233 15.3381 5.25129C15.3057 4.54167 15.1931 4.05707 15.0283 3.633C14.8579 3.19461 14.6299 2.82282 14.2593 2.4522C13.8887 2.08158 13.5169 1.85363 13.0785 1.68326C12.6544 1.51844 12.1698 1.40576 11.4602 1.37337C10.7492 1.34093 10.5221 1.33325 8.71158 1.33325ZM8.71158 4.5765C6.82087 4.5765 5.28814 6.10923 5.28814 7.99993C5.28814 9.89063 6.82087 11.4234 8.71158 11.4234C10.6023 11.4234 12.135 9.89063 12.135 7.99993C12.135 6.10923 10.6023 4.5765 8.71158 4.5765ZM8.71158 10.2222C7.48428 10.2222 6.48934 9.22722 6.48934 7.99993C6.48934 6.77264 7.48428 5.7777 8.71158 5.7777C9.93887 5.7777 10.9338 6.77264 10.9338 7.99993C10.9338 9.22722 9.93887 10.2222 8.71158 10.2222ZM13.0703 4.44124C13.0703 4.88308 12.7121 5.24126 12.2703 5.24126C11.8284 5.24126 11.4703 4.88308 11.4703 4.44124C11.4703 3.99941 11.8284 3.64126 12.2703 3.64126C12.7121 3.64126 13.0703 3.99941 13.0703 4.44124Z" fill="black"></path>                            </svg>
+                            <span class="sr-only">Instagram pagina van {{radiostation.name}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            {% case radiostation.id %}
+                                {% when 1 %}
+                                    <a href="https://www.facebook.com/RadioVeronica" target="_blank">
+                                {% when 2 %}
+                                    <a href="https://www.facebook.com/slamfm" target="_blank">
+                                {% when 3 %}
+                                    <a href="https://www.facebook.com/100pnl" target="_blank">
+                            {% endcase %}
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 16 16" fill="none">
+                                <path d="M8.94574 14.6666V8.71308H10.8217L11.2054 6.39136H8.94574V4.77444C8.94574 4.11109 9.20155 3.61358 10.2248 3.61358H11.3333V1.49915C10.7364 1.41623 10.0543 1.33331 9.45736 1.33331C7.49612 1.33331 6.13178 2.49418 6.13178 4.56714V6.39136H4V8.71308H6.13178V14.6666H8.94574Z" fill="black"/>
+                            </svg>
+                            <span class="sr-only">Facebook pagina van {{radiostation.name}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            {% case radiostation.id %}
+                                {% when 1 %}
+                                    <a href="https://www.youtube.com/user/RadioVeronica" target="_blank">
+                                {% when 2 %}
+                                    <a href="https://www.youtube.com/user/slamfm" target="_blank">
+                                {% when 3 %}
+                                    <a href="https://www.youtube.com/@100PNL" target="_blank">
+                            {% endcase %}
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 16 16" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3915 2.9654C14.0066 3.13005 14.49 3.6134 14.6546 4.22848C14.9521 5.34219 14.9533 7.66723 14.9533 7.66723C14.9533 7.66723 14.9533 9.99228 14.6546 11.106C14.49 11.7211 14.0066 12.2044 13.3915 12.369C12.2779 12.6678 7.81002 12.6678 7.81002 12.6678C7.81002 12.6678 3.34225 12.6678 2.22853 12.369C1.61347 12.2044 1.13011 11.7211 0.965463 11.106C0.666748 9.99228 0.666748 7.66723 0.666748 7.66723C0.666748 7.66723 0.666748 5.34219 0.965463 4.22848C1.13011 3.6134 1.61347 3.13005 2.22853 2.9654C3.34225 2.66669 7.81002 2.66669 7.81002 2.66669C7.81002 2.66669 12.2779 2.66669 13.3915 2.9654ZM10.0916 7.66745L6.38002 9.81018V5.52468L10.0916 7.66745Z" fill="black"/>
+                            </svg>                              
+                            <span class="sr-only">Youtube pagina van {{radiostation.name}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            {% case radiostation.id %}
+                                {% when 1 %}
+                                    <a href="https://x.com/radioveronica" target="_blank">
+                                {% when 2 %}
+                                    <a href="https://x.com/slamofficial" target="_blank">
+                                {% when 3 %}
+                                    <a href="https://x.com/100pnl" target="_blank">
+                            {% endcase %}
+                            <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 16 16" fill="none">
+                                <path d="M9.1428 7.08177L13.6108 2H12.5524L8.6712 6.41152L5.5736 2H2L6.6852 8.67164L2 14H3.0584L7.1544 9.34028L10.4264 14H14M3.4404 2.78095H5.0664L12.5516 13.2574H10.9252" fill="black"/>
+                            </svg>                            
+                            <span class="sr-only">X pagina van {{radiostation.name}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="button-bookmark" href="/bookmarks">Bekijk Bookmarks</a>
+    </main>
+    {% render 'partials/popup.liquid' %}
+
+</body>
