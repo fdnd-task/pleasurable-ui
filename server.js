@@ -28,6 +28,12 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
+// Khitam's kant, niet aankomen😃
+
+app.get('/blog', async function (request, response) {
+  response.render('blog.liquid')
+})
+
 app.get('/cadeau-overzicht', async function (request, response) {
   response.render('cadeau.liquid')
 })
