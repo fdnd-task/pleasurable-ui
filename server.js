@@ -1,6 +1,6 @@
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
-import express from 'express'
+import express, { request, response } from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
@@ -27,6 +27,11 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
+app.get('/spotters', async function (request, response) {
+  response.render('spotters.liquid')
+})
+
+// Khitam's kant, niet aankomen😃
 
 // Khitam's kant, niet aankomen😃
 
@@ -38,6 +43,10 @@ app.get('/cadeau-overzicht', async function (request, response) {
   response.render('cadeau.liquid')
 })
 
+app.get('/', async function (request, response) {
+  response.render('detail.liquid')
+})
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
@@ -46,3 +55,11 @@ app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
   console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
 })
+
+
+app.get("/", async function (request, response) {
+
+
+
+  response.render("index.liquid", {   });
+});
