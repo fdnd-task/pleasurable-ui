@@ -31,6 +31,8 @@ app.get('/', async function (request, response) {
 app.get('/', async function (request, response) {
   response.render('index.liquid')
   // een extra route van Maarten om te testen
+app.get('/cadeau-overzicht', async function (request, response) {
+  response.render('cadeau.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
@@ -41,3 +43,11 @@ app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
   console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
 })
+
+
+app.get("/", async function (request, response) {
+
+
+
+  response.render("index.liquid", {   });
+});
