@@ -27,7 +27,7 @@ Laat eerst aan elkaar zien wat jullie de vorige sprints hebben gemaakt.
 
 Bespreek ook de feedback van de opdrachtgever die jullie tijdens de Sprint Review hebben gekregen.
 
-Bespreek wat er uit de **RAPPE principes test** is gekomen tijdens de retrospect. 
+Bespreek wat er uit de *RAPPE principes test* is gekomen tijdens de retrospect. 
 
 ```md
 ## RAPPE principes test
