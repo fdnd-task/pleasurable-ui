@@ -1,5 +1,16 @@
 {% comment %}
   first if that checks if the image is in the local map
+
+  this is how you type the partial
+
+  {% render 'partials/image.liquid',
+    imagesrc: 'assets/images/heronews',
+    width: '50',
+    height: '50',
+    alt: 'hero foto',
+    fetch: 'auto',
+    loading: 'lazy'
+  %}
 {% endcomment %}
 
 {% if imagesrc contains 'assets/images' %}
