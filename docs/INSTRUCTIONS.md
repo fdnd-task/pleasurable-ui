@@ -26,10 +26,9 @@ Zorg dat je duidelijke afspraken maakt en elkaar dagelijks op de hoogte houdt va
 
 Deze opdracht is done als:
 
-- [ ] Je hebt je website samen ontworpen en gemaakt en de website is online gepubliceerd
+- [ ] Je hebt gestructureerd samengewerkt met een projectboard, issues, MoSCoW, assignees en Pull Requests, en de samenwerking en elkaars functioneren besproken
 - [ ] Je hebt met een team met feature branches verschillende versies gemaakt en gemerged
-- [ ] Je hebt gestructureerd samengewerkt met een projectboard, issues, MoSCoW, assignees en Pull Requests
 - [ ] Je hebt feedback gegeven en gekregen via Pull Requests en de feedback verwerkt
-- [ ] Je hebt feedback en taken van de vorige sprints opgepakt en verwerkt
-- [ ] Je hebt het eindresultaat gepresenteerd aan de opdrachtgever en ontwerpkeuzes beschreven in de Readme
 - [ ] Je hebt client-side scripting technieken gebruikt voor een “Pleasurable User Interface”
+- [ ] Je hebt feedback en taken van de vorige sprints opgepakt en verwerkt
+- [ ] Je hebt het eindresultaat gepresenteerd aan de opdrachtgever en ontwerpkeuzes begrijpelijk uitgelegd in je Readme
