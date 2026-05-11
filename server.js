@@ -27,6 +27,9 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
+app.get('/spotters', async function (request, response) {
+  response.render('spotters.liquid')
+})
 
 // Khitam's kant, niet aankomen😃
 
