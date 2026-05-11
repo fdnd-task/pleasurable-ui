@@ -27,14 +27,33 @@ app.get("/", async function (request, response) {
   response.render("index.liquid");
 });
 
-app.get("/", async function (request, response) {
-  response.render("index.liquid");
+app.get('/', async function (request, response) {
+  response.render('index.liquid')
+})
+app.get('/spotters', async function (request, response) {
+  response.render('spotters.liquid')
+})
+
+// Khitam's kant, niet aankomen😃
+
+// Khitam's kant, niet aankomen😃
+
+app.get('/blog', async function (request, response) {
+  response.render('blog.liquid')
+})
+
+app.get('/', async function (request, response) {
+  response.render('index.liquid')
   // een extra route van Maarten om te testen
 });
 
 app.get("/cadeau-overzicht", async function (request, response) {
   response.render("cadeau.liquid");
 });
+
+app.get('/', async function (request, response) {
+  response.render('detail.liquid')
+})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
