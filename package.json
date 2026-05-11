@@ -26,7 +26,12 @@
   },
   "homepage": "https://github.com/fdnd-task/pleasurable-ui#readme",
   "dependencies": {
-    "express": "^5.0.1",
-    "liquidjs": "^10.21.0"
+    "cookie-parser": "^1.4.7",
+    "cookieparser": "^0.1.0",
+    "express": "^5.2.1",
+    "liquid": "^5.1.1",
+    "liquidjs": "^10.21.0",
+    "method-override": "^3.0.0",
+    "node": "^26.1.0"
   }
 }
