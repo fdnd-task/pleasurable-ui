@@ -27,7 +27,9 @@ app.set('views', './views')
 app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
-
+app.get('/spotters', async function (request, response) {
+  response.render('spotters.liquid')
+})
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
