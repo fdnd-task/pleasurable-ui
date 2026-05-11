@@ -105,6 +105,7 @@ body {
     --light-border:#F7F7F7;
     --lighter-border:#B0B0B0;
     --dark-border: light-dark(#1b1b1b,#F7F7F7);
+    --accent: light-dark(#015D2E,#00A051 );
 
     /* --------- borders --------- */
     --border-image: 1rem;
@@ -115,7 +116,7 @@ body {
     --border-round: 100%;
 
     /* buttons */
-    --correct: #356c51;
+    --correct: #00A051;
     --incorrect: #8F0000;
     --questbutton: #EAB8A2;
 
@@ -249,6 +250,7 @@ main:not(.veldverkenner) {
         background-color: var(--incorrect);
         width: 100%;
         border: none;
+        color: var(--always-light);
     }
 
 

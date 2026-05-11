@@ -134,13 +134,6 @@
                 content: user.name,
             %}
 
-            <p>Leeftijd: {{ age }}</p>
-            {% if age >= "25" %}
-                <p>Ik weet niet wat xp is</p>
-            {% else %}
-                <p>Ik weet wel wat xp is</p>
-            {% endif %}
-
             {% assign totalplantstext = "🪴 " | append: total_plants | append: " Planten verzameld" %}
 
             {% render 'partials/general-paragraph.liquid',
@@ -149,12 +142,6 @@
             %}
         </article>
     </section>
-
-    {% if collection_type == "xp" %} 
-        <p>Ik wil xp verzamelen</p>
-    {% else %}
-        <p>Ik wil puntjes verzamelen</p>
-    {% endif %}
     
     <section class="progress">
         {% assign progress = "Nog " | append: user.xp | append: "xp tot level 3" %}
@@ -163,9 +150,8 @@
             heading_level: 2,
             content: progress,
         %}
-        <label for="">{{ user.xp }}</label>
 
-        <progress class="{{ zone_type }}sierlint" id="opdracht-{{ zone_name }}-{{ zone_slug }}" max="100" value="{{ progress }}"></progress>
+        <progress class="account-progress" id="account-progress" max="100" value="70"></progress>
     </section>
 
     <section class="user-controls">
@@ -175,24 +161,15 @@
             content: progress,
         %}
         <details>
-            <summary>Jouw badges</summary>
-            <p>hier komen jouw badges</p>
+            <summary >Jouw beloningen</summary>
+            <p>hier komen jouw beloningen</p>
         </details>
 
         <details>
             <summary>Jouw voorkeuren</summary>
             <p>hier komen jouw voorkeuren</p>
-            <input type="radio" id="color-mode-light" name="color-mode" />
-            <label for="color-mode-light" title="Use dark mode">Light☾</label>
-
-            <input type="radio" id="color-mode-dark" name="color-mode" />
-            <label for="color-mode-dark" title="dark dark mode">Dark☼</label>
-
-            <input type="radio" id="color-mode-auto" name="color-mode" checked="checked" />
-            <label for="color-mode-auto" title="Use system light/dark mode setting">System</label>
-
             
-            <button popovertarget="colorpicker">Kies je eigen app kleur</button>
+            <button class="styled primary" popovertarget="colorpicker">Kies je eigen app kleur</button>
             
         </details>
         <form action="/account" method="POST">
