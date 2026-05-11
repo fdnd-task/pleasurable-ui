@@ -1,6 +1,6 @@
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
-import express from 'express'
+import express, { request, response } from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
@@ -26,6 +26,12 @@ app.set('views', './views')
 
 app.get('/', async function (request, response) {
   response.render('index.liquid')
+})
+
+// Khitam's kant, niet aankomen😃
+
+app.get('/blog', async function (request, response) {
+  response.render('blog.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
