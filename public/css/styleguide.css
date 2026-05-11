@@ -35,8 +35,8 @@ html {
     --text-color: hsl(0, 0, 0, 1);
 
     /* typografie */
-    font-family: sans-serif;
-
+    --font-body: "Archivo", sans-serif;
+    --font-heading: "ClashDisplay", sans-serif;
     /* spacing */
     /* 0.25rem */
     --space-2xs: 4px;
@@ -57,8 +57,41 @@ html {
 
     /* border&radius */
     --img-radius: var(--space-md) var(--space-md) 0 0;
-
+    --default-radius: var(--space-md);
 }
+
+/* typografie */
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('../fonts/Archivo-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('../fonts/Archivo-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../fonts/ClashDisplay-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../fonts/ClashDisplay-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
 
 /* container */
 /* parent */
