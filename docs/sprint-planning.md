@@ -15,12 +15,12 @@ Eerst ga je de planning van deze sprint bekijken en bedenken wat jullie deze spr
 
 ## Sprint Planning
 
-Bekijk het programma van Sprint 11 op de programma-website. Deze sprint ga je met een team samenwerken. Let op de verplichte voortgangsgesprekken op vrijdag.
+Bekijk het programma van Sprint 11 op de programma-website. Deze sprint ga je met een team samenwerken. Let op de verplichte voortgangsgesprekken.
+
+Je gaat met een team iteratief werken, verschillende ideeën uitproberen, testen en samenvoegen.
 
 ![Iteratief werken met een team](experimenteren-varieren.png) 
-*Je gaat met een team iteratief werken, verschillende ideeën uitproberen, testen en samenvoegen.*
 
-In het programma is nog niet alles ingevuld. Wat voor practicum willen jullie woensdag? En volgende week? Waar is behoefte aan? Wat voor JS challenges willen jullie donderdagen? Schrijf dit op het whiteboard.
 
 ### Sprint review verwerken
 Laat eerst aan elkaar zien wat jullie de vorige sprints hebben gemaakt.
