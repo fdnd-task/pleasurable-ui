@@ -15,7 +15,9 @@ Eerst ga je de planning van deze sprint bekijken en bedenken wat jullie deze spr
 
 ## Sprint Planning
 
-Bekijk het programma van Sprint 11 op de programma-website. Deze sprint ga je met een team samenwerken. Let op de verplichte voortgangsgesprekken.
+begin met de opdracht op het whiteboard te schrijven en daaronder een lijstje met alle studenten die aan de opdracht werken, (ookal zijn ze er niet). 
+
+Bekijk gezamenlijk het programma van Sprint 11 op de programma-website. Deze sprint ga je met een team samenwerken. Let op de verplichte voortgangsgesprekken.
 
 Je gaat met een team iteratief werken, verschillende ideeën uitproberen, testen en samenvoegen.
 
