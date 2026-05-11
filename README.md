@@ -5,6 +5,7 @@ Ontwerp en maak met een team voor een opdrachtgever een interface waar gebruiker
 De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/INSTRUCTIONS.md)
 
 Team Figma vind je in: [deze link](https://www.figma.com/design/uefdOVEnmlZig2fmWEUZp4/Team-Milledoni?node-id=0-1&p=f&t=bdYD65gn1lY185F3-0)
+
 Milledoni Figma vind je in: [Milledoni](https://www.figma.com/design/tHCHwBm3Ujv7wR28VU2BSu/Milledoni)
 
 ## Inhoudsopgave
