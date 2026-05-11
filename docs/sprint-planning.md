@@ -27,6 +27,27 @@ Laat eerst aan elkaar zien wat jullie de vorige sprints hebben gemaakt.
 
 Bespreek ook de feedback van de opdrachtgever die jullie tijdens de Sprint Review hebben gekregen.
 
+Bespreek wat er uit de **RAPPE principes test** is gekomen tijdens de retrospect. 
+
+```md
+## RAPPE principes test
+
+### Responsive
+- [ ] Test de layout op verschillende schermgroottes
+- [ ] Test de user preferences
+
+### Accessibility
+- [ ] Test de toegankelijkheid met een WCAG audit en handmatige test
+
+### Performance
+- [ ] Test de performance met behulp van de Performance audit deeltaak
+
+### Progressive Enhancement
+- [ ] Test de functionele laag
+- [ ] Test de Baseline CSS 
+- [ ] Test de enhancements
+```
+
 ### Sitemap en pagina's
 Maak gezamenlijk een sitemap van het hele project op het whiteboard. Deze sprint ga je met een team een website ontwerpen en maken, als jullie taken gaan verdelen kun je de hele website maken... en misschien nieuwe dingen verzinnen?
 
