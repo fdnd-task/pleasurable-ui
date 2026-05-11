@@ -28,8 +28,8 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
-app.get('/oumaima', async function (req, res) {
-  res.render('oumaima.liquid')
+app.get('/isaac', async function (request, response) {
+  response.render('isaac.liquid',)
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
