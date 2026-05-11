@@ -26,7 +26,7 @@ Zorg dat je duidelijke afspraken maakt en elkaar dagelijks op de hoogte houdt va
 
 Deze opdracht is done als:
 
-- [ ] Je hebt gestructureerd samengewerkt met een projectboard, issues, MoSCoW, assignees en Pull Requests, en de samenwerking en elkaars functioneren besproken
+- [ ] Je hebt gestructureerd samengewerkt met een projectboard, issues, MoSCoW, assignees en Pull Requests, je wijst teamleden op hun verantwoording, en je hebt de samenwerking en elkaars functioneren besproken
 - [ ] Je hebt met een team met feature branches verschillende versies gemaakt en gemerged
 - [ ] Je hebt feedback gegeven en gekregen via Pull Requests en de feedback verwerkt
 - [ ] Je hebt client-side scripting technieken gebruikt voor een “Pleasurable User Interface”
