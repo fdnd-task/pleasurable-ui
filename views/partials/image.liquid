@@ -1,0 +1,49 @@
+{% comment %}
+  first if that checks if the image is in the local map
+{% endcomment %}
+
+{% if imagesrc contains 'assets/images' %}
+  <picture>
+    <source
+      srcset="{{ imagesrc }}.avif?width={{ width }}&height={{ height }}&quality=70"
+      type="image/avif"
+    >
+    <source
+      srcset="{{ imagesrc }}.webp?width={{ width }}&height={{ height }}&quality=70"
+      type="image/webp"
+    >
+    <img
+      class="{{ class }}"
+      src="{{ imagesrc }}?width={{ width }}&height={{ height }}&quality=60"
+      width="{{ width }}"
+      height="{{ height }}"
+      fetchpriority="{{ fetch }}"
+      loading="{{ loading }}"
+      alt="{{ alt }}"
+    >
+  </picture>
+
+{% else %}
+  {% comment %}
+    image out of database directus
+  {% endcomment %}
+  <picture>
+    <source
+      srcset="{{ imagesrc }}?width={{ width }}&height={{ height }}&format=avif&quality=70"
+      type="image/avif"
+    >
+    <source
+      srcset="{{ imagesrc }}?width={{ width }}&height={{ height }}&format=webp&quality=70"
+      type="image/webp"
+    >
+    <img
+      class="{{ class }}"
+      src="{{ imagesrc }}?width={{ width }}&height={{ height }}&quality=60"
+      width="{{ width }}"
+      height="{{ height }}"
+      fetchpriority="{{ fetch }}"
+      loading="{{ loading }}"
+      alt="{{ alt }}"
+    >
+  </picture>
+{% endif %}
