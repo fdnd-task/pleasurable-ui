@@ -28,21 +28,8 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
-app.get('/nieuw-west', async function (request, response) {
-
-   const params = {
-    'filter[district]': 'nieuw-west',
-    'filter[date][_gte]': '2025-01-01',
-    'filter[date][_lte]': '2025-12-31',
-    'fields': 'title, intro, date, cover.id, slug'
-  }
-
-  const apiURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?' + new URLSearchParams(params)
-
-  const apiResponse = await fetch(apiURL)
-  const apiResponseJSON = await apiResponse.json()
-
-   response.render('nieuw-west.liquid', {stories: apiResponseJSON.data, page: 'nieuwwest'})
+app.get('/mete', async function (request, response) {
+  response.render('mete.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
