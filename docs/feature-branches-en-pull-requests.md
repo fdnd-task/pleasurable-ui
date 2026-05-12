@@ -100,7 +100,7 @@ Conflicten zijn vrij normaal in deze setting.
 
 
 ### Feature branch workflow
-We maken deze sprint gebruik van de Feature branch Workflow. 
+We maken deze sprint gebruik van de Feature branch Workflow. In Semester 3 en bij FDND Agency wordt dezelfde workflow gebruikt.
 
 Teamleden maken per feature een branch en mergen deze met een Pull Request naar GitHub. Je kunt hierdoor aan verschillende features (issues) tegelijk werken, in verschillende branches. 
 
@@ -119,9 +119,9 @@ git push -u origin new-feature push jouw feature naar GitHub…
 … doe een pull request op GitHub -->
 
 ### Forking workflow
-In Semester 3 ga je leren werken met de forking workflow. 
+In open source-projecten wordt vaak gewerkt met de forking workflow. 
 
-Alle teamleden forken de repository, maken wijzigingen in branches op hun eigen fork en met een pull request gaan de wijzigingen naar het originele project. 
+Contributors forken de repository, maken wijzigingen in branches op hun eigen fork en met een pull request gaan de wijzigingen naar het originele project. 
 
 <img src="workflow-forking.svg" width="300">
 
