@@ -583,11 +583,29 @@ main.quest {
 /***********************************
 nieuws page
 ***********************************/
-/* body:has(main.nieuws) {
-    position: relative;
-} */
+html{
+    container-type: scroll-state;
+}
 main.nieuws {
     position: relative;
+
+    .adjust-news{
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        backdrop-filter: blur(5px);
+
+        position: sticky;
+        top: 0;
+
+        transition: .8s;
+
+        @container scroll-state(scrolled:bottom){
+            translate: 0 -200%;
+        }
+
+    }
 
     .list-news{
         ul{
