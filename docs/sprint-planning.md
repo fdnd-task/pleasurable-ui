@@ -110,7 +110,7 @@ Nu gaan jullie de ontwikkelomgeving inrichten. Jullie gaan als team 1 website ma
 ![Feature branch workflow](feature-branch.png) 
 *Met een team werken aan 1 project doe je met de Feature Branch Workflow*
 
-Deze sprint gaan we leren om te werken met verschillende _branches_. Een branch is een _vertakking_ van de`_main` branch, de backbone van jullie project met de versie die op elk moment live kan.
+Deze sprint gaan we leren om te werken met verschillende _branches_. Een branch is een _vertakking_ van de`main` branch, de backbone van jullie project met de versie die op elk moment live kan.
 
 Als je in een aparte _branch_ werkt, kun je code aanpassen, toevoegen en verwijderen zonder dat de anderen daar last van hebben. Zo kan je tegelijk aan onderdelen van een website werken. Als een _branch_ af is en door jezelf is getest, kun je deze met een _Pull Request_ _mergen_ naar de `main` branch. Een pull request zet je klaar voor je teamleden, zodat die je werk ook kunnen reviewen.
 
