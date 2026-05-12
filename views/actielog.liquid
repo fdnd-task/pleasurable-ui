@@ -1,7 +1,33 @@
 <h1>
     Activiteiten
 </h1>
-
+<fieldset>
+    <legend>Filters</legend>
+    <label>
+        <input type="checkbox" name="filter" value="alles">
+        Alles
+    </label>
+    <label>
+        <input type="checkbox" name="filter" value="innemen">
+        Innemen
+    </label>
+    <label>
+        <input type="checkbox" name="filter" value="uitnemen">
+        Uitnemen
+    </label>
+    <label>
+        <input type="checkbox" name="filter" value="schade">
+        Schade
+    </label>
+    <label>
+        <input type="checkbox" name="filter" value="toevoegen">
+        Instrument toevoegen
+    </label>
+    <label>
+        <input type="checkbox" name="filter" value="aanpassen">
+        Instrument aanpassen
+    </label>
+</fieldset>
 <ol>
     {% for log in logs %}
     <li>
