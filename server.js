@@ -402,7 +402,7 @@ app.get('/nieuws', async (req, res) => {
 
 app.get('/nieuws/:slug', async (request, response) => {
     const data = await fetchData(`frankendael_news?filter[slug][_eq]=${request.params.slug}`);
-    response.render('news-detail.liquid', { newsItem: { ...data[0], image: getDirectusAssetUrl(data[0].image) }, zone_type: 'news', current_path: request.path });
+    response.render('news-detail.liquid', { newsItem: { ...data[0], image: assetUrl(data[0].image) }, zone_type: 'news', current_path: request.path });
 });
 
 app.get('/login', (_req, res) => res.render('login.liquid'));
@@ -430,16 +430,25 @@ app.post('/veldverkenner/:zone_slug/:item_slug', async (req, res) => {
 // Login POST
 app.post('/login', async (req, res) => {
     const { username } = req.body;
+    console.log('[login] POST /login', { username, bodyKeys: Object.keys(req.body) });
     try {
         const allUsers = await fetchData('frankendael_users') || [];
-        const foundUser = allUsers.find(u => u.name?.toLowerCase() === username.toLowerCase());
+        console.log('[login] fetched users count:', allUsers.length);
+        console.log('[login] available usernames:', allUsers.map(u => u.name));
+        
+        const foundUser = allUsers.find(u => u.name?.toLowerCase() === username?.toLowerCase());
+        console.log('[login] foundUser:', foundUser?.id, foundUser?.name);
+        
         if (foundUser) {
             res.cookie('userId', foundUser.id, { maxAge: 2_592_000_000, httpOnly: true });
+            console.log('[login] cookie set, redirecting');
             res.redirect('/');
         } else {
+            console.log('[login] user not found, sending 401');
             res.status(401).send('Gebruiker niet gevonden');
         }
     } catch (error) {
+        console.error('[login] error:', error);
         res.status(503).send('Inloggen mislukt');
     }
 });

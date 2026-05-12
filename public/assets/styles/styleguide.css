@@ -80,10 +80,10 @@ body {
     /* --------- colors --------- */
 
     /* zone colors */
-    --sierlint: #FFFBEA;
-    --voedseleiland: #D8E4D3;
-    --heuvel: #D4C8E2;
-    --waterplandgebied: #daf1fe;
+    --sierlint: #F8F39C;
+    --voedseleiland: #B1D485;
+    --heuvel: #D1C5DF;
+    --waterplandgebied: #99D7EC;
 
     /* transparent (50%) */
     --sierlint-transparent: #ffffd36b;
@@ -91,6 +91,10 @@ body {
     --heuvel-transparent: #d4c8e247;
     --waterplandgebied-transparent: #daf1fe49;
     
+    --sierlint-button: #AD7949;
+    --voedseleiland-button: #AD7949;
+    --heuvel-button: #015D2E;
+    --waterplandgebied-button: #015D2E;
 
     /* site wide colors */
     --light-background: light-dark(#F7F7F7, hsl(0, 0%, 12%));
@@ -240,10 +244,30 @@ main:not(.veldverkenner) {
 
         svg {
             path {
-                stroke: var(--always-black);
+                stroke: var(--always-light);
                 fill: transparent;
             }
         }
+    }
+
+    &.voedseleiland {
+        background-color: var(--voedseleiland-button);
+        color: var(--always-light);
+    }
+
+    &.waterplandgebied {
+        background-color: var(--waterplandgebied-button);
+        color: var(--always-light);
+    }
+
+    &.sierlint {
+        background-color: var(--sierlint-button);
+        color: var(--always-light);
+    }
+
+    &.heuvel {
+        background-color: var(--heuvel-button);
+        color: var(--always-light);
     }
 
     &.logout {

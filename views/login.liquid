@@ -1,0 +1,29 @@
+{% render 'partials/head.liquid', user: user %}
+
+<main class="login">
+    
+
+    <section>
+
+        {% render 'partials/general-heading.liquid',
+            heading_level: 1,
+            content: "Welkom!",
+        %}
+
+        <p>Hieronder kan je makkelijk inloggen</p>
+        <form action="/login" method="POST">
+                <label for="username">Naam</label>
+                <input 
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    placeholder="Jouw naam" 
+                    required
+                > 
+            <button class="styled" type="submit">
+                Inloggen
+            </button>
+        </form>
+        <p>Heb je nog geen account?<a href="/signup" class="link"> Meld je aan</p>
+    </section>
+</main>
