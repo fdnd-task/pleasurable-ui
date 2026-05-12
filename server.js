@@ -27,33 +27,9 @@ app.get("/", async function (request, response) {
   response.render("index.liquid");
 });
 
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
-})
-app.get('/spotters', async function (request, response) {
-  response.render('spotters.liquid')
-})
-
-// Khitam's kant, niet aankomen😃
-
-// Khitam's kant, niet aankomen😃
-
-app.get('/blog', async function (request, response) {
-  response.render('blog.liquid')
-})
-
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
-  // een extra route van Maarten om te testen
-});
-
 app.get("/cadeau-overzicht", async function (request, response) {
   response.render("cadeau.liquid");
 });
-
-app.get('/', async function (request, response) {
-  response.render('detail.liquid')
-})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
@@ -62,10 +38,6 @@ app.set("port", process.env.PORT || 8000);
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get("port"), function () {
   console.log(
-    `Project draait via http://localhost:${app.get("port")}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`,
+    `http://localhost:${app.get("port")}`,
   );
-});
-
-app.get("/", async function (request, response) {
-  response.render("index.liquid", {});
 });
