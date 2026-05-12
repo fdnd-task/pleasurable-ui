@@ -49,6 +49,7 @@ app.post('/instrumenten/nieuw', async function (request, response){
 
 app.get('/actielog', async function (request, response) {
   const params = new URLSearchParams()
+  params.append('fields', '*,instrument.name,instrument.serial_number,instrument.key')
   const logResponse = await fetch(`${logUrl}?${params.toString()}`)
   const logResponseJSON = await logResponse.json()
 
