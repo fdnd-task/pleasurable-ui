@@ -25,6 +25,7 @@ app.set('views', './views')
 
 //base url om code wat simpeler te maken, moet wel met ` gebruiken.
 const baseUrl = 'https://fdnd-agency.directus.app/items/preludefonds_instruments/'
+const logUrl = 'https://fdnd-agency.directus.app/items/preludefonds_log'
 
 app.get('/', async function (request, response) {
   response.render('home.liquid')
@@ -47,7 +48,11 @@ app.post('/instrumenten/nieuw', async function (request, response){
 })
 
 app.get('/actielog', async function (request, response) {
-  response.render('actielog.liquid')
+  const params = new URLSearchParams()
+  const logResponse = await fetch(`${logUrl}?${params.toString()}`)
+  const logResponseJSON = await logResponse.json()
+
+  response.render('actielog.liquid', { logs: logResponseJSON.data })
 })
 
 app.get('/instrumenten/:key', async function (request, response) {
