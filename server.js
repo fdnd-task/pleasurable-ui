@@ -46,6 +46,10 @@ app.post('/instrumenten/nieuw', async function (request, response){
   response.redirect(303, `/instrumenten/`)
 })
 
+app.get('/actielog', async function (request, response) {
+  response.render('actielog.liquid')
+})
+
 app.get('/instrumenten/:key', async function (request, response) {
   const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
   const instrumentResponseJSON = await instrumentResponse.json()
@@ -95,10 +99,6 @@ app.get('/instrumenten/:key/schade', async function (request, response) {
 
 app.post('/instrumenten/:key/schade', async function (request, response) {
   response.redirect(303, `/instrumenten/${request.params.key}`)
-})
-
-app.get('/actielog', async function (request, response) {
-  response.render('actielog.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
