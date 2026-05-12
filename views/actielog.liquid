@@ -50,7 +50,7 @@
                         <dd>{{ log.performed_by | default: 'onbekend' }}</dd>
                         <dt>Ontstaan bij</dt>
                         <dd>{{ log.involved_party | default: 'onbekend' }}</dd>
-                        
+
                         {% when 'Toevoegen', 'Aanpassen', 'Verwijderen' %}
                         <dt>Door</dt>
                         <dd>{{ log.performed_by | default: 'onbekend' }}</dd>
@@ -58,7 +58,7 @@
                 </dl>
             </section>
 
-            <time class="log-time" datetime="{{ log.dat_created }}">{{ log.dat_created | date: "%H:%M" }}</time>
+            <time class="log-time" datetime="{{ log.date_created }}">{{ log.date_created | date: "%H:%M" }}</time>
         </article>
     </li>
     {% endfor %}
