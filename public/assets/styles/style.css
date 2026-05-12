@@ -583,9 +583,67 @@ main.quest {
 /***********************************
 nieuws page
 ***********************************/
-
+/* body:has(main.nieuws) {
+    position: relative;
+} */
 main.nieuws {
-    section.header {
+    position: relative;
+
+    .list-news{
+        ul{
+            padding: 0;
+            padding-bottom: 5rem;
+
+            li{
+                display: grid;
+                grid-template-areas: 
+                'image tag'
+                'image title';
+                grid-template-columns: 1fr 2fr;
+                gap: .5rem;
+                padding-block: 1rem;
+                border-bottom: 2px solid var(--dark-border);
+                align-items: end;
+
+                @media (prefers-reduced-motion: no-preference){
+                    animation: fade-in .2s cubic-bezier(0.65, 0.05, 0.36, 1) forwards;
+                    animation-timeline: view();
+                    animation-range: entry 0% cover 30%;
+                }
+
+                picture{
+                    grid-area: image;
+
+                    img{
+                        border-radius: var(--border-card);
+                        height: 100px;
+                        object-fit: cover;
+                    }                
+                }
+
+                .tag{
+                    grid-area: tag;
+                    margin: 0;
+                    border: 1px solid var(--dark-border);
+                    width: fit-content;
+                    height: fit-content;
+                    padding: .1rem .2rem;
+                    border-radius: 1rem;
+                    font-size: 10px;
+                }
+
+                a{
+                    grid-area: title;
+                    font-size: 1.1rem;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    /* section.header {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
 
@@ -619,6 +677,16 @@ main.nieuws {
                 padding: 1rem;
             }
         }
+    } */
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

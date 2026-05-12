@@ -391,14 +391,14 @@ app.patch('/account/set-accent', async (req, res) => {
 });
 
 // Auth & Other
-app.get('/nieuws', async (req, res) => {
-    const newsData = await fetchData('frankendael_news') || [];
-    res.render('nieuws.liquid', {
-        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
-        zone_type: 'news',
-        current_path: req.path,
-    });
-});
+// app.get('/nieuws', async (req, res) => {
+//     const newsData = await fetchData('frankendael_news') || [];
+//     res.render('nieuws.liquid', {
+//         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+//         zone_type: 'news',
+//         current_path: req.path,
+//     });
+// });
 
 app.get('/nieuws/:slug', async (request, response) => {
     const data = await fetchData(`frankendael_news?filter[slug][_eq]=${request.params.slug}`);
@@ -443,6 +443,25 @@ app.post('/login', async (req, res) => {
         res.status(503).send('Inloggen mislukt');
     }
 });
+
+// nieuws GET
+app.get('/nieuws', async function (request, response) {
+
+  const search = request.query.search
+
+  let newsParams = {
+    'fields': 'title,image,slug'
+  }
+
+  const newsResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_news?' + new URLSearchParams(newsParams))
+  const newsResponseJSON = await newsResponse.json()
+
+  response.render('nieuws.liquid', {
+    nieuws: newsResponseJSON.data,
+    current_path: request.path,
+    zoeken: search
+  })
+})
 
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 
