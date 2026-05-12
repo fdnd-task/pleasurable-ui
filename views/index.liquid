@@ -25,5 +25,36 @@
       btnText: 'klik op mij',
       btnStyle: 'primary-button'
     %}
+
+    {% render './partials/article.liquid',
+      style: 'img-left',
+      title: 'lorem ipsum',
+      content: contentVar,
+      imgURL: imgURL,
+      imgWidth: 300,
+      imgHeight: 300,
+      imgAlt: 'alt tekst voor img',
+      imgFetch: 'auto',
+      imgLoading: 'lazy',
+      button: false,
+      btnLink: 'https://fdnd.nl',
+      btnText: 'klik op mij',
+      btnStyle: 'primary-button'
+    %}
+    {% render './partials/article.liquid',
+      style: 'custom-class',
+      title: 'lorem ipsum',
+      content: contentVar,
+      imgURL: imgURL,
+      imgWidth: 300,
+      imgHeight: 300,
+      imgAlt: 'alt tekst voor img',
+      imgFetch: 'auto',
+      imgLoading: 'lazy',
+      button: true,
+      btnLink: 'https://fdnd.nl',
+      btnText: 'klik op mij',
+      btnStyle: 'primary-button'
+    %}
   </body>
 </html>

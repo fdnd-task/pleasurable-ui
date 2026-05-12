@@ -25,6 +25,8 @@
     p {
         grid-column: 1;
         align-content: center;
+        font-family: var(--font-body);
+        line-height: 1.8;
 
         @media (min-width: 800px) {
             grid-column: 1;
@@ -69,8 +71,38 @@
     }
 }
 
-/* button styling */
+.img-left {
+    h2 {
+        @media (min-width: 800px) {
+            grid-column: 2;
 
+        }
+    }
+
+    p {
+        @media (min-width: 800px) {
+            grid-column: 2;
+
+        }
+    }
+
+    picture {
+        @media (min-width: 800px) {
+            grid-column: 1;
+            grid-row: 1 / 4;
+
+        }
+    }
+
+    a {
+        @media (min-width: 800px) {
+            grid-column: 2;
+
+        }
+    }
+}
+
+/* button styling */
 
 .primary-button {
     background-color: var(--primary-800);
