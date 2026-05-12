@@ -6,20 +6,20 @@
     {% for log in logs %}
     <li>
         <article>
-            <span class="log-action-icon">
+            <span class="log-action-icon" aria-hidden="true">
                 {% case log.type_action %}
                     {% when 'Uitlenen' %}
-                    {% comment %}svg Uitlenen{% endcomment %}
+                        <img src="/assets/icons/uitlenen.svg" alt="">
                     {% when 'Innemen' %}
-                    {% comment %}svg Innemen{% endcomment %}
+                        <img src="/assets/icons/innemen.svg" alt="">
                     {% when 'Schade' %}
-                    {% comment %}svg Schade{% endcomment %}
+                        <img src="/assets/icons/schade.svg" alt="">
                     {% when 'Toevoegen' %}
-                    {% comment %}svg Toevoegen{% endcomment %}
+                        <img src="/assets/icons/toevoegen.svg" alt="">
                     {% when 'Aanpassen' %}
-                    {% comment %}svg Aanpassen{% endcomment %}
+                        <img src="/assets/icons/aanpassen.svg" alt="">
                     {% when 'Verwijderen' %}
-                    {% comment %}svg Verwijderen{% endcomment %}
+                        <img src="/assets/icons/verwijderen.svg" alt="">
                 {% endcase %}
             </span>
 
@@ -27,8 +27,9 @@
                 <h2 class="log-action">{{ log.type_action | default: 'onbekend'}}</h2>
 
                 <dl class="action-instrument">
-                    <dt>{{ log.instrument.name | default: 'onbekend'}}</dt>
-                    <dd>#{{ log.instrument.serial_number | default: 'onbekend'}}</dd>
+                    <dt class="sr-only">Instrument</dt>
+                    <dd>{{ log.instrument.name | default: 'onbekend' }}</dd>
+                    <dd>#{{ log.instrument.serial_number | default: 'onbekend' }}</dd>
                 </dl>
 
                 <dl class="log-parties">
