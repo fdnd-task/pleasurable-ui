@@ -23,17 +23,82 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+//base url om code wat simpeler te maken, moet wel met ` gebruiken.
+const baseUrl = 'https://fdnd-agency.directus.app/items/preludefonds_instruments/'
 
 app.get('/', async function (request, response) {
-  response.render('index.liquid')
+  response.render('home.liquid')
 })
   
-app.get('/instrumenten', async function (requestc, response) {
-  response.render('overzicht.liquid')
+app.get('/instrumenten', async function (request, response) {
+  const params = new URLSearchParams()
+  const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('overzicht.liquid', { instrumenten: instrumentResponseJSON.data })
+})
+
+app.get('/instrumenten/nieuw', async function (request, response) {
+  response.render('nieuw.liquid')
+})
+
+app.get('/instrumenten/:key', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('detail.liquid', { instrument: instrumentResponseJSON.data })
+})
+
+app.get('/instrumenten/:key/uitlenen', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('uitlenen.liquid', { instrument: instrumentResponseJSON.data })
+})
+
+app.get('/instrumenten/:key/innemen', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('innemen.liquid', { instrument: instrumentResponseJSON.data })
+})
+
+app.get('/instrumenten/:key/aanpassen', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('aanpassen.liquid', { instrument: instrumentResponseJSON.data })
+})
+
+app.get('/instrumenten/:key/schade', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('schade.liquid', { instrument: instrumentResponseJSON.data })
 })
 
 app.get('/actielog', async function (request, response) {
   response.render('actielog.liquid')
+})
+
+app.post('/instrumenten/nieuw', async function (request, response){
+  response.redirect(303, `/instrumenten/`)
+})
+
+app.post('/instrumenten/:key/uitlenen', async function (request, response) {
+  response.redirect(303, `/instrumenten/${request.params.key}`)
+})
+
+app.post('/instrumenten/:key/innemen', async function (request, response) {
+  response.redirect(303, `/instrumenten/${request.params.key}`)
+})
+
+app.post('/instrumenten/:key/aanpassen', async function (request, response) {
+  response.redirect(303, `/instrumenten/${request.params.key}`)
+})
+
+app.post('/instrumenten/:key/schade', async function (request, response) {
+  response.redirect(303, `/instrumenten/${request.params.key}`)
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
