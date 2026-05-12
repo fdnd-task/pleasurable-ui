@@ -7,19 +7,20 @@
     <li>
         <article>
             <span class="log-action-icon">
-                {% if log.type_action == 'Uitlenen' %}
+                {% case log.type_action %}
+                    {% when 'Uitlenen' %}
                     {% comment %}svg Uitlenen{% endcomment %}
-                {% elsif log.type_action == 'Innemen' %}
+                    {% when 'Innemen' %}
                     {% comment %}svg Innemen{% endcomment %}
-                {% elsif log.type_action == 'Schade' %}
+                    {% when 'Schade' %}
                     {% comment %}svg Schade{% endcomment %}
-                {% elsif log.type_action == 'Toevoegen' %}
+                    {% when 'Toevoegen' %}
                     {% comment %}svg Toevoegen{% endcomment %}
-                {% elsif log.type_action == 'Aanpassen' %}
+                    {% when 'Aanpassen' %}
                     {% comment %}svg Aanpassen{% endcomment %}
-                {% elsif log.type_action == 'Verwijderen' %}
+                    {% when 'Verwijderen' %}
                     {% comment %}svg Verwijderen{% endcomment %}
-                {% endif %}
+                {% endcase %}
             </span>
 
             <section class="log-details">
@@ -30,31 +31,30 @@
                     <dd>{{ log.instrument.serial_number | default: 'onbekend'}}</dd>
                 </dl>
 
-                <dl class="action-blame">
-
-                    <dt>
-                        {% if log.type_action == 'Uitlenen' %}
-                            Uitgeleent aan:
-                        {% elsif log.type_action == 'Innemen' %}
-                            Ingenomen door:
-                        {% elsif log.type_action == 'Schade' %}
-                            Schade gemeld door:
-                        {% endif %}
-                    </dt>
-                    <dd>{{ log.performed_by | default: 'onbekend'}}</dd>
-
-                    {% if log.type_action == 'Uitlenen' or log.type_action == 'Innemen' or log.type_action == 'Schade' %}
-                        <dt>
-                            {% if log.type_action == 'Uitlenen' %}
-                            Aan:
-                            {% elsif log.type_action == 'Innemen' %}
-                            Van:
-                            {% elsif log.type_action == 'Schade' %}
-                            Ontstaan bij:
-                            {% endif %}
-                        </dt>
+                <dl class="log-parties">
+                    {% case log.type_action %}
+                        {% when 'Uitlenen' %}
+                        <dt>Uitgeleend door</dt>
+                        <dd>{{ log.performed_by | default: 'onbekend' }}</dd>
+                        <dt>Aan</dt>
                         <dd>{{ log.involved_party | default: 'onbekend' }}</dd>
-                    {% endif %}
+
+                        {% when 'Innemen' %}
+                        <dt>Ingenomen door</dt>
+                        <dd>{{ log.performed_by | default: 'onbekend' }}</dd>
+                        <dt>Van</dt>
+                        <dd>{{ log.involved_party | default: 'onbekend' }}</dd>
+
+                        {% when 'Schade' %}
+                        <dt>Schade gemeld door</dt>
+                        <dd>{{ log.performed_by | default: 'onbekend' }}</dd>
+                        <dt>Ontstaan bij</dt>
+                        <dd>{{ log.involved_party | default: 'onbekend' }}</dd>
+                        
+                        {% when 'Toevoegen', 'Aanpassen', 'Verwijderen' %}
+                        <dt>Door</dt>
+                        <dd>{{ log.performed_by | default: 'onbekend' }}</dd>
+                    {% endcase %}
                 </dl>
             </section>
 
