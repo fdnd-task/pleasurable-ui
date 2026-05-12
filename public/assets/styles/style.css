@@ -540,7 +540,6 @@ main.quest {
             width: 90vw;
             text-align: center;
             margin-top: 1rem;
-            color: var(--always-black);
 
             &:nth-of-type(2) {
                 color: var(--dark-text);
