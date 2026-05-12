@@ -1,1 +1,31 @@
-{{ logs | json }}
+<h1>
+    Activiteiten
+</h1>
+
+<ol>
+    {% for log in logs %}
+    <li>
+        <article>
+            <span class="log-action-icon">
+                {% comment %}hier komt een svg{% endcomment %}
+            </span>
+
+            <section class="log-details">
+                <h2 class="log-action">{{ log.type_action | default: 'onbekend'}}</h2>
+                <dl class="action-instrument">
+                    <dt>{{ log.instrument.name | default: 'onbekend'}}</dt>
+                    <dd>{{ log.instrument.serial_number | default: 'onbekend'}}</dd>
+                </dl>
+                <dl class="action-blame">
+                    <dt>Door:</dt>
+                    <dd>{{ log.performed_by | default: 'onbekend'}}</dd>
+                    <dt>Uitgeleend aan</dt>
+                    <dd>{{ log.involved_party | default: 'onbekend' }}</dd>
+                </dl>
+            </section>
+
+            <time class="log-time" datetime="{{ log.dat_created }}">{{ log.dat_created | date: "%H:%M" }}</time>
+        </article>
+    </li>
+    {% endfor %}
+</ol>
