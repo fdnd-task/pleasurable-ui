@@ -42,63 +42,63 @@ app.get('/instrumenten/nieuw', async function (request, response) {
   response.render('nieuw.liquid')
 })
 
+app.post('/instrumenten/nieuw', async function (request, response){
+  response.redirect(303, `/instrumenten/`)
+})
+
 app.get('/instrumenten/:key', async function (request, response) {
-  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
-  response.render('detail.liquid', { instrument: instrumentResponseJSON.data })
+  response.render('detail.liquid', { instrument: instrumentResponseJSON.data[0] })
 })
 
 app.get('/instrumenten/:key/uitlenen', async function (request, response) {
-  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
+  const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
-  response.render('uitlenen.liquid', { instrument: instrumentResponseJSON.data })
-})
-
-app.get('/instrumenten/:key/innemen', async function (request, response) {
-  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
-  const instrumentResponseJSON = await instrumentResponse.json()
-
-  response.render('innemen.liquid', { instrument: instrumentResponseJSON.data })
-})
-
-app.get('/instrumenten/:key/aanpassen', async function (request, response) {
-  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
-  const instrumentResponseJSON = await instrumentResponse.json()
-
-  response.render('aanpassen.liquid', { instrument: instrumentResponseJSON.data })
-})
-
-app.get('/instrumenten/:key/schade', async function (request, response) {
-  const instrumentResponse = await fetch(`${baseUrl}${request.params.key}`)
-  const instrumentResponseJSON = await instrumentResponse.json()
-
-  response.render('schade.liquid', { instrument: instrumentResponseJSON.data })
-})
-
-app.get('/actielog', async function (request, response) {
-  response.render('actielog.liquid')
-})
-
-app.post('/instrumenten/nieuw', async function (request, response){
-  response.redirect(303, `/instrumenten/`)
+  response.render('uitlenen.liquid', { instrument: instrumentResponseJSON.data[0] })
 })
 
 app.post('/instrumenten/:key/uitlenen', async function (request, response) {
   response.redirect(303, `/instrumenten/${request.params.key}`)
 })
 
+app.get('/instrumenten/:key/innemen', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('innemen.liquid', { instrument: instrumentResponseJSON.data[0] })
+})
+
 app.post('/instrumenten/:key/innemen', async function (request, response) {
   response.redirect(303, `/instrumenten/${request.params.key}`)
+})
+
+app.get('/instrumenten/:key/aanpassen', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('aanpassen.liquid', { instrument: instrumentResponseJSON.data[0] })
 })
 
 app.post('/instrumenten/:key/aanpassen', async function (request, response) {
   response.redirect(303, `/instrumenten/${request.params.key}`)
 })
 
+app.get('/instrumenten/:key/schade', async function (request, response) {
+  const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+
+  response.render('schade.liquid', { instrument: instrumentResponseJSON.data[0] })
+})
+
 app.post('/instrumenten/:key/schade', async function (request, response) {
   response.redirect(303, `/instrumenten/${request.params.key}`)
+})
+
+app.get('/actielog', async function (request, response) {
+  response.render('actielog.liquid')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
