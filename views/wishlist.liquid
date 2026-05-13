@@ -1,6 +1,30 @@
 {% include 'partials/head.liquid' %}
 
+<main>
+ 
+    {% for product in products %}
+      
+  
+    <article class="opgeslagen-product">
+      
+        <img src="" alt="producten">
+          <h2>test</h2>
+          <p>bedrag</p>
 
+             <form method="post" action="" class="like-form">
+        <input type="hidden" name="id" value="{{ product.id }}">
+
+        <button type="submit" class="lijst-button">
+          <img class="lijstjemin" src="/assets/minnetje.png" alt="lijst">
+        </button>
+      </form>
+
+
+</article>
+
+  {% endfor %}
+
+</main>
 
 
 
