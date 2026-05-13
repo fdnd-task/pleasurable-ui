@@ -1,2 +1,84 @@
 {% include 'partials/head.liquid' %}
+
+  <h1>Laat je inspireren door de wereld van Milledoni</h1>
+
+  <button type="button" popovertarget="filter-popover">
+    <img src="assets/images/filter-icon.svg" alt="Filter openen" width="25" height="25">
+  </button>
+
+    <form 
+      id="filter-popover"
+      popover
+      method="GET"
+      action="/" 
+      class="filter-form"
+    >
+
+    <button type="button" popovertarget="filter-popover" popovertargetaction="hide">
+      <img src="assets/images/close-icon.svg" alt="Filter sluiten" width="25" height="25">
+    </button>
+
+    <h2>Filters aanpassen</h2>
+
+    <div class="filter-category-example">
+      <label for="price-min">Min prijs:</label>
+       <input type="number" id="price-min" name="min">
+    </div>
+
+    <div class="filter-category-example">
+      <label for="price-max">Max prijs:</label>
+       <input type="number" id="price-max" name="max">
+    </div>
+
+    <button type="submit">Toepassen</button>
+
+   </form>
+
+<ul class="products">
+    {% for product in products %}
+    <li class="product-card-home">
+        <article>
+
+          <a href="/product/{{ product.id }}" class="product-detail">
+
+            <div class="wrapper">
+              <picture>
+                <source srcset="{{ product.image_avif }}" type="image/avif">
+                <source srcset="{{ product.image_webp }}" type="image/webp">
+                
+                <img 
+                  loading="lazy"
+                  src="{{ product.image }}" 
+                  alt="{{ product.name }}"
+                  width="300"
+                  height="300"
+                >
+              </picture>
+            </div>
+
+            <div class="product-info">
+              <h3>{{ product.name }}</h3>
+                <p class="price-tag">€ {{ product.amount }}</p>
+            </div>
+
+          </a>
+
+          <form method="POST" action="/save-product">
+            <input type="hidden" name="product-id" value="{{ product.id }}">
+                
+            <button type="submit" class="add-product">
+                  <img 
+                    src="/assets/images/add-to-list-icon.svg" 
+                    alt="Add product icon" 
+                    width="30" 
+                    height="30" 
+                    loading="lazy"
+                  >
+                </button>
+              </form>
+
+          </article>
+        </li>
+        {% endfor %}
+      </ul>
 {% include 'partials/foot.liquid' %}

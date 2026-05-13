@@ -23,12 +23,30 @@ app.engine("liquid", engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set("views", "./views");
 
+// HOME/CADEAU-OVERZICHT PRODUCTEN
 app.get("/", async function (request, response) {
-  response.render("index.liquid");
+
+  const productParams = {}
+
+  // Productdata ophalen met Directus API van Milledoni en filters meesturen
+  const productResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/milledoni_products?' +
+    new URLSearchParams(productParams)
+  )
+
+    // Zet response om naar json voor server
+  const productResponseJSON = await productResponse.json()
+  // Alleen de lijst met producten uit API
+  const productData = productResponseJSON.data
+
+  response.render("index.liquid", {
+    products: productData
+  });
 });
 
-app.get("/cadeau-overzicht", async function (request, response) {
-  response.render("cadeau.liquid");
+// HOME/CADEAU-OVERZICHT PRODUCT OPSLAAN
+app.post("/save-product", async function (request, response) {
+  response.redirect('/')
 });
 
 // Stel het poortnummer in waar Express op moet gaan luisteren

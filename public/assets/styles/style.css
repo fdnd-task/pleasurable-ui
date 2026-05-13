@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Parkinsans';
 }
 
 /* HEADER (Maarten) */
@@ -61,5 +61,13 @@
         display: inline;
       }
     }
+  }
+}
+
+/* MAIN (Ahlam) */
+main {
+  a {
+    text-decoration: none;
+    color: unset;
   }
 }
