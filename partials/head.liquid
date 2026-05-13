@@ -10,6 +10,7 @@
 
   <body>
     <header class="page-header">
+      <nav class="page-nav">
       <a class="milledoni-logo" href="/">
         <picture>
           <source media="(min-width: 600px)" srcset="/assets/images/logo-large.svg" width="376" height="98">
@@ -19,11 +20,18 @@
       </a>
       <ul class="header-list">
         <li class="header-list-item">
-          <a class="wishlist" href="/wishlist"><span class="wishlist-cta">Create your list</span><img class="wishlist-image" src="/assets/images/wishlist-icon.svg" alt="Wishlist page" width="28" height="25">
-            <span class="wishlist-counter">{{ wishlistCount }}</span>
+          <a class="wishlist" href="/wishlist">
+            <img class="wishlist-image" src="/assets/images/wishlist-icon.svg" alt="" width="28" height="25">
+            <span class="wishlist-span">Wishlist</span>
           </a>
         </li>
-        <li class="header-list-item"><a class="account" href="/account"><img class="account-image" src="/assets/images/account-icon.svg" alt="Account page" width="31" height="30"></a></li>
+        <li class="header-list-item">
+          <a class="account" href="/account">
+            <img class="account-image" src="/assets/images/account-icon.svg" alt="" width="31" height="30">
+            <span class="account-span">Account</span>
+          </a>
+        </li>
       </ul>
+      </nav>
     </header>
     <main>
