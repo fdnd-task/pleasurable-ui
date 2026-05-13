@@ -1,0 +1,41 @@
+:root {
+    --primary-color: #bf410b;
+    --primary-color-lighter: #FFE4D8;
+    --secondary-color: #34356A;
+
+    /* District colors */
+    --nieuw-west: #4a5b18;
+    --oost: #34356A;
+    --zuidoost: #005D66;
+    --algemeen: #F1F1F1;
+
+    /* Text colors */
+    --dark-text: #1E1E1E;
+    --light-text: #F1F1F1;
+
+    /* Background colors */
+    --light-background: #F1F1F1;
+    --body-background: #FFFFFF;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #F9C19D;
+        --secondary-color: #B3BCD0;
+
+        /* District colors */
+        --nieuw-west: #8EA34B;
+        --oost: #B3BCD0;
+        --zuidoost: #699da2;
+        --algemeen: #262626;
+
+        /* Text colors */
+        --dark-text: #F1F1F1;
+        --light-text: #1E1E1E;
+
+        /* Background colors */
+        --light-background: #1E1E1E;
+        --body-background: #000000;
+    }
+}
