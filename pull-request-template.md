@@ -1,29 +1,80 @@
 ## What does this change?
+<!-- Clearly describe the changes made in this PR -->
+Resolves #issuenumber
 
-Resolves issue #1337
+### Type of change
+- [ ] Bug fix
+- [ ] New feature
+- [ ] UI improvement
+- [ ] Refactor
+- [ ] Performance improvement
+- [ ] Accessibility improvement
+- [ ] Documentation update
 
-<!-- A PR should have enough detail to be understandable far in the future. e.g what is the problem/why is the change needed, how does it solve it and any questions or points of discussion. Prefer copying information from a GitHub issue over linking to it; the card may not always exist and reviewers may not have access to the board. -->
+---
 
-[livesite](https://livesite.com)
+## Live site
+<!-- Add preview/deployment link -->
 
-## How Has This Been Tested?
-<!-- Link to test results in the Wiki-->
+---
 
-### RAPPE Principes
+## Why is this change needed?
+<!-- Explain the purpose/problem this PR solves -->
 
-- [ ] [User test]()
-- [ ] [Accessibility test]()
-- [ ] [Progressive Enhancement test]() 
-- [ ] [Performance test]()
-- [ ] [Responsive Design test]()
-- [ ] [Device test]()
-- [ ] [Browser test]()
+---
+
+## How has this been tested?
+<!-- Describe the tests you performed -->
+
+### RAPPE Principles
+- [ ] Responsive tested
+- [ ] Accessibility tested
+- [ ] Performance tested
+- [ ] Progressive Enhancement tested
+
+### Additional testing
+- [ ] No console errors
+- [ ] No new warnings introduced
+- [ ] Tested on Browser 01
+- [ ] Tested on Browser 02
+- [ ] Existing functionality still works
+
+---
 
 ## Images
+<!-- Add screenshots, GIFs or screen recordings -->
 
-<!-- Usually only applicable to UI changes, what did it look like before and what will it look like after? -->
+### Before
+<!-- Optional -->
 
+### After
+<!-- Optional -->
+
+---
+
+## Technical details
+<!-- Mention important implementation details, libraries, architecture decisions, etc. -->
+
+---
+
+## Known issues
+<!-- Mention remaining bugs, limitations or things not fully finished -->
+
+---
+
+## Checklist
+- [ ] Code follows project conventions
+- [ ] Naming is consistent and in English
+- [ ] Code is cleaned up and readable
+- [ ] Components are reusable where possible
+- [ ] Unused code/files removed
+- [ ] PR is ready for review
+
+---
 
 ## How to review
+<!-- Explain what reviewers should focus on -->
 
-<!-- Provide instructions to help others verify the change. This could take the form of "On PROD, do X and witness Y. On this branch, do X and witness Z. " -->
+- Focus on:
+- Test by:
+- Pay attention to:
