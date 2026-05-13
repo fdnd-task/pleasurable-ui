@@ -220,7 +220,7 @@ a {
     margin-bottom: var(--spacing-md);
     padding: var(--spacing-md);
 }
-.actielog-filter {
+.actielog-filters{
     border: none;
     display: flex;
     flex-wrap: nowrap;
@@ -233,15 +233,7 @@ a {
     margin-bottom: var(--spacing-xl);
     scrollbar-color: var(--color-brand-darkest) transparent;
 
-    legend {
-        display: block;
-        color: var(--color-brand-darkest);
-        margin-bottom: 0;
-        font-size: var(--font-size-body-md);
-        font-weight: var(--font-weight-bold);
-    }
-
-    label {
+    a {
         border: solid var(--border-width-md) var(--color-brand-darkest);
         border-radius: var(--border-radius-md);
         padding: var(--spacing-sm) var(--spacing-md);
@@ -250,15 +242,33 @@ a {
         white-space: nowrap;
         flex-shrink: 0;
         font-weight: var(--font-weight-bold);
+        text-decoration: none;
+        color: var(--color-brand-darkest);
 
-        input[type="checkbox"] {
-            display: none;
+        &.actief {
+            background-color: var(--color-brand-light);
         }
     }
 }
-label:has(input:checked) {
-    background-color: var(--color-brand-light);
-    color: var(--color-brand-darkest);
+.actielog-main{
+    .empty-state{
+        font-family: var(--font-primary);
+        color: var(--color-brand-darkest);
+        p:first-of-type{
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-body-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        p:last-of-type{
+            font-size: var(--font-size-body-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        a{
+            background-color: var(--color-brand-lighter);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+        }
+    }
 }
 
 .log-list{
