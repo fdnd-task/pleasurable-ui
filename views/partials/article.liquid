@@ -1,0 +1,47 @@
+<section class="article-layout layout {{ style }}">
+  <article class="container">
+    <h2>{{ title }}</h2>
+    <p>
+      {{ content }}
+    </p>
+    {% if button == true %}
+      {%
+        render 'partials/link-button.liquid',
+        link: btnLink,
+        text: btnText,
+        target: '_blank'
+        style: btnStyle | default: 'primary-button',
+      %}
+    {% endif %}
+
+    {% render 'image.liquid',
+      imgSrc: imgURL,
+      width: imgWidth,
+      height: imgHeight,
+      alt: imgAlt,
+      fetch: imgFetch,
+      loading: imgLoading
+    %}
+  </article>
+</section>
+
+{% comment %}
+  This is how you use the article partial.
+      {%
+        render './partials/article.liquid',
+        style: 'custom-class als nodig'
+        title: 'lorem ipsum',
+        content: contentVar,
+        imgURL: imgURL,
+        imgWidth: 300,
+        imgHeight: 300,
+        imgAlt: 'alt tekst voor img',
+        imgFetch: 'auto',
+        imgLoading: 'lazy',
+        button: false,
+        btnLink: 'https://fdnd.nl'
+        btnTekst: 'klik op mij',
+        btnTarger: 'blank',
+        btnStyle: 'primary-button'
+      %}
+{% endcomment %}
