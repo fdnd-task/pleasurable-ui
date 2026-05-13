@@ -6,7 +6,7 @@
     </p>
     {% if button == true %}
       {%
-        render 'partials/link.liquid',
+        render 'partials/link-button.liquid',
         link: btnLink,
         text: btnText,
         target: '_blank'
@@ -14,44 +14,34 @@
       %}
     {% endif %}
 
-    <picture>
-      <img
-        src="{{imgURL}}"
-        alt=""
-      >
-    </picture>
-
-    {% comment %}
-      {% render 'image.liquid',
-        imgSRC: imgURL,
-        width: imgWidth,
-        height: imgHeight,
-        alt: imgAlt,
-        fetch: imgFetch,
-        loading: imgLoading
-      %}
-    {% endcomment %}
+    {% render 'image.liquid',
+      imgSrc: imgURL,
+      width: imgWidth,
+      height: imgHeight,
+      alt: imgAlt,
+      fetch: imgFetch,
+      loading: imgLoading
+    %}
   </article>
 </section>
 
-
-{% comment %} 
-This is how you use the article partial. 
-    {%
-      render './partials/article.liquid',
-      style: 'custom-class als nodig'
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: false,
-      btnLink: 'https://fdnd.nl'
-      btnTekst: 'klik op mij',
-      btnTarger: 'blank',
-      btnStyle: 'primary-button'      
-    %}
+{% comment %}
+  This is how you use the article partial.
+      {%
+        render './partials/article.liquid',
+        style: 'custom-class als nodig'
+        title: 'lorem ipsum',
+        content: contentVar,
+        imgURL: imgURL,
+        imgWidth: 300,
+        imgHeight: 300,
+        imgAlt: 'alt tekst voor img',
+        imgFetch: 'auto',
+        imgLoading: 'lazy',
+        button: false,
+        btnLink: 'https://fdnd.nl'
+        btnTekst: 'klik op mij',
+        btnTarger: 'blank',
+        btnStyle: 'primary-button'
+      %}
 {% endcomment %}
