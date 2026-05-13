@@ -20,10 +20,17 @@ Geef aan waar reviewers op moeten letten, bijvoorbeeld:
 ---
 
 ## Eventuele live link, screenshot of bronnen:
-Voeg hier toe:
-- Live demo link (indien beschikbaar)
-- Screenshots
-- Externe bronnen of documentatie
+RAPPE Principles
+
+
+- [ ] User test
+- [ ] Accessibility test
+- [ ] Progressive Enhancement test
+- [ ] Performance test
+- [ ] Responsive Design test
+- [ ] Device test
+- [ ] Browser test
+
 
 ---
 
