@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* HEADER (Maarten) */
+.page-header {
+  padding: 2rem;
+
+  .page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  picture,
+  img {
+    display: block;
+  }
+
+  .header-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+
+    @media (min-width: 600px) {
+      align-self: flex-start;
+    }
+
+    .wishlist,
+    .account {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 51px;
+      height: 51px;
+      border: 1px solid #c9c9c9;
+      border-radius: 50%;
+      box-shadow: 0px 2px 8px 0px rgba(0 0 0 / 15%);
+      color: #212121;
+      text-decoration: none;
+
+      @media (min-width: 900px) {
+        width: fit-content;
+        padding: 0 1.25rem;
+        border-radius: 9rem;
+        gap: 1rem;
+      }
+    }
+
+    .wishlist-span,
+    .account-span {
+      display: none;
+      font-size: 1.375rem;
+
+      @media (min-width: 900px) {
+        display: inline;
+      }
+    }
+  }
+}
