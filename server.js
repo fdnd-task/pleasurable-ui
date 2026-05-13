@@ -31,6 +31,12 @@ app.get("/cadeau-overzicht", async function (request, response) {
   response.render("cadeau.liquid");
 });
 
+app.get("/wishlist", async function (request, response) {
+  response.render("cadeau.liquid");
+});
+
+
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set("port", process.env.PORT || 8000);
@@ -41,3 +47,4 @@ app.listen(app.get("port"), function () {
     `http://localhost:${app.get("port")}`,
   );
 });
+
