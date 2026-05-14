@@ -1,0 +1,9 @@
+.innemen-button-blok{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    button{
+        width: 100%;
+    }
+}
