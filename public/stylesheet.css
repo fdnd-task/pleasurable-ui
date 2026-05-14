@@ -450,18 +450,13 @@ form {
       }
     }
     
-    label:has(input:valid:not(:placeholder-shown))
-      :not(:has(input[type="checkbox"]))
-      :not(:has(input[type="radio"]))
-      :not(:has(input[type="range"]))
-      :not(:has(input[type="file"])) {
-      position: relative;
+    label:has(input:valid:not(:placeholder-shown)):not(:has(input[type="checkbox"])):not(:has(input[type="radio"])):not(:has(input[type="range"])):not(:has(input[type="file"])) {position: relative;
 
       &::after {
         content: "✓";
         position: absolute;
         right: var(--spacing-sm);
-        bottom: var(--spacing-sm);
+        bottom: var(--spacing-xs);
         color: var(--color-brand-darker);
       }
     }
