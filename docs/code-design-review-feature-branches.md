@@ -2,7 +2,7 @@
 
 Deze week heb je drie interacties ontworpen in Figma die de gebruikersinterface aangenamer maken. Vervolgens heb je deze prototypes uitgewerkt in feature branches.
 
-## Code/Design review feature branches
+## Code/Design review - Feature branches
 Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed is zijn dat er drie) een pull request aanmaken. Daarna vergelijk en bespreek je met je team de verschillende experimenten en variaties waar jullie deze week aan hebben gewerkt. Samen bepaal je welke branches worden gemerged met de `main`, nadat alle pull requests zijn gereviewd.
 
 ## Aanpak
