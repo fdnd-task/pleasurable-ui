@@ -32,7 +32,7 @@ app.get("/cadeau-overzicht", async function (request, response) {
 });
 
 app.get("/wishlist", async function (request, response) {
-  response.render("cadeau.liquid");
+  response.render("wishlist.liquid");
 });
 
 

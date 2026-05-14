@@ -1,8 +1,21 @@
 {% include 'partials/head.liquid' %}
+<style>
+.grid_likedproducts{
+  
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
 
-<main>
+}
+
+
+
+
+
+
+</style>
+<main class="grid_likedproducts">
  
-    {% for product in products %}
+
       
   
     <article class="opgeslagen-product">
@@ -11,18 +24,18 @@
           <h2>test</h2>
           <p>bedrag</p>
 
-             <form method="post" action="" class="like-form">
-        <input type="hidden" name="id" value="{{ product.id }}">
+        <form method="post" action="" class="like-form">
+            <input type="hidden" name="id" value="{{ product.id }}">
 
         <button type="submit" class="lijst-button">
-          <img class="lijstjemin" src="/assets/minnetje.png" alt="lijst">
+          <img class="verwijder" src="" alt="lijst">
         </button>
       </form>
 
 
 </article>
 
-  {% endfor %}
+
 
 </main>
 
