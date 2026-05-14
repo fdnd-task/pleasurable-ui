@@ -118,9 +118,14 @@ footer {
         }
       }
 
+      li {
+        margin-bottom: .5rem;
+      }
+
       a {
         color: black;
         text-decoration: none;
+        display: inline-block;
 
         &:hover {
           text-decoration: underline;
