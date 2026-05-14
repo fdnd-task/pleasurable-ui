@@ -294,3 +294,176 @@ p{
   pointer-events:          none;
   box-shadow:              3px 3px 7.5px rgba(70, 22, 107, 0.20);
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  font-style: var(--font-primary);
+  padding-top: var(--spacing-md);
+  border: solid var(--border-width-lg) var(--color-brand-darkest);
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-lg);
+  padding: var(--spacing-lg);
+
+  label {
+    color: var(--color-brand-darker);
+    font-size: var(--font-size-body-sm);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-primary);
+    letter-spacing: var(--letter-spacing-md);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-md);
+    text-align: left;
+
+    &:has(input[type="checkbox"]),
+    &:has(input[type="radio"]) {
+      flex-direction: row;
+      gap: var(--spacing-sm);
+      font-weight: var(--font-weight-regular);
+      color: var(--color-brand-darkest);
+      margin: 0;
+      padding: 0;
+      align-items: flex-start;
+    }
+  }
+
+  input {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-body-xs);
+    color: var(--color-brand-darkest);
+    border: solid var(--color-brand-darker) var(--border-width-sm);
+    border-radius: var(--border-radius);
+    background-color: var(--color-brand-lightest);
+
+    &::placeholder {
+      color: var(--color-neutral-dark);
+      font-size: var(--font-size-body-sm);
+    }
+
+    &:hover,
+    &:focus {
+      outline: var(--border-width-sm) solid var(--color-brand-darker);
+    }
+
+    &:valid,
+    &:valid:not(:placeholder-shown) {
+      background-color: var(--color-brand-light);
+    }
+
+    &:required:invalid:not(:placeholder-shown) {
+      border: solid var(--border-width-md) var(--color-danger-dark);
+    }
+
+    &[type="checkbox"],
+    &[type="radio"] {
+      accent-color: var(--color-brand-dark);
+      text-align: start;
+    }
+
+    &[type="range"] {
+      accent-color: var(--color-brand-dark);
+      background-color: var(--color-brand-light);
+      cursor: pointer;
+    }
+
+    &[type="file"] {
+      cursor: pointer;
+
+      &::file-selector-button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-family: var(--font-primary);
+        font-size: var(--font-size-body-xs);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        background-color: var(--color-brand-dark);
+        color: var(--color-neutral-surface);
+      }
+    }
+
+    &[type="file"]::file-selector-button:hover {
+      background-color: var(--color-brand-darker);
+    }
+  }
+
+  select {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-body-xs);
+    color: var(--color-brand-darker);
+    border: solid var(--color-brand-darker) var(--border-width-sm);
+    border-radius: var(--border-radius);
+
+    option {
+      color: var(--color-brand-darker);
+      position: relative;
+    }
+
+    &:hover,
+    &:focus {
+      outline: var(--border-width-sm) solid var(--color-brand-darker);
+    }
+
+    &:invalid {
+      color: var(--color-neutral-mid);
+      background-color: inherit; /* inherit — Baseline: WIDELY AVAILABLE */
+    }
+
+    &:valid {
+      background-color: var(--color-brand-lighter);
+    }
+  }
+
+  textarea {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-body-xs);
+    border: solid var(--color-brand-darker) var(--border-width-sm);
+    border-radius: var(--border-radius);
+
+    &::placeholder {
+      font-family: var(--font-primary);
+      color: var(--color-brand-darkest);
+    }
+
+    &:hover,
+    &:focus {
+      outline: var(--border-width-sm) solid var(--color-brand-darker);
+    }
+  }
+
+  fieldset {
+    border: none;
+    padding-bottom: var(--spacing-xs);
+
+    legend {
+      color: var(--color-brand-darker);
+      font-size: var(--font-size-body-md);
+      padding-bottom: var(--spacing-xs);
+    }
+  }
+
+  @supports selector(:has(*)) {
+    label:has(input:required:invalid:not(:placeholder-shown)) {
+      color: var(--color-danger-dark);
+      input {
+        color: var(--color-danger-dark);
+      }
+    }
+    
+    label:has(input:valid:not(:placeholder-shown))
+      :not(:has(input[type="checkbox"]))
+      :not(:has(input[type="radio"]))
+      :not(:has(input[type="range"]))
+      :not(:has(input[type="file"])) {
+      position: relative;
+
+      &::after {
+        content: "✓";
+        position: absolute;
+        right: var(--spacing-sm);
+        bottom: var(--spacing-sm);
+        color: var(--color-brand-darker);
+      }
+    }
+  }
+}

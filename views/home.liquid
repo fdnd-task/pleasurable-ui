@@ -1,0 +1,100 @@
+{% layout 'layouts/base.liquid'%}
+{% block content %}
+
+<form action="#" method="post">
+
+  <fieldset>
+    <legend>Persoonlijke gegevens</legend>
+
+    <label for="voornaam">Voornaam
+      <input type="text" id="voornaam" name="voornaam" placeholder="Jan" required>
+    </label>
+
+    <label for="voornaam">Achternaam
+      <input type="text" id="voornaam" name="voornaam" placeholder="Janssen" required>
+    </label>
+
+    <label for="website">Website
+      <input type="url" id="website" name="website" placeholder="https://jouwsite.nl" required>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Voorkeuren</legend>
+
+    <label for="land">Land
+      <select id="land" name="land" required>
+        <option value="">Kies een land…</option>
+        <option value="nl">Nederland</option>
+        <option value="be">België</option>
+        <option value="de">Duitsland</option>
+        <option value="fr">Frankrijk</option>
+      </select>
+    </label>
+
+    <fieldset>
+      <legend>Abonnement</legend>
+      <label>
+        <input type="radio" name="plan" value="gratis" checked>
+        Gratis
+      </label>
+      <label>
+        <input type="radio" name="plan" value="basis">
+        Basis
+      </label>
+      <label>
+        <input type="radio" name="plan" value="pro">
+        Pro
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Interesses</legend>
+      <label>
+        <input type="checkbox" name="interesses" value="design">
+        Design
+      </label>
+      <label>
+        <input type="checkbox" name="interesses" value="development">
+        Development
+      </label>
+      <label>
+        <input type="checkbox" name="interesses" value="marketing">
+        Marketing
+      </label>
+    </fieldset>
+
+    <label for="budget">Budget: <output id="budget-output">150</output>
+      <input type="range" id="budget" name="budget" min="0" max="500" value="150"
+        oninput="document.getElementById('budget-output').value = this.value">
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Bericht & bijlagen</legend>
+
+    <label for="bericht">Bericht
+      <textarea id="bericht" name="bericht" rows="5" placeholder="Typ hier je bericht…"></textarea>
+    </label>
+
+    <label for="bestand">Bestand uploaden
+      <input type="file" id="bestand" name="bestand" accept=".pdf,.jpg,.png" multiple>
+    </label>
+
+    <label>
+      <input type="checkbox" name="nieuwsbrief" value="ja">
+      Nieuwsbrief ontvangen
+    </label>
+
+    <label>
+      <input type="checkbox" name="akkoord" value="ja" required>
+      Ik ga akkoord met de algemene voorwaarden
+    </label>
+  </fieldset>
+
+  <button class="btn btn-primary" type="reset">Wis alles</button>
+  <button class="btn btn-secondary" type="submit">Versturen</button>
+
+</form>
+
+{% endblock %}
