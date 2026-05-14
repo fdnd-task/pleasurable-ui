@@ -11,8 +11,8 @@
 
   .page-nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
   picture,
@@ -61,5 +61,105 @@
         display: inline;
       }
     }
+  }
+}
+
+/* FOOTER (Maarten) */
+footer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1rem 1rem 110px 1rem;
+  background-color: #f9f2d4;
+
+  .footer-logo {
+    height: fit-content;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 250px;
+    grid-template-areas:
+      "col-1"
+      "col-2"
+      "col-3";
+    margin-left: 1rem;
+
+    .col-1 {
+      grid-area: col-1;
+    }
+
+    .col-2 {
+      grid-area: col-2;
+    }
+
+    .col-3 {
+      grid-area: col-3;
+    }
+
+    .footer-heading {
+      padding-top: 2rem;
+      font-size: 18px;
+    }
+
+    .category-list {
+      padding-top: 1rem;
+      list-style: none;
+
+      &.age {
+        @media (min-width: 550px) {
+          display: none;
+        }
+
+        @media (min-width: 800px) {
+          display: block;
+        }
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .ontmoet-milledoni,
+    .voor-wie,
+    .cadeaus {
+      padding: 0;
+    }
+
+    @media (min-width: 550px) {
+      grid-template-columns: 250px 250px;
+      grid-template-areas:
+        "col-1 col-2"
+        "col-1 col-3";
+      margin-left: 5vw;
+    }
+
+    @media (min-width: 800px) {
+      grid-template-columns: 250px 250px 250px;
+      grid-template-areas: "col-1 col-2 col-3";
+    }
+  }
+
+  .footer-ribbon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+
+    @media (min-width: 1200px) {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
   }
 }
