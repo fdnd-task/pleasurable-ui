@@ -27,9 +27,31 @@ app.set('views', './views')
 const baseUrl = 'https://fdnd-agency.directus.app/items/preludefonds_instruments/'
 
 app.get('/', async function (request, response) {
-  response.render('home.liquid')
+  const params = new URLSearchParams()
+  params.append('limit', '-1')
+
+  const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+  console.log(instrumentResponseJSON)
+  const allInstruments = instrumentResponseJSON.data
+
+  const totalItems       = allInstruments.length
+  const totalPrelude     = allInstruments.filter(instrument => instrument.property === 'preludefonds').length
+  const totalAnders      = allInstruments.filter(instrument => instrument.property !== null && instrument.property !== 'preludefonds').length
+  const totalBeschikbaar = allInstruments.filter(instrument => instrument.status === 'beschikbaar').length
+  const totalUitgeleend  = allInstruments.filter(instrument => instrument.status === 'uitgeleend').length
+  const totalReparatie   = allInstruments.filter(instrument => instrument.status === 'in reparatie').length
+
+  response.render('home.liquid', {
+    totalItems,
+    totalPrelude,
+    totalAnders,
+    totalBeschikbaar,
+    totalUitgeleend,
+    totalReparatie,
+  })
 })
-  
+
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
