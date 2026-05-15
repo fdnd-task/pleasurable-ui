@@ -4,6 +4,7 @@
         Activiteiten
     </h1>
     <nav class="actielog-filters">
+        <p>Filters:</p>
         <a href="/actielog" class="{% if activeFilter == nil %}actief{% endif %}">Alles</a>
         <a href="/actielog?filter=Uitlenen" class="{% if activeFilter == 'Uitlenen' %}actief{% endif %}">Uitlenen</a>
         <a href="/actielog?filter=Innemen" class="{% if activeFilter == 'Innemen' %}actief{% endif %}">Innemen</a>
@@ -23,9 +24,25 @@
             {% else %}
                 {% assign today = 'now' | date: '%Y-%m-%d' %}
                 {% assign yesterday = 'now' | date: '%s' | minus: 86400 | date: '%Y-%m-%d' %}
+                {% assign currentDay = '' %}
 
                 {% for log in logs %}
                     {% assign logDay = log.date_created | date: '%Y-%m-%d' %}
+
+                    {% if logDay != currentDay %}
+                        {% assign currentDay = logDay %}
+
+                        <h2 class="log-date-header">
+                            {% if logDay == today %}
+                                Vandaag 
+                            {% elsif logDay == yesterday %}
+                                Gisteren 
+                            {% else %}
+                                {{ log.date_created | date: "%d %B %Y" }} 
+                            {% endif %}
+                        </h2>
+                    {% endif %}
+                    
                     <li>
                         <article>
                             <span class="log-action-icon" aria-hidden="true">
@@ -48,7 +65,7 @@
                             </span>
 
                             <section class="log-details">
-                                <h2 class="log-action">{{ log.type_action | default: 'Onbekend'}}</h2>
+                                <h3 class="log-action">{{ log.type_action | default: 'Onbekend'}}</h3>
 
                                 <dl class="action-instrument">
                                     <dt class="sr-only">Instrument</dt>
