@@ -1,0 +1,36 @@
+{% comment %} {% render 'partials/header.liquid' %} {% endcomment %}
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styleguide.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <section class="layout">
+      <article class="container">
+        <h1>Filler tekst hier komt hero banner</h1>
+      </article>
+    </section>
+
+    <section class="layout candidate-list">
+      <article class="container">
+        <h2>Genomineerde candidaten van 2026</h2>
+        <ul>
+          {% for nominee in nominations %}
+            {% render './partials/candidate-card.liquid',
+              name: nominee.title,
+              school: nominee.institution,
+              id: nominee.id,
+              winner: nominee.winner,
+              picture: nominee.profile_picture
+            %}
+          {% endfor %}
+        </ul>
+      </article>
+    </section>
+  </body>
+</html>

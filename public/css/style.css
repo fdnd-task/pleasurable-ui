@@ -113,11 +113,66 @@
     transition: .2s ease;
     text-decoration: none;
     cursor: pointer;
+    place-content: center;
 
     &:hover {
         background-color: var(--color-neutral-800);
         color: var(--text-color);
         scale: 1.05;
     }
+
+}
+
+/* talent awards page */
+
+.candidate-list {
+    font-family: var(--font-body);
+
+    h2 {}
+
+    ul {
+        display: grid;
+        gap: var(--space-lg);
+        justify-content: space-between;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-xl);
+    }
+
+}
+
+.candidate-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: auto;
+    height: 400px;
+    background-color: var(--primary-200);
+    padding: var(--space-lg);
+    margin: auto;
+    border-radius: var(--space-md);
+    gap: var(--space-sm);
+
+    h3 {
+        grid-row: 2;
+    }
+
+    p {
+        grid-row: 3;
+    }
+
+    a {
+        grid-row: 4
+    }
+
+    picture {
+        grid-row: 1;
+
+        img {
+            border-radius: var(--img-radius);
+            width: 100%;
+            display: block;
+        }
+    }
+
 
 }

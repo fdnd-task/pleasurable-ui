@@ -1,0 +1,21 @@
+{% if picture == null %}
+  {% assign imgURL = 'https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826' %}
+{% else %}
+  {% assign imgURL = 'https://fdnd-agency.directus.app/assets/' | append: picture %}
+{% endif %}
+
+{% assign candidateLink = '/talent-awards/' | append: id %}
+
+<li class="candidate-card">
+  <h3>{{ name }}</h3>
+  <p>{{ school | default: 'Hogeschool van Amsterdam' }}</p>
+  {% render './partials/link-button.liquid', link: candidateLink, text: 'lees meer' %}
+  {% render './partials/image.liquid',
+    imageSrc: imgURL,
+    width: '275',
+    height: '275',
+    alt: name,
+    fetch: 'auto',
+    loading: 'lazy'
+  %}
+</li>
