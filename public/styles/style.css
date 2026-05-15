@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+
+/* header */
+header{
+    display: flex;
+    justify-content: space-between;
+    place-items: center;
+    padding: .5rem .4rem;
+}
+
+.search-outer{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  place-content: center;
+  width: 7rem;
+  position: relative;
+  form{
+   display: flex;
+   flex-direction: row;
+  }
+  input{
+    width: 5rem;
+    border-radius: 20px;
+    border: none;
+    padding: .3rem .1rem;
+    padding-left: 30px;
+    background: #D9D9D9;
+  }
+  button{
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  img{
+    width: 1.2rem;
+    height: auto;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+
+/* header */
