@@ -9,6 +9,14 @@
     <title>{{ title | default: "PreludeFonds" }}</title>
 </head>
 <body>
+    <header class="logo">
+      <a href="/">
+        <img src="/assets/logo/image.svg" class="logo-img" alt="cool kunst en cultuur" width="600" height="400"></a>
+      <a href="/">
+        <h1 class="logo-text">PreludeFonds</h1></a>
+    </header>
+
     {% block content %}{% endblock %}
+
 </body>
 </html>   
