@@ -390,7 +390,6 @@ app.patch('/account/set-accent', async (req, res) => {
     }
 });
 
-// Auth & Other
 app.get('/nieuws', async (req, res) => {
     const newsData = await fetchData('frankendael_news') || [];
     res.render('nieuws.liquid', {
@@ -443,6 +442,7 @@ app.post('/login', async (req, res) => {
         res.status(503).send('Inloggen mislukt');
     }
 });
+
 
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 

@@ -583,42 +583,34 @@ main.quest {
 /***********************************
 nieuws page
 ***********************************/
+/* html{
+    container-type: scroll-state;
+} */
+main.news {
+    position: relative;
+    height: 100dvh;
 
-main.nieuws {
-    section.header {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+    scroll-snap-type:y proximity;
+    container-type: scroll-state;
+    container-name: news-scroll;
+    overflow-y: scroll;
 
-        a.back {
-            grid-column: 1;
-        }       
+    .adjust-news{
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        backdrop-filter: blur(5px);
 
-        h1 {
-            grid-column: 2;
-            align-self:center;
+        position: sticky;
+        top: 0;
+
+        transition: .8s;
+
+        @container scroll-state(scrolled:bottom){
+            translate: 0 -200%;
         }
-        p {
-            grid-column: 3;
-        }
 
-        article {
-            grid-column: 1 / span 3;
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-
-
-            ul {
-                display: flex;
-                justify-content: space-evenly;
-                gap: 2rem;
-            }
-
-            a {
-                color: var(--dark-text);
-                padding: 1rem;
-            }
-        }
     }
 }
 
