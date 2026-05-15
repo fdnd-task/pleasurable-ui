@@ -37,7 +37,7 @@
       align-self: flex-end;
     }
   }
-  
+
 /* vinkje uitlijning aangepats voor betere klikbaarheid en mobiel gebruik. */
   @supports selector(:has(*)) {
     label:has(input:valid:not(:placeholder-shown)) {
@@ -51,4 +51,9 @@
       }
     }
   }
+}
+
+button.error {
+    background-color: var(--color-danger-dark);
+    color: var(--color-brand-lightest);
 }
