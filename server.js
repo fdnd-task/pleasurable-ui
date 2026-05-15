@@ -36,11 +36,13 @@ app.get('/', async function (request, response) {
   const allInstruments = instrumentResponseJSON.data
 
   const totalItems       = allInstruments.length
-  const totalPrelude     = allInstruments.filter(instrument => instrument.property === 'preludefonds').length
-  const totalAnders      = allInstruments.filter(instrument => instrument.property !== null && instrument.property !== 'preludefonds').length
-  const totalBeschikbaar = allInstruments.filter(instrument => instrument.status === 'beschikbaar').length
-  const totalUitgeleend  = allInstruments.filter(instrument => instrument.status === 'uitgeleend').length
-  const totalReparatie   = allInstruments.filter(instrument => instrument.status === 'in reparatie').length
+  const totalPrelude     = allInstruments.filter(instrument => instrument.property?.toLowerCase() === 'preludefonds').length
+  const totalAnders      = allInstruments.filter(instrument => instrument.property && instrument.property.toLowerCase() !== 'preludefonds').length
+  const totalBeschikbaar = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'beschikbaar').length
+  const totalUitgeleend  = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'uitgeleend').length
+  const totalReparatie   = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'in reparatie').length
+
+  console.log('Statussen:', allInstruments.map(i => i.status))
 
   response.render('home.liquid', {
     totalItems,
