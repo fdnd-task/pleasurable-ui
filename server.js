@@ -28,9 +28,33 @@ const baseUrl = 'https://fdnd-agency.directus.app/items/preludefonds_instruments
 const logUrl = 'https://fdnd-agency.directus.app/items/preludefonds_log'
 
 app.get('/', async function (request, response) {
-  response.render('home.liquid')
+  const params = new URLSearchParams()
+  params.append('limit', '-1')
+
+  const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
+  const instrumentResponseJSON = await instrumentResponse.json()
+  console.log(instrumentResponseJSON)
+  const allInstruments = instrumentResponseJSON.data
+
+  const totalItems       = allInstruments.length
+  const totalPrelude     = allInstruments.filter(instrument => instrument.property?.toLowerCase() === 'preludefonds').length
+  const totalAnders      = allInstruments.filter(instrument => instrument.property && instrument.property.toLowerCase() !== 'preludefonds').length
+  const totalBeschikbaar = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'beschikbaar').length
+  const totalUitgeleend  = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'uitgeleend').length
+  const totalReparatie   = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'in reparatie').length
+
+  console.log('Statussen:', allInstruments.map(i => i.status))
+
+  response.render('home.liquid', {
+    totalItems,
+    totalPrelude,
+    totalAnders,
+    totalBeschikbaar,
+    totalUitgeleend,
+    totalReparatie,
+  })
 })
-  
+
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
@@ -77,11 +101,57 @@ app.get('/instrumenten/:key/uitlenen', async function (request, response) {
   const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
-  response.render('uitlenen.liquid', { instrument: instrumentResponseJSON.data[0] })
+  response.render('uitlenen.liquid', { 
+    instrument: instrumentResponseJSON.data[0],
+    melding: request.query.melding
+  })
 })
 
 app.post('/instrumenten/:key/uitlenen', async function (request, response) {
-  response.redirect(303, `/instrumenten/${request.params.key}`)
+
+  try {
+    const fetchResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log",{
+      method: "POST",
+      body: JSON.stringify({
+        type_action: 'Uitlenen',
+
+        performed_by: request.body.docentName,
+
+        involved_party: request.body.studentName,
+
+        instrument: request.body.id
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        status: "Uitgeleend"
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+  })
+
+  const fetchResponseJSON = await fetchResponse.json()
+  console.log(fetchResponseJSON)
+  const patchResponseJSON = await patchResponse.json()
+  console.log(patchResponseJSON)
+
+  if (patchResponse.ok) {
+      // API zegt: Gelukt! We sturen success=true mee
+      response.redirect(303, "/instrumenten/" + request.params.key + "/uitlenen?melding=success#status")
+    } else {
+      // API zegt: Fout! (bijv. server error of verkeerd ID). We sturen error=true mee
+      response.redirect(303, "/instrumenten/" + request.params.key + "/uitlenen?melding=error#status")
+    }
+
+  } catch (error) {
+    // De fetch zelf is gecrasht (bijv. geen internet). Ook een error dus.
+    response.redirect(303, "/instrumenten/" + request.params.key + "/uitlenen?melding=error#status")
+  }
 })
 
 app.get('/instrumenten/:key/innemen', async function (request, response) {
