@@ -296,7 +296,7 @@ p {
   box-shadow:              3px 3px 7.5px rgba(70, 22, 107, 0.20);
 }
 
-form {
+.form {
   display:                 flex;
   flex-direction:          column;
   font-style:              var(--font-primary);
