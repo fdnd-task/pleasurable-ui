@@ -1,0 +1,19 @@
+<article>
+  <section>
+    <img src="assets/images/calendar.svg" alt="calendar icon" loading="lazy" fetchpriority="auto">
+    <p>{{ date | date: '%Y-%m-%d' }}</p>
+  </section>
+  <h2>{{ title }}</h2>
+  <p>{{ description }}</p>
+</article>
+
+{% comment %}
+  This is how you use the news card partial
+        {%
+          render 'partials/news-card.liquid',
+          date: 'put here the date json in from directus'
+          title: 'blank'
+          description: 'blank'
+          style: btnStyle | default: 'primary-button',
+        %}
+{% endcomment %}
