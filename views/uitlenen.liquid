@@ -6,18 +6,18 @@
         {% comment %} hier komt de selected banner {% endcomment %}
     </header>
 
-    <form class="uitlenen" action="/instrumenten/{{ instrument.key }}/uitlenen" method="post">
+    <form class="form uitlenen" action="/instrumenten/{{ instrument.key }}/uitlenen" method="post">
         <label for="student" class="input-veld"> Wie leent het?
             <input type="text" id="student" name="studentName" placeholder="Volledige naam" required></label>
         
         <label for="docent" class="input-veld">Naam docent
-            <input type="text" id="docent" name="docentName" required></label>
+            <input type="text" id="docent" name="docentName" placeholder=" " required></label>
 
         <input type="hidden" name="id" value="{{ instrument.id }}">
         <input type="hidden" name="key" value="{{ instrument.key }}">
         <input type="hidden" name="action" value="Uitlenen">
         
-        <button type="submit" class="button-uitlenen">
+        <button type="submit" class="btn btn-primary button-uitlenen">
             {% if melding == 'success' %}✅ De status is aangepast!
             {% elsif melding == 'error' %}❌ Er ging iets mis!
             {% else %}Bevestig uitlening
