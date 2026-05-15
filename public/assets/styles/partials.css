@@ -174,51 +174,54 @@ header.opdrachten-header {
 }
 
 /* partial newslist.liquid */
-ul.news {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+.list-news{
+    ul{
+        padding: 0;
+        padding-bottom: 5rem;
 
-    li {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--dark-background);
-        color: var(--dark-text);
+        li{
+            a{
+                display: grid;
+                grid-template-areas: 
+                'image tag'
+                'image title';
+                grid-template-columns: 1fr 2fr;
+                gap: .5rem;
+                padding-block: 1rem;
+                border-bottom: 2px solid var(--dark-border);
+                align-items: end;
 
+                scroll-snap-align: center;
 
-        div {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            order: 2;
+                picture{
+                    grid-area: image;
+
+                    img{
+                        border-radius: var(--border-card);
+                        height: 100px;
+                        object-fit: cover;
+                    }                
+                }
+
+                .tag{
+                    grid-area: tag;
+                    margin: 0;
+                    border: 1px solid var(--dark-border);
+                    width: fit-content;
+                    height: fit-content;
+                    padding: .1rem .2rem;
+                    border-radius: 1rem;
+                    font-size: 10px;
+                }
+
+                h3{
+                    margin: 0;
+                }
+            }
         }
-
-        img {
-            width: 100%; 
-            order: 1;
-        }
-
-        .heading {
-            margin-block: .5rem;
-        }
-
-    }
-
-    a {
-        display: grid;
-        grid-template-columns: 1fr 60%;
-        align-items: center;
-        gap: .5rem;
-        color: inherit;
-    }
-
-    p {
-        color: inherit;
     }
 }
+
 
 /* horizontal news styling for home page */
 ul.news.horizontal {
@@ -485,3 +488,37 @@ p.paragraph {
     margin-block: 1rem;
     transform: translateY(1.875rem);
     animation: flowIn 0.4s ease-in forwards; */
+
+
+/* partial back-to-top-btn.liquid */
+.to-top-btn{
+    translate:0 calc(100% + 1em);
+    
+	@media (prefers-reduced-motion:no-preference) {
+		transition:.25s;
+	}
+
+    /* VS code doesn't know the scroll-state, so it shows the red underline on 'scroll-state'. It does work on Chrome. */
+    @container news-scroll scroll-state(scrollable:top){
+        translate:0 0;
+        
+        @media (prefers-reduced-motion:no-preference) {
+            transition: .25s 1s;
+        }
+    }
+
+    position: fixed;
+    right: 1em;
+    bottom: 5em;
+    z-index: 1;
+
+    width: 3em;
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
+
+    background-color: var(--accent-color);
+    border-radius: var(--border-popover);
+    color: var(--dark-text);
+}

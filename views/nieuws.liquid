@@ -1,39 +1,31 @@
 {% render 'partials/head.liquid', user: user %}
 
-<main class="nieuws">
-    {% render 'partials/breadcrumbs.liquid',
-        current_path: current_path,
-    %}
+<main class="news" id="TOP">
+    <p id="top"></p>
+    {% render 'partials/breadcrumbs.liquid', current_path: current_path %}
+
+    {% render 'partials/general-heading.liquid',
+        heading_level: 1,
+        content: "Nieuws"
+    %} 
 
     <section class="adjust-news">
         <p>jdewijfei</p>
     </section>
+
+    {% render 'partials/general-heading.liquid',
+        heading_level: 2,
+        content: "Artikelen"
+    %} 
+
     <section class="list-news">
-        <ul>
-            {% for newsItem in nieuws %}
-                <li>
-                    <picture>
-                        <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=avif">
-                        <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=webp">
-                        <img width="150" height="100" loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
-                    </picture>
-                    <p class="tag">Bloemneveld</p> 
-                    <a href="/nieuws/{{ newsItem.slug }}">{{ newsItem.title |  truncate: 60}}</a>
-                </li> 
-            {% endfor %}
-            {% for newsItem in nieuws %}
-                <li>
-                    <picture>
-                        <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=avif">
-                        <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/{{newsItem.image}}?format=webp">
-                        <img width="150" height="100" loading="lazy" src="https://fdnd-agency.directus.app/assets/{{newsItem.image}}" alt="{{newsItem.title}}">
-                    </picture>
-                    <p class="tag">Bloemneveld</p> 
-                    <a href="/nieuws/{{ newsItem.slug }}">{{ newsItem.title |  truncate: 60}}</a>
-                </li> 
-            {% endfor %}
-        </ul>
+        {% render 'partials/news-items.liquid', 
+            news: news,
+            current_path: current_path
+         %}
     </section>
+
+    {% render 'partials/back-to-top-btn.liquid' %}
 </main>
 
 {% render 'partials/foot.liquid', current_path: current_path %}
