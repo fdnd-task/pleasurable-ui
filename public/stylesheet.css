@@ -443,6 +443,13 @@ form {
     }
   }
 
+  legend {
+    color:                var(--color-brand-darkest);
+    font-size:            var(--font-size-body-lg);
+    padding-bottom:       var(--spacing-md);
+    font-weight:          var(--font-weight-bold);
+  }
+
   @supports selector(:has(*)) {
     label:has(input:required:invalid:not(:placeholder-shown)) {
       color:               var(--color-danger-dark);
