@@ -19,6 +19,21 @@ a {
     text-decoration: none;
     color: #545964;
     font-size: 16px;
+    width: fit-content;
+    background-image: linear-gradient(to right, #FAC1A8 100%, transparent 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size 0.3s ease, color 0.3s ease;
+    padding-inline: .4rem;
+    margin-inline: -.4rem;
+    padding-block: .2rem;
+    margin-block: -.2rem;
+
+    &:hover {
+        background-size: 100% 100%;
+        color: black;
+    }
 }
 
 h2 {
