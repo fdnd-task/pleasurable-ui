@@ -1,12 +1,28 @@
 footer {
     border-top: 3px solid #BF410B;
     margin: 1rem;
+
+    @media (min-width: 908px) {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+    }
 }
 
 .bc-hva-logo {
     display: block;
     width: 254px;
     height: 54px;
+}
+
+a {
+    text-decoration: none;
+    color: #545964;
+    font-size: 16px;
+}
+
+h2 {
+    font-size: 22px;
 }
 
 .footer-locations {
@@ -25,17 +41,10 @@ footer {
     display: grid;
     margin-block: 1rem 2rem;
     gap: .5em;
-}
 
-a {
-    text-decoration: none;
-    color: #545964;
-}
-
-.footer-newsletter {
-    display: grid;
-    margin-block: 1rem 2rem;
-    gap: .5em;
+    @media (min-width: 908px) {
+        flex: 1;
+    }
 
     form {
         display: grid;
