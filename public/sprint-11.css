@@ -1,0 +1,28 @@
+.bc-hva-logo {
+    display: block;
+    width: 254px;
+    height: 54px;
+}
+
+.footer-locations {
+    display: grid;
+    margin-block: 1rem 2rem;
+    gap: .5em;
+}
+
+.footer-editions {
+    display: grid;
+    margin-block: 1rem 2rem;
+    gap: .5em;
+}
+
+.footer-newsletter {
+    display: grid;
+    margin-block: 1rem 2rem;
+    gap: .5em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
