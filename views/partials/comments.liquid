@@ -1,0 +1,38 @@
+<section class="comments-section">
+  <section class="article-comments">
+    <h2>Laat een comment achter</h2>
+    <form action="/{{ district }}/{{ story.slug }}/comment" class="comment-form" method="POST">
+      <label class="comments-field" for="name">
+        Naam:
+        <input type="text" id="name" name="name" placeholder="voornaam + achternaam" required>
+      </label>
+      <label class="comments-field" for="comment">
+        Bericht:
+        <textarea id="comment" name="comment" rows="3" placeholder="Ik heb een opmerking over" required></textarea>
+      </label>
+      <input type="hidden" name="story" value="{{ story.id }}">
+      <button id="loadingButton" class="primary-button" type="submit">Verzenden</button>
+    </form>
+  </section>
+
+  <section id="comments" class="recent-comments">
+    <h2>Recente reacties</h2>
+    <div class="recent-comments-container">
+      {% if story.comments and story.comments.size > 0 %}
+        {% for comment in story.comments reversed %}
+          <article class="single-comment">
+            <span>{{ comment.name }}</span>
+            <p>{{ comment.comment }}</p>
+            <form action="/{{ district }}/{{ story.slug }}/comment/{{ comment.id }}/delete" method="POST">
+              <button type="submit" class="delete-button">Verwijder</button>
+            </form>
+          </article>
+        {% endfor %}
+      {% else %}
+        <div class="empty-state">
+          <span>Nog geen reacties</span>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</section>
