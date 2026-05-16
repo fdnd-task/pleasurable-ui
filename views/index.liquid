@@ -1,6 +1,19 @@
 {% include 'partials/head.liquid' %}
 
-  <h1>Laat je inspireren door de wereld van Milledoni</h1>
+<div class="chatbot-section-wrapper">
+    <h1>Ik ben op zoek naar een cadeau voor... <span>mijn oom</span></h1>
+    
+    <div class="search-wrapper">
+        <img class="mic-icon" src="/assets/images/microphone.svg" alt="" width="25" height="25">
+        <input type="search" placeholder="Ik ben op zoek naar een cadeau voor Maria" name="search">
+        <img class="search-icon" src="/assets/images/search-icon.svg" alt="" width="55" height="60">
+    </div>
+</div>
+
+<img src="/assets/images/bow.svg" class="bow" alt="" width="400" height="300">
+
+<div class="main-content-wrapper">
+  <h2>Laat je inspireren door de wereld van Milledoni</h2>
 
   <button type="button" popovertarget="filter-popover">
     <img src="assets/images/filter-icon.svg" alt="Filter openen" width="25" height="25">
@@ -15,10 +28,10 @@
     >
 
     <button type="button" popovertarget="filter-popover" popovertargetaction="hide">
-      <img src="assets/images/close-icon.svg" alt="Filter sluiten" width="25" height="25">
+      <img src="assets/images/close-icon.svg" alt="Filter sluiten" width="25" height="25" loading="lazy">
     </button>
 
-    <h2>Filters aanpassen</h2>
+    <h3>Filters aanpassen</h3>
 
     <div class="filter-category-example">
       <label for="price-min">Min prijs:</label>
@@ -40,24 +53,17 @@
         <article>
 
           <a href="/product/{{ product.id }}" class="product-detail">
-
-            <div class="wrapper">
-              <picture>
-                <source srcset="{{ product.image_avif }}" type="image/avif">
-                <source srcset="{{ product.image_webp }}" type="image/webp">
-                
-                <img 
-                  loading="lazy"
-                  src="{{ product.image }}" 
-                  alt="{{ product.name }}"
-                  width="300"
-                  height="300"
-                >
-              </picture>
-            </div>
+            
+            <img
+                src="{{ product.image }}" 
+                alt="{{ product.name }}"
+                width="300"
+                height="300"
+                loading="lazy"
+            >
 
             <div class="product-info">
-              <h3>{{ product.name }}</h3>
+              <h4>{{ product.name }}</h4>
                 <p class="price-tag">€ {{ product.amount }}</p>
             </div>
 
@@ -69,7 +75,7 @@
             <button type="submit" class="add-product">
                   <img 
                     src="/assets/images/add-to-list-icon.svg" 
-                    alt="Add product icon" 
+                    alt="Voeg {{ product.name }} toe aan lijst" 
                     width="30" 
                     height="30" 
                     loading="lazy"
@@ -81,4 +87,7 @@
         </li>
         {% endfor %}
       </ul>
+</div>
+
+</main>
 {% include 'partials/foot.liquid' %}
