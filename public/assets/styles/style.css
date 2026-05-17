@@ -588,7 +588,6 @@ main.news {
     position: relative;
     height: 100dvh;
 
-    scroll-snap-type:y proximity;
     container-type: scroll-state;
     container-name: news-scroll;
     overflow-y: scroll;
@@ -598,7 +597,8 @@ main.news {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 1em;
+        gap: .8em;
+        padding-block: .8em;
         backdrop-filter: blur(5px);
 
         position: sticky;
@@ -607,7 +607,34 @@ main.news {
         transition: .8s;
 
         @container scroll-state(scrolled:bottom){
-            translate: 0 -200%;
+            translate: 0 -100%;
+        }
+
+        .news-sort{
+            display: flex;
+            justify-content: space-evenly;
+            padding-inline: 1rem;
+
+            li{
+                list-style: none;
+                background-color: #FFF0B5;
+                border-radius: var(--border-button);
+                padding: .5rem 1rem .5rem 1rem;
+
+                a{
+                    text-decoration: none;
+                    color: var(--primary-text-color);
+                    font-weight: bold;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+
+                &.active{
+                    outline: 2px solid var(--accent-color);
+                }
+            }
         }
 
         form{
@@ -615,7 +642,7 @@ main.news {
             width: 80%;
 
             input{
-                background-color: var(--medium-background);
+                background-color: #EDEDED;
                 border: none;
                 padding: .5rem 1rem .5rem 2rem;
                 border-radius: 5rem;
@@ -624,6 +651,10 @@ main.news {
                 background-position: .5rem center;
                 width: 100%;
                 color: var(--always-black);
+
+                &:focus-visible{
+                    outline: 2px solid var(--accent-color);
+                }
             }
         }
     }
