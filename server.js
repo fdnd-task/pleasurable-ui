@@ -39,6 +39,7 @@ const fetchData = async (endpoint) => {
     try {
         const response = await fetch(`${API_BASE}/${endpoint}`);
         const result = await response.json();
+        console.log('fetchData result:', result);
         return result.data;
     } catch (e) {
         console.error(`Fetch error for ${endpoint}:`, e);
@@ -391,11 +392,22 @@ app.patch('/account/set-accent', async (req, res) => {
 });
 
 app.get('/nieuws', async (req, res) => {
-    const newsData = await fetchData('frankendael_news') || [];
-    res.render('nieuws.liquid', {
+    const search = req.query.search;
+
+    let endpoint = 'frankendael_news';
+    if (search) {
+        endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+    }
+
+    console.log(endpoint);
+
+    const newsData = await fetchData(endpoint) || [];
+
+    res.render('news.liquid', {
         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
         zone_type: 'news',
         current_path: req.path,
+        search: search,
     });
 });
 

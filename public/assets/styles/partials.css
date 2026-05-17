@@ -189,7 +189,6 @@ header.opdrachten-header {
                 gap: .5rem;
                 padding-block: 1rem;
                 border-bottom: 2px solid var(--dark-border);
-                align-items: end;
 
                 scroll-snap-align: center;
 
@@ -216,6 +215,7 @@ header.opdrachten-header {
 
                 h3{
                     margin: 0;
+                    align-self: end;
                 }
             }
         }

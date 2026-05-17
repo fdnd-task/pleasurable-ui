@@ -10,7 +10,21 @@
     %} 
 
     <section class="adjust-news">
-        <p>jdewijfei</p>
+        <ul class="news-filter">
+            <li {% if huidigPad == '/nieuws' %} class="active styled" {% endif %}>
+                <a href="/nieuws">Alle</a>
+            </li>
+            <li {% if huidigPad == '/nieuws/nieuwste' %} class="active styled" {% endif %}>
+                <a href="/nieuws/nieuwste">Nieuwste</a>
+            </li>
+            <li {% if huidigPad == '/nieuws/oudste' %} class="active styled" {% endif %}>
+                <a href="/nieuws/oudste">Oudste</a>
+            </li>
+        </ul>
+
+        <form method="GET" action="/nieuws">
+            <input type="search" name="search" placeholder="Zoek in nieuws" value="{{ search }}">
+        </form>
     </section>
 
     {% render 'partials/general-heading.liquid',

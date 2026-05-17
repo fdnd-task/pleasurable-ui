@@ -583,9 +583,7 @@ main.quest {
 /***********************************
 nieuws page
 ***********************************/
-/* html{
-    container-type: scroll-state;
-} */
+
 main.news {
     position: relative;
     height: 100dvh;
@@ -598,6 +596,7 @@ main.news {
     .adjust-news{
         z-index: 1;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         gap: 1em;
         backdrop-filter: blur(5px);
@@ -611,6 +610,22 @@ main.news {
             translate: 0 -200%;
         }
 
+        form{
+            align-self: center;
+            width: 80%;
+
+            input{
+                background-color: var(--medium-background);
+                border: none;
+                padding: .5rem 1rem .5rem 2rem;
+                border-radius: 5rem;
+                background-image: url('/assets/images/searchIcon.svg');
+                background-repeat: no-repeat;
+                background-position: .5rem center;
+                width: 100%;
+                color: var(--always-black);
+            }
+        }
     }
 }
 
