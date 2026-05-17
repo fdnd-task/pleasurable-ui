@@ -1,0 +1,22 @@
+{% layout 'layouts/base.liquid'%}
+{% block content %}
+<main>
+    <header>
+        
+    </header>
+
+    <form class="form schade" action="/instrumenten/{{ instrument.key }}/schade" method="post">
+
+        <label for="beschrijving" class="input-veld"> Beschrijf de schade
+            <textarea id="beschrijving" name="beschrijving" placeholder="Beschrijf hier de schade..."
+                required></textarea>
+        </label>
+
+        <input type="hidden" name="id" value="{{ instrument.id }}">
+        <input type="hidden" name="key" value="{{ instrument.key }}">
+        <input type="hidden" name="actie" value="Schade melden">
+
+        <button type="submit" class="btn btn-primary button-schade">meld schade</button>
+    </form>
+</main>
+{% endblock %}
