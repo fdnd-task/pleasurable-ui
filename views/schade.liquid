@@ -2,7 +2,10 @@
 {% block content %}
 <main>
     <header>
-        
+        <section class="selected-banner">
+            <h1>{{ instrument.category | default: 'Instrument' }} {{ instrument.brand | default: '' }} {{ instrument.type | default: '' }}</h1>
+            <p><strong>Code:</strong> {{ instrument.key }}</p>
+        </section>
     </header>
 
     <form class="form schade" action="/instrumenten/{{ instrument.key }}/schade" method="post">
