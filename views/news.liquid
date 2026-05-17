@@ -10,14 +10,14 @@
     %} 
 
     <section class="adjust-news">
-        <ul class="news-filter">
-            <li {% if huidigPad == '/nieuws' %} class="active styled" {% endif %}>
-                <a href="/nieuws">Alle</a>
+        <ul class="news-sort">
+            <li {% if current_path == '/nieuws' %} class="active" {% endif %}>
+                <a href="/nieuws">Relevantste</a>
             </li>
-            <li {% if huidigPad == '/nieuws/nieuwste' %} class="active styled" {% endif %}>
+            <li {% if current_path == '/nieuws/nieuwste' %} class="active" {% endif %}>
                 <a href="/nieuws/nieuwste">Nieuwste</a>
             </li>
-            <li {% if huidigPad == '/nieuws/oudste' %} class="active styled" {% endif %}>
+            <li {% if current_path == '/nieuws/oudste' %} class="active" {% endif %}>
                 <a href="/nieuws/oudste">Oudste</a>
             </li>
         </ul>
