@@ -168,7 +168,35 @@ app.get('/instrumenten/:key/schade', async function (request, response) {
 })
 
 app.post('/instrumenten/:key/schade', async function (request, response) {
-  response.redirect(303, `/instrumenten/${request.params.key}`)
+  try {
+    const logResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log", {
+      method: "POST",
+      body: JSON.stringify({
+        type_action: 'Schade melden',
+        performed_by: 'Onbekend',
+        involved_party: request.body.beschrijving,
+        instrument: request.body.id
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+
+    const statusResponse = await fetch(`${baseUrl}${request.body.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        status: "In reparatie"
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+
+    if (logResponse.ok && statusResponse.ok) return response.redirect(303, `/instrumenten/${request.params.key}`)
+    response.redirect(303, `/instrumenten/${request.params.key}/schade`)
+  } catch (error) {
+    response.redirect(303, `/instrumenten/${request.params.key}/schade`)
+  }
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
