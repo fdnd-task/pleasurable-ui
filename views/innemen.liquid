@@ -1,6 +1,6 @@
 {% layout 'layouts/base.liquid'%}
 {% block content %}
-    <form action="/instrumenten/{{ instrument.key }}/innemen" method="POST">
+    <form class="form innemen" action="/instrumenten/{{ instrument.key }}/innemen" method="POST">
 
         <legend>Instrument innemen</legend>
         
@@ -19,10 +19,7 @@
             <input type="text" name="involved_party" placeholder="Van wie wordt ingenomen?" required>
         </label>
         
-        <div class="innemen-button-blok">
-            <button class="btn btn-secondary" onclick="document.getElementById('innemen-dialog').close()">Annuleren</button>
-            <button class="btn btn-primary" type="submit">Instrument Innemen</button>
-        </div>
+        <button class="btn btn-primary" type="submit">Instrument Innemen</button>
         
     </form>
 {% endblock %}  

@@ -1,11 +1,9 @@
-.innemen-button-blok{
-    display: flex;
-    flex-direction: row;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-md);
-    button{
-        width: 100%;
-    }
+.innemen{
+    width: 60vw;
+    margin: auto;
+    margin-top: var(--spacing-xl);
+    max-width: 600px;
+    width: 100%;
 }
 .main-statusoverzicht{
     width: 80vw;
