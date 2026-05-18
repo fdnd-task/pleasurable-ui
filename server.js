@@ -194,10 +194,10 @@ app.post('/instrumenten/:key/schade', async function (request, response) {
     const logResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log", {
       method: "POST",
       body: JSON.stringify({
-        type_action: 'Schade melden',
-        reported_by: request.body.docentName,
+        type_action: 'Schade',
         performed_by: request.body.performed_by,
-        damage_description: request.body.beschrijving,
+        involved_party: request.body.reported_by,
+        note: request.body.beschrijving,
         instrument: request.body.id
       }),
       headers: {
