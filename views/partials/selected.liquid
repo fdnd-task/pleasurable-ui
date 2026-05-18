@@ -1,0 +1,8 @@
+<section class="selected-banner">
+  <h1>
+    {{ instrument.category | default: 'Instrument' }}
+    {{ instrument.brand | default: '' }}
+    {{ instrument.type | default: '' }}
+  </h1>
+  <p><strong>Code:</strong> {{ instrument.key }}</p>
+</section>

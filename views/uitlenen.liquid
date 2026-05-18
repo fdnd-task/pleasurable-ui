@@ -2,12 +2,7 @@
 {% block content %}
 
 <main>
-    <header>
-        <section class="selected-banner">
-            <h1>{{ instrument.category | default: 'Instrument' }} {{ instrument.brand | default: '' }} {{ instrument.type | default: '' }}</h1>
-            <p><strong>Code:</strong> {{ instrument.key }}</p>
-        </section>
-    </header>
+    {% include 'partials/selected.liquid' %}
 
     <form class="form uitlenen" action="/instrumenten/{{ instrument.key }}/uitlenen" method="post">
         <label for="student" class="input-veld"> Wie leent het?

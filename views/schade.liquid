@@ -1,15 +1,11 @@
 {% layout 'layouts/base.liquid'%}
 {% block content %}
 <main>
-    <header>
-        <section class="selected-banner">
-            <h1>{{ instrument.category | default: 'Instrument' }} {{ instrument.brand | default: '' }} {{ instrument.type | default: '' }}</h1>
-            <p><strong>Code:</strong> {{ instrument.key }}</p>
-        </section>
-    </header>
-
+    {% include 'partials/selected.liquid' %}
     <form class="form schade" action="/instrumenten/{{ instrument.key }}/schade" method="post">
 
+         <legend>Instrument schade melden</legend>
+         
         <label for="beschrijving" class="input-veld"> Beschrijf de schade
             <textarea id="beschrijving" name="beschrijving" placeholder="Beschrijf hier de schade..."
                 required></textarea>
