@@ -1,0 +1,40 @@
+<a href="/{{ story.district }}/{{ story.slug }}" class="card-component-link">
+    <article class="card-component {{ story.district}}">
+        {% if story.cover %}
+        <picture>
+            <source type="image/avif"
+                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif&height=300&quality=80">
+
+
+            <source type="image/webp"
+                srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp&height=300&quality=80">
+
+
+            <img class="card-component-cover"
+                src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?height=300&quality=80"
+                width="{{ story.cover.width }}" height="{{ story.cover.height }}" loading="lazy"
+                style="--vt:image-cover-{{ story.id }}" alt="Afbeelding van {{ story.title }}">
+        </picture>
+
+
+        {% else %}
+
+
+        <img class="card-component-cover fallback" src="/assets/Compact_Blurple_{{ story.district }}.png"
+            alt="Geen afbeelding beschikbaar" style="--vt:image-cover-{{ story.id }}">
+
+        {% endif %}
+
+        <div class="card-component-content">
+            {% if story.target_group %}
+            <span class="card-component-targetgroup">{{ story.target_group | capitalize }}</span>
+            {% else %}
+            <span class="card-component-targetgroup">Iedereen</span>
+            {% endif %}
+            <time class="card-component-date" datetime="{{ story.date }}">{{ story.date | date: "%d-%m-%Y"
+                }}</time>
+            <h3 class="card-component-title">{{ story.title }}</h3>
+            <p class="card-component-intro">{{ story.intro }}</p>
+        </div>
+    </article>
+</a>

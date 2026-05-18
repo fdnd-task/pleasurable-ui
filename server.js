@@ -23,15 +23,25 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+const baseURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
+const story_fields = 'cover.*, date, title, intro, status, district, slug, target_group, id'
 
 app.get('/', async function (request, response) {
-  response.render('index.liquid')
+
+  const params = new URLSearchParams()
+  params.set('fields', story_fields)
+
+  const apiStoriesResponse = await fetch(baseURL + '?' + params.toString())
+  const apiStoriesResponseJSON = await apiStoriesResponse.json()
+
+  response.render('index.liquid', {
+    stories: apiStoriesResponseJSON.data
+  })
 })
 
 app.get('/mete', async function (request, response) {
   response.render('mete.liquid',)
 })
-
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
