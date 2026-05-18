@@ -102,6 +102,20 @@
     }
 }
 
+/* news card styling */
+.news-card {
+    border: 1px solid var(--primary-900);
+    border-radius: 10px;
+
+    section {
+        img {}
+    }
+
+    h2 {}
+
+    p {}
+}
+
 /* button styling */
 
 .primary-button {
