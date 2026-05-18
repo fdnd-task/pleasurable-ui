@@ -1,12 +1,10 @@
 {% layout 'layouts/base.liquid'%}
 {% block content %}
 <main>
-    <header>
-        
-    </header>
-
     <form class="form schade" action="/instrumenten/{{ instrument.key }}/schade" method="post">
 
+         <legend>Instrument schade melden</legend>
+         
         <label for="beschrijving" class="input-veld"> Beschrijf de schade
             <textarea id="beschrijving" name="beschrijving" placeholder="Beschrijf hier de schade..."
                 required></textarea>
