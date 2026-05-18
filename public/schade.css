@@ -4,6 +4,14 @@
   box-sizing: border-box;
   width: auto;
 
+  .button-box{
+        display: flex;
+        gap: var(--spacing-sm);
+        button{
+            width: 100%;
+        }
+    }
+
   @media (min-width: 768px) {
     max-width: 500px;
     margin-left: auto;

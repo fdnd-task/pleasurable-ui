@@ -3,18 +3,35 @@
 <main>
     <form class="form schade" action="/instrumenten/{{ instrument.key }}/schade" method="post">
 
-         <legend>Instrument schade melden</legend>
-         
+        <legend>Instrument schade melden</legend>
+
+        <label>
+            Wie meld de schade?
+             <input type="text" name="docentName" placeholder="Docent naam" required></label>
+        </label>
+        <label>
+            Wie heeft de schade veroorzaakt?
+            <input type="text" name="performed_by" placeholder="Naam schuldige" required>
+        </label>
         <label for="beschrijving" class="input-veld"> Beschrijf de schade
             <textarea id="beschrijving" name="beschrijving" placeholder="Beschrijf hier de schade..."
                 required></textarea>
         </label>
 
+        <!-- komt later misschien -->
+        <!-- <label for="foto" class="input-foto">
+            Voeg een foto toe van de schade (optioneel)
+            <input type="file" id="foto" name="foto" accept="image/*">
+        </label> -->
+
         <input type="hidden" name="id" value="{{ instrument.id }}">
         <input type="hidden" name="key" value="{{ instrument.key }}">
         <input type="hidden" name="actie" value="Schade melden">
 
-        <button type="submit" class="btn btn-primary button-schade">meld schade</button>
+        <section class="button-box">
+            <button class="btn btn-secondary" type="reset">Wissen</button>
+            <button class="btn btn-primary" type="submit">Instrument Innemen</button>
+        </section>
     </form>
 </main>
 {% endblock %}

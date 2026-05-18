@@ -195,8 +195,9 @@ app.post('/instrumenten/:key/schade', async function (request, response) {
       method: "POST",
       body: JSON.stringify({
         type_action: 'Schade melden',
-        performed_by: 'Onbekend',
-        involved_party: request.body.beschrijving,
+        reported_by: request.body.docentName,
+        performed_by: request.body.performed_by,
+        damage_description: request.body.beschrijving,
         instrument: request.body.id
       }),
       headers: {
