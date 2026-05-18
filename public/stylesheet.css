@@ -474,20 +474,7 @@ p {
     margin: var(--spacing-sm);
     display: grid;
     grid-template-columns: max-content 1fr;
-    grid-template-rows: max-content 1fr;
     gap: var(--spacing-sm);
-
-    @media (min-width: 340px) {
-        flex-direction: row;
-    }
-
-    @media (min-width: 600px) {
-        gap: var(--spacing-sm);
-    }
-
-    @media (min-width: 1000px) {
-        gap: var(--spacing-sm);
-    }
 
     a {
       text-decoration: none;
