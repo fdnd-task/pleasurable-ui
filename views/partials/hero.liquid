@@ -1,0 +1,33 @@
+<section class="hero {% if class %}{{ class }}{% endif %}">
+  <div class="container hero-inner {% if imgRight %}img-right{% endif %}">
+
+    <div class="hero-text">
+      <h1>{{ title }}</h1>
+      {% if content %}
+        <p>{{ content }}</p>
+      {% endif %}
+      {% if button %}
+        <div class="hero-buttons">
+          <a href="{{ button.url }}" class="button-outline">{{ button.label }}</a>
+          <a href="{{ button2.url }}" class="button-primary">{{ button2.label }} →</a>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if img %}
+      <div class="hero-img">
+        <picture>
+          <source type="image/avif" srcset="{{ img.src }}?format=avif&width=800">
+          <source type="image/webp" srcset="{{ img.src }}?format=webp&width=800">
+          <img
+            src="{{ img.src }}?width=800"
+            alt="{{ img.alt }}"
+            width="{{ img.width }}" 
+            height="{{ img.height }}"
+            loading="eager">
+        </picture>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
