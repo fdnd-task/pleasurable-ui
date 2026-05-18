@@ -65,7 +65,7 @@
                             </span>
 
                             <section class="log-details">
-                                <h3 class="log-action">{{ log.type_action | default: 'Onbekend'}}</h3>
+                                <h3 class="log-action"><a href="/instrumenten/{{ log.instrument.key }}">{{ log.type_action | default: 'Onbekend' }}</a></h3>
 
                                 <dl class="action-instrument">
                                     <dt class="sr-only">Instrument</dt>
