@@ -1,3 +1,17 @@
+.innemen{
+    width: 60vw;
+    margin: auto;
+    margin-top: var(--spacing-xl);
+    max-width: 600px;
+    width: 100%;
+    .button-box{
+        display: flex;
+        gap: var(--spacing-sm);
+        button{
+            width: 100%;
+        }
+    }
+}
 .main-statusoverzicht{
     width: 80vw;
     margin: auto;

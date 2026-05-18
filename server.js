@@ -139,13 +139,35 @@ app.post('/instrumenten/:key/uitlenen', async function (request, response) {
 })
 
 app.get('/instrumenten/:key/innemen', async function (request, response) {
-  const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
+  const instrumentResponse = await fetch(`${baseUrl}?filter[key][_eq]=${request.params.key}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
   response.render('innemen.liquid', { instrument: instrumentResponseJSON.data[0] })
 })
 
 app.post('/instrumenten/:key/innemen', async function (request, response) {
+  const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      status: "Beschikbaar"
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  })
+  const fetchResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log",{
+    method: "POST",
+    body: JSON.stringify({
+      type_action: 'Innemen',
+      performed_by: request.body.performed_by,
+      involved_party: request.body.involved_party,
+      instrument: request.body.id
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  })
+
   response.redirect(303, `/instrumenten/${request.params.key}`)
 })
 
