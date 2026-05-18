@@ -120,9 +120,7 @@ app.post('/instrumenten/:key/uitlenen', async function (request, response) {
   })
 
   const fetchResponseJSON = await fetchResponse.json()
-  console.log(fetchResponseJSON)
   const patchResponseJSON = await patchResponse.json()
-  console.log(patchResponseJSON)
 
   if (patchResponse.ok) {
       // API zegt: Gelukt! We sturen success=true mee
@@ -215,10 +213,17 @@ app.post('/instrumenten/:key/schade', async function (request, response) {
       }
     })
 
-    if (logResponse.ok && statusResponse.ok) return response.redirect(303, `/instrumenten/${request.params.key}`)
-    response.redirect(303, `/instrumenten/${request.params.key}/schade`)
+  if (patchResponse.ok) {
+      // API zegt: Gelukt! We sturen success=true mee
+      response.redirect(303, "/instrumenten/" + request.params.key + "/schade?melding=success#status")
+    } else {
+      // API zegt: Fout! (bijv. server error of verkeerd ID). We sturen error=true mee
+      response.redirect(303, "/instrumenten/" + request.params.key + "/schade?melding=error#status")
+    }
+
   } catch (error) {
-    response.redirect(303, `/instrumenten/${request.params.key}/schade`)
+    // De fetch zelf is gecrasht (bijv. geen internet). Ook een error dus.
+    response.redirect(303, "/instrumenten/" + request.params.key + "/schade?melding=error#status")
   }
 })
 
