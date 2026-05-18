@@ -11,15 +11,19 @@
 
         <label>
             Door wie word het instrument ingenomen ?
-            <input type="text" name="performed_by" placeholder="Jouw naam" required>
+            <input type="text" name="performed_by" placeholder="Naam docent" required>
         </label>
             
         <label>
             Door wie word het instrument teruggebracht ?
-            <input type="text" name="involved_party" placeholder="Van wie wordt ingenomen?" required>
+            <input type="text" name="involved_party" placeholder="Naam student" required>
         </label>
         
-        <button class="btn btn-primary" type="submit">Instrument Innemen</button>
+        <div class="button-box">
+            <button class="btn btn-secondary" type="reset">Wissen</button>
+            <button class="btn btn-primary" type="submit">Instrument Innemen</button>
+        </div>
+        
         
     </form>
 {% endblock %}  
