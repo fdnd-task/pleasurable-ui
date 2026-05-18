@@ -1,0 +1,29 @@
+{% layout 'layouts/base.liquid'%}
+{% block content %}
+    <form class="form innemen" action="/instrumenten/{{ instrument.key }}/innemen" method="POST">
+
+        <legend>Instrument innemen</legend>
+        
+        <input type="hidden" name="status" value="Beschikbaar">
+        <input type="hidden" name="action_type" value="Innemen">
+        <input type="hidden" name="id" value="{{ instrument.id }}">
+        <input type="hidden" name="key" value="{{ instrument.key }}">
+
+        <label>
+            Door wie word het instrument ingenomen ?
+            <input type="text" name="performed_by" placeholder="Naam docent" required>
+        </label>
+            
+        <label>
+            Door wie word het instrument teruggebracht ?
+            <input type="text" name="involved_party" placeholder="Naam student" required>
+        </label>
+        
+        <div class="button-box">
+            <button class="btn btn-secondary" type="reset">Wissen</button>
+            <button class="btn btn-primary" type="submit">Instrument Innemen</button>
+        </div>
+        
+        
+    </form>
+{% endblock %}  
