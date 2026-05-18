@@ -469,3 +469,61 @@ p {
     }
   }
 }
+.status-label{
+    padding: var(--spacing-sm);
+    padding-left: 2.4em;
+    padding-right: 0.5em;
+    border-radius: var(--border-radius);
+    position: relative;
+    align-items: center;
+    display: inline-flex;
+    white-space: nowrap;
+    font-size: var(--font-size-body-md);
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        z-index: 999;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%;
+    }
+}
+
+.status-available {
+    background-color: var(--color-positive-lightest);  
+    border: var(--border-width-md) solid var(--color-positive-dark); 
+    &:before{
+        background-color: var(--color-positive-light);
+        background-image: url('/assets/icons/available.svg'); 
+    }     
+}
+.status-repair {
+    background-color: var(--color-caution-lightest);
+    border: var(--border-width-md) solid var(--color-caution-dark);  
+    &:before{
+        background-color: var(--color-caution-light);
+        background-image: url('/assets/icons/repair.svg'); 
+    } 
+}
+.status-borrowed {
+    background-color: var(--color-danger-lightest);   
+    border: var(--border-width-md) solid var(--color-danger-dark); 
+    &:before{
+        background-color: var(--color-danger-light);
+        background-image: url('/assets/icons/borrowed.svg');
+    } 
+}
+.status-unknown {
+    background-color: var(--color-neutral-lightest);   
+    border: var(--border-width-md) solid var(--color-neutral-dark); 
+    &:before{
+        background-color: var(--color-neutral-light);
+        background-image: url('/assets/icons/unknown.svg');
+    } 
+}
