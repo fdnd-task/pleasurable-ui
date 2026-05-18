@@ -1,4 +1,14 @@
 {% layout 'layouts/base.liquid' %}
+
+{% block breadcrumbs %}
+  <nav>
+    <ol>
+      <li><a href="/">home</a></li>
+      <li><a href="/instrumenten">Instrumenten overzicht</a></li>
+    </ol>
+  </nav>
+{% endblock %}
+
 {% block content %}
 
 <main class="overzicht">
