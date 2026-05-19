@@ -15,16 +15,10 @@
                 width="{{ story.cover.width }}" height="{{ story.cover.height }}" loading="lazy"
                 style="--vt:image-cover-{{ story.id }}" alt="Afbeelding van {{ story.title }}">
         </picture>
-
-
         {% else %}
-
-
         <img class="card-component-cover fallback" src="/assets/Compact_Blurple_{{ story.district }}.png"
             alt="Geen afbeelding beschikbaar" style="--vt:image-cover-{{ story.id }}">
-
         {% endif %}
-
         <div class="card-component-content">
             {% if story.target_group %}
             <span class="card-component-targetgroup">{{ story.target_group | capitalize }}</span>

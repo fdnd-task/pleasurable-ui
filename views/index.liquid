@@ -12,6 +12,6 @@
 
 {% comment %} {% render 'partials/cardComponent.liquid', story: story %} {% endcomment %}
 
-{% for story in stories limit: 1 %}
+{% for story in stories %}
 {% render 'partials/cardComponent.liquid', story: story %}
 {% endfor %}
