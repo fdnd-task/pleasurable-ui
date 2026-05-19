@@ -1,3 +1,5 @@
+/* ------------ Statusoverzicht --------------------------------*/
+
 .main-statusoverzicht{
     width: 80vw;
     margin: auto;
@@ -158,3 +160,4 @@
 .activiteitenlog  { 
     background-color: var(--color-neutral-surface); 
 }
+

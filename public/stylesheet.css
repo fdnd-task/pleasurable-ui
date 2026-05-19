@@ -469,3 +469,35 @@ p {
     }
   }
 }
+
+.logo {
+    margin: var(--spacing-sm);
+
+    a {
+      text-decoration: none;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+}
+
+.logo-img {
+    height: auto;
+    width: 8em;
+
+    @media (min-width: 600px) {
+        width: 12em
+    }
+
+    @media (min-width: 1000px) {
+        width: 14em;
+    }
+}
+
+/* Logo text */
+.logo-text {
+    font-size: var(--font-size-h2);
+
+    @media (min-width: 600px) {
+        font-size: var(--font-size-h1);
+    }
+}
