@@ -14,11 +14,21 @@ header{
     justify-content: space-between;
     place-items: center;
     padding: .5rem .4rem;
+    @media (min-width: 1200px) {
+      padding: .5rem .6rem ;
+  }
+}
+
+.logo-header img{
+  @media (min-width: 768px) {
+    width: 19rem;
+  }
 }
 
 .search-outer{
   display: flex;
   flex-direction: row;
+  flex: 1;
   gap: 0.5rem;
   place-content: center;
   width: 7rem;
@@ -26,15 +36,17 @@ header{
   form{
    display: flex;
    flex-direction: row;
+   padding: 0 .4rem;
   }
   input{
-    width: 4.5rem;
+    width: 100%;
     border-radius: 20px;
     border: none;
     padding: .3rem .1rem;
     padding-left: 28px;
     background: #D9D9D9;
     font-size: 13px;
+    box-sizing: border-box;
   }
   button{
     border: none;
@@ -45,9 +57,20 @@ header{
     width: 1.2rem;
     height: auto;
     position: absolute;
-    left: 9px;
+    left: 10px;
     top: 50%;
     transform: translateY(-50%);
+  }
+  @media (min-width: 460px) {
+    max-width: 190px;
+  }
+  @media (min-width: 1000px) {
+    input{
+      width: 230px;
+    }
+    img{
+      left: -15px;
+    }
   }
 }
 
@@ -58,6 +81,9 @@ header{
   border-radius: 0.5rem;
   height: 2rem;
   width: 2rem;
+  @media (min-width: 768px) {
+    display: none;
+  }
 }
 
 .menu-toggle{
@@ -85,7 +111,6 @@ header{
   z-index: 10;
   max-height: 0; 
   overflow: hidden;
-
   @media (prefers-color-scheme: dark) {
       background: black;
      }
@@ -130,6 +155,7 @@ details {
   width: fit-content;
 }
 
+
 details::details-content {
   block-size: 0;
   overflow: hidden;
@@ -139,12 +165,37 @@ details::details-content {
       block-size 0.3s ease,
       content-visibility 0.3s allow-discrete;
   }
-    
 }
 
 details[open]::details-content {
   block-size: auto;
 }
 
+.desktop-nav{
+  display: none;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 0 1rem;
+  span{
+    color: black;
+    font-weight: 600;
+    font-size: var(--titel-small);
+  }
+  a{
+    text-decoration: none;
+    text-align: center;
+    place-content: center;
+    position: relative;
+  }
+  @media (min-width: 768px) {
+    display: flex;
+  }
+  @media (min-width: 950px) {
+    gap: 2rem;
+  }
+  @media (min-width: 1200px) {
+    gap: 5rem;
+  }
+}
 
 /* header */
