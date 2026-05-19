@@ -1,6 +1,6 @@
 <section class="comments-section">
-  <section class="article-comments">
-    <h2>Laat een comment achter</h2>
+  <section class="article-comments {{ district }}">
+    <h2>Laat een reactie achter</h2>
     <form action="/{{ district }}/{{ story.slug }}/comment" class="comment-form" method="POST">
       <label class="comments-field" for="name">
         Naam:
@@ -19,18 +19,18 @@
     <h2>Recente reacties</h2>
     <div class="recent-comments-container">
       {% if story.comments and story.comments.size > 0 %}
-        {% for comment in story.comments reversed %}
+        {% for c in story.comments reversed %}
           <article class="single-comment">
-            <span>{{ comment.name }}</span>
-            <p>{{ comment.comment }}</p>
-            <form action="/{{ district }}/{{ story.slug }}/comment/{{ comment.id }}/delete" method="POST">
+            <span>{{ c.name }}</span>
+            <p>{{ c.comment }}</p>
+            <form action="/{{ district }}/{{ story.slug }}/comment/{{ c.id }}/delete" method="POST">
               <button type="submit" class="delete-button">Verwijder</button>
             </form>
           </article>
         {% endfor %}
       {% else %}
         <div class="empty-state">
-          <span>Nog geen reacties</span>
+          <span>Geen reacties geplaatst</span>
         </div>
       {% endif %}
     </div>
