@@ -48,4 +48,4 @@ Ga hiernaast door met de leertaak en de issues die openstaan in je team. Blijf j
 - [Recreating the Twitter Heart Animation](https://css-tricks.com/recreating-the-twitter-heart-animation/)
 - [Getting Creative with Keyframes @ YouTube](https://www.youtube.com/watch?v=kXh3EMpaLFo) + [Slides](https://amitsh.com/2022/cssday/gettingCreativeWithKeyframes.pdf) + [Demo's @ Codepen](https://codepen.io/collection/ZMKooM)
 - [Building Better Interfaces @ YouTube](https://www.youtube.com/watch?v=o0NtjY17v5w)
-- [Scroll-driven Animations](https://scroll-driven-animations.style/)
+- [Scroll-driven Animations interactief uitgelegd door Josh Comeau](https://www.joshwcomeau.com/animation/scroll-driven-animations/)
