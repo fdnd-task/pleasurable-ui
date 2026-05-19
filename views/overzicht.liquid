@@ -362,19 +362,21 @@
               <td>{{ instrument.type | default: 'Onbekend' }}</td>
               <td>{{ instrument.brand | default: 'Onbekend' }}</td>
               <td>{{ instrument.property | default: 'Onbekend' }}</td>
-              <td>
+              <td class="td-status">
                 {% assign status_class = '' %}
                 {% case instrument.status %}
                   {% when 'Beschikbaar' %}
                     {% assign status_class = 'status-available' %}
                   {% when 'In reparatie' %}
                     {% assign status_class = 'status-repair' %}
+                  {% when 'Uitgeleend' %}
+                    {% assign status_class = 'status-borrowed' %}
                   {% else %}
                     {% assign status_class = 'status-unknown' %}
                 {% endcase %}
 
                 <span class="status-label {{ status_class }}">
-                  {% case status %}
+                  {% case instrument.status %}
                     {% when 'Beschikbaar' -%}
                       Beschikbaar
                     {% when 'In reparatie' -%}

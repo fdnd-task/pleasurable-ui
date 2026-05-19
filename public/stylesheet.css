@@ -479,6 +479,7 @@ p {
     display: inline-flex;
     white-space: nowrap;
     font-size: var(--font-size-body-md);
+    min-width: 9em;
     &::before{
         content: "";
         position: absolute;
@@ -500,7 +501,7 @@ p {
     border: var(--border-width-md) solid var(--color-positive-dark); 
     &:before{
         background-color: var(--color-positive-light);
-        background-image: url('/assets/icons/available.svg'); 
+        background-image: url('/assets/icons/beschikbaar.svg'); 
     }     
 }
 .status-repair {
@@ -508,7 +509,7 @@ p {
     border: var(--border-width-md) solid var(--color-caution-dark);  
     &:before{
         background-color: var(--color-caution-light);
-        background-image: url('/assets/icons/repair.svg'); 
+        background-image: url('/assets/icons/reperatie.svg'); 
     } 
 }
 .status-borrowed {
@@ -516,7 +517,7 @@ p {
     border: var(--border-width-md) solid var(--color-danger-dark); 
     &:before{
         background-color: var(--color-danger-light);
-        background-image: url('/assets/icons/borrowed.svg');
+        background-image: url('/assets/icons/uitgeleend.svg');
     } 
 }
 .status-unknown {
@@ -524,7 +525,7 @@ p {
     border: var(--border-width-md) solid var(--color-neutral-dark); 
     &:before{
         background-color: var(--color-neutral-light);
-        background-image: url('/assets/icons/unknown.svg');
+        background-image: url('/assets/icons/onbekend.svg');
     } 
 }
 
