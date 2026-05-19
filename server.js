@@ -160,29 +160,40 @@ app.get('/instrumenten/:key/innemen', async function (request, response) {
 })
 
 app.post('/instrumenten/:key/innemen', async function (request, response) {
-  const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
-    method: "PATCH",
-    body: JSON.stringify({
-      status: "Beschikbaar"
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  })
-  const fetchResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log",{
-    method: "POST",
-    body: JSON.stringify({
-      type_action: 'Innemen',
-      performed_by: request.body.performed_by,
-      involved_party: request.body.involved_party,
-      instrument: request.body.id
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  })
+  try {
+    const fetchResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log", {
+      method: "POST",
+      body: JSON.stringify({
+        type_action: 'Innemen',
+        performed_by: request.body.performed_by,
+        involved_party: request.body.involved_party,
+        instrument: request.body.id
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        status: "Beschikbaar"
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
 
-  response.redirect(303, `/instrumenten/${request.params.key}`)
+    const fetchResponseJSON = await fetchResponse.json()
+    const patchResponseJSON = await patchResponse.json()
+
+    if (patchResponse.ok) {
+      response.redirect(303, "/instrumenten/" + request.params.key + "/innemen?melding=success#status")
+    } else {
+      response.redirect(303, "/instrumenten/" + request.params.key + "/innemen?melding=error#status")
+    }
+    } catch (error) {
+      response.redirect(303, "/instrumenten/" + request.params.key + "/innemen?melding=error#status")
+    }
 })
 
 app.get('/instrumenten/:key/aanpassen', async function (request, response) {

@@ -19,11 +19,59 @@
             <input type="text" name="involved_party" placeholder="Naam student" required>
         </label>
         
-        <div class="button-box">
+         <div class="button-box">
             <button class="btn btn-secondary" type="reset">Wissen</button>
-            <button class="btn btn-primary" type="submit">Instrument Innemen</button>
+            <button class="btn btn-primary" type="submit">
+                {% if melding == 'success' %}✅ Instrument is ingenomen!
+                {% elsif melding == 'error' %}❌ Er ging iets mis!
+                {% else %}Instrument Innemen
+                {% endif %}
+            </button>
         </div>
         
         
     </form>
+
+    
+    <script type="module">
+        const innemenForm = document.querySelector(".innemen")
+        const innemenBtn = innemenForm.querySelector("button[type='submit']")
+
+        innemenForm.addEventListener("submit", async function(event) {
+            event.preventDefault()
+
+            // Loading state
+            innemenBtn.classList.add("loading")
+            innemenBtn.classList.remove("error")
+            innemenBtn.textContent = "laden..."
+            innemenBtn.disabled = true
+
+            try {
+            let formData = new FormData(innemenForm)
+            const response = await fetch(innemenForm.action, {
+                method: innemenForm.method,
+                body: new URLSearchParams(formData)
+            })
+
+            if (!response.ok) {
+                throw new Error('Er ging iets mis op de server.')
+            }
+
+            // Succes state
+            innemenBtn.classList.remove("loading")
+            innemenBtn.textContent = "✅ Instrument is ingenomen!"
+
+            } catch (error) {
+            console.error("Fout tijdens versturen:", error)
+
+            // Error state
+            innemenBtn.classList.remove("loading")
+            innemenBtn.classList.add("error")
+            innemenBtn.textContent = "Oeps! Probeer het opnieuw."
+
+            } finally {
+            innemenBtn.disabled = false
+            }
+        })
+    </script>
 {% endblock %}  
