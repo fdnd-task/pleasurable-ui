@@ -400,7 +400,7 @@ ul.quest {
     }
 }
 
-/* partial detailpage.liquid */
+/* MARK: detailpage.liquid */
 .news-article {
     display: flex;
     flex-direction: column;
@@ -412,6 +412,7 @@ ul.quest {
         color: var(--dark-text);
         width: 100%;
         max-width: 500px;
+        padding: 0 1rem;
     }
     
     h1 {
@@ -443,7 +444,6 @@ ul.quest {
         flex-direction: column;
         padding: 0 0 1rem .5rem;
         min-width: 15ch;
-        max-width: 40ch;
         line-height: 1.4;
     }
 }
