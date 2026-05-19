@@ -104,8 +104,8 @@
 
 /* news card styling */
 .news-card {
-    border: 1px solid var(--primary-900);
-    border-radius: 10px;
+    border: var(--space-3xs) solid var(--primary-900);
+    border-radius: var(--space-md);
     padding: var(--space-md);
     display: flex;
     flex-direction: column;
