@@ -5,6 +5,12 @@
   </section>
   <h2>{{ title }}</h2>
   <p>{{ description }}</p>
+  {% render 'partials/link-button.liquid',
+    link: '#',
+    text: 'meer informatie',
+    target: '_self',
+    style: 'primary-button'
+  %}
 </article>
 
 {% comment %}
