@@ -269,6 +269,86 @@ ul.news.horizontal {
     }
 }
 
+/* NEWS horizontal styling homepage */
+.home-slide-nieuws {
+    display: flex;
+    overflow:scroll;
+
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+
+    a {
+        color: var(--zwart);
+        text-decoration: none;
+    }
+
+    h4 {
+        font-size: 1.1em;
+        font-weight: 700;
+        display: inline-block;
+        margin-block: 0.7em;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px; 
+        }
+    }
+}
+
+.nieuws-berichten {
+    margin: 0 1em 2em 0em;
+    padding: 1em;
+    background-color: #FFD27F; 
+    border-radius: var(--border-card);
+    height: 90%;
+
+    scroll-snap-align: center;
+    container-type: scroll-state;
+    overflow: clip;
+
+    a {
+        color: var(--zwart);
+        text-decoration: none;
+        font-size: 1.1em; 
+        font-weight: 700;
+        display: inline-block;
+        margin-block: 0.8em;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;        
+        }
+    }
+
+    .bloemendveld {
+        font-size: 0.8em;
+        display: flex;
+        align-items: center;
+        padding: 0.5em;
+        border: 1.5px solid rgb(0, 0, 0);
+        border-radius: 2em;
+    }
+
+    img {
+        width: 100%;
+        height: 12em;
+        object-fit: cover; 
+        border-radius: var(--border-card);
+    }
+
+    .details {
+        font-size: 1em;
+        display: flex;
+        gap: 8em;
+    } 
+}
+
+/* colors of the news items */
+.nieuws-berichten--orange { background-color: #FFD27F; }
+.nieuws-berichten--purple { background-color: #D4C5F0; }
+.nieuws-berichten--green  { background-color: #C8E6A0; }
 /* partial mycollection.liquid */
 ul.my-collection {
     display: grid;
