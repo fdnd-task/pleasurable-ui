@@ -106,8 +106,16 @@
 .news-card {
     border: 1px solid var(--primary-900);
     border-radius: 10px;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
 
     section {
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+        align-self: flex-end;
+
         img {}
     }
 
