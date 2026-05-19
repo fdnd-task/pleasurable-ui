@@ -109,19 +109,19 @@
     padding: var(--space-md);
     display: flex;
     flex-direction: column;
+    gap: var(--space-md);
+    width: clamp(20em, 100%, 25em);
 
     section {
         display: flex;
         align-items: center;
         gap: var(--space-xs);
         align-self: flex-end;
-
-        img {}
     }
 
-    h2 {}
-
-    p {}
+    a {
+        width: fit-content;
+    }
 }
 
 /* button styling */
