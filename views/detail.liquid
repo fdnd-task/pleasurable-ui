@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ product.name }} | Milledoni</title>
+
+  <link rel="stylesheet" href="/detail.css">
+
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <section class="container">
+
+    <a href="/" class="logo">
+      <img src="{{ 'milledoni.png' | assets_url }}" width="100" height="40" alt="Milledoni">
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/cadeaus">Cadeaus</a></li>
+        <li><a href="/categorieën">Categorieën</a></li>
+        <li>
+          <a href="/wishlist">
+            Wishlist
+            <span class="badge">{{ wishlistCount }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </section>
+</header>
+
+<main class="product-detail">
+  <section class="container">
+
+    <!-- DETAIL LAYOUT -->
+    <section class="detail-wrapper">
+
+      <!-- IMAGE -->
+      <section class="detail-image">
+
+        {% assign img = product.image | default: product.img %}
+
+        <img
+          src="{{ img }}"
+          alt="{{ product.name }}"
+          loading="eager"
+        >
+
+      </section>
+
+      <!-- INFO -->
+      <section class="detail-info">
+
+        <h1>{{ product.name }}</h1>
+
+        <p class="price">€ {{ product.amount }}</p>
+
+        <p class="description">
+          {{ product.description }}
+        </p>
+
+        <!-- TAGS -->
+        <div class="tags">
+          {{ product.tags }}
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="actions">
+
+          <!-- ADD TO LIST BUTTON -->
+          <form action="/wishlist/add" method="POST" class="save-form">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+
+            <button type="submit" class="add-to-list">
+              + Add to list
+            </button>
+          </form>
+
+          <!-- SHOP LINK -->
+          <a href="{{ product.shop_url }}" target="_blank" class="shop-button">
+            Bekijk in winkel
+          </a>
+
+        </div>
+
+      </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <h3>Milledoni</h3>
+  <p>Unieke cadeaus voor speciale momenten.</p>
+
+  <p>© 2026 Milledoni</p>
+</footer>
+
+</body>
+</html>
