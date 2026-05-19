@@ -114,9 +114,8 @@
 
     section {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: var(--space-xs);
-        align-self: flex-end;
     }
 
     a {
