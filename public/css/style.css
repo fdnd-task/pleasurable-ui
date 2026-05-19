@@ -130,6 +130,12 @@ footer {
   font-family: var(--font-body);
   margin-top: var(--space-2xl);
 
+  .footer-logo {
+    margin-top: var(--space-md);
+    margin-inline: auto;
+    display: block;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -171,11 +177,16 @@ footer {
 
   ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   hr {
     margin-top: var(--space-xl);
-    border: none;
-    border-top: 1px solid currentColor;
+    height: 1px;
+    background-color: currentColor;
+    border: 0;
+    width: 100%;
+    opacity: 0.3;
   }
 }
