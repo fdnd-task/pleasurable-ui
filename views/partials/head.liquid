@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/styleguide.css">
+      <script src="/scripts/menu.js" defer></script>
+    <title>{{ title }}</title>
+  </head>
+  <body>  
+
+  <link rel="stylesheet" href="/css/styleguide.css">
+<link rel="stylesheet" href="/css/nav.css">
+
+<header>
+  <ul>
+    <li>{% render './partials/link.liquid', link: '#', text: 'FAQ', style: 'nav-link' %}</li>
+    <li>{% render './partials/link.liquid', link: '#', text: 'Over ons', style: 'nav-link' %}</li>
+    <li>{% render './partials/link.liquid', link: '#', text: 'Contact', style: 'nav-link' %}</li>
+  </ul>
+</header>
+
+<nav class="main-nav">
+  <img src="/assets/logo-light.svg">
+  <ul class="desktop-nav" id="primary-nav-desktop">
+    <li>{% include './partials/link.liquid', link: '#', text: 'Home', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Over Ad\'s'', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Talent Award', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'LAdO', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Nieuws', style: 'nav-link' %}</li>
+  </ul>
+
+  <div class="nav-button"><a href="/">Kom naar Ad-dag</a></div>
+
+  <details class="hamburger-menu">
+    <summary class="hamburger-button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </summary>
+    <ul class="mobile-nav" id="primary-nav-mobile">
+    <li>{% include './partials/link.liquid', link: '#', text: 'Home', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Over Ad\'s'', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Talent Award', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'LAdO', style: 'nav-link' %}</li>
+    <li>{% include './partials/link.liquid', link: '#', text: 'Nieuws', style: 'nav-link' %}</li>
+    <li class="nav-button"><a href="/">Kom naar Ad-dag</a></li>
+    </ul>
+  </details>
+</nav>
