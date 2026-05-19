@@ -8,53 +8,28 @@
     <title>Document</title>
   </head>
   <body>
-    {% assign imgURL = 'https://blz-contentstack-images.akamaized.net/v3/assets/blt2477dcaf4ebd440c/blt7cedd97f624c058d/637da2d146a48b0e063e4aad/1600_Ramattra.jpg' %}
-    {% assign contentVar = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia accusantium temporibus doloremque eius repudiandae, quae accusamus nostrum unde natus est ea perspiciatis quam nam dolor. Nihil atque vel assumenda, maiores tempore dolorem officiis neque, illum quasi reprehenderit sapiente tempora possimus consectetur laboriosam aut modi, iusto voluptatem deleniti odio. Soluta rerum tenetur dolore quo laboriosam saepe quos, commodi eaque doloremque assumenda unde aut enim! Laborum quisquam quod libero, molestias corporis praesentium nesciunt earum fugiat similique ipsum veniam deserunt natus tempore quas fuga dicta eveniet, totam minus esse sequi dignissimos odio, pariatur excepturi. Assumenda eveniet cupiditate laboriosam, voluptas minima recusandae! Porro, est? ' %}
-    {% render './partials/article.liquid',
-      style: 'custom-class',
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: true,
-      btnLink: 'https://fdnd.nl',
-      btnText: 'klik op mij',
-      btnStyle: 'primary-button'
-    %}
-
-    {% render './partials/article.liquid',
-      style: 'img-left',
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: false,
-      btnLink: 'https://fdnd.nl',
-      btnText: 'klik op mij',
-      btnStyle: 'primary-button'
-    %}
-    {% render './partials/article.liquid',
-      style: 'custom-class',
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: true,
-      btnLink: 'https://fdnd.nl',
-      btnText: 'klik op mij',
-      btnStyle: 'primary-button'
-    %}
+    <main>
+      <section class="layout faq-layout">
+        <article class="container">
+          <h2>Veelgestelde vragen</h2>
+          {% render 'partials/dropdown.liquid',
+            title: 'Wat is een Associate degree?',
+            content: 'Een Associate Degree is een praktijkgerichte, tweejarige opleiding op hbo-niveau. De opleiding combineert theoretische kennis met praktische ervaring, zodat studenten snel inzetbaar zijn in het werkveld en de mogelijkheid hebben om door te stromen naar een bacheloropleiding.'
+          %}
+          {% render 'partials/dropdown.liquid',
+            title: 'Hoe lang duurt een Associate degree?',
+            content: 'Een Ad duurt doorgaans twee jaar bij een voltijdopleiding. Bij deeltijd kan dit langer zijn, afhankelijk van de persoonlijke planning en werkervaring.'
+          %}
+          {% render 'partials/dropdown.liquid',
+            title: 'Wat is het verschil tussen een Associate degree en een Bachelor?',
+            content: 'Een bacheloropleiding duurt meestal vier jaar en richt zich breder op theorie en verdieping, terwijl een Ad intensief, praktijkgericht en korter is, met direct toepasbare vaardigheden voor het werkveld.'
+          %}
+          {% render 'partials/dropdown.liquid',
+            title: 'Welke voordelen heeft het behalen van een Associate degree?',
+            content: 'Met een Ad-diploma ben je snel inzetbaar in de praktijk, heb je een erkend hbo-kwalificatieniveau en kun je doorstromen naar een bachelor. Daarnaast vergroot het je carrièremogelijkheden en professionele netwerk.'
+          %}
+        </article>
+      </section>
+    </main>
   </body>
 </html>

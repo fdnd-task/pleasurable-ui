@@ -121,3 +121,42 @@
     }
 
 }
+
+
+/* FAQ homepage */
+.faq-layout {
+    .container {
+
+        display: grid;
+        gap: var(--space-xs);
+    }
+}
+
+.dropdown {
+    background-color: var(--primary-700);
+    color: var(--text-color-secondary);
+    padding: var(--space-sm);
+    border-radius: var(--space-md);
+
+    summary {
+        list-style: none;
+        display: flex;
+        cursor: pointer;
+        justify-content: space-between;
+
+        &::after {
+            content: url("data:image/svg+xml,%3csvg%20width='15'%20height='9'%20viewBox='0%200%2015%209'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M14.6406%200.921875C14.8066%201.08789%2014.8066%201.32031%2014.6406%201.48633L7.70117%208.45898C7.53516%208.5918%207.30273%208.5918%207.13672%208.45898L0.197266%201.48633C0.03125%201.32031%200.03125%201.08789%200.197266%200.921875L0.828125%200.257812C0.994141%200.125%201.25977%200.125%201.39258%200.257812L7.40234%206.26758L13.4453%200.257812C13.5781%200.125%2013.8438%200.125%2014.0098%200.257812L14.6406%200.921875Z'%20fill='%23fff'/%3e%3c/svg%3e");
+            transition: ease .3s;
+
+        }
+
+    }
+}
+
+.dropdown[open] {
+    summary {
+        &::after {
+            rotate: 180deg;
+        }
+    }
+}
