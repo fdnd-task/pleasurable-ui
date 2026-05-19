@@ -60,7 +60,9 @@ app.get('/instrumenten', async function (request, response) {
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
-  response.render('overzicht.liquid', { instrumenten: instrumentResponseJSON.data })
+  response.render('overzicht.liquid', { 
+    instrumenten: instrumentResponseJSON.data,
+    aantalResultaten: instrumentResponseJSON.data.length })
 })
 
 app.get('/instrumenten/nieuw', async function (request, response) {
