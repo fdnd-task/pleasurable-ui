@@ -25,6 +25,7 @@ app.set('views', './views')
 
 //base url om code wat simpeler te maken, moet wel met ` gebruiken.
 const baseUrl = 'https://fdnd-agency.directus.app/items/preludefonds_instruments/'
+const logUrl = 'https://fdnd-agency.directus.app/items/preludefonds_log'
 
 app.get('/', async function (request, response) {
   const params = new URLSearchParams()
@@ -74,7 +75,22 @@ app.post('/instrumenten/nieuw', async function (request, response){
 })
 
 app.get('/actielog', async function (request, response) {
-  response.render('actielog.liquid')
+  const params = new URLSearchParams()
+  params.append('fields', '*,instrument.name,instrument.serial_number,instrument.key')
+  params.append('sort', '-date_created')
+
+  const filter = request.query.filter
+  if (filter && filter !== 'alles') {
+    params.append('filter[type_action][_eq]', filter)
+  }
+
+  const logResponse = await fetch(`${logUrl}?${params.toString()}`)
+  const logResponseJSON = await logResponse.json()
+
+  response.render('actielog.liquid', { 
+    logs: logResponseJSON.data, 
+    activeFilter: filter 
+  })
 })
 
 app.get('/instrumenten/:key', async function (request, response) {
