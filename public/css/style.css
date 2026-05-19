@@ -149,11 +149,11 @@ footer {
     grid-template-columns: 1fr;
     gap: var(--space-md);
 
-    @media (min-width: 600px) {
+    @media (width >= 600px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: 900px) {
+    @media (width >= 900px) {
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-3xl);
     }
