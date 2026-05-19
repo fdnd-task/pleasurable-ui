@@ -430,7 +430,7 @@ footer {
     justify-content: center;
     gap: var(--space-sm);
 
-    @media (width >=875px) {
+    @media (width >=975px) {
       grid-template-columns: repeat(3, minmax(280px, 1fr));
 
     }
