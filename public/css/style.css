@@ -116,8 +116,15 @@
     place-content: center;
 
     &:hover {
-        background-color: var(--color-neutral-800);
+        background-color: var(--primary-200);
         color: var(--text-color);
+        scale: 1.05;
+    }
+
+    &:focus {
+        outline: var(--space-3xs) solid var(--primary-200);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
         scale: 1.05;
     }
 }

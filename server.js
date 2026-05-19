@@ -23,11 +23,6 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
-})
-
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
@@ -38,6 +33,10 @@ app.listen(app.get('port'), function () {
 })
 
 const baseURL = 'https://fdnd-agency.directus.app/items/adconnect_'
+
+app.get('/', async function (request, response) {
+  response.render('index.liquid')
+})
 
 app.get('/talent-awards', async function (request, response) {
    const awardsResponse = await fetch(baseURL + 'nominations')
