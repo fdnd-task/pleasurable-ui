@@ -349,6 +349,25 @@ ul.news.horizontal {
 .nieuws-berichten--orange { background-color: #FFD27F; }
 .nieuws-berichten--purple { background-color: #D4C5F0; }
 .nieuws-berichten--green  { background-color: #C8E6A0; }
+
+/* animation on the img news items */
+@supports (container-type: scroll-state) {
+    @media (prefers-reduced-motion: no-preference) {
+
+        @media (width < 550px) {
+            .nieuws-berichten img {
+                rotate: 180deg;
+
+                @container scroll-state(snapped: x) {
+                    rotate: 0deg;
+                    transition: rotate 1.4s, scale 1s;
+                }
+            }
+        }
+    }
+}
+
+
 /* partial mycollection.liquid */
 ul.my-collection {
     display: grid;
