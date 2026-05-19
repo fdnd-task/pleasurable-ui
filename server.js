@@ -28,7 +28,7 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
-app.get('/', async function (request, response) {
+app.get('/detail', async function (request, response) {
   response.render('detail.liquid')
 })
 
