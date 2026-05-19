@@ -1,11 +1,38 @@
 {% render 'partials/head.liquid' %}
 
 <main class="article-layout">
-    <section class="article-content">
-        {{ story.body }}
-    </section>
+  <section class="article-content">
+    {% if story.cover %}
+      <picture>
+        <source
+          type="image/avif"
+          srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=avif"
+        >
 
-    <aside class="article-comments-section">
-        {% render 'partials/comments.liquid', story: story, district: district %}
-    </aside>
+        <source
+          type="image/webp"
+          srcset="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?fit=cover&format=webp"
+        >
+
+        <img
+          class="article-front-image"
+          class="single-article-cover"
+          src="https://fdnd-agency.directus.app/assets/{{ story.cover.id }}?height=500"
+          width="{{ story.cover.width }}"
+          height="{{ story.cover.height }}"
+        >
+      </picture>
+    {% endif %}
+    <h1>{{ story.title }}</h1>
+    <p class="article-intro">{{ story.intro }}</p>
+    {% if story.body %}
+      {{ story.body }}
+    {% else %}
+      <h1>Geen artikel beschikbaar</h1>
+    {% endif %}
+  </section>
+
+  <aside class="article-comments-section">
+    {% render 'partials/comments.liquid', story: story, district: district %}
+  </aside>
 </main>
