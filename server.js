@@ -33,7 +33,6 @@ app.get('/', async function (request, response) {
 
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
-  console.log(instrumentResponseJSON)
   const allInstruments = instrumentResponseJSON.data
 
   const totalItems       = allInstruments.length
@@ -42,8 +41,6 @@ app.get('/', async function (request, response) {
   const totalBeschikbaar = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'beschikbaar').length
   const totalUitgeleend  = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'uitgeleend').length
   const totalReparatie   = allInstruments.filter(instrument => instrument.status?.toLowerCase() === 'in reparatie').length
-
-  console.log('Statussen:', allInstruments.map(i => i.status))
 
   response.render('home.liquid', {
     totalItems,
@@ -57,10 +54,16 @@ app.get('/', async function (request, response) {
 
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
+
+  const sort = request.query.sort || '-id'
+  params.append('sort', sort)
+  
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
-  response.render('overzicht.liquid', { instrumenten: instrumentResponseJSON.data })
+  response.render('overzicht.liquid', { 
+    instrumenten: instrumentResponseJSON.data,
+    aantalResultaten: instrumentResponseJSON.data.length })
 })
 
 app.get('/instrumenten/nieuw', async function (request, response) {
