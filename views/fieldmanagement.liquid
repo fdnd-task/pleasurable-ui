@@ -1,0 +1,29 @@
+{% render 'partials/head.liquid',
+    user: user,
+    zone_type: zone.type,
+%}
+<main class="veldbeheer">
+
+    <section class="todowrapper">
+    <button id="prevBtn" class="nav-btn prev">
+        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.5 2.5L2.5 12.75L13.5 23" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    <button id="nextBtn" class="nav-btn next">
+        <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.5 23L13.5 12.75L2.5 2.5" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    {% for todo in todos %}
+        {% assign current_month = todo.month %}
+        {% assign current_activities = todo.activities %}
+
+        {% render 'partials/activitycard.liquid',
+            month: current_month,
+            activities: current_activities
+        %}
+    {% endfor %}
+    </section>
+</main>
+{% render 'partials/foot.liquid', current_path: current_path %}

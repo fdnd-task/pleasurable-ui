@@ -839,6 +839,124 @@ main.account {
     }
 }
 
+/***********************************
+veldbeheer page
+***********************************/
+main.veldbeheer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    margin-bottom: 0;
+    position: relative;
+
+    section.todowrapper {
+        display: flex;
+        position: relative;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        height: 100%;
+        min-height: 50dvh;
+        will-change: scroll-position;
+        
+        padding-inline: 0; 
+        scroll-padding-inline: 0;
+        gap: 0rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 0 0 15vw;
+            pointer-events: none;
+        }
+    }
+}
+
+article.todocard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 1rem;
+    min-height: 30dvh;
+    height: 39dvh;
+    width: 70vw;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: var(--border-card);
+    scroll-snap-stop: always;
+    scroll-snap-align: center;
+    scrollbar-width: none;
+    transform-origin: center center;
+
+    @supports(animation-timeline: view()) {
+        animation: cover-flow linear both;
+        animation-timeline: view(inline);       
+        animation-range: entry-crossing 0% exit-crossing 100%;
+    }
+
+    h2 {
+        color: var(--always-black);
+    }
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    pointer-events: auto; 
+    position: fixed;
+    top: 25%;
+    z-index: 20;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    border-radius: var(--border-round);
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+
+    svg {
+        color: var(--light-text);
+
+        path {
+            stroke: var(--light-text);
+        }
+    }
+
+    &.prev {
+        left: 0;
+    }
+
+    &.next {
+        right: 0;
+    }
+    
+    &:hover {
+        background-color: #f5f5f5;
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        background-color: #ffffff; 
+    }
+}
+
 
 /***********************************
 login page
