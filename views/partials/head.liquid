@@ -15,41 +15,41 @@
         </div>
 
         <div class="search-outer">
-            <form method="GET" action="/">
-                <input type="text" name="search" placeholder="Zoeken..." aria-label="Zoek">
-                <button type="submit" name="search-button"><img src="/assets/search-icon.svg" alt="search"></button>
+            <form method="GET" class="search-form" action="/">
+                <input type="text" class="search-input" name="search" placeholder="Zoeken..." aria-label="Zoek">
+                <button type="submit" class="search-button" name="search-button"><img src="/assets/search-icon.svg" class="search-icon" alt="search"></button>
             </form>
         </div>
 
         <details>
             <summary class="menu-toggle-outer">
                 <div class="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span class="span-menu"></span>
+                    <span class="span-menu"></span>
+                    <span class="span-menu"></span>
                 </div>
             </summary>
 
             <nav class="mobile-nav">
-                <a href="/algemeen">Algemeen</a>
-                <a href="/nieuw-west">Nieuw-west</a>
-                <a href="/zuidoost">Zuidoost</a>
-                <a href="/oost">Oost</a>
+                <a class="mobile-nav-link" href="/algemeen">Algemeen</a>
+                <a class="mobile-nav-link" href="/nieuw-west">Nieuw-west</a>
+                <a class="mobile-nav-link" href="/zuidoost">Zuidoost</a>
+                <a class="mobile-nav-link" href="/oost">Oost</a>
             </nav>
         </details>
 
         <nav class="desktop-nav">
              <a href="/" class="link-button">
-                 <span>ALGEMEEN</span>
+                 <span class="link-button-text">ALGEMEEN</span>
             </a>
             <a href="/nieuw-west" class="link-button">
-                <span>NIEUW-WEST</span>
+                <span class="link-button-text">NIEUW-WEST</span>
             </a>
             <a href="/zuidoost" class="link-button">
-                <span>ZUIDOOST</span>
+                <span class="link-button-text">ZUIDOOST</span>
             </a>
             <a href="/oost" class="link-button">
-                <span>OOST</span>
+                <span class="link-button-text">OOST</span>
             </a>
         </nav>
     </header>

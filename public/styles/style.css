@@ -33,27 +33,27 @@ header{
   place-content: center;
   width: 7rem;
   position: relative;
-  form{
+  .search-form{
    display: flex;
    flex-direction: row;
    padding: 0 .4rem;
   }
-  input{
+  .search-input{
     width: 100%;
     border-radius: 20px;
     border: none;
     padding: .3rem .1rem;
     padding-left: 28px;
     background: #D9D9D9;
-    font-size: 13px;
+    font-size: .85rem;
     box-sizing: border-box;
   }
-  button{
+  .search-button{
     border: none;
     background: none;
     cursor: pointer;
   }
-  img{
+  .search-icon{
     width: 1.2rem;
     height: auto;
     position: absolute;
@@ -65,10 +65,10 @@ header{
     max-width: 190px;
   }
   @media (min-width: 1000px) {
-    input{
+    .search-input{
       width: 230px;
     }
-    img{
+    .search-icon{
       left: -15px;
     }
   }
@@ -91,10 +91,10 @@ header{
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: .3rem;
   cursor: pointer;
   border-radius: 0.8rem;
-  span{
+  .span-menu{
     width: 22px;
     height: 3px;
     background: rgba(0, 0, 0, 1);
@@ -112,6 +112,17 @@ header{
   z-index: 10;
   max-height: 0; 
   overflow: hidden;
+  .mobile-nav-link{
+      padding: 1rem;
+      text-decoration: none;
+      border-bottom: 1px solid #e1e1e1;
+      font-weight: bold;
+      text-align: center;
+      color: light-dark(black, #ffffff);
+      @media (prefers-color-scheme: dark) {
+          color: white;
+      }
+    }
   @media (prefers-color-scheme: dark) {
       background: black;
      }
@@ -120,19 +131,6 @@ header{
 }
 }
 
-
-
-.mobile-nav a {
-  padding: 1rem;
-  text-decoration: none;
-  border-bottom: 1px solid #e1e1e1;
-  font-weight: bold;
-  text-align: center;
-  color: light-dark(black, #ffffff);
-  @media (prefers-color-scheme: dark) {
-      color: white;
-  }
-}
 
 .mobile-nav:last-child{
   border-bottom: 3px solid #e1e1e1;
@@ -168,16 +166,16 @@ details[open]::details-content {
   flex-direction: row;
   gap: 1rem;
   padding: 0 1rem;
-  span{
-    color: black;
-    font-weight: 600;
-    font-size: var(--titel-small);
-  }
-  a{
+  .link-button{
     text-decoration: none;
     text-align: center;
     place-content: center;
     position: relative;
+  }
+ .link-button-text{
+    color: black;
+    font-weight: 600;
+    font-size: var(--titel-small);
   }
   @media (min-width: 768px) {
     display: flex;
