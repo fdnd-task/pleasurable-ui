@@ -196,7 +196,7 @@ Als je een interactie of animatie hebt ontworpen in FIgma kan je een breakdown m
 
 <!-- Daarna uitdenken hoe ze dit kunnen maken met een breakdown/pseudocode van de wireflow/screenflow < bespreken met docent (hier kunnen we studenten helpen met client-side scripting, hoe pak je dit nou aan in js + css? Over het algemeen 'gewoon' met het 3 stappenplan van js. Dus niet gaan googlen nu of llm-en, maar zelf bedenken) -->
 
-Maak met je team breakdown van de prototypes die jullie hebben gemaakt. Bespreek hoe je de pleasurable UI kan bouwen met client-side scripting of bovenstaande technieken. Je kan een schets maken met aantekeningen, of je kan in het prototype in Figma aantekeningen maken. 
+Maak met je team breakdown van de prototypes die jullie hebben gemaakt. Bespreek hoe je de pleasurable UI kan bouwen met client-side scripting zoals View Transitions, Scroll-Driven Animations en/of JavaScript. Je kan een schets maken met aantekeningen, of je kan in het prototype in Figma aantekeningen maken. 
 
 Bedenk in detail hoe je de animaties kunt maken met bijvoorbeeld keyframes in CSS, en wat voor _easings_ je nodig hebt. 
 
