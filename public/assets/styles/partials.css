@@ -372,11 +372,11 @@ ul.news.horizontal {
 
         @media (width < 550px) {
             .nieuws-berichten img {
-                rotate: 180deg;
+                opacity: 0;
 
                 @container scroll-state(snapped: x) {
-                    rotate: 0deg;
-                    transition: rotate 1.4s, scale 1s;
+                    opacity: 1;
+                    transition: opacity 2s;
                 }
             }
         }
