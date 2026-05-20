@@ -56,8 +56,40 @@ Natuurlijk is het veel complexer dan dit, en kun je hier heel veel mee, maar lat
 Maak een `view-transitions.html` bestand in je Learning Journal, kopieer deze HTML erheen, en maak de demo werkend door de CSS aan te passen:
 
 ```html
-TODO
+<!doctype html>
+<title>View Transitions</title>
+<style>
+button {
+    background: #008C45;
+    color: #fff;
+    &.gekocht {
+        font-size: 2em;
+        background: #CD212A;
+        position: fixed;
+        right: 3em;
+        bottom: 3em;
+        scale: 1.5;
+    }
+}
+</style>
+<script type="module">
+const btn = document.querySelector('button');
+btn.addEventListener('click', function() {
+    if (document.startViewTransition) {
+        document.startViewTransition(function() {
+            btn.textContent = 'Gekocht!'
+            btn.classList.add('gekocht');
+        });
+    } else {
+        btn.textContent = 'Gekocht!'
+        btn.classList.add('gekocht');
+    }
+});
+</script>
+<button>Koop een pizza!</button>
 ```
+
+💡 Dit voorbeeld gebruikt de tweede variant, met JavaScript, dus hier kun je geen `@view-transition { navigation: auto; }` voor gebruiken.
 
 #### Bronnen
 
