@@ -72,6 +72,10 @@ nav.main-nav {
     overflow-y: auto;
     animation: slide-in 0.3s ease-out;
 
+    &::backdrop{
+      background-color: rgba(0, 0, 0, 0.451);
+    }
+
     .hamburger-button {
       align-self: flex-end;
       margin-left: 0;
