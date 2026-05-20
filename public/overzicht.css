@@ -1,12 +1,54 @@
+.zoek-knop {
+    padding: 0.8rem var(--spacing-lg);
+    background: var(--color-brand-lightest);
+    color: var(--color-brand-darker);
+    border: var(--border-width-sm) solid var(--color-brand-darkest);
+    border-radius: var(--spacing-md);
+    cursor: pointer;
+    font-weight: bold;
+    font-family: akkuratreg, sans-serif;
+    margin: 0;
+
+    &.zoeken {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-lg);
+
+        & input, 
+        & button {
+            background-color: transparent;
+            border: none;
+            color: inherit;
+            font: inherit;
+            padding: 0;
+        }
+      
+            & input {
+                flex: 1;
+                min-width: 0;
+            }
+        
+
+                & button {
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+        }
+    }
+
 .overzicht {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-md);
     max-width: 60rem;
     margin: 2rem auto;
     padding: 0 var(--spacing-md);
+   
 
 
     .filters {
-        width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
 
         .mobile-only-form {
             display: block;
@@ -33,14 +75,7 @@
                 align-items: center;
                 justify-content: space-between;
                 width: 250px;
-                padding: 0.8rem var(--spacing-lg);
-                background: var(--color-brand-lightest);
-                color: var(--color-brand-darker);
-                border: var(--border-width-sm) solid var(--color-brand-darkest);
-                border-radius: var(--spacing-md);
-                cursor: pointer;
-                font-weight: bold;
-                font-family: akkuratreg, sans-serif;
+               
 
                 &::-webkit-details-marker {
                     display: none;
@@ -79,7 +114,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            right: 0;
+            width: min(700px, 90vw);
             background: var(--color-brand-lightest);
             border: var(--border-width-sm) solid var(--color-brand-darkest);
             border-radius: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);

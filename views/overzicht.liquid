@@ -3,10 +3,15 @@
 
 <main class="overzicht">
 
+  <form class="zoeken zoek-knop" action="/" method="get">
+     <input id="zoeken" name="zoeken" type="search" placeholder="Instrument Zoeken">
+       <button type="submit">Zoek</button>
+  </form>
+
   <nav class="filters">
     <form action="/instrumenten" method="GET" class="filter-form desktop-only-form">
       <details class="desktop-details">
-        <summary class="instrument-filter">
+        <summary class="zoek-knop">
           <span>
             {%- if soort == '' %}Filters{% elsif not soort %}Filters{% else %}{{ soort }}{% endif -%}
           </span>
