@@ -1,0 +1,18 @@
+{% render 'partials/head.liquid' %}
+<main class="news-article">
+    <h1 class="heading-news">Veld nieuws</h1>
+    <article>
+        {% render 'partials/picture.liquid',
+            imagesrc: newsItem.image,
+            width: "800",
+            height: "400",
+            alt: newsItem.title,
+            fetch: "high",
+            loading: "eager",
+        %}
+        <p class="date">Geplaatst: {{ newsItem.date | date: '%d-%m-%Y %H:%M' }}</p>
+        <h2>{{ newsItem.title }}</h2>
+        <p class="description">{{ newsItem.body }}</p>  
+    </article>
+</main>
+{% render 'partials/foot.liquid' %}
