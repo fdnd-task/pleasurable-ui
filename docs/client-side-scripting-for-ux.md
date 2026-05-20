@@ -167,13 +167,13 @@ Maak een `js-audio.html` bestand in je Learning Journal, kopieer deze HTML erhee
 <script type="module">
 // Laad het geluid in
 
-const button = document.querySelector('btn');
+const button = document.querySelector('button');
 
 button.addEventListener('click', function() {
     // Speel het geluid af
 });
 </script>
-<button id="btn">Koop die pizza</button>
+<button>Koop die pizza</button>
 ```
 
 💪 Dit al eens gedaan, en een extra uitdaging nodig? Laat de knop dan ook via een view transition een winkelmandje in gaan.
