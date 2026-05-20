@@ -102,7 +102,8 @@ header{
 }
 
 .mobile-nav {
-  display: block; /* fallback */
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 55px;
   right: 0;
@@ -114,21 +115,12 @@ header{
   @media (prefers-color-scheme: dark) {
       background: black;
      }
-}
-
-/* enhancement */
-@supports (display: flex) {
-  .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    } 
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .mobile-nav{
+  @media (prefers-reduced-motion: no-preference) {
     transition: max-height 0.3s ease, opacity 0.3s ease;
-  }
 }
+}
+
+
 
 .mobile-nav a {
   padding: 1rem;
