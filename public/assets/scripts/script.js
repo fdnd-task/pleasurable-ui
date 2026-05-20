@@ -57,3 +57,78 @@ if (memojiForm) {
         }
     });
 }
+
+const container = document.querySelector('.todowrapper');
+const cards = document.querySelectorAll('.todocard');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+// Helper: Check if layout exists before executing logic
+if (container && cards.length > 0) {
+    
+    // Checks center intersecting geometries to determine active card index
+    function getActiveIndex() {
+        const containerRect = container.getBoundingClientRect();
+        const containerCenter = containerRect.left + (containerRect.width / 2);
+        
+        let closestIndex = 0;
+        let minimumDistance = Infinity;
+
+        cards.forEach((card, index) => {
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + (cardRect.width / 2);
+            const distance = Math.abs(containerCenter - cardCenter);
+
+            if (distance < minimumDistance) {
+                minimumDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        return closestIndex;
+    }
+
+    // Scroll directly to center a targeted item
+    function scrollToCard(index) {
+        if (index < 0 || index >= cards.length) return;
+
+        const card = cards[index];
+        const containerWidth = container.clientWidth;
+        
+        // Exact offset math accounting for parent alignment bounds
+        const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
+
+        container.scrollTo({
+            left: targetScrollLeft,
+            behavior: 'smooth'
+        });
+    }
+
+    // Click Handlers
+    nextBtn.addEventListener('click', () => {
+        const currentIndex = getActiveIndex();
+        if (currentIndex < cards.length - 1) {
+            scrollToCard(currentIndex + 1);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const currentIndex = getActiveIndex();
+        if (currentIndex > 0) {
+            scrollToCard(currentIndex - 1);
+        }
+    });
+
+    // Handle disabled states naturally as viewport coordinates move
+    function updateButtonStates() {
+        const currentIndex = getActiveIndex();
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
+    }
+
+    container.addEventListener('scroll', updateButtonStates, { passive: true });
+    window.addEventListener('resize', updateButtonStates);
+    
+    // Initial run to normalize disabled flags on load
+    updateButtonStates();
+}

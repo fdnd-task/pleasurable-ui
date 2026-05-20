@@ -847,6 +847,7 @@ main.veldbeheer {
     flex-direction: column;
     min-height: 100dvh;
     margin-bottom: 0;
+    position: relative;
 
     section.todowrapper {
         display: flex;
@@ -918,9 +919,8 @@ article.todocard {
     width: 5rem;
     height: 5rem;
     pointer-events: auto; 
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: fixed;
+    top: 25%;
     z-index: 20;
     background-color: var(--dark-background);
     color: var(--light-text);
