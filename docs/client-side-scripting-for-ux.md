@@ -75,7 +75,42 @@ Hiermee kun je heel ver gaan om een pleasurable interface te maken, maar laten w
 Maak een `scroll-driven-animations.html` bestand in je Learning Journal, kopieer deze HTML erheen, en maak de demo werkend door de CSS aan te passen:
 
 ```html
-TODO
+<!doctype html>
+<title>Scroll-driven animations</title>
+<style>
+@keyframes appear {
+    0% {
+        opacity: 0;
+        translate: 0 4em;
+    }
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+p {
+    font-size: 10vw;
+}
+span {
+    display: inline-block;
+    animation: appear;
+}
+</style>
+<p><span>Lorem</span> <span>ipsum</span> <span>dolor</span> <span>sit</span>
+<span>amet,</span> <span>consectetur</span> <span>adipisicing</span> <span>elit,</span>
+<span>sed</span> <span>do</span> <span>eiusmod</span> <span>tempor</span> <span>incididunt</span>
+<span>ut</span> <span>labore</span> <span>et</span> <span>dolore</span> <span>magna</span>
+<span>aliqua.</span> <span>Ut</span> <span>enim</span> <span>ad</span> <span>minim</span>
+<span>veniam,</span> <span>quis</span> <span>nostrud</span> <span>exercitation</span>
+<span>ullamco</span> <span>laboris</span> <span>nisi</span> <span>ut</span> <span>aliquip</span>
+<span>ex</span> <span>ea</span> <span>commodo</span> <span>consequat.</span> <span>Duis</span>
+<span>aute</span> <span>irure</span> <span>dolor</span> <span>in</span> <span>reprehenderit</span>
+<span>in</span> <span>voluptate</span> <span>velit</span> <span>esse</span> <span>cillum</span>
+<span>dolore</span> <span>eu</span> <span>fugiat</span> <span>nulla</span> <span>pariatur.</span>
+<span>Excepteur</span> <span>sint</span> <span>occaecat</span> <span>cupidatat</span> <span>non</span>
+<span>proident,</span> <span>sunt</span> <span>in</span> <span>culpa</span> <span>qui</span>
+<span>officia</span> <span>deserunt</span> <span>mollit</span> <span>anim</span> <span>id</span>
+<span>est</span> <span>laborum.</span></p>
 ```
 
 💡 Let op: test goed in browsers dit scroll-driven animations niet ondersteunen, want je wilt dit echt als optionele enhancement inzetten. En bedenk ook hoe dit samenwerkt met `@media (prefers-reduced-motion: no-preference)`
@@ -86,13 +121,13 @@ TODO
 - [Scroll-driven Animations interactief uitgelegd door Josh Comeau](https://www.joshwcomeau.com/animation/scroll-driven-animations/)
 - [Scroll-driven Animations @ MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations)
 
-### Terug naar het driestappenplan
+### JavaScript
 
 Het [script dat je van ons kreeg](https://github.com/fdnd-task/user-experience-enhanced-website/blob/main/docs/client-side-scripting-for-ux.md#client-side-javascript) in Sprint 10, volgde het [driestappenplan uit Sprint 5](https://github.com/fdnd-task/fix-the-flow-interactive-website/blob/main/docs/programming-user-interaction.md): 1) zoek het `<form>` met `querySelector`, 2) wacht op het `submit` _event_ met `addEventListener` en 3) en doe daarna _iets_. In dit geval misschien een _loading state_ klaarzetten met een `classList.toggle()`, een _client-side_ `fetch()` uitvoeren en de gebruiker _feedback_ geven. Hiermee kun je de UX verbeteren.
 
 Maar je kunt in die laatste stap natuurlijk nog veel meer doen om de UI meer pleasurable te maken. Een geluidje afspelen, de telefoon even laten trillen, [confetti afschieten](https://confettijs.org/), of een view transition starten. De mogelijkheden zijn eindeloos.
 
-Maak een `js-audio.html` bestand in je Learning Journal, kopieer deze HTML erheen, [zoek en download een pleasurable geluidje](https://pixabay.com/sound-effects/), en maak de demo werkend door de JavaScript aan te passen:
+Maak een `js-audio.html` bestand in je Learning Journal, kopieer deze HTML erheen, [zoek en download een pleasurable geluidje](https://pixabay.com/sound-effects/), en maak de demo werkend door de JavaScript aan te passen.
 
 ```html
 <!doctype html>
@@ -108,6 +143,8 @@ button.addEventListener('click', function() {
 </script>
 <button id="btn">Koop die pizza</button>
 ```
+
+💪 Dit al eens gedaan, en een extra uitdaging nodig? Laat de knop dan ook via een view transition een winkelmandje in gaan.
 
 Je kunt dit daarna misschien in je project ergens gebruiken.
 
