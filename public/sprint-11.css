@@ -1,3 +1,104 @@
+footer {
+    border-top: 3px solid #BF410B;
+    margin: 1rem;
+
+    @media (min-width: 908px) {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+.bc-hva-logo {
+    display: block;
+    width: 254px;
+    height: 54px;
+}
+
+a {
+    text-decoration: none;
+    color: #545964;
+    font-size: 16px;
+    width: fit-content;
+    background-image: linear-gradient(to right, #FAC1A8 100%, transparent 100%);
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-position: left;
+    transition: background-size 0.3s ease, color 0.3s ease;
+    padding-inline: .4rem;
+    margin-inline: -.4rem;
+    padding-block: .2rem;
+    margin-block: -.2rem;
+
+    &:hover {
+        background-size: 100% 100%;
+        color: black;
+    }
+}
+
+h2 {
+    font-size: 22px;
+}
+
+.footer-locations {
+    display: grid;
+    margin-block: 1rem 2rem;
+    gap: .5em;
+}
+
+.footer-editions {
+    display: grid;
+    margin-block: 1rem 2rem;
+    gap: .5em;
+}
+
+.footer-newsletter {
+    display: grid;
+    margin-block: 1rem 2rem;
+    gap: .5em;
+
+    form {
+        display: grid;
+        gap: .5rem;
+
+        .footer-important-note {
+            color: #BF410B;
+        }
+
+        .footer-input-and-button-div {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+
+            input[type="email"] {
+                padding: .5rem .75rem;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 1rem;
+                background-color: #F1F1F1;
+                color: #828282;
+                max-width: 400px;
+                flex: 1;
+            }
+
+            button[type="submit"] {
+                padding: .5rem 1rem;
+                background-color: #BF410B;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                font-size: 1rem;
+                cursor: pointer;
+                white-space: nowrap;
+
+                &:hover {
+                    background-color: #a33609;
+                }
+            }
+        }
+    }
+}
 * {
   padding: 0;
   margin: 0;
