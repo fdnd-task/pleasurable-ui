@@ -904,6 +904,12 @@ article.todocard {
     h2 {
         color: var(--always-black);
     }
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }
 
 .nav-btn {
