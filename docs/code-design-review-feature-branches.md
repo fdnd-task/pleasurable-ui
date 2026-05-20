@@ -8,7 +8,7 @@ Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed
 ## Aanpak
 
 ### **Stap 1: Individueel: Rond de drie feature branches af zodat ze klaar zijn voor een pull request**
-Elk teamlid heeft drie feature branches aangemaakt voor de verschillende interacties. Zorg dat alle aanpassingen live staan en maak drie pull requests aan. 
+Elk teamlid heeft drie feature branches aangemaakt voor de verschillende interacties. Zorg dat alle aanpassingen op GitHub staan. Wacht nog even met het aanmaken van een PR, dit doen we in stap 3.
 
 ### **Stap 2: Team: Pull request template aanvullen**
 De kwaliteit van een pull request en de review daarop is erg belangrijk voor het kwaliteitsbeheer van jullie werk. Bespreek met elkaar wat een goede pull request maakt. Bekijk een aantal voorbeelden en analyseer deze gezamenlijk. Schrijf steekwoorden op het whiteboard die volgens jullie belangrijk zijn bij een goede pull request (en review).
