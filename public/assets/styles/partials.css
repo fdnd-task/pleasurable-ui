@@ -281,18 +281,24 @@ ul.news.horizontal {
         color: var(--zwart);
         text-decoration: none;
     }
+    
 
     h4 {
         font-size: 1.1em;
         font-weight: 700;
         display: inline-block;
         margin-block: 0.7em;
+        color: var(--always-dark);
 
         &:hover {
             text-decoration: underline;
             text-decoration-thickness: 1px;
             text-underline-offset: 4px; 
         }
+    }
+
+    p {
+        color: var(--always-dark);
     }
 }
 
@@ -322,6 +328,8 @@ ul.news.horizontal {
         }
     }
 
+
+
     .bloemendveld {
         font-size: 0.8em;
         display: flex;
@@ -329,6 +337,7 @@ ul.news.horizontal {
         padding: 0.5em;
         border: 1.5px solid rgb(0, 0, 0);
         border-radius: 2em;
+        color: var(--always-dark);
     }
 
     img {
@@ -342,6 +351,10 @@ ul.news.horizontal {
         font-size: 1em;
         display: flex;
         gap: 8em;
+
+        p {
+            color: var(--always-dark);
+        }   
     } 
 }
 
