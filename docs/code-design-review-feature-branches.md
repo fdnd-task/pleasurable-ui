@@ -25,7 +25,7 @@ Schrijf individueel drie pull requests (één per feature branch). Gebruik deze 
 - Link naar je ontwerp in Figma.
 - Licht je ontwerpkeuzes toe aan de hand van elke laag van de [Hierarchy of User Needs](https://github.com/fdnd-task/pleasurable-ui/blob/main/docs/pleasurable-is-in-the-details.md#hierarchy-of-user-needs).
 
-In de "Usable"-laag kun je bijvoorbeeld onderbouwen met visuele hiërarchie, Gestaltprincipes of goed ontworpen feedback/feedforward.
+In de "Usable"-laag kun je bijvoorbeeld je keuzes onderbouwen met visuele hiërarchie, Gestaltprincipes of goed ontworpen feedback/feedforward.
 
 ### **Stap 4: Team: Review alle pull requests**
 Bekijk gezamenlijk alle pull requests. Gebruik één laptop om de pull requests te bekijken en een andere om feedback te noteren.
