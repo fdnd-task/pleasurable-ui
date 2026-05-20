@@ -95,6 +95,10 @@ h2 {
                 &:hover {
                     background-color: #a33609;
                 }
+
+                &:active {
+                    background-color: #7a2907;
+                }
             }
         }
     }
