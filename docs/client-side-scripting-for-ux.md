@@ -190,6 +190,10 @@ Je kunt dit daarna misschien in je project ergens gebruiken.
 
 ## Breakdowns maken van de Prototypes
 
+Als je een interactie of animatie hebt ontworpen in FIgma kan je een breakdown maken van de HTML elementen die je nodig hebt voor de interactie, de CSS styling, en het 3 stappenplan in JS. Dat ziet er bijvoorbeeld zo uit:
+
+![Breakdown van een interactie in HTML, CSS, JS](breakdown-interactie.jpg)
+
 <!-- Daarna uitdenken hoe ze dit kunnen maken met een breakdown/pseudocode van de wireflow/screenflow < bespreken met docent (hier kunnen we studenten helpen met client-side scripting, hoe pak je dit nou aan in js + css? Over het algemeen 'gewoon' met het 3 stappenplan van js. Dus niet gaan googlen nu of llm-en, maar zelf bedenken) -->
 
 Maak met je team breakdown van de prototypes die jullie hebben gemaakt. Bespreek hoe je de pleasurable UI kan bouwen met client-side scripting of bovenstaande technieken. Je kan een schets maken met aantekeningen, of je kan in het prototype in Figma aantekeningen maken. 
