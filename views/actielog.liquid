@@ -1,4 +1,14 @@
 {% layout 'layouts/base.liquid'%}
+
+{% block breadcrumbs %}
+  <nav class="breadcrumbs">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/actielog">Actielog</li>
+    </ol>
+  </nav>
+{% endblock %}
+
 {% block content %}
     <h1 class="actielog-h1">
         Activiteiten

@@ -561,3 +561,37 @@ p {
     }
 }
 
+.breadcrumbs {
+  padding: 0 .5em;
+  transition: 0.5s;
+  color: var(--color-brand-darkest);
+  font-size: var(--font-size-body-sm);
+
+  ol{
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  li {
+    display: flex;
+    padding: var(--spacing-sm) 0;
+
+    &::before {
+      padding: 0 var(--spacing-xs);
+      content: "/"
+    }
+
+    a:hover {
+        transform: scale(1.01);
+        color: var(--color-brand-mid);
+        text-decoration: underline;
+    }
+
+    &:first-of-type::before {
+      content: "";
+    }
+  }
+ 
+}
+

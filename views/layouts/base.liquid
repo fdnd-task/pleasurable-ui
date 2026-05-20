@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/schade.css">
     <link rel="stylesheet" href="/overzicht.css">
     <link rel="stylesheet" href="/detail.css">
-    
+    <link rel="stylesheet" href="/actielog.css">
+    <link rel="stylesheet" href="/home.css">
     <title>{{ title | default: "PreludeFonds" }}</title>
 </head>
 <body>
@@ -17,8 +18,10 @@
       <a href="/">
         <img src="/assets/logo/image.svg" class="logo-img" alt="cool kunst en cultuur" width="600" height="400">
         <h1 class="logo-text">PreludeFonds</h1></a>
-    </header>
 
+        {% block breadcrumbs %}{% endblock %}
+    </header>
+    
     {% block content %}{% endblock %}
 
 </body>
