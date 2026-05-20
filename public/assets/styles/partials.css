@@ -353,6 +353,11 @@ ul.news.horizontal {
         p {
             color: var(--always-dark);
         }   
+
+        .tijd {
+            width: 10ch;
+            align-self: center;
+        }
     } 
 }
 
