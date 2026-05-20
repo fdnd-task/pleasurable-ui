@@ -28,8 +28,28 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
-app.get('/detail', async function (request, response) {
-  response.render('detail.liquid')
+app.get('/detail/:slug', async (req, res) => {
+  const slug = req.params.slug
+
+  try {
+    const result = await fetch(
+      `https://fdnd-agency.directus.app/items/milledoni_products?filter[slug][_eq]=${encodeURIComponent(slug)}`
+    )
+
+    const data = await result.json()
+
+    const product = data.data && data.data.length > 0 ? data.data[0] : null
+
+    if (!product) {
+      return res.status(404).send('Product niet gevonden')
+    }
+
+    res.render('detail.liquid', { product })
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).send('Server error')
+  }
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
