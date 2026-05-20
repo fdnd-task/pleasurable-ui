@@ -503,7 +503,7 @@ p {
 }
 
 .breadcrumbs {
-  padding: 0 .5em 0 .5em;
+  padding: 0 .5em;
   transition: 0.5s;
   color: var(--color-brand-darkest);
   font-size: var(--font-size-body-sm);
