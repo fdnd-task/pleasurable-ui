@@ -4,14 +4,14 @@
     <form action="/{{ district }}/{{ story.slug }}/comment" class="comment-form" method="POST">
       <label class="comments-field" for="name">
         Naam:
-        <input type="text" id="name" name="name" placeholder="voornaam + achternaam" required>
+        <input type="text" id="name" name="name" placeholder="Gebruikersnaam" required>
       </label>
       <label class="comments-field" for="comment">
         Bericht:
-        <textarea id="comment" name="comment" rows="3" placeholder="Ik heb een opmerking over" required></textarea>
+        <textarea id="comment" name="comment" rows="3" placeholder="Ik heb een opmerking over...." required></textarea>
       </label>
       <input type="hidden" name="story" value="{{ story.id }}">
-      <button id="loadingButton" class="primary-button" type="submit">Verzenden</button>
+      <button id="loadingButton" class="primary-button {{ district }}" type="submit">Verzenden</button>
     </form>
   </section>
 
