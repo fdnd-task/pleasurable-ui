@@ -15,7 +15,7 @@
 <div class="main-content-wrapper">
   <h2>Laat je inspireren door de wereld van Milledoni</h2>
 
-  <button type="button" popovertarget="filter-popover">
+  <button type="button" popovertarget="filter-popover" class="filter-button">
     <img src="assets/images/filter-icon.svg" alt="Filter openen" width="25" height="25">
   </button>
 
@@ -24,7 +24,7 @@
       popover
       method="GET"
       action="/" 
-      class="filter-form"
+      class=" "
     >
 
     <button type="button" popovertarget="filter-popover" popovertargetaction="hide">
@@ -49,8 +49,8 @@
 
 <ul class="products">
     {% for product in products %}
-    <li class="product-card-home">
-        <article>
+    <li>
+        <article class="product-card-home">
 
           <a href="/product/{{ product.id }}" class="product-detail">
             
@@ -62,26 +62,28 @@
                 loading="lazy"
             >
 
-            <div class="product-info">
-              <h4>{{ product.name }}</h4>
-                <p class="price-tag">€ {{ product.amount }}</p>
-            </div>
-
-          </a>
-
-          <form method="POST" action="/save-product">
-            <input type="hidden" name="product-id" value="{{ product.id }}">
+            <form method="POST" action="/save-product">
+              <input type="hidden" name="product-id" value="{{ product.id }}">
                 
-            <button type="submit" class="add-product">
+              <button type="submit" class="add-product">
                   <img 
                     src="/assets/images/add-to-list-icon.svg" 
                     alt="Voeg {{ product.name }} toe aan lijst" 
-                    width="30" 
-                    height="30" 
+                    width="25" 
+                    height="25" 
                     loading="lazy"
                   >
                 </button>
               </form>
+
+              <div class="product-card-info">
+                <h4>{{ product.name }}</h4>
+
+                  <p class="price-tag">€ {{ product.amount }}</p>
+
+                  <p class="see-more-of-product">Lees meer over de inspiratie</p>
+              </div>
+          </a>
 
           </article>
         </li>
