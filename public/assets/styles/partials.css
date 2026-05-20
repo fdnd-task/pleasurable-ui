@@ -330,7 +330,7 @@ ul.news.horizontal {
 
     .bloemendveld {
         font-size: 0.8em;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         padding: 0.5em;
         border: 1.5px solid rgb(0, 0, 0);
@@ -348,15 +348,17 @@ ul.news.horizontal {
     .details {
         font-size: 1em;
         display: flex;
-        gap: 8em;
+        gap: 7em;
+        flex-direction: row;
+        width: 100%;
 
         p {
             color: var(--always-dark);
         }   
 
         .tijd {
-            width: 10ch;
             align-self: center;
+            width: max-content;
         }
     } 
 }
@@ -370,7 +372,7 @@ ul.news.horizontal {
 @supports (container-type: scroll-state) {
     @media (prefers-reduced-motion: no-preference) {
 
-        @media (width < 550px) {
+        @media (width < 450px) {
             .nieuws-berichten img {
                 opacity: 0;
 
