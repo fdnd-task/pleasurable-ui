@@ -395,11 +395,7 @@ span.bold {
 }
 
 .voedseleiland {
-    
-
     background-color: var(--voedseleiland);
-
-
 }
 
 .heuvel {
@@ -408,6 +404,57 @@ span.bold {
 
 .waterplandgebied {
     background-color: var(--waterplandgebied);
+}
+
+
+/* all months for carousel cards */
+
+.januari {
+    background-color: #BAD68E;
+}
+
+.februari {
+    background-color: #BAD68E;
+}
+
+.maart {
+    background-color: #BAD68E;
+}
+
+.april {
+    background-color: #BAD68E;
+}
+
+.mei {
+    background-color: #BAD68E;
+}
+
+.juni {
+    background-color: #FFD380;
+}
+
+.juli {
+    background-color: #D5C9E3;
+}
+
+.augustus {
+    background-color: #BAD68E;
+}
+
+.september {
+    background-color: #BAD68E;
+}
+
+.oktober {
+    background-color: #BAD68E;
+}
+
+.november {
+    background-color: #BAD68E;
+}
+
+.december {
+    background-color: #BAD68E;
 }
 
 /* progress bar styling */
@@ -579,16 +626,7 @@ img.portrait {
     }
 }
 
-@keyframes reveal-sideways {
-    from { 
-        opacity: 0; 
-        transform: translateX(2rem) scale(0.8);
-    }
-    to { 
-        opacity: 1; 
-        transform: translateX(0) scale(1);
-    }
-}
+
 
 @keyframes reveal-topdown {
     from { 
@@ -625,6 +663,44 @@ img.portrait {
     }
 }
 
+@keyframes cover-flow {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.8) rotate(15deg);
+    }
+
+    50%{
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translateY(0);
+        z-index: 10;
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(0.8) rotate(-15deg);
+    }
+}
+
+@keyframes reveal-sideways {
+    from { 
+        opacity: 0.6; 
+        transform: scale(0.85) rotate(12deg); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes hide-sideways {
+    from { 
+        opacity: 1; 
+        transform: scale(1) rotate(0deg);
+    }
+    to { 
+        opacity: 0.6; 
+        transform: scale(0.85) rotate(-12deg); 
+    }
+}
 
 
 

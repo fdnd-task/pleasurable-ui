@@ -191,7 +191,7 @@ app.get('/veldverkenner', async (req, res) => {
             };
         });
 
-        res.render('veldverkenner.liquid', {
+        res.render('explorer.liquid', {
             zones: zonesWithQuest,
             completedCount: zonesWithQuest.filter(z => z.zoneCompleted).length,
             status: statusMap,
@@ -408,6 +408,92 @@ app.get('/nieuws/:slug', async (request, response) => {
 app.get('/login', (_req, res) => res.render('login.liquid'));
 app.get('/welcome', (req, res) => res.render('welcome.liquid', { current_path: req.path }));
 app.get('/logout', (_req, res) => { res.clearCookie('userId'); res.redirect('/login'); });
+
+// Veldbeheer overview
+app.get('/veldbeheer', async (req, res) => {
+    try {
+        console.log('\n=== [VELDBEHEER] GET Request Initiated ===');
+        const todoData = await fetchData('frankendael_todo?fields=*');
+
+        // Log the raw type and data to see what Directus returned
+        console.log(`[VELDBEHEER] Raw response type: ${typeof todoData} (IsArray: ${Array.isArray(todoData)})`);
+        console.log('[VELDBEHEER] Raw todoData payload:', JSON.stringify(todoData, null, 2));
+
+        // Safety check: if API failed or returned a non-array, fall back gracefully instead of crashing
+        if (!todoData || !Array.isArray(todoData)) {
+            console.warn('[VELDBEHEER] Warning: todoData is empty or not an array. Sending empty list.');
+            return res.render('fieldmanagement.liquid', {
+                todos: [],
+                current_path: req.path
+            });
+        }
+
+        // Map Dutch month names to their chronological index for sorting later
+        const dutchMonthOrder = {
+            'Januari': 0, 'Februari': 1, 'Maart': 2, 'April': 3,
+            'Mei': 4, 'Juni': 5, 'Juli': 6, 'Augustus': 7,
+            'September': 8, 'Oktober': 9, 'November': 10, 'December': 11
+        };
+
+        // Group and merge items by month using reduce
+        const groupedByMonth = todoData.reduce((acc, item) => {
+            // Log individual items missing crucial data
+            if (!item || !item.date) {
+                console.log(`[VELDBEHEER] Skipped item ID ${item?.id || 'unknown'} - Missing 'date' field.`);
+                return acc;
+            }
+
+            const dateObj = new Date(item.date);
+            if (isNaN(dateObj.getTime())) {
+                console.log(`[VELDBEHEER] Skipped item ID ${item.id} - Invalid date string: "${item.date}"`);
+                return acc;
+            }
+
+            // Get the Dutch month name (e.g., "januari", "februari")
+            const monthName = dateObj.toLocaleString('nl-NL', { month: 'long' });
+            // Capitalize the first letter for clean UI display
+            const formattedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+            // If this month doesn't exist in our accumulator yet, initialize it
+            if (!acc[formattedMonth]) {
+                acc[formattedMonth] = {
+                    month: formattedMonth,
+                    activities: [] 
+                };
+            }
+
+            acc[formattedMonth].activities.push({
+                id: item.id,
+                activity: item.activity,
+                day: dateObj.getDate(),
+                original_date: item.date
+            });
+
+            return acc;
+        }, {});
+
+        // Convert the object back into a flat array and sort chronologically (Jan -> Dec)
+        const formattedTodos = Object.values(groupedByMonth).sort((a, b) => {
+            return (dutchMonthOrder[a.month] ?? 0) - (dutchMonthOrder[b.month] ?? 0);
+        });
+
+        // Optional: If you also want the individual activities *inside* each month sorted by day:
+        formattedTodos.forEach(group => {
+            group.activities.sort((a, b) => a.day - b.day);
+        });
+
+        console.log('[VELDBEHEER] Processed & formatted todos for Liquid:', JSON.stringify(formattedTodos, null, 2));
+        console.log('=== [VELDBEHEER] Rendering Template ===\n');
+
+        res.render('fieldmanagement.liquid', {
+            todos: formattedTodos,
+            current_path: req.path
+        });
+    } catch (error) {
+        console.error('!!! [VELDBEHEER] Route Critical Error:', error);
+        res.status(500).send('Er is een probleem opgetreden bij het laden van het veldbeheer.');
+    }
+});
 
 // Save collected plant
 app.post('/veldverkenner/:zone_slug/:item_slug', async (req, res) => {
