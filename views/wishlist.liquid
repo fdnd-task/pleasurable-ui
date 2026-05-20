@@ -1,46 +1,117 @@
 {% include 'partials/head.liquid' %}
 <style>
-.grid_likedproducts{
-  
-display: grid;
-grid-template-columns: 1fr 1fr 1fr 1fr;
+  .grid_likedproducts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
-}
+    .opgeslagen-product {
+      background-color: white;
+      border-radius: 25px;
 
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
+      padding: 20px;
+      width: 300px;
+    }
 
+    .lijst-button {
+      background-color: #20a687;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 25px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+  }
 
+  .slider {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
 
+  .slider input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
 
+  .circle {
+    width: 54px;
+    height: 54px;
+    border: 2px solid #c49a2c;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
+  }
+
+  .circle img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+
+  /* actieve bol groter maken */
+  #step1:checked ~ label[for='step1'],
+  #step2:checked ~ label[for='step2'],
+  #step3:checked ~ label[for='step3'],
+  #step4:checked ~ label[for='step4'] {
+    width: 78px;
+    height: 78px;
+    border-width: 3px;
+  }
+
+  #step1:checked ~ label[for='step1'] img,
+  #step2:checked ~ label[for='step2'] img,
+  #step3:checked ~ label[for='step3'] img,
+  #step4:checked ~ label[for='step4'] img {
+    width: 38px;
+    height: 38px;
+  }
 </style>
+
+<div class="slider">
+  <input type="radio" name="step" id="step1" checked>
+  <input type="radio" name="step" id="step2">
+  <input type="radio" name="step" id="step3">
+  <input type="radio" name="step" id="step4">
+
+  <label for="step1" class="circle">
+    <img src="/assets/images/wishlist-icon.svg" alt="">
+  </label>
+
+  <label for="step2" class="circle">
+    <img src="/assets/images/wishlist-icon.svg" alt="">
+  </label>
+
+  <label for="step3" class="circle">
+    <img src="/assets/images/wishlist-icon.svg" alt="">
+  </label>
+
+  <label for="step4" class="circle">
+    <img src="/assets/images/wishlist-icon.svg" alt="">
+  </label>
+</div>
+
 <main class="grid_likedproducts">
- 
+  <article class="opgeslagen-product">
+    <img src="" alt="producten">
+    <h2>test</h2>
+    <p>bedrag</p>
 
-      
-  
-    <article class="opgeslagen-product">
-      
-        <img src="" alt="producten">
-          <h2>test</h2>
-          <p>bedrag</p>
+    <form method="post" action="" class="like-form">
+      <input type="hidden" name="id" value="{{ product.id }}">
 
-        <form method="post" action="" class="like-form">
-            <input type="hidden" name="id" value="{{ product.id }}">
-
-        <button type="submit" class="lijst-button">
-          <img class="verwijder" src="" alt="lijst">
-        </button>
-      </form>
-
-
-</article>
-
-
-
+      <button type="submit" class="lijst-button">
+        <img class="verwijder" src="" alt="lijst">
+      </button>
+    </form>
+  </article>
 </main>
-
-
-
-
 
 {% include 'partials/foot.liquid' %}
