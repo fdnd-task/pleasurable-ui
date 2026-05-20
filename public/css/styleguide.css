@@ -38,8 +38,10 @@ html {
     /* typography */
     --font-body: "Archivo", sans-serif;
     --font-heading: "ClashDisplay", sans-serif;
-    
+
     /* spacing */
+    /* 0.125rem */
+    --space-3xs: 2px;
     /* 0.25rem */
     --space-2xs: 4px;
     /* 0.5rem */

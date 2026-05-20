@@ -1,7 +1,5 @@
-const menu = document.querySelector('nav details')
+const menu = document.querySelector('nav#menu')
 const body = document.querySelector('body')
-// Select the main content block that should be inert when menu opens
-// Use querySelectorAll to target main, footer, etc. below the header/nav
 const mainContent = document.querySelectorAll('body > main, body > footer, .article-layout')
 const navBar = document.querySelectorAll('header ul')
 
