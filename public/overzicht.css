@@ -148,10 +148,11 @@
             .grid {
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
+                gap: var(--spacing-lg);
 
                 section {
                     border-left: var(--border-width-sm) solid var(--color-brand-darkest);
-                    padding: 0 var(--spacing-lg);
+                    padding: 0 var(--spacing-sm);
 
                     &:first-of-type {
                         border-left: none;
