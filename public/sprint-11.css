@@ -5,6 +5,7 @@ footer {
     @media (min-width: 908px) {
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
         gap: 2rem;
     }
 }
@@ -57,10 +58,6 @@ h2 {
     margin-block: 1rem 2rem;
     gap: .5em;
 
-    @media (min-width: 908px) {
-        flex: 1;
-    }
-
     form {
         display: grid;
         gap: .5rem;
@@ -81,6 +78,7 @@ h2 {
                 font-size: 1rem;
                 background-color: #F1F1F1;
                 color: #828282;
+                max-width: 400px;
                 flex: 1;
             }
 
