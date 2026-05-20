@@ -37,7 +37,7 @@ header {
   }
 }
 
-nav.main-nav {
+.main-nav {
   height: auto;
   min-height: 80px;
   display: flex;
@@ -186,10 +186,6 @@ nav.main-nav {
   a {
     color: var(--text-color);
     text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   .nav-button {
@@ -214,6 +210,53 @@ nav.main-nav {
       }
     }
   }
+
+  .nav-link {
+    position: relative;
+
+    &:hover {
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transform: scaleX(1);
+            transition: .3s ease;
+
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        height: 2px;
+        width: 0%;
+        background: currentColor;
+        transition: .3s ease;
+    }
+
+    &:focus {
+        outline-offset: 6px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transform: scaleX(1);
+            transition: .3s ease;
+
+        }
+    }
+}
 
   @media (width >=1085px) {
     padding: var(--space-xl);
