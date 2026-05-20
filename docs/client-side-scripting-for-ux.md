@@ -72,7 +72,7 @@ Met scroll-driven animations kun je keyframe animaties niet afhankelijk van een 
 
 Hiermee kun je heel ver gaan om een pleasurable interface te maken, maar laten we beginnen met een kleine oefening. Gebruik weer de bronnen en overleg.
 
-Maak een `scroll-driven-animations.html` bestand in je Learning Journal, kopieer deze HTML erheen, en maak de demo werkend door de CSS aan te passen:
+Maak een `scroll-driven-animations.html` bestand in je Learning Journal, kopieer deze HTML erheen, en maak de demo werkend door de CSS aan te passen. Experimenteer vooral met verschillende effecten.
 
 ```html
 <!doctype html>
