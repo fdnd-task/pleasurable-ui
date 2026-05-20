@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ product.name }} | Milledoni</title>
 
   <link rel="stylesheet" href="/detail.css">
-
   <script src="/script.js" defer></script>
 </head>
 
 <body>
 
-<!-- HEADER -->
+<!-- =====================
+     HEADER
+===================== -->
 <header class="site-header">
-  <section class="container">
+  <section class="container header-inner">
 
-    <a href="/" class="logo">
-      <img src="{{ 'milledoni.png' | assets_url }}" width="100" height="40" alt="Milledoni">
-    </a>
+    <img
+  src="/assets/milledoni.png"
+  width="120"
+  height="50"
+  alt="Milledoni"
+/>
 
     <nav class="main-nav">
       <ul>
         <li><a href="/cadeaus">Cadeaus</a></li>
-        <li><a href="/categorieën">Categorieën</a></li>
+        <li><a href="/categorieen">Categorieën</a></li>
         <li>
           <a href="/wishlist">
             Wishlist
@@ -36,70 +40,112 @@
   </section>
 </header>
 
-<main class="product-detail">
-  <section class="container">
 
-    <!-- DETAIL LAYOUT -->
-    <section class="detail-wrapper">
+<!-- =====================
+     DETAIL PAGINA
+===================== -->
+<main class="detail-page">
 
-      <!-- IMAGE -->
-      <section class="detail-image">
+  <section class="container detail-container">
 
-        {% assign img = product.image | default: product.img %}
+    <!-- =====================
+         PRODUCT IMAGE
+    ====================== -->
+    <section class="product-image">
 
-        <img
-          src="{{ img }}"
-          alt="{{ product.name }}"
-          loading="eager"
+      {% assign img = product.image | default: product.img %}
+
+      <img
+        src="{{ img }}"
+        alt="{{ product.name }}"
+        width="600"
+        height="600"
+        loading="eager"
+      >
+
+      <!-- ADD TO LIST (OVER IMAGE) -->
+      <form action="/wishlist/add" method="POST" class="add-to-list-form">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+
+        <button type="submit" class="add-to-list">
+          + Add to list
+        </button>
+      </form>
+
+    </section>
+
+
+    <!-- =====================
+         PRODUCT INFO
+    ====================== -->
+    <section class="product-info">
+
+      <h1>{{ product.name }}</h1>
+
+      <p class="price">
+        € {{ product.amount }}
+      </p>
+
+      <p class="description">
+        {{ product.description }}
+      </p>
+
+
+      <!-- TAGS -->
+      <section class="tags">
+        <h3>Tags</h3>
+        <p>{{ product.tags }}</p>
+      </section>
+
+
+      <!-- EXTRA INFO -->
+      <section class="extra-info">
+        <p><strong>Shop:</strong> {{ product.shop_name }}</p>
+        <p><strong>Gespot door:</strong> {{ product.spotter }}</p>
+      </section>
+
+
+      <!-- ACTIONS -->
+      <section class="actions">
+
+        <a
+          href="{{ product.shop_url }}"
+          target="_blank"
+          class="shop-button"
         >
+          Bekijk in winkel
+        </a>
 
       </section>
 
-      <!-- INFO -->
-      <section class="detail-info">
+    </section>
 
-        <h1>{{ product.name }}</h1>
-
-        <p class="price">€ {{ product.amount }}</p>
-
-        <p class="description">
-          {{ product.description }}
-        </p>
-
-        <!-- TAGS -->
-        <div class="tags">
-          {{ product.tags }}
-        </div>
-
-        <!-- ACTIONS -->
-        <div class="actions">
-
-          <!-- ADD TO LIST BUTTON -->
-          <form action="/wishlist/add" method="POST" class="save-form">
-            <input type="hidden" name="product_id" value="{{ product.id }}">
-
-            <button type="submit" class="add-to-list">
-              + Add to list
-            </button>
-          </form>
-
-          <!-- SHOP LINK -->
-          <a href="{{ product.shop_url }}" target="_blank" class="shop-button">
-            Bekijk in winkel
-          </a>
-
-        </div>
-
-      </section>
-
+  </section>
 </main>
 
-<!-- FOOTER -->
-<footer>
-  <h3>Milledoni</h3>
-  <p>Unieke cadeaus voor speciale momenten.</p>
 
-  <p>© 2026 Milledoni</p>
+<!-- =====================
+     FOOTER
+===================== -->
+<footer>
+  <section class="container">
+
+    <h3>Milledoni</h3>
+    <p>Unieke cadeaus voor speciale momenten.</p>
+
+    <h3>Contact</h3>
+    <p>info@milledoni.nl</p>
+
+    <h3>Volg ons</h3>
+    <p>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">TikTok</a>
+    </p>
+
+    <p>© 2026 Milledoni</p>
+
+  </section>
 </footer>
 
 </body>
