@@ -12,6 +12,28 @@
         %}
         <p class="date">Geplaatst: {{ newsItem.date | date: '%d-%m-%Y %H:%M' }}</p>
         <h2>{{ newsItem.title }}</h2>
+        <p class="description">{{ newsItem.body }}</p>
+
+        {% comment %} MARK: COMMENT {% endcomment %}
+        <section class="comment">
+            <h3>Voeg een opmerking toe</h3>
+            <form action="/nieuws/{{ news.id }}/{{ news.slug }}" method="POST">
+                <label class="name-input">
+                    Naam:
+                    <input type="text" name="name" placeholder="Voer je naam in" required>
+                </label>
+                
+                <label class="message-input">
+                    Bericht:
+                    <input type="text" name="comment" required maxlength="100" placeholder="Voeg een opmerking" required></textarea>
+                </label>
+
+                {% comment %} deze label kan weg {% endcomment %}
+                <label>
+                    <button class="submit" type="submit" value="Verstuur">Verstuur</button>
+                </label>
+            </form>
+        </section>
         <p class="description">{{ newsItem.body }}</p>  
     </article>
 </main>
