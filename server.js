@@ -28,6 +28,12 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
+// this is to preview the news card the page will be updated in an other pull request 
+app.get('/nieuws', async function name(request, response) {
+  response.render('news.liquid')
+})
+
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)

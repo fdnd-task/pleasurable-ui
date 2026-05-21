@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    /* Colors */
+    /* green */
+    --primary-100: hsl(180, 36%, 86%);
+    --primary-200: hsl(180, 36%, 77%);
+    --primary-300: hsl(180, 36%, 68%);
+    --primary-400: hsl(180, 36%, 56%);
+    /* this is the default color; 500 */
+    --primary-500: hsl(180, 36%, 50%);
+    --primary-600: hsl(180, 36%, 41%);
+    --primary-700: hsl(180, 36%, 32%);
+    --primary-800: hsl(180, 36%, 23%);
+    --primary-900: hsl(180, 36%, 14%);
+
+    /* brown */
+    --secondary-100: hsl(12, 36%, 86%);
+    --secondary-200: hsl(12, 36%, 77%);
+    --secondary-300: hsl(12, 36%, 68%);
+    --secondary-400: hsl(12, 36%, 56%);
+    /* this is the default color; 500 */
+    --secondary-500: hsl(12, 36%, 50%);
+    --secondary-600: hsl(12, 36%, 41%);
+    --secondary-700: hsl(12, 36%, 32%);
+    --secondary-800: hsl(12, 36%, 23%);
+    --secondary-900: hsl(12, 36%, 14%);
+
+    --background-color: hsl(0, 0%, 100%);
+    --triary-background-color: hsl(0, 0%, 98%);
+    --text-color: hsl(0, 0%, 0%);
+
+    /* typography */
+    --font-body: "Archivo", sans-serif;
+    --font-heading: "ClashDisplay", sans-serif;
+    
+    /* spacing */
+    /* 0.25rem */
+    --space-2xs: 4px;
+    /* 0.5rem */
+    --space-xs: 8px;
+    /* 0.75rem */
+    --space-sm: 12px;
+    /* 1rem */
+    --space-md: 16px;
+    /* 1.5rem */
+    --space-lg: 24px;
+    /* 2rem */
+    --space-xl: 32px;
+    /* 3rem */
+    --space-2xl: 48px;
+    /* 4rem */
+    --space-3xl: 64px;
+
+    /* border&radius */
+    --img-radius: var(--space-md) var(--space-md) 0 0;
+    --default-radius: var(--space-md);
+}
+
+/* typography */
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('../fonts/Archivo-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('../fonts/Archivo-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../fonts/ClashDisplay-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Clash Display';
+    src: url('../fonts/ClashDisplay-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+/* container */
+/* parent */
+.layout {
+    width: 100%;
+    padding: var(--space-2xl) 0;
+}
+
+/* child */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
