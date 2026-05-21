@@ -283,6 +283,10 @@ main.home p.niks-gespaard-veldverkenner {
 
     .veldverkenner {
         font-weight: bolder;
+    }
+}
+
+
 /* NEWS horizontal styling homepage */
 .home-slide-nieuws {
     display: flex;
