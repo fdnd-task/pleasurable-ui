@@ -19,12 +19,12 @@
     display: flex;
     flex-direction: column;
 
-    background-color: #F1F1F1;
+    /* background-color: #F1F1F1; */
 
 
     /* IMG */
     .card-component-cover {
-        height: 200px;
+        height: 12.5rem;
         width: 100%;
         object-fit: cover;
         border-radius: 12px;
@@ -67,5 +67,96 @@
             line-clamp: 2;
             -webkit-box-orient: vertical;
         }
+    }
+}
+
+/* single article styling per district */
+.card-component.algemeen {
+    background-color: var(--algemeen);
+
+    time {
+        color: var(--primary-color);
+    }
+
+    h3 {
+        color: var(--oost);
+    }
+
+    p {
+        color: var(--text-color);
+    }
+
+    .card-component-targetgroup {
+        background-color: var(--primary-color);
+        color: var(--background-color);
+    }
+}
+
+.card-component.nieuw-west {
+    background-color: var(--nieuw-west);
+
+    time {
+        color: var(--background-color);
+    }
+
+    h3 {
+        color: var(--background-color);
+    }
+
+    p {
+        color: var(--background-color);
+    }
+
+    .card-component-targetgroup {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+}
+
+.card-component.zuidoost {
+    background-color: var(--zuidoost);
+
+    time {
+        color: var(--background-color);
+    }
+
+    h3 {
+        color: var(--background-color);
+    }
+
+    p {
+        color: var(--background-color);
+    }
+
+    .card-component-targetgroup {
+        background-color: var(--highlight-color);
+        color: black;
+    }
+}
+
+.card-component.oost {
+    background-color: var(--oost);
+
+    time {
+        color: var(--background-color);
+    }
+
+    h3 {
+        color: var(--background-color);
+    }
+
+    p {
+        color: var(--background-color);
+    }
+
+    .card-component-targetgroup {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .card-component.oost h3 {
+        color: var(--background-color);
     }
 }
