@@ -269,6 +269,24 @@ ul.news.horizontal {
     }
 }
 
+
+/* partial overview my collectie homepage */
+main.home p.niks-gespaard-veldverkenner {
+    background-color: #BFF0FF; 
+    margin-top: 0;
+    margin-right: 2.5em;
+    border-radius: var(--border-card);
+    padding: 1.8em; 
+    text-align: center; 
+    font-weight: 400; 
+    color: var(--always-dark);
+
+    .veldverkenner {
+        font-weight: bolder;
+    }
+}
+
+
 /* partial mycollection.liquid */
 ul.my-collection {
     display: grid;
