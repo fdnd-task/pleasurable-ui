@@ -55,6 +55,13 @@ app.get('/', async function (request, response) {
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
 
+  const status = request.query.status
+
+    if (status) {
+    params.set('filter[status][_eq]', status)
+  }
+
+
   const sort = request.query.sort || '-id'
   params.append('sort', sort)
   
@@ -63,7 +70,8 @@ app.get('/instrumenten', async function (request, response) {
 
   response.render('overzicht.liquid', { 
     instrumenten: instrumentResponseJSON.data,
-    aantalResultaten: instrumentResponseJSON.data.length })
+    aantalResultaten: instrumentResponseJSON.data.length,
+    status: status })
 })
 
 app.get('/instrumenten/nieuw', async function (request, response) {
