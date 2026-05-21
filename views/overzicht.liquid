@@ -306,7 +306,7 @@
         <optgroup label="Status">
           <option
             value="Beschikbaar"
-            {% if soort == 'Beschikbaar' %}
+            {% if status == 'Beschikbaar' %}
               selected
             {% endif %}
           >
@@ -314,7 +314,7 @@
           </option>
           <option
             value="Uitgeleend"
-            {% if soort == 'Uitgeleend' %}
+            {% if status == 'Uitgeleend' %}
               selected
             {% endif %}
           >
@@ -322,7 +322,7 @@
           </option>
           <option
             value="In reparatie"
-            {% if soort == 'In reparatie' %}
+            {% if status == 'In reparatie' %}
               selected
             {% endif %}
           >
