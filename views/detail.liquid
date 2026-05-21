@@ -6,7 +6,7 @@
   <title>{{ product.name }} | Milledoni</title>
 
   <link rel="stylesheet" href="/detail.css">
-  <script src="/script.js" defer></script>
+  <script src="/assets/script.js" defer></script>
 </head>
 
 <body>
@@ -18,28 +18,26 @@
   <section class="container header-inner">
 
     <img
-  src="/assets/milledoni.png"
-  width="120"
-  height="50"
-  alt="Milledoni"
-/>
+      src="/assets/milledoni.png"
+      width="120"
+      height="50"
+      alt="Milledoni"
+    />
 
     <nav class="main-nav">
       <ul>
         <li><a href="/cadeaus">Cadeaus</a></li>
         <li><a href="/categorieen">Categorieën</a></li>
         <li>
-          <a href="/wishlist">
-            Wishlist
-            <span class="badge">{{ wishlistCount }}</span>
-          </a>
-        </li>
+          <a href="/wishlist" class="wishlist">
+  Wishlist
+  <span class="badge">0</span>
+</a>
       </ul>
     </nav>
 
   </section>
 </header>
-
 
 <!-- =====================
      DETAIL PAGINA
@@ -48,9 +46,7 @@
 
   <section class="container detail-container">
 
-    <!-- =====================
-         PRODUCT IMAGE
-    ====================== -->
+    <!-- PRODUCT IMAGE -->
     <section class="product-image">
 
       {% assign img = product.image | default: product.img %}
@@ -63,21 +59,20 @@
         loading="eager"
       >
 
-      <!-- ADD TO LIST (OVER IMAGE) -->
-      <form action="/wishlist/add" method="POST" class="add-to-list-form">
+      <!-- ADD TO LIST (GEFIXT) -->
+      <form class="add-to-list-form">
+
         <input type="hidden" name="product_id" value="{{ product.id }}">
 
         <button type="submit" class="add-to-list">
           + Add to list
         </button>
+
       </form>
 
     </section>
 
-
-    <!-- =====================
-         PRODUCT INFO
-    ====================== -->
+    <!-- PRODUCT INFO -->
     <section class="product-info">
 
       <h1>{{ product.name }}</h1>
@@ -90,24 +85,17 @@
         {{ product.description }}
       </p>
 
-
-      <!-- TAGS -->
       <section class="tags">
         <h3>Tags</h3>
         <p>{{ product.tags }}</p>
       </section>
 
-
-      <!-- EXTRA INFO -->
       <section class="extra-info">
         <p><strong>Shop:</strong> {{ product.shop_name }}</p>
         <p><strong>Gespot door:</strong> {{ product.spotter }}</p>
       </section>
 
-
-      <!-- ACTIONS -->
       <section class="actions">
-
         <a
           href="{{ product.shop_url }}"
           target="_blank"
@@ -115,14 +103,13 @@
         >
           Bekijk in winkel
         </a>
-
       </section>
 
     </section>
 
   </section>
-</main>
 
+</main>
 
 <!-- =====================
      FOOTER
