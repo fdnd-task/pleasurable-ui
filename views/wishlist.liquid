@@ -27,23 +27,25 @@
     }
   }
 
-  .slider {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
+ .slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
 
-  .slider input {
+  input {
     position: absolute;
     opacity: 0;
     pointer-events: none;
   }
 
   .circle {
-    width: 54px;
-    height: 54px;
-    border: 2px solid #c49a2c;
+    display: none;
+
+    width: 60px;
+    height: 60px;
+
+    border: 2px solid goldenrod;
     border-radius: 50%;
     display: grid;
     place-items: center;
