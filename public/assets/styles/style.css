@@ -839,6 +839,161 @@ main.account {
     }
 }
 
+/***********************************
+veldbeheer page
+***********************************/
+main.veldbeheer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    margin-bottom: 0;
+    position: relative;
+
+    section.todowrapper {
+        display: flex;
+        position: relative;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        height: 100%;
+        min-height: 50dvh;
+        will-change: scroll-position;
+        
+        padding-inline: 0; 
+        scroll-padding-inline: 0;
+        gap: 0rem;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            flex: 0 0 15vw;
+            pointer-events: none;
+        }
+
+        section.prevnextwrapper {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: space-evenly;
+        }
+    }
+
+    section.carouosel-container {
+        position: relative;
+        width: 100%;
+    }
+
+    section.donate {
+        form {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                margin-inline: 1rem;
+                width: 100%;
+            }
+        }
+
+        div {
+            display: flex;
+            width: 100%;
+            margin-block: 1rem;
+        }
+
+        p {
+            margin-block: 1rem;
+        }
+    }
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    pointer-events: auto; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background-color: var(--dark-background);
+    color: var(--light-text);
+    border-radius: var(--border-round);
+    border: none;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+
+    svg {
+        color: var(--light-text);
+
+        path {
+            stroke: var(--light-text);
+        }
+    }
+
+    &.prev {
+        left: 0;
+    }
+
+    &.next {
+        right: 0;
+    }
+    
+    &:hover {
+        background-color: var(--dark-background); 
+    }
+
+    &:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+        background-color: var(--dark-background); 
+    }
+}
+
+article.todocard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 1rem;
+    min-height: 30dvh;
+    height: 39dvh;
+    width: 70vw;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: var(--border-card);
+    scroll-snap-stop: always;
+    scroll-snap-align: center;
+    border: 4px solid var(--dark-text);
+    scrollbar-width: none;
+    transform-origin: center center;
+
+    @supports(animation-timeline: view()) {
+        animation: cover-flow linear both;
+        animation-timeline: view(inline);       
+        animation-range: entry-crossing 0% exit-crossing 100%;
+    }
+
+    h3 {
+        color: var(--always-black);
+    }
+
+    svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+
+
 
 /***********************************
 login page
@@ -940,7 +1095,7 @@ footer.main-footer {
     background-color: var(--light-background);
     position: fixed;
     bottom: 0;
-    z-index: 4;
+    z-index: 21;
 
     ul {
         display: flex;

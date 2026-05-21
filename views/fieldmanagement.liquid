@@ -1,0 +1,72 @@
+{% render 'partials/head.liquid',
+    user: user,
+    zone_type: zone.type,
+%}
+<main class="veldbeheer">
+    {% render 'partials/breadcrumbs.liquid',
+        current_path: current_path,
+        title: "home",
+    %}
+    <section class="spaced">
+        <h1>Een mooier bloemenveld, daar gaan wij voor!</h1>
+        {% render 'partials/picture.liquid',
+            imagesrc: "/assets/images/welcome",
+            width: "250",
+            height: "170",
+            alt: "Boomstammen",
+            class: "landscape margin",
+            fetch: "high",
+        %}
+        <p>Hoi {{ user.name }}, wat leuk dat je iets wilt bijdragen aan ons bloemenveld. Hieronder vind je alle dingen die te doen zijn per maand. </p>
+    </section>
+
+    <section class="carouosel-container spaced">
+        <h2>Activiteiten op het bloemenveld</h2>
+        <button id="prevBtn" class="nav-btn prev" aria-label="Vorige">
+            <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 2.5L2.5 12.75L13.5 23" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button id="nextBtn" class="nav-btn next" aria-label="Volgende">
+            <svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.5 23L13.5 12.75L2.5 2.5" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <section class="todowrapper">
+            {% for todo in todos %}
+                {% assign current_month = todo.month %}
+                {% assign current_activities = todo.activities %}
+
+                {% render 'partials/activitycard.liquid',
+                    month: current_month,
+                    activities: current_activities
+                %}
+            {% endfor %}
+        </section>
+    </section>
+
+    <section class="donate spaced">
+        <h2>Help ons met groeien!</h2>
+        <p>Bloemenveld frankendael is een burgerinitiatief en dus geen bedrijf, we zijn altijd op zoek naar een financiële bijdrage, wil jij ons helpen? Doneer hieronder:</p>
+        <form class="donate-form">
+            <label for="donate">Hoeveel wil jij doneren?</label>
+            <div>
+                <span class="slider-label">€0</span>
+                <input 
+                    class="donate"
+                    type="range" 
+                    name="donate"
+                    id="donate"
+                    min="0"
+                    max="100"
+                    value="10"
+                    step="5"
+                >
+                <span class="slider-label">€100</span>
+            </div>
+            <button class="styled succes">Doneer<span class="current-value">10</span>Euro</button>
+        </form>
+    </section>
+    
+</main>
+{% render 'partials/foot.liquid', current_path: current_path %}
