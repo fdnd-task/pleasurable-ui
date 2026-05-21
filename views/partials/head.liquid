@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/styleguide.css">
-      <script src="/scripts/menu.js" defer></script>
     <title>{{ title }}</title>
   </head>
   <body>  
@@ -18,11 +17,14 @@
   </ul>
 </header>
 
-<nav class="main-nav">
+<nav class="desktop-nav">
   <a href="/"><img src="/assets/logo-light.svg" alt="Logo"></a>
-  <ul class="desktop-nav">
+
+  <div class="link-and-button-desktop">
+
+  <ul class="link-nav">
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Home', style: 'nav-link' %}</li>
-    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ad\'s'', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ads', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Talent Award', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'LAdO', style: 'nav-link' %}</li>
@@ -30,28 +32,30 @@
   </ul>
 
   <div class="nav-button"><a href="/">Kom naar Ad-dag</a></div>
-
-  <button class="hamburger-button" popovertarget="menu">
-    <span></span>
-    <span></span>
-    <span></span>
+  </div>
+  
+  <button class="popover-button" popovertarget="menu">
+    <img src="/assets/open-menu.svg">
   </button>
 
-  <nav popover id="menu" class="hamburger-menu">
-    <button class="hamburger-button" popovertarget="menu" popovertargetaction="hide">
-      <svg viewBox="0 0 32 32" width="32" height="32">
-        <title>Sluiten</title>
-        <path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
-      </svg>
-    </button>
-    <ul class="mobile-nav" id="primary-nav-mobile">
+  </nav>
+  
+<nav popover id="menu">
+  <button class="popover-button" popovertarget="menu" popovertargetaction="hide">
+    <img class="popover-close" src="/assets/close-menu.svg">
+  </button>
+
+    <div class="link-and-button">
+
+  <ul class="link-nav-mobile">
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Home', style: 'nav-link' %}</li>
-    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ad\'s'', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ads', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Talent Award', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'LAdO', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Nieuws', style: 'nav-link' %}</li>
-    <li class="nav-button"><a href="/">Kom naar Ad-dag</a></li>
-    </ul>
-  </nav>
+  </ul>
+  <div class="nav-button"><a href="/">Kom naar Ad-dag</a></div>
+  </div>
+
 </nav>
