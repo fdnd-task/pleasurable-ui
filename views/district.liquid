@@ -1,0 +1,31 @@
+      <li>
+        <select id="sortSelect">
+          <option
+            value="nieuw-oud"
+            {% if activeSort == 'nieuw-oud' or activeSort == '' %}
+              selected
+            {% endif %}
+          >
+            Nieuw–Oud
+          </option>
+          <option
+            value="oud-nieuw"
+            {% if activeSort == 'oud-nieuw' %}
+              selected
+            {% endif %}
+          >
+            Oud–Nieuw
+          </option>
+          <option
+            value="az"
+            {% if activeSort == 'az' %}
+              selected
+            {% endif %}
+          >
+            A–Z
+          </option>
+        </select>
+      </li>
+    </ul>
+  </section>
+</aside>
