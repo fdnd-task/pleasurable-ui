@@ -30,6 +30,12 @@ app.get("/", async function (request, response) {
 app.get('/nominations/:slug', async function (request, response) {
   const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/adconnect_nominations?filter[slug][_eq]=${request.params.slug}`)
   const apiResponseJSON = await apiResponse.json()
+
+  if (!apiResponseJSON.data.length) {
+  response.status(404).send('Nomination not found')
+  return
+}
+
   response.render('detailpage.liquid', { nomination: apiResponseJSON.data[0] })
 })
 
