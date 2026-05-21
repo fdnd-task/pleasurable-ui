@@ -139,3 +139,51 @@ function showPopup(message, type) {
     popup.remove();
   }, 3000);
 }
+
+// =====================
+// TAG FILTER STATE
+// =====================
+let activeTags = [];
+
+// alle tags op detail page
+const tagButtons = document.querySelectorAll(".tag-chip");
+
+// alle producten (optioneel als je later lijst hebt)
+const productDescription = document.querySelector(".description");
+
+// =====================
+// TAG CLICK HANDLER
+// =====================
+tagButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const tag = btn.dataset.tag;
+
+    // toggle active state
+    if (activeTags.includes(tag)) {
+      activeTags = activeTags.filter((t) => t !== tag);
+      btn.classList.remove("active");
+    } else {
+      activeTags.push(tag);
+      btn.classList.add("active");
+    }
+
+    console.log("Active filters:", activeTags);
+
+    // hier kun je later filter logic koppelen
+    updateUI();
+  });
+});
+
+// =====================
+// UI UPDATE (placeholder)
+// =====================
+function updateUI() {
+  // nu alleen demo output
+  // later: filter product grid
+
+  if (activeTags.length === 0) {
+    console.log("Geen filters actief");
+  } else {
+    console.log("Filtering op:", activeTags.join(", "));
+  }
+}

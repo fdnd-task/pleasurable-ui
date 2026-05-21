@@ -86,9 +86,18 @@
       </p>
 
       <section class="tags">
-        <h3>Tags</h3>
-        <p>{{ product.tags }}</p>
-      </section>
+  <h3>Tags</h3>
+
+  <div class="tag-list">
+    {% assign tags = product.tags | split: "," %}
+
+    {% for tag in tags %}
+      <button class="tag-chip" data-tag="{{ tag | strip }}">
+        {{ tag | strip }}
+      </button>
+    {% endfor %}
+  </div>
+</section>
 
       <section class="extra-info">
         <p><strong>Shop:</strong> {{ product.shop_name }}</p>
