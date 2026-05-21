@@ -1,78 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
-<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rhodé Treur — kandidaat voor de Ad Talent Award 2026.">
+    <link rel="stylesheet" href="/css/styleguide.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Rhodé Treur — Kandidaat Ad Talent Award 2026</title>
+  </head>
+  <body>
+    <main class="candidate-profile">
+      <section class="layout hero">
+        <article class="container split">
+          <header>
+            <h1>Rhodé Treur</h1>
+            <dl>
+              <dt>Instelling</dt>
+              <dd>{{ nomination.institution }}</dd>
+              <dt>Opleiding</dt>
+              <dd>{{ nomination.course }}</dd>
+              <dt>Variant</dt>
+              <dd>{{ nomination.education_variant }}</dd>
+              <dt>Vooropleiding</dt>
+              <dd>{{ nomination.previous_course }}</dd>
+            </dl>
+          </header>
+          <figure>
+            <picture>
+              <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=avif&q=80">
+              <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=webp">
+              <img src="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826" alt="Portretfoto van Rhodé Treur" width="800" height="800" fetchpriority="high">
+            </picture>
+          </figure>
+        </article>
+      </section>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ description }}">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/styleguide.css">
-  <title> title</title>
+      <section class="layout">
+        <article class="container split">
+          <figure>
+            <picture>
+              <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=avif&q=80">
+              <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=webp">
+              <img src="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826" alt="Portretfoto van Rhodé Treur" width="800" height="800" loading="lazy">
+            </picture>
+          </figure>
+          <section>
+            <h2>Introductie</h2>
+            <p>{{ nomination.body }}</p>
+          </section>
+        </article>
+      </section>
 
-</head>
+      <section class="layout alt">
+        <article class="container split">
+          <section>
+            <h2>Nominatie hogeschool</h2>
+            <p>Thijs is een student op wie wij enorm trots zijn. Als SLBer heb ik Thijs leren kennen als een betrokken, bescheiden en zeer leergierige Ad-professional, die zijn vakmanschap vooral laat zien door zijn houding en handelen, en niet door zichzelf op de voorgrond te plaatsen.</p>
+            <p>Voor een project in leerjaar 1 nam hij hierbij het voortouw om op zijn stage een preventieve activiteit met alpaca's te regelen voor cliënten, wat een groot succes was. In samenwerking met medestudenten, docenten en het werkveld is Thijs respectvol, betrouwbaar en proactief.</p>
+            <p>Zijn integriteit is hierin opvallend: Thijs oordeelt niet en blijft altijd zorgvuldig in hoe hij over anderen spreekt. Thijs benadert cliënten consequent oordeelloos en mensgericht.</p>
+            <p>Wat Thijs daarnaast onderscheidt, is zijn sterk lerend vermogen. Hij reflecteert eerlijk op zijn eigen handelen en neemt regie over zijn ontwikkeling als Ad-professional. Dat maakt hem in onze ogen een zeer terechte kandidaat voor de Ad Talent Award 2026.</p>
+            <footer>
+              <p><strong>Fransien Hummel</strong> — SLBer bij opleiding Ad Zorg en Veiligheid</p>
+            </footer>
+          </section>
+          <figure class="logo">
+            <picture>
+              <source type="image/avif" srcset="https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png?format=avif&q=80">
+              <source type="image/webp" srcset="https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png?format=webp">
+              <img src="https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png" alt="Logo Hogeschool van Amsterdam" width="400" height="400" loading="lazy">
+            </picture>
+          </figure>
+        </article>
+      </section>
 
-<body>
-<main>
-
- <section class="layout profile">
-  
-  <article class="container">
-    <h1 class="studentheader">Rhode</h1>
-    <a href="/Talentaward">Terug naar genomineerde</a>
-    
-
-    <dl>
-      <dt>Instelling</dt>
-      <dd>naam</dd>
-
-      <dt>Opleiding</dt>
-      <dd>opleiding</dd>
-
-      <dt>Variant</dt>
-      <dd>naam</dd>
-
-      <dt>Vooropleiding</dt>
-      <dd>opleiding</dd>
-    </dl>
-
-    <picture>
-      <source type="image/avif"
-        srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=avif&q=80">
-      <source type="image/webp"
-        srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=webp">
-      <img src="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826"
-        alt="Rhodé Treur"
-        width="150"
-        height="150"
-        loading="lazy">
-    </picture>
-  </article>
-</section>
-
-  <section class="introductie layout">
-    <article class="container">
-      <h2>Introductie</h2>
-      <p>
-        Mijn naam is Rhode Treur, 22 jaar oud, woon in Woudenberg en ik volg de Ad-opleiding Human Resource Management
-        aan de Hogeschool Utrecht. Momenteel zit ik in het tweede jaar van deze Ad-opleiding en ben ik bezig met mijn
-        eindstage bij Timon jeugd- en (jong)volwassenenzorg. In mijn vrije tijd werk ik als douanedeclarant bij een
-        transportbedrijf en sport ik graag. Ik heb voor een Ad-opleiding gekozen, omdat je hier de kennis en
-        vaardigheden die je opdoet, direct in de praktijk kan brengen door middel van projecten. Ook is er in de
-        opleiding veel aandacht voor je persoonlijke ontwikkeling. Daarnaast vind ik het een voordeel dat het een
-        tweejarige hbo-opleiding is, met de mogelijkheid om door te stromen in de bachelorvariant. Mijn keuze voor Human
-        Resource Management komt voort uit de wens om het menselijke en het zakelijke aspect te combineren. Ik zie het
-        als een uitdaging om medewerkers op de beste manier in te zetten binnen een organisatie, zodat zij op een plek
-        zitten waar ze gelukkig zijn en waar hun talenten het beste uitkomen. Binnen de opleiding vraag ik actief om
-        feedback van zowel medestudenten als docenten. Aan de hand daarvan reflecteer ik op mijn denken en handelen en
-        stel ik doelen op die bijdragen aan mijn professionele ontwikkeling. Na het afronden van mijn Ad-opleiding zie
-        ik mijzelf doorstromen in de deeltijdvariant van de bachelor. Hierdoor kan ik mijn kennis en vaardigheden
-        dagelijks toepassen in de praktijk en kan ik mij blijven ontwikkelen in de rol als HR-officer
-      </p>
-
-
-
-
-    </article>
-  </section>
-</main>
-</body>
+      <section class="layout">
+        <article class="container">
+          <h2>Aanbeveling externe stakeholder</h2>
+          <blockquote>
+            <p>Thijs heeft alles op orde, beantwoordt vragen met een lach en is hulpvaardig. Vanaf de start van zijn stage bij sociaal beheer neemt hij zelf de verantwoordelijkheid voor zijn leerproces. Op dag 1 kreeg hij zijn spullen, de dag erna liep hij met iemand mee en op dag 3 heeft hij, op eigen initiatief, zelfstandig bewoners bezocht.</p>
+            <p>Thijs legt makkelijk contact, hij is een verbinder. Aan het begin van de stage had hij een overleg met wijkagenten, stelde zich voor als 'de nieuwe directeur' maar uiteraard met een lach. Het ijs was direct gebroken.</p>
+            <p>Een bewoner die 40 jaar bij Cazas woonde krijgt normaliter bezoek vanuit coöperatie, dat lukte echter niet overdag en dus maakte Thijs in de avond tijd vrij om langs te gaan. Of die keer dat hij kacheltjes verzamelde toen er een gaslek op de Eikenlaan was. Kortom: Thijs is van alle markten thuis.</p>
+            <footer>
+              <cite>Lisa van Zuilen, sociaal beheerder bij Cazas Wonen</cite>
+            </footer>
+          </blockquote>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
