@@ -48,10 +48,9 @@
     border: 2px solid goldenrod;
     border-radius: 50%;
     display: grid;
+
     place-items: center;
     cursor: pointer;
-    transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
-  }
 
     transition:
       width 0.3s ease,
@@ -64,14 +63,13 @@
     }
   }
 
-  /* actieve bol groter maken */
-  #step1:checked ~ label[for='step1'],
-  #step2:checked ~ label[for='step2'],
-  #step3:checked ~ label[for='step3'],
-  #step4:checked ~ label[for='step4'] {
-    width: 78px;
-    height: 78px;
-    border-width: 3px;
+  .next {
+    display: none;
+    padding: 0.4rem 0.8rem;
+    background: goldenrod;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
   }
 
   #step1:checked ~ label[for='step1'] img,
