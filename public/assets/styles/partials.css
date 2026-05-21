@@ -478,7 +478,7 @@ ul.quest {
             input {
                 padding: 1rem;
                 border-radius: 10px;
-                border: none;
+                border: solid 2px hsl(0, 0%, 12%);
                 outline: none;
                 font-family: main;
                 background-color: #D5EAFF;
