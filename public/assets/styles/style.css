@@ -44,17 +44,59 @@
       height: 51px;
       border: 1px solid #c9c9c9;
       border-radius: 50%;
-      box-shadow: 0px 2px 8px 0px rgba(0 0 0 / 15%);
+      box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 15%);
       color: #212121;
       text-decoration: none;
+      transition: 0.3s ease-out;
+
+      &:hover {
+        background-color: #ccc;
+        scale: 1.1;
+      }
+
+      &:active {
+        scale: 1;
+        background-color: white;
+        box-shadow: none;
+      }
     }
 
     .wishlist {
+      position: relative;
+      overflow: hidden;
+
+      .hover-background {
+        background: linear-gradient(to left, #fff, #ccc 10%);
+        width: 110%;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        translate: -110% 0;
+        transition: 0.3s ease-out;
+      }
+
       @media (min-width: 900px) {
         width: fit-content;
         padding: 0 1.25rem;
         border-radius: 9rem;
         gap: 1rem;
+
+        &:hover {
+          scale: 1;
+          background-color: white;
+
+          .hover-background {
+            translate: 0% 0;
+          }
+        }
+
+        &:active {
+          .hover-background {
+            translate: -110% 0;
+          }
+        }
       }
     }
 
