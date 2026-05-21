@@ -167,6 +167,11 @@
             align-self: center;
         }
 
+        &:focus {
+            outline: var(--space-3xs) solid var(--primary-100);
+            /* turn the variable negative */
+            outline-offset: calc(var(--space-xs) * -1);
+        }
     }
 }
 
