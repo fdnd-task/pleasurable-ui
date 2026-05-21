@@ -16,6 +16,13 @@ footer {
     height: 54px;
 }
 
+details {
+    summary {
+        list-style: none;
+        display: block;
+    }
+}
+
 a {
     text-decoration: none;
     color: #545964;
