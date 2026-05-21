@@ -13,12 +13,14 @@
       {% comment %} hero partial {% endcomment %}
     </section>
 
-    {% for variable in array %}
-      {% render 'partials/news-card.liquid',
-        date: '10 11 2025',
-        title: 'Workshops ‘Ad’ers zijn doeners met denkkracht’',
-        description: 'De Ad-dag is een initiatief vanuit het Overlegplatform Associate degrees. De vijfde editie vond plaats op 11 april 2025 bij Aeres Hogeschool in Dronten.'
-      %}
-    {% endfor %}
+    <section class="layout news-grid">
+      {% for newsArticle in news %}
+        {% render 'partials/news-card.liquid',
+          date: newsArticle.date,
+          title: newsArticle.title,
+          description: newsArticle.description
+        %}
+      {% endfor %}
+    </section>
   </body>
 </html>
