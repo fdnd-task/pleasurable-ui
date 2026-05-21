@@ -28,8 +28,40 @@ app.get('/', async function (request, response) {
   response.render('index.liquid')
 })
 
-app.get('/mete', async function (request, response) {
-  response.render('mete.liquid',)
+
+
+
+
+const districts = ["oost", "nieuw-west", "zuidoost", "algemeen"];
+app.use((req, res, next) => {
+  res.locals.districts = districts;
+  next();
+})
+app.get('/district/:district_name', async function (req, res) {
+  const district = req.params.district_name
+  const targetGroup = req.query.target_group || ''
+
+
+  let url = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?filter[district][_eq]=' + district + '&fields=*,cover.id,cover.width,cover.height'
+
+  if (targetGroup) {
+    url += '&filter[target_group][_eq]=' + targetGroup
+  }
+
+  const districtDetailResponse = await fetch(url)
+  const districtDetailResponseJSON = await districtDetailResponse.json()
+
+
+  const allResponse = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?filter[district][_eq]=' + district + '&fields=target_group')
+  const allJSON = await allResponse.json()
+  const targetGroups = [...new Set(allJSON.data.map(s => s.target_group).filter(Boolean))]
+
+  res.render('district.liquid', {
+    district: districtDetailResponseJSON.data,
+    districtName: district,
+    targetGroups: targetGroups,
+    activeGroup: targetGroup
+  })
 })
 
 
