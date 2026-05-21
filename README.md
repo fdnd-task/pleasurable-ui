@@ -29,6 +29,10 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/pleasur
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
 
+## Conventions
+
+Read about our code conventions [here](./conventions.md).
+
 ## Bronnen
 
 ## Licentie

@@ -46,3 +46,9 @@ app.get('/talent-awards', async function (request, response) {
       path: request.path
    })
 })
+
+app.get('/nieuws', async function name(request, response) {
+  response.render('news.liquid')
+})
+
+

@@ -1,0 +1,18 @@
+{% comment %} this is to preview the news card the page will be updated in an other pull request  {% endcomment %}
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleguide.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Nieuws</title>
+  </head>
+  <body>
+    {% render 'partials/news-card.liquid',
+      date: '10 11 2025',
+      title: 'Workshops ‘Ad’ers zijn doeners met denkkracht’',
+      description: 'De Ad-dag is een initiatief vanuit het Overlegplatform Associate degrees. De vijfde editie vond plaats op 11 april 2025 bij Aeres Hogeschool in Dronten.'
+    %}
+  </body>
+</html>
