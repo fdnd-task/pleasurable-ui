@@ -63,7 +63,13 @@ const cards = document.querySelectorAll('.todocard');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
-// Helper: Check if layout exists before executing logic
+
+// veldbeheer page
+// **************
+// **************
+// **************
+
+// Prev and next buttons carousel
 if (container && cards.length > 0) {
     
     // Checks center intersecting geometries to determine active card index
@@ -132,3 +138,12 @@ if (container && cards.length > 0) {
     // Initial run to normalize disabled flags on load
     updateButtonStates();
 }
+
+
+// Donate slider + update button
+const slider = document.querySelector('.donate');
+const output = document.querySelector('.current-value');
+
+slider.addEventListener('input', (event) => {
+    output.textContent = event.target.value;
+});
