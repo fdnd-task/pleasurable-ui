@@ -10,7 +10,7 @@
   <body>
     {% comment %} import header here {% endcomment %}
     <main>
-      <section class="layout discovery-section">
+      <div class="layout discovery-section">
         <article class="container">
           <h2>Ontdek het Ad‑onderwijs</h2>
           <p>
@@ -27,7 +27,7 @@
           {% render 'partials/info-card.liquid',
             title: 'Ad-dag',
             content: 'De jaarlijkse Ad‑dag brengt studenten, docenten en werkveldpartners samen. Tijdens workshops staat kennisdeling en netwerken centraal.',
-            btnText: "Meer over de Ad-dag",
+            btnText: 'Meer over de Ad-dag',
             btnLink: '#',
             btnStyle: 'secondary-button'
           %}
@@ -39,7 +39,7 @@
             btnStyle: 'secondary-button'
           %}
         </article>
-      </section>
+      </div>
 
       <section class="layout faq-layout">
         <article class="container">
@@ -68,11 +68,7 @@
           </div>
         </article>
       </section>
-    </main>
-    {% render 'partials/footer.liquid' %}
-
-        </article>
-      </section>
+      {% render 'partials/footer.liquid' %}
     </main>
   </body>
 </html>
