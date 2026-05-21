@@ -188,5 +188,17 @@
     font-style: normal;
     font-weight: 700;
 }
-
 /* einde one column layout */
+
+/* Grotere schermen */
+@media (min-width: 768px) {
+    .candidate-profile .split {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2xl);
+    }
+
+    .candidate-profile .split > * {
+        flex: 1;
+    }
+}
