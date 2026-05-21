@@ -50,5 +50,18 @@ app.get("/talent-awards", async function (request, response) {
 });
 
 app.get("/nieuws", async function name(request, response) {
-  response.render("news.liquid");
+  const params = {
+    fields: "title,description,date",
+  };
+
+  const newsResponse = await fetch(
+    baseURL + "news/?" + new URLSearchParams(params),
+  );
+
+  const newsResponseJson = await newsResponse.json();
+
+  response.render("news.liquid", {
+    path: request.path,
+    news: newsResponseJson.data,
+  });
 });
