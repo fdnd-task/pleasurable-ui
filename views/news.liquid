@@ -14,6 +14,16 @@
     </section>
 
     <section class="layout news-grid">
+      {% for newsArticle in news limit: 3 %}
+        {% render 'partials/news-card.liquid',
+          date: newsArticle.date,
+          title: newsArticle.title,
+          description: newsArticle.description
+        %}
+      {% endfor %}
+    </section>
+
+    <section class="layout news-grid">
       {% for newsArticle in news %}
         {% render 'partials/news-card.liquid',
           date: newsArticle.date,
