@@ -25,6 +25,7 @@ app.set('views', './views')
 
 //base url om code wat simpeler te maken, moet wel met ` gebruiken.
 const baseUrl = 'https://fdnd-agency.directus.app/items/preludefonds_instruments/'
+const logUrl = 'https://fdnd-agency.directus.app/items/preludefonds_log'
 
 async function haalInstrumenten(zoekterm, status) {
   let apiUrl = baseUrl
@@ -49,7 +50,6 @@ app.get('/', async function (request, response) {
 
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
-  console.log(instrumentResponseJSON)
   const allInstruments = instrumentResponseJSON.data
 
   const totalItems       = allInstruments.length
@@ -61,8 +61,6 @@ app.get('/', async function (request, response) {
   const zoekterm = request.query.zoeken
   const status = request.query.status
   const instruments = await haalInstrumenten(zoekterm, status)
-
-  console.log('Statussen:', allInstruments.map(i => i.status))
 
   response.render('home.liquid', {
     totalItems,
@@ -78,10 +76,16 @@ app.get('/', async function (request, response) {
 
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
+
+  const sort = request.query.sort || '-id'
+  params.append('sort', sort)
+  
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
-  response.render('overzicht.liquid', { instrumenten: instrumentResponseJSON.data })
+  response.render('overzicht.liquid', { 
+    instrumenten: instrumentResponseJSON.data,
+    aantalResultaten: instrumentResponseJSON.data.length })
 })
 
 app.get('/instrumenten/nieuw', async function (request, response) {
@@ -93,7 +97,22 @@ app.post('/instrumenten/nieuw', async function (request, response){
 })
 
 app.get('/actielog', async function (request, response) {
-  response.render('actielog.liquid')
+  const params = new URLSearchParams()
+  params.append('fields', '*,instrument.name,instrument.serial_number,instrument.key')
+  params.append('sort', '-date_created')
+
+  const filter = request.query.filter
+  if (filter && filter !== 'alles') {
+    params.append('filter[type_action][_eq]', filter)
+  }
+
+  const logResponse = await fetch(`${logUrl}?${params.toString()}`)
+  const logResponseJSON = await logResponse.json()
+
+  response.render('actielog.liquid', { 
+    logs: logResponseJSON.data, 
+    activeFilter: filter 
+  })
 })
 
 app.get('/instrumenten/:key', async function (request, response) {
@@ -142,9 +161,7 @@ app.post('/instrumenten/:key/uitlenen', async function (request, response) {
   })
 
   const fetchResponseJSON = await fetchResponse.json()
-  console.log(fetchResponseJSON)
   const patchResponseJSON = await patchResponse.json()
-  console.log(patchResponseJSON)
 
   if (patchResponse.ok) {
       // API zegt: Gelukt! We sturen success=true mee
@@ -168,29 +185,40 @@ app.get('/instrumenten/:key/innemen', async function (request, response) {
 })
 
 app.post('/instrumenten/:key/innemen', async function (request, response) {
-  const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
-    method: "PATCH",
-    body: JSON.stringify({
-      status: "Beschikbaar"
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  })
-  const fetchResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log",{
-    method: "POST",
-    body: JSON.stringify({
-      type_action: 'Innemen',
-      performed_by: request.body.performed_by,
-      involved_party: request.body.involved_party,
-      instrument: request.body.id
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  })
+  try {
+    const fetchResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log", {
+      method: "POST",
+      body: JSON.stringify({
+        type_action: 'Innemen',
+        performed_by: request.body.performed_by,
+        involved_party: request.body.involved_party,
+        instrument: request.body.id
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+    const patchResponse = await fetch(`${baseUrl}${request.body.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        status: "Beschikbaar"
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
 
-  response.redirect(303, `/instrumenten/${request.params.key}`)
+    const fetchResponseJSON = await fetchResponse.json()
+    const patchResponseJSON = await patchResponse.json()
+
+    if (patchResponse.ok) {
+      response.redirect(303, "/instrumenten/" + request.params.key + "/innemen?melding=success#status")
+    } else {
+      response.redirect(303, "/instrumenten/" + request.params.key + "/innemen?melding=error#status")
+    }
+    } catch (error) {
+      response.redirect(303, "/instrumenten/" + request.params.key + "/innemen?melding=error#status")
+    }
 })
 
 app.get('/instrumenten/:key/aanpassen', async function (request, response) {
@@ -212,7 +240,36 @@ app.get('/instrumenten/:key/schade', async function (request, response) {
 })
 
 app.post('/instrumenten/:key/schade', async function (request, response) {
-  response.redirect(303, `/instrumenten/${request.params.key}`)
+  try {
+    const logResponse = await fetch("https://fdnd-agency.directus.app/items/preludefonds_log", {
+      method: "POST",
+      body: JSON.stringify({
+        type_action: 'Schade',
+        performed_by: request.body.performed_by,
+        involved_party: request.body.reported_by,
+        note: request.body.beschrijving,
+        instrument: request.body.id
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+
+    const statusResponse = await fetch(`${baseUrl}${request.body.id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        status: "In reparatie"
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    })
+
+    if (logResponse.ok && statusResponse.ok) return response.redirect(303, `/instrumenten/${request.params.key}`)
+    response.redirect(303, "/instrumenten/" + request.params.key + "/schade?melding=success#status")
+  } catch (error) {
+    response.redirect(303, "/instrumenten/" + request.params.key + "/schade?melding=error#status")
+  }
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
