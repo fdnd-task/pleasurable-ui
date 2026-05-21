@@ -94,6 +94,9 @@ html {
 }
 
 
+li{
+    list-style: none;
+}
 /* container */
 /* parent */
 .layout {
