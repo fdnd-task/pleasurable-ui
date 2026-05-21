@@ -1,0 +1,48 @@
+.filter-group {
+    margin-bottom: 24px;
+
+    & h3 {
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: #34356A;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+    }
+
+    & ul {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    & li {
+        list-style: none;
+    }
+}
+
+
+.filter-btn {
+    display: block;
+    padding: 8px 16px;
+    border-radius: 1em;
+    background-color: #bf410b;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: #FFE4D8;
+        color: #34356A;
+    }
+
+    &.active {
+        background-color: #34356A;
+        color: #ffffff;
+        font-weight: bold;
+    }
+}
