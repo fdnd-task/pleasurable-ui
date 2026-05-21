@@ -37,11 +37,14 @@
     }
 
 .overzicht {
+    padding: var(--spacing-md);
+
+    .zoek-balk{
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: var(--spacing-md);
-    padding: 0 var(--spacing-md);
+    margin-bottom: var(--spacing-lg);    
+    }
 
     .filters {
         margin-bottom: 0;
