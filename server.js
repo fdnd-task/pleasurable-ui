@@ -57,12 +57,19 @@ app.get('/instrumenten', async function (request, response) {
 
   const sort = request.query.sort || '-id'
   params.append('sort', sort)
+
+  const soort = request.query.instrument
+
+  if (soort) {
+    params.set('filter[instrument][_eq', soort)
+  }
   
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
   response.render('overzicht.liquid', { 
     instrumenten: instrumentResponseJSON.data,
+    soort: soort,
     aantalResultaten: instrumentResponseJSON.data.length })
 })
 
