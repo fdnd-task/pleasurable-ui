@@ -16,10 +16,22 @@ footer {
     height: 54px;
 }
 
-details {
-    summary {
-        list-style: none;
-        display: block;
+.footer-faq {
+    display: grid;
+    margin-block: 1rem 2rem;
+
+    details {
+        border-top: 1px solid black;
+
+        &:last-child {
+            border-bottom: 1px solid black;
+        }
+
+        summary {
+            display: block;
+            list-style: none;
+            padding-block: 1rem;
+        }
     }
 }
 
