@@ -27,9 +27,11 @@ app.get("/", async function (request, response) {
   response.render("index.liquid");
 });
 
-app.get("/student", async function (request, response) {
-  response.render("detailpage.liquid");
-});
+app.get('/nominations/:slug', async function (request, response) {
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/adconnect_nominations?filter[slug][_eq]=${request.params.slug}`)
+  const apiResponseJSON = await apiResponse.json()
+  response.render('detailpage.liquid', { nomination: apiResponseJSON.data[0] })
+})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
