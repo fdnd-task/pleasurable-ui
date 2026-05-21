@@ -356,6 +356,21 @@ header.nav-header {
   }
 }
 
+/* news page styling */
+.news-grid {
+  display: grid;
+  gap: 1em;
+  padding-inline: 1em;
+
+  @media (width >=600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width >=850px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* news card styling */
 .news-card {
   border: var(--space-3xs) solid var(--primary-900);
