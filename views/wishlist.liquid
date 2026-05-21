@@ -47,7 +47,6 @@
 
     border: 2px solid goldenrod;
     border-radius: 50%;
-    display: grid;
 
     place-items: center;
     cursor: pointer;
@@ -72,12 +71,59 @@
     cursor: pointer;
   }
 
-  #step1:checked ~ label[for='step1'] img,
-  #step2:checked ~ label[for='step2'] img,
-  #step3:checked ~ label[for='step3'] img,
-  #step4:checked ~ label[for='step4'] img {
-    width: 38px;
-    height: 38px;
+  /* toon steeds 2 circles op mobiel */
+#step1:checked ~ .circle[for="step1"],
+#step1:checked ~ .circle[for="step2"],
+#step2:checked ~ .circle[for="step2"],
+#step2:checked ~ .circle[for="step3"],
+#step3:checked ~ .circle[for="step3"],
+#step3:checked ~ .circle[for="step4"],
+#step4:checked ~ .circle[for="step4"],
+#step4:checked ~ .circle[for="step5"],
+#step5:checked ~ .circle[for="step5"],
+#step5:checked ~ .circle[for="step6"],
+#step6:checked ~ .circle[for="step6"],
+#step6:checked ~ .circle[for="step7"],
+#step7:checked ~ .circle[for="step7"],
+#step7:checked ~ .circle[for="step8"],
+#step8:checked ~ .circle[for="step8"],
+#step8:checked ~ .circle[for="step1"] {
+  display: grid;
+}
+
+/* actieve circle groter */
+#step1:checked ~ .circle[for="step1"],
+#step2:checked ~ .circle[for="step2"],
+#step3:checked ~ .circle[for="step3"],
+#step4:checked ~ .circle[for="step4"],
+#step5:checked ~ .circle[for="step5"],
+#step6:checked ~ .circle[for="step6"],
+#step7:checked ~ .circle[for="step7"],
+#step8:checked ~ .circle[for="step8"] {
+  width: 90px;
+  height: 90px;
+}
+
+/* alleen juiste next knop tonen */
+#step1:checked ~ .next-1,
+#step2:checked ~ .next-2,
+#step3:checked ~ .next-3,
+#step4:checked ~ .next-4,
+#step5:checked ~ .next-5,
+#step6:checked ~ .next-6,
+#step7:checked ~ .next-7,
+#step8:checked ~ .next-8 {
+  display: inline-flex;
+}
+
+  @media (min-width: 768px) {
+    .circle {
+      display: grid;
+    }
+
+    .next {
+      display: none !important;
+    }
   }
 }
 </style>
