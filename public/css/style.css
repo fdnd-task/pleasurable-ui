@@ -124,22 +124,69 @@
 
 /* Detail pagina */
 
-/* one column layoout */
 
+.candidate-profile img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
 
-.profile .container,
-.introductie .container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+.candidate-profile p,
+.candidate-profile h2 {
+    margin-bottom: var(--space-md);
+    color: var(--text-color);
+    
+}
+
+.candidate-profile .hero {
+    background-color: var(--primary-100);
+    color: var(--text-color);
+}
+
+.candidate-profile .alt {
+    background-color: var(--triary-background-color);
+}
+
+.candidate-profile dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: var(--space-xs) var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.candidate-profile dt {
+    font-weight: 700;
+}
+
+.candidate-profile figure {
+    margin: 0;
+}
+
+.candidate-profile figure img {
+    border-radius: var(--default-radius);
+}
+
+.candidate-profile .logo {
+    background-color: var(--primary-100);
+    border-radius: var(--default-radius);
+    padding: var(--space-2xl);
+}
+
+.candidate-profile .logo img {
+    width: 200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
-.profile picture,
-.profile img {
-    width: 100%;
-    height: 100%;
-    max-width: 300px;
+.candidate-profile blockquote {
+    margin: 0;
+    padding-left: var(--space-lg);
+    border-left: 4px solid var(--primary-600);
+}
+
+.candidate-profile cite {
+    font-style: normal;
+    font-weight: 700;
 }
 
 /* einde one column layout */
