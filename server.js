@@ -335,20 +335,25 @@ app.get('/account', async (req, res) => {
 });
 
 app.patch('/account/set-memoji', async (req, res) => {
-    const { memojiId } = req.body; 
+    // 1. Read both the ID and the raw Image URL sent from the browser client
+    const { memojiId, imageUrl } = req.body; 
+    
     try {
-        const response = await fetch(`${API_BASE}/frankendael_users/${res.locals.userId}`, {
+        const targetApiUrl = `${API_BASE}/frankendael_users/${res.locals.userId}`;
+
+        const response = await fetch(targetApiUrl, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ memoji: Number(memojiId) }),
         });
 
         if (response.ok) {
-            // PROGRESSIVE ENHANCEMENT CHECK:
-            // If the request wants JSON (from fetch), send JSON.
-            // If it's a standard form (browser navigation), redirect.
             if (req.xhr || req.headers.accept.indexOf('json') > -1) {
-                return res.status(200).json({ success: true });
+                // 2. Return the real, absolute CDN image URL directly back to your frontend template layout
+                return res.status(200).json({ 
+                    success: true, 
+                    newMemojiUrl: imageUrl 
+                });
             } else {
                 return res.redirect('/account');
             }
@@ -358,6 +363,7 @@ app.patch('/account/set-memoji', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
 // Update accent color
 app.patch('/account/set-accent', async (req, res) => {
     const { accentColor } = req.body; 

@@ -1,23 +1,5 @@
-const loaderBtn = document.querySelector('.loader');
-const allOptions = document.querySelectorAll('.options-container button');
-
-const triggerAnimation = (event) => {
-    const clickedBtn = event.currentTarget;
-    const targetUrl = clickedBtn.getAttribute('data-url');
-    
-    if (loaderBtn) {
-        loaderBtn.setAttribute('href', targetUrl);
-        loaderBtn.classList.remove('shownow', 'ready');
-        void loaderBtn.offsetWidth;
-        loaderBtn.classList.add('shownow');
-    }
-};
-
-allOptions.forEach(btn => {
-    btn.addEventListener('click', triggerAnimation);
-});
-
 const memojiForm = document.getElementById('memojiForm');
+const loaderBtn = document.querySelector('.loader');
 
 if (memojiForm) {
     memojiForm.addEventListener('click', async (event) => {
@@ -28,11 +10,17 @@ if (memojiForm) {
 
         const memojiId = clickedBtn.value;
         const targetUrl = memojiForm.action;
+        
+        const clickedImg = clickedBtn.querySelector('img');
+        const localSourceUrl = clickedImg ? clickedImg.src : null;
 
-        // Start Loader
+        const pictureContainer = document.querySelector('.user-data picture');
+        const profileImg = pictureContainer?.querySelector('img');
+
+        if (!localSourceUrl) return;
+
+        clickedBtn.classList.add('is-loading');
         if (loaderBtn) {
-            loaderBtn.classList.remove('shownow', 'ready');
-            void loaderBtn.offsetWidth; 
             loaderBtn.classList.add('shownow');
         }
 
@@ -43,17 +31,72 @@ if (memojiForm) {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json' 
                 },
-                body: JSON.stringify({ memojiId: memojiId }),
+                body: JSON.stringify({ 
+                    memojiId: memojiId,
+                    imageUrl: localSourceUrl
+                }),
             });
 
-            if (response.ok) {
-                window.location.href = '/account'; 
-            } else {
-                throw new Error("Patch failed");
+            if (!response.ok) throw new Error("Database patch operation failed");
+            
+            const data = await response.json();
+            const confirmedUrl = data.newMemojiUrl;
+
+            const updateProfilePictureDOM = () => {
+                if (!pictureContainer) return;
+                
+                const sources = pictureContainer.querySelectorAll('source');
+                sources.forEach(source => {
+                    source.srcset = confirmedUrl;
+                });
+
+                if (profileImg) {
+                    profileImg.src = confirmedUrl;
+                }
+            };
+
+            if (!document.startViewTransition) {
+                updateProfilePictureDOM();
+                closePopoverPanel();
+                cleanUpLoading();
+                return;
             }
+
+            // Assign transition names to both elements before the transition begins
+            if (clickedImg) clickedImg.style.viewTransitionName = 'active-memoji';
+            if (profileImg) profileImg.style.viewTransitionName = 'active-memoji';
+
+            const transition = document.startViewTransition(() => {
+                updateProfilePictureDOM();
+                closePopoverPanel();
+                cleanUpLoading();
+            });
+
+            await transition.finished;
+            
+            // Clean up transition names after the fade completes
+            if (clickedImg) clickedImg.style.viewTransitionName = '';
+            if (profileImg) profileImg.style.viewTransitionName = '';
+
         } catch (error) {
-            console.error("Fetch error, falling back:", error);
-            memojiForm.submit(); // Progressive Enhancement
+            cleanUpLoading();
+            memojiForm.submit(); 
+        }
+
+        function closePopoverPanel() {
+            const popoverEl = document.getElementById('profiselector');
+            if (popoverEl && typeof popoverEl.hidePopover === 'function') {
+                popoverEl.hidePopover();
+            } else if (popoverEl && typeof popoverEl.close === 'function') {
+                popoverEl.close();
+            }
+        }
+
+        function cleanUpLoading() {
+            clickedBtn.classList.remove('is-loading');
+            if (loaderBtn) {
+                loaderBtn.classList.remove('shownow');
+            }
         }
     });
 }

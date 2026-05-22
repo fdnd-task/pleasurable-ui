@@ -46,7 +46,7 @@
     </section>
 
     <!-- custom color picker popover -->
-    <section id="colorpicker" popover="auto" class="accent-settings popover-bottom">
+    <section id="colorpicker" popover="auto" class="colorpicker accent-settings popover-bottom">
         <header>
             {% render 'partials/general-heading.liquid',
                 heading_level: 3,
@@ -70,12 +70,12 @@
             <!-- Visual canvas to choose colors -->
             <fieldset class="panel-row">
                 <figure class="spectrum-map">
-                    <button type="button" id="spectrum-cursor" class="color-cursor"></button>
-                    <canvas id="spectrum-canvas"></canvas>
+                    <button type="button" id="spectrum-cursor" class="color-cursor spectrum-cursor"></button>
+                    <canvas id="spectrum-canvas" class="spectrum-canvas"></canvas>
                 </figure>
                 <figure class="hue-map">
-                    <button type="button" id="hue-cursor" class="color-cursor"></button>
-                    <canvas id="hue-canvas"></canvas>
+                    <button type="button" id="hue-cursor" class="color-cursor hue-cursor"></button>
+                    <canvas id="hue-canvas" class="hue-canvas"></canvas>
                 </figure>
             </fieldset>
 

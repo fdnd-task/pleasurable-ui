@@ -22,15 +22,54 @@
 }
 
 ::view-transition-group(*) {
-    animation-duration: .3s;
+    animation-duration: 0.3s;
 }
 
-::view-transition-old(root) {
-    animation: .3s ease-in both leave;
+/* 2. Configure the OLD page/element state to cleanly fade OUT */
+::view-transition-old(root),
+::view-transition-old(active-memoji) {
+    animation: 0.2s ease-out both fade-out;
 }
 
-::view-transition-new(root) {
-    animation: .3s ease-in both enter;
+/* 3. Configure the NEW page/element state to cleanly fade IN */
+::view-transition-new(root),
+::view-transition-new(active-memoji) {
+    animation: 0.3s ease-in both fade-in;
+    /* Prevent separate default structural morphing jumps */
+    mix-blend-mode: normal; 
+}
+
+/* Target only the images for a smooth cross-fade morph */
+::view-transition-old(active-memoji),
+::view-transition-new(active-memoji) {
+    animation-duration: 0.35s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Instant loading state on the chosen grid button */
+.memoji-choice-btn.is-loading {
+    position: relative;
+    opacity: 0.6;
+    pointer-events: none; /* Prevent double-clicks */
+    transition: opacity 0.2s ease;
+}
+
+/* Optional: Adds a tiny clean loading spinner over the chosen Memoji */
+.memoji-choice-btn.is-loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: memoji-spin 0.6s linear infinite;
+}
+
+@keyframes memoji-spin {
+    to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -721,6 +760,19 @@ img.portrait {
     }
 }
 
+@keyframes fade-out {
+    from { 
+        opacity: 1; 
+    }
+    to { 
+        opacity: 0; 
+    }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 
 
