@@ -57,3 +57,56 @@ if (memojiForm) {
         }
     });
 }
+
+const commentForm = document.querySelector('.comment form')
+
+const formButton = commentForm.querySelector('button')
+const articleComments = document.querySelector('.messages')
+
+
+commentForm.addEventListener('submit', async function (event) {
+
+    event.preventDefault()
+    console.log('submit')
+
+    formButton.classList.add('loading')
+    formButton.textContent = 'Verzenden...'
+
+    let formData = new FormData(commentForm);
+
+    const [response] = await Promise.all([
+        fetch(commentForm.action, {
+            method: commentForm.method,
+            body: new URLSearchParams(formData)
+        }),
+        new Promise(resolve => setTimeout(resolve, 2500))
+    ])
+
+    console.log(response)
+
+    const responseData = await response.text()
+
+    const parser = new DOMParser()
+    const responseDOM = parser.parseFromString(responseData, 'text/html')
+
+    const newState = responseDOM.querySelector('.messages')
+
+
+    if (newState) {
+        articleComments.innerHTML = newState.innerHTML
+    }
+
+    formButton.classList.remove('loading')
+    formButton.classList.add('success')
+    formButton.textContent = '✔ Verstuurd!'
+
+    commentForm.reset()
+
+    setTimeout(() => {
+
+        formButton.classList.remove('success')
+
+        formButton.textContent = 'Verzenden'
+
+    }, 2000)
+})
