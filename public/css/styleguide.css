@@ -1,6 +1,8 @@
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    box-sizing: border-box;
 }
 
 
@@ -62,6 +64,9 @@ html {
     /* border&radius */
     --img-radius: var(--space-md) var(--space-md) 0 0;
     --default-radius: var(--space-md);
+
+    font-family: var(--font-body);
+    line-height: 1.8;
 }
 
 /* typography */
@@ -95,6 +100,18 @@ html {
     font-weight: 700;
     font-style: normal;
 }
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
 
 
 /* container */
