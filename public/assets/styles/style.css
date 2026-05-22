@@ -581,7 +581,7 @@ main.quest {
 }
 
 /***********************************
-nieuws page
+MARK: nieuws page
 ***********************************/
 
 main.news {
@@ -606,7 +606,7 @@ main.news {
 
         transition: .8s;
 
-        @container scroll-state(scrolled:bottom){
+        @container scroll-state(scrolled:bottom){ 
             translate: 0 -100%;
         }
 

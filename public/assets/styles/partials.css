@@ -173,7 +173,7 @@ header.opdrachten-header {
     }
 }
 
-/* partial newslist.liquid */
+/* MARK: partial newslist.liquid */
 .list-news{
     ul{
         padding: 0;
@@ -490,7 +490,7 @@ p.paragraph {
     animation: flowIn 0.4s ease-in forwards; */
 
 
-/* partial back-to-top-btn.liquid */
+/* MARK: partial back-to-top-btn.liquid */
 .to-top-btn{
     translate:0 calc(100% + 1em);
     
