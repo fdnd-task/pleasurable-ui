@@ -61,7 +61,7 @@ app.get('/instrumenten', async function (request, response) {
   const soort = request.query.instrument
 
   if (soort) {
-    params.set('filter[instrument][_eq', soort)
+    params.set('filter[instrument][_eq]', soort)
   }
   
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
