@@ -379,7 +379,7 @@ header.nav-header {
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  width: clamp(20em, 100%, 25em);
+  width: 100%;
 
   section {
     display: flex;
