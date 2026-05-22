@@ -42,17 +42,15 @@
 
         <p>Ben jij ready voor een uitdaging? Op onze veldverkenner doe jij leuke opdrachten en leer je wat bij over het groen in ons park.</p>
 
-        <a href="/veldverkenner">
-            {% render 'partials/picture.liquid',
-                imagesrc: "/assets/images/map-image",
-                width: "275",
-                height: "140",
-                alt: "Kaart van de veldverkenner",
-                class: "landscape",
-                fetch: "auto",
-                loading: "lazy",
-            %}
-        </a>
+        {% render 'partials/picture.liquid',
+            imagesrc: "/assets/images/map-image",
+            width: "275",
+            height: "140",
+            alt: "Kaart van de veldverkenner",
+            class: "landscape",
+            fetch: "auto",
+            loading: "lazy",
+        %}
 
         {% render 'partials/link.liquid',
             href: "/veldverkenner",
