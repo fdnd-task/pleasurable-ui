@@ -361,6 +361,7 @@ header.nav-header {
   display: grid;
   gap: 1em;
   padding-inline: 1em;
+  margin-block: var(--space-3xl);
 
   @media (width >=600px) {
     grid-template-columns: repeat(2, 1fr);
