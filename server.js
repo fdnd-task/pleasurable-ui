@@ -52,6 +52,7 @@ app.get("/talent-awards", async function (request, response) {
 app.get("/nieuws", async function name(request, response) {
   const params = {
     fields: "title,description,date",
+    sort: "-date_created",
   };
 
   const newsResponse = await fetch(
