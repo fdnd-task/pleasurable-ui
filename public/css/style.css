@@ -377,8 +377,8 @@ header.nav-header {
   border: var(--space-3xs) solid var(--primary-900);
   border-radius: var(--space-md);
   padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
   gap: var(--space-md);
   width: 100%;
 
