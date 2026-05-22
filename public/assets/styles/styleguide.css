@@ -155,7 +155,7 @@ p,a,button {
     font-family: main;
     font-weight: 400;
     font-size: var(--paragraph);
-    color: var(--dark-text);
+    color: var(--accent-color);
     text-decoration: none;
 }
 

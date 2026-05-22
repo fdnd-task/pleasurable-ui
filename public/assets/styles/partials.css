@@ -283,6 +283,7 @@ main.home p.niks-gespaard-veldverkenner {
 
     .veldverkenner {
         font-weight: bolder;
+        color: var(--accent-color);
     }
 }
 
