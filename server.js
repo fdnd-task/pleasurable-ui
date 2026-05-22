@@ -57,8 +57,6 @@ app.get('/district/:district_name', async function (req, res) {
     url += `&filter[target_group][_eq]=${targetGroup}`
   }
 
-  console.log('DIRECTUS URL:', url)
-
   const districtDetailResponse = await fetch(url)
   const districtDetailResponseJSON = await districtDetailResponse.json()
 
@@ -68,13 +66,15 @@ app.get('/district/:district_name', async function (req, res) {
   const allJSON = await allResponse.json()
   const targetGroups = [...new Set(allJSON.data.map(s => s.target_group).filter(Boolean))]
 
-  res.render('district.liquid', {
+  const articles = {
     district: districtDetailResponseJSON.data,
     districtName: district,
     targetGroups,
     activeGroup: targetGroup,
     activeSort: sortOption
-  })
+  }
+
+  res.render('district.liquid', articles)
 })
 
 
