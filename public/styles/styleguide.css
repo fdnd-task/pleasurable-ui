@@ -6,10 +6,10 @@
 
 :root {
     /* Accent colors */
-    --color-primary: #bf410b;
-    --color-success: #005D66;
+    --primary-color: #bf410b;
+    --success-color: #005D66;
 
-    --color-highlight: #FFE4D8;
+    --highlight-color: #FFE4D8;
 
     /* District colors */
     --nieuw-west: #4a5b18;
@@ -26,8 +26,8 @@
 @media (prefers-color-scheme: dark) {
     :root {
         /* Accent colors */
-        --color-primary: #F9C19D;
-        --color-success: #699DA2;
+        --primary-color: #F9C19D;
+        --success-color: #699DA2;
 
         /* District colors */
         --nieuw-west: #8EA34B;
