@@ -387,6 +387,7 @@ header{
     justify-content: space-between;
     place-items: center;
     padding: .5rem .4rem;
+    border-bottom: 1px solid #BF410B;
     @media (min-width: 1200px) {
       padding: .5rem .6rem ;
   }
