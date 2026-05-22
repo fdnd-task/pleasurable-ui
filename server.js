@@ -402,7 +402,35 @@ app.get('/nieuws', async (req, res) => {
 
 app.get('/nieuws/:slug', async (request, response) => {
     const data = await fetchData(`frankendael_news?filter[slug][_eq]=${request.params.slug}`);
-    response.render('news-detail.liquid', { newsItem: { ...data[0], image: assetUrl(data[0].image) }, zone_type: 'news', current_path: request.path });
+
+    const commentParams = new URLSearchParams({
+        'filter[news]': data[0].id,
+        'sort': '-date_created'
+    });
+
+     const comments = await fetchData(`frankendael_news_comments?${commentParams}`) || [];
+
+
+    response.render('news-detail.liquid', { newsItem: { ...data[0], image: assetUrl(data[0].image) }, zone_type: 'news', current_path: request.path,         newsItem: { ...data[0], image: assetUrl(data[0].image) }, 
+        comments: comments,
+        zone_type: 'news', 
+        current_path: request.path  });
+});
+
+app.post('/nieuws/:id/:slug', async (request, response) => {
+    await fetch(`${API_BASE}/frankendael_news_comments`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            news: request.params.id,
+            comment: request.body.comment,
+            name: request.body.name
+        })
+    });
+
+    response.redirect(`/nieuws/${request.params.slug}#reviews`);
 });
 
 app.get('/login', (_req, res) => res.render('login.liquid'));
