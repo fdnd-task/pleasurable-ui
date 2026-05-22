@@ -79,6 +79,12 @@ app.get('/instrumenten', async function (request, response) {
 
   const sort = request.query.sort || '-id'
   params.append('sort', sort)
+
+  const soort = request.query.instrument
+
+  if (soort) {
+    params.set('filter[instrument][_eq]', soort)
+  }
   
   const zoekterm = request.query.zoeken
   if (zoekterm) {
@@ -90,9 +96,9 @@ app.get('/instrumenten', async function (request, response) {
 
   response.render('overzicht.liquid', { 
     instrumenten: instrumentResponseJSON.data,
-    aantalResultaten: instrumentResponseJSON.data.length,
-  zoekterm: zoekterm
- })
+    zoekterm: zoekterm,
+    soort: soort,
+    aantalResultaten: instrumentResponseJSON.data.length })
 })
 
 app.get('/instrumenten/nieuw', async function (request, response) {
