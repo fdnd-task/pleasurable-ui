@@ -449,9 +449,8 @@ header{
 }
 
 .menu-toggle-outer{
+  padding-top: 3px;
   list-style: none;
-  place-content: center;
-  place-items: center;
   border-radius: 0.5rem;
   height: 2rem;
   width: 2rem;
@@ -461,18 +460,51 @@ header{
 }
 
 .menu-toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
   background: none;
   border: none;
-  display: flex;
-  flex-direction: column;
-  gap: .3rem;
   cursor: pointer;
   border-radius: 0.8rem;
   .span-menu{
+    display: block;
     width: 22px;
     height: 3px;
     background: rgba(0, 0, 0, 1);
+    position: absolute;
+    transition: .25s ease-in-out;
   }
+}
+
+.span-menu:nth-child(1) {
+  top: 0;
+}
+
+.span-menu:nth-child(2),
+.span-menu:nth-child(3) {
+  top: 10px;
+}
+
+.span-menu:nth-child(4) {
+  top: 20px;
+}
+
+details[open] .span-menu:nth-child(1),
+details[open] .span-menu:nth-child(4) {
+  width: 0;
+  left: 50%;
+}
+
+details[open] .span-menu:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+details[open] .span-menu:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
 .mobile-nav {

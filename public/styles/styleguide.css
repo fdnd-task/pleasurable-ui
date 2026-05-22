@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Accent colors */
+    --primary-color: #bf410b;
+    --success-color: #005D66;
+
+    --highlight-color: #FFE4D8;
+
+    /* District colors */
+    --nieuw-west: #4a5b18;
+    --oost: #34356A;
+    --zuidoost: #005D66;
+    --algemeen: #F1F1F1;
+
+    /* Neutral colors */
+    --background-color: #FFFFFF;
+    --text-color: #1E1E1E;
+    --heading-color: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Accent colors */
+        --primary-color: #F9C19D;
+        --success-color: #699DA2;
+
+        /* District colors */
+        --nieuw-west: #8EA34B;
+        --oost: #B3BCD0;
+        --zuidoost: #699DA2;
+        --algemeen: #262626;
+
+        /* Neutral colors */
+        --background-color: #000000;
+        --text-color: #F1F1F1;
+        --heading-color: #FFFFFF;
+    }
+}
