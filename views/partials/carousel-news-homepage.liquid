@@ -11,17 +11,22 @@
                     <p class="bloemendveld">Bloemendveld</p>
                     <p class="tijd">4u geleden</p>
                 </div>
-                    <h4 class="titel">{{ news.title }}</h4>
 
-                        {% render 'partials/picture.liquid',
-                            imagesrc: news.image,
-                            width: "550",
-                            height: "280",
-                            alt: news.title,
-                            class: "landscape",
-                            fetch: "auto",
-                            loading: "eager",
-                        %}
+                    {% render 'partials/general-heading.liquid',
+                        heading_level: 3,
+                        content: news.title,
+                        my_class: "heading-news"
+                    %} 
+
+                    {% render 'partials/picture.liquid',
+                        imagesrc: news.image,
+                        width: "550",
+                        height: "280",
+                        alt: news.title,
+                        class: "landscape",
+                        fetch: "auto",
+                        loading: "eager",
+                    %}
             </article>
         </a>
 

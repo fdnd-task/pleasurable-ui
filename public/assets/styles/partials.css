@@ -346,6 +346,11 @@ main.home p.niks-gespaard-veldverkenner {
         }
     }
 
+    .heading-news { 
+        font-size: var(--heading-small);
+        color: var(--always-dark);
+    }
+
     .bloemendveld {
         font-size: 0.8em;
         display: inline-flex;
