@@ -370,7 +370,6 @@ footer {
     margin: 0;
   }
 
-<<<<<<< 9-feature-candidate-page
 }
 
 /* Detail pagina */
@@ -423,17 +422,18 @@ figure img {
     border-radius: var(--default-radius);
 }
 
- .logo {
+ .logo { 
     background-color: var(--primary-100);
     border-radius: var(--default-radius);
     padding: var(--space-2xl);
-}
 
- .logo img {
-    width: 200px;
-    max-width: 100%;
-    margin: 0 auto;
-}
+
+        img {
+        width: 200px;
+        max-width: 100%;
+        margin: 0 auto;
+     }
+ }
 
 blockquote {
     margin: 0;
@@ -460,14 +460,4 @@ blockquote {
         flex: 1;
     }
 }
-=======
-  hr {
-    margin-top: var(--space-xl);
-    height: 1px;
-    background-color: currentColor;
-    border: 0;
-    width: 100%;
-    opacity: 0.3;
-  }
->>>>>>> main
 }
