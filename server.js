@@ -27,7 +27,7 @@ app.get("/", async function (request, response) {
   response.render("index.liquid");
 });
 
-app.get('/nominations/:slug', async function (request, response) {
+app.get('/talent-awards/:slug', async function (request, response) {
   const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/adconnect_nominations?filter[slug][_eq]=${request.params.slug}`)
   const apiResponseJSON = await apiResponse.json()
 
