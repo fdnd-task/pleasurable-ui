@@ -449,7 +449,7 @@ blockquote {
 /* einde one column layout */
 
 /* Grotere schermen */
-@media (width > 768px) {
+@media (width >= 768px) {
     .split {
         display: flex;
         align-items: center;
