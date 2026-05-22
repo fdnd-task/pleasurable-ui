@@ -1,0 +1,27 @@
+<article class="news-card">
+  <section>
+    <img src="assets/images/calendar.svg" alt="calendar icon" loading="lazy" fetchpriority="auto">
+    <p>{{ date | date: '%d-%m-%Y' }}</p>
+  </section>
+  <h2>{{ title }}</h2>
+  <p>{{ description }}</p>
+
+  {% comment %} style should be secondary button but the styling does not exist yet {% endcomment %}
+  {% render 'partials/link-button.liquid',
+    link: '#',
+    text: 'meer informatie',
+    target: '_self',
+    style: 'primary-button'
+  %}
+</article>
+
+{% comment %}
+  This is how you use the news card partial
+        {%
+          render 'partials/news-card.liquid',
+          date: 'put here the date json in from directus'
+          title: 'blank'
+          description: 'blank'
+          style: btnStyle | default: 'primary-button',
+        %}
+{% endcomment %}

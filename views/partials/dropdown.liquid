@@ -1,0 +1,18 @@
+<details class="dropdown {{ style |  default: 'primary-dropdown' }}">
+  <summary>
+    <h3>
+      {{ title }}
+    </h3>
+  </summary>
+  <p>
+    {{ content }}
+  </p>
+</details>
+
+{% comment %}
+  {% render 'partials/dropdown.liquid',
+    title: 'Dropdown title',
+    content: 'Dropdown content',
+    style: 'custom style default is primary-dropdown'
+  %}
+{% endcomment %}
