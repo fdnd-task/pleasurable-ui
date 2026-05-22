@@ -104,23 +104,23 @@
 
 /* news card styling */
 .news-card {
-    border: var(--space-3xs) solid var(--primary-900);
-    border-radius: var(--space-md);
-    padding: var(--space-md);
+  border: var(--space-3xs) solid var(--primary-900);
+  border-radius: var(--space-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: clamp(20em, 100%, 25em);
+
+  section {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-    width: clamp(20em, 100%, 25em);
+    align-items: flex-start;
+    gap: var(--space-xs);
+  }
 
-    section {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-xs);
-    }
-
-    a {
-        width: fit-content;
-    }
+  a {
+    width: fit-content;
+  }
 }
 
 /* button styling */
@@ -179,7 +179,7 @@
     padding: var(--space-sm);
     border-radius: var(--space-md);
 
-    @media (prefers-reduced-motion:  no-preference) {
+    @media (prefers-reduced-motion: no-preference) {
       transition: linear .2s;
     }
 
@@ -194,6 +194,12 @@
 
     &:focus {
       outline: var(--space-3xs) solid var(--primary-100);
+      /* turn the variable negative */
+      outline-offset: calc(var(--space-xs) * -1);
+    }
+
+    &:hover {
+      outline: var(--space-3xs) solid var(--primary-200);
       /* turn the variable negative */
       outline-offset: calc(var(--space-xs) * -1);
     }
@@ -239,7 +245,7 @@
   }
 }
 
-/* priamry dropdown */
+/* primary dropdown */
 
 .primary-dropdown {
   color: var(--text-color-secondary);
@@ -250,71 +256,65 @@
 
   p {
     background-color: var(--primary-700);
-
     place-content: center;
+  }
 
-    &:hover {
-        background-color: var(--primary-200);
-        color: var(--text-color);
-        scale: 1.05;
-    }
+  &:focus {
+    outline: var(--space-3xs) solid var(--primary-200);
+    /* turn the variable negative */
+    outline-offset: calc(var(--space-xs) * -1);
+  }
 
-    &:focus {
-        outline: var(--space-3xs) solid var(--primary-200);
-        /* turn the variable negative */
-        outline-offset: calc(var(--space-xs) * -1);
-        scale: 1.05;
-    }
 }
 
 /* talent awards page */
 
 .candidate-list {
-    font-family: var(--font-body);
+  font-family: var(--font-body);
 
-    ul {
-        display: grid;
-        gap: var(--space-lg);
-        justify-content: space-between;
-        width: 100%;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: var(--space-xl);
-    }
+  ul {
+    display: grid;
+    gap: var(--space-lg);
+    justify-content: space-between;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+  }
 }
 
 .candidate-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: auto;
-    height: 400px;
-    background-color: var(--primary-200);
-    padding: var(--space-lg);
-    margin: auto;
-    border-radius: var(--space-md);
-    gap: var(--space-sm);
+  display: grid;
+  grid-template-columns: 1fr;
+  width: auto;
+  height: 400px;
+  background-color: var(--primary-200);
+  padding: var(--space-lg);
+  margin: auto;
+  border-radius: var(--space-md);
+  gap: var(--space-sm);
 
-    h3 {
-        grid-row: 2;
+  h3 {
+    grid-row: 2;
+  }
+
+  p {
+    grid-row: 3;
+  }
+
+  a {
+    grid-row: 4
+  }
+
+  picture {
+    grid-row: 1;
+
+    img {
+      border-radius: var(--img-radius);
+      width: 100%;
+      display: block;
+      object-fit: cover;
     }
-
-    p {
-        grid-row: 3;
-    }
-
-    a {
-        grid-row: 4
-    }
-
-    picture {
-        grid-row: 1;
-
-        img {
-            border-radius: var(--img-radius);
-            width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-    }
+  }
 }
 
 /* FOOTER */
@@ -344,11 +344,11 @@ footer {
     grid-template-columns: 1fr;
     gap: var(--space-md);
 
-    @media (width >= 600px) {
+    @media (width >=600px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (width >= 900px) {
+    @media (width >=900px) {
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-3xl);
     }
