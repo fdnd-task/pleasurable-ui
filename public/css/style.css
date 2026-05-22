@@ -197,6 +197,12 @@
       /* turn the variable negative */
       outline-offset: calc(var(--space-xs) * -1);
     }
+
+    &:hover {
+      outline: var(--space-3xs) solid var(--primary-200);
+      /* turn the variable negative */
+      outline-offset: calc(var(--space-xs) * -1);
+    }
   }
 }
 
