@@ -10,7 +10,7 @@
   <body>  
 
 <header>
-  <ul>
+  <ul class="container">
     <li>{% render './partials/link-button.liquid', link: '#', text: 'FAQ', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Over ons', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Contact', style: 'nav-link' %}</li>
@@ -33,7 +33,7 @@
       {% render './partials/link-button.liquid', link: '#', text: 'Kom naar Ad-dag', style: 'secondary-button' %}
   </div>
   
-  <button class="popover-button" popovertarget="menu">
+  <button class="popover-button open-button" popovertarget="menu">
     <img src="/assets/open-menu.svg">
   </button>
   </nav>

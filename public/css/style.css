@@ -1,7 +1,6 @@
 /* header styling */
 header {
   background-color: var(--primary-700);
-  max-width: 1400px;
   padding: var(--space-xs) 0;
 
   ul {
@@ -23,22 +22,27 @@ header {
 
 /* mobile first nav styling */
 .desktop-nav {
-  max-width: 1400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-md);
 
-  .popover-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
   .link-and-button-desktop,
   .link-nav {
     display: none;
   }
+}
+
+.popover-button {
+  all: unset;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popover-button img {
+  width: 50px;
+  height: 50px;
 }
 
 /* mobile popover */
@@ -53,10 +57,21 @@ header {
     background-color: rgba(0, 0, 0, 0.713);
   }
 
+  .popover-button {
+    position: absolute;
+    left: 70%;
+  }
+
   .link-and-button {
     display: flex;
     flex-direction: column;
     gap: var(--space-2xl);
+    align-items: flex-end;
+    margin-top: var(--space-2xl);
+
+    ul {
+      text-align: right;
+    }
   }
 
   /* needed to style secondary button inverted in the popover*/
@@ -94,19 +109,26 @@ header {
       text-decoration: none;
     }
   }
+
+  #menu>.popover-button {
+    align-self: flex-end;
+  }
 }
 
 /* desktop nav */
 @media (width >=1185px) {
   .desktop-nav {
     height: 100px;
+    background-color: var(--triary-background-color);
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-items: center;
     gap: var(--space-2xl);
-    padding: var(--space-xl);
-    background-color: var(--triary-background-color);
     justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
 
     .link-nav {
       display: flex;
@@ -186,6 +208,8 @@ header {
     }
   }
 }
+
+@media (width >=321) {}
 
 /* button styling */
 
