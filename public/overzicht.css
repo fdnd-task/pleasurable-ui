@@ -9,7 +9,7 @@
     font-family: akkuratreg, sans-serif;
     margin: 0;
 
-        @media (max-width: 25rem) {
+        @media (min-width: 48rem) {
             padding: .6rem var(--spacing-md);
         }
 
@@ -47,18 +47,17 @@
     }
 
 .overzicht {
-    max-width: 60rem;
-    margin: 0 auto;
     padding: var(--spacing-md);
 
     .zoek-balk{
     display: flex;
     flex-direction: column;
+    justify-content: left;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);   
     
     @media (min-width: 30rem) {
-        flex-direction: row;
+        flex-direction: row-reverse;
         align-items: stretch;
     }
     }
@@ -134,7 +133,7 @@
         .desktop-menu {
             position: absolute;
             top: 100%;
-            right: 0;
+            left: 0;
             width: min(700px, 90vw);
             background: var(--color-brand-lightest);
             border: var(--border-width-sm) solid var(--color-brand-darkest);
