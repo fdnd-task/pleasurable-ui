@@ -266,6 +266,146 @@ ul.news.horizontal {
     }
 }
 
+
+/* partial overview my collectie homepage */
+main.home p.niks-gespaard-veldverkenner {
+    background-color: #BFF0FF; 
+    margin-top: 0;
+    margin-right: 2.5em;
+    border-radius: var(--border-card);
+    padding: 1.8em; 
+    text-align: center; 
+    font-weight: 400; 
+    color: var(--always-dark);
+
+    .veldverkenner {
+        font-weight: bolder;
+    }
+}
+
+
+/* NEWS horizontal styling homepage */
+.home-slide-nieuws {
+    display: flex;
+    overflow:scroll;
+
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+
+    a {
+        color: var(--zwart);
+        text-decoration: none;
+    }
+    
+
+    h4 {
+        font-size: 1.1em;
+        font-weight: 700;
+        display: inline-block;
+        margin-block: 0.7em;
+        color: var(--always-dark);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px; 
+        }
+    }
+
+    p {
+        color: var(--always-dark);
+    }
+}
+
+.nieuws-berichten {
+    margin: 0 1em 2em 0em;
+    padding: 1em;
+    background-color: #FFD27F; 
+    border-radius: var(--border-card);
+    height: 90%;
+
+    scroll-snap-align: center;
+    container-type: scroll-state;
+    overflow: clip;
+
+    a {
+        color: var(--zwart);
+        text-decoration: none;
+        font-size: 1.1em; 
+        font-weight: 700;
+        display: inline-block;
+        margin-block: 0.8em;
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;        
+        }
+    }
+
+    .heading-news { 
+        font-size: var(--heading-small);
+        color: var(--always-dark);
+    }
+
+    .bloemendveld {
+        font-size: 0.8em;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5em;
+        border: 1.5px solid rgb(0, 0, 0);
+        border-radius: 2em;
+        color: var(--always-dark);
+    }
+
+    img {
+        width: 100%;
+        height: 12em;
+        object-fit: cover; 
+        border-radius: var(--border-card);
+    }
+
+    .details {
+        font-size: 1em;
+        display: flex;
+        gap: 7em;
+        flex-direction: row;
+        width: 100%;
+
+        p {
+            color: var(--always-dark);
+        }   
+
+        .tijd {
+            align-self: center;
+            width: max-content;
+        }
+    } 
+}
+
+/* colors of the news items */
+.nieuws-berichten--orange { background-color: #FFD27F; }
+.nieuws-berichten--purple { background-color: #D4C5F0; }
+.nieuws-berichten--green  { background-color: #C8E6A0; }
+
+/* animation on the img news items */
+@supports (container-type: scroll-state) {
+    @media (prefers-reduced-motion: no-preference) {
+
+        @media (width < 450px) {
+            .nieuws-berichten img {
+                opacity: 0;
+
+                @container scroll-state(snapped: x) {
+                    opacity: 1;
+                    transition: opacity 2s;
+                }
+            }
+        }
+    }
+}
+
+
 /* partial mycollection.liquid */
 ul.my-collection {
     display: grid;
