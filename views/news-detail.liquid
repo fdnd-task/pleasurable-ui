@@ -48,7 +48,15 @@
 
         {% else %}
             {% comment %} Empty state {% endcomment %}
-        <img src="/assets/images/emptyState.png" width="100" height="100" alt="Geen opmerking">    
+
+        {% render 'partials/picture.liquid',
+            imagesrc: "/assets/images/emptyState",
+            width: "800",
+            height: "400",
+            alt: "Geen opmerking",
+            fetch: "high",
+            loading: "eager",
+        %}  
         <p>Er zijn nog geen berichten voor dit artikel.</p>
         {% endfor %}
 
