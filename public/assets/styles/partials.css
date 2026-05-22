@@ -448,7 +448,7 @@ ul.quest {
     }
 }
 
-/* MARK: COMMENTS INPUT */
+/* MARK: FORM OPMERKING */
     .comment {
         display: flex;
         flex-direction: column;
@@ -521,6 +521,47 @@ ul.quest {
         }
     }
 
+    /* MARK: Opmerkingen */
+    /* COMMENTS */
+    .messages {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        align-self: center;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        gap: .5rem;
+
+        .message-wrap {
+            padding: 1rem;
+            border-bottom: solid var(--background-color-6);
+            border-radius: 10px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .comment-name {
+            font-family: main;
+            font-weight: 600;
+        }
+
+        .date-created {
+            display: flex;
+            align-self: flex-end;
+            font-family: main;
+            text-decoration: overline;
+        }
+
+        h3 {
+            padding-top: 2rem;
+        }
+
+        p, form {
+            padding: 0.5rem 0 0.5rem 0;
+            font-family: main;
+            color: var(--dark-text);
+            align-self: center;
+        }
+    }
 
 .breadcrumb-container {
 
