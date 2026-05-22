@@ -47,7 +47,10 @@
       box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 15%);
       color: #212121;
       text-decoration: none;
-      transition: 0.3s ease-out;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: 0.3s ease-out;
+      }
 
       &:hover {
         background-color: #ccc;
@@ -74,7 +77,10 @@
         left: 0;
         top: 0;
         translate: -110% 0;
-        transition: 0.3s ease-out;
+
+        @media (prefers-reduced-motion: no-preference) {
+          transition: 0.3s ease-out;
+        }
       }
 
       @media (min-width: 900px) {
@@ -245,7 +251,10 @@ footer {
           width: 0%;
           height: 2px;
           background-color: black;
-          transition: 0.3s ease-out;
+
+          @media (prefers-reduced-motion: no-preference) {
+            transition: 0.3s ease-out;
+          }
         }
 
         &:hover::after {
