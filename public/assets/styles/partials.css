@@ -9,10 +9,7 @@ ul.carousel {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none; 
-
-    &::-webkit-scrollbar { 
-        display: none; 
-    }
+    
 
     li {
         flex: 0 0 100%;
@@ -521,7 +518,6 @@ ul.quest {
         }
     }
 
-
 .breadcrumb-container {
 
     display: flex;
@@ -571,6 +567,7 @@ ul.quest {
 p.paragraph {
     margin-block: 1rem;
 }
+
 
 /* css to transform headings, will come back later */
 
