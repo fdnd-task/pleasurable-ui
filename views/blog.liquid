@@ -1,47 +1,59 @@
 {% include 'partials/head.liquid' %}
-<main>
+<main class="blog">
   {% comment %} begin arike; {% endcomment %}
   <h1>Blog van Milledoni</h1>
 
   {% comment %} eerste atrikel: sinterklaas {% endcomment %}
-  <picture>
-    <source type="image/avif" srcset="img.avif">
-    <source type="image/webp" srcset="img.webp">
-    <img src="sinterklaas.png" alt="Een plaatje van de sinterklaas artikel" width="200" height="200">
-  </picture>
+  <section class="section-article">
+    <picture>
+      <source type="image/avif" srcset="assets/images/sinterklaas.avif">
+      <source type="image/webp" srcset="assets/images/sinterklaas.webp">
+      <img class="sinterklaas-arikel" src="assets/images/sinterklaas.png" alt="Een plaatje van de sinterklaas artikel" width="300" height="200">
+    </picture>
 
-  <h2>16x Last-minute Sinterklaascadeaus mét een persoonlijke touch!</h2>
-  <p>
-    Geen tijd meer om een perfect cadeau te regelen? Geen stress! Ontdek 16 originele en persoonlijke Sinterklaascadeaus
-    die je zo vanuit huis kunt regelen.
-  </p>
+    <h2 class="sinterklaas-arikel-h2">16x Last-minute Sinterklaascadeaus mét een persoonlijke touch!</h2>
+    <p class="sinterklaas-arikel-p">
+      Geen tijd meer om een perfect cadeau te regelen? Geen stress! Ontdek 16 originele en persoonlijke Sinterklaascadeaus
+      die je zo vanuit huis kunt regelen.<a href="/">
+    </p>
+  </section>
+
+  <div class="section-divider"></div>
 
   {% comment %} tweede atrikel: mimosa/vrouwendag {% endcomment %}
-  <picture>
-    <source type="image/avif" srcset="img.avif">
-    <source type="image/webp" srcset="img.webp">
-    <img src="mimosa.png" alt="dit plaatje hoort bij de atrikel van vrouwendag" width="200" height="200">
-  </picture>
+  <section class="section-article">
+    <picture>
+      <source type="image/avif" srcset="assets/images/mimosa-img.avif">
+      <source type="image/webp" srcset="assets/images/mimosa-img.webp">
+      <img class="mimosa-arikel" src="assets/images/mimosa-img." alt="dit plaatje hoort bij de atrikel van vrouwendag" width="300" height="200">
+    </picture>
 
-  <h2>Mimosa: een klein, krachtig cadeau voor Internationale Vrouwendag</h2>
-  <p>
-    Op 8 maart vieren we Internationale Vrouwendag. Een dag van erkenning, bewustwording en solidariteit. Maar ook een
-    dag waarop een klein gebaar een groot verschil kan maken
-  </p>
+    <h2 class="mimosa-arikel-h2">Mimosa: een klein, krachtig cadeau voor Internationale Vrouwendag</h2>
+    <p class="mimosa-arikel-p">
+      Op 8 maart vieren we Internationale Vrouwendag. Een dag van erkenning, bewustwording en solidariteit. Maar ook een
+      dag waarop een klein gebaar een groot verschil kan maken
+    </p>
+  </section>
+
+  <div class="section-divider"></div>
 
   {% comment %} derde artikel: doe-cadeaus {% endcomment %}
-  <picture>
-    <source type="image/avif" srcset="img.avif">
-    <source type="image/webp" srcset="img.webp">
-    <img src="foodies-artikel.png" alt="dit plaatje hoort bij de artikel van de doe-cadeaus" width="200" height="200">
-  </picture>
+  <section class="section-article">
+    <picture>
+      <source type="image/avif" srcset="assets/images/foodies-artikel.avif">
+      <source type="image/webp" srcset="assets/images/foodies-artikel.webp">
+      <img class="foodies-arikel" src="assets/images/foodies-artikel.png" alt="dit plaatje hoort bij de artikel van de doe-cadeaus" width="300" height="200">
+    </picture>
 
-  <h2>De leukste creatieve doe cadeaus voor foodies en kookliefhebbers</h2>
-  <p>
-    Zoek je een cadeau dat écht in de smaak valt bij iemand die gek is op koken, bakken of eten? Hier zijn vijf
-    originele ideeën waarmee je gegarandeerd indruk maakt! Perfect voor een verjaardag, bedankje of zomaar om iemand te
-    verrassen.
-  </p>
-</main>
+    <h2 class="foodies-arikel-h2">De leukste creatieve doe cadeaus voor foodies en kookliefhebbers</h2>
+    <p class="foodies-arikel-p">
+      Zoek je een cadeau dat écht in de smaak valt bij iemand die gek is op koken, bakken of eten? Hier zijn vijf
+      originele ideeën waarmee je gegarandeerd indruk maakt! Perfect voor een verjaardag, bedankje of zomaar om iemand te
+      verrassen.
+    </p>
+  </main>
+  </section>
+
+  <div class="section-divider"></div>
 
 {% include 'partials/foot.liquid' %}
