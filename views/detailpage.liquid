@@ -25,24 +25,31 @@
               <dd>{{ nomination.previous_course }}</dd>
             </dl>
           </header>
-          <figure>
-            <picture>
-              <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=avif&q=80">
-              <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=webp">
-              <img src="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826" alt="Portretfoto van Rhodé Treur" width="800" height="800" fetchpriority="high">
-            </picture>
-          </figure>
+          {% assign foto = 'https://fdnd-agency.directus.app/assets/' |  append: nomination.profile_picture, %}
+        <figure>
+                {% render 'partials/image.liquid',
+                imageSrc: foto,
+                width: '800',
+                height: '800',
+                alt: 'Portretfoto van Rhodé Treur',
+                fetch: 'high',
+                loading: 'lazy'
+               %}
+               </figure>
         </article>
       </section>
 
       <section class="layout">
         <article class="container split">
           <figure>
-            <picture>
-              <source type="image/avif" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=avif&q=80">
-              <source type="image/webp" srcset="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826?format=webp">
-              <img src="https://fdnd-agency.directus.app/assets/383622d7-ed2f-4e84-8c0a-9476c5c53826" alt="Portretfoto van Rhodé Treur" width="800" height="800" loading="lazy">
-            </picture>
+            {% render 'partials/image.liquid',
+            imageSrc: foto,
+            width: '800',
+            height: '800',
+            alt: 'Portretfoto van Rhodé Treur',
+            fetch: 'auto',
+            loading: 'lazy'
+            %}
           </figure>
           <section>
             <h2>Introductie</h2>
@@ -64,11 +71,14 @@
             </footer>
           </section>
           <figure class="logo">
-            <picture>
-              <source type="image/avif" srcset="https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png?format=avif&q=80">
-              <source type="image/webp" srcset="https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png?format=webp">
-              <img src="https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png" alt="Logo Hogeschool van Amsterdam" width="400" height="400" loading="lazy">
-            </picture>
+            {% render 'partials/image.liquid',
+            imageSrc: 'https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png',
+            width: '400',
+            height: '400',
+            alt: 'Logo Hogeschool van Amsterdam',
+            fetch: 'auto',
+            loading: 'lazy'
+            %}
           </figure>
         </article>
       </section>
