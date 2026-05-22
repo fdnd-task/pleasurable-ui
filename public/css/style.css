@@ -191,7 +191,7 @@
 /* einde one column layout */
 
 /* Grotere schermen */
-@media (min-width: 768px) {
+@media (width > 768px) {
     .candidate-profile .split {
         display: flex;
         align-items: center;
