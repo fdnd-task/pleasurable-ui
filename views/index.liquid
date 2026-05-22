@@ -16,12 +16,14 @@
         %}
         
         Mijn account</a>
+
+        {% assign hoi_message = "Welkom, " | append: user.name %}
     </div>
 
     
     {% render 'partials/general-heading.liquid',
         heading_level: 1,
-        content: "Welkom (Naam)",
+        content: hoi_message,
     %}  
 
     {% render 'partials/overzicht-collectie-homepage.liquid'%}  
