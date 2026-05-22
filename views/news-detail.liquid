@@ -17,7 +17,7 @@
         {% comment %} MARK: COMMENT {% endcomment %}
         <section class="comment">
             <h3>Voeg een opmerking toe</h3>
-            <form action="/nieuws/{{ news.id }}/{{ news.slug }}" method="POST">
+            <form action="/nieuws/{{ newsItem.id }}/{{ newsItem.slug }}" method="POST">
                 <label class="name-input">
                     Naam:
                     <input type="text" name="name" placeholder="Voer je naam in" required>
@@ -34,6 +34,24 @@
                 </label>
             </form>
         </section>
+
+        {% comment %} Message box {% endcomment %}
+    <section class="messages">
+        <h3 id="reviews">{{ comments.size }} Opmerkingen</h3>
+
+        {% for comment in comments %}
+        <section class="message-wrap">
+            <p class="comment-name">{{ comment.name | default: "Onbekend" }}:</p>
+            <p class="comment-message"> {{ comment.comment }}</p> 
+            <p class="date-created">{{ comment.date_created | date: '%d-%m-%Y %H:%M' }}</p>
+        </section>
+
+        {% else %}
+            {% comment %} Empty state {% endcomment %}
+        <img src="/assets/images/emptyState.png" width="100" height="100">    
+        <p>Er zijn nog geen berichten voor dit artikel.</p>
+        {% endfor %}
+
     </article>
 </main>
 {% render 'partials/foot.liquid' %}
