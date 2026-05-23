@@ -38,11 +38,11 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-}
 
-.popover-button img {
-  width: 50px;
-  height: 50px;
+  .popover-button img {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 /* mobile popover */
@@ -121,14 +121,21 @@ header {
     height: 100px;
     background-color: var(--triary-background-color);
     display: flex;
-    width: 100%;
+    justify-content: center;
+    width: 100dvw;
     flex-direction: row;
     align-items: center;
     gap: var(--space-2xl);
-    justify-content: space-between;
-    max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+
+    .desktop-nav-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1400px;
+    }
 
     .link-nav {
       display: flex;
@@ -209,10 +216,16 @@ header {
   }
 }
 
-@media (width >=321) {}
+@media (prefers-reduced-motion: reduce) {
+  .nav-link,
+  .nav-link::after,
+  .nav-link:hover,
+  .nav-link:focus {
+    transition: none;
+  }
+}
 
 /* button styling */
-
 .primary-button {
   background-color: var(--primary-800);
   padding: var(--space-sm) var(--space-lg);
