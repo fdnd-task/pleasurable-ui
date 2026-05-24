@@ -387,7 +387,7 @@ header{
     justify-content: space-between;
     place-items: center;
     padding: .5rem .4rem;
-    border-bottom: 1px solid #BF410B;
+    border-bottom: 1px solid var(--primary-color);
     @media (min-width: 1200px) {
       padding: .5rem .6rem ;
   }
@@ -418,7 +418,7 @@ header{
     border: none;
     padding: .3rem .1rem;
     padding-left: 28px;
-    background: #D9D9D9;
+    background: #e3e3e3;
     font-size: .85rem;
     box-sizing: border-box;
   }
@@ -474,7 +474,7 @@ header{
     display: block;
     width: 22px;
     height: 3px;
-    background: rgba(0, 0, 0, 1);
+    background: var( --background-color);
     position: absolute;
     transition: .25s ease-in-out;
   }
@@ -513,7 +513,7 @@ details[open] .span-menu:nth-child(3) {
   position: absolute;
   top: 55px;
   right: 0;
-  background: light-dark(#f9f9f9, rgb(49, 49, 49));
+  background: light-dark(var(--background-color), var( --background-color));
   width: 100%;
   z-index: 10;
   max-height: 0; 
@@ -521,16 +521,16 @@ details[open] .span-menu:nth-child(3) {
   .mobile-nav-link{
       padding: 1rem;
       text-decoration: none;
-      border-bottom: 1px solid #e1e1e1;
+      border-bottom: 1px solid var(--highlight-color);
       font-weight: bold;
       text-align: center;
-      color: light-dark(black, #ffffff);
+      color: light-dark(var(--text-color), var(--text-color));
       @media (prefers-color-scheme: dark) {
-          color: white;
+          color: var(--text-color);
       }
     }
   @media (prefers-color-scheme: dark) {
-      background: black;
+      background: var(--background-color);
      }
   @media (prefers-reduced-motion: no-preference) {
     transition: max-height 0.3s ease, opacity 0.3s ease;
@@ -579,7 +579,7 @@ details[open]::details-content {
     position: relative;
   }
  .link-button-text{
-    color: black;
+    color: var(--text-color);
     font-weight: 600;
     font-size: var(--titel-small);
   }
@@ -603,7 +603,7 @@ details[open]::details-content {
   width: 0;
   height: 4px;
   border-radius: 3px;
-  background: rgb(255, 106, 0);
+  background: var(--primary-color);
   transition: width 0.40s ease;
 }
 
