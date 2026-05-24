@@ -23,6 +23,35 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+
+app.get('/', async function (request, response) {
+  response.render('index.liquid')
+})
+
+// this is to preview the news card the page will be updated in an other pull request 
+app.get('/nieuws', async function name(request, response) {
+  response.render('news.liquid')
+})
+
+// GET route voor de LAdO pagina
+// Haalt alle LAdO data op uit Directus en stuurt deze door naar lado.liquid
+app.get('/lado', async function (request, response) {
+
+  // Fetch data uit de Directus API
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/adconnect_lados')
+
+  // Zet de response om naar JSON
+  const apiResponseJSON = await apiResponse.json()
+
+  // Pak alleen de data array uit de response
+  const lados = apiResponseJSON.data
+
+  // Render de pagina en geef de lados data mee aan Liquid
+  response.render('lado.liquid', {
+    lados: lados
+  })
+})
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
