@@ -1,14 +1,11 @@
-<a class="{{style |  default: 'primary-button'}}" href="{{link}}" target="{{target}}">
-    <p>{{text}}</p>
+<a class="{{style | default: 'primary-button'}}" href="{{link |  default: '#'}}" target="{{target |  default: '_self'}}">
+    <p>{{text |  default: 'Click me'}}</p>
 </a>
 
 {% comment %} 
-This is how you use the link partial
-      {%
         render 'partials/link.liquid',
         link: btnLink,
         text: btnText,
-        target: '_blank'
-        style: btnStyle | default: 'primary-button',
+        style: btnStyle,
       %}
 {% endcomment %}

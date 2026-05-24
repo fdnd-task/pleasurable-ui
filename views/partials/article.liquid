@@ -9,13 +9,13 @@
         render 'partials/link-button.liquid',
         link: btnLink,
         text: btnText,
-        target: '_blank'
-        style: btnStyle | default: 'primary-button',
+        target: btnTarget
+        style: btnStyle,
       %}
     {% endif %}
 
-    {% render 'image.liquid',
-      imgSrc: imgURL,
+    {% render 'partials/image.liquid',
+      imageSrc: imgURL,
       width: imgWidth,
       height: imgHeight,
       alt: imgAlt,
@@ -40,7 +40,7 @@
         imgLoading: 'lazy',
         button: false,
         btnLink: 'https://fdnd.nl'
-        btnTekst: 'klik op mij',
+        btnText: 'klik op mij',
         btnTarger: 'blank',
         btnStyle: 'primary-button'
       %}

@@ -63,6 +63,7 @@
   a {
     grid-column: 1;
     width: fit-content;
+    height: min-content;
 
     @media (min-width: 800px) {
       grid-column: 1;
