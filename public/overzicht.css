@@ -16,11 +16,6 @@
 
     width: fit-content;
     margin-left: auto;
-
-        @media (min-width: 30rem) {
-            padding: 0.8rem var(--spacing-lg);
-        }
-
 }
 
 .zoek-knop {
