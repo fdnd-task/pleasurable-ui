@@ -141,6 +141,14 @@
     scale: 1.05;
   }
 
+  &:focus {
+    color: var(--text-color-secondary);
+    outline: var(--space-3xs) solid var(--primary-100);
+    /* turn the variable negative */
+    outline-offset: calc(var(--space-xs) * -1);
+    scale: 1.05;
+  }
+
 }
 
 
@@ -377,5 +385,104 @@ footer {
     border: 0;
     width: 100%;
     opacity: 0.3;
+  }
+
+}
+
+.secondary-button {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--default-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: solid var(--space-2xs) var(--primary-600);
+    transition: .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    place-content: center;
+
+    &:hover {
+        background-color: var(--primary-600);
+        color: var(--text-color-secondary);
+        scale: 1.05;
+    }
+
+    &:focus {
+        background-color: var(--primary-600);
+        color: var(--text-color-secondary);
+        outline: var(--space-2xs) solid var(--primary-100);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
+        scale: 1.05;
+    }
+}
+
+/* Home page */
+
+/* Discovery section */
+
+.discovery-section {
+    background-color: var(--primary-700);
+    font-family: var(--font-body);
+
+  article {
+    color: var(--text-color-secondary);
+    display: grid;
+    justify-content: center;
+    gap: var(--space-sm);
+
+    @media (width >=975px) {
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+
+    }
+  }
+
+  h2 {
+    grid-row: 1;
+    grid-column: 1/-1;
+    font-size: 30px;
+
+  }
+
+  p {
+    grid-row: 2;
+    grid-column: 1/-1;
+    font-size: 20px;
+
+  }
+}
+
+.info-card {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: var(--space-xl);
+    border-radius: var(--space-md);
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    gap: var(--space-sm);
+
+  img {
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto 0;
+  }
+
+  h3 {
+    grid-row: 1;
+    grid-column: 2;
+    font-size: 30px;
+    margin: auto 0;
+  }
+
+  p {
+    grid-row: 2;
+    grid-column: 1/-1;
+    line-height: 1.8;
+    font-size: 20px;
+  }
+
+  a {
+    grid-row: 3;
+    grid-column: 1/-1;
+    align-self: end;
   }
 }
