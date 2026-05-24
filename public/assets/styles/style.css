@@ -78,6 +78,10 @@
       width: 300px;
     }
 
+    .opgeslagen-product:nth-child(1n) {
+      height: 400px;
+}
+
     .lijst-button {
       background-color: #20a687;
       color: white;
@@ -95,7 +99,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
+  height: 10rem;
 
   input {
     position: absolute;
@@ -106,10 +111,10 @@
   .circle {
     display: none;
 
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
 
-    border: 2px solid goldenrod;
+    border: 2px solid #997700;
     border-radius: 50%;
 
     place-items: center;
@@ -120,8 +125,8 @@
       height 0.3s ease;
 
     img {
-      width: 28px;
-      height: 28px;
+      width: 58px;
+      height: 58px;
       object-fit: contain;
     }
   }
@@ -129,7 +134,7 @@
   .next {
     display: none;
     padding: 0.4rem 0.8rem;
-    background: goldenrod;
+    background:#997700;
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -164,8 +169,9 @@
 #step6:checked ~ .circle[for="step6"],
 #step7:checked ~ .circle[for="step7"],
 #step8:checked ~ .circle[for="step8"] {
-  width: 90px;
-  height: 90px;
+  width: 110px;
+  height: 110px;
+  border-width: 4px;
 }
 
 
@@ -189,4 +195,18 @@
       display: none !important;
     }
   }
+}
+.ribbon{
+display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 4px solid #997700;
+    height: 45px;
+    margin-top: 1rem;
+
+    img{
+
+      width: 80px;
+      height: 80px;
+    }
 }
