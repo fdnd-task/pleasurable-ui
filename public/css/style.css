@@ -205,3 +205,313 @@ footer {
     opacity: 0.3;
   }
 }
+/* 13) LADO */
+
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+.hero-section,
+.lado-section,
+.lado-overview,
+.news-section {
+    padding-inline: var(--space-md);
+}
+
+.lado-section,
+.news-section {
+    padding-block: var(--space-2xl);
+}
+
+.lado-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+
+    .lado-grid-item {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.lado-card {
+    width: 100%;
+    min-height: 210px;
+
+    border: 1.5px solid var(--primary-300);
+    border-radius: var(--default-radius);
+
+    background: var(--background-color);
+    color: var(--text-color);
+
+    overflow: hidden;
+
+    box-shadow: 0 var(--space-xs) var(--space-lg) hsl(180 36% 14% / 0.08);
+
+    &:hover {
+        background: var(--primary-100);
+        border-color: var(--primary-500);
+        transform: translateY(-3px);
+
+        .lado-summary h3,
+        .lado-read-more {
+            color: var(--primary-700);
+        }
+
+        .lado-plus::before,
+        .lado-plus::after {
+            background: var(--primary-700);
+        }
+    }
+
+    &[open] {
+        .lado-plus::after {
+            transform: scaleY(0);
+        }
+    }
+
+    .lado-summary {
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+
+        min-height: 210px;
+        padding: var(--space-lg) var(--space-3xl) var(--space-lg) var(--space-lg);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        h3 {
+            margin: 0;
+            max-width: 32rem;
+
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            line-height: 1.35;
+
+            color: var(--text-color);
+        }
+
+        .lado-read-more {
+            margin: 0;
+
+            font-size: 1rem;
+            font-weight: 500;
+
+            color: var(--text-color);
+        }
+    }
+
+    .lado-detail-content {
+        padding: 0 var(--space-lg) var(--space-lg);
+
+        p {
+            margin: 0;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+    }
+}
+
+.lado-plus {
+    position: absolute;
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+
+    width: 18px;
+    height: 18px;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        background: var(--secondary-500);
+    }
+
+    &::before {
+        width: 18px;
+        height: 2px;
+        left: 0;
+        top: 8px;
+    }
+
+    &::after {
+        width: 2px;
+        height: 18px;
+        top: 0;
+        left: 8px;
+    }
+}
+
+.lado-overview {
+    width: 100%;
+
+    .lado-description {
+        margin-bottom: var(--space-lg);
+        line-height: 1.6;
+        color: var(--text-color);
+    }
+
+    .lado-grid {
+        gap: var(--space-lg);
+    }
+}
+
+.lado-accordion {
+    border-radius: var(--default-radius);
+    overflow: hidden;
+
+    box-shadow: 0 var(--space-xs) var(--space-lg) hsl(180 36% 14% / 0.08);
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+
+    summary {
+        list-style: none;
+        cursor: pointer;
+        position: relative;
+
+        padding: var(--space-lg) var(--space-3xl) var(--space-lg) var(--space-lg);
+
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 700;
+
+        background: var(--background-color);
+        color: var(--text-color);
+
+        border: 1.5px solid var(--primary-300);
+        border-radius: var(--default-radius);
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:hover {
+            background: var(--primary-100);
+            border-color: var(--primary-500);
+            color: var(--primary-700);
+        }
+
+        &::after {
+            content: "+";
+            position: absolute;
+            right: var(--space-lg);
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 1.4rem;
+            color: var(--secondary-500);
+        }
+    }
+
+    &[open] {
+        summary {
+            border-radius: var(--default-radius) var(--default-radius) 0 0;
+
+            &::after {
+                content: "–";
+            }
+        }
+    }
+
+    p {
+        margin: 0;
+        padding: 0 var(--space-lg) var(--space-md);
+
+        line-height: 1.7;
+
+        background: var(--background-color);
+        color: var(--text-color);
+
+        border-inline: 1.5px solid var(--primary-300);
+
+        &:first-of-type {
+            padding-top: var(--space-md);
+        }
+
+        &:last-of-type {
+            padding-bottom: var(--space-lg);
+            border-bottom: 1.5px solid var(--primary-300);
+            border-radius: 0 0 var(--default-radius) var(--default-radius);
+        }
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .lado-card,
+    .lado-accordion {
+        transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .lado-plus::before,
+    .lado-plus::after,
+    .lado-accordion summary::after {
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease,
+            color 0.2s ease;
+    }
+}
+
+@supports (interpolate-size: allow-keywords) and (selector(::details-content)) {
+    @media (prefers-reduced-motion: no-preference) {
+        .lado-card,
+        .lado-accordion {
+            interpolate-size: allow-keywords;
+
+            &::details-content {
+                block-size: 0;
+                opacity: 0;
+                overflow: hidden;
+
+                transition:
+                    content-visibility 0.35s allow-discrete,
+                    block-size 0.35s ease,
+                    opacity 0.35s ease;
+            }
+
+            &[open]::details-content {
+                block-size: auto;
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .page-container {
+        padding: 0 var(--space-md);
+    }
+
+    .lado-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .lado-card,
+    .lado-summary {
+        min-height: auto;
+    }
+
+    .lado-summary {
+        padding-right: var(--space-3xl);
+    }
+}
