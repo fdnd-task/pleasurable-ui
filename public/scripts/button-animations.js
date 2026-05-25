@@ -19,4 +19,4 @@ animationButtons.forEach(button => {
         }, 8000);
 
     });
-});
+}); 

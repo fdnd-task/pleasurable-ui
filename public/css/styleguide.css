@@ -192,7 +192,7 @@ as a fallback for JS script */
 .secondary-button .fail-text {
     display: none;
 }
-
+ 
 .nav-link .loading-dots,
 .nav-link .success-text,
 .nav-link .fail-text {
