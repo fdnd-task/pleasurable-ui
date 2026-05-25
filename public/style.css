@@ -50,6 +50,22 @@
 }
 
 /* Sort select */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.select-wrapper::after {
+    content: '▾';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--oost);
+    font-size: 0.9rem;
+}
+
 #sortSelect {
     appearance: none;
     padding: 8px 36px 8px 16px;
