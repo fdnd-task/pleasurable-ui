@@ -1,3 +1,4 @@
+console.log('SERVER UPDATED')
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
 import express from 'express'
@@ -32,6 +33,25 @@ async function getStories() {
 
   return apiResponseJSON.data
 }
+
+app.get('/', async function (request, response) {
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('index.liquid', {
+    stories: stories,
+    search: search
+  })
+})
 
 app.get('/algemeen', async function (request, response) {
   const search = request.query.search
