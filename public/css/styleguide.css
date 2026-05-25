@@ -37,7 +37,7 @@ html {
     --text-color: hsl(0, 0%, 0%);
     --text-color-secondary: hsl(0, 0%, 100%);
 
-    --backdrop: rgba(0, 0, 0, 0.713);
+    --backdrop: hsla(0, 0%, 0%, 0.713);
 
     /* typography */
     --font-body: "Archivo", sans-serif;
