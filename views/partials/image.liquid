@@ -15,14 +15,14 @@
 
 {% if imageSrc contains 'assets/images' %}
   <picture>
-    {% comment %} <source
+    <source
       srcset="{{ imageSrc }}.avif?width={{ width }}&height={{ height }}&quality=70"
       type="image/avif"
     >
     <source
       srcset="{{ imageSrc }}.webp?width={{ width }}&height={{ height }}&quality=70"
       type="image/webp"
-    > {% endcomment %}
+    >
     <img
       class="{{ class }}"
       src="{{ imageSrc }}?width={{ width }}&height={{ height }}&quality=60"
