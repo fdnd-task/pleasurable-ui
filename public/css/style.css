@@ -59,6 +59,10 @@ header {
   border: none;
   padding: var(--space-xl);
 
+  opacity: 0;
+  transform: translateX(100%);
+  transition: .5s linear;
+
   &::backdrop {
     background-color: var(--backdrop);
   }
@@ -119,6 +123,13 @@ header {
   #menu>.popover-button {
     align-self: flex-end;
   }
+}
+
+/* animation class for popover */
+
+#menu.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* desktop nav */
@@ -198,7 +209,7 @@ header {
 
 /* animate the after here */
 .nav-link:hover p::after,
-.nav-link:focus-visible p::after{
+.nav-link:focus-visible p::after {
   width: 100%;
   transform: scaleX(1);
   transition: inherit;

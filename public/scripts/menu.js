@@ -1,28 +1,24 @@
-const menu = document.querySelector('nav#menu')
-const body = document.querySelector('body')
-const mainContent = document.querySelectorAll('body > main, body > footer, .article-layout')
-const navBar = document.querySelectorAll('header ul')
+const menu = document.querySelector('#menu')
+const body = document.body
+const mainContent = document.querySelectorAll('body > *:not(#menu)')
 
-// scrolllock & tabblock
 menu.addEventListener("toggle", function () {
-    if (menu.open) {
-        body.style.overflow = 'hidden'
-        mainContent.forEach(el => el.inert = true)
-        navBar.forEach(link => {
-            link.inert = true
-        });
-    } else {
-        body.style.overflow = ''
-        mainContent.forEach(el => el.inert = false)
-        navBar.forEach(link => {
-            link.inert = false
-        });
-    }
-})
+    const isOpen = menu.matches(":popover-open");
 
-// pressing escape closes the hamburger menu
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        menu.removeAttribute('open')
+    if (isOpen) {
+        requestAnimationFrame(() => menu.classList.add("show"));
+
+        body.style.overflow = 'hidden'
+        mainContent.forEach(el => {
+            el.inert = true
+        })
+
+    } else {
+        requestAnimationFrame(() => menu.classList.remove("show"));
+
+        body.style.overflow = ''
+        mainContent.forEach(el => {
+            el.inert = false
+        })
     }
 })
