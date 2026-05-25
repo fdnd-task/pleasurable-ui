@@ -26,7 +26,10 @@ app.set("views", "./views");
 // HOME/CADEAU-OVERZICHT PRODUCTEN
 app.get("/", async function (request, response) {
 
-  const productParams = {}
+  const productParams = {
+    'sort' : 'name',
+    'filter[amount][_neq]': 0
+  }
 
   // Productdata ophalen met Directus API van Milledoni en filters meesturen
   const productResponse = await fetch(
@@ -46,7 +49,9 @@ app.get("/", async function (request, response) {
 
 // HOME/CADEAU-OVERZICHT PRODUCT OPSLAAN
 app.post("/save-product", async function (request, response) {
-  response.redirect('/')
+  response.redirect('/');
+});
+
 app.get("/blog", async function (request, response) {
   response.render("blog.liquid");
 });
