@@ -52,6 +52,7 @@ app.get('/lado', async function (request, response) {
   })
 })
 
+
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
@@ -60,3 +61,24 @@ app.set('port', process.env.PORT || 8000)
 app.listen(app.get('port'), function () {
   console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
 })
+
+const baseURL = 'https://fdnd-agency.directus.app/items/adconnect_'
+
+app.get('/', async function (request, response) {
+  response.render('index.liquid')
+})
+
+app.get('/talent-awards', async function (request, response) {
+   const awardsResponse = await fetch(baseURL + 'nominations')
+   const awardsResponseJSON = await awardsResponse.json()
+   response.render('talent-awards.liquid', {
+      nominations: awardsResponseJSON.data,
+      path: request.path
+   })
+})
+
+app.get('/nieuws', async function name(request, response) {
+  response.render('news.liquid')
+})
+
+
