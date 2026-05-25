@@ -386,6 +386,15 @@ footer {
   height: 10px;
 
 }
+@supports (animation-timeline:  scroll()){
+  #progress{
+    display: block;
+    transform-origin: 0 50%;
+    animation: grow-progress linear forwards;
+    animation-timeline: scroll();
+    animation-duration: auto;
+    
+  }
 .candidate-profile {
 
 img {
