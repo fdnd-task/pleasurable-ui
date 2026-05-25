@@ -14,7 +14,7 @@
     <main class="candidate-profile">
       <section class="layout hero">
         <article class="container split">
-          <hero class="nomiheader">
+          <div class="nomiheader">
             <h1>{{ nomination.title}}</h1>
             <dl>
               <dt>Instelling</dt>
@@ -26,7 +26,7 @@
               <dt>Vooropleiding</dt>
               <dd>{{ nomination.previous_course }}</dd>
             </dl>
-          </hero>
+          </div>
           {% assign foto = 'https://fdnd-agency.directus.app/assets/' |  append: nomination.profile_picture, %}
         <figure>
                 {% render 'partials/image.liquid',
