@@ -35,7 +35,19 @@ app.get("/wishlist", async function (request, response) {
   response.render("wishlist.liquid");
 });
 
+app.post("/verwijder", async function (request, response) {
 
+  // product-id ontvangen
+
+  // koppeling zoeken in Directus
+
+  // controleren of koppeling bestaat
+
+  // koppeling verwijderen
+
+  // redirect terug naar wishlist
+
+})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
