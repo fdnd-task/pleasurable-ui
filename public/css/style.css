@@ -1,5 +1,5 @@
 /* header styling */
-header {
+header.nav-header {
   background-color: var(--primary-700);
   padding: var(--space-xs) 0;
 
@@ -581,7 +581,7 @@ header {
 
 /* FOOTER */
 
-footer {
+footer.onderste-footer {
   background-color: var(--primary-700);
   color: var(--background-color);
   font-family: var(--font-body);
