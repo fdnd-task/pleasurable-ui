@@ -1,13 +1,18 @@
-<a class="{{style | default: 'primary-button'}}" href="{{link |  default: '#'}}" target="{{target |  default: '_self'}}">
-    <p>{{text |  default: 'Click me'}}</p>
-</a>
+  <a
+    class="{{style | default: 'primary-button'}} {{animation}}"
+    href="{{link |  default: '#'}}"
+    target="{{target |  default: '_self'}}"
+  >
+    <span class="button-text">{{ text | default: 'Click me' }}</span>
+    <div class="loading-dots"><span></span><span></span><span></span><span></span></div>
+  </a>
 
-{% comment %} 
-This is how you use the link partial
-      {%
-        render 'partials/link.liquid',
-        link: btnLink,
-        text: btnText,
-        style: btnStyle,
-      %}
+{% comment %}
+  This is how you use the link partial
+        {%
+          render 'partials/link.liquid',
+          link: btnLink,
+          text: btnText,
+          style: btnStyle,
+        %}
 {% endcomment %}

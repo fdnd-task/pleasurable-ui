@@ -231,53 +231,6 @@ header {
   }
 }
 
-/* button styling */
-.primary-button {
-  background-color: var(--primary-800);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--default-radius);
-  color: var(--primary-100);
-  border: solid var(--space-2xs) var(--primary-800);
-  transition: .2s ease;
-  text-decoration: none;
-  cursor: pointer;
-  place-content: center;
-
-  &:hover {
-    background-color: var(--primary-200);
-    color: var(--text-color);
-    scale: 1.05;
-  }
-
-  &:focus {
-    outline: var(--space-3xs) solid var(--primary-200);
-    /* turn the variable negative */
-    outline-offset: calc(var(--space-xs) * -1);
-    scale: 1.05;
-  }
-}
-
-.secondary-button {
-  display: inline;
-  font-family: var(--font-heading);
-  padding: var(--space-sm) var(--space-lg);
-  white-space: nowrap;
-  border-radius: var(--default-radius);
-  font-weight: 800;
-  color: var(--primary-700);
-  border: solid var(--space-3xs) var(--primary-700);
-  transition: .2s ease;
-  text-decoration: none;
-  cursor: pointer;
-  place-content: center;
-
-  &:hover {
-    background-color: var(--primary-700);
-    color: var(--triary-background-color);
-
-  }
-}
-
 /* article styling */
 .article-layout {
   article {

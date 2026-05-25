@@ -39,6 +39,8 @@ html {
 
     --backdrop: hsla(0, 0%, 0%, 0.713);
 
+    --success-color: hsl(123, 77%, 29%);
+
     /* typography */
     --font-body: "Archivo", sans-serif;
     --font-heading: "ClashDisplay", sans-serif;
@@ -128,4 +130,148 @@ h6 {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+}
+
+/* button styling */
+.primary-button {
+    background-color: var(--primary-800);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--default-radius);
+    color: var(--primary-100);
+    border: solid var(--space-2xs) var(--primary-800);
+    transition: .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    place-content: center;
+    display: flex;
+    width: max-content;
+
+    &:hover {
+        background-color: var(--primary-200);
+        color: var(--text-color);
+        scale: 1.05;
+    }
+
+    &:focus {
+        outline: var(--space-3xs) solid var(--primary-200);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
+        scale: 1.05;
+    }
+}
+
+.secondary-button {
+    font-family: var(--font-heading);
+    padding: var(--space-sm) var(--space-lg);
+    white-space: nowrap;
+    border-radius: var(--default-radius);
+    font-weight: 800;
+    color: var(--primary-700);
+    border: solid var(--space-3xs) var(--primary-700);
+    transition: .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    place-content: center;
+    display: flex;
+    width: max-content;
+
+    &:hover {
+        background-color: var(--primary-700);
+        color: var(--triary-background-color);
+
+    }
+}
+
+/* button animation base states */
+
+/* removes animated button classes for nav/secondary buttons */
+/* classes success-text and fail-text are part of progressive enhancement
+as a fallback for JS script */
+.secondary-button .loading-dots,
+.secondary-button .success-text,
+.secondary-button .fail-text {
+    display: none;
+}
+
+.nav-link .loading-dots,
+.nav-link .success-text,
+.nav-link .fail-text {
+    display: none;
+}
+
+/* primary button animation styling */
+.primary-button .button-text,
+.primary-button .loading-dots,
+.primary-button .success-text,
+.primary-button .fail-text {
+    display: none;
+}
+
+.primary-button .button-text {
+    display: block;
+}
+
+/* loading state */
+
+.primary-button.is-loading .button-text {
+    display: none;
+}
+
+.primary-button.is-loading .loading-dots {
+    display: flex;
+
+    /* height and width hardcoded to avoid button shrinking
+    from animation dots being smaller */
+    height: 28.8px; 
+    width: 59.91px;
+
+    align-items: center; 
+    justify-content: center;
+}
+
+.loading-dots {
+    gap: 4px;
+
+    span {
+        width: 8px;
+        height: 8px;
+        background-color: var(--secondary-500);
+        border-radius: 50%;
+        animation: bounce 0.6s infinite;
+
+        &:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.2s;
+
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.3s;
+
+        }
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        background-color: var(--secondary-500);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        background-color: var(--triary-background-color);
+    }
+}
+
+/* succes state */
+.primary-button.is-success{
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: #fff;
 }
