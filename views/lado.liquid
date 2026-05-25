@@ -1,14 +1,8 @@
-{% render 'partials/header.liquid', title: 'LAdO' %}
+{% render 'partials/head.liquid', title: 'LAdO' %}
 
-<a class="skip-link" href="#content">Ga direct naar de inhoud</a>
-    <link rel="stylesheet" href="css/styleguide.css">
-    <link rel="stylesheet" href="css/style.css">
-
-{% render 'partials/header.liquid' %}
-
-<main class="page-container" id="content">
-  <section class="hero-section" id="lado-info">
-    <article class="hero-text">
+<main id="content">
+  <section class="layout hero-section" id="lado-info">
+    <article class="container hero-text">
       <h1>Landelijke Ad-overleggen en Ad-profielen</h1>
 
       <p>
@@ -22,106 +16,52 @@
       </p>
 
       <p class="hero-actions">
-        <a class="button-outline" href="#lado-information">Lees meer</a>
-        <a class="button-blue" href="#lado-overview">Bekijk overzicht</a>
+        <a class="secondary-button" href="#lado-information">Lees meer</a>
+        <a class="primary-button" href="#lado-overview">Bekijk overzicht</a>
       </p>
     </article>
   </section>
 
-  <section class="lado-section" id="lado-information">
-    <header class="section-heading">
+  <section class="layout lado-section" id="lado-information">
+    <article class="container">
       <h2>Over LAdO's</h2>
-    </header>
 
-    <ul class="lado-grid">
-      <li class="lado-grid-item">
-        <details class="lado-card">
-          <summary class="lado-summary">
-            <h3>Gezamenlijke profilering van vergelijkbare Ad-opleidingen</h3>
-            <p class="lado-read-more">Lees meer</p>
-            <span class="lado-plus" aria-hidden="true"></span>
-          </summary>
-
-          <section class="lado-detail-content">
-            <p>
-              In een LAdO stemmen aangesloten Ad-opleidingen af over gezamenlijke profilering
-              en landelijk herkenbare opleidingen.
-            </p>
-          </section>
-        </details>
-      </li>
-
-      <li class="lado-grid-item">
-        <details class="lado-card">
-          <summary class="lado-summary">
-            <h3>Gezamenlijke afstemming op het specifieke werkveld</h3>
-            <p class="lado-read-more">Lees meer</p>
-            <span class="lado-plus" aria-hidden="true"></span>
-          </summary>
-
-          <section class="lado-detail-content">
-            <p>
-              Binnen een LAdO stemmen opleidingen af met landelijke werkgeversorganisaties,
-              brancheorganisaties en beroepsverenigingen.
-            </p>
-          </section>
-        </details>
-      </li>
-    </ul>
-  </section>
-
-  <section class="news-section lado-overview" id="lado-overview">
-    <header class="section-heading">
-      <h2>Overzicht LAdO's</h2>
-    </header>
-
-    <p class="lado-description">
-      Informatie en wijzigingen: Mariëtte Muris, contactpersoon LAdO's.
-    </p>
-
-    <ul class="lado-grid">
-      {% for lado in lados %}
-        <li class="lado-grid-item">
-          <details class="lado-accordion">
-            <summary>{{ forloop.index }}. {{ lado.title }}</summary>
-
-            {% if lado.educations %}
-              <p><strong>Opleidingen:</strong> {{ lado.educations }}</p>
-            {% endif %}
-
-            {% if lado.universities %}
-              <p><strong>Hogescholen:</strong> {{ lado.universities }}</p>
-            {% endif %}
-
-            {% if lado.contact_persons %}
-              <p><strong>Contactpersonen:</strong> {{ lado.contact_persons }}</p>
-            {% endif %}
-
-            {% if lado.national_ad_profile %}
-              <p><strong>Profiel:</strong> {{ lado.national_ad_profile }}</p>
-            {% endif %}
-
-            {% if lado.lado_status %}
-              <p><strong>Status:</strong> {{ lado.lado_status }}</p>
-            {% endif %}
-
-            {% if lado.sectoral_advisory_board %}
-              <p><strong>Sectoraal adviescollege:</strong> {{ lado.sectoral_advisory_board }}</p>
-            {% endif %}
-          </details>
+      <ul class="lado-info-list">
+        <li class="lado-info-card">
+          <h3>Gezamenlijke profilering van vergelijkbare Ad-opleidingen</h3>
+          <p>
+            In een LAdO stemmen aangesloten Ad-opleidingen af over gezamenlijke profilering
+            en landelijk herkenbare opleidingen.
+          </p>
         </li>
-      {% endfor %}
-    </ul>
+
+        <li class="lado-info-card">
+          <h3>Gezamenlijke afstemming op het specifieke werkveld</h3>
+          <p>
+            Binnen een LAdO stemmen opleidingen af met landelijke werkgeversorganisaties,
+            brancheorganisaties en beroepsverenigingen.
+          </p>
+        </li>
+      </ul>
+    </article>
   </section>
 
-  <section class="news-section" id="lado-contact">
-    <header class="section-heading">
-      <h2>Contact</h2>
-    </header>
+  <section class="layout lado-overview" id="lado-overview">
+    <article class="container">
+      <h2>Overzicht LAdO's</h2>
 
-    <p>
-      Wil je een LAdO oprichten of doorontwikkelen? Neem dan contact op met Mariëtte Muris.
-    </p>
+      <p class="lado-description">
+        Informatie en wijzigingen: Mariëtte Muris, contactpersoon LAdO's.
+      </p>
+
+      <ul class="lado-grid">
+        {% for lado in lados %}
+          <li>
+            {% render 'partials/lado-dropdown.liquid', lado: lado, index: forloop.index %}
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
   </section>
 </main>
 
