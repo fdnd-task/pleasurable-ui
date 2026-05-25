@@ -1,76 +1,36 @@
-<!doctype html>
-<html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styleguide.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-  </head>
-  <body>
-    {% assign imgURL = 'https://blz-contentstack-images.akamaized.net/v3/assets/blt2477dcaf4ebd440c/blt7cedd97f624c058d/637da2d146a48b0e063e4aad/1600_Ramattra.jpg' %}
-    {% assign contentVar = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia accusantium temporibus doloremque eius repudiandae, quae accusamus nostrum unde natus est ea perspiciatis quam nam dolor. Nihil atque vel assumenda, maiores tempore dolorem officiis neque, illum quasi reprehenderit sapiente tempora possimus consectetur laboriosam aut modi, iusto voluptatem deleniti odio. Soluta rerum tenetur dolore quo laboriosam saepe quos, commodi eaque doloremque assumenda unde aut enim! Laborum quisquam quod libero, molestias corporis praesentium nesciunt earum fugiat similique ipsum veniam deserunt natus tempore quas fuga dicta eveniet, totam minus esse sequi dignissimos odio, pariatur excepturi. Assumenda eveniet cupiditate laboriosam, voluptas minima recusandae! Porro, est? ' %}
-    {% render './partials/article.liquid',
-      style: 'custom-class',
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: true,
-      btnLink: 'https://fdnd.nl',
-      btnText: 'klik op mij',
-      btnStyle: 'primary-button'
-    %}
-
-    {% render 'partials/hero.liquid',
-      title: 'Het landelijke platform voor Associate degrees',
-      content: 'Ad-netwerk samen om kennis te delen, samen te werken en de kwaliteit en zichtbaarheid van Associate degrees te versterken.',
-      btnLink: '/over-ads',
-      btnText: "Meer over Ad's",
-      btn2Link: '/ad-dag',
-      btn2Text: 'Kom naar de Ad-dag',
-      imgSrc: 'https://fdnd-agency.directus.app/assets/6929a725-dd62-4275-8bef-34e6577c6580',
-      imgAlt: 'Ad-dag foto',
-      imgWidth: '800',
-      imgHeight: '500',
-      imgRight: true
-    %}
-
-    {% render './partials/article.liquid',
-      style: 'img-left',
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: false,
-      btnLink: 'https://fdnd.nl',
-      btnText: 'klik op mij',
-      btnStyle: 'primary-button'
-    %}
-    {% render './partials/article.liquid',
-      style: 'custom-class',
-      title: 'lorem ipsum',
-      content: contentVar,
-      imgURL: imgURL,
-      imgWidth: 300,
-      imgHeight: 300,
-      imgAlt: 'alt tekst voor img',
-      imgFetch: 'auto',
-      imgLoading: 'lazy',
-      button: true,
-      btnLink: 'https://fdnd.nl',
-      btnText: 'klik op mij',
-      btnStyle: 'primary-button'
-    %}
+{% render 'partials/head.liquid', title: 'home' %}
     <main>
+      <div class="layout discovery-section">
+        <article class="container">
+          <h2>Ontdek het Ad‑onderwijs</h2>
+          <p>
+            Leer alles over Associate degrees, doorstroommogelijkheden en netwerkevenementen. Blijf op de hoogte van
+            Ad‑opleidingen en activiteiten binnen het overlegplatform.
+          </p>
+          {% render 'partials/info-card.liquid',
+            title: 'Doorstroom Ad',
+            content: 'Met een Associate degree stroom je door naar het derde jaar van een bachelor. Zo combineer je praktijk met een diploma.',
+            btnText: "Meer over doorstroom Ad's",
+            btnLink: '#',
+            btnStyle: 'secondary-button'
+          %}
+          {% render 'partials/info-card.liquid',
+            title: 'Ad-dag',
+            content: 'De jaarlijkse Ad‑dag brengt studenten, docenten en werkveldpartners samen. Tijdens workshops staat kennisdeling en netwerken centraal.',
+            btnText: 'Meer over de Ad-dag',
+            btnLink: '#',
+            btnStyle: 'secondary-button'
+          %}
+          {% render 'partials/info-card.liquid',
+            title: 'Ad-talent Award',
+            content: 'Jaarlijks wordt door het Overlegplatform de Ad Talent Award uitgereikt, waarmee 2 Associate degree-talenten verkozen worden.',
+            btnText: 'Meer over Talent Awards',
+            btnLink: '#',
+            btnStyle: 'secondary-button'
+          %}
+        </article>
+      </div>
+
       <section class="layout faq-layout">
         <article class="container">
           <h2>Veelgestelde vragen</h2>
@@ -99,5 +59,4 @@
         </article>
       </section>
     </main>
-  </body>
-</html>
+{% render 'partials/footer.liquid' %}
