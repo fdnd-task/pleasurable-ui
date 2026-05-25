@@ -682,7 +682,6 @@ footer {
 
 .lado-info-list,
 .lado-grid {
-  list-style: none;
   padding: 0;
 }
 
@@ -702,7 +701,7 @@ footer {
   }
 
   p {
-    line-height: 1.7;
+    line-height: 1.8;
   }
 }
 
@@ -714,7 +713,6 @@ footer {
   overflow: hidden;
 
   summary {
-    list-style: none;
     cursor: pointer;
     position: relative;
     padding: var(--space-lg) var(--space-3xl) var(--space-lg) var(--space-lg);
@@ -747,7 +745,7 @@ footer {
 
   p {
     padding: 0 var(--space-lg) var(--space-md);
-    line-height: 1.7;
+    line-height: 1.8;
 
     &:first-of-type {
       padding-top: var(--space-md);
