@@ -23,6 +23,109 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+async function getStories() {
+  const apiResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
+  )
+
+  const apiResponseJSON = await apiResponse.json()
+
+  return apiResponseJSON.data
+}
+
+app.get('/algemeen', async function (request, response) {
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  stories = stories.filter(function (story) {
+    return story.district === 'algemeen'
+  })
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('algemeen.liquid', {
+    stories: stories,
+    search: search
+  })
+})
+
+app.get('/nieuw-west', async function (request, response) {
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  stories = stories.filter(function (story) {
+    return story.district === 'nieuw-west'
+  })
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('nieuw-west.liquid', {
+    stories: stories,
+    search: search
+  })
+})
+
+app.get('/zuidoost', async function (request, response) {
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  stories = stories.filter(function (story) {
+    return story.district === 'zuidoost'
+  })
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('zuidoost.liquid', {
+    stories: stories,
+    search: search
+  })
+})
+
+app.get('/oost', async function (request, response) {
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  stories = stories.filter(function (story) {
+    return story.district === 'oost'
+  })
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('oost.liquid', {
+    stories: stories,
+    search: search
+  })
+})
+
+
 app.get('/:district/:slug', async function (request, response) {
   const district = request.params.district
   const slug = request.params.slug
