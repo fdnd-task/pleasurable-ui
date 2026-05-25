@@ -210,3 +210,27 @@ display: flex;
       height: 80px;
     }
 }
+
+.feedback-popup {
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity .5s ease;
+
+  margin-top: 1rem;
+
+  p {
+  background: #b08b00;
+  color: white;
+  
+  padding: .5rem 1rem;
+  border-radius: .3rem;
+}
+
+
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
