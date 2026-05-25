@@ -21,6 +21,8 @@
     --background-color: #FFFFFF;
     --text-color: #1E1E1E;
     --heading-color: #000000;
+    
+    --button-text-color: #ffff;
 }
 
 @media (prefers-color-scheme: dark) {
