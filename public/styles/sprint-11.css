@@ -20,7 +20,7 @@
   text-align: center;
   padding: 3rem 1.4rem;
   width: 75%;
-  background: #ffffff;
+  background: var(--background-color);
   border-radius: 25px;
   border: 1px solid gainsboro;
 }
@@ -55,10 +55,10 @@
   align-items: center;
   margin-top: .5rem;
   padding: .7rem 1.2rem;
-  background: rgb(255, 111, 0);
+  background: var(--button-background);
   border-radius: 12px;
   text-decoration: none;
-  color: var(--error-button-text-color);
+  color: var(--button-text-color);
   font-size: 1.05rem;
   img{
     width: 1.5rem;
@@ -67,6 +67,6 @@
 }
 
  .home-back-link:hover{
-    background: rgb(255, 95, 0);
+    background: var( --button-background-hover);
     transform: scale(1.015);
   }

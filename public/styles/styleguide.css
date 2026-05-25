@@ -23,8 +23,13 @@
     --heading-color: #000000;
     
     /* 404 Button */
-    --error-button-background: rgb(255, 111, 0);
-    --error-button-text-color: #ffff;
+    --button-background: rgb(255, 111, 0);
+    --button-text-color: #ffff;
+
+    /* 404 Button::hover*/
+    --button-background-hover: rgb(255, 95, 0);
+
+
 }
 
 @media (prefers-color-scheme: dark) {
