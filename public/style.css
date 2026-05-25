@@ -88,3 +88,10 @@
         background-color: #f5c4ae;
     }
 }
+
+.filter-divider {
+    width: 1px;
+    height: 30px;
+    background-color: #34356A;
+    opacity: 0.2;
+}
