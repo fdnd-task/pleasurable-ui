@@ -1,59 +1,13 @@
 {% include 'partials/head.liquid' %}
 <main class="blog">
-  {% comment %} begin arike; {% endcomment %}
   <h1>Blog van Milledoni</h1>
-
-  {% comment %} eerste atrikel: sinterklaas {% endcomment %}
-  <section class="section-article">
-    <picture>
-      <source type="image/avif" srcset="assets/images/sinterklaas.avif">
-      <source type="image/webp" srcset="assets/images/sinterklaas.webp">
-      <img class="sinterklaas-arikel" src="assets/images/sinterklaas.png" alt="Een plaatje van de sinterklaas artikel" width="300" height="200">
-    </picture>
-
-    <h2 class="sinterklaas-arikel-h2">16x Last-minute Sinterklaascadeaus mét een persoonlijke touch!</h2>
-    <p class="sinterklaas-arikel-p">
-      Geen tijd meer om een perfect cadeau te regelen? Geen stress! Ontdek 16 originele en persoonlijke Sinterklaascadeaus
-      die je zo vanuit huis kunt regelen.<a href="/detail-artikel">Lees meer</a>
-    </p>
-  </section>
-
-  <div class="section-divider"></div>
-
-  {% comment %} tweede atrikel: mimosa/vrouwendag {% endcomment %}
-  <section class="section-article">
-    <picture>
-      <source type="image/avif" srcset="assets/images/mimosa-img.avif">
-      <source type="image/webp" srcset="assets/images/mimosa-img.webp">
-      <img class="mimosa-arikel" src="assets/images/mimosa-img." alt="dit plaatje hoort bij de atrikel van vrouwendag" width="300" height="200">
-    </picture>
-
-    <h2 class="mimosa-arikel-h2">Mimosa: een klein, krachtig cadeau voor Internationale Vrouwendag</h2>
-    <p class="mimosa-arikel-p">
-      Op 8 maart vieren we Internationale Vrouwendag. Een dag van erkenning, bewustwording en solidariteit. Maar ook een
-      dag waarop een klein gebaar een groot verschil kan maken<a href="/detail-artikel">Lees meer</a>
-    </p>
-  </section>
-
-  <div class="section-divider"></div>
-
-  {% comment %} derde artikel: doe-cadeaus {% endcomment %}
-  <section class="section-article">
-    <picture>
-      <source type="image/avif" srcset="assets/images/foodies-artikel.avif">
-      <source type="image/webp" srcset="assets/images/foodies-artikel.webp">
-      <img class="foodies-arikel" src="assets/images/foodies-artikel.png" alt="dit plaatje hoort bij de artikel van de doe-cadeaus" width="300" height="200">
-    </picture>
-
-    <h2 class="foodies-arikel-h2">De leukste creatieve doe cadeaus voor foodies en kookliefhebbers</h2>
-    <p class="foodies-arikel-p">
-      Zoek je een cadeau dat écht in de smaak valt bij iemand die gek is op koken, bakken of eten? Hier zijn vijf
-      originele ideeën waarmee je gegarandeerd indruk maakt! Perfect voor een verjaardag, bedankje of zomaar om iemand te
-      verrassen.<a href="/detail-artikel">Lees meer</a>
-    </p>
-  </main>
-  </section>
-
-  <div class="section-divider"></div>
+   {% for product in products %}
+    <section class="section-article">
+      <img src="{{ product.image }}">
+      <h2 class="blog-arikel-h2">{{ product.title }}</h2>
+      <p class="blog-arikel-p">{{ product.intro }}</p>
+    </section>
+    {% endfor %}
+</main>
 
 {% include 'partials/foot.liquid' %}
