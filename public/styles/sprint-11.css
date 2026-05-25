@@ -53,12 +53,12 @@
   flex-direction: row;
   gap: .7rem;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: .5rem;
   padding: .7rem 1.2rem;
   background: rgb(255, 111, 0);
   border-radius: 12px;
   text-decoration: none;
-  color: var(--button-text-color);
+  color: var(--error-button-text-color);
   font-size: 1.05rem;
   img{
     width: 1.5rem;

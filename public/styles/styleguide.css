@@ -22,7 +22,9 @@
     --text-color: #1E1E1E;
     --heading-color: #000000;
     
-    --button-text-color: #ffff;
+    /* 404 Button */
+    --error-button-background: rgb(255, 111, 0);
+    --error-button-text-color: #ffff;
 }
 
 @media (prefers-color-scheme: dark) {
