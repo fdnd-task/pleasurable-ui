@@ -10,4 +10,39 @@
 {% endblock %}
 {% block content %}
 
+<main class="toevoegen">
+    <h1>Instrument Toevoegen</h1>
+
+    <form action="/instrumenten/nieuw" method="POST" class="instrument-form">
+        <div class="form-velden">
+          <div class="form-veld">
+              <label for="name">Naam Instrument</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+      
+          <div class="form-veld">
+              <label for="serial-number">Serienummer</label>
+              <input type="text" id="serial-number" name="serial_number" required>
+          </div>
+
+          <div class="form-veld">
+              <label for="type">Type</label>
+              <input type="text" id="type" name="type" required>
+          </div>
+
+          <div class="form-veld">
+              <label for="brand">Merk</label>
+              <input type="text" id="brand" name="brand" required>
+          </div>
+
+          <div class="form-veld">
+              <label for="property">Eigendom van</label>
+              <input type="text" id="property" name="property" required>
+          </div>
+        </div>
+      <button type="submit" class="knop-toevoegen">Instrument toevoegen</button>
+
+    </form>
+</main>
+
 {% endblock %}
