@@ -60,7 +60,7 @@ header {
   padding: var(--space-xl);
 
   &::backdrop {
-    background-color: hsla(0, 0%, 0%, 0.713);
+    background-color: var(--backdrop);
   }
 
   .popover-button {
