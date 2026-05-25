@@ -264,37 +264,13 @@ footer {
   padding: 10px 10px 10px 10px;
 }
 /* <h2> van de arikelen */
-.sinterklaas-arikel-h2{
-  font-size: 21px;
-  max-width: 30ch;
-  padding: 5px 5px 5px 5px;
-}
-.mimosa-arikel-h2{
-  font-size: 21px;
-  max-width: 30ch;
-  padding: 5px 5px 5px 5px;
-}
-.foodies-arikel-h2{
+blog-arikel-h2{
   font-size: 21px;
   max-width: 30ch;
   padding: 5px 5px 5px 5px;
 }
 /* arikel <p> */
-.sinterklaas-arikel-p{
-  grid-column: span 2;
-  font-size: 16px;
-  max-width: 40ch;
-  padding: 10px;
-  margin-bottom: 5px;
-}
-.mimosa-arikel-p{
-  grid-column: span 2;
-  font-size: 16px;
-  max-width: 40ch;
-  padding: 10px;
-  margin-bottom: 5px;
-}
-.foodies-arikel-p{
+blog-arikel-p{
   grid-column: span 2;
   font-size: 16px;
   max-width: 40ch;
