@@ -159,7 +159,7 @@ main {
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
       gap: 1.5rem;
       padding-top: 1.5em;
 
@@ -167,21 +167,20 @@ main {
         position: relative;
         background-color: #FFFFFF ;
         border-radius: 20px;
-        padding: .4em;
         padding-bottom: 1em;
         box-shadow: 0px 2px 8px 0px rgba(0 0 0 / 15%);
+        overflow: hidden;
 
         a {
           text-decoration: none;
-          color: unset;
+          color: #212121;
         }
 
         img {
           width: 100%;
-          height: 100%;
           aspect-ratio: 1 / 1;
           object-fit: cover;
-          border-radius: 20px;
+          display: block;
         }
 
         .add-product {
@@ -193,10 +192,15 @@ main {
           background-color: #FFFFFF;
           border: none;
           border-radius: 50%;
-          padding: .1em;
-          font-size: 1em;
+          padding: .2em;
+          font-size: 1.2em;
           box-shadow: 0px 2px 8px 0px rgba(0 0 0 / 15%);
           cursor: pointer;
+
+          img {
+            width: 100%;
+            height: fit-content;
+          }
         }
 
         .product-card-info {
@@ -205,18 +209,29 @@ main {
           align-items: center;
           justify-content: center;
           text-align: center;
-          padding: 0.4em;
+          padding: 0.6em;
 
-          h4 {
-            font-weight: 500;
-            font-size: 18px;
-            padding-top: .2em;
+          h3 {
+            line-height: 1.2;
+            min-height: 3.5em; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+              font-weight: 500;
+              font-size: 18px;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              line-clamp: 2;
+              overflow: hidden;
+            }
           }
 
           .price-tag {
             font-size: 16px;
             color: #5a5858;
-            cursor: none;
           }
           
           .see-more-of-product {
@@ -228,8 +243,7 @@ main {
             content: '';
             text-align: center;
 
-            &::after {
-              content: '';
+            .arrow-icon {
               display: inline-block;
               width: 16px;
               height: 16px;
@@ -237,9 +251,12 @@ main {
               background: url('/assets/images/arrow.svg') center no-repeat;
               opacity: 0;
               transition: opacity ease-in 1s;
+              vertical-align: middle;
+              margin-left: 2px;
+
             }
 
-            &:hover::after {
+            &:hover .arrow-icon{
                 opacity: 1;
             }
           }
