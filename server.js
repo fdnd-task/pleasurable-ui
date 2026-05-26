@@ -9,7 +9,7 @@ import { Liquid } from 'liquidjs';
 const app = express()
 
 // Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
@@ -35,16 +35,27 @@ app.listen(app.get('port'), function () {
 const baseURL = 'https://fdnd-agency.directus.app/items/adconnect_'
 
 app.get('/', async function (request, response) {
-  response.render('index.liquid')
+  const params = {
+    fields: "title,description,date",
+    sort: "-date_created",
+  };
+
+  const newsResponse = await fetch(
+    baseURL + "news/?" + new URLSearchParams(params),
+  );
+  const newsResponseJson = await newsResponse.json();
+  response.render('index.liquid', {
+    news: newsResponseJson.data
+  })
 })
 
 app.get('/talent-awards', async function (request, response) {
-   const awardsResponse = await fetch(baseURL + 'nominations')
-   const awardsResponseJSON = await awardsResponse.json()
-   response.render('talent-awards.liquid', {
-      nominations: awardsResponseJSON.data,
-      path: request.path
-   })
+  const awardsResponse = await fetch(baseURL + 'nominations')
+  const awardsResponseJSON = await awardsResponse.json()
+  response.render('talent-awards.liquid', {
+    nominations: awardsResponseJSON.data,
+    path: request.path
+  })
 })
 
 app.get('/nieuws', async function name(request, response) {

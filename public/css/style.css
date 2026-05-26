@@ -388,6 +388,7 @@ header.nav-header {
   transition: .2s ease;
   text-decoration: none;
   cursor: pointer;
+  height: min-content;
 
   &:hover {
     background-color: var(--color-neutral-800);
