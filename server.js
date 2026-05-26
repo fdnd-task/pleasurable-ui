@@ -30,7 +30,7 @@ app.get("/", async function (request, response) {
 app.get("/blog", async function (request, response) {
 
   const params = new URLSearchParams({
-    fields: "id,intro,title,image,image.width,image.height"
+    fields: "id,intro,title,image.id,image.width,image.height"
   });
 
   const blogData = await fetch(
