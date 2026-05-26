@@ -116,7 +116,10 @@ main.home {
     }
 
     section:nth-of-type(1) {
-
+        a {
+            overflow: hidden;
+            position: relative;
+        }
     }
 
     section:nth-of-type(2) {
@@ -125,6 +128,29 @@ main.home {
 
         }
 
+    }
+}
+
+/* flower that appears where you click  */
+span.flower {
+    position: absolute;
+    pointer-events: none;
+    font-size: 1.5rem;
+    transform: translate(-50%, -50%);
+    animation: floatUp 0.6s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    @keyframes floatUp {
+        0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        100% {
+            opacity: 0;
+            transform: translate(-50%, -150%) scale(1.5);
+        }
     }
 }
 
