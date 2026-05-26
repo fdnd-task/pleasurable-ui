@@ -22,9 +22,24 @@ footer {
 
     details {
         border-top: 1px solid black;
+        overflow: hidden;
 
         &:last-child {
             border-bottom: 1px solid black;
+        }
+
+        &::details-content {
+        block-size: 0;
+
+        @media (prefers-reduced-motion: no-preference) { 
+             transition:  
+                 block-size .3s, 
+                 content-visibility .3s allow-discrete; 
+            }
+        }
+
+        &[open]::details-content { 
+            block-size: auto; 
         }
 
         summary {
