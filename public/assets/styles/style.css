@@ -46,24 +46,69 @@
       height: 51px;
       border: 1px solid #c9c9c9;
       border-radius: 50%;
-      box-shadow: 0px 2px 8px 0px rgba(0 0 0 / 15%);
+      box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 15%);
       color: #212121;
       text-decoration: none;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: 0.3s ease-out;
+      }
+
+      &:hover {
+        background-color: #ccc;
+        scale: 1.1;
+      }
+
+      &:active {
+        scale: 1;
+        background-color: white;
+        box-shadow: none;
+      }
     }
 
     .wishlist {
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        background: linear-gradient(to left, #fff, #ccc 10%);
+        width: 110%;
+        height: 100%;
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        translate: -110% 0;
+
+        @media (prefers-reduced-motion: no-preference) {
+          transition: 0.3s ease-out;
+        }
+      }
+
       @media (min-width: 900px) {
         width: fit-content;
         padding: 0 1.25rem;
         border-radius: 9rem;
         gap: 1rem;
+
+        &:hover {
+          scale: 1;
+          background-color: white;
+
+          &::before {
+            translate: 0% 0;
+          }
+        }
+
+        &:active {
+          &::before {
+            translate: -110% 0;
+          }
+        }
       }
     }
 
-    .account-span {
-      display: none;
-      font-size: 1.375rem;
-    }
     .wishlist-span {
       display: none;
       font-size: 1.375rem;
@@ -477,10 +522,25 @@ footer {
       a {
         color: black;
         text-decoration: none;
-        display: inline-block;
+        display: inline-flex;
+        position: relative;
 
-        &:hover {
-          text-decoration: underline;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 2px;
+          background-color: black;
+
+          @media (prefers-reduced-motion: no-preference) {
+            transition: 0.3s ease-out;
+          }
+        }
+
+        &:hover::after {
+          width: 100%;
         }
       }
     }
