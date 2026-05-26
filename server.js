@@ -32,6 +32,7 @@ const logUrl = 'https://fdnd-agency.directus.app/items/preludefonds_log'
 app.get('/', async function (request, response) {
   const params = new URLSearchParams()
   params.append('limit', '-1')
+  params.append('fields', 'property,status')
 
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
@@ -59,6 +60,7 @@ app.get('/instrumenten', async function (request, response) {
 
   const sort = request.query.sort || '-id'
   params.append('sort', sort)
+  params.append('fields', 'name,serial_number,type,brand,property,status,key')
 
   const soort = request.query.instrument
 
@@ -91,7 +93,7 @@ app.post('/instrumenten/nieuw', async function (request, response){
 
 app.get('/actielog', async function (request, response) {
   const params = new URLSearchParams()
-  params.append('fields', '*,instrument.name,instrument.serial_number,instrument.key')
+  params.append('fields', 'type_action,performed_by,involved_party,date_created,instrument.name,instrument.serial_number,instrument.key')
   params.append('sort', '-date_created')
 
   const filter = request.query.filter
