@@ -621,7 +621,13 @@ main.news {
         justify-content: center;
         gap: .8em;
         padding-block: .8em;
-        backdrop-filter: blur(5px);
+
+        background-color: var(--light-background);
+
+        @supports (backdrop-filter: blur(5px)){
+            backdrop-filter: blur(5px);
+            background-color: transparent;
+        }
 
         position: sticky;
         top: 0;
