@@ -198,7 +198,7 @@ header.nav-header {
 
 /* animate the after here */
 .nav-link:hover p::after,
-.nav-link:focus-visible p::after{
+.nav-link:focus-visible p::after {
   width: 100%;
   transform: scaleX(1);
   transition: inherit;
