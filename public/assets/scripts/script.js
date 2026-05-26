@@ -70,7 +70,7 @@ commentForm.addEventListener('submit', async function (event) {
     console.log('submit')
 
     formButton.classList.add('loading')
-    formButton.textContent = 'Verzenden...'
+    formButton.textContent = 'Bezig met plaatsen...'
 
     let formData = new FormData(commentForm);
 
@@ -98,7 +98,7 @@ commentForm.addEventListener('submit', async function (event) {
 
     formButton.classList.remove('loading')
     formButton.classList.add('success')
-    formButton.textContent = '✔ Verstuurd!'
+    formButton.textContent = '✔ Geplaatst!'
 
     commentForm.reset()
 
@@ -106,7 +106,7 @@ commentForm.addEventListener('submit', async function (event) {
 
         formButton.classList.remove('success')
 
-        formButton.textContent = 'Verzenden'
+        formButton.textContent = 'Plaats jouw opmerking'
 
     }, 2000)
 })
