@@ -23,6 +23,7 @@ app.engine("liquid", engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set("views", "./views");
 
+const baseURL = 'https://fdnd-agency.directus.app/items/adconnect_'
 
 app.get('/', async function (request, response) {
   response.render('index.liquid')
@@ -33,12 +34,22 @@ app.get('/nieuws', async function name(request, response) {
   response.render('news.liquid')
 })
 
+app.get('/talent-awards', async function (request, response) {
+  const awardsResponse = await fetch(baseURL + 'nominations')
+  const awardsResponseJSON = await awardsResponse.json()
+
+  response.render('talent-awards.liquid', {
+    nominations: awardsResponseJSON.data,
+    path: request.path
+  })
+})
+
 // GET route voor de LAdO pagina
 // Haalt alle LAdO data op uit Directus en stuurt deze door naar lado.liquid
 app.get('/lado', async function (request, response) {
 
   // Fetch data uit de Directus API
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/adconnect_lados')
+  const apiResponse = await fetch(baseURL + 'lados')
 
   // Zet de response om naar JSON
   const apiResponseJSON = await apiResponse.json()
@@ -57,27 +68,6 @@ app.get('/lado', async function (request, response) {
 app.set("port", process.env.PORT || 8000);
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
-app.listen(app.get("port"), function () {
-  console.log(
-    `Project draait via http://localhost:${app.get("port")}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`,
-  );
-});
-
-const baseURL = "https://fdnd-agency.directus.app/items/adconnect_";
-
-app.get("/", async function (request, response) {
-  response.render("index.liquid");
-});
-
-app.get("/talent-awards", async function (request, response) {
-  const awardsResponse = await fetch(baseURL + "nominations");
-  const awardsResponseJSON = await awardsResponse.json();
-  response.render("talent-awards.liquid", {
-    nominations: awardsResponseJSON.data,
-    path: request.path,
-  });
-});
-
-app.get("/nieuws", async function name(request, response) {
-  response.render("news.liquid");
-});
+app.listen(app.get('port'), function () {
+  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
+})
