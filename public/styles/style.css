@@ -241,3 +241,17 @@ details[open]::details-content {
 }
 
 /* header */
+
+.main-home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.info-results{
+  font-size: .9rem;
+   @media (min-width: 1200px) {
+     font-size: 1.2rem;
+  }
+}
