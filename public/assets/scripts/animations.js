@@ -146,3 +146,40 @@ function initConfetti() {
         confetti({ startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, particleCount, origin: { x: Math.random() * 0.2 + 0.7, y: Math.random() - 0.2 } });
     }, 250);
 }
+
+
+/**
+ * mini animation flower
+ */
+// "document.querySelector" searches for an element in the HTML. 
+const button = document.querySelector('a[href="/veldverkenner"]');
+        
+// "addEventListener" makes sure something happens when the user does something.
+// in this case, when someone clicks the button, execute this code.
+button.addEventListener('click', function (e) {
+
+const theButton = this
+// getBoundingClientRect" gets the position and size of the button relative to the screen (left, right, top, bottom in pixels)
+const rect = theButton.getBoundingClientRect();
+
+// calculates where exactly inside the button you clicked
+// clientX/Y is the click position on the screen, minus the left/top edge of the button gives the position inside the button
+let x = e.clientX - rect.left;
+let y = e.clientY - rect.top;
+
+// the flower is created but is still somewhere in the background (not yet visible on the page)
+let flower = document.createElement('span');
+flower.classList.add('flower');
+flower.textContent = '🌸';
+// places the flower at the exact spot where you clicked
+flower.style.left = x + 'px';
+flower.style.top = y + 'px';
+
+// "appendChild" adds the flower inside the button, so it becomes visible on the page
+theButton.appendChild(flower);
+        
+// removes the flower after 500 milliseconds (0.5 seconds)
+setTimeout(() => {
+    flower.remove();
+}, 500);
+});
