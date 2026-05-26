@@ -1,4 +1,4 @@
-{% render 'partials/head.liquid' %}
+{% render 'partials/head.liquid' user: user, %}
 
 <main class="home">
 
@@ -70,7 +70,7 @@
              %}  
         </div>
 
-        <p>Hier zie je altijd de 4 laatste updates over Bloemenveld Frankendael. <a href="/nieuws>">Bekijk hier</a> alle nieuwsberichten.</p>
+        <p>Hier zie je altijd de 4 laatste updates over Bloemenveld Frankendael. <a href="/nieuws">Bekijk hier</a> alle nieuwsberichten.</p>
 
         {% render 'partials/carousel-news-homepage.liquid', 
             news: news, colors: true 
