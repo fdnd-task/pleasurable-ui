@@ -77,6 +77,10 @@ app.get('/contact', async function (request, response) {
   response.render('contact.liquid')
 })
 
+app.get('/contact', async function (request, response) {
+  response.render('contact.liquid')
+})
+
   const newsResponse = await fetch(
     baseURL + "news/?" + new URLSearchParams(params),
   );
