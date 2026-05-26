@@ -38,8 +38,7 @@ app.get('/nieuws', async function name(request, response) {
 app.get('/lado', async function (request, response) {
 
   // Fetch data uit de Directus API
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/adconnect_lados')
-
+  const apiResponse = await fetch(baseURL + 'lados')
   // Zet de response om naar JSON
   const apiResponseJSON = await apiResponse.json()
 
