@@ -63,10 +63,14 @@ app.get("/wishlist", async function (request, response) {
 });
 
 app.post("/verwijder", async function (request, response) {
+  const productId = request.body.id;
 
-  // product-id ontvangen
+  console.log("PRODUCT ID:", productId)
 
-  // koppeling zoeken in Directus
+  if (!productId) {
+    console.log("Geen product id ontvangen")
+    return response.redirect(303, "/wishlist");
+  }
 
   // controleren of koppeling bestaat
 
