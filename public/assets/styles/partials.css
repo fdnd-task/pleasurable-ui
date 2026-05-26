@@ -724,18 +724,21 @@ p.paragraph {
 
 /* MARK: partial back-to-top-btn.liquid */
 .to-top-btn{
-    translate:0 calc(100% + 1em);
-    
-	@media (prefers-reduced-motion:no-preference) {
-		transition:.25s;
-	}
 
-    /* VS code doesn't know the scroll-state, so it shows the red underline on 'scroll-state'. It does work on Chrome. */
-    @container news-scroll scroll-state(scrollable:top){
-        translate:0 0;
+    @supports (container-type: scroll-state){
+        translate:0 calc(100% + 1em);
         
         @media (prefers-reduced-motion:no-preference) {
-            transition: .25s 1s;
+            transition:.25s;
+        }
+
+        /* VS code doesn't know the scroll-state, so it shows the red underline on 'scroll-state'. It does work on Chrome. */
+        @container news-scroll scroll-state(scrollable:top){
+            translate:0 0;
+            
+            @media (prefers-reduced-motion:no-preference) {
+                transition: .25s 1s;
+            }
         }
     }
 
