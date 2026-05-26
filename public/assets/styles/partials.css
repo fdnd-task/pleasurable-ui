@@ -292,6 +292,8 @@ main.home p.niks-gespaard-veldverkenner {
 .home-slide-nieuws {
     display: flex;
     overflow:scroll;
+    margin-inline: -1rem;
+    padding-inline: 1rem;
 
     scroll-snap-type: x mandatory;
     overscroll-behavior-x: contain;
@@ -352,7 +354,7 @@ main.home p.niks-gespaard-veldverkenner {
         color: var(--always-dark);
     }
 
-    .bloemendveld {
+    .bloemenveld {
         font-size: 0.8em;
         display: inline-flex;
         align-items: center;
@@ -399,6 +401,7 @@ main.home p.niks-gespaard-veldverkenner {
         @media (width < 450px) {
             .nieuws-berichten img {
                 opacity: 0;
+                transition: opacity 1s;
 
                 @container scroll-state(snapped: x) {
                     opacity: 1;
