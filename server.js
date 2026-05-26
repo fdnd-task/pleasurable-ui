@@ -53,13 +53,14 @@ app.get('/', async function (request, response) {
   })
 })
 
-app.get('/algemeen', async function (request, response) {
+app.get('/:district', async function (request, response) {
+  const district = request.params.district
   const search = request.query.search
 
   let stories = await getStories()
 
   stories = stories.filter(function (story) {
-    return story.district === 'algemeen'
+    return story.district === district
   })
 
   if (search) {
@@ -70,81 +71,11 @@ app.get('/algemeen', async function (request, response) {
     })
   }
 
-  response.render('algemeen.liquid', {
+  response.render('district.liquid', {
     stories: stories,
     search: search
   })
 })
-
-app.get('/nieuw-west', async function (request, response) {
-  const search = request.query.search
-
-  let stories = await getStories()
-
-  stories = stories.filter(function (story) {
-    return story.district === 'nieuw-west'
-  })
-
-  if (search) {
-    stories = stories.filter(function (story) {
-      return story.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    })
-  }
-
-  response.render('nieuw-west.liquid', {
-    stories: stories,
-    search: search
-  })
-})
-
-app.get('/zuidoost', async function (request, response) {
-  const search = request.query.search
-
-  let stories = await getStories()
-
-  stories = stories.filter(function (story) {
-    return story.district === 'zuidoost'
-  })
-
-  if (search) {
-    stories = stories.filter(function (story) {
-      return story.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    })
-  }
-
-  response.render('zuidoost.liquid', {
-    stories: stories,
-    search: search
-  })
-})
-
-app.get('/oost', async function (request, response) {
-  const search = request.query.search
-
-  let stories = await getStories()
-
-  stories = stories.filter(function (story) {
-    return story.district === 'oost'
-  })
-
-  if (search) {
-    stories = stories.filter(function (story) {
-      return story.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    })
-  }
-
-  response.render('oost.liquid', {
-    stories: stories,
-    search: search
-  })
-})
-
 
 app.get('/:district/:slug', async function (request, response) {
   const district = request.params.district
