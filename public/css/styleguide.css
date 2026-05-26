@@ -180,6 +180,15 @@ h6 {
         color: var(--triary-background-color);
 
     }
+
+    &:focus {
+        background-color: var(--primary-600);
+        color: var(--text-color-secondary);
+        outline: var(--space-2xs) solid var(--primary-100);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
+        scale: 1.05;
+    }
 }
 
 /* button animation base states */
@@ -273,4 +282,116 @@ as a fallback for JS script */
     background-color: var(--success-color);
     border-color: var(--success-color);
     color: #fff;
+}
+
+/* page transition */
+.page-trans-container {
+    display: none;
+}
+
+.page-trans-container.page-is-loading {
+    gap: 10px;
+    z-index: 1;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backdrop);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+    span {
+        animation: load 1s steps(1);
+        animation-iteration-count: 1;
+        background-color: var(--primary-500);
+    }
+
+    span:nth-child(1) {
+        width: 7px;
+        height: 7px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 2.5s;
+    }
+
+    span:nth-child(2) {
+        width: 10px;
+        height: 10px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -1px;
+
+        animation-delay: 3s;
+    }
+
+    span:nth-child(3) {
+        width: 14px;
+        height: 14px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 3.5s;
+    }
+
+    span:nth-child(4) {
+        width: 17px;
+        height: 17px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -1px;
+
+        animation-delay: 4s;
+    }
+
+    span:nth-child(5) {
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -8px;
+    }
+
+    span:nth-child(6) {
+        width: 24px;
+        height: 24px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 0.5s;
+    }
+
+    span:nth-child(7) {
+        width: 25px;
+        height: 25px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -1px;
+
+        animation-delay: 1s;
+    }
+
+    span:nth-child(8) {
+        width: 30px;
+        height: 30px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 1.5s;
+    }
+}
+
+@keyframes load {
+
+    0%,
+    100% {
+        background-color: var(--secondary-500);
+    }
+
+    50% {
+        background-color: var(--primary-500);
+    }
 }

@@ -1,21 +1,8 @@
-const animationButtons = document.querySelectorAll(".primary-button.send-animation");
+const links = document.querySelectorAll("a");
+const loadingAnimation = document.querySelector(".page-trans-container");
 
-animationButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        button.classList.add("is-loading");
-
-        setTimeout(() => {
-            button.classList.remove("is-loading");
-            button.classList.add("is-success");
-            button.textContent = "Verzonden!";
-        }, 4000);
-
-        setTimeout(() => {
-            button.classList.remove("is-success");
-            button.textContent = "Verzend";
-        }, 8000);
-
-    });
-}); 
+links.forEach(link => {
+    link.addEventListener("click", async event => {
+        loadingAnimation.classList.add("page-is-loading");
+    })
+})
