@@ -73,10 +73,6 @@ header {
   border: none;
   padding: var(--space-xl);
 
-  opacity: 0;
-  transform: translateX(100%);
-  transition: .5s linear;
-
   &::backdrop {
     background-color: var(--backdrop);
   }
@@ -145,7 +141,13 @@ header {
   }
 }
 
-/* animation class for popover */
+/* animation classes for popover */
+
+#menu.hide {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: .5s cubic-bezier(0, 1.08, .8, .94);
+}
 
 #menu.show {
   opacity: 1;
@@ -193,6 +195,15 @@ header {
     a {
       color: var(--text-color);
       text-decoration: none;
+
+      img {
+        transition: .3s ease;
+      }
+
+      img:hover,
+      &:focus img {
+        transform: scale(1.05);
+      }
     }
 
     .popover-button {
