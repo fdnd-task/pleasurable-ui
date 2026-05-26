@@ -39,6 +39,7 @@ const fetchData = async (endpoint) => {
     try {
         const response = await fetch(`${API_BASE}/${endpoint}`);
         const result = await response.json();
+        console.log('fetchData result:', result);
         return result.data;
     } catch (e) {
         console.error(`Fetch error for ${endpoint}:`, e);
@@ -396,13 +397,65 @@ app.patch('/account/set-accent', async (req, res) => {
     }
 });
 
-// Auth & Other
+// app.get('/nieuws', async (req, res) => {
+//     const search = req.query.search;
+
+//     let endpoint = 'frankendael_news';
+//     if (search) {
+//         endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+//     }
+
+//     console.log(endpoint);
+
+//     const newsData = await fetchData(endpoint) || [];
+
+//     res.render('news.liquid', {
+//         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+//         zone_type: 'news',
+//         current_path: req.path,
+//         search: search,
+//     });
+// });
+
 app.get('/nieuws', async (req, res) => {
-    const newsData = await fetchData('frankendael_news') || [];
-    res.render('nieuws.liquid', {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news';
+    if (search) endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
         zone_type: 'news',
         current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/nieuwste', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news?sort=-date'; //what changes the order of the items in the url you're fetching.
+    if (search) endpoint += `&filter[title][_icontains]=${encodeURIComponent(search)}`;
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/oudste', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news?sort=date';
+    if (search) endpoint += `&filter[title][_icontains]=${encodeURIComponent(search)}`;
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
     });
 });
 
@@ -544,6 +597,7 @@ app.post('/login', async (req, res) => {
         res.status(503).send('Inloggen mislukt');
     }
 });
+
 
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 
