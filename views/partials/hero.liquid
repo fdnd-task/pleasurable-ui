@@ -35,24 +35,18 @@
 <section class="hero layout {{ style }}">
   <div class="container hero-inner {% if imgRight %}img-right{% endif %}">
 
-    <header class="hero-text">
+    <div class="hero-text">
       <h1>{{ title }}</h1>
       {% if content %}
         <p>{{ content }}</p>
       {% endif %}
       {% if btnLink %}
-        {% render 'partials/link-button.liquid',
-          link: btnLink,
-          text: btnText,
-          style: 'primary-button'
-        %}
-        {% render 'partials/link-button.liquid',
-          link: btn2Link,
-          text: btn2Text,
-          style: 'primary-button'
-        %}
+        <div class="hero-buttons">
+          <a class="secondary-button" href="{{ btnLink }}">{{ btnText }}</a>
+          <a class="primary-button" href="{{ btn2Link }}">{{ btn2Text }}</a>
+        </div>
       {% endif %}
-    </header>
+    </div>
 
     {% if imgSrc %}
       {% render 'partials/image.liquid',
