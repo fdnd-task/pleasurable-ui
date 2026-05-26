@@ -3,7 +3,7 @@
 
 ## Wrap-Up
 
-Gisteren hebben jullie een Readme uitgewerkt, waarin jullie ontwerpkeuzes in verschillende lagen en volgens verschillende principes hebben overgebracht. Met name voor de eindgebruiker maak je bepaalde keuzes, die je prima uit kunt leggen.
+Als het goed is heb je Readme uitgewerkt waarin jullie ontwerpkeuzes in verschillende lagen en volgens verschillende principes hebben overgebracht. Met name voor de eindgebruiker maak je bepaalde keuzes, die je prima uit kunt leggen.
 
 In de wrap-up ga je de Sprint Review voor de opdrachtgever voorbereiden. Wat gaan jullie aan de opdrachtgever presenteren? Hoe gaan jullie dat doen? Welke vragen stel je nog? Hoe sluit je een project netjes af, zeker als het je laatste presentatie bij een opdrachtgever is? Wat wil je er nog uit halen? Ga je mooi weer spelen, of laat je ook eerlijk zien wat niet gelukt is? Hoe lever je dat op?
 
