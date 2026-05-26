@@ -4,9 +4,11 @@ import express from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
+import compression from 'compression'
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
+app.use(compression())
 
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
