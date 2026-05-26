@@ -310,12 +310,6 @@ main.home p.niks-gespaard-veldverkenner {
         display: inline-block;
         margin-block: 0.7em;
         color: var(--always-dark);
-
-        &:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 4px; 
-        }
     }
 
     p {
@@ -341,17 +335,17 @@ main.home p.niks-gespaard-veldverkenner {
         font-weight: 700;
         display: inline-block;
         margin-block: 0.8em;
-
-        &:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 4px;        
-        }
     }
 
     .heading-news { 
         font-size: var(--heading-small);
         color: var(--always-dark);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;      
+        }
     }
 
     .bloemenveld {
