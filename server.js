@@ -51,4 +51,7 @@ app.get('/nieuws', async function name(request, response) {
   response.render('news.liquid')
 })
 
+app.get('/contact', async function (request, response) {
+  response.render('contact.liquid')
+})
 
