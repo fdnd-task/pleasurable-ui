@@ -1,0 +1,100 @@
+{% render 'partials/head.liquid', title: 'contact' %}
+
+<main class="contactPage">
+  <section class="layout contactHero">
+    <article class="container">
+      <p class="contactBreadcrumb">
+        Home \ Contact
+      </p>
+
+      <h1>
+        Vragen? Neem contact op
+      </h1>
+
+      <p class="contactIntro">
+        Heb je vragen of wil je meer weten over Associate Degrees neem dan via het onderstaande formulier contact met ons op.
+      </p>
+    </article>
+  </section>
+
+  <section class="layout contactSection">
+    <article class="container contactGrid">
+      <section class="contactInfoCard">
+        <h2>
+          Contactgegevens
+        </h2>
+
+        <p>
+          Heb je vragen? Vul het contactformulier in of neem contact op via de onderstaande contactgegevens.
+        </p>
+
+        <ul>
+          <li>
+            Telefoonnummer
+          </li>
+
+          <li>
+            <a href="mailto:platformads@outlook.com">
+              platformads@outlook.com
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <form class="contactForm" method="POST" action="/contact">
+        <h2>
+          Contactformulier
+        </h2>
+
+        <div class="contactFieldGrid">
+          <label class="contactField" for="name">
+            Naam + Achternaam <strong>*</strong>
+
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Bijv. Jan van Huizen"
+              required
+            >
+          </label>
+
+          <label class="contactField" for="email">
+            E-mailadres <strong>*</strong>
+
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Bijv. janvanhuizen@gmail.com"
+              required
+            >
+          </label>
+        </div>
+
+        <label class="contactField" for="message">
+          Jouw vraag <strong>*</strong>
+
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Beste Overlegplatform Ad's, ik heb een vraag over.."
+            required
+          ></textarea>
+        </label>
+
+        <div class="contactFormActions">
+          <button class="secondary-button" type="submit">
+            Formulier verzenden
+          </button>
+
+          <p>
+            Velden met een '<strong>*</strong>' zijn verplicht
+          </p>
+        </div>
+      </form>
+    </article>
+  </section>
+</main>
+
+{% render 'partials/footer.liquid' %}
