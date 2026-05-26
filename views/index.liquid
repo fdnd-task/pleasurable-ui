@@ -1,7 +1,7 @@
 {% render 'partials/head.liquid', title: 'home' %}
 <main>
-  <main>
-    {% render 'partials/link-button.liquid' ,text: 'Verstuur', animation: 'send-animation' %}
-  </main>
-</main> 
+  {% render 'partials/link-button.liquid', text: 'Verzend', animation: 'send-animation' %}
+  {% render 'partials/loading.liquid' %}
+  <button class="test">start animatie</button>
+</main>
 {% render 'partials/footer.liquid' %}
