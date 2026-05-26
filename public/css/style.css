@@ -810,8 +810,8 @@ footer.lowest-footer {
   position: fixed;
   bottom: var(--space-xl);
   right: var(--space-xl);
-  background-color: var(--primary-700);
-  color: var(--primary-100);
+  background-color: var(--secondary-500);
+  color: var(--triary-background-color);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--default-radius);
   text-decoration: none;
