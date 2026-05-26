@@ -23,9 +23,32 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+app.get('/:district/:slug', async function (request, response) {
+  const district = request.params.district
+  const slug = request.params.slug
 
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
+  const params = {
+    'filter[slug][_eq]': slug,
+    'fields':
+      'title, body, target_group, id, slug, district, intro, date, cover.*, comments.*'
+  }
+
+  const apiURL =
+    'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories?' +
+    new URLSearchParams(params)
+
+  const apiResponse = await fetch(apiURL)
+  const apiResponseJSON = await apiResponse.json()
+  const story = apiResponseJSON.data[0]
+
+  if (!story) {
+    return response.status(404).render('error.liquid')
+  }
+
+  response.render('article.liquid', {
+    story,
+    district: story.district || district
+  })
 })
 
 
@@ -62,8 +85,45 @@ app.get('/district/:district_name', async function (req, res) {
     targetGroups: targetGroups,
     activeGroup: targetGroup
   })
+  
+  
+/**
+ * COMMENT POST – reactie plaatsen op artikel
+ */
+app.post('/:district/:slug/comment', async function (request, response) {
+  const res = await fetch(
+    'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories_comments',
+    {
+      method: 'POST',
+      body: JSON.stringify({
+        name: request.body.name,
+        comment: request.body.comment,
+        story: Number(request.body.story)
+      }),
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8'
+      }
+    }
+  )
+  // const data = await res.json()
+  // console.log(data)
+
+  response.redirect(303, `/${request.params.district}/${request.params.slug}/`)
 })
 
+// Comment delete
+app.post('/:district/:slug/comment/:id/delete', async function (request, response) {
+  const commentId = request.params.id
+
+  await fetch(
+    `https://fdnd-agency.directus.app/items/buurtcampuskrant_stories_comments/${commentId}`,
+    {
+      method: 'DELETE'
+    }
+  )
+
+  response.redirect(303, `/${request.params.district}/${request.params.slug}/`)
+})
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
@@ -72,4 +132,4 @@ app.set('port', process.env.PORT || 8000)
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
   console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
-})
+})  
