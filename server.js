@@ -32,7 +32,34 @@ app.get("/cadeau-overzicht", async function (request, response) {
 });
 
 app.get("/wishlist", async function (request, response) {
-  response.render("wishlist.liquid");
+
+  const params = {
+    fields:
+      "liked_products.milledoni_products_id.id," +
+      "liked_products.milledoni_products_id.name," +
+      "liked_products.milledoni_products_id.image," +
+      "liked_products.milledoni_products_id.amount"
+  };
+
+  // fetch gebruiker 63 inclusief opgeslagen producten
+  const productResponse = await fetch(
+    "https://fdnd-agency.directus.app/items/milledoni_users/63/?" +
+    new URLSearchParams(params)
+  );
+
+  // zet response om naar JSON
+  const productResponseJSON = await productResponse.json();
+
+  // pak alleen de product data uit de koppeling
+  const likedProducts = productResponseJSON.data.liked_products
+    .filter(item => item.milledoni_products_id !== null)
+    .map(item => item.milledoni_products_id);
+
+  // stuur producten door naar de liquid pagina
+  response.render("wishlist.liquid", {
+    likedProducts: likedProducts,
+  });
+
 });
 
 app.post("/verwijder", async function (request, response) {

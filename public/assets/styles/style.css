@@ -64,38 +64,54 @@
   }
 }
 
+/* wishlist styling (sven) */
+
 .grid_likedproducts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    .opgeslagen-product {
-      background-color: white;
-      border-radius: 25px;
+ .opgeslagen-product { 
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  width: 300px;
 
-      padding: 20px;
-      width: 300px;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* horizontaal centreren */
+  text-align: center;    /* tekst centreren */
+  gap: 15px;             /* ruimte tussen elementen */
 
-    .opgeslagen-product:nth-child(1n) {
-      height: 400px;
-}
-
-    .lijst-button {
-      background-color: #20a687;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 25px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+  .lijst-button {
+    background-color: #20a687;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
   }
 
- .slider {
+  img {
+    width: 270px;
+    height: 290px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}
+
+  .opgeslagen-product:nth-child(1n) {
+    height: 500px;
+  }
+
+
+}
+
+.slider {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,57 +150,57 @@
   .next {
     display: none;
     padding: 0.4rem 0.8rem;
-    background:#997700;
+    background: #997700;
     color: white;
     border-radius: 4px;
     cursor: pointer;
   }
 
 
-#step1:checked ~ .circle[for="step1"],
-#step1:checked ~ .circle[for="step2"],
-#step2:checked ~ .circle[for="step2"],
-#step2:checked ~ .circle[for="step3"],
-#step3:checked ~ .circle[for="step3"],
-#step3:checked ~ .circle[for="step4"],
-#step4:checked ~ .circle[for="step4"],
-#step4:checked ~ .circle[for="step5"],
-#step5:checked ~ .circle[for="step5"],
-#step5:checked ~ .circle[for="step6"],
-#step6:checked ~ .circle[for="step6"],
-#step6:checked ~ .circle[for="step7"],
-#step7:checked ~ .circle[for="step7"],
-#step7:checked ~ .circle[for="step8"],
-#step8:checked ~ .circle[for="step8"],
-#step8:checked ~ .circle[for="step1"] {
-  display: grid;
-}
+  #step1:checked~.circle[for="step1"],
+  #step1:checked~.circle[for="step2"],
+  #step2:checked~.circle[for="step2"],
+  #step2:checked~.circle[for="step3"],
+  #step3:checked~.circle[for="step3"],
+  #step3:checked~.circle[for="step4"],
+  #step4:checked~.circle[for="step4"],
+  #step4:checked~.circle[for="step5"],
+  #step5:checked~.circle[for="step5"],
+  #step5:checked~.circle[for="step6"],
+  #step6:checked~.circle[for="step6"],
+  #step6:checked~.circle[for="step7"],
+  #step7:checked~.circle[for="step7"],
+  #step7:checked~.circle[for="step8"],
+  #step8:checked~.circle[for="step8"],
+  #step8:checked~.circle[for="step1"] {
+    display: grid;
+  }
 
 
-#step1:checked ~ .circle[for="step1"],
-#step2:checked ~ .circle[for="step2"],
-#step3:checked ~ .circle[for="step3"],
-#step4:checked ~ .circle[for="step4"],
-#step5:checked ~ .circle[for="step5"],
-#step6:checked ~ .circle[for="step6"],
-#step7:checked ~ .circle[for="step7"],
-#step8:checked ~ .circle[for="step8"] {
-  width: 110px;
-  height: 110px;
-  border-width: 4px;
-}
+  #step1:checked~.circle[for="step1"],
+  #step2:checked~.circle[for="step2"],
+  #step3:checked~.circle[for="step3"],
+  #step4:checked~.circle[for="step4"],
+  #step5:checked~.circle[for="step5"],
+  #step6:checked~.circle[for="step6"],
+  #step7:checked~.circle[for="step7"],
+  #step8:checked~.circle[for="step8"] {
+    width: 110px;
+    height: 110px;
+    border-width: 4px;
+  }
 
 
-#step1:checked ~ .next-1,
-#step2:checked ~ .next-2,
-#step3:checked ~ .next-3,
-#step4:checked ~ .next-4,
-#step5:checked ~ .next-5,
-#step6:checked ~ .next-6,
-#step7:checked ~ .next-7,
-#step8:checked ~ .next-8 {
-  display: inline-flex;
-}
+  #step1:checked~.next-1,
+  #step2:checked~.next-2,
+  #step3:checked~.next-3,
+  #step4:checked~.next-4,
+  #step5:checked~.next-5,
+  #step6:checked~.next-6,
+  #step7:checked~.next-7,
+  #step8:checked~.next-8 {
+    display: inline-flex;
+  }
 
   @media (min-width: 768px) {
     .circle {
@@ -196,19 +212,20 @@
     }
   }
 }
-.ribbon{
-display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 4px solid #997700;
-    height: 45px;
-    margin-top: 1rem;
 
-    img{
+.ribbon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 4px solid #997700;
+  height: 45px;
+  margin-top: 1rem;
 
-      width: 80px;
-      height: 80px;
-    }
+  img {
+
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .feedback-popup {
@@ -220,12 +237,12 @@ display: flex;
   margin-top: 1rem;
 
   p {
-  background: #b08b00;
-  color: white;
-  
-  padding: .5rem 1rem;
-  border-radius: .3rem;
-}
+    background: #b08b00;
+    color: white;
+
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+  }
 
 
 }

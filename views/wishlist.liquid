@@ -73,20 +73,58 @@
 </div>
 
 
-<main class="grid_likedproducts">
-  <article class="opgeslagen-product">
-    <img src="" alt="producten">
-    <h2>test</h2>
-    <p>bedrag</p>
+{% if likedProducts.size > 0 %}
 
-    <form method="post" action="" class="like-form">
-      <input type="hidden" name="id" value="{{ product.id }}">
+  <main class="grid_likedproducts">
 
-      <button type="submit" class="lijst-button">
-        <img class="verwijder" src="" alt="lijst">
-      </button>
-    </form>
-  </article>
-</main>
+    {% for product in likedProducts %}
 
+      <article class="opgeslagen-product">
+
+        <img src="{{ product.image }}" alt="{{ product.name }}">
+
+        <h2>{{ product.name }}</h2>
+
+        <p>{{ product.amount }}</p>
+
+
+        <form method="post" action="/verwijder" class="like-form">
+
+          <input type="hidden" name="id" value="{{ product.id }}">
+
+          <button type="submit" class="lijst-button">
+
+            verwijder
+
+         
+
+          </button>
+
+        </form>
+
+      </article>
+
+    {% endfor %}
+
+  </main>
+
+
+{% else %}
+
+  <section class="empty-state">
+
+    <img
+      src="/assets/images/empty-state.png"
+      alt="Nog geen opgeslagen producten"
+    >
+
+    <h2>Je lijst is nog leeg</h2>
+
+    <p>Sla producten op om ze later terug te vinden.</p>
+
+  </section>
+
+{% endif %}
+
+  </main>
 {% include 'partials/foot.liquid' %}
