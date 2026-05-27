@@ -1,5 +1,32 @@
-const memojiForm = document.getElementById('memojiForm');
+
 const loaderBtn = document.querySelector('.loader');
+const allOptions = document.querySelectorAll('.options-container button');
+const memojiForm = document.getElementById('memojiForm');
+const container = document.querySelector('.todowrapper');
+const cards = document.querySelectorAll('.todocard');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const slider = document.querySelector('.donate');
+const output = document.querySelector('.current-value');
+const commentForm = document.querySelector('.comment form');
+
+if (allOptions.length > 0) {
+    const triggerAnimation = (event) => {
+        const clickedBtn = event.currentTarget;
+        const targetUrl = clickedBtn.getAttribute('data-url');
+        
+        if (loaderBtn) {
+            loaderBtn.setAttribute('href', targetUrl);
+            loaderBtn.classList.remove('shownow', 'ready');
+            void loaderBtn.offsetWidth; // Force reflow
+            loaderBtn.classList.add('shownow');
+        }
+    };
+
+    allOptions.forEach(btn => {
+        btn.addEventListener('click', triggerAnimation);
+    });
+}
 
 if (memojiForm) {
     memojiForm.addEventListener('click', async (event) => {
@@ -21,7 +48,41 @@ if (memojiForm) {
 
         clickedBtn.classList.add('is-loading');
         if (loaderBtn) {
+            loaderBtn.classList.remove('shownow', 'ready');
+            void loaderBtn.offsetWidth; // Force reflow
             loaderBtn.classList.add('shownow');
+        }
+
+        // Inside Helper: Update DOM Changes
+        const updateProfilePictureDOM = () => {
+            if (!pictureContainer) return;
+            
+            const sources = pictureContainer.querySelectorAll('source');
+            sources.forEach(source => {
+                source.srcset = localSourceUrl; 
+            });
+
+            if (profileImg) {
+                profileImg.src = localSourceUrl;
+            }
+        };
+
+        // Inside Helper: Popover dismissal
+        function closePopoverPanel() {
+            const popoverEl = document.getElementById('profiselector');
+            if (popoverEl && typeof popoverEl.hidePopover === 'function') {
+                popoverEl.hidePopover();
+            } else if (popoverEl && typeof popoverEl.close === 'function') {
+                popoverEl.close();
+            }
+        }
+
+        // Inside Helper: Reset states
+        function cleanUpLoading() {
+            clickedBtn.classList.remove('is-loading');
+            if (loaderBtn) {
+                loaderBtn.classList.remove('shownow');
+            }
         }
 
         try {
@@ -40,21 +101,9 @@ if (memojiForm) {
             if (!response.ok) throw new Error("Database patch operation failed");
             
             const data = await response.json();
-            const confirmedUrl = data.newMemojiUrl;
+            const confirmedUrl = data.newMemojiUrl || localSourceUrl;
 
-            const updateProfilePictureDOM = () => {
-                if (!pictureContainer) return;
-                
-                const sources = pictureContainer.querySelectorAll('source');
-                sources.forEach(source => {
-                    source.srcset = confirmedUrl;
-                });
-
-                if (profileImg) {
-                    profileImg.src = confirmedUrl;
-                }
-            };
-
+            // Feature flag check for View Transition API
             if (!document.startViewTransition) {
                 updateProfilePictureDOM();
                 closePopoverPanel();
@@ -62,6 +111,7 @@ if (memojiForm) {
                 return;
             }
 
+            // Assign transition names dynamically
             if (clickedImg) clickedImg.style.viewTransitionName = 'active-memoji';
             if (profileImg) profileImg.style.viewTransitionName = 'active-memoji';
 
@@ -73,38 +123,18 @@ if (memojiForm) {
 
             await transition.finished;
             
+            // Clean up transition names
             if (clickedImg) clickedImg.style.viewTransitionName = '';
             if (profileImg) profileImg.style.viewTransitionName = '';
 
         } catch (error) {
+            console.error("Fetch error, falling back to form submission:", error);
             cleanUpLoading();
-            memojiForm.submit(); 
-        }
-
-        function closePopoverPanel() {
-            const popoverEl = document.getElementById('profiselector');
-            if (popoverEl && typeof popoverEl.hidePopover === 'function') {
-                popoverEl.hidePopover();
-            } else if (popoverEl && typeof popoverEl.close === 'function') {
-                popoverEl.close();
-            }
-        }
-
-        function cleanUpLoading() {
-            clickedBtn.classList.remove('is-loading');
-            if (loaderBtn) {
-                loaderBtn.classList.remove('shownow');
-            }
+            memojiForm.submit(); // Progressive enhancement fallback
         }
     });
 }
 
-const container = document.querySelector('.todowrapper');
-const cards = document.querySelectorAll('.todocard');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-
-// Helper to safely get index only if carousel exists
 function getActiveIndex() {
     if (!container || cards.length === 0) return 0;
     
@@ -128,13 +158,11 @@ function getActiveIndex() {
     return closestIndex;
 }
 
-// Scroll directly to center a targeted item
 function scrollToCard(index) {
-    if (index < 0 || index >= cards.length) return;
+    if (!container || index < 0 || index >= cards.length) return;
 
     const card = cards[index];
     const containerWidth = container.clientWidth;
-    
     const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
 
     container.scrollTo({
@@ -143,7 +171,14 @@ function scrollToCard(index) {
     });
 }
 
-// Carousel listeners safely wrapped
+function updateButtonStates() {
+    if (!container || cards.length === 0) return; 
+    const currentIndex = getActiveIndex();
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
+}
+
+// Initialize Carousel Event Listeners
 if (container && cards.length > 0) {
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
@@ -164,10 +199,18 @@ if (container && cards.length > 0) {
     }
 
     container.addEventListener('scroll', updateButtonStates, { passive: true });
+    window.addEventListener('resize', updateButtonStates);
+    
+    // Normalize disabled flags immediately on load
+    updateButtonStates();
 }
 
-// Safely wrapped comment form logic
-const commentForm = document.querySelector('.comment form');
+if (slider && output) {
+    slider.addEventListener('input', (event) => {
+        output.textContent = event.target.value;
+    });
+}
+
 if (commentForm) {
     const formButton = commentForm.querySelector('button');
     const articleComments = document.querySelector('.messages');
@@ -175,7 +218,6 @@ if (commentForm) {
     if (formButton) {
         commentForm.addEventListener('submit', async function (event) {
             event.preventDefault();
-            console.log('submit');
 
             formButton.classList.add('loading');
             formButton.textContent = 'Bezig met plaatsen...';
@@ -183,6 +225,7 @@ if (commentForm) {
             let formData = new FormData(commentForm);
 
             try {
+                // Combines submission with a forced 2.5 second delay for smooth UX
                 const [response] = await Promise.all([
                     fetch(commentForm.action, {
                         method: commentForm.method,
@@ -191,7 +234,6 @@ if (commentForm) {
                     new Promise(resolve => setTimeout(resolve, 2500))
                 ]);
 
-                console.log(response);
                 const responseData = await response.text();
                 const parser = new DOMParser();
                 const responseDOM = parser.parseFromString(responseData, 'text/html');
@@ -219,27 +261,4 @@ if (commentForm) {
             }
         });
     }
-}
-
-// Handle disabled states naturally as viewport coordinates move
-function updateButtonStates() {
-    if (!container || cards.length === 0) return; // Guard clause if carousel isn't on this page
-    const currentIndex = getActiveIndex();
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
-}
-
-window.addEventListener('resize', updateButtonStates);
-
-// Initial run to normalize disabled flags on load
-updateButtonStates();
-
-// Donate slider + update button
-const slider = document.querySelector('.donate');
-const output = document.querySelector('.current-value');
-
-if (slider && output) {
-    slider.addEventListener('input', (event) => {
-        output.textContent = event.target.value;
-    });
 }
