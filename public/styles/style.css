@@ -217,7 +217,19 @@ details[open]::details-content {
 }
 
 /* Recent articles on homepage */
-.featured-article {
+.recent-articles-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  /* padding: 1em; */
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.most-recent-article {
   height: 25em;
   background-size: cover;
   background-repeat: no-repeat;
@@ -229,7 +241,7 @@ details[open]::details-content {
   position: relative;
   overflow: hidden;
 
-  .featured-article-content {
+  .most-recent-article-content {
     position: relative;
     z-index: 1;
     display: flex;
@@ -237,12 +249,12 @@ details[open]::details-content {
     gap: 1em;
   }
 
-  .featured-article-information {
+  .most-recent-article-information {
     display: flex;
     align-items: center;
     gap: 1em;
 
-    .featured-article-date {
+    .most-recent-article-date {
       display: flex;
       align-items: center;
       gap: .5em;
@@ -264,12 +276,12 @@ details[open]::details-content {
 }
 
 @media (prefers-color-scheme: dark) {
-  .featured-article span {
+  .most-recent-article span {
     color: var(--text-color);
   }
 }
 
-.featured-article::after {
+.most-recent-article::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -306,16 +318,22 @@ details[open]::details-content {
       align-items: center;
       gap: .5em;
 
-      span,
+      /* span,
       time {
         font-weight: 400;
         color: var(--text-color);
+      } */
+
+      time,
+      span,
+      svg {
+        display: none;
       }
     }
 
     h3 {
       color: var(--heading-color);
-      /* font-size: 1em; */
+      font-size: 1em;
       text-decoration: none;
       overflow: hidden;
       display: -webkit-box;
