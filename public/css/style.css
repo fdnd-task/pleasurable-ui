@@ -356,35 +356,6 @@ header {
   }
 }
 
-/* button styling */
-
-.primary-button {
-  background-color: var(--primary-800);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--default-radius);
-  color: var(--primary-100);
-  border: solid var(--space-2xs) var(--primary-800);
-  transition: .2s ease;
-  text-decoration: none;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-neutral-800);
-    color: var(--text-color);
-    scale: 1.05;
-  }
-
-  &:focus {
-    color: var(--text-color-secondary);
-    outline: var(--space-3xs) solid var(--primary-100);
-    /* turn the variable negative */
-    outline-offset: calc(var(--space-xs) * -1);
-    scale: 1.05;
-  }
-
-}
-
-
 /* FAQ homepage */
 .faq-layout {
   .container {
@@ -620,33 +591,6 @@ footer {
     opacity: 0.3;
   }
 
-}
-
-.secondary-button {
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: var(--default-radius);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border: solid var(--space-2xs) var(--primary-600);
-    transition: .2s ease;
-    text-decoration: none;
-    cursor: pointer;
-    place-content: center;
-
-    &:hover {
-        background-color: var(--primary-600);
-        color: var(--text-color-secondary);
-        scale: 1.05;
-    }
-
-    &:focus {
-        background-color: var(--primary-600);
-        color: var(--text-color-secondary);
-        outline: var(--space-2xs) solid var(--primary-100);
-        /* turn the variable negative */
-        outline-offset: calc(var(--space-xs) * -1);
-        scale: 1.05;
-    }
 }
 
 /* Home page */

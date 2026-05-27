@@ -116,7 +116,7 @@ h6 {
     font-family: var(--font-heading);
 }
 
-
+/* constant classes */
 
 /* container */
 /* parent */
@@ -180,6 +180,15 @@ h6 {
         color: var(--triary-background-color);
 
     }
+
+    &:focus {
+        background-color: var(--primary-600);
+        color: var(--text-color-secondary);
+        outline: var(--space-2xs) solid var(--primary-100);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
+        scale: 1.05;
+    }
 }
 
 /* button animation base states */
@@ -230,14 +239,17 @@ as a fallback for JS script */
 }
 
 .loading-dots {
-    gap: 8px;
+    gap: var(--space-xs);
 
     span {
         width: 8px;
         height: 8px;
         background-color: var(--secondary-500);
         border-radius: 50%;
-        animation: bounce 0.6s infinite;
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: bounce 0.6s infinite;
+        }
 
         &:nth-child(2) {
             animation-delay: 0.1s;
