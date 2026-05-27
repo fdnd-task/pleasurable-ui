@@ -836,3 +836,115 @@ p.paragraph {
     border-radius: var(--border-popover);
     color: var(--dark-text);
 }
+
+/* MARK: suggesties */
+
+h1.suggesties-page {
+padding-bottom: 1em;
+place-content: center;
+}
+
+label {
+    font-size: var(--heading-small);
+}
+
+.collection-suggesties {
+    flex-direction: row;
+    margin-bottom: 13em;
+    color: var(--always-dark);
+
+
+    /* li styling van de suggesties op de suggesties pagina */
+    li {
+        background: var(--voedseleiland);
+        color: var(--always-black);
+        display: flex;
+        padding: 1em;
+        border-radius: 1em;
+        margin-bottom: 1em;
+        justify-content: space-between;
+
+        p {
+            color: black;
+        }
+
+        &:focus-within {
+            background: var(--accent-color);
+            outline: none;
+        }
+
+        &:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow:
+                0 16px 36px black 0 4px 10px black;
+        }
+    }
+
+    form {
+        justify-content: center;
+        align-content: center;
+        border-radius: 0;
+
+        .delete-button {
+            border: none;
+            border-radius: 1em;
+            padding: .3em;
+            border-style: none;
+        }
+    }
+}
+
+/* styling suggesties page */
+
+.toevoegen-button {
+    position: fixed;
+    right: 1em;
+    bottom: 6em;
+    display: flex;
+    width: fit-content;
+
+    svg {
+        height: 5em;
+        width: 5em;
+    }
+}
+
+.terug-button {
+    left: 1em;
+    top: 1em;
+    display: flex;
+    width: fit-content;
+
+    svg {
+        width: 2em;
+        height: 2em;
+    }
+}
+
+/* sectionclass van de jouw-suggestie page */
+form.form {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    justify-self: center;
+    gap: 0.5em;
+
+    input {
+        width: 250px;
+        padding: 0.5em;
+        border: solid 0.1em lightslategray;
+        border-radius: 5em;
+        border-style: default;
+        align-self: center;
+    }
+
+    label {
+        align-self: start center;
+    }
+
+    input.verstuur-button {
+        width: 100px;
+        justify-self: end center;
+        border: none;
+    }
+}
