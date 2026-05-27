@@ -623,6 +623,52 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/suggesties', async function (request, response) {
+
+    const suggestionResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_suggestions')
+    const suggestionResponseJSON = await suggestionResponse.json()
+    response.render('suggesties.liquid', { suggestions: suggestionResponseJSON.data })
+})
+
+app.get('/jouw-suggestie', async function (request, response) {
+
+    response.render('jouw-suggestie.liquid')
+})
+
+app.post('/jouw-suggestie', async (request, response) => {
+
+    console.log(request)
+    const postResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_suggestions', {
+
+        method: 'POST',
+
+        body: JSON.stringify({
+
+            suggestion: request.body.suggestion,
+            suggestion_reason: request.body.suggestion_reason
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+
+    response.redirect(303, '/suggesties')
+})
+
+
+// maak een delete route aan
+app.post('/suggesties/delete/:id', async (request, response) => {
+
+    const idsuggestion = request.params.id
+
+    await fetch(`https://fdnd-agency.directus.app/items/frankendael_suggestions/${idsuggestion}`, {
+
+        method: 'DELETE'
+    });
+
+    response.redirect(303, '/suggesties')
+})
+
 
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 
