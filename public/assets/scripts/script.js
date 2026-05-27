@@ -1,5 +1,32 @@
-const memojiForm = document.getElementById('memojiForm');
+
 const loaderBtn = document.querySelector('.loader');
+const allOptions = document.querySelectorAll('.options-container button');
+const memojiForm = document.getElementById('memojiForm');
+const container = document.querySelector('.todowrapper');
+const cards = document.querySelectorAll('.todocard');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const slider = document.querySelector('.donate');
+const output = document.querySelector('.current-value');
+const commentForm = document.querySelector('.comment form');
+
+if (allOptions.length > 0) {
+    const triggerAnimation = (event) => {
+        const clickedBtn = event.currentTarget;
+        const targetUrl = clickedBtn.getAttribute('data-url');
+        
+        if (loaderBtn) {
+            loaderBtn.setAttribute('href', targetUrl);
+            loaderBtn.classList.remove('shownow', 'ready');
+            void loaderBtn.offsetWidth; // Force reflow
+            loaderBtn.classList.add('shownow');
+        }
+    };
+
+    allOptions.forEach(btn => {
+        btn.addEventListener('click', triggerAnimation);
+    });
+}
 
 if (memojiForm) {
     memojiForm.addEventListener('click', async (event) => {
@@ -21,6 +48,8 @@ if (memojiForm) {
 
         clickedBtn.classList.add('is-loading');
         if (loaderBtn) {
+            loaderBtn.classList.remove('shownow', 'ready');
+            void loaderBtn.offsetWidth; // Force reflow
             loaderBtn.classList.add('shownow');
         }
 
@@ -72,21 +101,9 @@ if (memojiForm) {
             if (!response.ok) throw new Error("Database patch operation failed");
             
             const data = await response.json();
-            const confirmedUrl = data.newMemojiUrl;
+            const confirmedUrl = data.newMemojiUrl || localSourceUrl;
 
-            const updateProfilePictureDOM = () => {
-                if (!pictureContainer) return;
-                
-                const sources = pictureContainer.querySelectorAll('source');
-                sources.forEach(source => {
-                    source.srcset = confirmedUrl;
-                });
-
-                if (profileImg) {
-                    profileImg.src = confirmedUrl;
-                }
-            };
-
+            // Feature flag check for View Transition API
             if (!document.startViewTransition) {
                 updateProfilePictureDOM();
                 closePopoverPanel();
@@ -94,7 +111,7 @@ if (memojiForm) {
                 return;
             }
 
-            // Assign transition names to both elements before the transition begins
+            // Assign transition names dynamically
             if (clickedImg) clickedImg.style.viewTransitionName = 'active-memoji';
             if (profileImg) profileImg.style.viewTransitionName = 'active-memoji';
 
@@ -106,29 +123,14 @@ if (memojiForm) {
 
             await transition.finished;
             
-            // Clean up transition names after the fade completes
+            // Clean up transition names
             if (clickedImg) clickedImg.style.viewTransitionName = '';
             if (profileImg) profileImg.style.viewTransitionName = '';
 
         } catch (error) {
+            console.error("Fetch error, falling back to form submission:", error);
             cleanUpLoading();
-            memojiForm.submit(); 
-        }
-
-        function closePopoverPanel() {
-            const popoverEl = document.getElementById('profiselector');
-            if (popoverEl && typeof popoverEl.hidePopover === 'function') {
-                popoverEl.hidePopover();
-            } else if (popoverEl && typeof popoverEl.close === 'function') {
-                popoverEl.close();
-            }
-        }
-
-        function cleanUpLoading() {
-            clickedBtn.classList.remove('is-loading');
-            if (loaderBtn) {
-                loaderBtn.classList.remove('shownow');
-            }
+            memojiForm.submit(); // Progressive enhancement fallback
         }
     });
 }
@@ -163,11 +165,11 @@ function scrollToCard(index) {
     const containerWidth = container.clientWidth;
     const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
 
-    container.scrollTo({
-        left: targetScrollLeft,
-        behavior: 'smooth'
-    });
-}
+        container.scrollTo({
+            left: targetScrollLeft,
+            behavior: 'smooth'
+        });
+    }
 
 function updateButtonStates() {
     if (!container || cards.length === 0) return; 
@@ -187,65 +189,65 @@ if (container && cards.length > 0) {
         });
     }
 
-    // Click Handlers
-    nextBtn.addEventListener('click', () => {
-        const currentIndex = getActiveIndex();
-        if (currentIndex < cards.length - 1) {
-            scrollToCard(currentIndex + 1);
-        }
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const currentIndex = getActiveIndex();
+            if (currentIndex > 0) {
+                scrollToCard(currentIndex - 1);
+            }
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        const currentIndex = getActiveIndex();
-        if (currentIndex > 0) {
-            scrollToCard(currentIndex - 1);
-        }
+    container.addEventListener('scroll', updateButtonStates, { passive: true });
+    window.addEventListener('resize', updateButtonStates);
+    
+    // Normalize disabled flags immediately on load
+    updateButtonStates();
+}
+
+if (slider && output) {
+    slider.addEventListener('input', (event) => {
+        output.textContent = event.target.value;
     });
 }
 
-const commentForm = document.querySelector('.comment form')
+if (commentForm) {
+    const formButton = commentForm.querySelector('button');
+    const articleComments = document.querySelector('.messages');
 
-const formButton = commentForm.querySelector('button')
-const articleComments = document.querySelector('.messages')
+    if (formButton) {
+        commentForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
 
+            formButton.classList.add('loading');
+            formButton.textContent = 'Bezig met plaatsen...';
 
-commentForm.addEventListener('submit', async function (event) {
+            let formData = new FormData(commentForm);
 
-    event.preventDefault()
-    console.log('submit')
+            try {
+                // Combines submission with a forced 2.5 second delay for smooth UX
+                const [response] = await Promise.all([
+                    fetch(commentForm.action, {
+                        method: commentForm.method,
+                        body: new URLSearchParams(formData)
+                    }),
+                    new Promise(resolve => setTimeout(resolve, 2500))
+                ]);
 
-    formButton.classList.add('loading')
-    formButton.textContent = 'Bezig met plaatsen...'
+                const responseData = await response.text();
+                const parser = new DOMParser();
+                const responseDOM = parser.parseFromString(responseData, 'text/html');
+                const newState = responseDOM.querySelector('.messages');
 
-    let formData = new FormData(commentForm);
+                if (newState && articleComments) {
+                    articleComments.innerHTML = newState.innerHTML;
+                }
 
-    const [response] = await Promise.all([
-        fetch(commentForm.action, {
-            method: commentForm.method,
-            body: new URLSearchParams(formData)
-        }),
-        new Promise(resolve => setTimeout(resolve, 2500))
-    ])
+                formButton.classList.remove('loading');
+                formButton.classList.add('success');
+                formButton.textContent = '✔ Geplaatst!';
 
-    console.log(response)
-
-    const responseData = await response.text()
-
-    const parser = new DOMParser()
-    const responseDOM = parser.parseFromString(responseData, 'text/html')
-
-    const newState = responseDOM.querySelector('.messages')
-
-
-    if (newState) {
-        articleComments.innerHTML = newState.innerHTML
-    }
-
-    formButton.classList.remove('loading')
-    formButton.classList.add('success')
-    formButton.textContent = '✔ Geplaatst!'
-
-    commentForm.reset()
+                commentForm.reset();
 
     setTimeout(() => {
 
@@ -275,16 +277,9 @@ if (slider && output) {
     });
 }
 
-if (commentForm) {
-    const formButton = commentForm.querySelector('button');
-    const articleComments = document.querySelector('.messages');
-
-    if (formButton) {
-        commentForm.addEventListener('submit', async function (event) {
-            event.preventDefault();
-
-            formButton.classList.add('loading');
-            formButton.textContent = 'Bezig met plaatsen...';
+// Donate slider + update button
+const slider = document.querySelector('.donate');
+const output = document.querySelector('.current-value');
 
 slider.addEventListener('input', (event) => {
     output.textContent = event.target.value;
