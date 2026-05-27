@@ -725,6 +725,139 @@ footer {
   }
 }
 
+
+/*Spotter pagina*/
+.strikje{
+  width: 100vw;
+margin-bottom: 25px;
+}
+h1{
+  text-align: center;
+  
+}
+.container{
+     display: flex; /* Maakt een flexbox container */
+     flex-direction: column;
+  justify-content: center; /* Centreert horizontaal */
+  align-items: center; /* Centreert verticaal */
+  line-height: 1.6;
+}
+.intro-spotters{
+  padding-bottom: 50px;
+  text-align: center;
+  width: 50ch;
+   
+}
+.titel{
+  text-align: center;
+}
+.meldaan-tekst{
+  text-align: center;
+    width: 50ch;
+margin-bottom: 25px;
+}
+.container{
+  margin-bottom: 50px;
+}
+.spotters-titel{
+  margin-bottom: 50px;
+  margin-left:25px ;
+}
+.container-spotters{
+  list-style: none;
+  padding: 0;
+  gap: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 250px;
+
+
+  @media (min-width:425px) {
+    display: grid;
+    grid-template-columns: repeat(2, 250px);
+    /* 2 kaarten komen hierdoor naast elkaar te staan*/
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    /* 3 kaarten komen hierdoor naast elkaar te staan*/
+    gap: 40px;
+  }
+}
+
+.popup-aanmelden{
+display: none;
+border-radius: 15px;
+border: 2px solid #997700;
+padding: 40px; /* ruimte binnen de popup */
+width: 500px;
+padding: 50px 40px;
+
+&.open{
+display: block;
+    & button{
+        background-color: #997700;
+  color:white;
+    }
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* ruimte tussen labels en inputs */
+}
+}
+.popup-aanmelden input{
+  border: 2px solid #997700;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.aanmeld-knop{
+  background-color: #997700;
+  color:white;
+  width: 100px;
+  height:30px;
+  border-radius: 50px;
+  border:none;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover{
+   transform: scale(1.1);
+    background-color: #453602;
+  }
+  &.close{
+    display: none;
+  }
+}
+.placeholder{
+  width: 150px;
+  height:auto;
+}
+
+.opslaan-knop{
+  background-color: #997700;
+  color:white;
+  width: 100px;
+  height:30px;
+  border-radius: 50px;
+  border:none;
+  margin-top: 15px;
+  align-self: center;
+  transition: transform 0.2s ease;
+  cursor:pointer;
+
+  &:hover{
+    transform: scale(1.1);
+    background-color: #453602;
+  }
+}
 .ribbon {
   display: flex;
   flex-direction: column;
