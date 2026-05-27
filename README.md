@@ -30,11 +30,14 @@ de wishlist is de pagina waar alle opgeslagen caduas die op de home pagina opges
 
 Voor het ontwerp heb ik gekozen voor zachte ronde bolletjes die niet te veel opvallen.
 De focus ligt op een rustige en minimalistische uitstraling waarbij de actieve optie duidelijk groter wordt weergegeven.
+
+<br>
+
 <img width="885" height="146" alt="image" src="https://github.com/user-attachments/assets/ffe9d6c9-b63c-48a0-8dd4-d19046bb0987" />
 
 **De ribbon**
 
-ik heb op de site ook een lange streep hij onderscheidt de products en galerij maar hij blijft wel in het thema 
+ik heb op de site ook een lange streep hij onderscheidt de products en galerij maar hij blijft wel in het thema van milledoni
 
 
 
