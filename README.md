@@ -8,17 +8,17 @@ Check [hier](https://pleasurable-ui-xr0z.onrender.com/) de website.
 
 **Developers**
 
-[Gijs](https://github.com/GijsNagtegaal)
+- [Gijs](https://github.com/GijsNagtegaal)
 
-[Lynn](https://github.com/lynnvdbo)
+- [Lynn](https://github.com/lynnvdbo)
 
-[Tin](https://github.com/WebTins)
+- [Tin](https://github.com/WebTins)
 
-[Kevin](https://github.com/toasterbath0758)
+- [Kevin](https://github.com/toasterbath0758)
 
-[Seb](https://github.com/SebBastiaans)
+- [Seb](https://github.com/SebBastiaans)
 
-[Bronx](https://github.com/bronxpostma13)
+- [Bronx](https://github.com/bronxpostma13)
 
 ## Inhoudsopgave
 
