@@ -28,6 +28,14 @@ Van de opdrachtgever hebben wij een prototype gekregen van het design in een fig
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+## Inhoudsopgave
+
+  * [Beschrijving](#beschrijving)
+  * [Huisstijl](#huisstijl)
+  * [Kenmerken](#kenmerken)
+  * [Installatie](#installatie)
+  * [Bronnen](#bronnen)
+  * [Licentie](#licentie)
 
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
