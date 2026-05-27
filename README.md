@@ -49,6 +49,41 @@ Van de opdrachtgever hebben wij een prototype gekregen van het design in een fig
 
 ## Nieuws
 
+Op de nieuws overzicht pagina zie je een lijst met allemaal nieuws artikelen over het bloemenveld. Wanneer je op zo'n artikel klikt wordt je doorgestuurd naar de pagina van dat specifieke artikel met alle informatie. 
+Je kunt boven aan sorteren op 'relevantste', 'nieuwste', 'oudste' en ook specifiek zoeken via een zoekbalk. 
+Wanneer je op Google Chrome naar beneden scrollt verdwijnt de sorteer/zoek sectie boven uit beeld en komt er rechtsonder een knop om meteen naar boven te scrollen. Op meeste browsers is deze feature nog niet beschikbaar, dan staan de sorteer/zoek sectie en de knop standaard in beeld als je scrollt. Dit zorgt voor een meer 'pleasurable user interface'. 
+
+https://github.com/user-attachments/assets/00ca072e-11b7-4a6a-9b33-67c089118796
+
+Technische documentatie
+
+Pleasurable UI
+'naar boven' button - met `@container news-scroll scroll-state(scrollable:top)` wordt er gekeken of er naar boven gescrollt kan worden. Als dat kan dan wordt de `translate` en `transition` uitgevoerd.
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/d56ee21e3833dff5d9602605fc676a64fd8a3d45/public/assets/styles/partials.css#L804-L838
+
+sorteer/zoek sectie - met `@container scroll-state(scrolled:bottom)` wordt er gekeken of er nog naar onder gescrollt kan worden. Als dat kan dan wordt de `translate` uitgevoerd.
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/d56ee21e3833dff5d9602605fc676a64fd8a3d45/public/assets/styles/style.css#L659-L661
+
+Progressive enhancement
+
+'naar boven' button - Met @supports wordt er gekeken of `container-type: scroll-state;` bestaat op de browser, zo ja wordt het gebruikt, zo nee dan blijft het gewoon `position: fixed;` in beeld zonder animatie.
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/d56ee21e3833dff5d9602605fc676a64fd8a3d45/public/assets/styles/partials.css#L807-L822
+
+sorteer/zoek sectie - Wanneer `scroll-state` niet ondersteund wordt, worden die regels CSS overgeslagen en blijft de sectie `fixed` in beeld bij het scrollen.
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/d56ee21e3833dff5d9602605fc676a64fd8a3d45/public/assets/styles/style.css#L647-L652
+
+Ook is `backdrop-filter` bassline newly available, dus is er een @supports omheen gezet, zodat wanneer het niet werk er gewoon een `background-color` is.
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/9237ac2acdcc5ea1a825085cb4ea4fa3118c1457/public/assets/styles/style.css#L649-L652
+
+Ondersteund een browser deze features niet dan ziet het er zo uit:
+
+https://github.com/user-attachments/assets/7f59f558-25cd-4b6d-9fb1-e7c9484df592
+
 ## Nieuwsartikel
 
 ## Collectie
