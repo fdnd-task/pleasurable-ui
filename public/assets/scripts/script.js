@@ -256,19 +256,18 @@ commentForm.addEventListener('submit', async function (event) {
     }, 2000)
 })
 
-    // Handle disabled states naturally as viewport coordinates move
-    function updateButtonStates() {
-        const currentIndex = getActiveIndex();
-        if (prevBtn) prevBtn.disabled = currentIndex === 0;
-        if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
-    }
-
-    container.addEventListener('scroll', updateButtonStates, { passive: true });
-    window.addEventListener('resize', updateButtonStates);
-    
-    // Normalize disabled flags immediately on load
-    updateButtonStates();
+// Handle disabled states naturally as viewport coordinates move
+function updateButtonStates() {
+    const currentIndex = getActiveIndex();
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
 }
+
+container.addEventListener('scroll', updateButtonStates, { passive: true });
+window.addEventListener('resize', updateButtonStates);
+
+// Normalize disabled flags immediately on load
+updateButtonStates();
 
 if (slider && output) {
     slider.addEventListener('input', (event) => {
