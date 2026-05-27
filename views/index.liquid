@@ -80,14 +80,14 @@
     {% assign district = "algemeen,nieuw-west,zuidoost,oost" | split: "," %}
 
     {% for district in district %}
-    <section class="homepage-articles">
+    <section class="district-articles">
 
-        <div class="homepage-district-top">
+        <div class="district-articles-top">
             <h2>{{ district | capitalize }}</h2>
             <a href="/{{ district }}">Alles bekijken →</a>
         </div>
 
-        <div class="district-articles {{ district }}">
+        <div class="district-articles-cards {{ district }}">
             {% assign district_stories = stories | where: "district", district %}
 
             {% for story in district_stories limit:3 %}

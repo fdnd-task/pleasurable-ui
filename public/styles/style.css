@@ -26,6 +26,7 @@ header {
 
 .logo-header img {
   width: 10rem;
+
   @media (min-width: 768px) {
     width: 19rem;
   }
@@ -379,6 +380,8 @@ details[open]::details-content {
 
 /* Recent articles on homepage */
 .recent-articles-section {
+  padding: 0;
+
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -386,6 +389,7 @@ details[open]::details-content {
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    padding: 0 15px;
   }
 }
 
@@ -396,6 +400,7 @@ details[open]::details-content {
   display: flex;
   align-items: end;
   padding: 2em;
+
 
   /* overlay */
   position: relative;
@@ -433,6 +438,10 @@ details[open]::details-content {
     color: #F1F1F1;
     fill: #F1F1F1;
   }
+
+  @media (min-width: 768px) {
+    border-radius: 20px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -455,21 +464,21 @@ details[open]::details-content {
   display: flex;
   flex-direction: column;
   gap: 0em;
-  padding: .5em;
+  /* padding: .5em; */
 
   article {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: .7em;
-    padding: .5em;
+    /* padding: .5em; */
     border-bottom: 1px solid rgb(236, 236, 236);
   }
 
   .recent-articles-titel {
     font-size: 1.4em;
-    padding-bottom: .5em;
-    padding-left: .3em;
+    /* padding-bottom: .5em;
+    padding-left: .3em; */
     border-bottom: 1px solid rgb(236, 236, 236);
 
     @media (min-width: 1200px) {
@@ -676,5 +685,44 @@ footer {
         }
       }
     }
+  }
+}
+
+/* ----- 3 DISTRICTs ARTICLES STYLING ----- */
+.district-articles {
+  margin-top: 5em;
+
+  .district-articles-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding-top: .5em;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+
+      /* h3 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      } */
+    }
+  }
+}
+
+.district-articles-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+
+  a {
+    color: var(--heading-color);
+    text-decoration: none;
   }
 }
