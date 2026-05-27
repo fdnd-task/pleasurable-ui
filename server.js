@@ -1,3 +1,4 @@
+console.log('SERVER UPDATED')
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
 import express from 'express'
@@ -29,8 +30,70 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+async function getStories() {
+  const apiResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
+  )
+
+  const apiResponseJSON = await apiResponse.json()
+
+  return apiResponseJSON.data
+}
+
 app.get('/', async function (request, response) {
-  response.render('index.liquid')
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('index.liquid', {
+    stories: stories,
+    search: search
+  })
+})
+
+app.get('/:district', async function (request, response) {
+  const district = request.params.district
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  stories = stories.filter(function (story) {
+    return story.district === district
+  })
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('district.liquid', {
+    stories: stories,
+    search: search
+const baseURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
+const story_fields = 'cover.*, date, title, intro, status, district, slug, target_group, id'
+
+app.get('/', async function (request, response) {
+
+  const params = new URLSearchParams()
+  params.set('fields', story_fields)
+
+  const apiStoriesResponse = await fetch(baseURL + '?' + params.toString())
+  const apiStoriesResponseJSON = await apiStoriesResponse.json()
+
+  response.render('index.liquid', {
+    stories: apiStoriesResponseJSON.data
+  })
 })
 
 app.get('/:district/:slug', async function (request, response) {
