@@ -198,7 +198,7 @@ header.nav-header {
 
 /* animate the after here */
 .nav-link:hover p::after,
-.nav-link:focus-visible p::after{
+.nav-link:focus-visible p::after {
   width: 100%;
   transform: scaleX(1);
   transition: inherit;
@@ -259,7 +259,7 @@ header.nav-header {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
 
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-template-columns: 1fr 1fr;
 
     }
@@ -270,7 +270,7 @@ header.nav-header {
     font-size: var(--space-xl);
     align-content: center;
 
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 1;
 
     }
@@ -282,7 +282,7 @@ header.nav-header {
     font-family: var(--font-body);
     line-height: 1.8;
 
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 1;
 
     }
@@ -294,7 +294,7 @@ header.nav-header {
     display: grid;
     place-items: center;
 
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 2;
       grid-row: 1 / 4;
 
@@ -305,7 +305,7 @@ header.nav-header {
       width: 100%;
       object-fit: contain;
 
-      @media (min-width: 800px) {
+      @media (width >=800px) {
         object-fit: cover;
         height: inherit;
 
@@ -318,7 +318,7 @@ header.nav-header {
     grid-column: 1;
     width: fit-content;
 
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 1;
 
     }
@@ -327,21 +327,21 @@ header.nav-header {
 
 .img-left {
   h2 {
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 2;
 
     }
   }
 
   p {
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 2;
 
     }
   }
 
   picture {
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 1;
       grid-row: 1 / 4;
 
@@ -349,7 +349,7 @@ header.nav-header {
   }
 
   a {
-    @media (min-width: 800px) {
+    @media (width >=800px) {
       grid-column: 2;
 
     }
@@ -405,7 +405,6 @@ header.nav-header {
   }
 
 }
-
 
 /* FAQ homepage */
 .faq-layout {
@@ -739,5 +738,69 @@ footer.lowest-footer {
     grid-row: 3;
     grid-column: 1/-1;
     align-self: end;
+  }
+}
+
+/* hero */
+.hero {
+  background: var(--primary-100);
+  padding: var(--space-2xl) 0;
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+
+    @media (width >= 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .hero-inner.img-right {
+    @media (width >= 768px) {
+      picture {
+        order: 2;
+      }
+
+      .hero-text {
+        order: 1;
+      }
+    }
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    background-color: transparent;
+    padding: 0;
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--primary-800);
+      font-weight: 700;
+    }
+
+    & > p {
+      max-width: 45ch;
+      color: var(--primary-900);
+      font-family: var(--font-body);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+  }
+
+  img {
+    border-radius: var(--img-radius);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

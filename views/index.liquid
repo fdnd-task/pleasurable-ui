@@ -3,9 +3,20 @@
 {% assign content2 = 'Een Associate degree combineert praktijkgericht onderwijs met doorstroommogelijkheden, zodat je snel ervaring opdoet én een diploma haalt. Praktijkgericht leren en direct vaardigheden toepassen Korte studieduur van 2 jaar Doorstromen naar een bacheloropleiding mogelijk' %}
 
 <main>
-  {% comment %} insert hero banner hero {% endcomment %}
+  {% render 'partials/hero.liquid',
+    title: 'Wat zijn Associate degrees en hoe sluit het aan bij jou wensen?',
+    content: content1,
+    btnLink: '#',
+    btnText: "Meer info over Ad's",
+    btn2Link: '#',
+    btn2Text: 'Kom naar de Ad-dag',
+    imgSrc: 'https://fdnd-agency.directus.app/assets/6929a725-dd62-4275-8bef-34e6577c6580',
+    imgAlt: 'Ad-dag foto',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true
+  %}
 
-  {% comment %} grid needs styling from #6 {% endcomment %}
   <section class="container news-grid">
     {% for newsArticle in news limit: 3 %}
       {% render 'partials/news-card.liquid',
@@ -15,20 +26,6 @@
       %}
     {% endfor %}
   </section>
-  {% render './partials/article.liquid',
-    style: 'img-left',
-    title: 'Wat zijn Associate degrees en hoe sluit het aan bij jou wensen?',
-    content: content1,
-    imgURL: 'https://adconnect.dev.fdnd.nl/_app/immutable/assets/over-ad-hero.BesZgbm2.webp',
-    imgWidth: 300,
-    imgHeight: 300,
-    imgAlt: '',
-    imgFetch: 'auto',
-    imgLoading: 'lazy',
-    button: true,
-    btnLink: '#',
-    btnText: "Meer info over Ad's"
-  %}
 
   <div class="layout discovery-section">
     <article class="container">
