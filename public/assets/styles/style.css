@@ -286,4 +286,68 @@ footer {
     text-decoration-color: #E2B100;
   }
 }
+/* popup blog pagina */
+.comment-btn{
+  display: flex;
+  justify-content: flex-end;
+
+  .img-comment-btn{
+    width: 50px;
+    position: relative;
+    right: -45px;
+  }
+
+  .popover-btn{
+    anchor-name: --comment-btn;
+  
+    padding: 15px 15px 15px 15px;
+    border-radius: 30px;
+  
+  }
+}
+#comment-popover{
+  width: 425px;
+  height: 300px;
+
+  border: none;
+  border-radius: 20px;
+  
+  background-color: #F6F5F5;
+  box-shadow: 2px 5px 2px #D9D9D9;
+  
+  position-area: bottom;
+
+  position-anchor: --comment-btn;
+  margin-top: 8px;
+
+  label[for="comment"]{
+    position: relative;
+    left: 10px;
+    bottom: 7px;
+    font-size: 17px;
+  }
+}
+textarea::placeholder{
+  padding: 5px 5px 5px 5px;
+}
+
+form.blog-comment{
+  margin-top: 15px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 10px;
+  column-gap: 10px;
+}
+#comment{
+  border-radius: 30px;
+}
+.submit-btn{
+  width: 80px;
+  border-radius: 30px;
+  padding: 5px 5px 5px 5px;
+  position: relative;
+  bottom: -13em;
+  right: -23em;
 }

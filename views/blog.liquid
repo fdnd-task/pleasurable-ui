@@ -1,6 +1,7 @@
 {% include 'partials/head.liquid' %}
 <main class="blog">
   <h1>Blog van Milledoni</h1>
+  {% for product in products %}
     <section class="section-article">
       <img
         class="blog-img-article"
@@ -15,7 +16,29 @@
         <a class="lees-meer" href="/detail-blog">Lees meer</a>
       </p>
     </section>
-    {% endfor %}
+    <div class="section-divider"></div>
+  {% endfor %}
+
+  {% comment %} popup {% endcomment %}
+   <div class="comment-btn">
+    <img class="img-comment-btn" src="assets/images/comment-img.svg">
+    <button class="popover-btn" popovertarget="comment-popover">
+      ........Bekijk de reacties
+    </button>
+  </div>
+  <div popover id="comment-popover">
+    <form class="blog-comment">
+      <label for="comment"> Voeg een reactie toe </label>
+
+      <textarea
+        id="comment"
+        name="comment"
+        placeholder="Voeg een opmerking toe om het gesprek te starten.... "
+      ></textarea>
+
+      <button type="submit" class="submit-btn">Plaatsen</button>
+    </form>
+  </div>
 </main>
 
 {% include 'partials/foot.liquid' %}
