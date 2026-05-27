@@ -55,9 +55,9 @@ Wanneer je op Google Chrome naar beneden scrollt verdwijnt de sorteer/zoek secti
 
 https://github.com/user-attachments/assets/00ca072e-11b7-4a6a-9b33-67c089118796
 
-Technische documentatie
+### Technische documentatie
 
-Pleasurable UI
+**Pleasurable UI**
 'naar boven' button - met `@container news-scroll scroll-state(scrollable:top)` wordt er gekeken of er naar boven gescrollt kan worden. Als dat kan dan wordt de `translate` en `transition` uitgevoerd.
 
 https://github.com/GijsNagtegaal/pleasurable-ui/blob/d56ee21e3833dff5d9602605fc676a64fd8a3d45/public/assets/styles/partials.css#L804-L838
@@ -66,7 +66,7 @@ sorteer/zoek sectie - met `@container scroll-state(scrolled:bottom)` wordt er ge
 
 https://github.com/GijsNagtegaal/pleasurable-ui/blob/d56ee21e3833dff5d9602605fc676a64fd8a3d45/public/assets/styles/style.css#L659-L661
 
-Progressive enhancement
+**Progressive enhancement**
 
 'naar boven' button - Met @supports wordt er gekeken of `container-type: scroll-state;` bestaat op de browser, zo ja wordt het gebruikt, zo nee dan blijft het gewoon `position: fixed;` in beeld zonder animatie.
 
