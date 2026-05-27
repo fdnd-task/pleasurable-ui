@@ -21,6 +21,7 @@
     </div>
 
     <section class="recent-articles">
+        <h4 class="recent-articles-titel">Recente artikelen</h4>
         {% assign latest = stories %}
         {% for story in latest limit:3 %}
         <a href="/{{ story.district }}/{{ story.slug }}" class="card-component-link">
