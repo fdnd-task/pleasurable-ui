@@ -106,13 +106,7 @@
                             </span>
 
                             <section class="log-details">
-                                <h3 class="log-action"><a href="/instrumenten/{{ log.instrument.key }}">{{ log.type_action | default: 'Onbekend' }}</a></h3>
-
-                                <dl class="action-instrument">
-                                    <dt class="sr-only">Instrument</dt>
-                                    <dd>{{ log.instrument.name | default: 'Onbekend' }}</dd>
-                                    <dd># {{ log.instrument.serial_number | default: 'Onbekend' }}</dd>
-                                </dl>
+                                <h3 class="log-action"><a href="/instrumenten/{{ log.instrument.key }}/aanpassen">{{ log.type_action | default: 'Onbekend' }}</a></h3>
 
                                 <dl class="log-parties">
                                     {% case log.type_action %}
