@@ -58,9 +58,9 @@ app.get('/', async function (request, response) {
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
 
-  const sort = request.query.sort || '-id'
+  const sort = request.query.sort || 'id'
   params.append('sort', sort)
-  params.append('fields', 'name,serial_number,type,brand,property,status,key')
+  params.append('fields', 'id,name,serial_number,type,brand,property,status,key')
 
   const soort = request.query.instrument
 
