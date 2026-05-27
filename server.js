@@ -64,9 +64,78 @@ app.get("/cadeau-overzicht", async function (request, response) {
 });
 
 app.get("/wishlist", async function (request, response) {
-  response.render("cadeau.liquid");
+
+  const params = {
+    fields:
+      "liked_products.milledoni_products_id.id," +
+      "liked_products.milledoni_products_id.name," +
+      "liked_products.milledoni_products_id.image," +
+      "liked_products.milledoni_products_id.amount"
+  };
+
+  // fetch gebruiker 63 inclusief opgeslagen producten
+  const productResponse = await fetch(
+    "https://fdnd-agency.directus.app/items/milledoni_users/63/?" +
+    new URLSearchParams(params)
+  );
+
+  // zet response om naar JSON
+  const productResponseJSON = await productResponse.json();
+
+  // pak alleen de product data uit de koppeling
+  const likedProducts = productResponseJSON.data.liked_products
+    .filter(item => item.milledoni_products_id !== null)
+    .map(item => item.milledoni_products_id);
+
+  // stuur producten door naar de liquid pagina
+  response.render("wishlist.liquid", {
+    likedProducts: likedProducts,
+  });
+
 });
 
+app.post("/verwijder", async function (request, response) {
+  const productId = request.body.id;
+
+  console.log("PRODUCT ID:", productId)
+
+  if (!productId) {
+    console.log("Geen product id ontvangen")
+    return response.redirect(303, "/wishlist");
+  }
+
+  const relationResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1?filter[milledoni_users_id][_eq]=63&filter[milledoni_products_id][_eq]=${productId}&fields=id&limit=1`
+  );
+
+  const relationJSON = await relationResponse.json();
+
+  console.log("RELATION RESPONSE:", relationJSON)
+
+  if (!relationJSON.data?.length) {
+    console.log("Geen koppeling gevonden")
+    return response.redirect(303, "/wishlist");
+  }
+
+  const relationId = relationJSON.data[0].id;
+
+  console.log("RELATION ID:", relationId)
+
+  const deleteResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1/${relationId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    }
+  );
+
+  console.log("DELETE STATUS:", deleteResponse.status)
+
+  response.redirect(303, "/wishlist");
+});
+app.get("/spotters", async function (request, response){
 app.get("/spotters", async function (request, response) {
   response.render("spotters.liquid");
 });
