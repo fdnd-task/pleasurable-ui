@@ -318,16 +318,13 @@ app.get('/account', async (req, res) => {
         const memojis = availableMemojis.map(m => ({
             ...m,
             imageUrl: assetUrl(m.memoji),
-            // Add a check to see if this is the currently selected one
             selected: m.id === user.memoji
         }));
 
         res.render('account.liquid', {
-            // total_plants is calculated from the Set size in middleware
             total_plants: res.locals.collectedIds.size,
             memojis,
             current_path: req.path,
-            // user and userMemoji are already in res.locals from middleware!
         });
     } catch (error) {
         console.error('Account Route Error:', error);

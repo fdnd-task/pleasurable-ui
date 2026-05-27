@@ -24,6 +24,38 @@ if (memojiForm) {
             loaderBtn.classList.add('shownow');
         }
 
+        // Inside Helper: Update DOM Changes
+        const updateProfilePictureDOM = () => {
+            if (!pictureContainer) return;
+            
+            const sources = pictureContainer.querySelectorAll('source');
+            sources.forEach(source => {
+                source.srcset = localSourceUrl; 
+            });
+
+            if (profileImg) {
+                profileImg.src = localSourceUrl;
+            }
+        };
+
+        // Inside Helper: Popover dismissal
+        function closePopoverPanel() {
+            const popoverEl = document.getElementById('profiselector');
+            if (popoverEl && typeof popoverEl.hidePopover === 'function') {
+                popoverEl.hidePopover();
+            } else if (popoverEl && typeof popoverEl.close === 'function') {
+                popoverEl.close();
+            }
+        }
+
+        // Inside Helper: Reset states
+        function cleanUpLoading() {
+            clickedBtn.classList.remove('is-loading');
+            if (loaderBtn) {
+                loaderBtn.classList.remove('shownow');
+            }
+        }
+
         try {
             const response = await fetch(targetUrl, {
                 method: 'PATCH',
@@ -101,55 +133,57 @@ if (memojiForm) {
     });
 }
 
-const container = document.querySelector('.todowrapper');
-const cards = document.querySelectorAll('.todocard');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-
-
-// veldbeheer page
-// **************
-// **************
-// **************
-
-// Prev and next buttons carousel
-if (container && cards.length > 0) {
+function getActiveIndex() {
+    if (!container || cards.length === 0) return 0;
     
-    // Checks center intersecting geometries to determine active card index
-    function getActiveIndex() {
-        const containerRect = container.getBoundingClientRect();
-        const containerCenter = containerRect.left + (containerRect.width / 2);
-        
-        let closestIndex = 0;
-        let minimumDistance = Infinity;
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + (containerRect.width / 2);
+    
+    let closestIndex = 0;
+    let minimumDistance = Infinity;
 
-        cards.forEach((card, index) => {
-            const cardRect = card.getBoundingClientRect();
-            const cardCenter = cardRect.left + (cardRect.width / 2);
-            const distance = Math.abs(containerCenter - cardCenter);
+    cards.forEach((card, index) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardCenter = cardRect.left + (cardRect.width / 2);
+        const distance = Math.abs(containerCenter - cardCenter);
 
-            if (distance < minimumDistance) {
-                minimumDistance = distance;
-                closestIndex = index;
+        if (distance < minimumDistance) {
+            minimumDistance = distance;
+            closestIndex = index;
+        }
+    });
+
+    return closestIndex;
+}
+
+function scrollToCard(index) {
+    if (!container || index < 0 || index >= cards.length) return;
+
+    const card = cards[index];
+    const containerWidth = container.clientWidth;
+    const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
+
+    container.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth'
+    });
+}
+
+function updateButtonStates() {
+    if (!container || cards.length === 0) return; 
+    const currentIndex = getActiveIndex();
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
+}
+
+// Initialize Carousel Event Listeners
+if (container && cards.length > 0) {
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const currentIndex = getActiveIndex();
+            if (currentIndex < cards.length - 1) {
+                scrollToCard(currentIndex + 1);
             }
-        });
-
-        return closestIndex;
-    }
-
-    // Scroll directly to center a targeted item
-    function scrollToCard(index) {
-        if (index < 0 || index >= cards.length) return;
-
-        const card = cards[index];
-        const containerWidth = container.clientWidth;
-        
-        // Exact offset math accounting for parent alignment bounds
-        const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
-
-        container.scrollTo({
-            left: targetScrollLeft,
-            behavior: 'smooth'
         });
     }
 
@@ -232,14 +266,26 @@ commentForm.addEventListener('submit', async function (event) {
     container.addEventListener('scroll', updateButtonStates, { passive: true });
     window.addEventListener('resize', updateButtonStates);
     
-    // Initial run to normalize disabled flags on load
+    // Normalize disabled flags immediately on load
     updateButtonStates();
 }
 
+if (slider && output) {
+    slider.addEventListener('input', (event) => {
+        output.textContent = event.target.value;
+    });
+}
 
-// Donate slider + update button
-const slider = document.querySelector('.donate');
-const output = document.querySelector('.current-value');
+if (commentForm) {
+    const formButton = commentForm.querySelector('button');
+    const articleComments = document.querySelector('.messages');
+
+    if (formButton) {
+        commentForm.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            formButton.classList.add('loading');
+            formButton.textContent = 'Bezig met plaatsen...';
 
 slider.addEventListener('input', (event) => {
     output.textContent = event.target.value;
