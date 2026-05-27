@@ -40,9 +40,39 @@ app.get("/wishlist", async function (request, response) {
 });
 
 app.get("/spotters", async function (request, response){
-  response.render("spotters.liquid");
+  const params ={
+    fields: '*'
+  }
+  const spottersResponse = await fetch ( 'https://fdnd-agency.directus.app/items/milledoni_spotters?'
+    + new URLSearchParams(params)
+  )
+  const spottersResponseJson = await spottersResponse.json();
+  response.render("spotters.liquid",{
+      spotters: spottersResponseJson.data
 })
+});
 
+app.post("/spotters", async function (request, response){
+  const newSpotter = { //maak ik newspotter object aan, met de data name, photo etc//
+    name: request.body.name,
+    photo: request.body.photo,
+    description: request.body.description,
+    interested_in: request.body.interested_in
+  };
+
+  await fetch( // hier maak ik een POST request naar de API, met als body het newspotter object//
+    "https://fdnd-agency.directus.app/items/milledoni_spotters",
+    {
+      method: "POST",
+      headers: {// hier geef ik aan dat de body van mijn request JSON is//
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newSpotter)// hier zet ik newspotter object om naar json//
+    }
+  );
+
+  response.redirect("/spotters")
+});
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set("port", process.env.PORT || 8000);
