@@ -87,11 +87,22 @@ app.post("/verwijder", async function (request, response) {
 
   const relationId = relationJSON.data[0].id;
 
-  // koppeling verwijderen
+  console.log("RELATION ID:", relationId)
 
-  // redirect terug naar wishlist
+  const deleteResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1/${relationId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    }
+  );
 
-})
+  console.log("DELETE STATUS:", deleteResponse.status)
+
+  response.redirect(303, "/wishlist");
+});
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
