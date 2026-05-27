@@ -24,6 +24,10 @@ footer {
         border-top: 1px solid black;
         overflow: hidden;
 
+        p {
+            color: #545964;
+        }
+
         &:last-child {
             border-bottom: 1px solid black;
         }
