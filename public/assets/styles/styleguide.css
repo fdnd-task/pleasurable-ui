@@ -473,7 +473,7 @@ span.bold {
 progress {
     appearance: none;
     -webkit-appearance: none;
-    width: 100%;
+    width: 90%;
     height: 1.25rem;
     background-color: transparent;
 
