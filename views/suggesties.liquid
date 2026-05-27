@@ -28,6 +28,11 @@ padding-bottom: 1em;
       margin-bottom: 1em;
       justify-content: space-between;
 
+          &:focus-within {
+          background: var(--accent-color);
+          color: var(--light-text);
+          }
+
       {% comment %} hoverstate die hetzelfde is als op de rest van de page {% endcomment %}
       {% comment %} GEJAT VAN BRONX {% endcomment %}
     &:hover {
@@ -73,9 +78,6 @@ padding-bottom: 1em;
 padding: .3em;
 background: var(--always-light);
 
-&:focus {
-outline: 2px black;
-}
 }
 
 
