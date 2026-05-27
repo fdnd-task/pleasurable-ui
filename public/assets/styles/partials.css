@@ -157,7 +157,16 @@ header.opdrachten-header {
     div {
         display: flex;
         flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
         padding-block: 1rem;
+
+        label {
+            font-size: var(--paragraph);
+            color: var(--always-black);
+            padding-left: .4rem;
+            
+        }
     }
 
     h1 {
@@ -701,7 +710,7 @@ ul.quest {
                 margin-inline: .25rem;
                 color: var(--dark-text);
             }
-        }
+        } 
     }
 }
 

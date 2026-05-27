@@ -1305,7 +1305,11 @@ main.veldbeheer {
         
         padding-inline: 0; 
         scroll-padding-inline: 0;
-        gap: 0rem;
+        gap: 1rem;
+
+        @supports(animation-timeline: view()) {
+            gap: 0rem;
+        }
 
         &::-webkit-scrollbar {
             display: none;
