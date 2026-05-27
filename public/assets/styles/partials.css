@@ -855,6 +855,11 @@ p.paragraph {
 
 h1.suggesties-page {
 padding-bottom: 1em;
+place-content: center;
+}
+
+label {
+    font-size: var(--heading-small);
 }
 
 .collection-suggesties {
@@ -910,7 +915,7 @@ padding-bottom: 1em;
     right: 1em;
     bottom: 6em;
 
-    img {
+    svg {
         height: 5em;
         width: 5em;
     }
@@ -920,7 +925,7 @@ padding-bottom: 1em;
     left: 1em;
     top: 1em;
 
-    img {
+    svg {
         width: 2em;
         height: 2em;
     }
