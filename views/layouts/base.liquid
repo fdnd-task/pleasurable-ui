@@ -30,6 +30,8 @@
         <link rel="expect" href="#h1" blocking="render">
     {% endif %}
     <title>{{ title | default: "PreludeFonds" }}</title>
+    {% if page == "nieuw" %}<link rel="stylesheet" href="/nieuw.css">
+    {% endif %}
     
 </head>
 <body>
