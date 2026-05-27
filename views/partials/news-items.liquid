@@ -1,7 +1,7 @@
 <ul class="news {%if current_path == "/" %} horizontal {% endif %}">
     {% for newsItem in news %}
         <li>
-            <a href="">
+            <a href="/nieuws/{{ newsItem.slug }}">
                 {% render "partials/picture.liquid",
                     imagesrc: newsItem.image,
                     width: "150",
@@ -9,7 +9,7 @@
                     fetch: "high",
                     loading: "eager",
                 %}
-                <p class="tag">Bloemneveld</p> 
+                <p class="tag">Bloemeneveld</p> 
                 {% assign newstitle = newsItem.title |  truncate: 50,  %}
                 {% render 'partials/general-heading.liquid',
                     heading_level: 3,
@@ -20,7 +20,7 @@
     {% endfor %}
     {% for newsItem in news %}
         <li>
-            <a href="">
+            <a href="/nieuws/{{ newsItem.slug }}">
                 {% render "partials/picture.liquid",
                     imagesrc: newsItem.image,
                     width: "150",
@@ -28,7 +28,7 @@
                     fetch: "high",
                     loading: "eager",
                 %}
-                <p class="tag">Bloemneveld</p> 
+                <p class="tag">Bloemeneveld</p> 
                 {% assign newstitle = newsItem.title |  truncate: 50,  %}
                 {% render 'partials/general-heading.liquid',
                     heading_level: 3,
