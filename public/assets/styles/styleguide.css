@@ -194,7 +194,7 @@ p,a,button, span {
     font-family: main;
     font-weight: 400;
     font-size: var(--paragraph);
-    color: var(--accent-color);
+    color: var(--dark-text);
     text-decoration: none;
 }
 
@@ -245,10 +245,6 @@ main:not(.veldverkenner) {
         animation-duration: .4s;
         animation-iteration-count: 1;
         animation-timing-function: ease-in-out;
-    }
-
-    &:focus-visible {
-
     }
 
     /* filled link button look */
