@@ -1,0 +1,25 @@
+{% render 'partials/head.liquid' %}
+
+<main>
+
+
+<a href="/suggesties" class="terug-button"><svg xmlns="http://www.w3.org/2000/svg" alt="terug" viewBox="0 0 24 24" fill="currentColor">
+  <path fill-rule="evenodd" d="M9.53 2.47a.75.75 0 0 1 0 1.06L4.81 8.25H15a6.75 6.75 0 0 1 0 13.5h-3a.75.75 0 0 1 0-1.5h3a5.25 5.25 0 1 0 0-10.5H4.81l4.72 4.72a.75.75 0 1 1-1.06 1.06l-6-6a.75.75 0 0 1 0-1.06l6-6a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+</svg>
+</a>
+
+<h1 class="suggesties-page">jouw suggestie</h1>
+
+<form action="/jouw-suggestie" method="POST" class="form">
+    <label for="plant">Welke plant zou jij willen zien in de tuin?</label>
+    <input id="plant" name="suggestion" type="text" placeholder="plant..." alt="suggestie textveld" required>
+
+    <label for="reden">Waarom zou je dit willen zien?</label>
+    <input id="reden" name="suggestion_reason" type="text" placeholder="waarom?..." alt="reden textveld" required>
+  
+    <input class="verstuur-button" type="submit" value="verstuur" alt="verstuurknop">
+</form>
+
+</main>
+
+{% render 'partials/foot.liquid' %}
