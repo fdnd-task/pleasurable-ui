@@ -3,7 +3,7 @@
 {% assign content2 = 'Een Associate degree combineert praktijkgericht onderwijs met doorstroommogelijkheden, zodat je snel ervaring opdoet én een diploma haalt. Praktijkgericht leren en direct vaardigheden toepassen Korte studieduur van 2 jaar Doorstromen naar een bacheloropleiding mogelijk' %}
 
 <main>
-  {% render 'partials/hero.liquid',
+    {% render 'partials/hero.liquid',
     title: 'Het landelijke platform voor Associate degrees',
     content: 'Ad-netwerk samen om kennis te delen, samen te werken en de kwaliteit en zichtbaarheid van Associate degrees te versterken.',
     btnLink: '/over-ads',
@@ -44,7 +44,7 @@
     button: true,
     btnLink: '#',
     btnText: "Meer info over Ad's"
-  %}
+  %} 
 
   <div class="layout discovery-section">
     <article class="container">
@@ -120,4 +120,5 @@
     </article>
   </section>
 </main>
+{% render 'partials/loading.liquid' %}
 {% render 'partials/footer.liquid' %}
