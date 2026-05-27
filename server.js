@@ -55,7 +55,8 @@ app.get("/", async function (request, response) {
 
   response.render("index.liquid", {
     products: productData,
-    likedCount: likedCount
+    likedCount: likedCount,
+    status: request.query.status
   });
 });
 
@@ -81,7 +82,7 @@ app.get("/", async function (request, response) {
     },
   );
  
-  response.redirect(303, "/");
+  response.redirect(303, "/?status=success");
 });
 
 app.get("/blog", async function (request, response) {

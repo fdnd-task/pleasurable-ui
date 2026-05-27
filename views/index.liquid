@@ -1,5 +1,12 @@
 {% include 'partials/head.liquid' %}
 
+{% if status == 'success' %}
+  <output class="toast" id="toast">
+    <img src="/assets/images/success-icon.svg" class="toast-icon" width="24" height="24">
+    <p>Toegevoegd aan je lijst!</p>
+  </output>
+{% endif %}
+
 <div class="chatbot-section-wrapper">
     <h1>Ik ben op zoek naar een cadeau voor... <span>mijn oom</span></h1>
     

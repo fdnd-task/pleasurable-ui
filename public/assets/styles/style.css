@@ -121,6 +121,34 @@
 }
 
 /* MAIN (Ahlam) */
+
+.toast {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  translate: -50% 0;
+  background-color: #FFFFFF;
+  color: #2e7d32;
+  padding: .8em 1.5em;
+  border-radius: 13.31px;
+  display: flex;
+  align-items: center;
+  gap: .6em;
+  box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 20%);
+  font-weight: 500;
+  z-index: 100;
+  animation: slideUp .4s ease-out, fadeOut .4s ease-in 2.5s forwards;
+}
+
+@keyframes slideUp {
+  from { translate: -50% -2rem; opacity: 0; }
+  to   { translate: -50% 0;    opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; pointer-events: none; }
+}
+
 main {
   max-width: 100%;
   display: flex;
