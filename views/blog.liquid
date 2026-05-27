@@ -6,6 +6,15 @@
       <img src="{{ product.image }}">
       <h2 class="blog-arikel-h2">{{ product.title }}</h2>
       <p class="blog-arikel-p">{{ product.intro }}</p>
+      <img
+        class="blog-img-article"
+        src="https://fdnd-agency.directus.app/assets/{{ product.image.id }}"
+        alt="Een plaatje van de sinterklaas artikel"
+        width="{{ image.width }}"
+        height="{{ image.height }}"
+      >
+      <h2 class="blog-article-h2">{{ product.title }}</h2>
+      <p class="blog-article-p">{{ product.intro }}<a class="lees-meer" href="/detail-blog">Lees meer</a></p>
     </section>
     {% endfor %}
 </main>
