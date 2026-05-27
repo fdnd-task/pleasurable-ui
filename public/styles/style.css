@@ -10,14 +10,15 @@ body {
 }
 
 /* header */
-header{
-    display: flex;
-    justify-content: space-between;
-    place-items: center;
-    padding: .5rem .4rem;
-    border-bottom: 1px solid var(--primary-color);
-    @media (min-width: 1200px) {
-      padding: .5rem .6rem ;
+header {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
+  padding: .5rem .4rem;
+  border-bottom: 1px solid #ff7700;
+
+  @media (min-width: 1200px) {
+    padding: .5rem .6rem;
   }
 }
 
@@ -48,7 +49,7 @@ header{
     border: none;
     padding: .3rem .1rem;
     padding-left: 28px;
-    background: #e3e3e3;
+    background: #D9D9D9;
     font-size: .85rem;
     box-sizing: border-box;
   }
@@ -83,9 +84,10 @@ header{
   }
 }
 
-.menu-toggle-outer{
-  padding-top: 3px;
+.menu-toggle-outer {
   list-style: none;
+  place-content: center;
+  place-items: center;
   border-radius: 0.5rem;
   height: 2rem;
   width: 2rem;
@@ -95,52 +97,20 @@ header{
   }
 }
 
-.menu-toggle{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 2rem;
-  height: 2rem;
+.menu-toggle {
   background: none;
   border: none;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
   cursor: pointer;
   border-radius: 0.8rem;
-  .span-menu{
-    display: block;
+
+  .span-menu {
     width: 22px;
     height: 3px;
-    background: var( --background-color);
-    position: absolute;
-    transition: .25s ease-in-out;
+    background: rgba(0, 0, 0, 1);
   }
-}
-
-.span-menu:nth-child(1) {
-  top: 0;
-}
-
-.span-menu:nth-child(2),
-.span-menu:nth-child(3) {
-  top: 10px;
-}
-
-.span-menu:nth-child(4) {
-  top: 20px;
-}
-
-details[open] .span-menu:nth-child(1),
-details[open] .span-menu:nth-child(4) {
-  width: 0;
-  left: 50%;
-}
-
-details[open] .span-menu:nth-child(2) {
-  transform: rotate(45deg);
-}
-
-details[open] .span-menu:nth-child(3) {
-  transform: rotate(-45deg);
 }
 
 .mobile-nav {
@@ -149,27 +119,29 @@ details[open] .span-menu:nth-child(3) {
   position: absolute;
   top: 55px;
   right: 0;
-  background: light-dark(var(--background-color), var( --background-color));
+  background: light-dark(#f9f9f9, rgb(49, 49, 49));
   width: 100%;
   z-index: 10;
   max-height: 0;
   overflow: hidden;
-  .mobile-nav-link{
-      padding: 1rem;
-      text-decoration: none;
-      border-bottom: 1px solid var(--highlight-color);
-      font-weight: bold;
-      text-align: center;
-      color: light-dark(var(--text-color), var(--text-color));
-      @media (prefers-color-scheme: dark) {
-          color: var(--text-color);
-      }
+
+  .mobile-nav-link {
+    padding: 1rem;
+    text-decoration: none;
+    border-bottom: 1px solid #e1e1e1;
+    font-weight: bold;
+    text-align: center;
+    color: light-dark(black, #ffffff);
+
+    @media (prefers-color-scheme: dark) {
+      color: white;
     }
   }
 
   @media (prefers-color-scheme: dark) {
-      background: var(--background-color);
-     }
+    background: black;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     transition: max-height 0.3s ease, opacity 0.3s ease;
   }
@@ -217,8 +189,9 @@ details[open]::details-content {
     place-content: center;
     position: relative;
   }
- .link-button-text{
-    color: var(--text-color);
+
+  .link-button-text {
+    color: black;
     font-weight: 600;
     font-size: var(--titel-small);
   }
@@ -234,24 +207,6 @@ details[open]::details-content {
   @media (min-width: 1200px) {
     gap: 5rem;
   }
-}
-
-.link-button::after{
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -8px;
-  width: 0;
-  height: 4px;
-  border-radius: 3px;
-  background: var(--primary-color);
-  transition: width 0.40s ease;
-}
-
-.link-button:hover::after,
-.link-button.nav-active::after {
-  width: 78px;
 }
 
 /* header */
@@ -357,7 +312,6 @@ details[open]::details-content {
     border-bottom: 1px solid rgb(236, 236, 236);
     @media (min-width: 1200px) {
       font-size: 1.5em;
-      padding-bottom: .7em;
     }
   }
 
@@ -399,19 +353,8 @@ details[open]::details-content {
       line-clamp: 2;
       -webkit-box-orient: vertical;
     }
-.main-home{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-}
-
-.info-results{
-  font-size: .9rem;
-   @media (min-width: 1200px) {
-     font-size: 1.2rem;
   }
   @media (min-width: 1200px) {
-    padding: 1.5em .5em 0 .2em;
+    padding: 1.5em .5em 0 .5em;
   }
 }
