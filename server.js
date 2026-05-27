@@ -9,7 +9,7 @@ import {Liquid} from "liquidjs";
 const app = express();
 
 // Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }))
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
@@ -70,5 +70,29 @@ app.set("port", process.env.PORT || 8000);
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
   console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
+})
+
+app.get("/nieuws", async function name(request, response) {
+  const params = {
+    fields: "title,description,date",
+    sort: "-date_created",
+  };
+
+  const newsResponse = await fetch(
+    baseURL + "news/?" + new URLSearchParams(params),
+  );
+
+  const newsResponseJson = await newsResponse.json();
+
+  response.render("news.liquid", {
+    path: request.path,
+    news: newsResponseJson.data,
+  });
+});
+
+// 404 page this must always be at the bottom of the document
+
+app.use((request, response, next) => {
+  response.render('404.liquid')
 })
 
