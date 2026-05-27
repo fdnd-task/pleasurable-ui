@@ -1,3 +1,4 @@
+{% assign page = "overzicht" %}
 {% layout 'layouts/base.liquid' %}
 
 {% block breadcrumbs %}
@@ -12,6 +13,11 @@
 {% block content %}
 
 <main class="overzicht">
+
+ <a href="/instrumenten/nieuw" class="knop-toevoegen">
+  <span>Instrument Toevoegen</span>
+  <span aria-hidden="true">+</span>
+</a>
 
   <div class="zoek-balk">
     <form class="zoeken zoek-knop" action="/instrumenten" method="get">
