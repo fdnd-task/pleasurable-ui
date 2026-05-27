@@ -72,7 +72,20 @@ app.post("/verwijder", async function (request, response) {
     return response.redirect(303, "/wishlist");
   }
 
-  // controleren of koppeling bestaat
+  const relationResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1?filter[milledoni_users_id][_eq]=63&filter[milledoni_products_id][_eq]=${productId}&fields=id&limit=1`
+  );
+
+  const relationJSON = await relationResponse.json();
+
+  console.log("RELATION RESPONSE:", relationJSON)
+
+  if (!relationJSON.data?.length) {
+    console.log("Geen koppeling gevonden")
+    return response.redirect(303, "/wishlist");
+  }
+
+  const relationId = relationJSON.data[0].id;
 
   // koppeling verwijderen
 
