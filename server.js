@@ -77,3 +77,10 @@ app.get("/nieuws", async function name(request, response) {
     news: newsResponseJson.data,
   });
 });
+
+// 404 page this must always be at the bottom of the document
+
+app.use((request, response, next) => {
+  response.render('404.liquid')
+})
+
