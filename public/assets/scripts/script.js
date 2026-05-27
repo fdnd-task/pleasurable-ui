@@ -1,32 +1,5 @@
-
-const loaderBtn = document.querySelector('.loader');
-const allOptions = document.querySelectorAll('.options-container button');
 const memojiForm = document.getElementById('memojiForm');
-const container = document.querySelector('.todowrapper');
-const cards = document.querySelectorAll('.todocard');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const slider = document.querySelector('.donate');
-const output = document.querySelector('.current-value');
-const commentForm = document.querySelector('.comment form');
-
-if (allOptions.length > 0) {
-    const triggerAnimation = (event) => {
-        const clickedBtn = event.currentTarget;
-        const targetUrl = clickedBtn.getAttribute('data-url');
-        
-        if (loaderBtn) {
-            loaderBtn.setAttribute('href', targetUrl);
-            loaderBtn.classList.remove('shownow', 'ready');
-            void loaderBtn.offsetWidth; // Force reflow
-            loaderBtn.classList.add('shownow');
-        }
-    };
-
-    allOptions.forEach(btn => {
-        btn.addEventListener('click', triggerAnimation);
-    });
-}
+const loaderBtn = document.querySelector('.loader');
 
 if (memojiForm) {
     memojiForm.addEventListener('click', async (event) => {
@@ -48,8 +21,6 @@ if (memojiForm) {
 
         clickedBtn.classList.add('is-loading');
         if (loaderBtn) {
-            loaderBtn.classList.remove('shownow', 'ready');
-            void loaderBtn.offsetWidth; // Force reflow
             loaderBtn.classList.add('shownow');
         }
 
@@ -101,9 +72,21 @@ if (memojiForm) {
             if (!response.ok) throw new Error("Database patch operation failed");
             
             const data = await response.json();
-            const confirmedUrl = data.newMemojiUrl || localSourceUrl;
+            const confirmedUrl = data.newMemojiUrl;
 
-            // Feature flag check for View Transition API
+            const updateProfilePictureDOM = () => {
+                if (!pictureContainer) return;
+                
+                const sources = pictureContainer.querySelectorAll('source');
+                sources.forEach(source => {
+                    source.srcset = confirmedUrl;
+                });
+
+                if (profileImg) {
+                    profileImg.src = confirmedUrl;
+                }
+            };
+
             if (!document.startViewTransition) {
                 updateProfilePictureDOM();
                 closePopoverPanel();
@@ -111,7 +94,7 @@ if (memojiForm) {
                 return;
             }
 
-            // Assign transition names dynamically
+            // Assign transition names to both elements before the transition begins
             if (clickedImg) clickedImg.style.viewTransitionName = 'active-memoji';
             if (profileImg) profileImg.style.viewTransitionName = 'active-memoji';
 
@@ -123,14 +106,29 @@ if (memojiForm) {
 
             await transition.finished;
             
-            // Clean up transition names
+            // Clean up transition names after the fade completes
             if (clickedImg) clickedImg.style.viewTransitionName = '';
             if (profileImg) profileImg.style.viewTransitionName = '';
 
         } catch (error) {
-            console.error("Fetch error, falling back to form submission:", error);
             cleanUpLoading();
-            memojiForm.submit(); // Progressive enhancement fallback
+            memojiForm.submit(); 
+        }
+
+        function closePopoverPanel() {
+            const popoverEl = document.getElementById('profiselector');
+            if (popoverEl && typeof popoverEl.hidePopover === 'function') {
+                popoverEl.hidePopover();
+            } else if (popoverEl && typeof popoverEl.close === 'function') {
+                popoverEl.close();
+            }
+        }
+
+        function cleanUpLoading() {
+            clickedBtn.classList.remove('is-loading');
+            if (loaderBtn) {
+                loaderBtn.classList.remove('shownow');
+            }
         }
     });
 }
@@ -189,13 +187,80 @@ if (container && cards.length > 0) {
         });
     }
 
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            const currentIndex = getActiveIndex();
-            if (currentIndex > 0) {
-                scrollToCard(currentIndex - 1);
-            }
-        });
+    // Click Handlers
+    nextBtn.addEventListener('click', () => {
+        const currentIndex = getActiveIndex();
+        if (currentIndex < cards.length - 1) {
+            scrollToCard(currentIndex + 1);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        const currentIndex = getActiveIndex();
+        if (currentIndex > 0) {
+            scrollToCard(currentIndex - 1);
+        }
+    });
+}
+
+const commentForm = document.querySelector('.comment form')
+
+const formButton = commentForm.querySelector('button')
+const articleComments = document.querySelector('.messages')
+
+
+commentForm.addEventListener('submit', async function (event) {
+
+    event.preventDefault()
+    console.log('submit')
+
+    formButton.classList.add('loading')
+    formButton.textContent = 'Bezig met plaatsen...'
+
+    let formData = new FormData(commentForm);
+
+    const [response] = await Promise.all([
+        fetch(commentForm.action, {
+            method: commentForm.method,
+            body: new URLSearchParams(formData)
+        }),
+        new Promise(resolve => setTimeout(resolve, 2500))
+    ])
+
+    console.log(response)
+
+    const responseData = await response.text()
+
+    const parser = new DOMParser()
+    const responseDOM = parser.parseFromString(responseData, 'text/html')
+
+    const newState = responseDOM.querySelector('.messages')
+
+
+    if (newState) {
+        articleComments.innerHTML = newState.innerHTML
+    }
+
+    formButton.classList.remove('loading')
+    formButton.classList.add('success')
+    formButton.textContent = '✔ Geplaatst!'
+
+    commentForm.reset()
+
+    setTimeout(() => {
+
+        formButton.classList.remove('success')
+
+        formButton.textContent = 'Plaats jouw opmerking'
+
+    }, 2000)
+})
+
+    // Handle disabled states naturally as viewport coordinates move
+    function updateButtonStates() {
+        const currentIndex = getActiveIndex();
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
     }
 
     container.addEventListener('scroll', updateButtonStates, { passive: true });
@@ -222,43 +287,6 @@ if (commentForm) {
             formButton.classList.add('loading');
             formButton.textContent = 'Bezig met plaatsen...';
 
-            let formData = new FormData(commentForm);
-
-            try {
-                // Combines submission with a forced 2.5 second delay for smooth UX
-                const [response] = await Promise.all([
-                    fetch(commentForm.action, {
-                        method: commentForm.method,
-                        body: new URLSearchParams(formData)
-                    }),
-                    new Promise(resolve => setTimeout(resolve, 2500))
-                ]);
-
-                const responseData = await response.text();
-                const parser = new DOMParser();
-                const responseDOM = parser.parseFromString(responseData, 'text/html');
-                const newState = responseDOM.querySelector('.messages');
-
-                if (newState && articleComments) {
-                    articleComments.innerHTML = newState.innerHTML;
-                }
-
-                formButton.classList.remove('loading');
-                formButton.classList.add('success');
-                formButton.textContent = '✔ Geplaatst!';
-
-                commentForm.reset();
-
-                setTimeout(() => {
-                    formButton.classList.remove('success');
-                    formButton.textContent = 'Plaats jouw opmerking';
-                }, 2000);
-
-            } catch (err) {
-                console.error("Submission failed", err);
-                formButton.classList.remove('loading');
-                formButton.textContent = 'Fout opgetreden';
-            }
-        });
-    }
-}
+slider.addEventListener('input', (event) => {
+    output.textContent = event.target.value;
+});

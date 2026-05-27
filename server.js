@@ -39,6 +39,7 @@ const fetchData = async (endpoint) => {
     try {
         const response = await fetch(`${API_BASE}/${endpoint}`);
         const result = await response.json();
+        console.log('fetchData result:', result);
         return result.data;
     } catch (e) {
         console.error(`Fetch error for ${endpoint}:`, e);
@@ -332,20 +333,25 @@ app.get('/account', async (req, res) => {
 });
 
 app.patch('/account/set-memoji', async (req, res) => {
-    const { memojiId } = req.body; 
+    // 1. Read both the ID and the raw Image URL sent from the browser client
+    const { memojiId, imageUrl } = req.body; 
+    
     try {
-        const response = await fetch(`${API_BASE}/frankendael_users/${res.locals.userId}`, {
+        const targetApiUrl = `${API_BASE}/frankendael_users/${res.locals.userId}`;
+
+        const response = await fetch(targetApiUrl, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ memoji: Number(memojiId) }),
         });
 
         if (response.ok) {
-            // PROGRESSIVE ENHANCEMENT CHECK:
-            // If the request wants JSON (from fetch), send JSON.
-            // If it's a standard form (browser navigation), redirect.
             if (req.xhr || req.headers.accept.indexOf('json') > -1) {
-                return res.status(200).json({ success: true });
+                // 2. Return the real, absolute CDN image URL directly back to your frontend template layout
+                return res.status(200).json({ 
+                    success: true, 
+                    newMemojiUrl: imageUrl 
+                });
             } else {
                 return res.redirect('/account');
             }
@@ -355,6 +361,7 @@ app.patch('/account/set-memoji', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
 // Update accent color
 app.patch('/account/set-accent', async (req, res) => {
     const { accentColor } = req.body; 
@@ -387,19 +394,99 @@ app.patch('/account/set-accent', async (req, res) => {
     }
 });
 
-// Auth & Other
+// app.get('/nieuws', async (req, res) => {
+//     const search = req.query.search;
+
+//     let endpoint = 'frankendael_news';
+//     if (search) {
+//         endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+//     }
+
+//     console.log(endpoint);
+
+//     const newsData = await fetchData(endpoint) || [];
+
+//     res.render('news.liquid', {
+//         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+//         zone_type: 'news',
+//         current_path: req.path,
+//         search: search,
+//     });
+// });
+
 app.get('/nieuws', async (req, res) => {
-    const newsData = await fetchData('frankendael_news') || [];
-    res.render('nieuws.liquid', {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news';
+    if (search) endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
         zone_type: 'news',
         current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/nieuwste', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news?sort=-date'; //what changes the order of the items in the url you're fetching.
+    if (search) endpoint += `&filter[title][_icontains]=${encodeURIComponent(search)}`;
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/oudste', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news?sort=date';
+    if (search) endpoint += `&filter[title][_icontains]=${encodeURIComponent(search)}`;
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
     });
 });
 
 app.get('/nieuws/:slug', async (request, response) => {
     const data = await fetchData(`frankendael_news?filter[slug][_eq]=${request.params.slug}`);
-    response.render('news-detail.liquid', { newsItem: { ...data[0], image: assetUrl(data[0].image) }, zone_type: 'news', current_path: request.path });
+
+    const commentParams = new URLSearchParams({
+        'filter[news]': data[0].id,
+        'sort': '-date_created'
+    });
+
+     const comments = await fetchData(`frankendael_news_comments?${commentParams}`) || [];
+
+
+    response.render('news-detail.liquid', { newsItem: { ...data[0], image: assetUrl(data[0].image) }, zone_type: 'news', current_path: request.path,         newsItem: { ...data[0], image: assetUrl(data[0].image) }, 
+        comments: comments,
+        zone_type: 'news', 
+        current_path: request.path  });
+});
+
+app.post('/nieuws/:id/:slug', async (request, response) => {
+    await fetch(`${API_BASE}/frankendael_news_comments`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            news: request.params.id,
+            comment: request.body.comment,
+            name: request.body.name
+        })
+    });
+
+    response.redirect(`/nieuws/${request.params.slug}#reviews`);
 });
 
 app.get('/login', (_req, res) => res.render('login.liquid'));
@@ -535,6 +622,7 @@ app.post('/login', async (req, res) => {
         res.status(503).send('Inloggen mislukt');
     }
 });
+
 
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 
