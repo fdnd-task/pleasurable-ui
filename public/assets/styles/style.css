@@ -245,32 +245,24 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    margin-bottom: 30px;
   }
 }
-/* artikel images*/
-.sinterklaas-arikel{
-  width: 198px;
-  height: 135px;
+/* blog artikel images*/
+.blog-img-article{
+  width: 178px;
+  height: 115px;
+  border-radius: 30px;
   padding: 10px 10px 10px 10px;
 }
-.mimosa-arikel{
-  width: 198px;
-  height: 135px;
-  padding: 10px 10px 10px 10px;
-}
-.foodies-arikel{
-  width: 198px;
-  height: 135px;
-  padding: 10px 10px 10px 10px;
-}
-/* <h2> van de arikelen */
-blog-arikel-h2{
+/* blog <h2> van de arikelen */
+.blog-article-h2{
   font-size: 21px;
   max-width: 30ch;
-  padding: 5px 5px 5px 5px;
+  padding: 10px 10px 10px 10px;
 }
-/* arikel <p> */
-blog-arikel-p{
+/* blog arikel <p> */
+.blog-article-p{
   grid-column: span 2;
   font-size: 16px;
   max-width: 40ch;
@@ -281,4 +273,17 @@ blog-arikel-p{
   background-color: #E2B100;
   width: auto;
   height: 1px;
+  margin-bottom: 30px;
+}
+.lees-meer{
+  text-decoration: none;
+  color: black;
+  padding: 5px 5px 5px 5px;
+  transition: 0.5s;
+  
+  &:hover{
+    text-decoration: underline;
+    text-decoration-color: #E2B100;
+  }
+}
 }
