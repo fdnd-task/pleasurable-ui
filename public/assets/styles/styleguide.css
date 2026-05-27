@@ -67,7 +67,7 @@ img, video {
 
 body {
 
-    color-scheme: light dark;
+    /* color-scheme: light dark; */
     transition: background-color, color, .3s linear;
 
 
@@ -209,9 +209,9 @@ main:not(.veldverkenner) {
         animation-timing-function: ease-in-out;
     }
 
-    &:focus-visible {
+    /* &:focus-visible {
 
-    }
+    } */
 
     /* filled link button look */
     &.primary {

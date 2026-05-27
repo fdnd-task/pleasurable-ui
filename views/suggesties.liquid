@@ -71,7 +71,11 @@ padding-bottom: 1em;
 {% comment %} delete button styling {% endcomment %}
 .delete {
 padding: .3em;
-background: white;
+background: var(--always-light);
+
+&:focus {
+outline: 2px black;
+}
 }
 
 
