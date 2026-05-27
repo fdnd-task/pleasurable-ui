@@ -80,6 +80,9 @@ app.get('/:district', async function (request, response) {
   response.render('district.liquid', {
     stories: stories,
     search: search
+  })
+})
+
 const baseURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
 const story_fields = 'cover.*, date, title, intro, status, district, slug, target_group, id'
 
@@ -133,6 +136,7 @@ app.use((req, res, next) => {
   res.locals.districts = districts;
   next();
 })
+
 app.get('/district/:district_name', async function (req, res) {
   const district = req.params.district_name
   const targetGroup = req.query.target_group || ''
@@ -158,7 +162,7 @@ app.get('/district/:district_name', async function (req, res) {
     targetGroups: targetGroups,
     activeGroup: targetGroup
   })
-  
+})
   
 /**
  * COMMENT POST – reactie plaatsen op artikel
