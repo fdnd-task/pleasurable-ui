@@ -128,6 +128,11 @@ main {
 
   @media (min-width: 768px) {
     flex-direction: row;
+    padding-top: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    padding-top: 51px;
   }
 
   .chatbot-section-wrapper {
@@ -357,7 +362,6 @@ main {
               font-size: 18px;
               display: -webkit-box;
               -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
               line-clamp: 2;
               overflow: hidden;
             }
