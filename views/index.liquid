@@ -1,4 +1,7 @@
-{% render 'partials/head.liquid'%}
+{% render 'partials/head.liquid' 
+    stories: stories, 
+    search: search
+%}
 
 <section class="recent-articles-section">
 
@@ -63,3 +66,18 @@
     </section>
 
 </section>
+
+<main class="main-home">
+    <section class="section-home">
+        {% if search %}
+            <div class="info-results">
+                {% if stories.size == 1 %}
+                    <h3>{{ stories.size }} resultaat voor "{{ search }}"</h3>
+                {% else %}
+                    <h3>{{ stories.size }} resultaten voor "{{ search }}"</h3>
+                {% endif %}
+            </div>
+        {% endif %}
+    </section>
+</main>
+
