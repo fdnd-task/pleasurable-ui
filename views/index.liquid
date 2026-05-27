@@ -1,85 +1,104 @@
-{% render 'partials/head.liquid' 
-    stories: stories, 
-    search: search,
-    currentPath: currentPath
-%}
-
-<section class="recent-articles-section">
-
-    <div class="most-recent-article-container">
-        {% assign latest = stories[0] %}
-        <a href="/{{ latest.district }}/{{ latest.slug }}" class="card-component-link">
-            <article class="most-recent-article overlay"
-                style="background-image: url('https://fdnd-agency.directus.app/assets/{{ latest.cover }}');">
-                <div class="most-recent-article-content">
-                    <div class="most-recent-article-information">
-                        <span>Laatste nieuws</span>
-                        <div class="most-recent-article-date">
-                            <time datetime="{{ latest.date }}">{{ latest.date | date: "%d-%m-%Y" }}</time>
-                        </div>
-                    </div>
-                    <h3>{{ latest.title }}</h3>
-                </div>
-            </article>
-        </a>
-    </div>
-
-    <section class="recent-articles">
-        <h4 class="recent-articles-titel">Recente artikelen</h4>
-        {% assign latest = stories %}
-        {% for story in latest limit:3 %}
-        <a href="/{{ story.district }}/{{ story.slug }}" class="card-component-link">
-            <article>
-                {% if story.cover %}
-                <picture>
-                    <source type="image/avif"
-                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif&width=300&quality=80">
-
-                    <source type="image/webp"
-                        srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp&width=300&quality=80">
-
-                    <img src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?width=300&quality=80"
-                        width=" {{ story.cover.width }}" height="{{ story.cover.height }}">
-                </picture>
-                {% else %}
-                <img src="/assets/Compact_Blurple_{{ story.district }}.png" alt="Geen afbeelding beschikbaar">
-                {% endif %}
-
-                <div class="content-side">
-                    <div class="information">
-                        {% if story.date %}
-                        <time datetime="">{{ story.date | date: "%d-%m-%Y" }}</time>
-                        {% else %}
-                        <span>Datum onbekend</span>
-                        {% endif %}
-                        <svg width="5" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                            <path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z" />
-                        </svg>
-                        <span>{{ story.district }}</span>
-                    </div>
-                    <h3>{{ story.title }}</h3>
-                </div>
-            </article>
-        </a>
-        {% endfor %}
-
-
-    </section>
-
-</section>
+{% render 'partials/head.liquid' stories: stories, search: search, currentPath: currentPath %}
 
 <main class="main-home">
-    <section class="section-home">
+
+    <section class="search-section">
         {% if search %}
-            <div class="info-results">
-                {% if stories.size == 1 %}
-                    <h3>{{ stories.size }} resultaat voor "{{ search }}"</h3>
-                {% else %}
-                    <h3>{{ stories.size }} resultaten voor "{{ search }}"</h3>
-                {% endif %}
-            </div>
+        <div class="info-results">
+            {% if stories.size == 1 %}
+            <h3>{{ stories.size }} resultaat voor "{{ search }}"</h3>
+            {% else %}
+            <h3>{{ stories.size }} resultaten voor "{{ search }}"</h3>
+            {% endif %}
+        </div>
         {% endif %}
+    </section>
+
+    <section class="recent-articles-section">
+        <div class="most-recent-article-container">
+            {% assign latest = stories[0] %}
+            <a href="/{{ latest.district }}/{{ latest.slug }}" class="card-component-link">
+                <article class="most-recent-article overlay"
+                    style="background-image: url('https://fdnd-agency.directus.app/assets/{{ latest.cover }}');">
+                    <div class="most-recent-article-content">
+                        <div class="most-recent-article-information">
+                            <span>Laatste nieuws</span>
+                            <div class="most-recent-article-date">
+                                <time datetime="{{ latest.date }}">{{ latest.date | date: "%d-%m-%Y" }}</time>
+                            </div>
+                        </div>
+                        <h3>{{ latest.title }}</h3>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <section class="recent-articles">
+            <h2 class="recent-articles-titel">Recente artikelen</h2>
+            {% assign latest = stories %}
+            {% for story in latest limit:3 %}
+            <a href="/{{ story.district }}/{{ story.slug }}" class="card-component-link">
+                <article>
+                    {% if story.cover %}
+                    <picture>
+                        <source type="image/avif"
+                            srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=avif&width=300&quality=80">
+
+                        <source type="image/webp"
+                            srcset="https://fdnd-agency.directus.app/assets/{{ story.cover }}?fit=cover&format=webp&width=300&quality=80">
+
+                        <img src="https://fdnd-agency.directus.app/assets/{{ story.cover }}?width=300&quality=80"
+                            width=" {{ story.cover.width }}" height="{{ story.cover.height }}">
+                    </picture>
+                    {% else %}
+                    <img src="/assets/Compact_Blurple_{{ story.district }}.png" alt="Geen afbeelding beschikbaar">
+                    {% endif %}
+
+                    <div class="content-side">
+                        <div class="information">
+                            {% if story.date %}
+                            <time datetime="">{{ story.date | date: "%d-%m-%Y" }}</time>
+                            {% else %}
+                            <span>Datum onbekend</span>
+                            {% endif %}
+                            <svg width="5" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512"><!--!Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                                <path d="M0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0z" />
+                            </svg>
+                            <span>{{ story.district }}</span>
+                        </div>
+                        <h3>{{ story.title }}</h3>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+
+
+        </section>
+    </section>
+
+    {% assign district = "algemeen,nieuw-west,zuidoost,oost" | split: "," %}
+
+    {% for district in district %}
+    <section class="homepage-articles">
+
+        <div class="homepage-district-top">
+            <h2>{{ district | capitalize }}</h2>
+            <a href="/{{ district }}">Alles bekijken →</a>
+        </div>
+
+        <div class="district-articles {{ district }}">
+            {% assign district_stories = stories | where: "district", district %}
+
+            {% for story in district_stories limit:3 %}
+
+            {% render 'partials/cardComponent.liquid' story: story %}
+
+            {% endfor %}
+        </div>
+    </section>
+    {% endfor %}
+
     </section>
 
     {% render 'partials/foot.liquid' %}
