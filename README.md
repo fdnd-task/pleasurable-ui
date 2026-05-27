@@ -39,6 +39,10 @@ De focus ligt op een rustige en minimalistische uitstraling waarbij de actieve o
 
 ik heb op de site ook een lange streep hij onderscheidt de products en galerij maar hij blijft wel in het thema van milledoni
 
+**De product kaartjes**
+de product kaarttjes zelf zit een lichte scahduw achter het heeft geen border wat aansluit van de product kaartjes op de home pagina. De layout is een grid wat ongelijk is wat een speels ontwerp geeft iet swat de opdrachtgever ook aangafee
+
+
 
 
 ## Gebruik
