@@ -359,7 +359,7 @@ header.nav-header {
   }
 }
 
-.news-section{
+.news-section {
   padding-bottom: 0;
 }
 
@@ -525,6 +525,18 @@ header.nav-header {
 
 /* talent awards page */
 
+.discovery-section.talant-awards {
+  article {
+    .info-card {
+      place-content: baseline;
+
+      a {
+        display: none;
+      }
+    }
+  }
+}
+
 .candidate-list {
   font-family: var(--font-body);
 
@@ -542,7 +554,6 @@ header.nav-header {
   display: grid;
   grid-template-columns: 1fr;
   width: auto;
-  height: 400px;
   background-color: var(--primary-200);
   padding: var(--space-lg);
   margin: auto;
@@ -739,6 +750,7 @@ footer.lowest-footer {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .lado-info-card,
   .lado-accordion,
   .lado-accordion summary {
@@ -771,7 +783,7 @@ footer.lowest-footer {
   }
 }
 
-@media (width >= 900px) {
+@media (width >=900px) {
   .hero-actions {
     display: flex;
   }
@@ -781,6 +793,7 @@ footer.lowest-footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 .secondary-button {
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--default-radius);
