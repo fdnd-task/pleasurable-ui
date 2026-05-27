@@ -118,7 +118,7 @@ app.get('/:district/:slug', async function (request, response) {
   const story = apiResponseJSON.data[0]
 
   if (!story) {
-    return response.status(404).render('error.liquid')
+    return response.status(404).render('404.liquid')
   }
 
   response.render('article.liquid', {
@@ -205,6 +205,10 @@ app.post('/:district/:slug/comment/:id/delete', async function (request, respons
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
+
+app.use(function (request, response) {
+  response.status(404).render('404.liquid')
+})
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
