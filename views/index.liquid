@@ -4,11 +4,11 @@
 
 <main>
   {% render 'partials/hero.liquid',
-    title: 'Wat zijn Associate degrees en hoe sluit het aan bij jou wensen?',
-    content: content1,
-    btnLink: '#',
-    btnText: "Meer info over Ad's",
-    btn2Link: '#',
+    title: 'Het landelijke platform voor Associate degrees',
+    content: 'Ad-netwerk samen om kennis te delen, samen te werken en de kwaliteit en zichtbaarheid van Associate degrees te versterken.',
+    btnLink: '/over-ads',
+    btnText: "Meer over Ad's",
+    btn2Link: '/ad-dag',
     btn2Text: 'Kom naar de Ad-dag',
     imgSrc: 'https://fdnd-agency.directus.app/assets/6929a725-dd62-4275-8bef-34e6577c6580',
     imgAlt: 'Ad-dag foto',
@@ -26,6 +26,21 @@
       %}
     {% endfor %}
   </section>
+
+  {% render './partials/article.liquid',
+    style: 'img-left',
+    title: 'Wat zijn Associate degrees en hoe sluit het aan bij jou wensen?',
+    content: content1,
+    imgURL: 'https://adconnect.dev.fdnd.nl/_app/immutable/assets/over-ad-hero.BesZgbm2.webp',
+    imgWidth: 300,
+    imgHeight: 300,
+    imgAlt: '',
+    imgFetch: 'auto',
+    imgLoading: 'lazy',
+    button: true,
+    btnLink: '#',
+    btnText: "Meer info over Ad's"
+  %}
 
   <div class="layout discovery-section">
     <article class="container">
