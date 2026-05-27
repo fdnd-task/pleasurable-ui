@@ -268,37 +268,34 @@ h1{
 margin-bottom: 25px;
 }
 .container{
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 .spotters-titel{
-  padding-bottom: 50px;
+  margin-bottom: 50px;
+  margin-left:25px ;
 }
 .container-spotters{
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 25px;
   margin-left: 25px;
   margin-right: 25px;
   margin-bottom: 50px;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 250px;
 
-  @supports (display: grid) {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
 
   @media (min-width:425px) {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 250px);
     /* 2 kaarten komen hierdoor naast elkaar te staan*/
     gap: 20px;
   }
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 250px);
     /* 3 kaarten komen hierdoor naast elkaar te staan*/
     gap: 40px;
   }
@@ -306,6 +303,12 @@ margin-bottom: 25px;
 
 .popup-aanmelden{
 display: none;
+border-radius: 15px;
+border: 2px solid #997700;
+padding: 40px; /* ruimte binnen de popup */
+width: 500px;
+padding: 50px 40px;
+
 &.open{
 display: block;
     & button{
@@ -315,18 +318,31 @@ display: block;
 }
 
 form{
-    display: flex;
+  display: flex;
   flex-direction: column;
-
-  
+  gap: 15px; /* ruimte tussen labels en inputs */
 }
-
+}
+.popup-aanmelden input{
+  border: 2px solid #997700;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .aanmeld-knop{
   background-color: #997700;
   color:white;
-  
+  width: 100px;
+  height:30px;
+  border-radius: 50px;
+  border:none;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+
+  &:hover{
+   transform: scale(1.1);
+    background-color: #453602;
+  }
   &.close{
     display: none;
   }
@@ -334,4 +350,22 @@ form{
 .placeholder{
   width: 150px;
   height:auto;
+}
+
+.opslaan-knop{
+  background-color: #997700;
+  color:white;
+  width: 100px;
+  height:30px;
+  border-radius: 50px;
+  border:none;
+  margin-top: 15px;
+  align-self: center;
+  transition: transform 0.2s ease;
+  cursor:pointer;
+
+  &:hover{
+    transform: scale(1.1);
+    background-color: #453602;
+  }
 }
