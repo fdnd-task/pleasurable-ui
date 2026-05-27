@@ -1,4 +1,17 @@
+{% assign page = "acties" %}
 {% layout 'layouts/base.liquid'%}
+
+{% block breadcrumbs %}
+  <nav class="breadcrumbs">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/instrumenten">Instrumenten</a></li>
+      <li><a href="/instrumenten/{{ instrument.key }}">{{ instrument.key }}</a></li>
+      <li><a href="/instrumenten/{{ instrument.key }}/uitlenen">Uitlenen</a></li>
+    </ol>
+  </nav>
+{% endblock %}
+
 {% block content %}
 
 <main>
