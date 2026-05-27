@@ -1,8 +1,68 @@
 <section class="selected-banner">
-  <h1>
-    {{ instrument.category | default: 'Instrument' }}
-    {{ instrument.brand | default: '' }}
-    {{ instrument.type | default: '' }}
-  </h1>
-  <p><strong>Code:</strong> {{ instrument.key }}</p>
+  <div class="picture">
+    <picture>
+      <source
+        srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=avif&quality=25"
+        type="image/avif"
+      >
+      <source
+        srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=webp&quality=25"
+        type="image/webp"
+      >
+      <img
+        src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=jpg&quality=25"
+        alt="{{ instrument.name }}"
+        fetchpriority="high"
+        width="356"
+        height="220"
+      >
+    </picture>
+
+    <span class="status">{{ instrument.status | default: 'Onbekend' }}</span>
+  </div>
+  <h1>{{ instrument.name }}</h1>
 </section>
+
+<style>
+  .selected-banner {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    margin: auto;
+    margin-top: var(--spacing-xl);
+    justify-content: space-around;
+    border: solid var(--border-width-lg) var(--color-brand-darkest);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem;
+
+    .picture {
+      position: relative;
+      margin: 0;
+
+      img {
+        width: 100%;
+        border-radius: 12px;
+        display: block;
+        height: 10em;
+        justify-self: center;
+        object-fit: cover;
+      }
+
+      .status {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--color-brand-lightest);
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-family: akkuratreg, sans-serif;
+        color: var(--color-brand-darkest);
+      }
+    }
+
+    h1 {
+      padding: 1rem;
+    }
+  }
+</style>
