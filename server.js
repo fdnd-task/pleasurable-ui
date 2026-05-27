@@ -453,6 +453,24 @@ app.post('/login', async (req, res) => {
     }
 });
 
+
+/////////////////////////////////////////////////
+// SUGGESTIES + JOUW-SUGGESTIE ROUTE
+app.get('/suggesties', async function (request, response) {
+   // Haal alle suggestions uit de database op
+   const suggestionResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_suggestions')
+
+   // En haal daarvan de JSON op
+   const suggestionResponseJSON = await suggestionResponse.json()
+   // stuur de data mee naar liquid (de html, CSS files hier)
+   response.render('suggesties.liquid', { suggestions: suggestionResponseJSON.data })
+})
+
+app.get('/jouw-suggestie', async function (request, response) {
+   // Render jouw-suggestie.liquid uit de Views map
+   // Geef hier eventueel data aan mee
+   response.render('jouw-suggestie.liquid')
+})
 ////////////
 // POST + DELETE GEDEELTE KEVIN
 
@@ -482,5 +500,25 @@ app.post('/jouw-suggestie', async (request, response) => {
    // Stuur de browser daarna weer naar de homepage
    response.redirect(303, '/suggesties')
 })
+
+
+// maak een delete route aan
+app.post('/suggesties/delete/:id', async (request, response) => {
+
+   const idsuggestion = request.params.id
+   // Een POST request bevat ook extra parameters, naast een URL
+   await fetch(`https://fdnd-agency.directus.app/items/frankendael_suggestions/${idsuggestion}`, {
+
+      // Overschrijf de standaard GET method, want ook hier gaan we iets vdeleten van de server
+      method: 'DELETE'
+   });
+
+   // Stuur de browser daarna weer naar de homepage
+   response.redirect(303, '/suggesties')
+})
+// EINDE POST + DELETE GEDEELTE
+///////////////////////////////////////////////
+
+
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 
