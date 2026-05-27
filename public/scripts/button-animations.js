@@ -1,4 +1,4 @@
-const animationButtons = document.querySelectorAll(".primary-button.send-animation");
+const animationButtons = document.querySelectorAll(".primary-button#send-animation");
 
 animationButtons.forEach(button => {
     button.addEventListener('click', (event) => {

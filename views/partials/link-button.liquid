@@ -2,8 +2,9 @@
   class="{{style | default: 'primary-button'}}"
   href="{{link |  default: '#'}}"
   target="{{target |  default: '_self'}}"
+  id="{{ id }}"
 >
-  <p>{{ text | default: 'Click me' }}</p>
+  <p class="button-text">{{ text | default: 'Click me' }}</p>
   <div class="loading-dots"><span></span><span></span><span></span><span></span></div>
 </a>
 
@@ -14,5 +15,6 @@
           link: btnLink,
           text: btnText,
           style: btnStyle,
+          id="{{ id }}", // "send-animation" for button animation
         %}
 {% endcomment %}
