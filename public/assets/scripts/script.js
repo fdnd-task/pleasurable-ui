@@ -1,4 +1,4 @@
-
+// --- Elements Selection ---
 const loaderBtn = document.querySelector('.loader');
 const allOptions = document.querySelectorAll('.options-container button');
 const memojiForm = document.getElementById('memojiForm');
@@ -10,6 +10,7 @@ const slider = document.querySelector('.donate');
 const output = document.querySelector('.current-value');
 const commentForm = document.querySelector('.comment form');
 
+// --- 1. Animation Trigger Feature ---
 if (allOptions.length > 0) {
     const triggerAnimation = (event) => {
         const clickedBtn = event.currentTarget;
@@ -28,6 +29,7 @@ if (allOptions.length > 0) {
     });
 }
 
+// --- 2. Memoji Form Feature (with View Transitions) ---
 if (memojiForm) {
     memojiForm.addEventListener('click', async (event) => {
         const clickedBtn = event.target.closest('.memoji-choice-btn');
@@ -53,7 +55,6 @@ if (memojiForm) {
             loaderBtn.classList.add('shownow');
         }
 
-        // Inside Helper: Update DOM Changes
         const updateProfilePictureDOM = () => {
             if (!pictureContainer) return;
             
@@ -67,7 +68,6 @@ if (memojiForm) {
             }
         };
 
-        // Inside Helper: Popover dismissal
         function closePopoverPanel() {
             const popoverEl = document.getElementById('profiselector');
             if (popoverEl && typeof popoverEl.hidePopover === 'function') {
@@ -77,7 +77,6 @@ if (memojiForm) {
             }
         }
 
-        // Inside Helper: Reset states
         function cleanUpLoading() {
             clickedBtn.classList.remove('is-loading');
             if (loaderBtn) {
@@ -103,7 +102,6 @@ if (memojiForm) {
             const data = await response.json();
             const confirmedUrl = data.newMemojiUrl || localSourceUrl;
 
-            // Feature flag check for View Transition API
             if (!document.startViewTransition) {
                 updateProfilePictureDOM();
                 closePopoverPanel();
@@ -111,7 +109,6 @@ if (memojiForm) {
                 return;
             }
 
-            // Assign transition names dynamically
             if (clickedImg) clickedImg.style.viewTransitionName = 'active-memoji';
             if (profileImg) profileImg.style.viewTransitionName = 'active-memoji';
 
@@ -123,18 +120,18 @@ if (memojiForm) {
 
             await transition.finished;
             
-            // Clean up transition names
             if (clickedImg) clickedImg.style.viewTransitionName = '';
             if (profileImg) profileImg.style.viewTransitionName = '';
 
         } catch (error) {
             console.error("Fetch error, falling back to form submission:", error);
             cleanUpLoading();
-            memojiForm.submit(); // Progressive enhancement fallback
+            memojiForm.submit();
         }
     });
 }
 
+// --- 3. Carousel / Slider Feature ---
 function getActiveIndex() {
     if (!container || cards.length === 0) return 0;
     
@@ -165,11 +162,11 @@ function scrollToCard(index) {
     const containerWidth = container.clientWidth;
     const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
 
-        container.scrollTo({
-            left: targetScrollLeft,
-            behavior: 'smooth'
-        });
-    }
+    container.scrollTo({
+        left: targetScrollLeft,
+        behavior: 'smooth'
+    });
+}
 
 function updateButtonStates() {
     if (!container || cards.length === 0) return; 
@@ -178,7 +175,6 @@ function updateButtonStates() {
     if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
 }
 
-// Initialize Carousel Event Listeners
 if (container && cards.length > 0) {
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
@@ -200,17 +196,17 @@ if (container && cards.length > 0) {
 
     container.addEventListener('scroll', updateButtonStates, { passive: true });
     window.addEventListener('resize', updateButtonStates);
-    
-    // Normalize disabled flags immediately on load
     updateButtonStates();
 }
 
+// --- 4. Donate Input Range Feature ---
 if (slider && output) {
     slider.addEventListener('input', (event) => {
         output.textContent = event.target.value;
     });
 }
 
+// --- 5. Async Comment Form Feature ---
 if (commentForm) {
     const formButton = commentForm.querySelector('button');
     const articleComments = document.querySelector('.messages');
@@ -225,7 +221,6 @@ if (commentForm) {
             let formData = new FormData(commentForm);
 
             try {
-                // Combines submission with a forced 2.5 second delay for smooth UX
                 const [response] = await Promise.all([
                     fetch(commentForm.action, {
                         method: commentForm.method,
@@ -249,38 +244,16 @@ if (commentForm) {
 
                 commentForm.reset();
 
-    setTimeout(() => {
+                setTimeout(() => {
+                    formButton.classList.remove('success');
+                    formButton.textContent = 'Plaats jouw opmerking';
+                }, 2000);
 
-        formButton.classList.remove('success')
-
-        formButton.textContent = 'Plaats jouw opmerking'
-
-    }, 2000)
-})
-
-// Handle disabled states naturally as viewport coordinates move
-function updateButtonStates() {
-    const currentIndex = getActiveIndex();
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
+            } catch (error) {
+                console.error("Error submitting comment:", error);
+                formButton.classList.remove('loading');
+                formButton.textContent = 'Fout opgetreden. Probeer opnieuw.';
+            }
+        });
+    }
 }
-
-container.addEventListener('scroll', updateButtonStates, { passive: true });
-window.addEventListener('resize', updateButtonStates);
-
-// Normalize disabled flags immediately on load
-updateButtonStates();
-
-if (slider && output) {
-    slider.addEventListener('input', (event) => {
-        output.textContent = event.target.value;
-    });
-}
-
-// Donate slider + update button
-const slider = document.querySelector('.donate');
-const output = document.querySelector('.current-value');
-
-slider.addEventListener('input', (event) => {
-    output.textContent = event.target.value;
-});
