@@ -21,7 +21,7 @@
     overflow: hidden;
 }
 
-.form-veld {
+.form-velden label {
     display: grid;
     grid-template-columns: minmax(8rem, 20%) 1fr;
     align-items: center;
@@ -31,7 +31,7 @@
         border-bottom: none;
     }
 
-    label {
+    span {
         padding: var(--spacing-md);
         background: var(--color-brand-light);
         color: var(--color-brand-darker);
@@ -42,7 +42,8 @@
         display: grid;
     }
 
-    input {
+    input,
+    select {
         background: var(--color-brand-lightest);
         border: none;
         padding: var(--spacing-sm) var(--spacing-md);
@@ -54,6 +55,11 @@
         &:focus {
             outline: 2px solid var(--color-brand-dark);
         }
+    }
+
+    & select {
+        appearance: none;
+        cursor: pointer;
     }
 }
 
