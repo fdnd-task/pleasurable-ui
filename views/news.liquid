@@ -1,0 +1,45 @@
+{% render 'partials/head.liquid', user: user %}
+
+<main class="news" id="TOP">
+    <p id="top"></p>
+    {% render 'partials/breadcrumbs.liquid', current_path: current_path %}
+
+    {% render 'partials/general-heading.liquid',
+        heading_level: 1,
+        content: "Nieuws"
+    %} 
+
+    <section class="adjust-news">
+        <ul class="news-sort">
+            <li {% if current_path == '/nieuws' %} class="active" {% endif %}>
+                <a href="/nieuws">Relevantste</a>
+            </li>
+            <li {% if current_path == '/nieuws/nieuwste' %} class="active" {% endif %}>
+                <a href="/nieuws/nieuwste">Nieuwste</a>
+            </li>
+            <li {% if current_path == '/nieuws/oudste' %} class="active" {% endif %}>
+                <a href="/nieuws/oudste">Oudste</a>
+            </li>
+        </ul>
+
+        <form method="GET" action="/nieuws">
+            <input type="search" name="search" placeholder="Zoek in nieuws" value="{{ search }}">
+        </form>
+    </section>
+
+    {% render 'partials/general-heading.liquid',
+        heading_level: 2,
+        content: "Artikelen"
+    %} 
+
+    <section class="list-news">
+        {% render 'partials/news-items.liquid', 
+            news: news,
+            current_path: current_path
+         %}
+    </section>
+
+    {% render 'partials/back-to-top-btn.liquid' %}
+</main>
+
+{% render 'partials/foot.liquid', current_path: current_path %}
