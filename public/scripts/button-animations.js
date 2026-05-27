@@ -14,7 +14,7 @@ animationButtons.forEach(button => {
 
         setTimeout(() => {
             button.classList.remove("is-success");
-            button.textContent = "Verzend";
+            button.textContent = "Verzend opnieuw";
         }, 8000);
 
     });
