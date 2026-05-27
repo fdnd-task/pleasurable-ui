@@ -1,0 +1,38 @@
+{% render 'partials/head.liquid', title: 'BuurtCampuskrant', districtName: districtName %}
+
+
+  <aside class="filter-sidebar">
+  <h2>Filter en Sorteer</h2>
+
+  <section class="filter-group">
+    {% assign sortQuery = '' %}
+    {% if activeSort %}
+      {% assign sortQuery = '&sort=' | append: activeSort %}
+    {% endif %}
+
+    <ul>
+      <li>
+        <a
+          href="/district/{{ districtName }}?{{ sortQuery | remove_first: '&' }}"
+          class=" filter-btn {% if activeGroup == '' %}active{% endif %}"
+        >
+          Alles
+        </a>
+      </li>
+
+      {% for group in targetGroups %}
+        <li>
+          <a
+            href="/district/{{ districtName }}?target_group={{ group }}{{ sortQuery }}"
+            class="filter-btn {% if activeGroup == group %}active{% endif %}"
+          >
+            {{ group | capitalize }}
+          </a>
+        </li>
+      {% endfor %}
+
+{% render 'partials/foot.liquid' %}
+{% render 'partials/head.liquid' 
+    stories: stories, 
+    search: search
+%}
