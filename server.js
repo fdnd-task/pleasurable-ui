@@ -118,7 +118,7 @@ app.get('/:district/:slug', async function (request, response) {
   const story = apiResponseJSON.data[0]
 
   if (!story) {
-    return response.status(404).render('error.liquid')
+    return response.status(404).render('404.liquid')
   }
 
   response.render('article.liquid', {
@@ -127,6 +127,43 @@ app.get('/:district/:slug', async function (request, response) {
   })
 })
 
+
+
+
+
+const districts = ["oost", "nieuw-west", "zuidoost", "algemeen"];
+app.use((req, res, next) => {
+  res.locals.districts = districts;
+  next();
+})
+
+app.get('/district/:district_name', async function (req, res) {
+  const district = req.params.district_name
+  const targetGroup = req.query.target_group || ''
+
+
+  let url = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?filter[district][_eq]=' + district + '&fields=*,cover.id,cover.width,cover.height'
+
+  if (targetGroup) {
+    url += '&filter[target_group][_eq]=' + targetGroup
+  }
+
+  const districtDetailResponse = await fetch(url)
+  const districtDetailResponseJSON = await districtDetailResponse.json()
+
+
+  const allResponse = await fetch('https://fdnd-agency.directus.app/items/buurtcampuskrant_stories/?filter[district][_eq]=' + district + '&fields=target_group')
+  const allJSON = await allResponse.json()
+  const targetGroups = [...new Set(allJSON.data.map(s => s.target_group).filter(Boolean))]
+
+  res.render('district.liquid', {
+    district: districtDetailResponseJSON.data,
+    districtName: district,
+    targetGroups: targetGroups,
+    activeGroup: targetGroup
+  })
+})
+  
 /**
  * COMMENT POST – reactie plaatsen op artikel
  */
@@ -168,6 +205,10 @@ app.post('/:district/:slug/comment/:id/delete', async function (request, respons
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set('port', process.env.PORT || 8000)
+
+app.use(function (request, response) {
+  response.status(404).render('404.liquid')
+})
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
 app.listen(app.get('port'), function () {
