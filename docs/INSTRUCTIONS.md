@@ -15,10 +15,10 @@ Zorg dat je duidelijke afspraken maakt en elkaar dagelijks op de hoogte houdt va
 
 - [Sprint Planning](sprint-planning.md)
 - [Feature branches & Pull requests](feature-branches-en-pull-requests.md)
-<!-- - [Code/Design review - Week 1](code-design-review-week-1.md) -->
+- [Code/Design review - Week 1](code-design-review-week-1.md)
 - [Pleasurable is in the details](pleasurable-is-in-the-details.md)
 - [Client-Side Scripting for UX](client-side-scripting-for-ux.md)
-- [Code/Design review - Feature brancehs](code-design-review-feature-branches.md)
+- [Code/Design review - Week 2](code-design-review-week-2.md)
 - [Ontwerpkeuzes overbrengen](ontwerpkeuzes.md)
 - [Wrap-Up](wrap-up.md)
 

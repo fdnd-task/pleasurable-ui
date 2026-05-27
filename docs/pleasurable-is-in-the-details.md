@@ -6,27 +6,32 @@ Over het ontwerpen van de pleasurable laag van interactie.
 ### Aanpak
 Vandaag ga je met je team convergeren en divergeren op het design van je website. Eerst ga je leren wat pleasurable UI is aan de hand van de _Hierarchy of User Needs_ piramide. Daarna ga je in Figma pleasurable UI ontwerpen en animeren.
 
+<!--
+
+Nog iets met het archief van https://littlebigdetails.com/archive ? Was tussen 2010 en 2017 een enorme bron aan 'Pleasurable is in the details'
+
+Teams/Whiteboard opdracht met https://tympanus.net/codrops/category/articles/ui-interactions-animations-roundups/ ook nog wel vet misschien
+
+-->
 👉 Check de verzameling 'Pleasurable is in the details' op [LittleBigDetails.com](https://littlebigdetails.com/archive). Post een link naar een leuk voorbeeld in Teams.
 
-<!--
-Nog iets met het archief van https://littlebigdetails.com/archive ? Was tussen 2010 en 2017 een enorme bron aan 'Pleasurable is in the details'
-Teams/Whiteboard opdracht met https://tympanus.net/codrops/category/articles/ui-interactions-animations-roundups/ ook nog wel vet misschien
--->
 
 ## Hierarchy of User Needs
 In de piramide van User Needs van Aarron Walter is goed te zien dat een _pleasurable interface_, een interface waar een gebruiker plezier aan beleeft, is gebouwd op een stevig fundament. Dit bereik je door een website te ontwerpen en bouwen volgens het principe van Progressive Enhancement.
 
 <img src="aarron-walter-user-needs.png" alt="piramide van user needs" width="400"> 
 
-(Aarron Walter is hoofd UX designer van MailChimp en schrijver van het boek "Designing for Emotion")
+*De hierarchy of user needs van Aarron Walter (hij is hoofd UX designer van MailChimp en schrijver van het boek "Designing for Emotion")*
+
+
 
 ### Functional & Reliable
 De _functional_ en _reliable_ laag van een website komen overeen met de eerste twee lagen van Progressive Enhancement,
 
-1. Bouw de functionaliteit robuust, met de simpelste techniek (HTML, Server-Side Rendering en URL design)
-2. Voeg Baseline CSS voor de huisstijl toe
+1. Bepaal eerst de core functionality van wat je gaat maken
+2. Bouw die functionaliteit met de simpelste techniek (meestal HTML, met een klein beetje Mobile First CSS voor de huisstijl)
 
-Als je je website server-side bouwt, met behulp van goede HTML, nette URL's, formulieren en basic CSS zorg je ervoor dat je website het altijd doet, voor iedereen. Het is misschien niet super fancy, en met weinig details. Maar de website doet het altijd, in elke browser en in principe kunnen alle mensen de website gebruiken.
+Als je je website server-side bouwt, met behulp van goede HTML, formulieren en basic CSS zorg je ervoor dat je website het altijd doet, voor iedereen. Het is misschien niet super fancy, en met weinig details. Maar de website doet het altijd, in elke browser en in principe kunnen alle mensen de website gebruiken.
 
 ### Usable
 In de *Usable* laag zorg je ervoor dat je website goed te gebruiken is. Dit doe je bijvoorbeeld met een duidelijke visuele hiërarchie, door Gestalt principes toe te passen, en door het ontwerpen van goede feedback en feedforward.
@@ -71,31 +76,47 @@ De pleasurable laag is leuk om te ontwerpen en bouwen, met animaties en leuke of
 <br>Therese Fessenden van Nielsen Norman Group schrijft hierover:
 > Users who experience a state of deep delight will be more likely to recommend the product or service to a friend, and to become a passionate return user.
 
-Maar een pleasurable interface zonder _functional_, _reliable_, en _usable_ laag werkt juist averechts. Een mooie website die niet goed werkt is ... aaaargh ... grrrr ... laat maar ...   
-Het is zelfs zo dat gebruikers een website die _niet goed_ te gebruiken is beter herinneren dan een goede website. Dit heet _negativity bias_; de neiging van mensen om meer aandacht te besteden aan een negatieve ervaring.
+Maar een pleasurable interface zonder _functional_, _reliable_, en _usable_ laag werkt juist averechts. Een mooie website die niet goed werkt is ... aaaargh ... grrrr ... laat maar ...
+<br>Het is zelfs zo dat gebruikers een website die _niet goed_ te gebruiken is beter herinneren dan een goede website. Dit heet _negativity bias_; de neiging van mensen om meer aandacht te besteden aan een negatieve ervaring.
 
 ### Voorbeelden van pleasurable interfaces
 
 #### Blije button
 
-Deze button wil heel graag geklikt worden. Het komt een beetje naar de cursor toe en blijft de cursor volgen.
-
 <video width="712" src="https://github.com/user-attachments/assets/844d642d-7613-4359-bc78-db3713349c6d" muted loop autoplay playsinline></video>
 
 
 
-#### Funky hover state
 
-De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de detailpagina terug.
+
+
+Deze button wil heel graag geklikt worden. Het komt een beetje naar de cursor toe en blijft de cursor volgen.
+
+#### Funky hover state
 
 <video width="1024" src="https://github.com/user-attachments/assets/e5d22837-f17e-436c-ba11-f0cf8d829615" muted loop autoplay playsinline></video>
 
 
+
+
+
+
+
+
+De hover state over de elementen geeft mooie feedback met animaties, de visuele elementen komen in de detailpagina terug. 
+
 #### Slicke Slideshow
 
-De slideshow op Spotify.design maakt gebruik van verschillende slicke animaties, en je kan de slideshow op verschillende manieren bedienen. Dat is ook een vorm van pleasurable UI. Ook de achtergrondkleur verandert en past zodoende bij de volgende pagina.
-
 <video width="1024" src="https://github.com/user-attachments/assets/ada3e561-c4df-4266-b9c1-1bc52a0034ce" muted loop autoplay playsinline></video>
+
+
+
+
+
+
+
+
+De slideshow op Spotify.design maakt gebruik van verschillende slicke animaties, en je kan de slideshow op verschillende manieren bedienen. Dat is ook een vorm van pleasurable UI. Ook de achtergrondkleur verandert en past zodoende bij de volgende pagina.
 
 👉 Check de Slicke Slideshow op [spotify.design](https://spotify.design). Beantwoord deze vragen op het whiteboard:
 - Welke slicke animaties zie je allemaal?

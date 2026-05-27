@@ -2,8 +2,8 @@
 
 Deze week heb je drie interacties ontworpen in Figma die de gebruikersinterface aangenamer maken. Vervolgens heb je deze prototypes uitgewerkt in feature branches.
 
-## Code/Design review - Feature branches
-Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed is zijn dat er drie) een pull request aanmaken. Daarna vergelijk en bespreek je met je team de verschillende experimenten en variaties waar jullie deze week aan hebben gewerkt. Samen bepaal je welke branches worden gemerged met de `main`, nadat alle pull requests zijn gereviewd.
+## Code/Design review - Week 2
+Vandaag ga je voor elk van de feature branches die je hebt gemaakt (als het goed is zijn dat er drie) een pull request aanmaken. Daarna vergelijk en bespreek je met je team de verschillende experimenten en variaties waar jullie deze week aan hebben gewerkt. Samen bepaal je welke drie branches worden gemerged met de `main`, nadat alle pull requests zijn gereviewd.
 
 ## Aanpak
 
@@ -35,7 +35,7 @@ Bekijk gezamenlijk alle pull requests. Gebruik één laptop om de pull requests 
 - Geef aan waar je op hebt gelet, wat je hebt getest, en geef inhoudelijke feedback.
 
 ### **Stap 5: Team: Bepaal welke branches er gemerged gaan worden**
-Na het bekijken en reviewen van alle pull requests bepaal je samen welke branches met de `main` worden gemerged. 
+Na het bekijken en reviewen van alle pull requests bepaal je samen welke drie branches met de `main` worden gemerged. 
 
 Het is ook mogelijk dat jullie meerdere feature branches willen combineren.
 
@@ -43,3 +43,24 @@ Het is ook mogelijk dat jullie meerdere feature branches willen combineren.
 ### **Stap 6: Met het team: Bekijk de merge van een ander team**
 Kies een andere groep uit die alle bovenstaande stappen heeft doorlopen. Bekijk of het voor jullie als team navolgbaar is welke feedback ze hebben gegeven op de pull requests en voor welke feature branches ze zijn gegaan. Schiet hiervoor een issue voor in bij elkaar. 
 -->
+
+## Voortgangsgesprek 
+Met een coach bespreek je met je team jullie vorderingen. In je team heb je duidelijke afspraken gemaakt over jullie werkwijze en hoe jullie elkaar op de hoogte houden. Zorg dat je het Project Board, de verschillende branches en de pull requests bij de hand hebt. 
+
+**Bij Krijn & Charley:**
+| Tijd     | Teams |
+| ----------- | ----------- |
+| 10:00-10:45  | Tumi Mundo 1H	+ Bieb in Bloei 1G    |
+| 10:45-11:30  | Bieb in Bloei 1H	+ Mediahuis 1H  |
+| 11:30-12:15  | Milledoni 1H	+ Milledoni 1G       |
+| 12:15-13:00  | Qatar  |
+
+**Bij Koop & Suus:**
+| Tijd     | Teams |
+| ----------- | ----------- |
+| 10:00-10:45  | DDA 1H	 + Drop Heal 1G   |
+| 10:45-11:30  | Drop & Heal 1H	+ Tumi Mundo 1G   |
+| 11:30-12:15  | Mediahuis 1G	+ DDA 1G    |
+| 12:15-13:00  | Oncollaboration |
+
+
