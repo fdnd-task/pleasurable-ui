@@ -1,0 +1,68 @@
+{% render 'partials/head.liquid', title: 'LADO' %}
+
+<main id="content">
+  <section class="layout hero-section" id="lado-info">
+    <article class="container hero-text">
+      <h1>Landelijke Ad-overleggen en Ad-profielen</h1>
+
+      <p>
+        Het Overlegplatform Associate degrees onderstreept het belang voor Ad-opleidingen
+        om zich samen te positioneren en te profileren in het Nederlandse onderwijslandschap.
+      </p>
+
+      <p>
+        In een Landelijk Ad-overleg ontmoeten gemeenschappelijke Ad-opleidingen elkaar
+        regelmatig om samen te werken aan landelijk herkenbare opleidingen.
+      </p>
+
+      <p class="hero-actions">
+        <a class="secondary-button" href="#lado-information">Lees meer</a>
+        <a class="primary-button" href="#lado-overview">Bekijk overzicht</a>
+      </p>
+    </article>
+  </section>
+
+  <section class="layout lado-section" id="lado-information">
+    <article class="container">
+      <h2>Over LADO's</h2>
+
+      <ul class="lado-info-list">
+        <li class="lado-info-card">
+          <h3>Gezamenlijke profilering van vergelijkbare Ad-opleidingen</h3>
+          <p>
+            In een LADO stemmen aangesloten Ad-opleidingen af over gezamenlijke profilering
+            en landelijk herkenbare opleidingen.
+          </p>
+        </li>
+
+        <li class="lado-info-card">
+          <h3>Gezamenlijke afstemming op het specifieke werkveld</h3>
+          <p>
+            Binnen een LADO stemmen opleidingen af met landelijke werkgeversorganisaties,
+            brancheorganisaties en beroepsverenigingen.
+          </p>
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="layout lado-overview" id="lado-overview">
+    <article class="container">
+      <h2>Overzicht LADO's</h2>
+
+      <p class="lado-description">
+        Informatie en wijzigingen: Mariëtte Muris, contactpersoon LADO's.
+      </p>
+
+      <ul class="lado-grid">
+        {% for lado in lados %}
+          <li>
+            {% render 'partials/lado-dropdown.liquid', lado: lado, index: forloop.index %}
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  </section>
+</main>
+
+{% render 'partials/footer.liquid' %}
