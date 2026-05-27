@@ -595,7 +595,7 @@ ul.quest {
     }
 }
 
-/* MARK: COMMENTS INPUT */
+/* MARK: FORM OPMERKING */
     .comment {
         display: flex;
         flex-direction: column;
@@ -664,7 +664,88 @@ ul.quest {
                 &:focus {
                     outline: solid 3px var(--dark-text);
                 }
+                
+                /* Parent loading class */
+                &.loading {
+                    display: flex;
+                    align-items: center;
+                    gap: .25em;
+                }
+                
+                /* Psuedo eerste kind van het element */
+                &.loading::before {
+                    display: block;
+                    /* Achtergrond afbeelding is een conic gradient die transparant is en de huidige kleur meeneemt  */
+                    background-image: conic-gradient(transparent, currentcolor);
+                    /* Snijdt het middenstuk af */
+                    mask-image: radial-gradient(transparent 0 .3em, red .3em 5em);
+                    /* Content moet leeg */
+                    content: "";
+                    border-radius: 50%;
+                    width: 1em;
+                    height: 1em;
+                    animation-name: --wait-animation;
+                    /* Animatie duur */
+                    animation-duration: 1s;
+                    /* Oneidig draaien */
+                    animation-iteration-count: infinite;
+                }
             }
+        }
+    }
+
+    /* Loading state animatie */
+    @keyframes --wait-animation {
+        /* Draai 0 keer vanaf 0% */
+        0% {
+            rotate: 0turn;
+        }
+
+        /* Draai volledig 1 keer tot aan 100% */
+        100% {
+            rotate: 1turn;
+        }
+    }
+
+    /* MARK: Opmerkingen */
+    /* COMMENTS */
+    .messages {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        align-self: center;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        gap: .5rem;
+
+        .message-wrap {
+            padding: 1rem;
+            border-bottom: solid var(--background-color-6);
+            border-radius: 10px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .comment-name {
+            font-family: main;
+            font-weight: 600;
+        }
+
+        .date-created {
+            display: flex;
+            align-self: flex-end;
+            font-family: main;
+            text-decoration: overline;
+        }
+
+        h3 {
+            padding-top: 2rem;
+        }
+
+        p, form {
+            padding: 0.5rem 0 0.5rem 0;
+            font-family: main;
+            color: var(--dark-text);
+            align-self: center;
         }
     }
 
