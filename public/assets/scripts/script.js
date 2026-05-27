@@ -265,7 +265,7 @@ const suggestieLijst = document.querySelector(".collection-suggesties")
 
 deleteForms.forEach((deleteForm) => {
   deleteForm.addEventListener("submit", async function (event) {
-    const deleteKnop = deleteForm.querySelector(".delete")
+    const deleteKnop = deleteForm.querySelector(".delete-button")
     const suggestie = document.querySelector(`li:has(form[data-enhanced="${deleteForm.getAttribute('data-enhanced')}"])`)
     event.preventDefault()
 
