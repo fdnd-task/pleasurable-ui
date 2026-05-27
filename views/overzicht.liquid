@@ -314,32 +314,40 @@
 
       <form action="/instrumenten" method="GET" class="status-form mobile-only-form">
         <select name="status" onchange="this.form.submit()" class="mobile-btn zoek-knop">
-          <optgroup label="Status">
-            <option
-              value="Beschikbaar"
-              {% if status == 'Beschikbaar' %}
-                selected
-              {% endif %}
-            >
-              Beschikbaar
-            </option>
-            <option
-              value="Uitgeleend"
-              {% if status == 'Uitgeleend' %}
-                selected
-              {% endif %}
-            >
-              Uitgeleend
-            </option>
-            <option
-              value="In reparatie"
-              {% if status == 'In reparatie' %}
-                selected
-              {% endif %}
-            >
-              In reparatie
-            </option>
-          </optgroup>
+          <option
+            class="all-option"
+            value=""
+            {% if not status %}
+              selected
+            {% endif %}
+          >
+            Status
+          </option>
+
+          <option
+            value="Beschikbaar"
+            {% if status == 'Beschikbaar' %}
+              selected
+            {% endif %}
+          >
+            Beschikbaar
+          </option>
+          <option
+            value="Uitgeleend"
+            {% if status == 'Uitgeleend' %}
+              selected
+            {% endif %}
+          >
+            Uitgeleend
+          </option>
+          <option
+            value="In reparatie"
+            {% if status == 'In reparatie' %}
+              selected
+            {% endif %}
+          >
+            In reparatie
+          </option>
         </select>
       </form>
     </nav>
