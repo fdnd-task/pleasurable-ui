@@ -26,14 +26,22 @@
 <style>
   .selected-banner {
     display: flex;
-    flex-direction: row;
-    width: 60vw;
+    flex-direction: column;
     margin: auto;
     margin-top: var(--spacing-xl);
     justify-content: space-around;
     border: solid var(--border-width-lg) var(--color-brand-darkest);
     border-radius: var(--border-radius-lg);
     padding: 1rem;
+
+    @media (min-width: 330px) {
+      flex-direction: row;
+    }
+
+    @media (min-width: 600px) {
+      width: 580px;
+
+    }
 
     .picture {
       position: relative;
