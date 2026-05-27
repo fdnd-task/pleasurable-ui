@@ -736,58 +736,6 @@ footer.lowest-footer {
       padding-top: var(--space-md);
     }
 
-
-
-  summary {
-    list-style: none;
-    cursor: pointer;
-    position: relative;
-    padding: var(--space-lg) var(--space-3xl) var(--space-lg) var(--space-lg);
-    font-family: var(--font-heading);
-    font-weight: 700;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
-
-    &::after {
-      content: "+";
-      position: absolute;
-      top: 50%;
-      right: var(--space-lg);
-      color: var(--secondary-500);
-      transform: translateY(-50%);
-    }
-
-    &:hover,
-    &:focus {
-      background-color: var(--primary-100);
-    }
-
-    &:focus-visible {
-      outline: var(--space-2xs) solid var(--primary-300);
-      outline-offset: calc(var(--space-xs) * -1);
-    }
-  }
-
-  &[open] {
-    summary {
-      border-radius: var(--default-radius) var(--default-radius) 0 0;
-
-      &::after {
-        content: "–";
-      }
-    }
-  }
-
-  p {
-    padding: 0 var(--space-lg) var(--space-md);
-    line-height: 1.8;
-
-    &:first-of-type {
-      padding-top: var(--space-md);
-    }
-
     &:last-of-type {
       padding-bottom: var(--space-lg);
     }
@@ -796,15 +744,11 @@ footer.lowest-footer {
 
 @media (prefers-reduced-motion: no-preference) {
   .lado-info-card,
-  .lado-accordion {
+  .lado-accordion,
+  .lado-accordion summary {
     transition:
       background-color 0.2s ease,
-      transform 0.2s ease;
-  }
-
-  .lado-info-card:hover,
-  .lado-accordion:hover {
-    transform: translateY(calc(var(--space-2xs) * -1));
+      outline 0.2s ease;
   }
 }
 
