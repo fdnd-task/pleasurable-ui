@@ -231,22 +231,25 @@ as a fallback for JS script */
 
     /* height and width hardcoded to avoid button shrinking
     from animation dots being smaller */
-    height: 28.8px;
-    width: 59.91px;
+    height: 1.8rem;
+    width: 3.744rem;
 
     align-items: center;
     justify-content: center;
 }
 
 .loading-dots {
-    gap: 8px;
+    gap: var(--space-xs);
 
     span {
-        width: 8px;
-        height: 8px;
+        width: var(--space-xs);
+        height: var(--space-xs);
         background-color: var(--secondary-500);
         border-radius: 50%;
-        animation: bounce 0.6s infinite;
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: bounce 0.6s infinite;
+        }
 
         &:nth-child(2) {
             animation-delay: 0.1s;
@@ -310,8 +313,8 @@ as a fallback for JS script */
     }
 
     span:nth-child(1) {
-        width: 7px;
-        height: 7px;
+        width: var(--space-xs);
+        height: var(--space-xs);
         background-color: var(--primary-500);
         border-radius: 50%;
 
@@ -356,8 +359,8 @@ as a fallback for JS script */
     }
 
     span:nth-child(6) {
-        width: 24px;
-        height: 24px;
+        width: var(--space-lg);
+        height: var(--space-lg);
         background-color: var(--primary-500);
         border-radius: 50%;
 
