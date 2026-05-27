@@ -816,14 +816,20 @@ footer.lowest-footer {
   text-decoration: none;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(100%);
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: opacity .3s ease;
+   
+      transition:
+      opacity .3s ease,
+      transform .5s cubic-bezier(.6,1.94,.78,1.69),
+      background-color .3s ease;
   }
 }
 
 .back-to-top.visible {
   opacity: 1;
+  transform: translateY(0);
   pointer-events: auto;
 }
 
