@@ -235,3 +235,103 @@ footer {
     flex-direction: row;
   }
 }
+
+
+/*Spotter pagina*/
+.strikje{
+  width: 100vw;
+margin-bottom: 25px;
+}
+h1{
+  text-align: center;
+  
+}
+.container{
+     display: flex; /* Maakt een flexbox container */
+     flex-direction: column;
+  justify-content: center; /* Centreert horizontaal */
+  align-items: center; /* Centreert verticaal */
+  line-height: 1.6;
+}
+.intro-spotters{
+  padding-bottom: 50px;
+  text-align: center;
+  width: 50ch;
+   
+}
+.titel{
+  text-align: center;
+}
+.meldaan-tekst{
+  text-align: center;
+    width: 50ch;
+margin-bottom: 25px;
+}
+.container{
+  padding-bottom: 50px;
+}
+.spotters-titel{
+  padding-bottom: 50px;
+}
+.container-spotters{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width:425px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 kaarten komen hierdoor naast elkaar te staan*/
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 kaarten komen hierdoor naast elkaar te staan*/
+    gap: 40px;
+  }
+}
+
+.popup-aanmelden{
+display: none;
+&.open{
+display: block;
+    & button{
+        background-color: #997700;
+  color:white;
+    }
+}
+
+form{
+    display: flex;
+  flex-direction: column;
+
+  
+}
+
+}
+
+.aanmeld-knop{
+  background-color: #997700;
+  color:white;
+  
+  &.close{
+    display: none;
+  }
+}
+.placeholder{
+  width: 150px;
+  height:auto;
+}
