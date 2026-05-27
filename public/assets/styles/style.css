@@ -163,6 +163,10 @@ main {
     padding-top: 51px;
   }
 
+  @media (min-width: 1100px) {
+    padding-top: 68px;
+  }
+
   .chatbot-section-wrapper {
     width: 90%;
     align-self: center;
