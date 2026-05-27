@@ -22,6 +22,14 @@
     --background-color: #FFFFFF;
     --text-color: #1E1E1E;
     --heading-color: #000000;
+    
+    /* 404 Button */
+    --button-background: rgb(255, 111, 0);
+    --button-text-color: #ffff;
+
+    /* 404 Button::hover*/
+    --button-background-hover: rgb(255, 95, 0);
+
 
 }
 
