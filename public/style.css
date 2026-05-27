@@ -1,0 +1,48 @@
+.filter-group {
+    margin-bottom: 24px;
+
+    & h3 {
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: var(--oost);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+    }
+
+    & ul {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    & li {
+        list-style: none;
+    }
+}
+
+
+.filter-btn {
+    display: block;
+    padding: 8px 16px;
+    border-radius: 1em;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: var(--highlight-color);
+        color: var(--oost);
+    }
+
+    &.active {
+        background-color: var(--oost);
+        color: #ffffff;
+        font-weight: bold;
+    }
+}
