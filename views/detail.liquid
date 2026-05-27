@@ -51,8 +51,9 @@
     </nav>
   </section>
 
-  <section class="action-log">
- <ol class="log-list">
+<footer class="action-log">
+  <h2>Activiteiten</h2>
+  <ol class="log-list">
             {% if logs.size == 0 %}
                 <section class="empty-state">
                     <p>Er zijn nog geen activiteiten van het type '{{ activeFilter }}'.</p> 
@@ -64,7 +65,7 @@
                 {% assign yesterday = 'now' | date: '%s' | minus: 86400 | date: '%Y-%m-%d' %}
                 {% assign currentDay = '' %}
 
-                {% for log in logs %}
+                {% for log in logs limit:5 %}
                     {% assign logDay = log.date_created | date: '%Y-%m-%d' %}
 
                     {% if logDay != currentDay %}
@@ -150,6 +151,7 @@
                 {% endfor %}
             {% endif %}
         </ol>
+        </footer>
 </main>
 
 {% endblock %}
