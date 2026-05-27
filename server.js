@@ -135,7 +135,7 @@ app.post("/verwijder", async function (request, response) {
 
   response.redirect(303, "/wishlist");
 });
-app.get("/spotters", async function (request, response){
+
 app.get("/spotters", async function (request, response) {
   response.render("spotters.liquid");
 });
