@@ -165,11 +165,11 @@ function scrollToCard(index) {
     const containerWidth = container.clientWidth;
     const targetScrollLeft = card.offsetLeft - (containerWidth / 2) + (card.clientWidth / 2);
 
-    container.scrollTo({
-        left: targetScrollLeft,
-        behavior: 'smooth'
-    });
-}
+        container.scrollTo({
+            left: targetScrollLeft,
+            behavior: 'smooth'
+        });
+    }
 
 function updateButtonStates() {
     if (!container || cards.length === 0) return; 
@@ -249,16 +249,34 @@ if (commentForm) {
 
                 commentForm.reset();
 
-                setTimeout(() => {
-                    formButton.classList.remove('success');
-                    formButton.textContent = 'Plaats jouw opmerking';
-                }, 2000);
+    setTimeout(() => {
 
-            } catch (err) {
-                console.error("Submission failed", err);
-                formButton.classList.remove('loading');
-                formButton.textContent = 'Fout opgetreden';
-            }
-        });
+        formButton.classList.remove('success')
+
+        formButton.textContent = 'Plaats jouw opmerking'
+
+    }, 2000)
+})
+
+    // Handle disabled states naturally as viewport coordinates move
+    function updateButtonStates() {
+        const currentIndex = getActiveIndex();
+        if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        if (nextBtn) nextBtn.disabled = currentIndex === cards.length - 1;
     }
+
+    container.addEventListener('scroll', updateButtonStates, { passive: true });
+    window.addEventListener('resize', updateButtonStates);
+    
+    // Initial run to normalize disabled flags on load
+    updateButtonStates();
 }
+
+
+// Donate slider + update button
+const slider = document.querySelector('.donate');
+const output = document.querySelector('.current-value');
+
+slider.addEventListener('input', (event) => {
+    output.textContent = event.target.value;
+});
