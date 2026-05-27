@@ -8,12 +8,12 @@ Check [hier](https://pleasurable-ui-xr0z.onrender.com/) de website.
 
 ## Inhoudsopgave
 
-  * [Beschrijving](#beschrijving)
-  * [Huisstijl](#huisstijl)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+  * [Beschrijving](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#beschrijving)
+  * [Huisstijl](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#huisstijl)
+  * [Kenmerken](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#kenmerken)
+  * [Installatie](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#installatie)
+  * [Bronnen](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#bronnen)
+  * [Licentie](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#licentie)
 
 ## Beschrijving
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
@@ -28,14 +28,30 @@ Van de opdrachtgever hebben wij een prototype gekregen van het design in een fig
 
 ## Kenmerken
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
-## Inhoudsopgave
 
-  * [Beschrijving](#beschrijving)
-  * [Huisstijl](#huisstijl)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
+### Pagina's
+
+  * [Homepage](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#homepage)
+  * [Veldbeheer](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#veldbeheer)
+  * [Account](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#account)
+  * [Veldverkenner](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#veldverkenner)
+  * [Nieuws](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#nieuwsartikel)
+  * [Nieuwsartikel](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#nieuwsartikel)
+  * [Collectie](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#collectie)
+
+## Homepage
+
+## Veldbeheer
+
+## Account
+
+## Veldverkenner
+
+## Nieuws
+
+## Nieuwsartikel
+
+## Collectie
 
 ## Installatie
 <!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
