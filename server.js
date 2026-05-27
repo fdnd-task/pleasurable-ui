@@ -117,10 +117,6 @@ app.get('/:district/:slug', async function (request, response) {
   })
 })
 
-
-
-
-
 const districts = ["oost", "nieuw-west", "zuidoost", "algemeen"];
 app.use((req, res, next) => {
   res.locals.districts = districts;
