@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/styleguide.css">
     <script src="/scripts/back-to-top.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
     <title>{{ title }}</title>
   </head>
   <body>  
@@ -25,12 +25,12 @@
   <div class="link-and-button-desktop">
 
   <ul class="link-nav">
-    <li>{% render './partials/link-button.liquid', link: '#', text: 'Home', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/', text: 'Home', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ads', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Talent Award', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'LAdO', style: 'nav-link' %}</li>
-    <li>{% render './partials/link-button.liquid', link: '#', text: 'Nieuws', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/nieuws', text: 'Nieuws', style: 'nav-link' %}</li>
   </ul>
       {% render './partials/link-button.liquid', link: '#', text: 'Kom naar Ad-dag', style: 'secondary-button' %}
   </div>
@@ -54,7 +54,7 @@
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'Talent Award', style: 'nav-link' %}</li>
     <li>{% render './partials/link-button.liquid', link: '#', text: 'LAdO', style: 'nav-link' %}</li>
-    <li>{% render './partials/link-button.liquid', link: '#', text: 'Nieuws', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/nieuws', text: 'Nieuws', style: 'nav-link' %}</li>
   </ul>
 
   {% render './partials/link-button.liquid', link: '#', text: 'Kom naar Ad-dag', style: 'secondary-button-mobile-nav' %}

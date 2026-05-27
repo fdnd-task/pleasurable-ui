@@ -1,0 +1,23 @@
+{% render 'partials/head.liquid', title: 'pagina niet gevonden' %}
+<main>
+  {% assign contentVar = 'Oeps! De pagina die probeert te bereiken lijkt niet te bestaan. Klik op de knop hieronder om weer terug te gaan naar de home pagina of de nieuws pagina.' %}
+  {% assign imgURL = 'assets/images/mascot-ad' %}
+
+  {% comment %} should be converted to a header when possible for the H1 tag {% endcomment %}
+  {% render 'partials/hero.liquid',
+    title: 'Pagina niet gevonden',
+    content: contentVar,
+    btnLink: '/home',
+    btnText: 'Terug naar home',
+    btn2Link: '/nieuws',
+    btn2Text: 'Terug naar nieuws',
+    imgSrc: imgURL,
+    imgAlt: '404 bird',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true,
+    style: 'hero--green'
+  %}
+</main>
+
+{% render 'partials/footer.liquid' %}
