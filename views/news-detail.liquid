@@ -13,6 +13,7 @@
             alt: newsItem.title,
             fetch: "high",
             loading: "eager",
+            class: "landscape"
         %}
         <p class="date">Geplaatst: {{ newsItem.date | date: '%d-%m-%Y %H:%M' }}</p>
         <h2>{{ newsItem.title }}</h2>

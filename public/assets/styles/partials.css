@@ -572,23 +572,20 @@ ul.quest {
         object-fit: cover;
         width: 100%;
         height: auto;
-        min-width: 200px;
-        padding: 0.5rem;
         border-radius: 20px;
     }
 
     p.date {
         margin-block: 1rem;
         color: inherit;
-        padding-left: .5rem;
     }
 
     .description, h2 {
         display: flex;
         flex-direction: column;
-        padding: 0 0 1rem .5rem;
         min-width: 15ch;
         line-height: 1.4;
+        padding-bottom: 1rem;
     }
 }
 
@@ -599,13 +596,12 @@ ul.quest {
         justify-content: center;
         border-radius: 15px;
         width: 100%;
-        height: 350px;
+        height: 280px;
 
         .name-input, .message-input {
             display: flex;
             justify-content: center;
             width: 100%;
-            padding: 0 0 1rem .5rem;
         }
 
         label {
@@ -613,7 +609,6 @@ ul.quest {
             flex-direction: column;
             justify-content: center;
             width: 100%;
-            padding: 1rem;
             font-family: main;
             font-weight: 400;
             gap: 0.5rem;
@@ -638,13 +633,14 @@ ul.quest {
         h3 {
             display: flex;
             justify-content: flex-start;
-            padding: 2.5rem 0 1.5rem 0.5rem;
+            padding: 1rem 0 1rem 0;
         }
 
         form {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            gap: 1rem;
 
             .submit {
                 display: flex;
@@ -712,7 +708,6 @@ ul.quest {
         width: 100%;
         max-width: 500px;
         align-self: center;
-        padding: 0.5rem 0 0.5rem 0.5rem;
         gap: .5rem;
 
         .message-wrap {
@@ -735,7 +730,7 @@ ul.quest {
         }
 
         h3 {
-            padding-top: 2rem;
+            padding-top: 3.5rem;
         }
 
         p, form {
