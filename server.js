@@ -71,6 +71,7 @@ app.post("/spotters", async function (request, response){
     }
   );
 
+
   response.redirect("/spotters")
 });
 // Stel het poortnummer in waar Express op moet gaan luisteren
