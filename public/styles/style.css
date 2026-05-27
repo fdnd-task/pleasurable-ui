@@ -84,33 +84,63 @@ header {
   }
 }
 
-.menu-toggle-outer {
+.menu-toggle-outer{
+  padding-top: 3px;
   list-style: none;
-  place-content: center;
-  place-items: center;
   border-radius: 0.5rem;
   height: 2rem;
   width: 2rem;
-
   @media (min-width: 768px) {
     display: none;
   }
 }
 
-.menu-toggle {
+.menu-toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
   background: none;
   border: none;
-  display: flex;
-  flex-direction: column;
-  gap: .3rem;
   cursor: pointer;
   border-radius: 0.8rem;
-
-  .span-menu {
+  .span-menu{
+    display: block;
     width: 22px;
     height: 3px;
-    background: rgba(0, 0, 0, 1);
+    background: black;
+    position: absolute;
+    transition: .25s ease-in-out;
   }
+}
+
+.span-menu:nth-child(1) {
+  top: 0;
+}
+
+.span-menu:nth-child(2),
+.span-menu:nth-child(3) {
+  top: 10px;
+}
+
+.span-menu:nth-child(4) {
+  top: 20px;
+}
+
+details[open] .span-menu:nth-child(1),
+details[open] .span-menu:nth-child(4) {
+  width: 0;
+  left: 50%;
+}
+
+details[open] .span-menu:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+details[open] .span-menu:nth-child(3) {
+  transform: rotate(-45deg);
 }
 
 .mobile-nav {
@@ -119,7 +149,7 @@ header {
   position: absolute;
   top: 55px;
   right: 0;
-  background: light-dark(#f9f9f9, rgb(49, 49, 49));
+  background: light-dark(var(--background-color), var( --background-color));
   width: 100%;
   z-index: 10;
   max-height: 0;
@@ -128,18 +158,18 @@ header {
   .mobile-nav-link {
     padding: 1rem;
     text-decoration: none;
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid var(--highlight-color);
     font-weight: bold;
     text-align: center;
-    color: light-dark(black, #ffffff);
+    color: light-dark(var(--text-color), var(--text-color));
 
     @media (prefers-color-scheme: dark) {
-      color: white;
+      color: var(--text-color);
     }
   }
 
   @media (prefers-color-scheme: dark) {
-    background: black;
+    background: var(--background-color);
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -191,7 +221,7 @@ details[open]::details-content {
   }
 
   .link-button-text {
-    color: black;
+    color: var(--text-color);
     font-weight: 600;
     font-size: var(--titel-small);
   }
