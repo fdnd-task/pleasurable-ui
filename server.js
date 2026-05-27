@@ -4,9 +4,11 @@ import express from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
+import compression from 'compression'
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
+app.use(compression())
 
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
@@ -30,6 +32,7 @@ const logUrl = 'https://fdnd-agency.directus.app/items/preludefonds_log'
 app.get('/', async function (request, response) {
   const params = new URLSearchParams()
   params.append('limit', '-1')
+  params.append('fields', 'property,status')
 
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
@@ -55,8 +58,9 @@ app.get('/', async function (request, response) {
 app.get('/instrumenten', async function (request, response) {
   const params = new URLSearchParams()
 
-  const sort = request.query.sort || '-id'
+  const sort = request.query.sort || 'id'
   params.append('sort', sort)
+  params.append('fields', 'id,name,serial_number,type,brand,property,status,key')
 
   const soort = request.query.instrument
 
@@ -64,11 +68,17 @@ app.get('/instrumenten', async function (request, response) {
     params.set('filter[instrument][_eq]', soort)
   }
   
+  const zoekterm = request.query.zoeken
+  if (zoekterm) {
+    params.append('filter[name][_icontains]', zoekterm)
+  }
+  
   const instrumentResponse = await fetch(`${baseUrl}?${params.toString()}`)
   const instrumentResponseJSON = await instrumentResponse.json()
 
   response.render('overzicht.liquid', { 
     instrumenten: instrumentResponseJSON.data,
+    zoekterm: zoekterm,
     soort: soort,
     aantalResultaten: instrumentResponseJSON.data.length })
 })
@@ -132,7 +142,7 @@ app.post('/instrumenten/nieuw', async function(request, response) {
 
 app.get('/actielog', async function (request, response) {
   const params = new URLSearchParams()
-  params.append('fields', '*,instrument.name,instrument.serial_number,instrument.key')
+  params.append('fields', 'type_action,performed_by,involved_party,date_created,instrument.name,instrument.serial_number,instrument.key')
   params.append('sort', '-date_created')
 
   const filter = request.query.filter

@@ -1,3 +1,4 @@
+{% assign page = "overzicht" %}
 {% layout 'layouts/base.liquid' %}
 
 {% block breadcrumbs %}
@@ -27,7 +28,7 @@
   <nav class="filters">
     <form action="/instrumenten" method="GET" class="filter-form desktop-only-form">
       <details class="desktop-details">
-        <summary class="instrument-filter">
+        <summary class="zoek-knop">
           <span>
             {%- if soort == '' %}Filters{% elsif not soort %}Filters{% else %}{{ soort }}{% endif -%}
           </span>
@@ -95,7 +96,7 @@
     </form>
 
     <form action="/instrumenten" method="GET" class="filter-form mobile-only-form">
-      <select name="instrument" onchange="this.form.submit()" class="mobile-btn">
+      <select name="instrument" onchange="this.form.submit()" class="mobile-btn zoek-knop">
         <option
           class="all-option"
           value=""
@@ -307,10 +308,10 @@
       </select>
     </form>
   </nav>
-
+</div>
   <section class="instrument-table-section">
     <p>{{ aantalResultaten }} resultaten gevonden instrumenten gevonden</p>
-    <table class="instrument-table">
+    <table class="instrument-table" id="table">
       <thead>
         <tr>
           <th scope="col">Naam instrument</th>
@@ -325,7 +326,7 @@
       <tbody>
         {% for instrument in instrumenten %}
           <tr id="{{ instrument.key }}">
-            <td scope="row">{{ instrument.name }}</td>
+            <td scope="row"><span style="view-transition-name:name-{{ instrument.id }}; view-transition-class:vt-name;">{{ instrument.name }}</span></td>
             <td>{{ instrument.serial_number | default: 'Onbekend' }}</td>
             <td>{{ instrument.type | default: 'Onbekend' }}</td>
             <td>{{ instrument.brand | default: 'Onbekend' }}</td>
@@ -343,7 +344,7 @@
                   {% assign status_class = 'status-unknown' %}
               {% endcase %}
 
-              <span class="status-label {{ status_class }}">
+              <span class="status-label {{ status_class }}" style="view-transition-name:status-{{ instrument.id }}; view-transition-class:vt-status;">
                 {% case instrument.status %}
                   {% when 'Beschikbaar' -%}
                     Beschikbaar
