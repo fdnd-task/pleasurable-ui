@@ -307,8 +307,11 @@ as a fallback for JS script */
 
 
     span {
-        animation: load 1s steps(1);
-        animation-iteration-count: 1;
+        @media (prefers-reduced-motion: no-preference) {
+            animation: load 1s steps(1);
+            animation-iteration-count: 1;
+        }
+
         background-color: var(--primary-500);
     }
 
