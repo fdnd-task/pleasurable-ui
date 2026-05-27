@@ -36,18 +36,29 @@ app.listen(app.get("port"), function () {
 
 const baseURL = "https://fdnd-agency.directus.app/items/adconnect_";
 
-app.get("/", async function (request, response) {
-  response.render("index.liquid");
-});
+app.get('/', async function (request, response) {
+  const params = {
+    fields: "title,description,date",
+    sort: "-date_created",
+  };
 
-app.get("/talent-awards", async function (request, response) {
-  const awardsResponse = await fetch(baseURL + "nominations");
-  const awardsResponseJSON = await awardsResponse.json();
-  response.render("talent-awards.liquid", {
+  const newsResponse = await fetch(
+    baseURL + "news/?" + new URLSearchParams(params),
+  );
+  const newsResponseJson = await newsResponse.json();
+  response.render('index.liquid', {
+    news: newsResponseJson.data
+  })
+})
+
+app.get('/talent-awards', async function (request, response) {
+  const awardsResponse = await fetch(baseURL + 'nominations')
+  const awardsResponseJSON = await awardsResponse.json()
+  response.render('talent-awards.liquid', {
     nominations: awardsResponseJSON.data,
-    path: request.path,
-  });
-});
+    path: request.path
+  })
+})
 
 app.get("/nieuws", async function name(request, response) {
   const params = {
