@@ -37,8 +37,9 @@ app.get('/', async function (request, response) {
   response.render('index.liquid', {
     stories: apiStoriesResponseJSON.data
   })
+})
 
-  app.get('/:district/:slug', async function (request, response) {
+app.get('/:district/:slug', async function (request, response) {
   const district = request.params.district
   const slug = request.params.slug
 
