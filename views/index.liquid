@@ -1,62 +1,76 @@
 {% render 'partials/head.liquid', title: 'home' %}
-    <main>
-      <div class="layout discovery-section">
-        <article class="container">
-          <h2>Ontdek het Ad‑onderwijs</h2>
-          <p>
-            Leer alles over Associate degrees, doorstroommogelijkheden en netwerkevenementen. Blijf op de hoogte van
-            Ad‑opleidingen en activiteiten binnen het overlegplatform.
-          </p>
-          {% render 'partials/info-card.liquid',
-            title: 'Doorstroom Ad',
-            content: 'Met een Associate degree stroom je door naar het derde jaar van een bachelor. Zo combineer je praktijk met een diploma.',
-            btnText: "Meer over doorstroom Ad's",
-            btnLink: '#',
-            btnStyle: 'secondary-button'
-          %}
-          {% render 'partials/info-card.liquid',
-            title: 'Ad-dag',
-            content: 'De jaarlijkse Ad‑dag brengt studenten, docenten en werkveldpartners samen. Tijdens workshops staat kennisdeling en netwerken centraal.',
-            btnText: 'Meer over de Ad-dag',
-            btnLink: '#',
-            btnStyle: 'secondary-button'
-          %}
-          {% render 'partials/info-card.liquid',
-            title: 'Ad-talent Award',
-            content: 'Jaarlijks wordt door het Overlegplatform de Ad Talent Award uitgereikt, waarmee 2 Associate degree-talenten verkozen worden.',
-            btnText: 'Meer over Talent Awards',
-            btnLink: '#',
-            btnStyle: 'secondary-button'
-          %}
-        </article>
-      </div>
+<main>
+  {% render 'partials/hero.liquid',
+    title: 'Het landelijke platform voor Associate degrees',
+    content: 'Ad-netwerk samen om kennis te delen, samen te werken en de kwaliteit en zichtbaarheid van Associate degrees te versterken.',
+    btnLink: '/over-ads',
+    btnText: "Meer over Ad's",
+    btn2Link: '/ad-dag',
+    btn2Text: 'Kom naar de Ad-dag',
+    imgSrc: 'https://fdnd-agency.directus.app/assets/6929a725-dd62-4275-8bef-34e6577c6580',
+    imgAlt: 'Ad-dag foto',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true
+  %}
 
-      <section class="layout faq-layout">
-        <article class="container">
-          <h2>Veelgestelde vragen</h2>
-          <div class="faq-columns">
-            <section class="faq-column">
-              {% render 'partials/dropdown.liquid',
-                title: 'Wat is een Associate degree?',
-                content: 'Een Associate Degree is een praktijkgerichte, tweejarige opleiding op hbo-niveau. De opleiding combineert theoretische kennis met praktische ervaring, zodat studenten snel inzetbaar zijn in het werkveld en de mogelijkheid hebben om door te stromen naar een bacheloropleiding.'
-              %}
-              {% render 'partials/dropdown.liquid',
-                title: 'Wat is het verschil tussen een Associate degree en een Bachelor?',
-                content: 'Een bacheloropleiding duurt meestal vier jaar en richt zich breder op theorie en verdieping, terwijl een Ad intensief, praktijkgericht en korter is, met direct toepasbare vaardigheden voor het werkveld.'
-              %}
-            </section>
-            <section class="faq-column">
-              {% render 'partials/dropdown.liquid',
-                title: 'Hoe lang duurt een Associate degree?',
-                content: 'Een Ad duurt doorgaans twee jaar bij een voltijdopleiding. Bij deeltijd kan dit langer zijn, afhankelijk van de persoonlijke planning en werkervaring.'
-              %}
-              {% render 'partials/dropdown.liquid',
-                title: 'Welke voordelen heeft het behalen van een Associate degree?',
-                content: 'Met een Ad-diploma ben je snel inzetbaar in de praktijk, heb je een erkend hbo-kwalificatieniveau en kun je doorstromen naar een bachelor. Daarnaast vergroot het je carrièremogelijkheden en professionele netwerk.'
-              %}
-            </section>
-          </div>
-        </article>
-      </section>
-    </main>
+  <div class="layout discovery-section">
+    <article class="container">
+      <h2>Ontdek het Ad‑onderwijs</h2>
+      <p>
+        Leer alles over Associate degrees, doorstroommogelijkheden en netwerkevenementen. Blijf op de hoogte van
+        Ad‑opleidingen en activiteiten binnen het overlegplatform.
+      </p>
+      {% render 'partials/info-card.liquid',
+        title: 'Doorstroom Ad',
+        content: 'Met een Associate degree stroom je door naar het derde jaar van een bachelor. Zo combineer je praktijk met een diploma.',
+        btnText: "Meer over doorstroom Ad's",
+        btnLink: '#',
+        btnStyle: 'secondary-button'
+      %}
+      {% render 'partials/info-card.liquid',
+        title: 'Ad-dag',
+        content: 'De jaarlijkse Ad‑dag brengt studenten, docenten en werkveldpartners samen. Tijdens workshops staat kennisdeling en netwerken centraal.',
+        btnText: 'Meer over de Ad-dag',
+        btnLink: '#',
+        btnStyle: 'secondary-button'
+      %}
+      {% render 'partials/info-card.liquid',
+        title: 'Ad-talent Award',
+        content: 'Jaarlijks wordt door het Overlegplatform de Ad Talent Award uitgereikt, waarmee 2 Associate degree-talenten verkozen worden.',
+        btnText: 'Meer over Talent Awards',
+        btnLink: '#',
+        btnStyle: 'secondary-button'
+      %}
+    </article>
+  </div>
+
+  <section class="layout faq-layout">
+    <article class="container">
+      <h2>Veelgestelde vragen</h2>
+      <div class="faq-columns">
+        <section class="faq-column">
+          {% render 'partials/dropdown.liquid',
+            title: 'Wat is een Associate degree?',
+            content: 'Een Associate Degree is een praktijkgerichte, tweejarige opleiding op hbo-niveau. De opleiding combineert theoretische kennis met praktische ervaring, zodat studenten snel inzetbaar zijn in het werkveld en de mogelijkheid hebben om door te stromen naar een bacheloropleiding.'
+          %}
+          {% render 'partials/dropdown.liquid',
+            title: 'Wat is het verschil tussen een Associate degree en een Bachelor?',
+            content: 'Een bacheloropleiding duurt meestal vier jaar en richt zich breder op theorie en verdieping, terwijl een Ad intensief, praktijkgericht en korter is, met direct toepasbare vaardigheden voor het werkveld.'
+          %}
+        </section>
+        <section class="faq-column">
+          {% render 'partials/dropdown.liquid',
+            title: 'Hoe lang duurt een Associate degree?',
+            content: 'Een Ad duurt doorgaans twee jaar bij een voltijdopleiding. Bij deeltijd kan dit langer zijn, afhankelijk van de persoonlijke planning en werkervaring.'
+          %}
+          {% render 'partials/dropdown.liquid',
+            title: 'Welke voordelen heeft het behalen van een Associate degree?',
+            content: 'Met een Ad-diploma ben je snel inzetbaar in de praktijk, heb je een erkend hbo-kwalificatieniveau en kun je doorstromen naar een bachelor. Daarnaast vergroot het je carrièremogelijkheden en professionele netwerk.'
+          %}
+        </section>
+      </div>
+    </article>
+  </section>
+</main>
 {% render 'partials/footer.liquid' %}
