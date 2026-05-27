@@ -9,6 +9,12 @@ import { Liquid } from 'liquidjs';
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
+app.use((req, res, next) => {
+  console.log(req.path)
+  res.locals.currentPath = req.path
+  next()
+})
+
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({ extended: true }))
 

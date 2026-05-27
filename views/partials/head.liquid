@@ -29,6 +29,7 @@
                     <span class="span-menu"></span>
                     <span class="span-menu"></span>
                     <span class="span-menu"></span>
+                    <span class="span-menu"></span>
                 </div>
             </summary>
 
@@ -41,16 +42,16 @@
         </details>
 
         <nav class="desktop-nav">
-             <a href="/algemeen" class="link-button">
+             <a href="/algemeen" class="link-button {% if currentPath == '/algemeen' %}nav-active{% endif %}">
                  <span class="link-button-text">ALGEMEEN</span>
             </a>
-            <a href="/nieuw-west" class="link-button">
+            <a href="/nieuw-west" class="link-button {% if currentPath == '/nieuw-west' %}nav-active{% endif %}">
                 <span class="link-button-text">NIEUW-WEST</span>
             </a>
-            <a href="/zuidoost" class="link-button">
+            <a href="/zuidoost" class="link-button {% if currentPath == '/zuidoost' %}nav-active{% endif %}">
                 <span class="link-button-text">ZUIDOOST</span>
             </a>
-            <a href="/oost" class="link-button">
+            <a href="/oost" class="link-button {% if currentPath == '/oost' %}nav-active{% endif %}">
                 <span class="link-button-text">OOST</span>
             </a>
         </nav>
