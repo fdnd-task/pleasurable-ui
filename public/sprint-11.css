@@ -36,6 +36,7 @@ footer {
 
         p {
             color: #545964;
+            padding-block: 1rem;
         }
 
         &:last-child {
@@ -60,6 +61,7 @@ footer {
             display: block;
             list-style: none;
             padding-block: 1rem;
+            cursor: pointer;
         }
     }
 }
