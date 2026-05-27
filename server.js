@@ -23,6 +23,35 @@ app.engine('liquid', engine.express())
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+async function getStories() {
+  const apiResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
+  )
+
+  const apiResponseJSON = await apiResponse.json()
+
+  return apiResponseJSON.data
+}
+
+app.get('/', async function (request, response) {
+  const search = request.query.search
+
+  let stories = await getStories()
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
+  response.render('index.liquid', {
+    stories: stories,
+    search: search
+  })
+})
+
 app.get('/:district/:slug', async function (request, response) {
   const district = request.params.district
   const slug = request.params.slug
