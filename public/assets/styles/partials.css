@@ -952,7 +952,7 @@ form.form {
         align-self: start center;
     }
 
-    input.button {
+    input.verstuur-button {
         width: 100px;
         justify-self: end center;
         border: none;
