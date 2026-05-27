@@ -1,0 +1,63 @@
+{% comment %}
+  Hero banner partial
+
+  Usage:
+  {% render 'partials/hero.liquid',
+    title: 'Title here',
+    content: 'Description here',
+    btnLink: '/page',
+    btnText: 'Button text',
+    btn2Link: '/page2',
+    btn2Text: 'Button 2 text',
+    imgSrc: 'url',
+    imgAlt: 'description',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true,
+    style: 'hero--green'
+  %}
+
+  Parameters:
+  - title: main heading of the hero (required)
+  - content: descriptive text below the title (optional)
+  - btnLink: url of the first button (optional)
+  - btnText: label of the first button (optional)
+  - btn2Link: url of the second button (optional)
+  - btn2Text: label of the second button (optional)
+  - imgSrc: image source url (optional)
+  - imgAlt: image alt text (optional)
+  - imgWidth: image width (optional)
+  - imgHeight: image height (optional)
+  - imgRight: boolean to place image on the right (optional, default left)
+  - style: extra CSS class for variations e.g. different background color (optional)
+{% endcomment %}
+
+<section class="hero layout {{ style }}">
+  <div class="container hero-inner {% if imgRight %}img-right{% endif %}">
+
+    <div class="hero-text">
+      <h1>{{ title }}</h1>
+      {% if content %}
+        <p>{{ content }}</p>
+      {% endif %}
+      {% if btnLink %}
+        <div class="hero-buttons">
+          <a class="secondary-button" href="{{ btnLink }}">{{ btnText }}</a>
+          <a class="primary-button" href="{{ btn2Link }}">{{ btn2Text }}</a>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if imgSrc %}
+      {% render 'partials/image.liquid',
+        imageSrc: imgSrc,
+        width: imgWidth,
+        height: imgHeight,
+        alt: imgAlt,
+        fetch: 'high',
+        loading: 'eager'
+      %}
+    {% endif %}
+
+  </div>
+</section>
