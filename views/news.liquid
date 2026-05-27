@@ -1,20 +1,20 @@
 {% render 'partials/head.liquid', title: 'nieuws' %}
   <main>
-    <section>
-      {% comment %} hero partial {% endcomment %}
-    </section>
-
-    {% comment %}
-      <section class="container news-grid">
-        {% for newsArticle in news limit: 3 %}
-          {% render 'partials/news-card.liquid',
-            date: newsArticle.date,
-            title: newsArticle.title,
-            description: newsArticle.description
-          %}
-        {% endfor %}
-      </section>
-    {% endcomment %}
+      
+    {% render 'partials/hero.liquid',
+    title: 'news',
+    content: 'Description here',
+    btnLink: '/page',
+    btnText: 'Button text',
+    btn2Link: '/page2',
+    btn2Text: 'Button 2 text',
+    imgSrc: 'url',
+    imgAlt: 'description',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true,
+    style: 'hero--green'
+  %}
 
     <section class="container news-grid">
       {% for newsArticle in news %}
