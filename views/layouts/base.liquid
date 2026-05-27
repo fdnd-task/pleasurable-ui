@@ -8,7 +8,8 @@
     {% if page == "home" %}<link rel="stylesheet" href="/home.css">{% endif %}
     {% if page == "overzicht" %}<link rel="stylesheet" href="/overzicht.css">{% endif %}
     {% if page == "actielog" %}<link rel="stylesheet" href="/actielog.css">{% endif %}
-    {% if page == "acties" %}<link rel="stylesheet" href="/acties.css">{% endif %}  
+    {% if page == "acties" %}<link rel="stylesheet" href="/acties.css">{% endif %}
+    {% if page == "detail" %}    <link rel="stylesheet" href="/detail.css"><link rel="stylesheet" href="/actielog.css">{% endif %}
     <title>{{ title | default: "PreludeFonds" }}</title>
 </head>
 <body>

@@ -1,3 +1,4 @@
+{% assign page = "detail" %}
 {% layout 'layouts/base.liquid' %}
 
 {% block breadcrumbs %}
@@ -50,8 +51,9 @@
       <a href="/instrumenten/{{ instrument.key }}/schade" class="btn btn-primary button-schade">Schade</a>
     </nav>
   </section>
+</main>
 
-<footer class="action-log">
+<main class="action-log">
   <h2>Activiteiten</h2>
   <ol class="log-list">
             {% if logs.size == 0 %}
