@@ -40,25 +40,6 @@ async function getStories() {
   return apiResponseJSON.data
 }
 
-app.get('/', async function (request, response) {
-  const search = request.query.search
-
-  let stories = await getStories()
-
-  if (search) {
-    stories = stories.filter(function (story) {
-      return story.title
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    })
-  }
-
-  response.render('index.liquid', {
-    stories: stories,
-    search: search
-  })
-})
-
 app.get('/:district', async function (request, response) {
   const district = request.params.district
   const search = request.query.search
@@ -87,15 +68,24 @@ const baseURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories
 const story_fields = 'cover.*, date, title, intro, status, district, slug, target_group, id'
 
 app.get('/', async function (request, response) {
+  const search = request.query.search
 
-  const params = new URLSearchParams()
-  params.set('fields', story_fields)
-
-  const apiStoriesResponse = await fetch(baseURL + '?' + params.toString())
+  const apiStoriesResponse = await fetch(baseURL)
   const apiStoriesResponseJSON = await apiStoriesResponse.json()
 
+  let stories = apiStoriesResponseJSON.data
+
+  if (search) {
+    stories = stories.filter(function (story) {
+      return story.title
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    })
+  }
+
   response.render('index.liquid', {
-    stories: apiStoriesResponseJSON.data
+    stories: stories,
+    search: search
   })
 })
 
