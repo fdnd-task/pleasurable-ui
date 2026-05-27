@@ -1,5 +1,9 @@
 {% render 'partials/head.liquid' %}
 <main class="news-article">
+    {% render 'partials/breadcrumbs.liquid' 
+        current_path: current_path,
+        class: "zone",
+    %}
     <h1 class="heading-news">Veld nieuws</h1>
     <article>
         {% render 'partials/picture.liquid',

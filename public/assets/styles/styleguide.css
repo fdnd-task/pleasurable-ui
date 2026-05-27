@@ -194,7 +194,7 @@ p,a,button, span {
     font-family: main;
     font-weight: 400;
     font-size: var(--paragraph);
-    color: var(--accent-color);
+    color: var(--dark-text);
     text-decoration: none;
 }
 
