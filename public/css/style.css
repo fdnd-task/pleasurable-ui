@@ -768,13 +768,13 @@ footer.lowest-footer {
     gap: var(--space-2xl);
     align-items: center;
 
-    @media (width >= 768px) {
+    @media (width >=768px) {
       grid-template-columns: 1fr 1fr;
     }
   }
 
   .hero-inner.img-right {
-    @media (width >= 768px) {
+    @media (width >=768px) {
       picture {
         order: 2;
       }
@@ -799,7 +799,7 @@ footer.lowest-footer {
       font-weight: 700;
     }
 
-    & > p {
+    &>p {
       max-width: 45ch;
       color: var(--primary-900);
       font-family: var(--font-body);
