@@ -119,12 +119,12 @@ header {
 }
 
 .span-menu:nth-child(1) {
-  top: 0;
+  top: 4px;
 }
 
 .span-menu:nth-child(2),
 .span-menu:nth-child(3) {
-  top: 10px;
+  top: 12px;
 }
 
 .span-menu:nth-child(4) {
