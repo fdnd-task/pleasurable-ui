@@ -1,3 +1,6 @@
+{% render 'partials/head.liquid' %}
+
+
 <style>
 
 * {
@@ -100,3 +103,31 @@ background: white;
 
 
 </style>
+
+<main>
+<a href="/" class="terug knop"><img src="../imgs/undo.svg" alt="terug"></a>
+
+<h1>suggesties</h1>
+
+ <ul class="collection-suggesties">
+    {% for suggestion in suggestions %}
+      <li>
+        {% comment %} de eerste sugg is alle data uit de database, de tweede sugg is de variabele uit de database in het id {% endcomment %}
+        <p>{{ suggestion.suggestion }}</p>
+        <section>
+        {% comment %} hier miss de voting system nog even laten zitten want snap dit nog niet
+        een issue ervan maken? {% endcomment %}
+        <form class="delete-form" data-enhanced="{{ suggestion.id }}" method="POST" action="/suggesties/delete/{{ suggestion.id }}">
+          <input type="hidden" name="id" value="{{ suggestion.id }}">
+          <button type="submit" class="delete button">delete</button>
+          </form>
+        </section>
+      </li>
+    {% endfor %}
+  </ul>
+
+<a href="/jouw-suggestie" class="toevoegen knop"><img src="/imgs/add.svg" alt="toevoegen"></a>
+    
+</main>
+
+{% render 'partials/foot.liquid' %}
