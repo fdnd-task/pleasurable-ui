@@ -1,0 +1,46 @@
+{% include 'partials/head.liquid' %}
+
+<h1>De cadeauspotters community</h1>
+<p>Op Milledoni spot de redactie samen met een groep gepassioneerde cadeauspotters cadeaus die je echt wilt geven of ontvangen. 
+    Spotters dragen niet alleen zelf cadeauideeën aan,
+     maar reviewen en testen ook cadeaus die op Milledoni staan.
+      Zo is de kwaliteit van de cadeaus gegarandeerd. 
+      Spotters zijn zowel mensen die het echt leuk vinden om cadeaus te vinden, 
+      als experts op een bepaald gebied, zoals fashion, gadgets, food of cultuur. 
+    De meeste van de spotters zijn ook bloggers of journalisten.</p>
+
+<h2>Meld je aan als Cadeauspotter!</h2>
+<p>Zie jij altijd overal leuke cadeaus, 
+    en zou je deze het liefst meteen kopen,
+     inpakken en weggeven?
+      Vragen mensen jou regelmatig om cadeauadvies? 
+      Word cadeauspotter.
+</p>
+<form method="POST" action="/spotters">
+                  <label for="name">Naam</label>
+                  <input type="text" id="name" name="name" required/>
+{% comment %} 
+                  <label for="photo">Foto</label>
+                  <input type="text" id="photo" name="photo"/> {% endcomment %}
+
+                  <label for="interested_in">Interesses</label>
+                  <input type="text" id="interested_in" name="interested_in"/>
+
+                  <label for="description">Beschrijving</label>
+                  <input type="text" id="description" name="description"/>
+                  <button type="submit" class="opslaan-knop" aria-label="maak spotter aan">
+                    Aanmelden
+                  </button>
+                </form>
+
+
+
+    <h2>De Milledoni Spotters!</h2>
+{% for spotter in spotters %}
+    <div class="spotter">
+        {% comment %} <img src="{{ spotter.photo }}" alt="{{ spotter.name }}"> {% endcomment %}
+        <h2>{{ spotter.name }}</h2>
+        <p>{{ spotter.interested_in}}</p>
+    </div>
+{% endfor %}
+{% include 'partials/foot.liquid' %}
