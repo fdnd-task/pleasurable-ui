@@ -74,6 +74,19 @@ app.get('/:district', async function (request, response) {
   response.render('district.liquid', {
     stories: stories,
     search: search
+const baseURL = 'https://fdnd-agency.directus.app/items/buurtcampuskrant_stories'
+const story_fields = 'cover.*, date, title, intro, status, district, slug, target_group, id'
+
+app.get('/', async function (request, response) {
+
+  const params = new URLSearchParams()
+  params.set('fields', story_fields)
+
+  const apiStoriesResponse = await fetch(baseURL + '?' + params.toString())
+  const apiStoriesResponseJSON = await apiStoriesResponse.json()
+
+  response.render('index.liquid', {
+    stories: apiStoriesResponseJSON.data
   })
 })
 
