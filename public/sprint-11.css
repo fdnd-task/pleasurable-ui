@@ -4,9 +4,14 @@ footer {
 
     @media (min-width: 908px) {
         display: flex;
+        flex-wrap: wrap;
         align-items: flex-start;
         justify-content: space-between;
         gap: 2rem;
+
+        .footer-faq {
+            width: 100%;
+        }
     }
 }
 
@@ -16,7 +21,52 @@ footer {
     height: 54px;
 }
 
-a {
+.footer-faq {
+    display: grid;
+    margin-block: 1rem 2rem;
+    min-width: 200px;
+
+    @media (min-width: 908px) {
+        width: 100%;
+    }
+
+    details {
+        border-top: 1px solid black;
+        overflow: hidden;
+
+        p {
+            color: #545964;
+            padding-block: 1rem;
+        }
+
+        &:last-child {
+            border-bottom: 1px solid black;
+        }
+
+        &::details-content {
+        block-size: 0;
+
+        @media (prefers-reduced-motion: no-preference) { 
+             transition:  
+                 block-size .3s, 
+                 content-visibility .3s allow-discrete; 
+            }
+        }
+
+        &[open]::details-content { 
+            block-size: auto; 
+        }
+
+        summary {
+            display: block;
+            list-style: none;
+            padding-block: 1rem;
+            cursor: pointer;
+        }
+    }
+}
+
+.footer-link {
     text-decoration: none;
     color: #545964;
     font-size: 16px;
@@ -37,7 +87,7 @@ a {
     }
 }
 
-h2 {
+.footer-h2 {
     font-size: 22px;
 }
 
