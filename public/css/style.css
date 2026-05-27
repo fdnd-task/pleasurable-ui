@@ -317,6 +317,7 @@ header.nav-header {
   a {
     grid-column: 1;
     width: fit-content;
+    height: min-content;
 
     @media (width >=800px) {
       grid-column: 1;
