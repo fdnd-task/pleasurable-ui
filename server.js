@@ -453,5 +453,34 @@ app.post('/login', async (req, res) => {
     }
 });
 
+////////////
+// POST + DELETE GEDEELTE KEVIN
+
+app.post('/jouw-suggestie', async (request, response) => {
+
+   console.log(request)
+   // Stuur een POST request naar de messages tabel
+   // Een POST request bevat ook extra parameters, naast een URL
+   const postResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_suggestions', {
+
+      // Overschrijf de standaard GET method, want ook hier gaan we iets veranderen op de server
+      method: 'POST',
+      // Geef de body mee als JSON string
+      body: JSON.stringify({
+         // de variabelen uit de database 
+         suggestion: request.body.suggestion,
+         suggestion_reason: request.body.suggestion_reason
+      }),
+      headers: {
+         'Content-Type': 'application/json',
+      }
+
+      // En vergeet deze HTTP headers niet: hiermee vertellen we de server dat we JSON doorsturen
+      // (In realistischere projecten zou je hier ook authentication headers of een sleutel meegeven)
+   });
+
+   // Stuur de browser daarna weer naar de homepage
+   response.redirect(303, '/suggesties')
+})
 app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
 
