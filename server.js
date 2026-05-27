@@ -88,6 +88,23 @@ app.get('/contact', async function (request, response) {
     news: newsResponseJson.data,
   });
 });
+app.post('/contact', async function (request, response) {
+
+  await fetch('https://fdnd-agency.directus.app/items/adconnect_contact', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: request.body.name,
+      email: request.body.email,
+      message: request.body.message,
+    }),
+
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8',
+    },
+  })
+
+  response.redirect(303, '/contact')
+})
 
 // 404 page this must always be at the bottom of the document
 app.use((request, response, next) => {
