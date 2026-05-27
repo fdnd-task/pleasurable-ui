@@ -356,6 +356,10 @@ header.nav-header {
   }
 }
 
+.news-section{
+  padding-bottom: 0;
+}
+
 /* news page styling */
 .news-grid {
   display: grid;

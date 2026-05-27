@@ -17,6 +17,10 @@
     imgRight: true
   %}
 
+  <section class="layout news-section">
+    <h2 class="container">Het laatste nieuws</h2>
+  </section>
+
   <section class="container news-grid">
     {% for newsArticle in news limit: 3 %}
       {% render 'partials/news-card.liquid',
