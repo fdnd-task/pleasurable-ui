@@ -910,10 +910,12 @@ label {
 
 /* styling suggesties page */
 
-.toevoegen {
+.toevoegen-button {
     position: fixed;
     right: 1em;
     bottom: 6em;
+    display: flex;
+    width: fit-content;
 
     svg {
         height: 5em;
@@ -921,9 +923,11 @@ label {
     }
 }
 
-.terug {
+.terug-button {
     left: 1em;
     top: 1em;
+    display: flex;
+    width: fit-content;
 
     svg {
         width: 2em;
@@ -958,3 +962,4 @@ form.form {
         border: none;
     }
 }
+
