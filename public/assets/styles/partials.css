@@ -9,10 +9,7 @@ ul.carousel {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none; 
-
-    &::-webkit-scrollbar { 
-        display: none; 
-    }
+    
 
     li {
         flex: 0 0 100%;
@@ -160,7 +157,16 @@ header.opdrachten-header {
     div {
         display: flex;
         flex-direction: row-reverse;
+        align-items: center;
+        justify-content: flex-start;
         padding-block: 1rem;
+
+        label {
+            font-size: var(--paragraph);
+            color: var(--always-black);
+            padding-left: .4rem;
+            
+        }
     }
 
     h1 {
@@ -173,52 +179,55 @@ header.opdrachten-header {
     }
 }
 
-/* partial newslist.liquid */
-ul.news {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+/* MARK: partial newslist.liquid */
+.list-news{
+    ul{
+        padding: 0;
+        padding-bottom: 5rem;
 
-    li {
-        display: flex;
-        flex-direction: row-reverse;
-        gap: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--dark-background);
-        color: var(--dark-text);
+        li{
+            a{
+                display: grid;
+                grid-template-areas: 
+                'image tag'
+                'image title';
+                grid-template-columns: 1fr 2fr;
+                gap: .5rem;
+                padding-block: 1rem;
+                border-bottom: 2px solid var(--dark-border);
 
+                scroll-snap-align: center;
 
-        div {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            order: 2;
+                picture{
+                    grid-area: image;
+
+                    img{
+                        border-radius: var(--border-card);
+                        height: 100px;
+                        object-fit: cover;
+                    }                
+                }
+
+                .tag{
+                    grid-area: tag;
+                    margin: 0;
+                    border: 1px solid var(--dark-border);
+                    width: fit-content;
+                    height: fit-content;
+                    padding: .1rem .2rem;
+                    border-radius: 1rem;
+                    font-size: 10px;
+                }
+
+                h3{
+                    margin: 0;
+                    align-self: end;
+                }
+            }
         }
-
-        img {
-            width: 100%; 
-            order: 1;
-        }
-
-        .heading {
-            margin-block: .5rem;
-        }
-
-    }
-
-    a {
-        display: grid;
-        grid-template-columns: 1fr 60%;
-        align-items: center;
-        gap: .5rem;
-        color: inherit;
-    }
-
-    p {
-        color: inherit;
     }
 }
+
 
 /* horizontal news styling for home page */
 ul.news.horizontal {
@@ -268,6 +277,144 @@ ul.news.horizontal {
         flex-direction: column;
     }
 }
+
+
+/* partial overview my collectie homepage */
+main.home p.niks-gespaard-veldverkenner {
+    background-color: #BFF0FF; 
+    margin-top: 0;
+    margin-right: 2.5em;
+    border-radius: var(--border-card);
+    padding: 1.8em; 
+    text-align: center; 
+    font-weight: 400; 
+    color: var(--always-dark);
+
+    .veldverkenner {
+        font-weight: bolder;
+        color: var(--accent-color);
+    }
+}
+
+
+/* NEWS horizontal styling homepage */
+.home-slide-nieuws {
+    display: flex;
+    overflow:scroll;
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+
+    a {
+        color: var(--zwart);
+        text-decoration: none;
+    }
+    
+
+    h4 {
+        font-size: 1.1em;
+        font-weight: 700;
+        display: inline-block;
+        margin-block: 0.7em;
+        color: var(--always-dark);
+    }
+
+    p {
+        color: var(--always-dark);
+    }
+}
+
+.nieuws-berichten {
+    margin: 0 1em 2em 0em;
+    padding: 1em;
+    background-color: #FFD27F; 
+    border-radius: var(--border-card);
+    height: 90%;
+
+    scroll-snap-align: center;
+    container-type: scroll-state;
+    overflow: clip;
+
+    a {
+        color: var(--zwart);
+        text-decoration: none;
+        font-size: 1.1em; 
+        font-weight: 700;
+        display: inline-block;
+        margin-block: 0.8em;
+    }
+
+    .heading-news { 
+        font-size: var(--heading-small);
+        color: var(--always-dark);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 4px;      
+        }
+    }
+
+    .bloemenveld {
+        font-size: 0.8em;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5em;
+        border: 1.5px solid rgb(0, 0, 0);
+        border-radius: 2em;
+        color: var(--always-dark);
+    }
+
+    img {
+        width: 100%;
+        height: 12em;
+        object-fit: cover; 
+        border-radius: var(--border-card);
+    }
+
+    .details {
+        font-size: 1em;
+        display: flex;
+        gap: 7em;
+        flex-direction: row;
+        width: 100%;
+
+        p {
+            color: var(--always-dark);
+        }   
+
+        .tijd {
+            align-self: center;
+            width: max-content;
+        }
+    } 
+}
+
+/* colors of the news items */
+.nieuws-berichten--orange { background-color: #FFD27F; }
+.nieuws-berichten--purple { background-color: #D4C5F0; }
+.nieuws-berichten--green  { background-color: #C8E6A0; }
+
+/* animation on the img news items */
+@supports (container-type: scroll-state) {
+    @media (prefers-reduced-motion: no-preference) {
+
+        @media (width < 450px) {
+            .nieuws-berichten img {
+                opacity: 0;
+                transition: opacity 1s;
+
+                @container scroll-state(snapped: x) {
+                    opacity: 1;
+                    transition: opacity 2s;
+                }
+            }
+        }
+    }
+}
+
 
 /* partial mycollection.liquid */
 ul.my-collection {
@@ -400,12 +547,32 @@ ul.quest {
     }
 }
 
-/* partial detailpage.liquid */
-section.detailpage {
-    color: var(--dark-text);
+/* MARK: detailpage.liquid */
+.news-article {
+    display: flex;
+    flex-direction: column;
+
+    article {
+        display: flex;
+        flex-direction: column;
+        color: var(--dark-text);
+        width: 100%;
+        max-width: 500px;
+    }
+    
+    h1 {
+        padding: 1rem 0 1rem 0  ;
+    }
 
     img {
-
+        display: flex;
+        justify-self: center;
+        aspect-ratio: 4 / 3;
+        align-self: center;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
     }
 
     p.date {
@@ -413,20 +580,166 @@ section.detailpage {
         color: inherit;
     }
 
-    article.detaillist-plants {
-        color: inherit;
-        p {
-            margin-block: .5rem;
-            color: inherit;
-        }
-
-    }
-
-    img {
-
+    .description, h2 {
+        display: flex;
+        flex-direction: column;
+        min-width: 15ch;
+        line-height: 1.4;
+        padding-bottom: 1rem;
     }
 }
 
+/* MARK: FORM OPMERKING */
+    .comment {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 15px;
+        width: 100%;
+        height: 280px;
+
+        .name-input, .message-input {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            font-family: main;
+            font-weight: 400;
+            gap: 0.5rem;
+            color: var(--dark-text);
+
+            input {
+                padding: 1rem;
+                border-radius: 10px;
+                border: solid 2px hsl(0, 0%, 12%);
+                outline: none;
+                font-family: main;
+                background-color: #D5EAFF;
+                color: var(--always-black);
+                transition: .3s ease-in-out;
+
+                &:focus{
+                    border: solid 4px #00A051;
+                }
+            }
+        }
+
+        h3 {
+            display: flex;
+            justify-content: flex-start;
+            padding: 1rem 0 1rem 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+
+            .submit {
+                display: flex;
+                justify-content: center;
+                border-radius: 25px;
+                border: none;
+                color: var(--always-light);
+                font-family: main;
+                height: 40px;
+                padding: 0.5rem;
+                cursor: pointer;
+                background-color: #015D2E;
+
+                &:focus {
+                    outline: solid 3px var(--dark-text);
+                }
+                
+                /* Parent loading class */
+                &.loading {
+                    display: flex;
+                    align-items: center;
+                    gap: .25em;
+                }
+                
+                /* Psuedo eerste kind van het element */
+                &.loading::before {
+                    display: block;
+                    /* Achtergrond afbeelding is een conic gradient die transparant is en de huidige kleur meeneemt  */
+                    background-image: conic-gradient(transparent, currentcolor);
+                    /* Snijdt het middenstuk af */
+                    mask-image: radial-gradient(transparent 0 .3em, red .3em 5em);
+                    /* Content moet leeg */
+                    content: "";
+                    border-radius: 50%;
+                    width: 1em;
+                    height: 1em;
+                    animation-name: --wait-animation;
+                    /* Animatie duur */
+                    animation-duration: 1s;
+                    /* Oneidig draaien */
+                    animation-iteration-count: infinite;
+                }
+            }
+        }
+    }
+
+    /* Loading state animatie */
+    @keyframes --wait-animation {
+        /* Draai 0 keer vanaf 0% */
+        0% {
+            rotate: 0turn;
+        }
+
+        /* Draai volledig 1 keer tot aan 100% */
+        100% {
+            rotate: 1turn;
+        }
+    }
+
+    /* MARK: Opmerkingen */
+    /* COMMENTS */
+    .messages {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px;
+        align-self: center;
+        gap: .5rem;
+
+        .message-wrap {
+            padding: 1rem;
+            border-bottom: solid var(--background-color-6);
+            border-radius: 10px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .comment-name {
+            font-family: main;
+            font-weight: 600;
+        }
+
+        .date-created {
+            display: flex;
+            align-self: flex-end;
+            font-family: main;
+            text-decoration: overline;
+        }
+
+        h3 {
+            padding-top: 3.5rem;
+        }
+
+        p, form {
+            padding: 0.5rem 0 0.5rem 0;
+            font-family: main;
+            color: var(--dark-text);
+            align-self: center;
+        }
+    }
 
 .breadcrumb-container {
 
@@ -435,7 +748,7 @@ section.detailpage {
 
 
     ul.zone.breadcrumbs {
-        --dark-text: var(--always-black);
+        color: var(--dark-text);
     }
 
     ul.breadcrumbs {
@@ -470,13 +783,14 @@ section.detailpage {
                 margin-inline: .25rem;
                 color: var(--dark-text);
             }
-        }
+        } 
     }
 }
 
 p.paragraph {
     margin-block: 1rem;
 }
+
 
 /* css to transform headings, will come back later */
 
@@ -485,3 +799,40 @@ p.paragraph {
     margin-block: 1rem;
     transform: translateY(1.875rem);
     animation: flowIn 0.4s ease-in forwards; */
+
+
+/* MARK: partial back-to-top-btn.liquid */
+.to-top-btn{
+
+    @supports (container-type: scroll-state){
+        translate:0 calc(100% + 1em);
+        
+        @media (prefers-reduced-motion:no-preference) {
+            transition:.25s;
+        }
+
+        /* VS code doesn't know the scroll-state, so it shows the red underline on 'scroll-state'. It does work on Chrome. */
+        @container news-scroll scroll-state(scrollable:top){
+            translate:0 0;
+            
+            @media (prefers-reduced-motion:no-preference) {
+                transition: .25s 1s;
+            }
+        }
+    }
+
+    position: fixed;
+    right: 1em;
+    bottom: 6em;
+    z-index: 1;
+
+    width: 3em;
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
+
+    background-color: var(--accent-color);
+    border-radius: var(--border-popover);
+    color: var(--dark-text);
+}
