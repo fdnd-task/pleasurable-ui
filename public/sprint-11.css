@@ -64,7 +64,7 @@ footer {
     }
 }
 
-a {
+.footer-link {
     text-decoration: none;
     color: #545964;
     font-size: 16px;
@@ -85,7 +85,7 @@ a {
     }
 }
 
-h2 {
+.footer-h2 {
     font-size: 22px;
 }
 
