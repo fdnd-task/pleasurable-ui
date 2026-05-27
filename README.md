@@ -7,11 +7,17 @@ Ontwerp en ontwikkel een webapp met een interactieve veldverkenner waarbij bezoe
 Check [hier](https://pleasurable-ui-xr0z.onrender.com/) de website.
 
 **Developers**
+
 [Gijs](https://github.com/GijsNagtegaal)
+
 [Lynn](https://github.com/lynnvdbo)
+
 [Tin](https://github.com/WebTins)
+
 [Kevin](https://github.com/toasterbath0758)
+
 [Seb](https://github.com/SebBastiaans)
+
 [Bronx](https://github.com/bronxpostma13)
 
 ## Inhoudsopgave
