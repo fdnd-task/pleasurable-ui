@@ -3,111 +3,6 @@
 
 <style>
 
-* {
-padding: 0;
-margin: 0;
-}
-
-/* ul styling van de suggesties op de suggesties pagina */
-h1 {
-padding-bottom: 1em;
-}
-
-.collection-suggesties {
-  flex-direction: row;
-  margin-bottom: 13em;
-
-
-    /* li styling van de suggesties op de suggesties pagina */
-    li {
-      background: var(--voedseleiland);
-      color: var(--dark-text);
-      display: flex;
-      padding: 1em;
-      border-radius: 1em;
-      margin-bottom: 1em;
-      justify-content: space-between;
-
-          &:focus-within {
-          background: var(--accent-color);
-          color: var(--light-text);
-          }
-
-      {% comment %} hoverstate die hetzelfde is als op de rest van de page {% endcomment %}
-      {% comment %} GEJAT VAN BRONX {% endcomment %}
-    &:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 
-      0 16px 36px black
-      0 4px 10px black;
-      }
-    }
-
-  form {
-    justify-content: center;
-    align-content: center;
-    border-radius: 0;
-    }
-  }
-}
-
-
-.terug {
-    left: 1em;
-    top: 1em;
-
-    img {
-        width: 2em;
-        height: 2em;
-    }
-}
-
-.toevoegen {
-    position: fixed;
-    right: 1em;
-    bottom: 6em;
-
-    img {
-        height: 5em;
-        width: 5em;
-    }
-}
-
-{% comment %} delete button styling {% endcomment %}
-.delete {
-padding: .3em;
-background: var(--always-light);
-
-
-
-}
-
-
-
-/* loading state animation */
-.loading {
-  height: 30px;
-  aspect-ratio: 3;
-  border-radius: 0;
-  --c:no-repeat linear-gradient(var(--dark-background) 0 0);
-  background:
-    var(--c) calc(0*100%/5) 50%,
-    var(--c) calc(1*100%/5) 50%,
-    var(--c) calc(2*100%/5) 50%,
-    var(--c) calc(3*100%/5) 50%,
-    var(--c) calc(4*100%/5) 50%,
-    var(--c) calc(5*100%/5) 50%;
-  background-size:calc(100%/6 + 1px) 50%;
-  animation: l19 1s infinite cubic-bezier(0.5,170,0.5,-170);
-}
-@keyframes l19 {
-    14.28% {background-position: calc(0*100%/5) 51%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}
-    28.57% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 51%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}
-    42.85% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 51%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}
-    57.14% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 51%, calc(4*100%/5) 50%, calc(5*100%/5) 50%}
-    71.42% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 51%, calc(5*100%/5) 50%}
-    85.71% {background-position: calc(0*100%/5) 50%, calc(1*100%/5) 50%, calc(2*100%/5) 50%, calc(3*100%/5) 50%, calc(4*100%/5) 50%, calc(5*100%/5) 51%}
-}
 
 
 </style>
@@ -115,7 +10,7 @@ background: var(--always-light);
 <main>
 <a href="/" class="terug knop"><img src="../imgs/undo.svg" alt="terug"></a>
 
-<h1>suggesties</h1>
+<h1 class="suggesties-page">suggesties</h1>
 
  <ul class="collection-suggesties">
     {% for suggestion in suggestions %}
@@ -127,7 +22,7 @@ background: var(--always-light);
         een issue ervan maken? {% endcomment %}
         <form class="delete-form" data-enhanced="{{ suggestion.id }}" method="POST" action="/suggesties/delete/{{ suggestion.id }}">
           <input type="hidden" name="id" value="{{ suggestion.id }}">
-          <button type="submit" class="delete button">delete</button>
+          <button type="submit" class="delete-button">delete</button>
           </form>
         </section>
       </li>
