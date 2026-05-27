@@ -100,6 +100,50 @@ https://github.com/user-attachments/assets/7f59f558-25cd-4b6d-9fb1-e7c9484df592
 
 ## Nieuwsartikel
 
+Op het artikel pagina zie je de volledige inhoud van een artikel die je eerst op het nieuwsveld ziet. De gebruiker kan het hele artikel gaan lezen over het nieuws in het bloemenveld, en ook kan de gebruiker een opmerking achterlaten om zijn of haar mening te kunnen delen. Op deze manier geeft het nieuwsartikel ook een gevoel dat er een gemeenschap is waar anderen meningen met elkaar kunnen delen.
+
+https://github.com/user-attachments/assets/d4955269-7d0a-45a1-8bdf-3fcf5e654112
+
+### Technische documentatie
+
+**Opmerking plaatsen** (POST). Elke gebruiker kan zijn of haar mening achterlaten door op het formulier de invoervelden te invoeren en versturen.
+
+#### <ins>Feedforward & Feedback POST</ins>
+
+Feedforward versturen van comment:
+
+- Er zijn nog geen opmerkingen (Empty state)
+
+Feedback versturen van comment:
+
+- Loading state komt tevoorschijn met een laad animatie en de tekst "Bezig met plaatsen"
+- Success state komt tevoorschijn met de tekst "✔ Geplaatst!"
+- Empty state verdwijnt
+- Er staat een opmerking met een Naam, bericht en datum
+
+https://github.com/user-attachments/assets/90694d4c-28de-48ca-aa84-c7ae9dc2cafd
+
+#### Pleasurable UI | Loading State
+
+De submit knop krijgt een laad animatie wanneer de opmerking verstuurd wordt. Dit zorgt voor een duidelijk beeld dat de website bezig is met het versturen van de opmerking. De gebruiker kan hierdoor zien wat de huidige staat is van het versturen.
+
+https://github.com/user-attachments/assets/f36b85ea-683e-4fab-966e-114b740794ac
+
+### Progressive Enhancement | Loading state
+
+Sommige gebruikers houden er niet van om animaties te zien. Dus is er een `@media (prefers-reduced-motion: no-preference)` query toegevoegd om animaties te verminderen op de pagina. 
+
+**Before**
+
+https://github.com/user-attachments/assets/26e1dc80-ffcb-45cf-9e0d-0fa05eca4c85
+
+
+**After**
+
+https://github.com/user-attachments/assets/609890bc-0450-487a-b21d-dfebea41cc31
+
+
+
 ## Collectie
 
 ## Installatie
