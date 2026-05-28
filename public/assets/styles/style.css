@@ -117,11 +117,35 @@
         display: inline;
       }
     }
+
+    /* FEEDBACK WISHLIST (Ahlam)  */
+    .header-list-item {
+      position: relative;
+    }
+
+    .liked-count {
+      z-index: 100;
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 9rem;
+      background-color: #466EBF;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      line-height: 1;
+    }
   }
 }
 
 /* MAIN (Ahlam) */
-
 .toast {
   position: fixed;
   top: 2rem;
@@ -260,6 +284,7 @@ main {
       padding: 0;
       margin: 0;
       transform: translateY(-7vw);
+      z-index: 100;
 
       /* Ipad */
       @media (min-width: 768px) {     
