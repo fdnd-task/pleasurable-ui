@@ -120,6 +120,21 @@ https://github.com/GijsNagtegaal/pleasurable-ui/blob/597d33c556c200398c51ee034a8
 
 ## Veldverkenner
 
+De veldverkener, het pronkstuk van de app :) Op de veldverkenner kan je zones aanklikken en de opdrachten doen die daarbij horen. Dat ziet er zo uit:
+
+Veldverkenner:
+
+<img width="343" height="707" alt="Screenshot 2026-05-28 at 10 16 08" src="https://github.com/user-attachments/assets/ae60b366-9c09-4902-865f-6745119b8629" />
+
+Zone opdrachten:
+
+<img width="337" height="570" alt="Screenshot 2026-05-28 at 10 16 17" src="https://github.com/user-attachments/assets/26840253-2486-4ee4-bce5-2e330b860fb0" />
+
+Een opdracht doen:
+
+https://github.com/user-attachments/assets/af49fbf0-e071-433d-a81c-04e956f86b26
+
+
 ## Nieuws
 
 Op de nieuws overzicht pagina zie je een lijst met allemaal nieuws artikelen over het bloemenveld. Wanneer je op zo'n artikel klikt wordt je doorgestuurd naar de pagina van dat specifieke artikel met alle informatie. 
