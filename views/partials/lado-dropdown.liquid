@@ -1,0 +1,49 @@
+<details class="lado-accordion">
+
+  <summary>
+    {{ index }}. {{ lado.title }}
+  </summary>
+
+  {% if lado.educations %}
+    <p>
+      <strong>Opleidingen:</strong>
+      {{ lado.educations }}
+    </p>
+  {% endif %}
+
+  {% if lado.universities %}
+    <p>
+      <strong>Hogescholen:</strong>
+      {{ lado.universities }}
+    </p>
+  {% endif %}
+
+  {% if lado.contact_persons %}
+    <p>
+      <strong>Contactpersonen:</strong>
+      {{ lado.contact_persons }}
+    </p>
+  {% endif %}
+
+  {% if lado.national_ad_profile %}
+    <p>
+      <strong>Profiel:</strong>
+      {{ lado.national_ad_profile }}
+    </p>
+  {% endif %}
+
+  {% if lado.lado_status %}
+    <p>
+      <strong>Status:</strong>
+      {{ lado.lado_status }}
+    </p>
+  {% endif %}
+
+  {% if lado.sectoral_advisory_board %}
+    <p>
+      <strong>Sectoraal adviescollege:</strong>
+      {{ lado.sectoral_advisory_board }}
+    </p>
+  {% endif %}
+
+</details>

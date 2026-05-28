@@ -39,6 +39,8 @@ html {
 
     --backdrop: hsla(0, 0%, 0%, 0.713);
 
+    --success-color: hsl(123, 77%, 29%);
+
     /* typography */
     --font-body: "Archivo", sans-serif;
     --font-heading: "ClashDisplay", sans-serif;
@@ -69,6 +71,12 @@ html {
 
     font-family: var(--font-body);
     line-height: 1.8;
+
+    /* scroll behavior */
+    @media(prefers-reduced-motion: no-preference){
+        scroll-behavior: smooth;
+    }
+    
 }
 
 /* typography */
@@ -115,7 +123,6 @@ h6 {
 }
 
 
-
 /* container */
 /* parent */
 .layout {
@@ -128,4 +135,274 @@ h6 {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 var(--space-md);
+}
+
+/* button styling */
+.primary-button {
+    background-color: var(--primary-800);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--default-radius);
+    color: var(--primary-100);
+    border: solid var(--space-2xs) var(--primary-800);
+    transition: .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    place-content: center;
+    display: flex;
+    width: max-content;
+
+    &:hover {
+        background-color: var(--primary-200);
+        color: var(--text-color);
+        scale: 1.05;
+    }
+
+    &:focus {
+        outline: var(--space-3xs) solid var(--primary-200);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
+        scale: 1.05;
+    }
+}
+
+.secondary-button {
+    font-family: var(--font-heading);
+    padding: var(--space-sm) var(--space-lg);
+    white-space: nowrap;
+    border-radius: var(--default-radius);
+    font-weight: 800;
+    color: var(--primary-700);
+    border: solid var(--space-3xs) var(--primary-700);
+    transition: .2s ease;
+    text-decoration: none;
+    cursor: pointer;
+    place-content: center;
+    display: flex;
+    width: max-content;
+
+    &:hover {
+        background-color: var(--primary-700);
+        color: var(--triary-background-color);
+
+    }
+
+    &:focus {
+        background-color: var(--primary-600);
+        color: var(--text-color-secondary);
+        outline: var(--space-2xs) solid var(--primary-100);
+        /* turn the variable negative */
+        outline-offset: calc(var(--space-xs) * -1);
+        scale: 1.05;
+    }
+}
+
+/* button animation base states */
+
+/* removes animated button classes for nav/secondary buttons */
+/* classes success-text and fail-text are part of progressive enhancement
+as a fallback for JS script */
+.secondary-button .loading-dots,
+.secondary-button .success-text,
+.secondary-button .fail-text {
+    display: none;
+}
+
+.nav-link .loading-dots,
+.nav-link .success-text,
+.nav-link .fail-text {
+    display: none;
+}
+
+/* primary button animation styling */
+.primary-button .button-text,
+.primary-button .loading-dots,
+.primary-button .success-text,
+.primary-button .fail-text {
+    display: none;
+}
+
+.primary-button .button-text {
+    display: block;
+}
+
+/* loading state */
+
+.primary-button.is-loading .button-text {
+    display: none;
+}
+
+.primary-button.is-loading .loading-dots {
+    display: flex;
+
+    /* height and width hardcoded to avoid button shrinking
+    from animation dots being smaller */
+    height: 1.8rem;
+    width: 3.744rem;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-dots {
+    gap: var(--space-xs);
+
+    span {
+        width: var(--space-xs);
+        height: var(--space-xs);
+        background-color: var(--secondary-500);
+        border-radius: 50%;
+
+        @media (prefers-reduced-motion: no-preference) {
+            animation: bounce 0.6s infinite;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.2s;
+
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        background-color: var(--secondary-500);
+    }
+
+    50% {
+        transform: translateY(-8px);
+        background-color: var(--triary-background-color);
+    }
+}
+
+/* success state */
+.primary-button.is-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: #fff;
+}
+
+/* page transition */
+.page-trans-container {
+    display: none;
+}
+
+.page-trans-container.page-is-loading {
+    gap: 10px;
+    z-index: 1;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--backdrop);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+    span {
+        @media (prefers-reduced-motion: no-preference) {
+            animation: load 1s steps(1);
+            animation-iteration-count: 1;
+        }
+
+        background-color: var(--primary-500);
+    }
+
+    span:nth-child(1) {
+        width: var(--space-xs);
+        height: var(--space-xs);
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 2.5s;
+    }
+
+    span:nth-child(2) {
+        width: 10px;
+        height: 10px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -1px;
+
+        animation-delay: 3s;
+    }
+
+    span:nth-child(3) {
+        width: 14px;
+        height: 14px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 3.5s;
+    }
+
+    span:nth-child(4) {
+        width: 17px;
+        height: 17px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -1px;
+
+        animation-delay: 4s;
+    }
+
+    span:nth-child(5) {
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -8px;
+    }
+
+    span:nth-child(6) {
+        width: var(--space-lg);
+        height: var(--space-lg);
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 0.5s;
+    }
+
+    span:nth-child(7) {
+        width: 25px;
+        height: 25px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+        translate: 0 -1px;
+
+        animation-delay: 1s;
+    }
+
+    span:nth-child(8) {
+        width: 30px;
+        height: 30px;
+        background-color: var(--primary-500);
+        border-radius: 50%;
+
+        animation-delay: 1.5s;
+    }
+}
+
+@keyframes load {
+
+    0%,
+    100% {
+        background-color: var(--secondary-500);
+    }
+
+    50% {
+        background-color: var(--primary-500);
+    }
 }
