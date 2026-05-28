@@ -57,7 +57,66 @@ Van de opdrachtgever hebben wij een prototype gekregen van het design in een fig
 
 ## Veldbeheer
 
+Op de veldbheer pagina zie je welke activiteiten er te doen zijn op het bloemenveld en kunnen mensen doneren voor de ontwikkeling van het park. Ook kan je een suggestie achterlaten waar later in deze readme meer over wordt uitgelegd.
+
+De opbouw van de pagina:
+
+Een korte introductie
+
+<img width="331" height="383" alt="Screenshot 2026-05-28 at 09 21 51" src="https://github.com/user-attachments/assets/0280ae8b-65f6-4b8c-8e61-9c423c7ea2c5" />
+
+Een carousel met alle activiteiten per maand
+
+<img width="322" height="403" alt="Screenshot 2026-05-28 at 09 21 58" src="https://github.com/user-attachments/assets/5a03edae-b8ff-4dba-8df9-e5f923a81f89" />
+
+Donatieknop met range slider om te kunnen kiezen hoeveel je wilt doneren
+
+<img width="332" height="246" alt="Screenshot 2026-05-28 at 09 22 02" src="https://github.com/user-attachments/assets/174b606c-83d8-4511-89b5-ce274c6bd3b4" />
+
+### Technische documentatie
+
+**Pleasurable UI**
+
+Een smooth pleasuable animatie voor de carousel:
+
+https://github.com/user-attachments/assets/d5285f3d-9e0f-4604-bebe-2606b4cd153a
+
+**Progressive enhancement**
+
+Firefox ondersteunt de manier van de carousel nog niet, daarvoor heb ik @supports toegevoegd.
+Ik check met dit stukje code:
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/597d33c556c200398c51ee034a8e5696d7a7ab21/public/assets/styles/style.css#L1420-L1424
+
+Als het niet ondersteund wordt voeg ik een extra gap toe tussen de kaartjes:
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/597d33c556c200398c51ee034a8e5696d7a7ab21/public/assets/styles/style.css#L1290-L1309
+
+Verder zijn er nog een paar kleine dingetjes zoals de range slider die 100% met Html werkt en alleen javascript gebruikt om de prijs in de knop aan te passen
+
 ## Account
+
+Op de accountpagina kan je als gebruiker makkelijk je profielfoto en de accentkleur aanpassen. Ook zie je hoeveel planten je al hebt verzameld 
+
+De pagina:
+
+<img width="338" height="700" alt="Screenshot 2026-05-28 at 09 41 05" src="https://github.com/user-attachments/assets/a6a49ea8-d08d-47e4-9ca7-f1306fc9267b" />
+
+Functies:
+
+Op deze pagina kan je je profielfoto aanpassen en jouw favoriete kleur instellen als accentkleur van de app, dat kan zo:
+
+https://github.com/user-attachments/assets/47715f4e-f8e6-4771-98ab-dde172923461
+
+**Pleasurable UI**
+
+De popovers hebben een leuke animatie zoals te zien op de schermopname, ook hebben de profielfoto een loading state zodat het niet zomaar verspringt
+
+https://github.com/user-attachments/assets/47715f4e-f8e6-4771-98ab-dde172923461
+
+De animatie wordt zo gemaakt:
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/597d33c556c200398c51ee034a8e5696d7a7ab21/public/assets/styles/styleguide.css#L665-L684
 
 ## Veldverkenner
 
