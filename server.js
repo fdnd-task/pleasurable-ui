@@ -73,10 +73,6 @@ app.get("/nieuws", async function name(request, response) {
     sort: "-date_created",
   };
 
-app.get('/contact', async function (request, response) {
-  response.render('contact.liquid')
-})
-
   const newsResponse = await fetch(
     baseURL + "news/?" + new URLSearchParams(params),
   );
@@ -88,6 +84,11 @@ app.get('/contact', async function (request, response) {
     news: newsResponseJson.data,
   });
 });
+
+app.get('/contact', async function (request, response) {
+  response.render('contact.liquid')
+})
+
 app.post('/contact', async function (request, response) {
 
   await fetch('https://fdnd-agency.directus.app/items/adconnect_contact', {
