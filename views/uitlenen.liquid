@@ -15,9 +15,7 @@
 {% block content %}
 
 <main>
-    <header>
-        {% comment %} hier komt de selected banner {% endcomment %}
-    </header>
+    {% include 'partials/selected.liquid' %}
 
     <form class="form uitlenen" action="/instrumenten/{{ instrument.key }}/uitlenen" method="post">
         <label for="student" class="input-veld"> Wie leent het?

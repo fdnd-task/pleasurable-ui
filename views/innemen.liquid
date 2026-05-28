@@ -13,6 +13,9 @@
 {% endblock %}
 
 {% block content %}
+
+    {% include 'partials/selected.liquid' %}
+    
     <form class="form innemen" action="/instrumenten/{{ instrument.key }}/innemen" method="POST">
 
         <legend>Instrument innemen</legend>

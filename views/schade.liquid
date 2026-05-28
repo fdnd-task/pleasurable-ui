@@ -14,6 +14,9 @@
 
 {% block content %}
 <main>
+
+     {% include 'partials/selected.liquid' %}
+
     <form class="form schade" action="/instrumenten/{{ instrument.key }}/schade" method="post">
 
         <legend>Instrument schade melden</legend>
