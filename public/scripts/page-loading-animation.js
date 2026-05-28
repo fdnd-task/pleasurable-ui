@@ -4,8 +4,8 @@ const loadingAnimation = document.querySelector(".page-trans-container");
 links.forEach(link => {
     link.addEventListener("click", async event => {
 
-        // filters out the backToTop href
-        if (link.id !== "backToTop") {
+        // filters out the backToTop, form button, and button animation href
+        if (link.id !== "backToTop" && link.id !== "form-button" && link.id !== "send-animation") {
             loadingAnimation.classList.add("page-is-loading");
 
             // hides the animation class after time based on animation duration
