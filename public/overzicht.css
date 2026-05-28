@@ -76,7 +76,7 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);   
     
-    @media (min-width: 30rem) {
+    @media (min-width: 54rem) {
         flex-direction: row-reverse;
         align-items: stretch;
     }
@@ -85,15 +85,18 @@
     .filters {
         margin-bottom: 0;
         width: 100%;
+        display: flex;
+        gap: 1rem;
 
             @media (min-width: 30rem) {
                 width: auto;
             }
 
         .mobile-only-form {
-            display: block;
+            display: flex;
+            gap: 1rem;
 
-            @media (min-width: 48rem) {
+            @media (min-width: 54rem) {
                 display: none;
             }
         }
@@ -101,7 +104,7 @@
         .desktop-only-form {
             display: none;
 
-            @media (min-width: 48rem) {
+            @media (min-width: 54rem) {
                 display: block;
             }
         }
@@ -154,7 +157,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            width: min(700px, 90vw);
+            width: min(900px, 90vw);
             background: var(--color-brand-lightest);
             border: var(--border-width-sm) solid var(--color-brand-darkest);
             border-radius: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
@@ -187,7 +190,7 @@
 
             .grid {
                 display: grid;
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(6, 1fr);
                 gap: var(--spacing-lg);
 
                 section {
@@ -233,10 +236,14 @@
             }
         }
 
+        .status-filter {
+            margin: 1rem;
+        }
+
 
         .mobile-btn {
             width: 100%;
-            padding: 0.8rem 2.5rem 0.8rem 0.8rem;
+            padding: 1rem 2.5rem 1rem 0.8rem;
             background: var(--color-brand-lightest);
             color: var(--color-brand-darker);
             border: var(--border-width-sm) solid var(--color-brand-darkest);
