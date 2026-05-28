@@ -67,6 +67,10 @@ app.get('/lado', async function (request, response) {
   })
 })
 
+app.get('/contact', async function (request, response) {
+  response.render('contact.liquid')
+})
+
 app.get("/nieuws", async function name(request, response) {
   const params = {
     fields: "title,description,date",
