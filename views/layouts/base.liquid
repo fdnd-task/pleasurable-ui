@@ -24,9 +24,11 @@
         <link rel="expect" href="#table" blocking="render">
     {% endif %}
     {% if page == "actielog" %}<link rel="stylesheet" href="/actielog.css">{% endif %}
+    {% if page == "acties" %}<link rel="stylesheet" href="/acties.css">{% endif %}
     {% if page == "acties" %}<link rel="stylesheet" href="/acties.css">{% endif %}  
     {% if page == "detail" %}
         <link rel="stylesheet" href="/detail.css">
+        <link rel="stylesheet" href="/actielog.css">
         <link rel="expect" href="#h1" blocking="render">
     {% endif %}
     <title>{{ title | default: "PreludeFonds" }}</title>

@@ -162,8 +162,21 @@ app.get('/actielog', async function (request, response) {
 app.get('/instrumenten/:key', async function (request, response) {
   const instrumentResponse = await fetch(`${baseUrl}?filter[key]=${request.params.key}`)
   const instrumentResponseJSON = await instrumentResponse.json()
+  const instrument = instrumentResponseJSON.data[0]
 
-  response.render('detail.liquid', { instrument: instrumentResponseJSON.data[0] })
+  // Haal logs voor dit instrument op
+  const params = new URLSearchParams()
+  params.append('fields', '*,instrument.name,instrument.serial_number,instrument.key')
+  params.append('sort', '-date_created')
+  params.append('filter[instrument][_eq]', instrument.id)
+
+  const logResponse = await fetch(`${logUrl}?${params.toString()}`)
+  const logResponseJSON = await logResponse.json()
+
+  response.render('detail.liquid', { 
+    instrument: instrument,
+    logs: logResponseJSON.data
+  })
 })
 
 app.get('/instrumenten/:key/uitlenen', async function (request, response) {
