@@ -90,11 +90,9 @@
         </label>
 
         <div class="contactFormActions">
-          <button id="send-animation" class="primary-button" type="submit">
-            Formulier verzenden
-          </button>
+          {% render 'partials/form-button.liquid', id: 'send-animation', style: 'primary-button', text: 'Formulier verzenden'%}
 
-          <p>
+          <p class="verplicht">
             Velden met een '<strong>*</strong>' zijn verplicht
           </p>
         </div>

@@ -987,13 +987,14 @@ footer.lowest-footer {
   align-items: center;
   justify-content: space-between;
 
-  p {
+  .verplicht {
     background-color: var(--text-color);
     color: var(--text-color-secondary);
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--space-xs);
   }
 }
+
 /* hero */
 .hero {
   background: var(--primary-100);
@@ -1221,14 +1222,14 @@ footer.lowest-footer {
   align-items: center;
   justify-content: space-between;
 
-  p {
+  .verplicht {
     background-color: var(--text-color);
     color: var(--text-color-secondary);
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--space-xs);
   }
- 
 }
+
 /* hero */
 .hero {
   background: var(--primary-100);
