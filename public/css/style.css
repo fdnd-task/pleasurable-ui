@@ -1043,7 +1043,7 @@ footer.lowest-footer {
     width: 100%;
     padding: var(--space-md);
     border: 0;
-    border-radius: var(--space-xs);
+    border-radius: var(--space-2xs);
     font: inherit;
 
     &:focus {
