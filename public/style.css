@@ -1,6 +1,6 @@
 .filter-group {
     margin-bottom: 24px;
-
+  
     & h3 {
         font-size: 0.85rem;
         font-weight: bold;
@@ -13,6 +13,7 @@
     & ul {
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 4px;
     }
 
@@ -20,7 +21,6 @@
         list-style: none;
     }
 }
-
 
 .filter-btn {
     display: block;
@@ -34,6 +34,7 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.2s;
+    margin-right: 15px;
 
     &:hover {
         background-color: var(--highlight-color);
@@ -45,4 +46,51 @@
         color: #ffffff;
         font-weight: bold;
     }
+}
+
+/* Sort select */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.select-wrapper::after {
+    content: '▾';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--oost);
+    font-size: 0.9rem;
+}
+
+#sortSelect {
+    appearance: none;
+    padding: 8px 36px 8px 16px;
+    border-radius: 1em;
+    background-color: var(--highlight-color);
+    color: var(--oost);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-left: 15px;
+
+    &:hover {
+        background-color: #f5c4ae;
+    }
+
+    &:focus {
+        outline: none;
+        background-color: #f5c4ae;
+    }
+}
+
+.filter-divider {
+    width: 1px;
+    height: 30px;
+    background-color: #34356A;
+    opacity: 0.2;
 }
