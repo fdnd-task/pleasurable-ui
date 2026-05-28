@@ -47,6 +47,7 @@ Van de opdrachtgever hebben wij een prototype gekregen van het design in een fig
 
   * [Homepage](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#homepage)
   * [Veldbeheer](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#veldbeheer)
+  * [Suggestie](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#suggestie)
   * [Account](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#account)
   * [Veldverkenner](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#veldverkenner)
   * [Nieuws](https://github.com/GijsNagtegaal/pleasurable-ui/edit/main/README.md#nieuwsartikel)
