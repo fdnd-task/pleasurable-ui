@@ -73,6 +73,24 @@ header.home {
         text-underline-offset: 4px;  
     }
 
+    a.veldbeheer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        svg {
+            width: 3rem;
+            height: 3rem;
+            stroke: var(--dark-text);
+            fill: var(--dark-text);
+
+            path {
+                stroke: var(--dark-text);
+                fill: var(--dark-text);
+            }
+        }
+    }
+    
     a.myacc {
         display: flex;
         flex-direction: column;
