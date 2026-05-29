@@ -45,14 +45,44 @@ app.get("/", async function (request, response) {
   // Alleen de lijst met producten uit API
   const productData = productResponseJSON.data;
 
+
+  const userResponse = await fetch(
+    'https://fdnd-agency.directus.app/items/milledoni_users/63?fields=*.*'
+  )
+
+  const userData = await userResponse.json()
+  const likedCount = userData.data.liked_products.length
+
   response.render("index.liquid", {
     products: productData,
+    likedCount: likedCount,
+    status: request.query.status
   });
 });
 
 // HOME/CADEAU-OVERZICHT PRODUCT OPSLAAN
-app.post("/save-product", async function (request, response) {
-  response.redirect("/");
+  app.post("/save-product", async function (request, response) {
+  if (!request.body.productId) {
+    return response.redirect(303, "/")
+  }
+ 
+  await fetch(
+    "https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1",
+    {
+      method: "POST",
+ 
+      body: JSON.stringify({
+        milledoni_users_id: 63,
+        milledoni_products_id: request.body.productId,
+      }),
+ 
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    },
+  );
+ 
+  response.redirect(303, "/?status=success");
 });
 
 app.get("/blog", async function (request, response) {
