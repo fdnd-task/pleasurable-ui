@@ -95,6 +95,27 @@ https://github.com/GijsNagtegaal/pleasurable-ui/blob/597d33c556c200398c51ee034a8
 
 Verder zijn er nog een paar kleine dingetjes zoals de range slider die 100% met Html werkt en alleen javascript gebruikt om de prijs in de knop aan te passen
 
+## Suggestie
+
+op de suggestie pagina kan je je eigen plantsuggestie toevoegen. dit is zodat de bezoekers hun eigen input kunnen geven op wat voor planten ze zouden willen zien op het bloemenveld.
+
+### Plantsuggestie toevoegen
+
+https://github.com/user-attachments/assets/3aeac768-0ee7-4fee-a511-1031b2ac757c
+
+### Plantsuggestie verwijderen (alleen voor de admin)
+de kleur van de loading state li is de accentkleur van de user.
+
+https://github.com/user-attachments/assets/f0a2ec96-441b-477d-b797-e8bf9e594a32
+
+### Pleasurable UI
+een "hoverstate" op de li
+
+https://github.com/user-attachments/assets/8adb4cfc-6209-40a6-b70f-e7006ed21524
+
+
+
+
 ## Account
 
 Op de accountpagina kan je als gebruiker makkelijk je profielfoto en de accentkleur aanpassen. Ook zie je hoeveel planten je al hebt verzameld 
