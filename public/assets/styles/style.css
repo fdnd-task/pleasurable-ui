@@ -1645,7 +1645,7 @@ Animations
 }
 
 /* loading state animation suggesties page */
-.loading {
+.loading-suggestion {
     height: 30px;
     aspect-ratio: 3;
     border-radius: 0;
