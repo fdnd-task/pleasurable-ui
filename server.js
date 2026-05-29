@@ -94,11 +94,113 @@ app.get("/cadeau-overzicht", async function (request, response) {
 });
 
 app.get("/wishlist", async function (request, response) {
-  response.render("cadeau.liquid");
+  const params = {
+    fields:
+      "liked_products.milledoni_products_id.id," +
+      "liked_products.milledoni_products_id.name," +
+      "liked_products.milledoni_products_id.image," +
+      "liked_products.milledoni_products_id.amount",
+  };
+
+  // fetch gebruiker 63 inclusief opgeslagen producten
+  const productResponse = await fetch(
+    "https://fdnd-agency.directus.app/items/milledoni_users/63/?" +
+      new URLSearchParams(params),
+  );
+
+  // zet response om naar JSON
+  const productResponseJSON = await productResponse.json();
+
+  // pak alleen de product data uit de koppeling
+  const likedProducts = productResponseJSON.data.liked_products
+    .filter((item) => item.milledoni_products_id !== null)
+    .map((item) => item.milledoni_products_id);
+
+  // stuur producten door naar de liquid pagina
+  response.render("wishlist.liquid", {
+    likedProducts: likedProducts,
+  });
+});
+
+app.post("/verwijder", async function (request, response) {
+  const productId = request.body.id;
+
+  console.log("PRODUCT ID:", productId);
+
+  if (!productId) {
+    console.log("Geen product id ontvangen");
+    return response.redirect(303, "/wishlist");
+  }
+
+  const relationResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1?filter[milledoni_users_id][_eq]=63&filter[milledoni_products_id][_eq]=${productId}&fields=id&limit=1`,
+  );
+
+  const relationJSON = await relationResponse.json();
+
+  console.log("RELATION RESPONSE:", relationJSON);
+
+  if (!relationJSON.data?.length) {
+    console.log("Geen koppeling gevonden");
+    return response.redirect(303, "/wishlist");
+  }
+
+  const relationId = relationJSON.data[0].id;
+
+  console.log("RELATION ID:", relationId);
+
+  const deleteResponse = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_users_milledoni_products_1/${relationId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;charset=UTF-8",
+      },
+    },
+  );
+
+  console.log("DELETE STATUS:", deleteResponse.status);
+
+  response.redirect(303, "/wishlist");
 });
 
 app.get("/spotters", async function (request, response) {
-  response.render("spotters.liquid");
+  const params = {
+    fields: "*",
+  };
+  const spottersResponse = await fetch(
+    "https://fdnd-agency.directus.app/items/milledoni_spotters?" +
+      new URLSearchParams(params),
+  );
+  const spottersResponseJson = await spottersResponse.json();
+  response.render("spotters.liquid", {
+    spotters: spottersResponseJson.data,
+  });
+});
+
+app.post("/spotters", async function (request, response) {
+  const newSpotter = {
+    //maak ik newspotter object aan, met de data name, photo etc//
+    name: request.body.name,
+    photo: request.body.photo,
+    description: request.body.description,
+    interested_in: request.body.interested_in,
+  };
+
+  await fetch(
+    // hier maak ik een POST request naar de API, met als body het newspotter object//
+    "https://fdnd-agency.directus.app/items/milledoni_spotters",
+    {
+      method: "POST",
+      headers: {
+        // hier geef ik aan dat de body van mijn request JSON is//
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newSpotter), // hier zet ik newspotter object om naar json//
+    },
+  );
+
+  response.redirect("/spotters");
 });
 
 app.get("/gifts/:tags", async function (req, res) {
@@ -117,7 +219,6 @@ app.get("/gifts/:tags", async function (req, res) {
     products: productResponseJSON.data,
   });
 });
-
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
 app.set("port", process.env.PORT || 8000);
