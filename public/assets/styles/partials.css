@@ -807,7 +807,7 @@ p.paragraph {
 
 
 /* MARK: partial back-to-top-btn.liquid */
-.to-top-btn{
+/* .to-top-btn{
 
     @supports (container-type: scroll-state){
         translate:0 calc(100% + 1em);
@@ -816,7 +816,6 @@ p.paragraph {
             transition:.25s;
         }
 
-        /* VS code doesn't know the scroll-state, so it shows the red underline on 'scroll-state'. It does work on Chrome. */
         @container news-scroll scroll-state(scrollable:top){
             translate:0 0;
             
@@ -840,7 +839,53 @@ p.paragraph {
     background-color: var(--accent-color);
     border-radius: var(--border-popover);
     color: var(--dark-text);
+} */
+
+.to-top-btn {
+	display: none;
+
+	position: fixed;
+	right: 1em;
+	bottom: 6em;
+	z-index: 1;
+
+	width: 3em;
+	aspect-ratio: 1;
+
+    border: none;
+	background-color: var(--accent-color);
+	border-radius: var(--border-popover);
+	color: var(--dark-text);
+
+	&.is-visible {
+		display: grid;
+		place-items: center;
+
+		@media (prefers-reduced-motion: no-preference) {
+			animation: fade-in 0.25s ease;
+		}
+	}
+
+	&.is-hiding {
+		display: grid;
+		place-items: center;
+
+		@media (prefers-reduced-motion: no-preference) {
+			animation: fade-out 0.25s ease forwards;
+		}
+	}
 }
+
+@keyframes fade-in {
+	from { translate: 0 5em; }
+	to   { translate: 0 0; }
+}
+
+@keyframes fade-out {
+	from { translate: 0 0; }
+	to   { translate: 0 5em; }
+}
+
 
 /* MARK: suggesties */
 
