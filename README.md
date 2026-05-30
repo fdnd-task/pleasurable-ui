@@ -56,6 +56,46 @@ Van de opdrachtgever hebben wij een prototype gekregen van het design in een fig
 
 ## Homepage
 
+Op de homepagina heb je een overzicht van alle pagina's die te vinden zijn op de webapp. Als eerst krijg je een klein overzicht te zien van je collectie. Je moet wel eerst wel bloemen en planten verzamelen voordat je ze te zie krijgt. Als je nog niks hebt gespaard dan krijg je een empty state te zien waar staat dat je nog niks het gespaard. Daarna heb je een knop die linkt naar de interactieve veldverkenner en je krijgt de laatste 4 nieuwsberichten te zien in een carousel.
+
+https://github.com/user-attachments/assets/a527a70a-a31b-4eb5-85b3-0e9d2767ad89
+
+### Technische documentatie
+
+**Pleasurable UI | Mirco-animatie**
+
+Op de knop die naar de actieve veldverkenner gaat heb ik een micro animatie toegevoegd. Wanneer de gebruiker op de button klikt komt er bloemetje tevoorschijn op de plek waar hij/zij heeft geklikt. Dit is feedback voor de gebruiker
+
+**Feedforward:**
+De knop krijgt een groene achtergrond als je er over hovert en ziet eruit als een klikbare knop
+
+**Feedback:**
+Komt er een bloemetje tevoorschijn op de plek waar de gebruiker geklikt heeft, zo kan hij/zij ook zien dat het gelukt is om op de button te klikken
+
+https://github.com/user-attachments/assets/1da15c03-0bbb-4254-879b-5d7bfcd9cfa3
+
+**Carousel nieuwsberichten**
+
+Voor de laatste nieuwsberichten heb ik een carousel gemaakt met een animatie op de afbeeldingen. Wanneer je scrollt komt de afbeelding langzaam tevoorschijn. Daarnaast heb ik de CSS-feature [scroll-state() query](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries) gebruikt. Daar heb ik een snapped state gebruikt en dit zorgt ervoor dat je als gebruiker automatisch 'springt' naar een nieuwsartikel tijdens het scrollen.
+
+De animatie alleen laten tonen op mobiele versie dus heb ik ook een media querie toegevoegd.
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/d6f7c75f79e8ee96cf617c4216babf7ff2855a67/public/assets/styles/partials.css#L404-L412
+
+https://github.com/user-attachments/assets/395d4fbe-4c85-4b5d-8f87-a746740c3bad
+
+**Progressive Enhancement**
+
+Voor mensen die gevoelig zijn voor veel beweging of animaties heb ik [@media (prefers-reduced-motion: no-preference) ](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/prefers-reduced-motion) toegepast. Dus als een gebruiker ervoor heeft gekozen om geen animaties te willen komt het er zo uit te zien:
+
+https://github.com/user-attachments/assets/f7b502d5-a3f7-4adf-a17b-f60847c1d0ec
+
+https://github.com/user-attachments/assets/f0f20eef-e8da-4049-801e-110722930739
+
+Daarnaast heb ik ook de feature detection [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@supports) toegepast. @aupports wil zeggen wanneer een browser scroll-state niet ondersteunt voer dan de code niet uit en wanneer browser het wel ondersteunt voer dan de code uit. 
+
+https://github.com/GijsNagtegaal/pleasurable-ui/blob/d6f7c75f79e8ee96cf617c4216babf7ff2855a67/public/assets/styles/partials.css#L401-L411
+
 ## Veldbeheer
 
 Op de veldbheer pagina zie je welke activiteiten er te doen zijn op het bloemenveld en kunnen mensen doneren voor de ontwikkeling van het park. Ook kan je een suggestie achterlaten waar later in deze readme meer over wordt uitgelegd.
