@@ -44,6 +44,8 @@ Tussen de lijstjes en de producten staat een ribbon. Deze zorgt voor een duideli
 
 Daarnaast sluit de ribbon goed aan bij de stijl van Milledoni. Door dezelfde kleuren en vormen te gebruiken blijft het ontwerp rustig en vormt alles samen één geheel.
 
+<img width="1859" height="160" alt="Schermopname (280)" src="https://github.com/user-attachments/assets/116b1e22-9cad-46a4-aea6-f40e2fd8b923" />
+
 ---
 
 ### De product kaartjes
@@ -53,6 +55,8 @@ De product kaartjes hebben een lichte schaduw waardoor ze iets meer naar voren k
 Voor de layout heb ik gekozen voor een ongelijk grid. Hierdoor ontstaat een speelser ontwerp en voelt de pagina minder als een standaard webshop. Dit sluit ook beter aan bij de wensen van de opdrachtgever die graag meer een inspiratie platform wilde creëren.
 
 De afbeeldingen krijgen veel ruimte zodat de producten goed zichtbaar zijn en gebruikers sneller inspiratie kunnen opdoen.
+
+<img width="464" height="662" alt="Schermopname (279)" src="https://github.com/user-attachments/assets/1c51f1f3-84fb-49cc-8bc0-75d9675484d3" />
 
 ---
 
