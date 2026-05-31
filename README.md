@@ -64,9 +64,9 @@ Wanneer een gebruiker op verwijderen klikt verschijnt er direct een melding dat 
 
 De popup werkt volledig aan de client side waardoor de feedback direct zichtbaar is zonder dat de pagina opnieuw hoeft te laden. Dit zorgt voor een prettigere gebruikerservaring.
 
-In onderstaande issue heb ik dit onderdeel verder uitgewerkt en toegelicht:
+In onderstaande issue heb ik dit onderdeel verder uitgewerkt : https://github.com/MaartentePoele/pleasurable-ui/issues/46
 
-[Link naar issue]
+
 
 
 
