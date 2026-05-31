@@ -785,6 +785,192 @@ footer {
     flex-direction: row;
   }
 }
+/* blog pagina */
+.blog{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6F5F5;
+  border-radius: 30px;
+  margin: 10px;
+
+  .section-article{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 425px;
+    width: 100%;
+    margin-bottom: 30px;
+    animation: appear;
+    animation-timeline: view(y 200px auto);
+  }
+}
+@keyframes appear {
+    0% {
+        opacity: 0;
+        translate: 0 4em;
+    }
+    
+    70% {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+/* blog artikel images*/
+.blog-img-article{
+  width: 178px;
+  height: 115px;
+  border-radius: 30px;
+  padding: 10px 10px 10px 10px;
+
+  @media (min-width: 545px){
+    width: 230px;
+    height: 150px;
+  }
+  @media (min-width: 768px){
+    width: 270px;
+    height: 190px;
+  }
+}
+/* blog <h2> van de arikelen */
+.blog-article-h2{
+  font-size: 21px;
+  max-width: 30ch;
+  padding: 10px 10px 10px 10px;
+
+  @media (min-width: 545px){
+    font-size: 24px;
+  }
+  @media (min-width: 768px){
+    font-size: 26px;
+     max-width: 60ch;
+  }
+}
+/* blog arikel <p> */
+.blog-article-p{
+  grid-column: span 2;
+  font-size: 16px;
+  max-width: 40ch;
+  padding: 10px;
+  margin-bottom: 5px;
+
+  @media (min-width: 545px){
+    font-size: 18px;
+    max-width: 60ch;
+  }
+}
+.section-divider{
+  background-color: #E2B100;
+  height: 1px;
+  margin-bottom: 30px;
+  width: 400px;
+
+   @media (min-width: 445px){
+    display: none;
+  }
+}
+.lees-meer{
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  transition: 0.5s;
+ 
+    &:hover {
+        color: #E2B100;
+    }   
+}
+/* popup blog pagina */
+.comment-btn{
+  display: flex;
+  justify-content: flex-end;
+
+  .img-comment-btn{
+    width: 50px;
+    position: relative;
+    right: -45px;
+  }
+
+  .popover-btn{
+    anchor-name: --comment-btn;
+  
+    padding: 15px 15px 15px 15px;
+    border-radius: 30px;
+  
+  }
+}
+#comment-popover{
+  width: 425px;
+  height: 320px;
+
+  border: none;
+  border-radius: 20px;
+  
+  background-color: #F6F5F5;
+  box-shadow: 2px 5px 2px #D9D9D9;
+  
+  position-area: bottom;
+
+  position-anchor: --comment-btn;
+  margin-top: 8px;
+
+  label[for="comment"]{
+    position: relative;
+    left: 10px;
+    bottom: 7px;
+    font-size: 17px;
+  }
+}
+textarea{
+  resize: none;
+  padding: 10px;
+  height: 200px;
+}
+
+form.blog-comment{
+  margin-top: 15px;
+}
+.blog-comment{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 10px 10px;
+  column-gap: 10px;
+}
+#comment{
+  border-radius: 30px;
+}
+.submit-btn{
+  width: 90px;
+  background-color: #E2B100;
+  border: #c9c9c9 solid 1px;
+  border-radius: 10px;
+  padding: 8px;
+  margin-top: 15px;
+  margin-left: auto;
+  transition: 1s;
+
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+/* detail pagina blog */
+.section-blog-detail-article{
+  margin: 10px;
+}
+.detail-blog-h2{
+  min-width: 32ch;
+  text-align: center;
+  font-size: 20px;
+}
+.sinterklaas-detail-blog-img{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+.p-detail-blog{
+  opacity: 50%;
+}
 
 
 /*Spotter pagina*/

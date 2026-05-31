@@ -86,8 +86,20 @@ app.get("/", async function (request, response) {
 });
 
 app.get("/blog", async function (request, response) {
-  response.render("blog.liquid");
+
+  const params = new URLSearchParams({
+    fields: "id,intro,title,image.id,image.width,image.height"
+  });
+
+  const blogData = await fetch(
+    `https://fdnd-agency.directus.app/items/milledoni_blog?${params}`
+  );
+  const blogDataJSON = await blogData.json();
+
+  response.render("blog.liquid", { 
+    products: blogDataJSON.data});
 });
+
 
 app.get("/cadeau-overzicht", async function (request, response) {
   response.render("cadeau.liquid");
