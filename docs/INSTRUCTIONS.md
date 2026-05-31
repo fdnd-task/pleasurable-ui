@@ -29,6 +29,6 @@ Deze opdracht is done als:
 - [ ] Je hebt gestructureerd samengewerkt met een projectboard, issues, MoSCoW, assignees en Pull Requests, je wijst teamleden op hun verantwoording, en je hebt de samenwerking en elkaars functioneren besproken
 - [ ] Je hebt met een team met feature branches verschillende versies gemaakt en gemerged
 - [ ] Je hebt feedback gegeven en gekregen via Pull Requests en de feedback verwerkt
-- [ ] Je hebt client-side scripting technieken gebruikt voor een “Pleasurable User Interface”
+- [ ] Je hebt met client-side scripting een “Pleasurable User Interface” gemaakt volgens het principe van Progressive Enhancement
 - [ ] Je hebt feedback en taken van de vorige sprints opgepakt en verwerkt
 - [ ] Je hebt het eindresultaat gepresenteerd aan de opdrachtgever en ontwerpkeuzes begrijpelijk uitgelegd in je Readme
