@@ -1,0 +1,43 @@
+<!-- Inladen van de CSS -->
+{% render 'partials/head.liquid' %}
+
+<!-- Inladen van de header (navbar) via Liquid partials -->
+{% render 'partials/header.liquid' %}
+
+
+
+{% if lang == 'en' %}
+
+<section class="title">
+    <h1 class="title-acquisition">Proposal for object acquisition</h1>
+    
+    <p class="paragraph-acquisition">Your proposal for object acquisition has been successfully sent.</p>
+
+    <a class="return-homepage" href="/">Homepage</a>
+
+</section>
+
+
+{% elsif lang == 'ar'%}
+
+    <section class="title">
+        <h1 class="title-acquisition">اقتراح لشراء الكائن</h1>
+        
+        <p class="paragraph-acquisition-ar">تم إرسال اقتراحك لشراء الكائن بنجاح.</p>
+    
+        <a class="return-homepage" href="/">الصفحة الرئيسية</a>
+        
+    </section>
+    
+{% else %}
+    <section class="title">
+        <h1 class="title-acquisition">Page not found</h1>
+        
+        <p class="paragraph-acquisition">Looks like this page doesn’t exist in this language.</p>
+    
+        <a class="return-homepage" href="/">Homepage</a>
+    
+    </section>
+
+{% endif %}
+    
