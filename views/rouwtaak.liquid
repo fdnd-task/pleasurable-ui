@@ -1,0 +1,49 @@
+{% render 'partials/head.liquid' %}
+{% include  'partials/header.liquid' %}
+
+ <section class="hero">
+    <img class="hero-img" src="/photos/rouwtaak-{{ taskObject.theme }}.svg">
+    <img class="gradient-left" src="/photos/rouwtaak-{{ taskObject.theme }}.svg">
+    <img class="gradient-right" src="/photos/rouwtaak-{{ taskObject.theme }}.svg">
+    <div class="hero-text">
+      <h2>Rouwstappen van de dag</h2>
+      <p>1 oefening open vandaag</p>
+    </div>
+  </section>
+
+  <section class="exerc-container">
+    <section class="exerc-grid">
+  {% for exercise in exerc %}
+    <article class="exerc-card"> 
+        <figure class="exerc-image-container">
+          <img src="https://fdnd-agency.directus.app/assets/{{ exercise.image }}?width=200&height=200" alt="Task Image" class="exerc-image">
+          <a href="/exercise/{{ exercise.id }}" class="btn them-{{ taskObject.theme }}">Start oefening</a>
+        </figure>
+
+      <section class="exerc-content">
+        <section class="exerc-header">
+          <p class="exerc-category">{{ exercise.type }}</p>
+          <h2>{{ exercise.title }}</h2>
+        </section>
+
+        <section class="exerc-info">
+          <div class="community-drops">
+            <img src="/icons/community-drops-color.svg">
+            {% if exercise.messages %}
+              <span class="drop-text">{{ exercise.messages | size }} community drops</span>
+            {% else %}
+              <span class="drop-text">0 community drops</span>
+            {% endif %}
+          </div>
+          <div class="info-badge"><img src="/icons/time.svg">{{ exercise.duration }} min</div>
+          <div class="info-badge"><img src="/icons/time.svg">3 tips</div>
+        </section>
+      </section>
+    </article>
+    {% endfor %}
+    </section>
+  </section>
+        <p class="end-text">Einde voor vandaag</p>
+
+{% render 'partials/footer.liquid' %}
+{% render 'partials/foot.liquid' %}
