@@ -1,0 +1,74 @@
+{%  render 'partials/head.liquid' %}
+
+<header class="chat-header">
+    <h1>Community Drops</h1>
+    <p>Deel wat je van de oefening vond, lees ervaringen van anderen en steun elkaar in de reis door rouw. <b>je bent niet alleen</b></p>
+</header>
+
+<main class="chat-main">    
+
+{% comment %} dit is chat-article eerst {% endcomment %}
+    <section class="chat-intro"> 
+        <h2>Nieuwste berichten</h2>
+    </section>
+
+
+    <img class="blauwe-gradient-img" src="/photos/blauwegradient.png" alt="">
+
+    {% for chat in chat %}
+        <section class="chat-message">
+            <h3>{{ chat.from }}</h3>
+
+            {% comment %} hier ook aangepast {% endcomment %}
+            <time 
+                class="message-date" 
+                datetime="{{ chat.date_created }}">
+                {{ chat.date_created | date: "%-d %B %Y, %H:%M" }}
+                </time> 
+            <p>{{ chat.text }}</p>
+            
+            {% if chat.from == "Mikiyas" %}
+            <form method="post" action="/chat/delete/{{ chat.id }}" id="deleteForm">
+            <button type="submit" class="deleteBtn">Verwijder Bericht</button>
+            </form>
+            {% endif %}
+        </section>
+    {% endfor %}
+
+
+
+
+<!-- Plaats bericht button -->
+<button id="showFormButton" class="floating-button">
+    Plaats bericht
+</button> 
+
+<!-- Formulier Overlay -->
+<section id="overlay" class="overlay" aria-hidden="true">
+    <article class="overlay-content">
+
+        <header>
+            <h2>Deel je ervaring</h2>
+        </header>
+
+        <form class="overlay-form" method="post" action="/chat">
+            <label for="from">Naam</label>
+            <input type="text" id="from" name="from" aria-label="Naam" required>
+
+            <label for="text">Uw Bericht</label>
+            <textarea id="text" name="text" aria-label="Bericht schrijven" placeholder="bijv. verhaal over een dierbare die je bent verloren" required></textarea>
+
+            <footer>
+            <button type="submit" id="submitBtn">Ervaring Delen</button>
+                <button type="button" id="closeFormButton">Annuleer</button>
+            </footer>
+        </form>
+    </article>
+</section>
+
+
+</main>
+        
+<script src="/chat.js"></script>
+
+{% render 'partials/foot.liquid' %}
