@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styleguide.css">
+    <script src="scripts/page-loading-animation.js" defer></script>
+    <script src="scripts/button-animations.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
+    <script src="/scripts/back-to-top.js" defer></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <title>{{ title }}</title>
+  </head>
+  <body>  
+
+<header class="nav-header">
+  <ul class="container">
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'FAQ', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over ons', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/contact', text: 'Contact', style: 'nav-link' %}</li>
+  </ul>
+</header>
+
+<nav class="desktop-nav">
+  <div class="desktop-nav-container">
+  <a href="/"><img src="/assets/logo-light.svg" alt="Logo"></a>
+
+  <div class="link-and-button-desktop">
+
+  <ul class="link-nav">
+    <li>{% render './partials/link-button.liquid', link: '/', text: 'Home', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ads', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/talent-awards', text: 'Talent Award', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/lado', text: 'LAdO', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/nieuws', text: 'Nieuws', style: 'nav-link' %}</li>
+  </ul>
+      {% render './partials/link-button.liquid', link: '#', text: 'Kom naar Ad-dag', style: 'secondary-button' %}
+  </div>
+  
+  <button class="popover-button open-button" popovertarget="menu">
+    <img src="/assets/open-menu.svg">
+  </button>
+  </div>
+  </nav>
+  
+<nav id="menu" popover="auto">
+  <button class="popover-button" popovertarget="menu" popovertargetaction="hide">
+    <img src="/assets/close-menu.svg">
+  </button>
+
+    <div class="link-and-button">
+
+  <ul class="link-nav-mobile">
+    <li>{% render './partials/link-button.liquid', link: '/', text: 'Home', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Over Ads', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '#', text: 'Publicaties', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/talent-awards', text: 'Talent Award', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/lado', text: 'LAdO', style: 'nav-link' %}</li>
+    <li>{% render './partials/link-button.liquid', link: '/nieuws', text: 'Nieuws', style: 'nav-link' %}</li>
+  </ul>
+
+  {% render './partials/link-button.liquid', link: '#', text: 'Kom naar Ad-dag', style: 'secondary-button-mobile-nav' %}
+  </div>
+</nav>

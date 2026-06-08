@@ -1,0 +1,94 @@
+
+    <div id="progress"></div>
+    {% render 'partials/head.liquid' %}
+    
+    <main class="candidate-profile">
+      <section class="layout hero">
+        <article class="container split">
+          <div class="nomiheader">
+            <h1>{{ nomination.title}}</h1>
+            <dl>
+              <dt>Instelling</dt>
+              <dd>{{ nomination.institution }}</dd>
+              <dt>Opleiding</dt>
+              <dd>{{ nomination.course }}</dd>
+              <dt>Variant</dt>
+              <dd>{{ nomination.education_variant }}</dd>
+              <dt>Vooropleiding</dt>
+              <dd>{{ nomination.previous_course }}</dd>
+            </dl>
+          </div>
+          {% assign foto = 'https://fdnd-agency.directus.app/assets/' |  append: nomination.profile_picture, %}
+        <figure>
+                {% render 'partials/image.liquid',
+                imageSrc: foto,
+                width: '800',
+                height: '800',
+                alt: 'Portretfoto van Rhodé Treur',
+                fetch: 'high',
+                loading: 'lazy'
+               %}
+               </figure>
+        </article>
+      </section>
+
+      <section class="layout">
+        <article class="container split">
+          <figure>
+            {% render 'partials/image.liquid',
+            imageSrc: foto,
+            width: '800',
+            height: '800',
+            alt: 'Portretfoto van Rhodé Treur',
+            fetch: 'auto',
+            loading: 'lazy'
+            %}
+          </figure>
+          <section>
+            <h2>Introductie</h2>
+            <p>{{ nomination.body }}</p>
+          </section>
+        </article>
+      </section>
+
+      <section class="layout alt">
+        <article class="container split">
+          <section class="nominatie">
+            <h2>Nominatie hogeschool</h2>
+            <p>Thijs is een student op wie wij enorm trots zijn. Als SLBer heb ik Thijs leren kennen als een betrokken, bescheiden en zeer leergierige Ad-professional, die zijn vakmanschap vooral laat zien door zijn houding en handelen, en niet door zichzelf op de voorgrond te plaatsen.</p>
+            <p>Voor een project in leerjaar 1 nam hij hierbij het voortouw om op zijn stage een preventieve activiteit met alpaca's te regelen voor cliënten, wat een groot succes was. In samenwerking met medestudenten, docenten en het werkveld is Thijs respectvol, betrouwbaar en proactief.</p>
+            <p>Zijn integriteit is hierin opvallend: Thijs oordeelt niet en blijft altijd zorgvuldig in hoe hij over anderen spreekt. Thijs benadert cliënten consequent oordeelloos en mensgericht.</p>
+            <p>Wat Thijs daarnaast onderscheidt, is zijn sterk lerend vermogen. Hij reflecteert eerlijk op zijn eigen handelen en neemt regie over zijn ontwikkeling als Ad-professional. Dat maakt hem in onze ogen een zeer terechte kandidaat voor de Ad Talent Award 2026.</p>
+            <footer>
+              <p class="blockfoot"><strong>Fransien Hummel</strong> — SLBer bij opleiding Ad Zorg en Veiligheid</p>
+            </footer>
+          </section>
+          <figure class="logo">
+            {% render 'partials/image.liquid',
+            imageSrc: 'https://www.deassociatedegree.nl/wp-content/uploads/2024/02/HvA.png',
+            width: '400',
+            height: '400',
+            alt: 'Logo Hogeschool van Amsterdam',
+            fetch: 'auto',
+            loading: 'lazy'
+            %}
+          </figure>
+        </article>
+      </section>
+
+      <section class="layout">
+        <article class="container">
+          <h2>Aanbeveling externe stakeholder</h2>
+          <blockquote>
+            <p>Thijs heeft alles op orde, beantwoordt vragen met een lach en is hulpvaardig. Vanaf de start van zijn stage bij sociaal beheer neemt hij zelf de verantwoordelijkheid voor zijn leerproces. Op dag 1 kreeg hij zijn spullen, de dag erna liep hij met iemand mee en op dag 3 heeft hij, op eigen initiatief, zelfstandig bewoners bezocht.</p>
+            <p>Thijs legt makkelijk contact, hij is een verbinder. Aan het begin van de stage had hij een overleg met wijkagenten, stelde zich voor als 'de nieuwe directeur' maar uiteraard met een lach. Het ijs was direct gebroken.</p>
+            <p>Een bewoner die 40 jaar bij Cazas woonde krijgt normaliter bezoek vanuit coöperatie, dat lukte echter niet overdag en dus maakte Thijs in de avond tijd vrij om langs te gaan. Of die keer dat hij kacheltjes verzamelde toen er een gaslek op de Eikenlaan was. Kortom: Thijs is van alle markten thuis.</p>
+            <footer>
+              <cite>Lisa van Zuilen, sociaal beheerder bij Cazas Wonen</cite>
+            </footer>
+          </blockquote>
+        </article>
+      </section>
+      {% render 'partials/footer.liquid' %}
+      </body>
+</html>

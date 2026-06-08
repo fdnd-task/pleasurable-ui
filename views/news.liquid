@@ -1,0 +1,27 @@
+{% render 'partials/head.liquid', title: 'nieuws' %}
+  <main>
+      
+    {% render 'partials/hero.liquid',
+    title: 'Nieuws',
+    content: 'Op deze pagina vind je updates en korte verslagen van georganiseerde evenementen.',
+    imgSrc: 'assets/images/heronews',
+    imgAlt: 'description',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true,
+    style: 'hero--green'
+  %}
+
+    <section class="container news-grid">
+      {% for newsArticle in news %}
+        {% render 'partials/news-card.liquid',
+          date: newsArticle.date,
+          title: newsArticle.title,
+          description: newsArticle.description
+        %}
+      {% endfor %}
+    </section>
+  </main>
+    {% render './partials/footer.liquid' %}
+  </body>
+</html>

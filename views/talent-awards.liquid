@@ -1,0 +1,68 @@
+{% render 'partials/head.liquid', title: 'home' %}
+
+<main>
+  {% render 'partials/hero.liquid',
+    title: 'Ad Talent Award',
+    content: 'Jaarlijks reikt het Overlegplatform de Ad Talent Award uit aan twee Associate degree-talenten, die worden benoemd tot landelijke Ad-ambassadeurs. Alle aangesloten hogescholen kunnen een Ad-talent nomineren. De winnaars ontvangen de award tijdens de jaarlijkse Ad-dag en vertegenwoordigen het Ad-onderwijs in Nederland.',
+    btnLink: '#',
+    btnText: 'Lees meer',
+    btn2Link: '#',
+    btn2Text: 'Bekijk de nominaties',
+    imgSrc: 'https://fdnd-agency.directus.app/assets/6929a725-dd62-4275-8bef-34e6577c6580',
+    imgAlt: 'Ad-dag foto',
+    imgWidth: '800',
+    imgHeight: '500',
+    imgRight: true
+  %}
+
+  <div class="layout discovery-section talant-awards">
+    <article class="container">
+      <h2>Wat is Ad Talent award?</h2>
+      <p>
+        De Ad Talent Award is een jaarlijkse onderscheiding die door het Overlegplatform Associate degrees wordt
+        uitgereikt. Elke aangesloten hogeschool kan één student nomineren als “Ad Talent” en van alle genomineerden
+        worden er twee landelijk uitgeroepen tot Ad-ambassadeur. Deze erkenning vindt plaats tijdens de jaarlijkse
+        Ad-dag.
+      </p>
+      {% render 'partials/info-card.liquid',
+        title: 'Wat maakt iemand tot een Ad Talent?',
+        content: 'Een Ad Talent is een student die uitblinkt in zijn of haar Associate degree-opleiding. Dit kan blijken uit academische prestaties, leiderschap, betrokkenheid bij de gemeenschap, innovatie of andere opmerkelijke bijdragen aan de hogeschool en de bredere samenleving. Ad Talenten worden erkend voor hun inzet, passie en potentieel om een positieve impact te maken in hun vakgebied en daarbuiten.',
+        btnText: "Meer over doorstroom Ad's",
+        btnLink: '#',
+        btnStyle: 'secondary-button'
+      %}
+      {% render 'partials/info-card.liquid',
+        title: 'Waarom de Ad Talent Award?',
+        content: 'De Ad Talent Award is opgericht om de uitmuntendheid en het potentieel van Associate degree-studenten te erkennen en te vieren. Door deze onderscheiding willen we niet alleen de prestaties van individuele studenten benadrukken, maar ook het belang van Ad-onderwijs in Nederland onderstrepen. De award dient als inspiratie voor andere studenten en draagt bij aan het versterken van de reputatie van Associate degrees als waardevolle en impactvolle opleidingsvorm.',
+        btnText: 'Meer over de Ad-dag',
+        btnLink: '#',
+        btnStyle: 'secondary-button'
+      %}
+      {% render 'partials/info-card.liquid',
+        title: 'Hoe gaat de verkiezing in zijn werk?',
+        content: 'Elke hogeschool die is aangesloten bij het Overlegplatform Associate degrees kan één student nomineren voor de Ad Talent Award. Een onafhankelijke jury, bestaande uit vertegenwoordigers van het onderwijsveld en het bedrijfsleven, beoordeelt de nominaties op basis van vooraf vastgestelde criteria. De beoordeling omvat academische prestaties, leiderschap, maatschappelijke betrokkenheid en andere relevante factoren. Na een grondige evaluatie worden twee winnaars geselecteerd en tijdens de jaarlijkse Ad-dag bekendgemaakt als de landelijke Ad-ambassadeurs.',
+        btnText: 'Meer over Talent Awards',
+        btnLink: '#',
+        btnStyle: 'secondary-button'
+      %}
+    </article>
+  </div>
+
+  <section class="layout candidate-list">
+    <article class="container">
+      <h2>Genomineerde candidaten van 2026</h2>
+      <ul>
+        {% for nominee in nominations %}
+          {% render './partials/candidate-card.liquid',
+            name: nominee.title,
+            school: nominee.institution,
+            id: nominee.id,
+            winner: nominee.winner,
+            picture: nominee.profile_picture
+          %}
+        {% endfor %}
+      </ul>
+    </article>
+  </section>
+</main>
+{% render 'partials/footer.liquid' %}
