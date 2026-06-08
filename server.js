@@ -1,38 +1,78 @@
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
-import express from 'express'
+import express from "express";
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
-import { Liquid } from 'liquidjs';
+import { Liquid } from "liquidjs";
 
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
-const app = express()
+const app = express();
 
 // Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
 
 // Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
 // Bestanden in deze map kunnen dus door de browser gebruikt worden
-app.use(express.static('public'))
+app.use(express.static("public"));
 
 // Stel Liquid in als 'view engine'
-const engine = new Liquid()
-app.engine('liquid', engine.express())
+const engine = new Liquid();
+app.engine("liquid", engine.express());
 
 // Stel de map met Liquid templates in
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
-app.set('views', './views')
+app.set("views", "./views");
 
+app.get("/", async function (request, response) {
+  response.render("index.liquid");
+});
 
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
+app.get("/blog", async function (request, response) {
+  response.render("blog.liquid");
+});
+
+app.get("/cadeau-overzicht", async function (request, response) {
+  response.render("cadeau.liquid");
+});
+
+app.get('/detail/:slug', async (req, res) => {
+  const slug = req.params.slug
+
+  try {
+    const result = await fetch(
+      `https://fdnd-agency.directus.app/items/milledoni_products?filter[slug][_eq]=${encodeURIComponent(slug)}`
+    )
+
+    const data = await result.json()
+
+    const product = data.data && data.data.length > 0 ? data.data[0] : null
+
+    if (!product) {
+      return res.status(404).send('Product niet gevonden')
+    }
+
+    res.render('detail.liquid', { product })
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).send('Server error')
+  }
+app.get("/wishlist", async function (request, response) {
+  response.render("cadeau.liquid");
+});
+
+app.get("/spotters", async function (request, response){
+  response.render("spotters.liquid");
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
-app.set('port', process.env.PORT || 8000)
+app.set("port", process.env.PORT || 8000);
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
-app.listen(app.get('port'), function () {
-  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
-})
+app.listen(app.get("port"), function () {
+  console.log(
+    `http://localhost:${app.get("port")}`,
+  );
+});
+

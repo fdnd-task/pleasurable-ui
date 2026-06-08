@@ -1,0 +1,150 @@
+{% include 'partials/head.liquid' %}
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ product.name }} | Milledoni</title>
+
+  <link rel="stylesheet" href="/detail.css">
+  <script src="/assets/script.js" defer></script>
+</head>
+
+<body>
+
+<!-- =====================
+     HEADER
+===================== -->
+<header class="site-header">
+  <section class="container header-inner">
+
+    <img
+      src="/assets/milledoni.png"
+      width="120"
+      height="50"
+      alt="Milledoni"
+    />
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/cadeaus">Cadeaus</a></li>
+        <li><a href="/categorieen">Categorieën</a></li>
+        <li>
+          <a href="/wishlist" class="wishlist">
+  Wishlist
+  <span class="badge">0</span>
+</a>
+      </ul>
+    </nav>
+
+  </section>
+</header>
+
+<!-- =====================
+     DETAIL PAGINA
+===================== -->
+<main class="detail-page">
+
+  <section class="container detail-container">
+
+    <!-- PRODUCT IMAGE -->
+    <section class="product-image">
+
+      {% assign img = product.image | default: product.img %}
+
+      <img
+        src="{{ img }}"
+        alt="{{ product.name }}"
+        width="600"
+        height="600"
+        loading="eager"
+      >
+
+      <!-- ADD TO LIST (GEFIXT) -->
+      <form class="add-to-list-form">
+
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+
+        <button type="submit" class="add-to-list">
+          + Add to list
+        </button>
+
+      </form>
+
+    </section>
+
+    <!-- PRODUCT INFO -->
+    <section class="product-info">
+
+      <h1>{{ product.name }}</h1>
+
+      <p class="price">
+        € {{ product.amount }}
+      </p>
+
+      <p class="description">
+        {{ product.description }}
+      </p>
+
+      <section class="tags">
+  <h3>Tags</h3>
+
+  <div class="tag-list">
+    {% assign tags = product.tags | split: "," %}
+
+    {% for tag in tags %}
+      <button class="tag-chip" data-tag="{{ tag | strip }}">
+        {{ tag | strip }}
+      </button>
+    {% endfor %}
+  </div>
+</section>
+
+      <section class="extra-info">
+        <p><strong>Shop:</strong> {{ product.shop_name }}</p>
+        <p><strong>Gespot door:</strong> {{ product.spotter }}</p>
+      </section>
+
+      <section class="actions">
+        <a
+          href="{{ product.shop_url }}"
+          target="_blank"
+          class="shop-button"
+        >
+          Bekijk in winkel
+        </a>
+      </section>
+
+    </section>
+
+  </section>
+
+</main>
+
+<!-- =====================
+     FOOTER
+===================== -->
+<footer>
+  <section class="container">
+
+    <h3>Milledoni</h3>
+    <p>Unieke cadeaus voor speciale momenten.</p>
+
+    <h3>Contact</h3>
+    <p>info@milledoni.nl</p>
+
+    <h3>Volg ons</h3>
+    <p>
+      <a href="#">Instagram</a> |
+      <a href="#">Facebook</a> |
+      <a href="#">TikTok</a>
+    </p>
+
+    <p>© 2026 Milledoni</p>
+
+  </section>
+</footer>
+
+</body>
+</html>
+{% include 'partials/foot.liquid' %}
