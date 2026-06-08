@@ -1,5 +1,113 @@
-<!doctype html>
-<html lang="nl">
-<title>Sprint 11</title>
-<h1>Welkom in Sprint 11!</h1>
-<p>Succes!</p>
+{% assign pageTitle = "Home | Oncollaboration" %}
+{% include "partials/head.liquid" %}
+
+<div class="home-main" id="content">
+    {% assign intro = homeContent | where: "key", "home-intro" | first %}
+    {% if intro %}
+        <section class="home-about">
+            <h1> {{ intro.heading }} </h1>
+
+            <div class="home-about-position">
+                <p> {{ intro.text }} 
+                    <a href=" {{ intro.read_more_link }} " class="button-animated button-home"><span> {{ intro.read_more_text }} </span></a>
+                </p>
+                
+                <picture class="home-about-picture">
+                    <source srcset="assets-home/avl-team.avif" type="image/avif">
+                    <img src="assets-home/avl-team.jpeg" alt="5 doctors talking to each other" loading="eager" width="340px">
+                </picture>
+            </div>
+        </section>
+    {% endif %}
+
+    {% assign doctors = homeContent | where: "key", "home-meet-our-doctors" | first %}
+    {% if doctors %}
+        <section class="home-doctors">
+            <h2> {{ doctors.heading }} </h2>
+
+            <div class="home-doctors-position">
+
+                <p class="home-doctors-p"> {{ doctors.text }} </p>
+        
+                <div class="home-team">
+                    <div class="home-team-card">
+                        <picture>
+                            <source srcset="" type="">
+                            <img src="assets-home/judie-van-driesen.png" alt="" loading="lazy">
+                        </picture>
+                        <p><strong>Judie van Driesen</strong></p>
+                        <p>Radiation oncologist</p>
+                    </div> 
+
+                    <div class="home-team-card">
+                        <picture>
+                            <source srcset="" type="">
+                            <img src="assets-home/judie-van-driesen.png" alt="" loading="lazy">
+                        </picture>
+                        <p><strong>Judie van Driesen</strong></p>
+                        <p>Radiation oncologist</p>
+                    </div>
+
+                    <div class="home-team-card">
+                        <picture>
+                            <source srcset="" type="">
+                            <img src="assets-home/judie-van-driesen.png" alt="" loading="lazy">
+                        </picture>
+                        <p><strong>Judie van Driesen</strong></p>
+                        <p>Radiation oncologist</p>
+                    </div>
+                </div>
+            </div>   
+        </section>
+    {% endif %}
+
+
+    {% assign partners = homeContent | where: "key", "home-partners" | first %}
+    {% if partners %}
+        <section class="home-partners">
+            <h2> {{ partners.heading }} </h2>
+            <div class="home-partners-postion">
+                <p> {{ partners.text }} </p>
+
+                <div class="scroller">
+                    <div class="scroller-inner">
+                        <img src="assets-home/logo1.png" alt="Logo Universitas Gadjah Mada" width="auto" height="160">
+                        <img src="assets-home/logo2.png" alt="Logo Departemen Kesahatan R.I." width="auto" height="160">
+                        <img src="assets-home/logo3.png" alt="Logo IDGNH" width="auto" height="160">
+                        <img src="assets-home/logo4.png" alt="Logo Nederlandse Vereniging voor Radiotherapie en Oncologie" width="auto" height="160">
+                        <img src="assets-home/logo5.png" alt="Logo Amsterdam UMC" width="auto" height="160">
+                        <img src="assets-home/logo6.svg" alt="Logo Antoni van Leeuwenhoek" width="auto" height="160">
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+
+    <div class="home-webinars-contourings">
+        {% assign webinars = homeContent | where: "key", "home-webinars" | first %}
+        {% if webinars %}    
+            <section class="home-webinars">
+                <h2> {{ webinars.heading }} </h2>
+                <p>
+                    {{ webinars.text }} 
+                    <a href=" {{ webinars.read_more_link }}" class="button-animated button-home"><span> {{ webinars.read_more_text }} </span></a>
+                </p>
+            </section>
+        {% endif %}
+
+
+        {% assign contourings = homeContent | where: "key", "home-contourings" | first %}
+        {% if contourings %}    
+            <section class="home-contourings">
+                <h2> {{ contourings.heading }} </h2>
+                <p>
+                    {{ contourings.text }}
+                    <a href=" {{ contourings.read_more_link }} " class="button-animated button-home"><span> {{ contourings.read_more_text }} </span></a>
+                </p>
+            </section>
+        {% endif %}
+
+    </div>
+</div>
+{% render "partials/foot.liquid" %}
