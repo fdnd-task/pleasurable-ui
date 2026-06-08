@@ -1,0 +1,675 @@
+@font-face {
+    font-family: headings;
+    src: url(/assets/fonts/heading-font.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: main;
+    src: url(/assets/fonts/main-font.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: italic;
+    font-style: italic;
+    src: url(/assets/fonts/italic-font.woff2);
+    font-display: swap;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+::view-transition-group(*) {
+    animation-duration: .3s;
+}
+
+::view-transition-old(root) {
+    animation: .3s ease-in both leave;
+}
+
+::view-transition-new(root) {
+    animation: .3s ease-in both enter;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*) {
+        animation-duration: 0s;
+    }
+}  
+
+@keyframes leave {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateY(-0.625rem); }
+}
+
+@keyframes enter {
+    from { opacity: 0; transform: translateY(-0.625rem); }
+    to { opacity: 1; }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    box-sizing: border-box;
+    font-family: main;
+    list-style: none;
+}
+
+img, video {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+
+body {
+    color-scheme: light dark;
+    transition: background-color, color, .3s linear;
+
+
+    /* --------- font sizes --------- */
+    --paragraph: clamp(1.1rem, 2vw, 1.3rem);
+	--heading-small: clamp(1.2rem, 2vw, 1rem);
+	--heading-medium: clamp(1.4rem, 2.7vw, 2.2rem);
+	--heading-big: clamp(1.4rem, 3vw, 2.5rem);
+
+    /* --------- colors --------- */
+
+    /* zone colors */
+    --sierlint: #F8F39C;
+    --voedseleiland: #B1D485;
+    --heuvel: #D1C5DF;
+    --waterplandgebied: #99D7EC;
+
+    /* transparent (50%) */
+    --sierlint-transparent: #ffffd36b;
+    --voedseleiland-transparent: #cfe1b936;
+    --heuvel-transparent: #d4c8e247;
+    --waterplandgebied-transparent: #daf1fe49;
+    
+    --sierlint-button: #AD7949;
+    --voedseleiland-button: #AD7949;
+    --heuvel-button: #015D2E;
+    --waterplandgebied-button: #015D2E;
+
+    /* site wide colors */
+    --light-background: light-dark(#F7F7F7, hsl(0, 0%, 12%));
+    --medium-background: light-dark(#a2a2a2, #d6d6d6);
+    --dark-background: light-dark(hsl(0, 0%, 12%), #F7F7F7);
+
+    --light-text: light-dark(#F7F7F7, #1a1a1a);
+    --dark-text: light-dark(#1a1a1a, #F7F7F7);
+    --body-background-green: #fe8b5038;
+
+    /* accents and borders */
+    --light-border:#F7F7F7;
+    --lighter-border:#B0B0B0;
+    --dark-border: light-dark(#1b1b1b,#F7F7F7);
+    --accent: light-dark(#015D2E,#00A051 );
+
+    /* --------- borders --------- */
+    --border-image: 1rem;
+    --border-popover: 1rem;
+    --border-card: .8rem;
+    --border-badge: 2rem;
+    --border-button: .5rem;
+    --border-round: 100%;
+
+    /* buttons */
+    --correct: #00A051;
+    --incorrect: #8F0000;
+    --questbutton: #EAB8A2;
+
+    /* exclusions for light dark */
+    --always-black: hsl(0, 0%, 12%);
+    --always-light: #ffffff;
+
+    background-color: var(--light-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: headings;
+    font-weight: 600;
+    font-size: var(--heading-big);
+    color: var(--dark-text);
+}
+
+h3, h4 {
+    font-size: var(--heading-medium);
+}
+
+h5, h6 {
+    font-size: var(--heading-small);
+}
+
+h3.italic {
+    font-family: italic;
+    font-weight: 400;
+    font-size: var(--paragraph);
+}
+
+p,a,button {
+    font-family: main;
+    font-weight: 400;
+    font-size: var(--paragraph);
+    color: var(--dark-text);
+    text-decoration: none;
+}
+
+p.italic {
+    font-family: italic;
+    font-weight: 400;
+}
+
+svg.decorative {
+    width: 1.5625rem;
+    height: 1.5625rem;
+    color: var(--dark-text);
+    fill: var(--dark-text);
+
+    path {
+        color: var(--dark-text);
+        fill: var(--dark-text);
+    }
+}
+
+/* margin for all pages but veldverkenner */
+main:not(.veldverkenner) {
+    margin: 1rem;
+}
+
+/* link styling global */
+
+/* general link button look */
+.styled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    color: var(--dark-text);
+    transition: scale, translate, .4s;
+
+    &:hover {
+        transform: 
+            scale(1.06)
+        ;   
+    } 
+
+    &:active {
+        animation-name: hoverbutton;
+        animation-duration: .4s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in-out;
+    }
+
+    &:focus-visible {
+
+    }
+
+    /* filled link button look */
+    &.primary {
+        background-color: var(--dark-background);
+        color: var(--light-text);
+    }
+    
+    /* outlined link button look */
+    &.secondary {
+        background-color: transparent;
+        border: var(--dark-border) 2px solid;
+
+        &:hover {
+            transform: none;
+            background-color: var(--accent);
+            color: var(--always-light);
+            border-color: var(--accent);
+        }
+    }
+
+    &.margin {
+        margin-block: 1rem;
+    }
+
+    /* finished link button look */
+    &.klaar {
+        background-color: var(--questbutton);
+        color: var(--light-text);
+    }
+
+    &.quest {
+        background-color: var(--questbutton);
+        color: var(--always-black);
+        justify-content: flex-start;
+        min-height: 3rem;
+
+        svg {
+            path {
+                stroke: var(--always-light);
+                fill: transparent;
+            }
+        }
+    }
+
+    &.voedseleiland {
+        background-color: var(--voedseleiland-button);
+        color: var(--always-light);
+    }
+
+    &.waterplandgebied {
+        background-color: var(--waterplandgebied-button);
+        color: var(--always-light);
+    }
+
+    &.sierlint {
+        background-color: var(--sierlint-button);
+        color: var(--always-light);
+    }
+
+    &.heuvel {
+        background-color: var(--heuvel-button);
+        color: var(--always-light);
+    }
+
+    &.logout {
+        background-color: var(--incorrect);
+        width: 100%;
+        border: none;
+        color: var(--always-light);
+    }
+
+
+    &.reset {
+        background-color: transparent;
+        border: 2px solid var(--incorrect);
+        width: 100%;
+    }
+
+    &.start {
+        margin-block: 1rem;
+    }
+
+    &.awnser {
+        background-color: transparent;
+        border: 2px solid var(--dark-border);
+    }
+
+    &.loader {
+        margin-top: 1rem;
+        position: relative;
+        width: 100%;
+        height: 40px; 
+        background-color: #008a57; 
+        overflow: hidden;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        
+        transition: opacity 0.2s;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.3);
+            width: 0%;
+        }
+
+        &.shownow {
+            opacity: 0.8;
+            visibility: visible;
+            animation: unlockButton 0s linear 2s forwards;
+
+            &::after {
+                animation: fillBar 2s linear forwards;
+            }
+        }
+    }
+}
+
+a.back {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .5rem;
+    color: var(--dark-text);
+    margin-block: 1rem;
+    width: fit-content;
+    
+    &.blacklink {
+        color: var(--always-dark);
+
+        svg {
+            fill: var(--always-dark);
+            
+            path {
+                fill: var(--always-dark);
+            }
+        }
+    }
+}
+
+span.bold {
+    font-family: headings;
+}
+
+.link {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+.badge {
+    width: fit-content;
+    border-radius: var(--border-badge);
+    border: 1px solid var(--always-black);
+    padding: .4rem;
+}
+
+.notext {
+    border: 0;
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px ;
+	overflow: hidden;
+	padding: 0;
+	width: 1px;
+	white-space: nowrap;
+}
+
+/* zone styling colors */
+
+.sierlint {
+
+    background-color: var(--sierlint);
+
+    &::-webkit-progress-value { 
+        background-color: var(--sierlint); 
+    }
+
+    .breadcrumbs {
+        --light-text: #1a1a1a;
+        --dark-text: #1a1a1a;
+    }
+}
+
+.voedseleiland {
+    
+
+    background-color: var(--voedseleiland);
+
+
+}
+
+.heuvel {
+    background-color: var(--heuvel);
+}
+
+.waterplandgebied {
+    background-color: var(--waterplandgebied);
+}
+
+/* progress bar styling */
+
+progress {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 1.25rem;
+    background-color: transparent;
+
+    &::-webkit-progress-value {
+        background-color: black;
+        border-radius: 10px;
+    }
+
+    &::-moz-progress-bar {
+        border-radius: 10px;
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    &::-webkit-progress-bar {
+        background-color: #00000041;
+        border-radius: 10px;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+    }
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+
+    li {
+        p {
+            text-align: left;
+        }
+    }
+}
+
+.separator {
+    margin-inline: .5rem;
+    font-size: var(--paragraph);
+    color: var(--dark-text);
+}
+
+/* images */
+
+img.square {
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-image);
+}
+
+img.round {
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-round);
+}
+
+
+img.landscape {
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 2 / 1;
+    max-height: 12.5rem;
+    border-radius: var(--border-image);
+}
+
+img.portrait {
+    object-fit: cover;
+    aspect-ratio: 1/1.3;
+    border-radius: .5rem;
+    max-width: 12.5rem;
+    border-radius: var(--border-image);
+}
+
+/* Shared  Logic */
+[popover] {
+    /* vars so i can reuse them */
+    --speed: 0.4s;
+    --easing: ease-out;
+    --opacity-start: 0;
+    
+    border: none;
+    padding: 1rem;
+    margin: 0;
+    opacity: var(--opacity-start);
+
+    transition: 
+        opacity var(--speed) var(--easing), 
+        transform var(--speed) var(--easing), 
+        display var(--speed) var(--easing) allow-discrete, 
+        overlay var(--speed) var(--easing) allow-discrete;
+
+    &:popover-open {
+        opacity: 1;
+
+        @starting-style {
+            opacity: var(--opacity-start);
+        }
+    }
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0);
+        transition: 
+            display var(--speed) allow-discrete, 
+            overlay var(--speed) allow-discrete, 
+            background-color var(--speed) var(--easing);
+    }
+
+    &:popover-open::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        
+        @starting-style {
+            background-color: rgba(0, 0, 0, 0);
+        }
+    }
+}
+
+/* Center Variant */
+.popover-center {
+    --scale-start: 0.9;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--scale-start));
+    width: 70vw;
+    max-width: 28.125rem;
+    border-radius: 0.625rem;
+    border: solid 2px var(--dark-border);
+
+    &:popover-open {
+        transform: translate(-50%, -50%) scale(1);
+        
+        @starting-style {
+            transform: translate(-50%, -50%) scale(var(--scale-start));
+        }
+    }
+}
+
+/* Bottom Variant */
+.popover-bottom {
+
+    --speed: 0.3s;
+    --easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    background-color: var(--light-background);
+    transform: translateY(100%);
+
+    &:popover-open {
+        transform: translateY(0);
+
+        @starting-style {
+            transform: translateY(100%);
+        }
+    }
+}
+
+@keyframes reveal-sideways {
+    from { 
+        opacity: 0; 
+        transform: translateX(2rem) scale(0.8);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes reveal-topdown {
+    from { 
+        opacity: 0; 
+        transform: translateY(2rem) scale(0.8);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes fillBar {
+    0% { 
+        width: 100%; 
+        opacity: 1;
+    }
+
+    99% { 
+        width: 0%;
+        opacity: 1; 
+    }
+
+    100% {
+        opacity: 0; 
+    }
+}
+
+@keyframes unlockButton {
+    to {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+
+
+
+
+/* Memoji Grid Loading */
+.memoji-grid {
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+#memojiForm.loading-state .memoji-grid {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: blur(2px);
+}
+
+/* Color Picker Spinner */
+.color-picker-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.color-picker-wrapper.is-syncing::after {
+    content: "";
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* View Transition Polish */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.4s;
+}
