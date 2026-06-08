@@ -1,0 +1,153 @@
+{% assign page = "detail" %}
+{% layout 'layouts/base.liquid' %}
+
+{% block breadcrumbs %}
+  <nav class="breadcrumbs">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/instrumenten">Instrumenten</a></li>
+      <li><a href="/instrumenten/{{ instrument.key }}">{{ instrument.key }}</a></li>
+    </ol>
+  </nav>
+{% endblock %}
+
+{% block content %}
+
+<main class="detail">
+  <header>
+    <h1 style="view-transition-name:name-{{ instrument.id }}; view-transition-class:vt-name;" id="h1">{{ instrument.name }}</h1>
+    <h2>{{ instrument.instrument }}</h2>
+  </header>
+
+  <div class="picture">
+    <picture>
+      <source
+        srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=avif&quality=25" type="image/avif">
+      <source
+        srcset="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=webp&quality=25"type="image/webp">
+      <img
+        src="https://fdnd-agency.directus.app/assets/{{ instrument.photo }}?fit=cover&format=jpg&quality=25" alt="{{ instrument.name }}" fetchpriority="high" width="456" height="320">
+    </picture>
+
+    <span class="status"  style="view-transition-name:status-{{ instrument.id }}; view-transition-class:vt-status;">{{ instrument.status | default: 'Onbekend' }}</span>
+  </div>
+
+  <section>
+    <article class="info">
+      <p><strong>Serie nummer:</strong> {{ instrument.serial_number }}</p>
+      <p><strong>Type:</strong> {{ instrument.type }}</p>
+      <p><strong>Merk:</strong> {{ instrument.brand }}</p>
+      <p><strong>Eigendom van:</strong> {{ instrument.property }}</p>
+      <p><strong>Bergplaats:</strong> {{ instrument.storage_room }}</p>
+    </article>
+
+    <nav class="knopjes">
+      {% if instrument.status == 'Beschikbaar' %}
+        <a href="/instrumenten/{{ instrument.key }}/uitlenen" class="btn btn-primary button-uitlenen">Uitlenen</a>
+      {% else %}
+        <a href="/instrumenten/{{ instrument.key }}/innemen" class="btn btn-primary button-innemen">Innemen</a>
+      {% endif %}
+      <a href="/instrumenten/{{ instrument.key }}/aanpassen" class="btn btn-primary button-aanpassen">Aanpassen</a>
+      <a href="/instrumenten/{{ instrument.key }}/schade" class="btn btn-primary button-schade">Schade</a>
+    </nav>
+  </section>
+</main>
+
+<main class="action-log">
+  <ol class="log-list">
+    <h2>Activiteiten</h2>
+            {% if logs.size == 0 %}
+                <section class="empty-state">
+                    <p>Er zijn nog geen activiteiten van het type '{{ activeFilter }}'.</p> 
+                    <p>Deze verschijnen hier zodra ze worden uitgevoerd in de uitleentool.</p> 
+                    <a href="/actielog">Bekijk alle activiteiten</a>
+                </section>
+            {% else %}
+                {% assign today = 'now' | date: '%Y-%m-%d' %}
+                {% assign yesterday = 'now' | date: '%s' | minus: 86400 | date: '%Y-%m-%d' %}
+                {% assign currentDay = '' %}
+
+                {% for log in logs limit:5 %}
+                    {% assign logDay = log.date_created | date: '%Y-%m-%d' %}
+
+                    {% if logDay != currentDay %}
+                        {% assign currentDay = logDay %}
+
+                        <h2 class="log-date-header">
+                            {% if logDay == today %}
+                                Vandaag 
+                            {% elsif logDay == yesterday %}
+                                Gisteren 
+                            {% else %}
+                                {{ log.date_created | date: "%d %B %Y" }} 
+                            {% endif %}
+                        </h2>
+                    {% endif %}
+                    
+                    <li>
+                        <article>
+                            <span class="log-action-icon" aria-hidden="true">
+                                {% case log.type_action %}
+                                    {% when 'Uitlenen' %}
+                                        <img src="/assets/icons/uitlenen.svg" alt="">
+                                    {% when 'Innemen' %}
+                                        <img src="/assets/icons/innemen.svg" alt="">
+                                    {% when 'Schade' %}
+                                        <img src="/assets/icons/schade.svg" alt="">
+                                    {% when 'Toevoegen' %}
+                                        <img src="/assets/icons/toevoegen.svg" alt="">
+                                    {% when 'Aanpassen' %}
+                                        <img src="/assets/icons/aanpassen.svg" alt="">
+                                    {% when 'Verwijderen' %}
+                                        <img src="/assets/icons/verwijderen.svg" alt="">
+                                    {% else %}
+                                        <img src="/assets/icons/Onbekend.svg" alt="">
+                                {% endcase %}
+                            </span>
+
+                            <section class="log-details">
+                                <h3 class="log-action"><a href="/instrumenten/{{ log.instrument.key }}/aanpassen">{{ log.type_action | default: 'Onbekend' }}</a></h3>
+
+                                <dl class="log-parties">
+                                    {% case log.type_action %}
+                                        {% when 'Uitlenen' %}
+                                        <dt>Uitgeleend door:</dt>
+                                        <dd>{{ log.performed_by | default: 'Onbekend' }}</dd>
+                                        <dt>Aan</dt>
+                                        <dd>{{ log.involved_party | default: 'Onbekend' }}</dd>
+
+                                        {% when 'Innemen' %}
+                                        <dt>Ingenomen door:</dt>
+                                        <dd>{{ log.performed_by | default: 'Onbekend' }}</dd>
+                                        <dt>Van</dt>
+                                        <dd>{{ log.involved_party | default: 'Onbekend' }}</dd>
+
+                                        {% when 'Schade' %}
+                                        <dt>Schade gemeld door:</dt>
+                                        <dd>{{ log.performed_by | default: 'Onbekend' }}</dd>
+                                        <dt>Ontstaan bij</dt>
+                                        <dd>{{ log.involved_party | default: 'Onbekend' }}</dd>
+
+                                        {% when 'Toevoegen', 'Aanpassen', 'Verwijderen' %}
+                                        <dt>Door:</dt>
+                                        <dd>{{ log.performed_by | default: 'Onbekend' }}</dd>
+
+                                        {% else %}
+                                        <dt>Door:</dt>
+                                        <dd>{{ log.performed_by | default: 'Onbekend' }}</dd>
+                                        <dt>Aan:</dt>
+                                        <dd>{{ log.involved_party | default: 'Onbekend' }}</dd>
+                                    {% endcase %}
+                                </dl>
+                            </section>
+
+                            <time class="log-time" datetime="{{ log.date_created }}">{{ log.date_created | date: "%H:%M" }}</time>
+                        </article>
+                    </li>
+                {% endfor %}
+            {% endif %}
+        </ol>
+        </footer>
+</main>
+
+{% endblock %}
