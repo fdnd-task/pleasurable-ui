@@ -1,0 +1,188 @@
+{% render 'partials/head.liquid', user: user %}
+{% include 'partials/calcs.liquid', 
+    birthdate: user.birthdate 
+%}
+<main class="account"> 
+    {% render 'partials/breadcrumbs.liquid',
+        current_path: current_path,
+        title: "Home",
+    %}
+
+    {% assign welcome_message = "Welkom op jouw account " | append: user.name | append: "!" %}
+
+    {% render 'partials/general-heading.liquid',
+        heading_level: 1,
+        content: welcome_message,
+    %}
+
+    <!-- custom memoji picker popover -->
+    <section class="popover memoji popover-bottom" popover="auto" id="profiselector">
+        <header>
+            {% render 'partials/general-heading.liquid',
+                heading_level: 3,
+                content: "Kies jouw profielfoto",
+            %}
+            <button popovertarget="profiselector" class="close-btn">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.2663 36.4167L9.58301 33.7334L20.3163 23L9.58301 12.2667L12.2663 9.58337L22.9997 20.3167L33.733 9.58337L36.4163 12.2667L25.683 23L36.4163 33.7334L33.733 36.4167L22.9997 25.6834L12.2663 36.4167Z" fill="#1D1B20"/>
+                </svg>
+                <span>Sluiten</span>
+            </button>
+        </header>
+
+        <form class="memo" id="memojiForm" method="POST" action="/account/set-memoji?_method=PATCH">
+            <article class="memoji-grid">
+                {% for item in memojis %}
+                    <figure>
+                        <button type="submit" name="memojiId" value="{{ item.id }}" class="memoji-choice-btn">
+                            <img src="{{ item.imageUrl }}" width="150" height="150" alt="Memoji optie">
+                        </button>
+                    </figure>
+                {% endfor %}
+            </article>
+        </form>
+
+        <footer></footer>
+    </section>
+
+    <!-- custom color picker popover -->
+    <section id="colorpicker" popover="auto" class="colorpicker accent-settings popover-bottom">
+        <header>
+            {% render 'partials/general-heading.liquid',
+                heading_level: 3,
+                content: "Kies jouw accentkleur",
+            %}
+            <button popovertarget="colorpicker" class="close-btn">
+                <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.2663 36.4167L9.58301 33.7334L20.3163 23L9.58301 12.2667L12.2663 9.58337L22.9997 20.3167L33.733 9.58337L36.4163 12.2667L25.683 23L36.4163 33.7334L33.733 36.4167L22.9997 25.6834L12.2663 36.4167Z" fill="currentColor"/>
+                </svg>
+                <span>Sluiten</span>
+            </button>
+        </header>
+
+        <form class="colorpicker color-picker-panel" id="accentForm" action="/account/set-accent" method="POST">
+            <!-- Default colors -->
+            <fieldset class="panel-row">
+                <menu class="swatches default-swatches"></menu>
+                <button type="button" class="button eyedropper">Get Color</button>
+            </fieldset>
+
+            <!-- Visual canvas to choose colors -->
+            <fieldset class="panel-row">
+                <figure class="spectrum-map">
+                    <button type="button" id="spectrum-cursor" class="color-cursor spectrum-cursor"></button>
+                    <canvas id="spectrum-canvas" class="spectrum-canvas"></canvas>
+                </figure>
+                <figure class="hue-map">
+                    <button type="button" id="hue-cursor" class="color-cursor hue-cursor"></button>
+                    <canvas id="hue-canvas" class="hue-canvas"></canvas>
+                </figure>
+            </fieldset>
+
+            <!-- Manual input ( hex or rgb ) -->
+            <fieldset class="panel-row">
+                <input type="color" id="accentColor" name="accentColor" value="#34a853" hidden>
+
+                <section id="rgb-fields" class="field-group value-fields rgb-fields active">
+                    <label class="field-group">
+                        <span class="field-label">R:</span>
+                        <input type="number" max="255" min="0" id="red" class="field-input">
+                    </label>
+                    <label class="field-group">
+                        <span class="field-label">G:</span>
+                        <input type="number" max="255" min="0" id="green" class="field-input">
+                    </label>
+                    <label class="field-group">
+                        <span class="field-label">B:</span>
+                        <input type="number" max="255" min="0" id="blue" class="field-input">
+                    </label>
+                </section>
+
+                <section id="hex-field" class="field-group value-fields hex-field">
+                    <label for="hex" class="field-label">Hex:</label>
+                    <input type="text" id="hex" class="field-input">
+                </section>
+
+                <button type="button" id="mode-toggle" class="button mode-toggle">Mode</button>
+            </fieldset>
+        </form>
+    </section>
+            
+
+
+    <section class="user-data">
+        <!-- Update the main profile image section -->
+        <figure>
+            {% render 'partials/picture.liquid',
+                imagesrc: userMemoji,
+                width: "150",
+                height: "150",
+                alt: user.name,
+                class: "memoji",
+                fetch: "high",
+                loading: "eager",
+            %}
+            <button title="memoij aanpassen" popovertarget="profiselector">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z" fill="#1D1B20"/>
+                </svg>
+            </button>
+        </figure>
+        <article>
+            
+            {% render 'partials/general-heading.liquid',
+                heading_level: 2,
+                content: user.name,
+            %}
+
+            {% assign totalplantstext = "🪴 " | append: total_plants | append: " Planten verzameld" %}
+
+            {% render 'partials/general-paragraph.liquid',
+                class: "",
+                content: totalplantstext,
+            %}
+        </article>
+    </section>
+    
+    <section class="progress">
+        {% assign progress = "Nog " | append: user.xp | append: "xp tot level 3" %}
+
+        {% render 'partials/general-heading.liquid',
+            heading_level: 2,
+            content: progress,
+        %}
+
+        <progress class="account-progress" id="account-progress" max="100" value="70"></progress>
+    </section>
+
+    <section class="user-controls">
+        {% assign progress = "Speciaal voor jou " | append: user.name | append: " :)" %}
+        {% render 'partials/general-heading.liquid',
+            heading_level: 2,
+            content: progress,
+        %}
+        <details>
+            <summary >Jouw beloningen</summary>
+            <p>hier komen jouw beloningen</p>
+        </details>
+
+        <details>
+            <summary>Jouw voorkeuren</summary>
+            <p>hier komen jouw voorkeuren</p>
+            
+            <button class="styled primary" popovertarget="colorpicker">Kies je eigen app kleur</button>
+            
+        </details>
+        <form action="/account" method="POST">
+            <button class="styled reset">Voortgang wissen</button>
+        </form>
+
+        {% render 'partials/link.liquid',
+            href: "/logout",
+            standard_class: "styled logout",
+            content: "Uitloggen",
+        %}
+
+    </section>
+</main>
+{% render 'partials/foot.liquid', current_path: current_path %}

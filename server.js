@@ -1,38 +1,674 @@
-// Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
-// Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
-import express from 'express'
-
-// Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
+import express from 'express';
 import { Liquid } from 'liquidjs';
+import { fileURLToPath } from 'url';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import methodOverride from 'method-override';
 
-// Maak een nieuwe Express applicatie aan, waarin we de server configureren
-const app = express()
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
 
-// Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({extended: true}))
+const API_BASE = 'https://fdnd-agency.directus.app/items';
+const ASSET_BASE = 'https://fdnd-agency.directus.app/assets';
+const PLACEHOLDER_IMAGE = '/assets/images/placeholder.webp';
+const DEFAULT_USER_ID = 9;
 
-// Gebruik de map 'public' voor statische bestanden (resources zoals CSS, JavaScript, afbeeldingen en fonts)
-// Bestanden in deze map kunnen dus door de browser gebruikt worden
-app.use(express.static('public'))
+// ─── APP SETUP ────────────────────────────────────────────────────────────────
 
-// Stel Liquid in als 'view engine'
-const engine = new Liquid()
-app.engine('liquid', engine.express())
+const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Stel de map met Liquid templates in
-// Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
-app.set('views', './views')
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+app.use(express.json());
+app.use(methodOverride('_method'));
+app.use('/gsap', express.static(path.join(__dirname, 'node_modules/gsap/dist/')));
+
+const engine = new Liquid();
+app.engine('liquid', engine.express());
+app.set('views', './views');
+app.set('view engine', 'liquid');
+
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+
+const getActiveUserId = (req) =>
+    req.cookies.userId ? parseInt(req.cookies.userId, 10) : DEFAULT_USER_ID;
+
+const fetchData = async (endpoint) => {
+    try {
+        const response = await fetch(`${API_BASE}/${endpoint}`);
+        const result = await response.json();
+        console.log('fetchData result:', result);
+        return result.data;
+    } catch (e) {
+        console.error(`Fetch error for ${endpoint}:`, e);
+        return null;
+    }
+};
+
+const assetUrl = (asset) => {
+    if (!asset) return PLACEHOLDER_IMAGE;
+
+    const id = typeof asset === 'object' ? (asset.id || asset.memoji) : asset;
+
+    return (id && typeof id === 'string') 
+        ? `${ASSET_BASE}/${id}` 
+        : PLACEHOLDER_IMAGE;
+};
+
+const resolveZoneId = (zoneEntry) =>
+    typeof zoneEntry === 'object' ? zoneEntry.frankendael_zones_id : zoneEntry;
+
+const getPlantIdsFromZone = (zone) => {
+    if (!zone.plants?.length) return [];
+    return zone.plants
+        .map(link => typeof link === 'object' ? link.frankendael_plants_id : link)
+        .filter(Boolean);
+};
+
+const normalizePlant = (plant) => {
+    if (!plant) return null;
+    return {
+        ...plant,
+        in_bloom: assetUrl(plant.in_bloom),
+        not_in_bloom: assetUrl(plant.not_in_bloom),
+        title: plant.quest_title || 'Opdracht',
+        description: plant.quest_text,
+        type: plant.quest_type === 'labels' ? 'button' : 'image',
+        correct_answer: (plant.quest_options || []).find(o => o.correct)?.value,
+        options: (plant.quest_options || []).map(o => ({
+            text: o.label || o.value,
+            value: o.value,
+            image_url: assetUrl(o.image),
+        })),
+        xp: 25,
+    };
+};
+
+const getCollectedIds = async (userId) => {
+    const data = await fetchData(
+        `frankendael_users_plants?filter[frankendael_users_id]=${userId}&fields=frankendael_plants_id`
+    ) || [];
+    return new Set(
+        data.map(item => {
+            const ref = item.frankendael_plants_id;
+            return typeof ref === 'object' ? ref.id : ref;
+        })
+    );
+};
+
+const getCollectedPlants = async (userId) => {
+    const data = await fetchData(
+        `frankendael_users_plants?filter[frankendael_users_id][_eq]=${userId}&fields=*,frankendael_plants_id.*.*`
+    ) || [];
+    return data.map(item => item.frankendael_plants_id).filter(Boolean);
+};
+
+const attachMainZone = (plant, allZones) => {
+    const firstZoneEntry = plant.zones?.[0];
+    const zoneId = resolveZoneId(firstZoneEntry);
+    return {
+        ...normalizePlant(plant),
+        main_zone: allZones.find(z => z.id === zoneId) ?? null,
+    };
+};
+
+// ─── GLOBALE DATA MIDDLEWARE ──────────────────────────────────────────────────
+
+app.use(async (req, res, next) => {
+    // Prevent the middleware from running on static assets or specific libraries
+    if (req.path.includes('.') || req.path.startsWith('/gsap')) return next();
+    
+    const userId = getActiveUserId(req);
+
+    try {
+        const [userProfile, allZones, collectedIds] = await Promise.all([
+            fetchData(`frankendael_users/${userId}?fields=*,memoji.*`),
+            fetchData('frankendael_zones?fields=*.*'),
+            getCollectedIds(userId)
+        ]);
+
+        res.locals.userId = userId;
+        res.locals.user = userProfile || {};
+        res.locals.allZones = allZones || [];
+        res.locals.collectedIds = collectedIds || new Set();
+
+        // Handle the nested Memoji asset ID
+        // Directus often returns the junction object, we need the file ID inside it
+        const memojiAsset = userProfile?.memoji?.memoji || userProfile?.memoji;
+        res.locals.userMemoji = assetUrl(memojiAsset);
+
+        next();
+    } catch (error) {
+        console.error('Middleware Error:', error);
+        res.locals.userId = userId;
+        res.locals.userMemoji = PLACEHOLDER_IMAGE;
+        next();
+    }
+});
+
+// ─── ROUTES ───────────────────────────────────────────────────────────────────
+
+// Home
+app.get('/', async (req, res) => {
+    try {
+        const [allNews, collectedPlants] = await Promise.all([
+            fetchData('frankendael_news'),
+            getCollectedPlants(res.locals.userId),
+        ]);
+
+        res.render('index.liquid', {
+            zones: res.locals.allZones,
+            plants: (collectedPlants || []).map(p => attachMainZone(p, res.locals.allZones)),
+            news: (allNews || []).map(n => ({ ...n, image: assetUrl(n.image) })),
+            zone_type: 'home',
+            current_path: req.path,
+        });
+    } catch (error) {
+        res.status(500).send('Home error');
+    }
+});
+
+// Veldverkenner map overview
+app.get('/veldverkenner', async (req, res) => {
+    try {
+        const allPlants = await fetchData('frankendael_plants?fields=*.*') || [];
+        const statusMap = {};
+
+        const zonesWithQuest = res.locals.allZones.map(zone => {
+            const plantIdsInZone = getPlantIdsFromZone(zone);
+            const isComplete = plantIdsInZone.length > 0 && 
+                plantIdsInZone.every(id => res.locals.collectedIds.has(id));
+
+            statusMap[zone.slug] = isComplete;
+            const plantWithQuest = allPlants.find(p => plantIdsInZone.includes(p.id) && p.quest_title);
+            const normalized = normalizePlant(plantWithQuest);
+
+            return {
+                ...zone,
+                quest: normalized ? { ...normalized, plant: normalized } : null,
+                zoneCompleted: isComplete,
+            };
+        });
+
+        res.render('explorer.liquid', {
+            zones: zonesWithQuest,
+            completedCount: zonesWithQuest.filter(z => z.zoneCompleted).length,
+            status: statusMap,
+            progress: res.locals.collectedIds.size,
+            totalZonesCount: zonesWithQuest.length,
+            zone_type: 'veldverkenner',
+            current_path: req.path,
+        });
+    } catch (error) {
+        res.status(500).send('Map error');
+    }
+});
+
+// Single zone view
+app.get('/veldverkenner/:zone_slug', async (req, res) => {
+    try {
+        const zoneData = await fetchData(`frankendael_zones?filter[slug][_eq]=${req.params.zone_slug}&fields=*.*`) || [];
+        const currentZone = zoneData[0];
+        if (!currentZone) return res.status(404).send('Zone niet gevonden');
+
+        const plantIds = getPlantIdsFromZone(currentZone);
+        const plantsInZone = plantIds.length
+            ? await fetchData(`frankendael_plants?filter[id][_in]=${plantIds.join(',')}&fields=*.*`)
+            : [];
+
+        const normalizedPlants = (plantsInZone || []).map(plant => {
+            const normalized = normalizePlant(plant);
+            const zoneId = resolveZoneId(plant.zones?.[0]);
+            return {
+                ...normalized,
+                collected: res.locals.collectedIds.has(plant.id),
+                quest: plant.quest_title ? normalized : null,
+                main_zone: res.locals.allZones.find(z => z.id === zoneId) ?? null,
+            };
+        });
+
+        const collectedCount = normalizedPlants.filter(p => p.collected).length;
+
+        res.render('zone.liquid', {
+            zone: currentZone,
+            zone_name: currentZone.name,
+            plants: normalizedPlants,
+            zone_slug: req.params.zone_slug,
+            zone_type: currentZone.type,
+            current_path: req.path,
+            stats: {
+                total: normalizedPlants.length,
+                collected: collectedCount,
+                percentage: normalizedPlants.length > 0 ? (collectedCount / normalizedPlants.length) * 100 : 0,
+            },
+        });
+    } catch (error) {
+        res.status(500).send('Zone error');
+    }
+});
+
+// Single plant quest
+app.get('/veldverkenner/:zone_slug/:item_slug', async (req, res) => {
+    try {
+        const [zoneData, plantData] = await Promise.all([
+            fetchData(`frankendael_zones?filter[slug][_eq]=${req.params.zone_slug}`),
+            fetchData(`frankendael_plants?filter[slug][_eq]=${req.params.item_slug}&fields=*.*`),
+        ]);
+        const plant = normalizePlant(plantData[0]);
+        res.render('opdracht.liquid', {
+            quest: plant,
+            plant,
+            zone: zoneData[0],
+            zone_slug: req.params.zone_slug,
+            state: req.query.step || 'intro',
+            user_id: res.locals.userId,
+            zone_type: zoneData[0].type,
+            current_path: req.path,
+        });
+    } catch (error) {
+        res.status(500).send('Quest error');
+    }
+});
+
+// Collection overview
+app.get('/collectie', async (req, res) => {
+    const collected = await getCollectedPlants(res.locals.userId);
+    res.render('collectie.liquid', {
+        plants: collected.map(p => attachMainZone(p, res.locals.allZones)),
+        zone_type: 'collectie',
+        current_path: req.path,
+    });
+});
+
+app.get('/collectie/in_bloom', async (request, response) => {
+    const userId = getActiveUserId(request);
+    const [collected, allZones] = await Promise.all([getCollectedPlants(userId), fetchData('frankendael_zones')]);
+    const filtered = collected.filter(p => p.zones && p.zones.length > 0).map(plant => {
+        const zoneId = typeof plant.zones[0] === 'object' ? plant.zones[0].frankendael_zones_id : plant.zones[0];
+        return { ...normalizePlant(plant), main_zone: allZones.find(z => z.id === zoneId) ?? null };
+    });
+    response.render('collectie.liquid', { plants: filtered, title: 'In Bloei', zone_type: 'collectie', current_path: request.path });
+});
+
+app.get('/collectie/not_in_bloom', async (request, response) => {
+    const userId = getActiveUserId(request);
+    const collected = await getCollectedPlants(userId);
+    const filtered = collected.filter(p => !p.zones || p.zones.length === 0).map(p => normalizePlant(p));
+    response.render('collectie.liquid', { plants: filtered, title: 'Niet in Bloei', zone_type: 'collectie', current_path: request.path });
+});
+
+app.get('/collectie/:plant_slug', async (request, response) => {
+    const data = await fetchData(`frankendael_plants?filter[slug][_eq]=${request.params.plant_slug}&fields=*.*`);
+    if (!data.length) return response.status(404).send('Plant not found');
+    response.render('plant-detail.liquid', { plant: normalizePlant(data[0]), zone_type: 'collectie', current_path: request.path });
+});
+
+// Account page
+app.get('/account', async (req, res) => {
+    try {
+        // Fetch all possible memojis for the selection grid
+        const availableMemojis = await fetchData('frankendael_memoji') || [];
+        
+        // We use the 'user' already fetched by our middleware
+        const user = res.locals.user;
+
+        // Map the grid of memojis for the user to pick from
+        const memojis = availableMemojis.map(m => ({
+            ...m,
+            imageUrl: assetUrl(m.memoji),
+            selected: m.id === user.memoji
+        }));
+
+        res.render('account.liquid', {
+            total_plants: res.locals.collectedIds.size,
+            memojis,
+            current_path: req.path,
+        });
+    } catch (error) {
+        console.error('Account Route Error:', error);
+        res.status(500).send('Account error');
+    }
+});
+
+app.patch('/account/set-memoji', async (req, res) => {
+    // 1. Read both the ID and the raw Image URL sent from the browser client
+    const { memojiId, imageUrl } = req.body; 
+    
+    try {
+        const targetApiUrl = `${API_BASE}/frankendael_users/${res.locals.userId}`;
+
+        const response = await fetch(targetApiUrl, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ memoji: Number(memojiId) }),
+        });
+
+        if (response.ok) {
+            if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+                // 2. Return the real, absolute CDN image URL directly back to your frontend template layout
+                return res.status(200).json({ 
+                    success: true, 
+                    newMemojiUrl: imageUrl 
+                });
+            } else {
+                return res.redirect('/account');
+            }
+        }
+        res.status(response.status).send('Update failed');
+    } catch (error) {
+        res.status(500).send('Server Error');
+    }
+});
+
+// Update accent color
+app.patch('/account/set-accent', async (req, res) => {
+    const { accentColor } = req.body; 
+    console.log('[accent] PATCH /account/set-accent', {
+        userId: res.locals.userId,
+        accentColor,
+        contentType: req.headers['content-type'],
+        accept: req.headers.accept
+    });
+    try {
+        const response = await fetch(`${API_BASE}/frankendael_users/${res.locals.userId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ accent_color: accentColor }),
+        });
+        let directusBody = null;
+        try { directusBody = await response.clone().json(); } catch { directusBody = null; }
+
+        console.log('[accent] directus response', {
+            ok: response.ok,
+            status: response.status,
+            body: directusBody
+        });
+
+        if (response.ok) return res.status(200).json({ success: true, userId: res.locals.userId, accentColor });
+        res.status(response.status).json({ error: 'Update failed', userId: res.locals.userId, accentColor, directusBody });
+    } catch (error) {
+        console.error('[accent] server error', error);
+        res.status(500).json({ error: 'Server connection failed', userId: res.locals.userId, accentColor });
+    }
+});
+
+// app.get('/nieuws', async (req, res) => {
+//     const search = req.query.search;
+
+//     let endpoint = 'frankendael_news';
+//     if (search) {
+//         endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+//     }
+
+//     console.log(endpoint);
+
+//     const newsData = await fetchData(endpoint) || [];
+
+//     res.render('news.liquid', {
+//         news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+//         zone_type: 'news',
+//         current_path: req.path,
+//         search: search,
+//     });
+// });
+
+app.get('/nieuws', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news';
+    if (search) endpoint += `?filter[title][_icontains]=${encodeURIComponent(search)}`; //case-insensitive
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/nieuwste', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news?sort=-date'; //what changes the order of the items in the url you're fetching.
+    if (search) endpoint += `&filter[title][_icontains]=${encodeURIComponent(search)}`;
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/oudste', async (req, res) => {
+    const search = req.query.search;
+    let endpoint = 'frankendael_news?sort=date';
+    if (search) endpoint += `&filter[title][_icontains]=${encodeURIComponent(search)}`;
+    
+    const newsData = await fetchData(endpoint) || [];
+    res.render('news.liquid', {
+        news: newsData.map(n => ({ ...n, image: assetUrl(n.image) })),
+        zone_type: 'news',
+        current_path: req.path,
+        search: search,
+    });
+});
+
+app.get('/nieuws/:slug', async (request, response) => {
+    const data = await fetchData(`frankendael_news?filter[slug][_eq]=${request.params.slug}`);
+
+    const commentParams = new URLSearchParams({
+        'filter[news]': data[0].id,
+        'sort': '-date_created'
+    });
+
+     const comments = await fetchData(`frankendael_news_comments?${commentParams}`) || [];
 
 
-app.get('/', async function (request, response) {
-  response.render('index.liquid')
+    response.render('news-detail.liquid', { newsItem: { ...data[0], image: assetUrl(data[0].image) }, zone_type: 'news', current_path: request.path,         newsItem: { ...data[0], image: assetUrl(data[0].image) }, 
+        comments: comments,
+        zone_type: 'news', 
+        current_path: request.path  });
+});
+
+app.post('/nieuws/:id/:slug', async (request, response) => {
+    await fetch(`${API_BASE}/frankendael_news_comments`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            news: request.params.id,
+            comment: request.body.comment,
+            name: request.body.name
+        })
+    });
+
+    response.redirect(`/nieuws/${request.params.slug}#reviews`);
+});
+
+app.get('/login', (_req, res) => res.render('login.liquid'));
+app.get('/welcome', (req, res) => res.render('welcome.liquid', { current_path: req.path }));
+app.get('/logout', (_req, res) => { res.clearCookie('userId'); res.redirect('/login'); });
+
+// Veldbeheer overview
+app.get('/veldbeheer', async (req, res) => {
+    try {
+        console.log('\n=== [VELDBEHEER] GET Request Initiated ===');
+        const todoData = await fetchData('frankendael_todo?fields=*');
+
+        // Log the raw type and data to see what Directus returned
+        console.log(`[VELDBEHEER] Raw response type: ${typeof todoData} (IsArray: ${Array.isArray(todoData)})`);
+        console.log('[VELDBEHEER] Raw todoData payload:', JSON.stringify(todoData, null, 2));
+
+        // Safety check: if API failed or returned a non-array, fall back gracefully instead of crashing
+        if (!todoData || !Array.isArray(todoData)) {
+            console.warn('[VELDBEHEER] Warning: todoData is empty or not an array. Sending empty list.');
+            return res.render('fieldmanagement.liquid', {
+                todos: [],
+                current_path: req.path
+            });
+        }
+
+        // Map Dutch month names to their chronological index for sorting later
+        const dutchMonthOrder = {
+            'Januari': 0, 'Februari': 1, 'Maart': 2, 'April': 3,
+            'Mei': 4, 'Juni': 5, 'Juli': 6, 'Augustus': 7,
+            'September': 8, 'Oktober': 9, 'November': 10, 'December': 11
+        };
+
+        // Group and merge items by month using reduce
+        const groupedByMonth = todoData.reduce((acc, item) => {
+            // Log individual items missing crucial data
+            if (!item || !item.date) {
+                console.log(`[VELDBEHEER] Skipped item ID ${item?.id || 'unknown'} - Missing 'date' field.`);
+                return acc;
+            }
+
+            const dateObj = new Date(item.date);
+            if (isNaN(dateObj.getTime())) {
+                console.log(`[VELDBEHEER] Skipped item ID ${item.id} - Invalid date string: "${item.date}"`);
+                return acc;
+            }
+
+            // Get the Dutch month name (e.g., "januari", "februari")
+            const monthName = dateObj.toLocaleString('nl-NL', { month: 'long' });
+            // Capitalize the first letter for clean UI display
+            const formattedMonth = monthName.charAt(0).toUpperCase() + monthName.slice(1);
+
+            // If this month doesn't exist in our accumulator yet, initialize it
+            if (!acc[formattedMonth]) {
+                acc[formattedMonth] = {
+                    month: formattedMonth,
+                    activities: [] 
+                };
+            }
+
+            acc[formattedMonth].activities.push({
+                id: item.id,
+                activity: item.activity,
+                day: dateObj.getDate(),
+                original_date: item.date
+            });
+
+            return acc;
+        }, {});
+
+        // Convert the object back into a flat array and sort chronologically (Jan -> Dec)
+        const formattedTodos = Object.values(groupedByMonth).sort((a, b) => {
+            return (dutchMonthOrder[a.month] ?? 0) - (dutchMonthOrder[b.month] ?? 0);
+        });
+
+        // Optional: If you also want the individual activities *inside* each month sorted by day:
+        formattedTodos.forEach(group => {
+            group.activities.sort((a, b) => a.day - b.day);
+        });
+
+        console.log('[VELDBEHEER] Processed & formatted todos for Liquid:', JSON.stringify(formattedTodos, null, 2));
+        console.log('=== [VELDBEHEER] Rendering Template ===\n');
+
+        res.render('fieldmanagement.liquid', {
+            todos: formattedTodos,
+            current_path: req.path
+        });
+    } catch (error) {
+        console.error('!!! [VELDBEHEER] Route Critical Error:', error);
+        res.status(500).send('Er is een probleem opgetreden bij het laden van het veldbeheer.');
+    }
+});
+
+// Save collected plant
+app.post('/veldverkenner/:zone_slug/:item_slug', async (req, res) => {
+    const { plant_id } = req.body;
+    try {
+        await fetch(`${API_BASE}/frankendael_users_plants`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                frankendael_users_id: res.locals.userId,
+                frankendael_plants_id: parseInt(plant_id, 10),
+            }),
+        });
+        res.redirect(`/veldverkenner/${req.params.zone_slug}`);
+    } catch (error) {
+        res.status(500).send('Save error');
+    }
+});
+
+// Login POST
+app.post('/login', async (req, res) => {
+    const { username } = req.body;
+    console.log('[login] POST /login', { username, bodyKeys: Object.keys(req.body) });
+    try {
+        const allUsers = await fetchData('frankendael_users') || [];
+        console.log('[login] fetched users count:', allUsers.length);
+        console.log('[login] available usernames:', allUsers.map(u => u.name));
+        
+        const foundUser = allUsers.find(u => u.name?.toLowerCase() === username?.toLowerCase());
+        console.log('[login] foundUser:', foundUser?.id, foundUser?.name);
+        
+        if (foundUser) {
+            res.cookie('userId', foundUser.id, { maxAge: 2_592_000_000, httpOnly: true });
+            console.log('[login] cookie set, redirecting');
+            res.redirect('/');
+        } else {
+            console.log('[login] user not found, sending 401');
+            res.status(401).send('Gebruiker niet gevonden');
+        }
+    } catch (error) {
+        console.error('[login] error:', error);
+        res.status(503).send('Inloggen mislukt');
+    }
+});
+
+app.get('/suggesties', async function (request, response) {
+
+    const suggestionResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_suggestions')
+    const suggestionResponseJSON = await suggestionResponse.json()
+    response.render('suggesties.liquid', { suggestions: suggestionResponseJSON.data })
 })
 
-// Stel het poortnummer in waar Express op moet gaan luisteren
-// Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
-app.set('port', process.env.PORT || 8000)
+app.get('/jouw-suggestie', async function (request, response) {
 
-// Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
-app.listen(app.get('port'), function () {
-  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
+    response.render('jouw-suggestie.liquid')
 })
+
+app.post('/jouw-suggestie', async (request, response) => {
+
+    console.log(request)
+    const postResponse = await fetch('https://fdnd-agency.directus.app/items/frankendael_suggestions', {
+
+        method: 'POST',
+
+        body: JSON.stringify({
+
+            suggestion: request.body.suggestion,
+            suggestion_reason: request.body.suggestion_reason
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+
+    response.redirect(303, '/suggesties')
+})
+
+
+// maak een delete route aan
+app.post('/suggesties/delete/:id', async (request, response) => {
+
+    const idsuggestion = request.params.id
+
+    await fetch(`https://fdnd-agency.directus.app/items/frankendael_suggestions/${idsuggestion}`, {
+
+        method: 'DELETE'
+    });
+
+    response.redirect(303, '/suggesties')
+})
+
+
+app.listen(8000, () => console.log('🚀 Server started: http://localhost:8000'));
+
