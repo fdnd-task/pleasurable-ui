@@ -1,0 +1,72 @@
+{% render 'partials/head.liquid', title: 'BuurtCampuskrant', districtName: districtName, currentPath: currentPath %}
+
+
+  <aside class="filter-sidebar">
+  <h2>Filter en Sorteer</h2>
+
+  <section class="filter-group">
+    {% assign sortQuery = '' %}
+    {% if activeSort %}
+      {% assign sortQuery = '&sort=' | append: activeSort %}
+    {% endif %}
+
+    <ul>
+      <li>
+        <a
+          href="/district/{{ districtName }}?{{ sortQuery | remove_first: '&' }}"
+          class=" filter-btn {% if activeGroup == '' %}active{% endif %}"
+        >
+          Alles
+        </a>
+      </li>
+
+      {% for group in targetGroups %}
+        <li>
+          <a
+            href="/district/{{ districtName }}?target_group={{ group }}{{ sortQuery }}"
+            class="filter-btn {% if activeGroup == group %}active{% endif %}"
+          >
+            {{ group | capitalize }}
+          </a>
+        </li>
+      {% endfor %}
+      
+            <li>
+        <select id="sortSelect">
+          <option
+            value="nieuw-oud"
+            {% if activeSort == 'nieuw-oud' or activeSort == '' %}
+              selected
+            {% endif %}
+          >
+            Nieuw–Oud
+          </option>
+          <option
+            value="oud-nieuw"
+            {% if activeSort == 'oud-nieuw' %}
+              selected
+            {% endif %}
+          >
+            Oud–Nieuw
+          </option>
+          <option
+            value="az"
+            {% if activeSort == 'az' %}
+              selected
+            {% endif %}
+          >
+            A–Z
+          </option>
+        </select>
+      </li>
+    </ul>
+  </section>
+</aside>
+ <li class="filter-divider" aria-hidden="true"></li>
+          <div class='select-wrapper'></div>
+
+{% render 'partials/foot.liquid' %}
+{% render 'partials/head.liquid' 
+    stories: stories, 
+    search: search
+%}

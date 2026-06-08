@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buurtcampuskrant</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/keyframes.css">
+    <link rel="stylesheet" href="/styles/styleguide.css">
+    <script src="/client.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo-header">
+            <a href="/" class="logo">
+                <img src="/assets/logo-lang-home.svg" alt="logo">
+            </a>
+        </div>
+
+        <div class="search-outer">
+            <form method="GET" class="search-form" action="/">
+                <input type="text" class="search-input" name="search" placeholder="Zoeken..." aria-label="Zoek">
+                <button type="submit" class="search-button"><img src="/assets/search-icon.svg" class="search-icon"
+                        alt="search"></button>
+            </form>
+        </div>
+
+        <details>
+            <summary class="menu-toggle-outer">
+                <div class="menu-toggle">
+                    <span class="span-menu"></span>
+                    <span class="span-menu"></span>
+                    <span class="span-menu"></span>
+                    <span class="span-menu"></span>
+                </div>
+            </summary>
+
+            <nav class="mobile-nav">
+                <a class="mobile-nav-link" href="/algemeen">Algemeen</a>
+                <a class="mobile-nav-link" href="/nieuw-west">Nieuw-west</a>
+                <a class="mobile-nav-link" href="/zuidoost">Zuidoost</a>
+                <a class="mobile-nav-link" href="/oost">Oost</a>
+            </nav>
+        </details>
+
+        <nav class="desktop-nav">
+            <a href="/algemeen" class="link-button {% if currentPath == '/algemeen' %}nav-active{% endif %}">
+                <span class="link-button-text">ALGEMEEN</span>
+            </a>
+            <a href="/nieuw-west" class="link-button {% if currentPath == '/nieuw-west' %}nav-active{% endif %}">
+                <span class="link-button-text">NIEUW-WEST</span>
+            </a>
+            <a href="/zuidoost" class="link-button {% if currentPath == '/zuidoost' %}nav-active{% endif %}">
+                <span class="link-button-text">ZUIDOOST</span>
+            </a>
+            <a href="/oost" class="link-button {% if currentPath == '/oost' %}nav-active{% endif %}">
+                <span class="link-button-text">OOST</span>
+            </a>
+        </nav>
+    </header>
