@@ -1,5 +1,25 @@
-<!doctype html>
-<html lang="nl">
-<title>Sprint 11</title>
-<h1>Welkom in Sprint 11!</h1>
-<p>Succes!</p>
+{% render 'partials/head.liquid' %}
+
+<section class="intro-container">
+    <div class="img-container">
+        <img class="intro-img" src="photos/rouwtaak-blue.svg">
+    </div>
+    <div class="intro-text">
+        <h1>
+            <span>Drop</span> 
+            <span>& Heal</span>
+        </h1>
+        <p>
+            Welkom bij Drop & Heal. Een veilige plek voor jouw reis door rouwverwerking. 
+            <br> <span class="spacing-s"></span>
+            Er volgt eerst een introductie en kennismaking, hierna kan je op eigen tempo aan de slag in de omgeving. 
+        </p>
+    </div>
+
+    <section class="intro-foot"> 
+        <a href="/rouwtaak-demo"><button class="btn intro-btn">Starten</button></a>
+    </section>
+
+</section>
+
+{% render 'partials/foot.liquid' %}
